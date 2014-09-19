@@ -18,6 +18,7 @@ $command_specific = array(
       'circle.yml',
       'sites/all/drush',
       'sites/all/modules',
+      'profiles/cbib',
     ),
   ),
 );
