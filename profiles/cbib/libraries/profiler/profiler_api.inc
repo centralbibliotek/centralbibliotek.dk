@@ -29,8 +29,37 @@ function profiler_install_tasks($config) {
  *   The config array for a Profiler Install Profile.
  */
 function profiler_install_tasks_alter($config, &$tasks, $install_state) {
+  // Replace the load profile task function with our custom callback.
+  $tasks['install_load_profile']['function'] = 'profiler_install_load_profile';
   // Replace the modules profile task function with our custom callback.
   $tasks['install_profile_modules']['function'] = 'profiler_install_profile_modules';
+}
+
+/**
+ * @see install_load_profile().
+ *
+ * @param $install_state
+ *  An array of information about the current installation state.
+ */
+function profiler_install_load_profile(&$install_state) {
+  $profile_file = DRUPAL_ROOT . '/profiles/' . $install_state['parameters']['profile'] . '/' . $install_state['parameters']['profile'] . '.profile';
+  if (file_exists($profile_file)) {
+    include_once $profile_file;
+    $install_state['profile_info'] = install_profile_info($install_state['parameters']['profile'], $install_state['parameters']['locale']);
+    // Profiler's way of disabling modules (dependencies[module_name] = 0) is not a
+    // valid use of .info, at least when it comes to the way that the core install
+    // process verifies the profile. So we need to remove any disabled module
+    // declarations here otherwise later on in the process install_verify_requirements()
+    // will error out.
+    foreach ($install_state['profile_info']['dependencies'] as $key => $value) {
+      if (is_string($key) && ((boolean)$value == FALSE)) {
+        unset($install_state['profile_info']['dependencies'][$key]);
+      }
+    }
+  }
+  else {
+    throw new Exception(st('Sorry, the profile you have chosen cannot be loaded.'));
+  }
 }
 
 /**
