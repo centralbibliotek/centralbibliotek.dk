@@ -472,3 +472,15 @@ function hook_libraries_paths() {
   // the test library.
   return array(drupal_get_path('module', 'libraries_test') . '/example');
 }
+
+/**
+ * Alter the array of directories to search for libraries.
+ *
+ * @see libraries_get_libraries()
+ *
+ * @param array $searchdir
+ *   The array of directories to search for libraries.
+ */
+function hook_libraries_directories_alter(array &$searchdir) {
+  $searchdir[] = drupal_get_path('module', 'example') . '/libraries';
+}

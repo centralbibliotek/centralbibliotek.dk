@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/add_libraries_directories_alter-2334991-2.patch'
+    home: 'https://www.drupal.org/node/2334991#comment-9162299'
+    reason: 'Adding support for discovering the libraries directory in the base profile.'

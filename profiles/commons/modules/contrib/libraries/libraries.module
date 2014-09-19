@@ -93,6 +93,10 @@ function libraries_get_libraries() {
   // Also search sites/<domain>/*.
   $searchdir[] = "$config/libraries";
 
+  // Allow other modules to either add their own search directories, or adjust
+  // the existing ones.
+  drupal_alter('libraries_directories', $searchdir);
+
   // Retrieve list of directories.
   $directories = array();
   $nomask = array('CVS');
