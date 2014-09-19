@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/drupal-allow_modules_and_themes_in_profiler_base_profiles-970980-4-D7.patch'
+    home: 'https://www.drupal.org/node/970980#comment-9162399'
+    reason: 'Allow base profiles to have a modules and themes folders.'
