@@ -5,6 +5,7 @@ base = commons
 exclusive = TRUE
 php = 5.3
 
+dependencies[] = cbib_features
 dependencies[] = commons_documents
 dependencies[] = devel
 dependencies[] = html5_tools

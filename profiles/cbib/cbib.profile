@@ -43,3 +43,12 @@ function cbib_form_install_configure_form_alter(&$form, $form_state) {
 function cbib_libraries_directories_alter(array &$searchdir) {
   $searchdir[] = drupal_get_path('profile', 'commons') . '/libraries';
 }
+
+/**
+ * Implements hook_profile_details().
+ */
+function cbib_profile_details() {
+  $details['language'] = 'da';
+
+  return $details;
+}
