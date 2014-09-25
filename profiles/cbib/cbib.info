@@ -8,6 +8,7 @@ php = 5.3
 dependencies[] = cbib_features
 dependencies[] = commons_documents
 dependencies[] = devel
+dependencies[] = double_field
 dependencies[] = html5_tools
 dependencies[] = l10n_update
 dependencies[] = locale
