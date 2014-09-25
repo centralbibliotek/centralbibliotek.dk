@@ -6,6 +6,7 @@ exclusive = TRUE
 php = 5.3
 
 dependencies[] = cbib_features
+dependencies[] = cbib_news
 dependencies[] = commons_documents
 dependencies[] = devel
 dependencies[] = double_field
