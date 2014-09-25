@@ -13,6 +13,7 @@ dependencies[] = html5_tools
 dependencies[] = l10n_update
 dependencies[] = locale
 dependencies[] = og_access
+dependencies[] = scheduler
 
 ;; Disable module dependencies specified in commons profile.
 dependencies[commons_polls] = 0
