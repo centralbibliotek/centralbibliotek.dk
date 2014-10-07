@@ -69,7 +69,7 @@ function cbib_features_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 14,
+      'weight' => 10,
     ),
   );
 
@@ -115,7 +115,7 @@ function cbib_features_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'numberfield',
-      'weight' => 11,
+      'weight' => 7,
     ),
   );
 
@@ -161,7 +161,7 @@ function cbib_features_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'numberfield',
-      'weight' => 9,
+      'weight' => 5,
     ),
   );
 
@@ -199,7 +199,7 @@ function cbib_features_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'emailwidget',
-      'weight' => 13,
+      'weight' => 9,
     ),
   );
 
@@ -239,7 +239,7 @@ function cbib_features_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 6,
     ),
   );
 
@@ -277,7 +277,7 @@ function cbib_features_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'urlwidget',
-      'weight' => 12,
+      'weight' => 8,
     ),
   );
 

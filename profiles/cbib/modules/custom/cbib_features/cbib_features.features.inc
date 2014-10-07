@@ -21,9 +21,9 @@ function cbib_features_node_info() {
     'centralbibliotek' => array(
       'name' => t('Centralbibliotek'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Beskrivelse, info, m.m. om centralbiblioteker.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

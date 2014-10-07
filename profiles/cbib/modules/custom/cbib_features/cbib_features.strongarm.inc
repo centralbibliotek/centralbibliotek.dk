@@ -32,7 +32,7 @@ function cbib_features_strongarm() {
     'domain' => '',
     'prefix' => 'da',
     'weight' => '0',
-    'javascript' => 'q4FpBNBdYX1p7Dd3g-oDt0UpPS0pt43QR4XVOD74Hck',
+    'javascript' => 'nNdlBPWk-fQaG1NImnxZT3McIn4VDG_r4oWh4sY6n1I',
   );
   $export['language_default'] = $strongarm;
 
