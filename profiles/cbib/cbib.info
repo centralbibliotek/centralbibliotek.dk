@@ -14,6 +14,7 @@ dependencies[] = double_field
 dependencies[] = html5_tools
 dependencies[] = l10n_update
 dependencies[] = locale
+dependencies[] = mini_panels
 dependencies[] = og_access
 dependencies[] = scheduler
 dependencies[] = watchdog_filtering

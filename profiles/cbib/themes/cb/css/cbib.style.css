@@ -1,0 +1,11 @@
+/**
+ * @file
+ * Centralbibliotek.dk specific styling.
+ */
+
+/**
+ * Fix the attend forms placement when located in a pabel pane.
+ */
+.pane-node-attend-form .block-content {
+  display: inline-block;
+}

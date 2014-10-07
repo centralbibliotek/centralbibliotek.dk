@@ -18,6 +18,22 @@ require_once 'profiles/commons/commons.install';
  */
 function cbib_install() {
   commons_install();
+
+  // Enable the Cbib theme and set it as the default.
+  theme_enable(array('cbib'));
+
+  // Set the default and administration themes.
+  variable_set('theme_default', 'cbib');
+
+  // AdaptiveTheme requires that the system theme settings form
+  // be submitted in order for its themes' settings to be properly set
+  // and the resulting css files generated.
+  // For more background, see http://drupal.org/node/1776730.
+  module_load_include('inc', 'system', 'system.admin');
+  $form_state = form_state_defaults();
+  $form_state['build_info']['args'][0] = 'cbib';
+  $form_state['values'] = array();
+  drupal_form_submit('system_theme_settings', $form_state);
 }
 
 /**

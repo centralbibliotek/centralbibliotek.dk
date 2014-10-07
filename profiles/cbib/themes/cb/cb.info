@@ -1,0 +1,23 @@
+name        = Centralbibliotek Theme
+description = The default theme for <a href="http://centralbibliotek.dk">Centralbibliotek.dk</a>.
+core        = 7.x
+base theme  = commons_origins
+release     = 7.x-1.x
+
+;; Regions
+regions[sidebar_first]     = Sidebar first
+regions[sidebar_second]    = Sidebar second
+regions[content]           = Main Content
+regions[highlighted]       = Highlighted
+regions[content_aside]     = Aside
+regions[secondary_content] = Secondary
+regions[tertiary_content]  = Tertiary
+regions[footer]            = Footer
+regions[header]            = Header
+regions[menu_bar]          = Menu Bar
+regions[help]              = Help
+regions[page_top]          = Page top
+regions[page_bottom]       = Page bottom
+
+;; Stylesheet for centralbibliotek.dk
+stylesheets[screen][] = css/cbib.style.css
