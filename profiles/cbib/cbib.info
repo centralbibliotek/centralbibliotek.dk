@@ -5,6 +5,7 @@ base = commons
 exclusive = TRUE
 php = 5.3
 
+dependencies[] = cbib_events
 dependencies[] = cbib_features
 dependencies[] = cbib_news
 dependencies[] = commons_documents
