@@ -35,5 +35,6 @@ features[variable][] = node_preview_centralbibliotek
 features[variable][] = node_submitted_centralbibliotek
 features[variable][] = site_mail
 features[variable][] = site_name
+features[variable][] = watchdog_filtering_default_severity
 features_exclude[dependencies][commons_bw] = commons_bw
 features_exclude[field_base][field_telephone] = field_telephone

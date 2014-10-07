@@ -89,5 +89,18 @@ function cbib_features_strongarm() {
   $strongarm->value = 'Centralbibliotek.dk';
   $export['site_name'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'watchdog_filtering_default_severity';
+  $strongarm->value = array(
+    0 => '0',
+    1 => '1',
+    2 => '2',
+    3 => '3',
+    4 => '4',
+  );
+  $export['watchdog_filtering_default_severity'] = $strongarm;
+
   return $export;
 }
