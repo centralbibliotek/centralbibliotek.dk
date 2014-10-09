@@ -11,7 +11,7 @@ $aliases['test'] = array(
   'remote-host' => 'test1404.reload.dk',
   'remote-user' => 'reload',
   'path-aliases' => array(
-    '%dump' => '~/cbib_test.sql',
+    '%dump' => '/home/reload/cbib_test.sql',
   ),
   'deployotron' => array(
     'branch' => 'develop',
