@@ -37,6 +37,33 @@ function cbib_install() {
 }
 
 /**
+ * Implements hook_admin_paths_alter().
+ *
+ * Call base profiles hook_admin_paths_alter() implementation.
+ */
+function cbib_admin_paths_alter(&$paths) {
+  commons_admin_paths_alter($paths);
+}
+
+/**
+ * Implements hook_update_projects_alter().
+ *
+ * Call base profiles hook_update_projects_alter() implementation.
+ */
+function cbib_update_projects_alter(&$projects) {
+  commons_update_projects_alter($projects);
+}
+
+/**
+ * Implements hook_hook_info().
+ *
+ * Call base profiles hook_hook_hook() implementation.
+ */
+function cbib_hook_info() {
+  return commons_hook_info();
+}
+
+/**
  * Implements hook_form_install_configure_form_alter().
  */
 function cbib_form_install_configure_form_alter(&$form, $form_state) {
