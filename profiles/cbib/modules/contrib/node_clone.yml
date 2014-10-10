@@ -1,0 +1,6 @@
+info-file: clone.info
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/1252702-menu-local-task.patch'
+    home: 'https://www.drupal.org/node/1252702#comment-9124325'
+    reason: 'Clone action as tab (MENU_LOCAL_TASK).'
