@@ -8,6 +8,7 @@ php = 5.3
 dependencies[] = cbib_events
 dependencies[] = cbib_features
 dependencies[] = cbib_news
+dependencies[] = collation_fixer
 dependencies[] = commons_documents
 dependencies[] = devel
 dependencies[] = double_field
