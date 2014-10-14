@@ -6,12 +6,12 @@
  */
 
 $aliases['test'] = array(
-  'uri' => 'default',
+  'uri' => 'cbib.test1404.reload.dk',
   'root' => '/var/www/centralbibliotek.dk',
   'remote-host' => 'test1404.reload.dk',
   'remote-user' => 'reload',
   'path-aliases' => array(
-    '%dump' => '/home/reload/cbib_test.sql',
+    '%drush-script' => '/home/reload/bin/drush',
   ),
   'deployotron' => array(
     'branch' => 'develop',
