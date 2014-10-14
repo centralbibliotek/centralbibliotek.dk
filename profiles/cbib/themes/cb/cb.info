@@ -14,6 +14,7 @@ regions[secondary_content] = Secondary
 regions[tertiary_content]  = Tertiary
 regions[footer]            = Footer
 regions[header]            = Header
+regions[header_two]        = Header Two
 regions[menu_bar]          = Menu Bar
 regions[help]              = Help
 regions[page_top]          = Page top

@@ -17,7 +17,7 @@ function cb_field__addressfield($variables) {
   $output = '';
 
   // Add Microformat classes to each address.
-  foreach($variables['items'] as &$address) {
+  foreach ($variables['items'] as &$address) {
     // Only display an address if it has been populated. We determine this by
     // validating that the locality has been populated.
     if (!empty($address['#address']['locality'])) {

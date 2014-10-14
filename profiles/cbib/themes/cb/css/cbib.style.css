@@ -9,3 +9,16 @@
 .pane-node-attend-form .block-content {
   display: inline-block;
 }
+
+.region-header-two h3 {
+  display: none;
+}
+
+.region-header-two li {
+  display: inline-block;
+  border-bottom-style: none;
+}
+
+.region-header-two li a {
+  color: white;
+}
