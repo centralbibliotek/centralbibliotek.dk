@@ -18,5 +18,6 @@ function cbib_schema_alter(&$schema) {
  * Fix collation of {field_data_title_field}.
  */
 function cbib_update_7101(&$sandbox) {
+  module_enable(array('collation_fixer'));
   collation_fixer_fix_collation('field_data_title_field');
 }
