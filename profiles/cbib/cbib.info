@@ -19,6 +19,7 @@ dependencies[] = mini_panels
 dependencies[] = clone
 dependencies[] = og_access
 dependencies[] = scheduler
+dependencies[] = views_data_export
 dependencies[] = watchdog_filtering
 
 ;; Disable module dependencies specified in commons profile.

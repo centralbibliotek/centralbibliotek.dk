@@ -27,3 +27,23 @@ function cbib_events_ctools_plugin_api() {
     return array('version' => 1);
   }
 }
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function cbib_events_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($router_item['path'] == 'node/%/registrations' || $router_item['tab_parent'] == 'node/%/registrations') {
+    $data['tabs'][1]['output'][] = array(
+      '#theme' => 'menu_local_task',
+      '#link' => array(
+        'title' => t('Download registrants'),
+        'href' => 'node/' . $router_item['original_map'][1] . '/registrations/deltagere.csv',
+        'localized_options' => array(
+          'attributes' => array(
+            'title' => t('Download'),
+          ),
+        ),
+      ),
+    );
+  }
+}
