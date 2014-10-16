@@ -20,5 +20,18 @@ regions[help]              = Help
 regions[page_top]          = Page top
 regions[page_bottom]       = Page bottom
 
-;; Stylesheet for centralbibliotek.dk
-stylesheets[screen][] = css/cbib.style.css
+
+;; Stylesheets
+
+; See each stylesheet for extensive documentation and help.
+stylesheets[screen][] = css/global.base.css
+stylesheets[screen][] = css/global.styles.css
+
+; Print - uncomment to load basic print styles.
+stylesheets[print][] = css/print.css
+
+; Internet Explorer Stylesheets
+ie_stylesheets[screen][(lt IE 9)&(!IEMobile 7)][] = css/lt-ie9.css
+
+; Unset Module CSS or other Stylesheets
+; unset_css[sites/all/modules/foobar_module/foobar_module.css] = 1
