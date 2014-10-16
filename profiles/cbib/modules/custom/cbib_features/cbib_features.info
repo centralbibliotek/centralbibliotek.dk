@@ -27,7 +27,6 @@ features[field_instance][] = node-centralbibliotek-field_ean
 features[field_instance][] = node-centralbibliotek-field_website
 features[node][] = centralbibliotek
 features[variable][] = language_content_type_centralbibliotek
-features[variable][] = language_default
 features[variable][] = menu_options_centralbibliotek
 features[variable][] = menu_parent_centralbibliotek
 features[variable][] = node_options_centralbibliotek
