@@ -22,6 +22,33 @@
   color: white;
 }
 
+@font-face {
+  font-family: 'gotham rounded book';
+  src: url("../fonts/GothamRnd-Book.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/GothamRnd-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamRnd-Book.woff") format("woff"), url("../fonts/GothamRnd-Book.ttf") format("truetype"), url("../fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'gotham rounded medium';
+  src: url("../fonts/GothamRnd-Medium.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/GothamRnd-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamRnd-Medium.woff") format("woff"), url("../fonts/GothamRnd-Medium.ttf") format("truetype"), url("../fonts/GothamRnd-Medium.svg#13af3003001cba3805884d1b06b023c9") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+}
+
+.panels-ipe-portlet-wrapper {
+  margin-bottom: 2em;
+}
+.panels-ipe-portlet-wrapper .commons-pod {
+  color: #828282;
+}
+
 /*
  *   Important Information about this CSS File
  *

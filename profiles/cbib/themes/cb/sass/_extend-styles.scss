@@ -9,14 +9,12 @@
 }
 
 %pod {
-  background-color: $white;
-  @include border-radius(3px);
-  @include box-shadow($light_gray 1px 1px 4px);
+  background-color: transparent;
   margin: $gutter-width 0;
 }
 
 %pod-content {
-  padding: $gutter-width;
+
 }
 
 %node-space-right {

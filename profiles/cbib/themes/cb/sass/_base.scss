@@ -7,14 +7,12 @@
 //
 // Partials to be shared with all .scss files.
 //
-
 @import 'compass';
 
 //
 // Import custom partial - mixins and variables defined for your theme
 //
-@import 'custom/custom';
-@import 'custom/arnestyles';
+@import 'variables';
 @import 'mixins/functions';
 @import 'mixins/respond';
 @import 'mixins/icons';
@@ -22,3 +20,10 @@
 @import 'mixins/mixins';
 @import 'mixins/buttons';
 @import 'mixins/multiline-ellipsis';
+
+//
+// Import components. These are not part of the standard Commons theme.
+//
+@import 'components/arnestyles';
+@import 'components/fonts'; // @fontface fonts
+@import 'components/panels-ipe-portlet-wrapper';

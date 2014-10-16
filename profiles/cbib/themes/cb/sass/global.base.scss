@@ -108,7 +108,7 @@ button,
 input,
 select,
 textarea {
-  font-family: sans-serif;
+  font-family: $base-font;
 }
 
 
@@ -120,7 +120,7 @@ textarea {
  * Addresses outline displayed oddly in Chrome
  */
 a:focus {
-  outline: thin dotted;
+  outline: 0;
 }
 
 

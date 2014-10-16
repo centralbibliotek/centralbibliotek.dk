@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'gotham rounded book';
+  src: url('../fonts/GothamRnd-Book.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/GothamRnd-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/GothamRnd-Book.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/GothamRnd-Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  normal;
+}
+
+@font-face {
+  font-family: 'gotham rounded medium';
+  src: url('../fonts/GothamRnd-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/GothamRnd-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/GothamRnd-Medium.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/GothamRnd-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/GothamRnd-Medium.svg#13af3003001cba3805884d1b06b023c9') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  normal;
+}
