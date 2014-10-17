@@ -274,6 +274,40 @@ div.messages.error {
   display: block;
 }
 
+#footer {
+  margin: 0;
+  border: 0;
+  background: #424242;
+  font-size: .9em;
+}
+#footer .region-footer {
+  padding: 0 10px;
+}
+
+#block-menu-menu-footer-menu {
+  margin-bottom: 0;
+  padding: 2em 0 1.65em;
+}
+#block-menu-menu-footer-menu .block-title {
+  display: none;
+}
+#block-menu-menu-footer-menu ul {
+  margin: 0;
+  padding: 0;
+}
+#block-menu-menu-footer-menu li {
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-right: 1.5em;
+  margin-bottom: .45em;
+}
+#block-menu-menu-footer-menu a {
+  color: #fff;
+}
+
 /*body*/
 .node-type-event #panels-ipe-regionid-two_66_33_first {
   background: #fff;

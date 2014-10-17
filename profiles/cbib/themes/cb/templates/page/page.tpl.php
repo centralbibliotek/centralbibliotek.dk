@@ -221,11 +221,13 @@
   <!-- region: Tertiary Content -->
   <?php print render($page['tertiary_content']); ?>
 
-  <!-- region: Footer -->
-  <?php if ($page['footer']): ?>
-    <footer<?php print $footer_attributes; ?>>
-      <?php print render($page['footer']); ?>
-    </footer>
-  <?php endif; ?>
-
 </div>
+
+<!-- region: Footer -->
+<?php if ($page['footer']): ?>
+  <footer<?php print $footer_attributes; ?>>
+    <div class="container">
+      <?php print render($page['footer']); ?>
+    </div>
+  </footer>
+<?php endif; ?>
