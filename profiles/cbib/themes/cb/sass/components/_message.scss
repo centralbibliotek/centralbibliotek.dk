@@ -1,0 +1,27 @@
+div.messages {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-image: none;
+  background-color: transparent;
+  padding: 1em 1.65em;
+  border-color: $gray-dark;
+  color: $gray-dark;
+  font-family: $alt-font;
+
+  // Status (success)
+  &.status {
+    border-color: $brand-green;
+    color: $brand-green-dark;
+  }
+
+  // Error
+  &.error {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+
+  // Warning
+  &.warning {
+    //...
+  }
+}

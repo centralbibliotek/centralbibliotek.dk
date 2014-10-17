@@ -40,7 +40,7 @@
 
 html {
   background: $page;
-  font-size: 87.5%;
+  font-size: 84%;
   min-height: 100%;
 
   .cke_editable {
@@ -53,7 +53,7 @@ html {
 
 body {
   font-family: $base-font; // Set from _custom.scss font variables
-  color: $dark_gray;
+  color: $gray-dark;
   min-width: 18em;
 }
 
@@ -62,8 +62,8 @@ body {
  * ========================================================================== */
 
 h1 {
-  font-size: 1.75em;
-  line-height: 1.35;
+  font-size: 1.65em;
+  line-height: 1.4;
   font-weight: normal;
   color: $gray-darker;
   font-family: $alt-font;
@@ -121,6 +121,9 @@ var {
  * Page wrapper, includes the .container class which sets the overall page or section width
  * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
  */
+ #content {
+  margin-bottom: 4em;
+ }
 
 /**
  * Wraps all header elements - branding and .region-header

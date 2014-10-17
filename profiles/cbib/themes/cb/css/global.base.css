@@ -42,11 +42,282 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'solido condensed medium';
+  src: url("../fonts/SolidoCondensed-Medium.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/SolidoCondensed-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/SolidoCondensed-Medium.woff") format("woff"), url("../fonts/SolidoCondensed-Medium.ttf") format("truetype"), url("../fonts/SolidoCondensed-Medium.svg#e6eba3bc9d70a64ccff4ceff2e5b9f76") format("svg");
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+}
+
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
+  border: 0;
+  background: #ff5479;
+  color: #fff;
+  display: inline-block;
+  margin: 0 .75em .75em 0;
+  padding: .7em 1.5em;
+  text-align: center;
+  border-radius: 1px;
+  position: relative;
+  vertical-align: top;
+  letter-spacing: -.01em;
+  line-height: 1;
+  text-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-transition: background-color 150ms ease;
+  -moz-transition: background-color 150ms ease;
+  -o-transition: background-color 150ms ease;
+  transition: background-color 150ms ease;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
+  color: #fff;
+  background: #ff6990;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
+  color: #fff;
+  background: #ff6990;
+  outline: none;
+}
+
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
+  background: #dddddd;
+  color: #565656;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover {
+  color: #565656;
+  background: #d0d0d0;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus {
+  color: #565656;
+  background: #d0d0d0;
+}
+
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
+  font-size: 1.25em;
+}
+
+div.messages {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-image: none;
+  background-color: transparent;
+  padding: 1em 1.65em;
+  border-color: #565656;
+  color: #565656;
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+div.messages.status {
+  border-color: #32d2b3;
+  color: #2bbfa3;
+}
+div.messages.error {
+  border-color: #ff5479;
+  color: #ff5479;
+}
+
+#panels-ipe-paneid-4 .views-field-picture {
+  background: none;
+  display: inline-block;
+  padding: 0;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.node-type-event #panels-ipe-paneid-9 .adr, .node-type-event #panels-ipe-paneid-12 a, .node-type-event #panels-ipe-paneid-7 .pane-node-field-date {
+  font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background: #424242;
+  color: #fff;
+  display: inline-block;
+  padding: .4em .5em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.node-type-event #panels-ipe-paneid-9 .adr {
+  background: #dddddd;
+  color: #565656;
+}
+
+.node-type-event #panels-ipe-paneid-12 a {
+  background: #2bc2ff;
+  color: #fff;
+}
+.node-type-event #panels-ipe-paneid-12 a:hover, .node-type-event #panels-ipe-paneid-12 a:focus {
+  background: #3ed2ff;
+  text-decoration: none;
+}
+
 .panels-ipe-portlet-wrapper {
   margin-bottom: 2em;
 }
 .panels-ipe-portlet-wrapper .commons-pod {
   color: #828282;
+}
+
+#panels-ipe-paneid-24 .pane-entity-field {
+  margin-bottom: .5em;
+}
+#panels-ipe-paneid-24 .pane-entity-field h2 {
+  font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: 0;
+  letter-spacing: 0;
+  font-size: 1em;
+  color: #828282;
+  line-height: 1.6;
+  float: left;
+  width: 45%;
+}
+#panels-ipe-paneid-24 .pane-entity-field h2:after {
+  content: ':';
+}
+#panels-ipe-paneid-24 .pane-entity-field .block-content {
+  float: right;
+  width: 55%;
+}
+
+#panels-ipe-paneid-26 .pane-cbib-events-registration-dates,
+#panels-ipe-paneid-26 .pane-cbib-events-seats-available,
+#panels-ipe-paneid-26 .pane-entity-field {
+  margin-bottom: .5em;
+}
+#panels-ipe-paneid-26 .pane-cbib-events-registration-dates h2,
+#panels-ipe-paneid-26 .pane-cbib-events-seats-available h2,
+#panels-ipe-paneid-26 .pane-entity-field h2 {
+  font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: 0;
+  letter-spacing: 0;
+  font-size: 1em;
+  color: #828282;
+  line-height: 1.6;
+  float: left;
+  width: 45%;
+}
+#panels-ipe-paneid-26 .pane-cbib-events-registration-dates h2:after,
+#panels-ipe-paneid-26 .pane-cbib-events-seats-available h2:after,
+#panels-ipe-paneid-26 .pane-entity-field h2:after {
+  content: ':';
+}
+#panels-ipe-paneid-26 .pane-cbib-events-registration-dates .block-content,
+#panels-ipe-paneid-26 .pane-cbib-events-seats-available .block-content,
+#panels-ipe-paneid-26 .pane-entity-field .block-content {
+  float: right;
+  width: 55%;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form {
+  margin-top: 2em;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form .pane-title {
+  display: none;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form .block-content {
+  width: 100%;
+  float: none;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
+  width: 100%;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
+  width: 100%;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form form .form-item-count,
+#panels-ipe-paneid-26 .pane-node-attend-form form #edit-attending {
+  display: none;
+}
+#panels-ipe-paneid-26 .pane-node-attend-form form.commons-events-form-float {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: .2em;
+  float: none;
+}
+#panels-ipe-paneid-26 .block {
+  margin-bottom: 0;
+}
+
+#panels-ipe-paneid-4 .block-content {
+  padding-top: .2em;
+}
+#panels-ipe-paneid-4 .view-commons-events-event-attendee-list {
+  background-color: transparent;
+}
+#panels-ipe-paneid-4 .views-view-grid td {
+  padding: 0;
+}
+#panels-ipe-paneid-4 .views-field-picture {
+  float: left;
+  width: 24px;
+  margin-right: .55em;
+}
+#panels-ipe-paneid-4 .views-field-name {
+  height: 24px;
+  line-height: 1.9;
+}
+#panels-ipe-paneid-4 .views-view-grid td {
+  padding-bottom: .5em;
+  display: block;
+}
+
+/*body*/
+.node-type-event #panels-ipe-regionid-two_66_33_first {
+  background: #fff;
+  padding: 0 20px 2em;
+  border: 1px solid #dddddd;
+}
+.node-type-event #panels-ipe-regionid-two_66_33_first .block {
+  margin-bottom: 0;
+}
+.node-type-event #panels-ipe-regionid-two_66_33_first .panels-ipe-portlet-wrapper {
+  margin-bottom: 0;
+}
+.node-type-event #panels-ipe-paneid-8 h1 {
+  margin: 1em 0 .75em;
+}
+.node-type-event #panels-ipe-paneid-5 .file-image {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+.node-type-event #panels-ipe-paneid-5 img {
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+.node-type-event #panels-ipe-paneid-7 {
+  float: left;
+  margin-right: .5em;
+}
+.node-type-event #panels-ipe-paneid-12 ul {
+  margin: 0;
+  padding: 0;
+}
+.node-type-event #panels-ipe-paneid-12 li {
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 1em;
+}
+.node-type-event #panels-ipe-paneid-12 .field-type-taxonomy-term-reference {
+  margin-bottom: 0;
+}
+.node-type-event #panels-ipe-paneid-9 {
+  float: left;
+  margin-right: .5em;
 }
 
 /*
@@ -123,7 +394,7 @@ audio:not([controls]) {
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.7;
+  line-height: 1.6;
   overflow-y: scroll;
 }
 

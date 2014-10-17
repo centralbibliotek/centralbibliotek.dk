@@ -23,7 +23,17 @@
 //
 
 // Brand colors
-$brand-primary: #ff5479;
+$brand-primary:       #ff5479;
+$brand-primary-light: #ff6990;
+
+// Greens
+$brand-green:      #32d2b3;
+$brand-green-dark: #2bbfa3;
+
+// Blues :'(
+$brand-blue:       #2bc2ff;
+$brand-blue-light: #3ed2ff;
+
 
 // Grays
 $gray-darkest:  #333;
@@ -172,6 +182,7 @@ $mono:                        Consolas, Monaco, 'Courier New', Courier, monospac
 
 $base-font: 'gotham rounded book', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $alt-font: 'gotham rounded medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$condensed-font: 'solido condensed medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 //
 // Gutters

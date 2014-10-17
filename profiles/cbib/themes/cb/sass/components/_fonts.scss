@@ -19,3 +19,15 @@
   font-style:   normal;
   font-weight:  normal;
 }
+
+@font-face {
+  font-family: 'solido condensed medium';
+  src: url('../fonts/SolidoCondensed-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SolidoCondensed-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/SolidoCondensed-Medium.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/SolidoCondensed-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/SolidoCondensed-Medium.svg#e6eba3bc9d70a64ccff4ceff2e5b9f76') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  normal;
+}
+

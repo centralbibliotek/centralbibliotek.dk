@@ -1,0 +1,81 @@
+// "Tilmelding" panel (as seen on an event)
+
+#panels-ipe-paneid-26 {
+  
+  .pane-cbib-events-registration-dates,
+  .pane-cbib-events-seats-available,
+  .pane-entity-field {
+    margin-bottom: .5em;
+
+    h2 {
+      font-family: $base-font;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border: 0;
+      letter-spacing: 0;
+      font-size: 1em;
+      color: $gray;
+      line-height: 1.6;
+
+      float: left;
+      width: 45%;
+
+      &:after {
+        content: ':';
+      }
+    }
+
+    .block-content {
+      float: right;
+      width: 55%;
+    }
+  }
+
+
+  // Attend (Tilmeld)
+  .pane-node-attend-form {
+    margin-top: 2em;
+
+    // Hide pane title (it's a little redundant)
+    .pane-title { display: none; }
+
+    .block-content {
+      width: 100%;
+      float: none;
+    }
+
+    // Attend button
+    #edit-submit.action-item-primary {
+      @extend %button-submit;
+      @extend %button-large;
+      width: 100%;
+    }
+
+    // Cancel button
+    #edit-submit.action-item-active {
+      @extend %button-light;
+      @extend %button-large;
+      width: 100%;
+    }
+    
+    // Hide the "Guests" input field and the "Number of attendees" field;
+    // No one is going to use them.
+    form .form-item-count,
+    form #edit-attending {
+      display: none;
+    }
+
+    form.commons-events-form-float {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      padding-top: .2em;
+      float: none;
+    }
+  }
+
+  .block {
+    margin-bottom: 0;
+  }
+
+}//#panels-ipe-paneid-24

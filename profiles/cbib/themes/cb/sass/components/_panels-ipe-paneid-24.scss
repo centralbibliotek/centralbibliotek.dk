@@ -1,0 +1,32 @@
+// "Det praktiske" panel (as seen on an event)
+
+#panels-ipe-paneid-24 {
+  
+  .pane-entity-field {
+    margin-bottom: .5em;
+
+    h2 {
+      font-family: $base-font;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border: 0;
+      letter-spacing: 0;
+      font-size: 1em;
+      color: $gray;
+      line-height: 1.6;
+
+      float: left;
+      width: 45%;
+
+      &:after {
+        content: ':';
+      }
+    }
+
+    .block-content {
+      float: right;
+      width: 55%;
+    }
+  }
+
+}//#panels-ipe-paneid-24

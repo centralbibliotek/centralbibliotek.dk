@@ -1,0 +1,17 @@
+%tag {
+  @extend %date;
+  background: $gray-light;
+  color: $gray-dark;
+}
+
+%tag-blue {
+  @extend %date;
+  background: $brand-blue;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background: $brand-blue-light;
+    text-decoration: none;
+  }
+}

@@ -26,4 +26,17 @@
 //
 @import 'components/arnestyles';
 @import 'components/fonts'; // @fontface fonts
+@import 'components/button'; // Custom cbib button styles
+@import 'components/message'; // System messages
+@import 'components/user-avatar'; // User profile picture badge avatar thing
+@import 'components/date'; // Date or timestamp
+@import 'components/tag';
 @import 'components/panels-ipe-portlet-wrapper';
+@import 'components/panels-ipe-paneid-24'; // "Det praktiske" on Event
+@import 'components/panels-ipe-paneid-26'; // "Tilmelding" on Event
+@import 'components/panels-ipe-paneid-4'; // "List of attendees" on Event
+
+//
+// Import "pages" (styles for specific pages - such as node types, profile page etc.)
+//
+@import 'pages/node-event'; // Node type event
