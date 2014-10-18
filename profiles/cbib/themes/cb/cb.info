@@ -35,3 +35,6 @@ ie_stylesheets[screen][(lt IE 9)&(!IEMobile 7)][] = css/lt-ie9.css
 
 ; Unset Module CSS or other Stylesheets
 ; unset_css[sites/all/modules/foobar_module/foobar_module.css] = 1
+
+;; Scripts
+scripts[] = scripts/cb.js

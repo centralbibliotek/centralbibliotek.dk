@@ -88,50 +88,61 @@
  * @see adaptivetheme_process_page()
  */
 ?>
-<div class="header-wrapper">
-  <div class="header-color-row-one">
-    <header<?php print $header_attributes; ?>>
+<header class="main-header">
+  <div class="container">
 
-      <?php if ($site_logo || $site_name || $site_slogan): ?>
-        <!-- start: Branding -->
-        <div<?php print $branding_attributes; ?>>
+    <?php if ($site_logo || $site_name || $site_slogan): ?>
+      <!-- start: Branding -->
+      <div<?php print $branding_attributes; ?>>
 
-          <?php if ($site_logo): ?>
-            <div id="logo">
-              <?php print $site_logo; ?>
-            </div>
-          <?php endif; ?>
+        <?php if ($site_logo): ?>
+          <div id="logo">
+            <?php print $site_logo; ?>
+          </div>
+        <?php endif; ?>
 
-          <?php if ($site_name || $site_slogan): ?>
-            <!-- start: Site name and Slogan hgroup -->
-            <hgroup<?php print $hgroup_attributes; ?>>
+        <?php if ($site_name || $site_slogan): ?>
+          <!-- start: Site name and Slogan hgroup -->
+          <hgroup<?php print $hgroup_attributes; ?>>
 
-              <?php if ($site_name): ?>
-                <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
-              <?php endif; ?>
+            <?php if ($site_name): ?>
+              <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
+            <?php endif; ?>
 
-              <?php if ($site_slogan): ?>
-                <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
-              <?php endif; ?>
+            <?php if ($site_slogan): ?>
+              <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
+            <?php endif; ?>
 
-            </hgroup><!-- /end #name-and-slogan -->
-          <?php endif; ?>
+          </hgroup><!-- /end #name-and-slogan -->
+        <?php endif; ?>
 
-        </div><!-- /end #branding -->
-      <?php endif; ?>
+      </div><!-- /end #branding -->
+    <?php endif; ?>
 
-      <!-- Navigation elements -->
-      <?php print render($page['menu_bar']); ?>
-
-      <!-- region: Header -->
-      <?php print render($page['header']); ?>
-    </header>
-  </div>
-  <div class="header-color-row-two">
-      <!-- region: Header Two -->
+    <div class="branch-selector">
       <?php print render($page['header_two']); ?>
+    </div>
+
+    <!-- region: Header -->
+    <?php print render($page['header']); ?>
+
+
+  </div><?php //.container ?>
+</header>
+
+<div id="main-menu" class="main-menu">
+  <div class="container">
+    <?php print render($page['menu_bar']); ?>
+
+    <div class="utility-links">
+      <?php
+        // The Commons Utility Links will be inserted here using js - see scripts/cb.js.
+        // This is just a quick fix and should be refactored the Drupal way as the project matures.
+      ?>
+    </div>
   </div>
 </div>
+
 <div id="page" class="container <?php print $classes; ?>">
 
   <div id="columns" class="columns clearfix">
