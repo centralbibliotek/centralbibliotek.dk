@@ -3,7 +3,7 @@
 /*body*/.node-type-event {
 
   // Main content area
-  #panels-ipe-regionid-two_66_33_first {
+  .region.region-two-66-33-first .region-inner { 
     background: #fff;
     padding: 0 20px 2em;
     border: 1px solid $gray-light;
@@ -12,6 +12,7 @@
       margin-bottom: 0;
     }
 
+    .panel-pane,
     .panels-ipe-portlet-wrapper {
       margin-bottom: 0;
     }
@@ -20,7 +21,7 @@
 
 
   // Event title
-  #panels-ipe-paneid-8 {
+  .field-name-title-field {
     h1 {
       margin: 1em 0 .75em;
     }
@@ -28,7 +29,7 @@
 
 
   // Event image
-  #panels-ipe-paneid-5 {
+  .field-name-field-image {
 
     // Make image go flush width main content area
     .file-image {
@@ -44,18 +45,23 @@
 
 
   // Event date
-  #panels-ipe-paneid-7 {
+  .region.region-two-66-33-first .pane-node-field-date, // Logged out
+  #panels-ipe-paneid-7 { // Logged in
     float: left;
-    margin-right: .5em;
     
-    .pane-node-field-date {
+    .field-item {
       @extend %date;
     }
   }
 
+  .region.region-two-66-33-first .pane-node-field-date {
+    margin-right: .5em;
+  }
+
 
   // Event type
-  #panels-ipe-paneid-12 {
+  .region.region-two-66-33-first .pane-node-field-event-type, // Logged out
+  #panels-ipe-paneid-12 { // Logged in
     ul {
       margin: 0;
       padding: 0;
@@ -81,13 +87,17 @@
 
 
   // Event location
-  #panels-ipe-paneid-9 {
+  .region.region-two-66-33-first .pane-node-field-address, // Logged out
+  #panels-ipe-paneid-9 { // Logged in
     float: left;
-    margin-right: .5em;
 
     .adr {
       @extend %tag;
     }
+  }
+
+  .region.region-two-66-33-first .pane-node-field-address {
+    margin-right: .5em;
   }
 
 }//.node-type-event

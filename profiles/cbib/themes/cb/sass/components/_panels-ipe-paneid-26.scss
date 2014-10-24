@@ -1,6 +1,7 @@
 // "Tilmelding" panel (as seen on an event)
 
-#panels-ipe-paneid-26 {
+.block.pane-event-price, // Logged in
+#panels-ipe-paneid-26 { // Logged out
   
   .pane-cbib-events-registration-dates,
   .pane-cbib-events-seats-available,
@@ -29,6 +30,10 @@
       float: right;
       width: 55%;
     }
+  }
+
+  .block-inner {
+    color: $gray;
   }
 
 

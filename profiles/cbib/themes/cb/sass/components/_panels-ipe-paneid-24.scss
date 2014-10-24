@@ -1,6 +1,7 @@
 // "Det praktiske" panel (as seen on an event)
 
-#panels-ipe-paneid-24 {
+.block.pane-event-information, // Logged out
+#panels-ipe-paneid-24 { // Logged in
   
   .pane-entity-field {
     margin-bottom: .5em;
@@ -27,6 +28,10 @@
       float: right;
       width: 55%;
     }
+  }
+
+  .block-inner {
+    color: $gray;
   }
 
 }//#panels-ipe-paneid-24

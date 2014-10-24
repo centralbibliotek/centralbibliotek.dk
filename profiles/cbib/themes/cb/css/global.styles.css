@@ -69,7 +69,9 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   font-weight: normal;
 }
 
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
   border: 0;
   background: #ff5479;
   color: #fff;
@@ -90,33 +92,42 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   -o-transition: background-color 150ms ease;
   transition: background-color 150ms ease;
 }
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
   color: #fff;
   background: #ff6990;
   cursor: pointer;
   outline: none;
   text-decoration: none;
 }
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
   color: #fff;
   background: #ff6990;
   outline: none;
 }
 
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   background: #dddddd;
   color: #565656;
 }
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover {
   color: #565656;
   background: #d0d0d0;
 }
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus {
   color: #565656;
   background: #d0d0d0;
 }
 
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary, #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   font-size: 1.25em;
 }
 
@@ -139,6 +150,7 @@ div.messages.error {
   color: #ff5479;
 }
 
+.pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
   background: none;
   display: inline-block;
@@ -153,7 +165,10 @@ div.messages.error {
   box-shadow: none;
 }
 
-.node-type-event #panels-ipe-paneid-9 .adr, .node-type-event #panels-ipe-paneid-12 a, .node-type-event #panels-ipe-paneid-7 .pane-node-field-date {
+.node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
+.node-type-event #panels-ipe-paneid-9 .adr, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a,
+.node-type-event #panels-ipe-paneid-12 a, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item,
+.node-type-event #panels-ipe-paneid-7 .field-item {
   font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #424242;
   color: #fff;
@@ -163,16 +178,20 @@ div.messages.error {
   text-transform: uppercase;
 }
 
+.node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr {
   background: #dddddd;
   color: #565656;
 }
 
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type a,
 .node-type-event #panels-ipe-paneid-12 a {
   background: #2bc2ff;
   color: #fff;
 }
-.node-type-event #panels-ipe-paneid-12 a:hover, .node-type-event #panels-ipe-paneid-12 a:focus {
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:hover,
+.node-type-event #panels-ipe-paneid-12 a:hover, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:focus,
+.node-type-event #panels-ipe-paneid-12 a:focus {
   background: #3ed2ff;
   text-decoration: none;
 }
@@ -195,16 +214,22 @@ div.messages.error {
   color: #828282;
 }
 
+.panel-pane,
 .panels-ipe-portlet-wrapper {
   margin-bottom: 2em;
 }
+.panel-pane .field-item,
+.panel-pane .commons-pod,
+.panels-ipe-portlet-wrapper .field-item,
 .panels-ipe-portlet-wrapper .commons-pod {
   color: #828282;
 }
 
+.block.pane-event-information .pane-entity-field,
 #panels-ipe-paneid-24 .pane-entity-field {
   margin-bottom: .5em;
 }
+.block.pane-event-information .pane-entity-field h2,
 #panels-ipe-paneid-24 .pane-entity-field h2 {
   font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin-bottom: 0;
@@ -217,19 +242,31 @@ div.messages.error {
   float: left;
   width: 45%;
 }
+.block.pane-event-information .pane-entity-field h2:after,
 #panels-ipe-paneid-24 .pane-entity-field h2:after {
   content: ':';
 }
+.block.pane-event-information .pane-entity-field .block-content,
 #panels-ipe-paneid-24 .pane-entity-field .block-content {
   float: right;
   width: 55%;
 }
+.block.pane-event-information .block-inner,
+#panels-ipe-paneid-24 .block-inner {
+  color: #828282;
+}
 
+.block.pane-event-price .pane-cbib-events-registration-dates,
+.block.pane-event-price .pane-cbib-events-seats-available,
+.block.pane-event-price .pane-entity-field,
 #panels-ipe-paneid-26 .pane-cbib-events-registration-dates,
 #panels-ipe-paneid-26 .pane-cbib-events-seats-available,
 #panels-ipe-paneid-26 .pane-entity-field {
   margin-bottom: .5em;
 }
+.block.pane-event-price .pane-cbib-events-registration-dates h2,
+.block.pane-event-price .pane-cbib-events-seats-available h2,
+.block.pane-event-price .pane-entity-field h2,
 #panels-ipe-paneid-26 .pane-cbib-events-registration-dates h2,
 #panels-ipe-paneid-26 .pane-cbib-events-seats-available h2,
 #panels-ipe-paneid-26 .pane-entity-field h2 {
@@ -244,37 +281,55 @@ div.messages.error {
   float: left;
   width: 45%;
 }
+.block.pane-event-price .pane-cbib-events-registration-dates h2:after,
+.block.pane-event-price .pane-cbib-events-seats-available h2:after,
+.block.pane-event-price .pane-entity-field h2:after,
 #panels-ipe-paneid-26 .pane-cbib-events-registration-dates h2:after,
 #panels-ipe-paneid-26 .pane-cbib-events-seats-available h2:after,
 #panels-ipe-paneid-26 .pane-entity-field h2:after {
   content: ':';
 }
+.block.pane-event-price .pane-cbib-events-registration-dates .block-content,
+.block.pane-event-price .pane-cbib-events-seats-available .block-content,
+.block.pane-event-price .pane-entity-field .block-content,
 #panels-ipe-paneid-26 .pane-cbib-events-registration-dates .block-content,
 #panels-ipe-paneid-26 .pane-cbib-events-seats-available .block-content,
 #panels-ipe-paneid-26 .pane-entity-field .block-content {
   float: right;
   width: 55%;
 }
+.block.pane-event-price .block-inner,
+#panels-ipe-paneid-26 .block-inner {
+  color: #828282;
+}
+.block.pane-event-price .pane-node-attend-form,
 #panels-ipe-paneid-26 .pane-node-attend-form {
   margin-top: 2em;
 }
+.block.pane-event-price .pane-node-attend-form .pane-title,
 #panels-ipe-paneid-26 .pane-node-attend-form .pane-title {
   display: none;
 }
+.block.pane-event-price .pane-node-attend-form .block-content,
 #panels-ipe-paneid-26 .pane-node-attend-form .block-content {
   width: 100%;
   float: none;
 }
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
   width: 100%;
 }
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   width: 100%;
 }
+.block.pane-event-price .pane-node-attend-form form .form-item-count,
+.block.pane-event-price .pane-node-attend-form form #edit-attending,
 #panels-ipe-paneid-26 .pane-node-attend-form form .form-item-count,
 #panels-ipe-paneid-26 .pane-node-attend-form form #edit-attending {
   display: none;
 }
+.block.pane-event-price .pane-node-attend-form form.commons-events-form-float,
 #panels-ipe-paneid-26 .pane-node-attend-form form.commons-events-form-float {
   width: 100%;
   margin: 0;
@@ -282,28 +337,35 @@ div.messages.error {
   padding-top: .2em;
   float: none;
 }
+.block.pane-event-price .block,
 #panels-ipe-paneid-26 .block {
   margin-bottom: 0;
 }
 
+.pane-commons-events-event-attendee-list-panel-pane-1 .block-content,
 #panels-ipe-paneid-4 .block-content {
   padding-top: .2em;
 }
+.pane-commons-events-event-attendee-list-panel-pane-1 .view-commons-events-event-attendee-list,
 #panels-ipe-paneid-4 .view-commons-events-event-attendee-list {
   background-color: transparent;
 }
+.pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
   padding: 0;
 }
+.pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
   float: left;
   width: 24px;
   margin-right: .55em;
 }
+.pane-commons-events-event-attendee-list-panel-pane-1 .views-field-name,
 #panels-ipe-paneid-4 .views-field-name {
   height: 24px;
   line-height: 1.9;
 }
+.pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
   padding-bottom: .5em;
   display: block;
@@ -504,36 +566,42 @@ div.messages.error {
 }
 
 /*body*/
-.node-type-event #panels-ipe-regionid-two_66_33_first {
+.node-type-event .region.region-two-66-33-first .region-inner {
   background: #fff;
   padding: 0 20px 2em;
   border: 1px solid #dddddd;
 }
-.node-type-event #panels-ipe-regionid-two_66_33_first .block {
+.node-type-event .region.region-two-66-33-first .region-inner .block {
   margin-bottom: 0;
 }
-.node-type-event #panels-ipe-regionid-two_66_33_first .panels-ipe-portlet-wrapper {
+.node-type-event .region.region-two-66-33-first .region-inner .panel-pane,
+.node-type-event .region.region-two-66-33-first .region-inner .panels-ipe-portlet-wrapper {
   margin-bottom: 0;
 }
-.node-type-event #panels-ipe-paneid-8 h1 {
+.node-type-event .field-name-title-field h1 {
   margin: 1em 0 .75em;
 }
-.node-type-event #panels-ipe-paneid-5 .file-image {
+.node-type-event .field-name-field-image .file-image {
   margin-right: -20px;
   margin-left: -20px;
 }
-.node-type-event #panels-ipe-paneid-5 img {
+.node-type-event .field-name-field-image img {
   width: 100%;
   border-bottom: 1px solid #dddddd;
 }
+.node-type-event .region.region-two-66-33-first .pane-node-field-date,
 .node-type-event #panels-ipe-paneid-7 {
   float: left;
+}
+.node-type-event .region.region-two-66-33-first .pane-node-field-date {
   margin-right: .5em;
 }
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type ul,
 .node-type-event #panels-ipe-paneid-12 ul {
   margin: 0;
   padding: 0;
 }
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type li,
 .node-type-event #panels-ipe-paneid-12 li {
   display: inline;
   list-style-type: none;
@@ -541,11 +609,15 @@ div.messages.error {
   margin: 0;
   margin-right: 1em;
 }
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type .field-type-taxonomy-term-reference,
 .node-type-event #panels-ipe-paneid-12 .field-type-taxonomy-term-reference {
   margin-bottom: 0;
 }
+.node-type-event .region.region-two-66-33-first .pane-node-field-address,
 .node-type-event #panels-ipe-paneid-9 {
   float: left;
+}
+.node-type-event .region.region-two-66-33-first .pane-node-field-address {
   margin-right: .5em;
 }
 
