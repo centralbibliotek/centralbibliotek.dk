@@ -1,0 +1,3 @@
+Host *.dbc.dk centralbibliotek.dk
+     User reload
+     ProxyCommand ssh -o GlobalKnownHostsFile=${CBIB_DRUSH_DIR}/ssh/known_hosts -W %h:%p ding.reload.dk
