@@ -17,109 +17,42 @@ function cbib_migrate_flush_caches() {
  * Register all D6->D7 migrations.
  */
 function cbib_migrate_register_migrations() {
-  /**
-   * Each migration being registered takes an array of arguments, some required
-   * and some optional. Start with the common arguments required by all - the
-   * source_connection (connection key, set up in settings.php, pointing to
-   * the Drupal 6 database) and source_version (major version of Drupal).
-   */
+  // Define how we are getting the data for the migration. Legacy connector
+  // from settings.php and 6 as major Drupal version.
   $common_arguments = array(
     'source_connection' => 'legacy',
     'source_version' => 6,
   );
 
-  // The description and the migration machine name are also required arguments,
-  // which will be unique for each migration you register.
-  $arguments = $common_arguments + array(
-    'description' => t('Migration of users from Drupal 6'),
-    'machine_name' => 'User',
-  );
+  // Get migrations for users and their profile nodes.
+  $migrations  = cbib_migrate_register_user_migration();
 
-  // We just use the migrate_d2d D6 migration class as-is.
-  Migration::registerMigration('DrupalUser6Migration', $arguments['machine_name'],
-                               $arguments);
+  // Get migrations for images (Billedefil/media -> Billede).
+  $migrations += cbib_migrate_register_image_migration();
 
-  // For vocabulary migrations, source_vocabulary and destination_vocabulary are
-  // required arguments. Note that in Drupal 6 vocabularies did not have machine
-  // names, so we use the vocabulary ID to uniquely identify them.
-  $vocabulary_arguments = array(
-    array(
-      'description' => t('Migration of Countries terms from Drupal 6'),
-      'machine_name' => 'Countries',
-      'source_vocabulary' => '1',  // D6 Vocabulary ID
-      'destination_vocabulary' => 'countries',
-    ),
-    array(
-      'description' => t('Migration of Topics terms from Drupal 6'),
-      'machine_name' => 'Topics',
-      'source_vocabulary' => '2',  // D6 Vocabulary ID
-      'destination_vocabulary' => 'topics',
-    ),
-  );
+  // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+  $migrations += cbib_migrate_register_central_library_migration();
 
-  // Again, we're using the migrate_d2d class directly.
-  // The soft dependency says that while we don't have to run the user migration
-  // first, we want to make sure it's listed first so the vocubularies are
-  // listed right ahead of the node migrations.
-  $common_vocabulary_arguments = $common_arguments + array(
-    'class_name' => 'DrupalTerm6Migration',
-    'soft_dependencies' => array('User'),
-  );
-  foreach ($vocabulary_arguments as $arguments) {
-    $arguments += $common_vocabulary_arguments;
-    Migration::registerMigration($arguments['class_name'], $arguments['machine_name'],
-                                 $arguments);
-  }
+  // Get migrations for groups (Gruppe/group -> Gruppe/group).
+  $migrations += cbib_migrate_register_group_migration();
 
-  // Node migrations - each has its own class derived from the migrate_d2d class,
-  // specifying its particular field mappings and transformations. source_type
-  // and destination_type are required arguments.
-  $node_arguments = array(
-    array(
-      'class_name' => 'ExampleImageMigration',
-      'description' => t('Migration of image nodes from Drupal 6'),
-      'machine_name' => 'Image',
-      'source_type' => 'image',
-      'destination_type' => 'image',
-    ),
-    array(
-      'class_name' => 'ExampleArticleMigration',
-      'description' => t('Migration of article nodes from Drupal 6'),
-      'machine_name' => 'Article',
-      'source_type' => 'my_article',
-      'destination_type' => 'new_article',
-      'dependencies' => array('Image', 'Countries', 'Topics'),
-    ),
-  );
-  // Tell the node migrations where the users are coming from, so they can
-  // set up the dependency and resolve D6->D7 uids.
-  $common_node_arguments = $common_arguments + array(
-    'user_migration' => 'User',
-  );
-  foreach ($node_arguments as $arguments) {
-    $arguments = array_merge_recursive($arguments, $common_node_arguments);
-    Migration::registerMigration($arguments['class_name'], $arguments['machine_name'],
-                                 $arguments);
-  }
+  // Get migrations for events (Arrangement/event -> Begivenhed/event).
+  $migrations += cbib_migrate_register_event_migration();
 
-  // Menu migrations -- same requirements as users
-  $menu_arguments = $common_arguments + array(
-    'description' => t('Migration of menus from Drupal 6'),
-    'machine_name' => 'Menu',
-  );
+  // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+  $migrations += cbib_migrate_register_document_migration();
 
-  // We just use the migrate_d2d D6 migration class as-is.
-  Migration::registerMigration('DrupalMenu6Migration', $menu_arguments['machine_name'],
-                               $menu_arguments);
+  // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+  $migrations += cbib_migrate_register_post_migration();
 
-  // Menu links migrations -- basic requirements, plus must set up menu dependency
-  $menu_links_arguments = $common_arguments + array(
-    'description' => t('Migration of menu links from Drupal 6'),
-    'machine_name' => 'MenuLinks',
-    'menu_migration' => $menu_arguments['machine_name'],
-  );
-  Migration::registerMigration('DrupalMenuLinks6Migration', $menu_links_arguments['machine_name'],
-                               $menu_links_arguments);
+  // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+  $migrations += cbib_migrate_register_news_item_migration();
+
+  // Get migrations for pages (Tekstside/textpage -> Site/page).
+  $migrations += cbib_migrate_register_page_migration();
+
+  // Register all the migrations.
+  cbib_migrate_register_migrations($common_arguments, $migrations);
 }
 
 /**
@@ -130,4 +63,128 @@ function cbib_migrate_migrate_api() {
     'api' => 2,
   );
   return $api;
+}
+
+/**
+ * Get migrations for users and their profile nodes.
+ *
+ * @return Array containing the arguments of the migration ('arguments' array key)
+ *   and the class that handles the migration ('class' array key).
+ */
+function cbib_migrate_register_user_migration() {
+  $migrations = array();
+
+  $user_migration = array(
+    'description' => t('Migration of users from Centralbibliotek.dk'),
+    'machine_name' => 'user',
+  );
+
+  $migrations[] = array(
+    'arguments' => $user_migration,
+    'class' => 'CbibUserMigration',
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for images (Billedefil/media -> Billede).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_image_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_central_library_migration() {
+  $migrations = array();
+
+  $central_library_migration = array(
+    'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
+    'machine_name' => 'central_library',
+    'source_type' => 'library',
+    'destination_type' => 'centralbibliotek',
+    'user_migration' => 'user',
+  );
+
+  $migrations[] = array(
+    'arguments' => $central_library_migration,
+    'class' => 'CentralLibraryMigration',
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for groups (Gruppe/group -> Gruppe/group).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_group_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for events (Arrangement/event -> Begivenhed/event).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_event_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_document_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_post_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_news_item_migration() {
+  $migrations = array();
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for pages (Tekstside/textpage -> Site/page).
+ *
+ * @see cbib_migrate_register_user_migration().
+ */
+function cbib_migrate_register_page_migration() {
+
+  $migrations = array();
+
+  return $migrations;
 }
