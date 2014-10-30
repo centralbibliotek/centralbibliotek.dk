@@ -58,39 +58,40 @@ function cbib_migrate_deregister_migrations() {
  * @return Array of migrations as described above.
  */
 function cbib_migrate_get_all_migrations() {
-  $migrations = array();
+  return array_merge(
+    // Get migrations for users.
+    cbib_migrate_get_user_migrations(),
 
-  // Get migrations for users.
-  $migrations  = cbib_migrate_get_user_migrations();
+    // Get migrations for files.
+    cbib_migrate_get_file_migrations(),
 
-  // Get migrations for images (Billedefil/media -> Billede).
-  $migrations += cbib_migrate_get_image_migrations();
+    // Get migrations for images (Billedefil/media -> Billede).
+    cbib_migrate_get_image_migrations(),
 
-  // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
-  $migrations += cbib_migrate_get_central_library_migrations();
+    // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+    cbib_migrate_get_central_library_migrations(),
 
-  // Get migrations for user profiles.
-  $migrations += cbib_migrate_get_profile_migrations();
+    // Get migrations for user profiles.
+    cbib_migrate_get_profile_migrations(),
 
-  // Get migrations for groups (Gruppe/group -> Gruppe/group).
-  $migrations += cbib_migrate_get_group_migrations();
+    // Get migrations for groups (Gruppe/group -> Gruppe/group).
+    cbib_migrate_get_group_migrations(),
 
-  // Get migrations for events (Arrangement/event -> Begivenhed/event).
-  $migrations += cbib_migrate_get_event_migrations();
+    // Get migrations for events (Arrangement/event -> Begivenhed/event).
+    cbib_migrate_get_event_migrations(),
 
-  // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
-  $migrations += cbib_migrate_get_document_migrations();
+    // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+    cbib_migrate_get_document_migrations(),
 
-  // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
-  $migrations += cbib_migrate_get_post_migrations();
+    // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+    cbib_migrate_get_post_migrations(),
 
-  // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
-  $migrations += cbib_migrate_get_news_item_migrations();
+    // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+    cbib_migrate_get_news_item_migrations(),
 
-  // Get migrations for pages (Tekstside/textpage -> Site/page).
-  $migrations += cbib_migrate_get_page_migrations();
-
-  return $migrations;
+    // Get migrations for pages (Tekstside/textpage -> Site/page).
+    cbib_migrate_get_page_migrations()
+  );
 }
 
 /**
@@ -117,12 +118,25 @@ function cbib_migrate_get_user_migrations() {
     'class' => 'DrupalRole6Migration',
     'arguments' => array(
       'group' => 'user',
-      'description' => t('Mapping of roles from the old to the new site.'),
+      'description' => t('Migration of roles from Centralbibliotek.dk'),
       'role_mappings' => array(
         'Biblioteksadmin' => 'content moderator',
       ),
     ),
   );
+
+  $migrations[] = array(
+    'machine_name' => 'picture',
+    'class' => 'DrupalPicture6Migration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of profile pictures from Centralbibliotek.dk'),
+      'default_uid' => 1,
+      'source_dir' => getcwd() . '/old/',
+      'destination_dir' => 'public://legacy_pictures',
+    ),
+  );
+ 
 
   $migrations[] = array(
     'machine_name' => 'user',
@@ -131,6 +145,31 @@ function cbib_migrate_get_user_migrations() {
       'group' => 'user',
       'description' => t('Migration of users from Centralbibliotek.dk'),
       'role_migration' => 'role',
+      'picture_migration' => 'picture',
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for files.
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_file_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'file',
+    'class' => 'DrupalFile6Migration',
+    'arguments' => array(
+      'group' => 'file',
+      'description' => t('Migration of files from Centralbibliotek.dk'),
+      'user_migration' => 'user',
+      'default_uid' => 1,
+      'source_dir' => getcwd() . "/old/",
+      'destination_dir' => 'public://legacy',
     ),
   );
 
@@ -145,25 +184,6 @@ function cbib_migrate_get_user_migrations() {
 function cbib_migrate_get_image_migrations() {
   $migrations = array();
 
-  $migrations[] = array(
-    'machine_name' => 'file',
-    'class' => 'DrupalFile6Migration',
-    'arguments' => array(
-      'group' => 'file',
-      'description' => t('Migration of files from Centralbibliotek.dk'),
-      'user_migration' => 'user',
-    ),
-  );
-
-/*  $migrations[] = array(
-    'arguments' => array(
-      'description' => t('Migration of profile pictures from Centralbibliotek.dk'),
-      'user_migration' => 'user',
-    ),
-    'class' => 'DrupalPicture6Migration',
-    'machine_name' => 'picture',
-  );
- */
   return $migrations;
 }
 
