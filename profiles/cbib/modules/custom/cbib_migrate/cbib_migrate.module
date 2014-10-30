@@ -170,6 +170,7 @@ function cbib_migrate_get_file_migrations() {
       'default_uid' => 1,
       'source_dir' => getcwd() . "/old/",
       'destination_dir' => 'public://legacy',
+      'dependencies' => array('user'),
     ),
   );
 
@@ -184,6 +185,8 @@ function cbib_migrate_get_file_migrations() {
 function cbib_migrate_get_image_migrations() {
   $migrations = array();
 
+  // We will leave this for now. Let's see if it required.
+
   return $migrations;
 }
 
@@ -195,19 +198,22 @@ function cbib_migrate_get_image_migrations() {
 function cbib_migrate_get_central_library_migrations() {
   $migrations = array();
 
-/*  $central_library_migration = array(
-    'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
-    'machine_name' => 'central_library',
-    'source_type' => 'library',
-    'destination_type' => 'centralbibliotek',
-    'user_migration' => 'user',
+  $central_library_migration = array(
   );
 
   $migrations[] = array(
-    'arguments' => $central_library_migration,
+    'machine_name' => 'central_library',
     'class' => 'CbibCentralLibraryMigration',
+    'arguments' => array(
+      'group' => 'central_library',
+      'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
+      'source_type' => 'library',
+      'destination_type' => 'centralbibliotek',
+      'user_migration' => 'user',
+      'dependencies' => array('user'),
+    ),
   );
- */
+
   return $migrations;
 }
 
