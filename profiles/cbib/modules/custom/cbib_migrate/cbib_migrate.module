@@ -14,7 +14,9 @@ function cbib_migrate_flush_caches() {
 }
 
 /**
- * Register all D6->D7 migrations.
+ * Register all migrations.
+ *
+ * @return void.
  */
 function cbib_migrate_register_migrations() {
   // Define how we are getting the data for the migration. Legacy connector
@@ -24,35 +26,71 @@ function cbib_migrate_register_migrations() {
     'source_version' => 6,
   );
 
-  // Get migrations for users and their profile nodes.
-  $migrations  = cbib_migrate_register_user_migration();
-
-  // Get migrations for images (Billedefil/media -> Billede).
-  $migrations += cbib_migrate_register_image_migration();
-
-  // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
-  $migrations += cbib_migrate_register_central_library_migration();
-
-  // Get migrations for groups (Gruppe/group -> Gruppe/group).
-  $migrations += cbib_migrate_register_group_migration();
-
-  // Get migrations for events (Arrangement/event -> Begivenhed/event).
-  $migrations += cbib_migrate_register_event_migration();
-
-  // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
-  $migrations += cbib_migrate_register_document_migration();
-
-  // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
-  $migrations += cbib_migrate_register_post_migration();
-
-  // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
-  $migrations += cbib_migrate_register_news_item_migration();
-
-  // Get migrations for pages (Tekstside/textpage -> Site/page).
-  $migrations += cbib_migrate_register_page_migration();
+  $migrations = cbib_migrate_get_all_migrations();
 
   // Register all the migrations.
-  cbib_migrate_register_migrations($common_arguments, $migrations);
+  foreach ($migrations as $migration) {
+    Migration::registerMigration($migration['class'], $migration['arguments']['machine_name'], $common_arguments + $migration['arguments']);
+  }
+}
+
+/**
+ * Deregister all migrations.
+ *
+ * @return void.
+ */
+function cbib_migrate_deregister_migrations() {
+  $migrations = cbib_migrate_get_all_migrations();
+
+  // Deregister all the migrations.
+  foreach ($migrations as $migration) {
+    Migration::deregisterMigration($migration['arguments']['machine_name']);
+  }
+}
+
+/**
+ * Get an array of all migrations. The returned migrations array
+ * has the following keys:
+ *   class: The name of the migration class.
+ *   arguments: The arguments for the migration. This further contains
+ *     the key 'machine_name'.
+ *
+ * @return Array of migrations as described above.
+ */
+function cbib_migrate_get_all_migrations() {
+  $migrations = array();
+
+  // Get migrations for users.
+  $migrations  = cbib_migrate_get_user_migrations();
+
+  // Get migrations for images (Billedefil/media -> Billede).
+  $migrations += cbib_migrate_get_image_migrations();
+
+  // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+  $migrations += cbib_migrate_get_central_library_migrations();
+
+  // Get migrations for user profiles.
+  $migrations += cbib_migrate_get_profile_migrations();
+
+  // Get migrations for groups (Gruppe/group -> Gruppe/group).
+  $migrations += cbib_migrate_get_group_migrations();
+
+  // Get migrations for events (Arrangement/event -> Begivenhed/event).
+  $migrations += cbib_migrate_get_event_migrations();
+
+  // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+  $migrations += cbib_migrate_get_document_migrations();
+
+  // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+  $migrations += cbib_migrate_get_post_migrations();
+
+  // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+  $migrations += cbib_migrate_get_news_item_migrations();
+
+  // Get migrations for pages (Tekstside/textpage -> Site/page).
+  $migrations += cbib_migrate_get_page_migrations();
+
+  return $migrations;
 }
 
 /**
@@ -65,13 +103,16 @@ function cbib_migrate_migrate_api() {
   return $api;
 }
 
+function cbib_migrate_register_all_migrations($common_arguments, $migrations) {
+}
+
 /**
  * Get migrations for users and their profile nodes.
  *
  * @return Array containing the arguments of the migration ('arguments' array key)
  *   and the class that handles the migration ('class' array key).
  */
-function cbib_migrate_register_user_migration() {
+function cbib_migrate_get_user_migrations() {
   $migrations = array();
 
   $user_migration = array(
@@ -90,9 +131,9 @@ function cbib_migrate_register_user_migration() {
 /**
  * Get migrations for images (Billedefil/media -> Billede).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_image_migration() {
+function cbib_migrate_get_image_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -101,12 +142,12 @@ function cbib_migrate_register_image_migration() {
 /**
  * Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_central_library_migration() {
+function cbib_migrate_get_central_library_migrations() {
   $migrations = array();
 
-  $central_library_migration = array(
+/*  $central_library_migration = array(
     'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
     'machine_name' => 'central_library',
     'source_type' => 'library',
@@ -116,18 +157,18 @@ function cbib_migrate_register_central_library_migration() {
 
   $migrations[] = array(
     'arguments' => $central_library_migration,
-    'class' => 'CentralLibraryMigration',
+    'class' => 'CbibCentralLibraryMigration',
   );
-
+ */
   return $migrations;
 }
 
 /**
  * Get migrations for groups (Gruppe/group -> Gruppe/group).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_group_migration() {
+function cbib_migrate_get_group_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -136,9 +177,9 @@ function cbib_migrate_register_group_migration() {
 /**
  * Get migrations for events (Arrangement/event -> Begivenhed/event).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_event_migration() {
+function cbib_migrate_get_event_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -147,9 +188,9 @@ function cbib_migrate_register_event_migration() {
 /**
  * Get migrations for documents (Gruppefil/group_file -> Dokument/document).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_document_migration() {
+function cbib_migrate_get_document_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -158,9 +199,9 @@ function cbib_migrate_register_document_migration() {
 /**
  * Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_post_migration() {
+function cbib_migrate_get_post_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -169,9 +210,9 @@ function cbib_migrate_register_post_migration() {
 /**
  * Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_news_item_migration() {
+function cbib_migrate_get_news_item_migrations() {
   $migrations = array();
 
   return $migrations;
@@ -180,9 +221,9 @@ function cbib_migrate_register_news_item_migration() {
 /**
  * Get migrations for pages (Tekstside/textpage -> Site/page).
  *
- * @see cbib_migrate_register_user_migration().
+ * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_register_page_migration() {
+function cbib_migrate_get_page_migrations() {
 
   $migrations = array();
 
