@@ -7,4 +7,5 @@ dependencies[] = migrate
 dependencies[] = migrate_d2d
 
 files[] = migration_classes/user.inc
+files[] = migration_classes/image.inc
 ;files[] = migration_classes/central_library.inc

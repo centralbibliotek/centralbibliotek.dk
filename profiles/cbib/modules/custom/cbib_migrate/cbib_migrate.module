@@ -30,7 +30,7 @@ function cbib_migrate_register_migrations() {
 
   // Register all the migrations.
   foreach ($migrations as $migration) {
-    Migration::registerMigration($migration['class'], $migration['arguments']['machine_name'], $common_arguments + $migration['arguments']);
+    Migration::registerMigration($migration['class'], $migration['machine_name'], $common_arguments + $migration['arguments']);
   }
 }
 
@@ -44,7 +44,7 @@ function cbib_migrate_deregister_migrations() {
 
   // Deregister all the migrations.
   foreach ($migrations as $migration) {
-    Migration::deregisterMigration($migration['arguments']['machine_name']);
+    Migration::deregisterMigration($migration['machine_name']);
   }
 }
 
@@ -52,8 +52,8 @@ function cbib_migrate_deregister_migrations() {
  * Get an array of all migrations. The returned migrations array
  * has the following keys:
  *   class: The name of the migration class.
- *   arguments: The arguments for the migration. This further contains
- *     the key 'machine_name'.
+ *   arguments: The arguments for the migration.
+ *   machine_name: The machine name of the migration.
  *
  * @return Array of migrations as described above.
  */
@@ -115,14 +115,26 @@ function cbib_migrate_register_all_migrations($common_arguments, $migrations) {
 function cbib_migrate_get_user_migrations() {
   $migrations = array();
 
-  $user_migration = array(
-    'description' => t('Migration of users from Centralbibliotek.dk'),
-    'machine_name' => 'user',
+  $migrations[] = array(
+    'machine_name' => 'role',
+    'class' => 'DrupalRole6Migration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Mapping of roles from the old to the new site.'),
+      'role_mappings' => array(
+        'Biblioteksadmin' => 'content moderator',
+      ),
+    ),
   );
 
   $migrations[] = array(
-    'arguments' => $user_migration,
-    'class' => 'CbibUserMigration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of users from Centralbibliotek.dk'),
+      'role_migration' => 'role',
+    ),
+    'machine_name' => 'user',
+    'class' => 'DrupalUser6Migration',
   );
 
   return $migrations;
@@ -136,6 +148,25 @@ function cbib_migrate_get_user_migrations() {
 function cbib_migrate_get_image_migrations() {
   $migrations = array();
 
+  $migrations[] = array(
+    'arguments' => array(
+      'group' => 'file',
+      'description' => t('Migration of files from Centralbibliotek.dk'),
+      'user_migration' => 'user',
+    ),
+    'class' => 'DrupalFile6Migration',
+    'machine_name' => 'file',
+  );
+
+/*  $migrations[] = array(
+    'arguments' => array(
+      'description' => t('Migration of profile pictures from Centralbibliotek.dk'),
+      'user_migration' => 'user',
+    ),
+    'class' => 'DrupalPicture6Migration',
+    'machine_name' => 'picture',
+  );
+ */
   return $migrations;
 }
 
@@ -160,6 +191,17 @@ function cbib_migrate_get_central_library_migrations() {
     'class' => 'CbibCentralLibraryMigration',
   );
  */
+  return $migrations;
+}
+
+/**
+ * Get migrations for profiles.
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_profile_migrations() {
+  $migrations = array();
+
   return $migrations;
 }
 
