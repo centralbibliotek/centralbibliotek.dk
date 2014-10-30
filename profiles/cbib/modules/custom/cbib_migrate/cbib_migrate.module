@@ -103,9 +103,6 @@ function cbib_migrate_migrate_api() {
   return $api;
 }
 
-function cbib_migrate_register_all_migrations($common_arguments, $migrations) {
-}
-
 /**
  * Get migrations for users and their profile nodes.
  *
