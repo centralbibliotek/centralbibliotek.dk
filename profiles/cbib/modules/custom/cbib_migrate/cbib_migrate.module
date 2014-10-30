@@ -125,13 +125,13 @@ function cbib_migrate_get_user_migrations() {
   );
 
   $migrations[] = array(
+    'machine_name' => 'user',
+    'class' => 'DrupalUser6Migration',
     'arguments' => array(
       'group' => 'user',
       'description' => t('Migration of users from Centralbibliotek.dk'),
       'role_migration' => 'role',
     ),
-    'machine_name' => 'user',
-    'class' => 'DrupalUser6Migration',
   );
 
   return $migrations;
@@ -146,13 +146,13 @@ function cbib_migrate_get_image_migrations() {
   $migrations = array();
 
   $migrations[] = array(
+    'machine_name' => 'file',
+    'class' => 'DrupalFile6Migration',
     'arguments' => array(
       'group' => 'file',
       'description' => t('Migration of files from Centralbibliotek.dk'),
       'user_migration' => 'user',
     ),
-    'class' => 'DrupalFile6Migration',
-    'machine_name' => 'file',
   );
 
 /*  $migrations[] = array(
