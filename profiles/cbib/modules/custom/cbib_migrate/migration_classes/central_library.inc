@@ -20,7 +20,7 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
 
     $this->mapGroupLogoField();
 
-    $this->mapAddressField('field_address');
+    $this->mapAddressField('field_address', 'field_address');
   }
 
   /**
@@ -51,8 +51,8 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
 
     // Join location table, which is not CCK.
     // Required for mapping address fields correctly.
-    $query->join('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
-    $query->join('location', 'l', 'l.lid = i.lid');
+    $query->leftJoin('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
+    $query->leftJoin('location', 'l', 'l.lid = i.lid');
     $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
     return $query;
   }
@@ -149,7 +149,6 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
    * to the group.
    */
   public function complete($node, stdClass $row) {
-    parent::complete($node, $row);
     // TODO
   }
 }

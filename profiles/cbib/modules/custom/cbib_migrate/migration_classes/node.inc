@@ -7,13 +7,24 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
    * REQUIRED altering the query and adding a
    * join to the relevant table, where address
    * information is stored.
-   * See CbibCentralLibraryMigration::query
+   * See CbibCentralLibraryMigration::query().
    *
-   * @param $field_name
+   * @param $dest_field_name
    *   The name of the field to map.
+   * @param $source_field_name
+   *   The name of the source field.
    * @return void.
    */
-  protected function mapAddressField($field_name) {
+  protected function mapAddressField($dest_field_name, $source_field_name) {
+    self::mapAddressFieldFor($this, $dest_field_name, $source_field_name);
+  }
+
+  /**
+   * Actually map the address field.
+   *
+   * @see CbibMigrateDrupalNode6Migration::mapAddressField().
+   */
+  public static function mapAddressFieldFor($ctx, $dest_field_name, $source_field_name) {
     $address_arguments = array(
       'administrative_area' => array('source_field' => 'province'),
       'locality' => array('source_field' => 'city'),
@@ -21,30 +32,47 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
       'premise' => array('source_field' => 'additional'),
       'postal_code' => array('source_field' => 'postal_code'),
     );
-    $this->addFieldMapping($field_name, 'country')
+    $ctx->addFieldMapping($dest_field_name, 'country')
          ->arguments($address_arguments);
     // Hide these sources because they are added as arguments
-    $this->addUnmigratedSources(array(
+    $ctx->addUnmigratedSources(array(
+      $source_field_name,
       'province',
       'city',
       'street',
       'additional',
       'postal_code',
-    ), t('DNM'));
-    $this->addUnmigratedDestinations(array(
-      $field_name . ':administrative_area',
-      $field_name . ':sub_administrative_area',
-      $field_name . ':locality',
-      $field_name . ':dependent_locality',
-      $field_name . ':postal_code',
-      $field_name . ':thoroughfare',
-      $field_name . ':premise',
-      $field_name . ':sub_premise',
-      $field_name . ':organisation_name',
-      $field_name . ':name_line',
-      $field_name . ':first_name',
-      $field_name . ':last_name',
-      $field_name . ':data',
-    ), t('DNM'));
+    ));
+    $ctx->addUnmigratedDestinations(array(
+      $dest_field_name . ':administrative_area',
+      $dest_field_name . ':sub_administrative_area',
+      $dest_field_name . ':locality',
+      $dest_field_name . ':dependent_locality',
+      $dest_field_name . ':postal_code',
+      $dest_field_name . ':thoroughfare',
+      $dest_field_name . ':premise',
+      $dest_field_name . ':sub_premise',
+      $dest_field_name . ':organisation_name',
+      $dest_field_name . ':name_line',
+      $dest_field_name . ':first_name',
+      $dest_field_name . ':last_name',
+      $dest_field_name . ':data',
+    ));
+  }
+
+  /**
+   * Set no language on fields
+   *
+   * @param $ctx
+   *   The context to use.
+   * @param $fields
+   *   Array of fields to set no language on.
+   * @return void.
+   */
+  public static function noLanguage($ctx, array $fields) {
+    foreach ($fields as $field) {
+      $ctx->addFieldMapping($field . ':language')
+        ->defaultValue(LANGUAGE_NONE);
+    }
   }
 }

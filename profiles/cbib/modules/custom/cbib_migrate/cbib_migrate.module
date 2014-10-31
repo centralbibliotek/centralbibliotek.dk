@@ -126,26 +126,12 @@ function cbib_migrate_get_user_migrations() {
   );
 
   $migrations[] = array(
-    'machine_name' => 'picture',
-    'class' => 'DrupalPicture6Migration',
-    'arguments' => array(
-      'group' => 'user',
-      'description' => t('Migration of profile pictures from Centralbibliotek.dk'),
-      'default_uid' => 1,
-      'source_dir' => getcwd() . '/old/',
-      'destination_dir' => 'public://legacy_pictures',
-    ),
-  );
- 
-
-  $migrations[] = array(
     'machine_name' => 'user',
-    'class' => 'DrupalUser6Migration',
+    'class' => 'CbibUserMigration',
     'arguments' => array(
       'group' => 'user',
       'description' => t('Migration of users from Centralbibliotek.dk'),
       'role_migration' => 'role',
-      'picture_migration' => 'picture',
     ),
   );
 
@@ -335,4 +321,22 @@ function cbib_migrate_register_message($message, $level = Migration::MESSAGE_ERR
   $migration = Migration::currentMigration();
 
   $migration->queueMessage($message, $level);
+}
+
+/**
+ * Convert text to link. Save a message if the text is not a link.
+ *
+ * @param $text
+ *   The text to convert.
+ * @return Text that is a link, or NULL if input was not a link.
+ */
+function cbib_migrate_convert_to_link($text) {
+  // Check if text is link
+  if (preg_match('_^http(s?)://_', $text)) {
+    return $text;
+  }
+  else {
+    cbib_migrate_register_message('Text is not a link: ' . $text);
+    return NULL;
+  }
 }
