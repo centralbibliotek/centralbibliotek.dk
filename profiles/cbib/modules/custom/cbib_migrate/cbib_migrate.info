@@ -6,4 +6,5 @@ core = 7.x
 dependencies[] = migrate
 dependencies[] = migrate_d2d
 
+files[] = migration_classes/node.inc
 files[] = migration_classes/central_library.inc

@@ -294,3 +294,45 @@ function cbib_migrate_get_page_migrations() {
 
   return $migrations;
 }
+
+/**
+ * Convert a string to a number during migration.
+ *
+ * @param $text
+ *   The text to convert.
+ * @return The integer converted to or NULL for empty.
+ */
+function cbib_migrate_convert_to_number($text) {
+  // Remove spaces.
+  $trimmed_text = str_replace(' ', '', $text);
+
+  // Allow empty value.
+  if (empty($trimmed_text)) {
+    return NULL;
+  }
+
+  // Fail if end value is not numeric
+  if (!is_numeric($trimmed_text)) {
+    cbib_migrate_register_message("Received value was not numeric. Value: " . $text, Migration::MESSAGE_WARNING);
+    return NULL;
+  }
+
+  // If we end up here, it is numeric. Cast and return.
+  return (int)$trimmed_text;
+}
+
+/**
+ * Register message in migration.
+ *
+ * @param $message
+ *   The message to register.
+ * @param $level
+ *   The level as defined in Migration class.
+ *   Defaults to Migration::MESSAGE_ERROR.
+ * @return void.
+ */
+function cbib_migrate_register_message($message, $level = Migration::MESSAGE_ERROR) {
+  $migration = Migration::currentMigration();
+
+  $migration->queueMessage($message, $level);
+}
