@@ -112,6 +112,7 @@ class CbibUserMigration extends DrupalUser6Migration {
 
     $this->addUnmigratedDestinations(array(
       'user_trusted_contacts',
+      'og_user_node',
       'og_user_user',
     ));
 
