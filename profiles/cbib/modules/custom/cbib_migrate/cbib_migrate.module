@@ -336,7 +336,44 @@ function cbib_migrate_convert_to_link($text) {
     return $text;
   }
   else {
-    cbib_migrate_register_message('Text is not a link: ' . $text);
+    // Allow empty.
+    if (strlen(trim($text)) > 0) {
+      cbib_migrate_register_message('Text is not a link: ' . $text);
+    }
     return NULL;
   }
+}
+
+/**
+ * Register a mapping from a profile nid to a new uid.
+ *
+ * @param $nid
+ *   The id of the profile node on the old system.
+ * @param $uid
+ *   The id of the new user.
+ * @return void.
+ */
+function cbib_migrate_register_profile_mapping($nid, $uid) {
+  $record = new StdClass();
+  $record->nid = $nid;
+  $record->uid = $uid;
+
+  drupal_write_record('cbib_migrate_profile_map', $record);
+}
+
+/**
+ * Lookup a mapping from a profile nid to a new user uid.
+ *
+ * @param $nid
+ *   The id of the profile node.
+ * @return The id of the new user.
+ */
+function cbib_migrate_lookup_profile_uid($nid) {
+  $row = db_select('cbib_migrate_profile_map', 'm')
+    ->condition('nid', $nid)
+    ->fields('m', array('uid'))
+    ->execute()
+    ->fetch();
+
+  return $row ? $row->uid : NULL;
 }

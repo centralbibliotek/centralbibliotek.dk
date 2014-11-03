@@ -16,8 +16,6 @@ class CbibUserMigration extends DrupalUser6Migration {
 
     $this->mapAddressField();
 
-    $this->mapEntityReferenceFields();
-
     $this->mapLinkFields();
 
     $this->mapNameFields();
@@ -63,6 +61,7 @@ class CbibUserMigration extends DrupalUser6Migration {
     $query->leftJoin('location', 'l', 'l.lid = i.lid');
     $query->fields('n', array(
       'title',
+      'nid',
     ));
     $query->fields('l', array(
       'street',
@@ -131,6 +130,7 @@ class CbibUserMigration extends DrupalUser6Migration {
     $this->addUnmigratedSources(array(
       'field_otherworkplace',
       'field_associated_library2',
+      'nid',
     ));
   }
 
@@ -264,5 +264,26 @@ class CbibUserMigration extends DrupalUser6Migration {
       'metatag_revisit-after',
       'metatag_content-language',
     ));
+  }
+
+  /**
+   * Save the nid of the profile mapped to the new uid.
+   */
+  public function complete($user, $row) {
+    parent::complete($user, $row);
+
+    // Apparently, some users do not have a profile.
+    if ($row->nid) {
+      cbib_migrate_register_profile_mapping($row->nid, $user->uid);
+    }
+  }
+
+  /**
+   * Clear the profile mappings table.
+   */
+  public function postRollback() {
+    parent::postRollback();
+
+    db_truncate('cbib_migrate_profile_map')->execute();
   }
 }

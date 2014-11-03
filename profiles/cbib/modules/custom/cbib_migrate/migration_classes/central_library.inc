@@ -131,12 +131,6 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
     $this->addFieldMapping('field_group_logo:title', 'field_image_library:title')
       ->defaultValue('');
 
-    // Files are migrated in another migration.
-    // Upon rollback, do not delete files.
-    // ONLY for Migrate 7.x-2.6
-    //$this->addFieldMapping('field_group_logo:preserve_files')
-    //  ->defaultValue(TRUE);
-
     // Hide data and list.
     $this->addUnmigratedSources(array(
       'field_image_library:data',
@@ -149,6 +143,23 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
    * to the group.
    */
   public function complete($node, stdClass $row) {
-    // TODO
+    // Go through the staff of the library.
+    foreach ($row->field_staff as $member) {
+      $uid = cbib_migrate_lookup_profile_uid($member);
+      if ($uid == NULL) {
+        cbib_migrate_register_message("Staff member with profile id " . $member . " not found in user mapping!");
+        continue;
+      }
+
+      // Sign the user up for this group.
+      og_group('node', $node->nid, array(
+        "entity type"     => "user",
+        "entity"          => user_load($uid),
+      ));
+
+      // Grant administrative role.
+      // TODO Can we depend on 6 as administrative role?
+      og_role_grant('node', $node->nid, $uid, 6);
+    }
   }
 }
