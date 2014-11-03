@@ -1,11 +1,18 @@
 <?php
 
-class CbibUserMigration extends DrupalUser6Migration {
+class CbibUserProfileMigration extends DrupalUser6Migration {
   public function __construct(array $arguments) {
     $this->sourceFields['field_first_name'] = 'First name as extracted from name field.';
     $this->sourceFields['field_last_name'] = 'Last name as extracted from name field.';
 
     parent::__construct($arguments);
+
+    // To make sure that users are not created, we specify that
+    // we have already imported the regular user information,
+    // and that we should map to existing by uid field from 
+    // user source migration.
+    $this->addFieldMapping('uid', 'uid')
+      ->sourceMigration('user');
 
     $this->mapNonMigratedDestinationFields();
     $this->mapNonMigratedSourceFields();
@@ -29,6 +36,19 @@ class CbibUserMigration extends DrupalUser6Migration {
   public function prepareRow($row) {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
+    }
+
+    // We make sure that the destid1 is set. If not the migration will
+    // dedupe usernames (add _2 etc.).
+    if (!isset($row->migrate_map_destid1)) {
+      $db_row = db_select('migrate_map_user', 'map')
+        ->fields('map', array('destid1'))
+        ->condition('sourceid1', $row->uid)
+        ->execute()
+        ->fetch();
+      if ($db_row) {
+        $row->migrate_map_destid1 = $db_row->destid1;
+      }
     }
 
     // Extract title and alt from image data.
@@ -222,7 +242,7 @@ class CbibUserMigration extends DrupalUser6Migration {
    * @see CbibMigrateDrupalNode6Migration::noLanguage().
    */
   private function noLanguage($fields) {
-    CbibMigrateDrupalNode6Migration::noLanguage($this, $fields);
+    CbibMigrateDrupalNode6Migration::noLanguageFor($this, $fields);
   }
 
   /**

@@ -20,6 +20,8 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
 
     $this->mapGroupLogoField();
 
+    $this->mapMetaFields();
+
     $this->mapAddressField('field_address', 'field_address');
   }
 
@@ -87,6 +89,8 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
   private function mapNonMigratedSourceFields() {
     $this->addUnmigratedSources(array(
       'field_library_licence_user',
+      'field_staff',
+      'field_name_url',
     ), t('DNM'));
   }
 
@@ -101,6 +105,15 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
     $this->addFieldMapping('field_website', 'field_homepage');
     $this->addFieldMapping('field_e_mail', 'field_email');
     $this->addFieldMapping('field_phone', 'field_phone');
+    $this->addFieldMapping('title_field', 'title');
+
+    $this->noLanguage(array(
+      'field_ean',
+      'field_website',
+      'field_e_mail',
+      'field_phone',
+      'title_field',
+    ));
   }
 
   /**
@@ -136,6 +149,15 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
       'field_image_library:data',
       'field_image_library:list',
     ), t('DNM'));
+  }
+
+  /**
+   * Map meta-fields.
+   *
+   * @return void.
+   */
+  private function mapMetaFields() {
+    $this->mapNoMapMetaFields();
   }
 
   /**

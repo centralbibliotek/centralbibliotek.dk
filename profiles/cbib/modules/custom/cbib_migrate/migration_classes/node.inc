@@ -20,6 +20,39 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
   }
 
   /**
+   * Set no language for fields.
+   * @see CbibMigrateDrupalNode6Migration::noLanguage().
+   */
+  protected function noLanguage($fields) {
+    CbibMigrateDrupalNode6Migration::noLanguageFor($this, $fields);
+  }
+
+  /**
+   * Mark all metatag fields as not mapped.
+   */
+  protected function mapNoMapMetaFields() {
+    $this->addUnmigratedDestinations(array(
+      'metatag_title',
+      'metatag_description',
+      'metatag_abstract',
+      'metatag_keywords',
+      'metatag_robots',
+      'metatag_news_keywords',
+      'metatag_standout',
+      'metatag_generator',
+      'metatag_rights',
+      'metatag_image_src',
+      'metatag_canonical',
+      'metatag_shortlink',
+      'metatag_publisher',
+      'metatag_author',
+      'metatag_original-source',
+      'metatag_revisit-after',
+      'metatag_content-language',
+    ));
+  }
+
+  /**
    * Actually map the address field.
    *
    * @see CbibMigrateDrupalNode6Migration::mapAddressField().
@@ -69,7 +102,7 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
    *   Array of fields to set no language on.
    * @return void.
    */
-  public static function noLanguage($ctx, array $fields) {
+  public static function noLanguageFor($ctx, array $fields) {
     foreach ($fields as $field) {
       $ctx->addFieldMapping($field . ':language')
         ->defaultValue(LANGUAGE_NONE);

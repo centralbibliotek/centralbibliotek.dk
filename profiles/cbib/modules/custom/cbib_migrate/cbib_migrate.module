@@ -127,11 +127,22 @@ function cbib_migrate_get_user_migrations() {
 
   $migrations[] = array(
     'machine_name' => 'user',
-    'class' => 'CbibUserMigration',
+    'class' => 'DrupalUser6Migration',
     'arguments' => array(
       'group' => 'user',
-      'description' => t('Migration of users from Centralbibliotek.dk'),
+      'description' => t('Migration of basic user information from Centralbibliotek.dk'),
       'role_migration' => 'role',
+    ),
+  );
+
+  $migrations[] = array(
+    'machine_name' => 'user_profile',
+    'class' => 'CbibUserProfileMigration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
+      'role_migration' => 'role',
+      'dependencies' => array('file'),
     ),
   );
 
@@ -196,7 +207,7 @@ function cbib_migrate_get_central_library_migrations() {
       'source_type' => 'library',
       'destination_type' => 'centralbibliotek',
       'user_migration' => 'user',
-      'dependencies' => array('user'),
+      'dependencies' => array('user_profile'),
     ),
   );
 
@@ -331,6 +342,8 @@ function cbib_migrate_register_message($message, $level = Migration::MESSAGE_ERR
  * @return Text that is a link, or NULL if input was not a link.
  */
 function cbib_migrate_convert_to_link($text) {
+  $text = trim($text);
+
   // Check if text is link
   if (preg_match('_^http(s?)://_', $text)) {
     return $text;
