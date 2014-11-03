@@ -130,6 +130,7 @@ class CbibUserMigration extends DrupalUser6Migration {
   private function mapNonMigratedSourceFields() {
     $this->addUnmigratedSources(array(
       'field_otherworkplace',
+      'field_associated_library2',
     ));
   }
 
@@ -149,14 +150,6 @@ class CbibUserMigration extends DrupalUser6Migration {
       'field_phone',
       'field_job_title',
     ));
-  }
-
-  /**
-   * TODO TODO TODO TODO.
-   */
-  private function mapEntityReferenceFields() {
-    $this->addFieldMapping('og_user_node', 'field_associated_library2')
-      ->sourceMigration('central_library');
   }
 
   /**
