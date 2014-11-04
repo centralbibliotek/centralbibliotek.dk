@@ -351,8 +351,20 @@ function cbib_migrate_get_news_item_migrations() {
  * @see cbib_migrate_get_user_migrations().
  */
 function cbib_migrate_get_page_migrations() {
-
   $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'page',
+    'class' => 'CbibPageMigration',
+    'arguments' => array(
+      'group' => 'page',
+      'description' => t('Migration of pages from Centralbibliotek.dk'),
+      'source_type' => 'textpage',
+      'destination_type' => 'page',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
 
   return $migrations;
 }
@@ -416,7 +428,7 @@ function cbib_migrate_convert_to_price($text) {
 
   // Fail if remaining string is not numeric.
   if (!is_numeric($text_modif)) {
-    cbib_migrate_register_message("Received value was not a price. Value: " . $text . ', ' . $text_modif, Migration::MESSAGE_WARNING);
+    cbib_migrate_register_message("Received value was not a price. Value: " . $text, Migration::MESSAGE_WARNING);
     return NULL;
   }
 

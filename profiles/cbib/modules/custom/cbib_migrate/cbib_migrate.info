@@ -14,3 +14,4 @@ files[] = migration_classes/event.inc
 files[] = migration_classes/document.inc
 files[] = migration_classes/post.inc
 files[] = migration_classes/news_item.inc
+files[] = migration_classes/page.inc
