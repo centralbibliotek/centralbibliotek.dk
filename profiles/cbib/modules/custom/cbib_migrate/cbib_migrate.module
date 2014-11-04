@@ -285,7 +285,7 @@ function cbib_migrate_get_document_migrations() {
     'machine_name' => 'document',
     'class' => 'CbibDocumentMigration',
     'arguments' => array(
-      'group' => 'document',
+      'group' => 'group',
       'description' => t('Migration of documents from Centralbibliotek.dk'),
       'source_type' => 'group_file',
       'destination_type' => 'document',
@@ -309,7 +309,7 @@ function cbib_migrate_get_post_migrations() {
     'machine_name' => 'post',
     'class' => 'CbibPostMigration',
     'arguments' => array(
-      'group' => 'post',
+      'group' => 'group',
       'description' => t('Migration of posts from Centralbibliotek.dk'),
       'source_type' => 'group_news',
       'destination_type' => 'post',
