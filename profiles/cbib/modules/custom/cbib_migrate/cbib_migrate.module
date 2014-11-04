@@ -257,6 +257,19 @@ function cbib_migrate_get_group_migrations() {
 function cbib_migrate_get_event_migrations() {
   $migrations = array();
 
+  $migrations[] = array(
+    'machine_name' => 'event',
+    'class' => 'CbibEventMigration',
+    'arguments' => array(
+      'group' => 'event',
+      'description' => t('Migration of events from Centralbibliotek.dk'),
+      'source_type' => 'event',
+      'destination_type' => 'event',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library', 'group'),
+    ),
+  );
+
   return $migrations;
 }
 

@@ -78,6 +78,8 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
       ->defaultValue(0);
     $this->addFieldMapping('og_group_ref')
       ->defaultValue(array());
+
+    $this->addUnmigratedDestinations(array('field_radioactivity'));
   }
 
   /**

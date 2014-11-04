@@ -36,7 +36,7 @@ class CbibGroupMigration extends CbibMigrateDrupalNode6Migration {
     // If image was not selected by upload, choose the one from referenced entity.
     if (empty($row->field_imagefile4)) {
       $row->field_imagefile4 = $row->field_imagecrop_fid;
-      $row->{'field_imagefile:data'} = $row->field_imagecrop_data;
+      $row->{'field_imagefile4:data'} = $row->field_imagecrop_data;
     }
     // Extract title and alt from image data.
     $img_data = unserialize($row->{'field_imagefile4:data'});
@@ -76,8 +76,6 @@ class CbibGroupMigration extends CbibMigrateDrupalNode6Migration {
     $this->addFieldMapping('field_og_subscribe_settings')
       ->defaultValue('anyone');
     $this->addFieldMapping('field_og_access_default_value')
-      ->defaultValue(0);
-    $this->addFieldMapping('field_radioactivity')
       ->defaultValue(0);
   }
 
@@ -177,7 +175,6 @@ class CbibGroupMigration extends CbibMigrateDrupalNode6Migration {
    * and join them to the group.
    */
   public function complete($node, StdClass $row) {
-    file_put_contents('node.txt', print_r($node, TRUE));
     // The email of a contact person has been specified, try
     // to find the user, and make them join the group.
     if (!empty($row->field_email_contact)) {
