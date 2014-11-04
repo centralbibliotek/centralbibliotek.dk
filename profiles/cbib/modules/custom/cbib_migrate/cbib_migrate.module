@@ -135,17 +135,6 @@ function cbib_migrate_get_user_migrations() {
     ),
   );
 
-  $migrations[] = array(
-    'machine_name' => 'user_profile',
-    'class' => 'CbibUserProfileMigration',
-    'arguments' => array(
-      'group' => 'user',
-      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
-      'role_migration' => 'role',
-      'dependencies' => array('file'),
-    ),
-  );
-
   return $migrations;
 }
 
@@ -222,6 +211,17 @@ function cbib_migrate_get_central_library_migrations() {
 function cbib_migrate_get_profile_migrations() {
   $migrations = array();
 
+  $migrations[] = array(
+    'machine_name' => 'user_profile',
+    'class' => 'CbibUserProfileMigration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
+      'role_migration' => 'role',
+      'dependencies' => array('file'),
+    ),
+  );
+
   return $migrations;
 }
 
@@ -232,6 +232,19 @@ function cbib_migrate_get_profile_migrations() {
  */
 function cbib_migrate_get_group_migrations() {
   $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'group',
+    'class' => 'CbibGroupMigration',
+    'arguments' => array(
+      'group' => 'group',
+      'description' => t('Migration of groups from Centralbibliotek.dk'),
+      'source_type' => 'group',
+      'destination_type' => 'group',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
 
   return $migrations;
 }

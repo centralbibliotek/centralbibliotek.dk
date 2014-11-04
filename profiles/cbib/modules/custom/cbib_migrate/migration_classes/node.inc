@@ -28,7 +28,25 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
   }
 
   /**
+   * Radioactivity field needs to be set up in a special way. Run this in prepare().
+   *
+   * @return void.
+   */
+  protected function fixRadioactivityField($node) {
+    $node->field_radioactivity = array(
+      LANGUAGE_NONE => array(
+        0 => array(
+          'radioactivity_energy' => 0,
+          'radioactivity_timestamp' => '0',
+        ),
+      ),
+    );
+  }
+
+  /**
    * Mark all metatag fields as not mapped.
+   *
+   * @return void.
    */
   protected function mapNoMapMetaFields() {
     $this->addUnmigratedDestinations(array(
