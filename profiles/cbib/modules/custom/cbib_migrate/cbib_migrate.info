@@ -11,3 +11,4 @@ files[] = migration_classes/user_profile.inc
 files[] = migration_classes/central_library.inc
 files[] = migration_classes/group.inc
 files[] = migration_classes/event.inc
+files[] = migration_classes/document.inc

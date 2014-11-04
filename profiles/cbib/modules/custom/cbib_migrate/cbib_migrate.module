@@ -281,6 +281,19 @@ function cbib_migrate_get_event_migrations() {
 function cbib_migrate_get_document_migrations() {
   $migrations = array();
 
+  $migrations[] = array(
+    'machine_name' => 'document',
+    'class' => 'CbibDocumentMigration',
+    'arguments' => array(
+      'group' => 'document',
+      'description' => t('Migration of documents from Centralbibliotek.dk'),
+      'source_type' => 'group_file',
+      'destination_type' => 'document',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library', 'group'),
+    ),
+  );
+
   return $migrations;
 }
 
