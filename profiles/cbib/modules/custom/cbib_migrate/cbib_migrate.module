@@ -290,7 +290,7 @@ function cbib_migrate_get_document_migrations() {
       'source_type' => 'group_file',
       'destination_type' => 'document',
       'user_migration' => 'user',
-      'dependencies' => array('user_profile', 'central_library', 'group'),
+      'dependencies' => array('user_profile', 'group'),
     ),
   );
 
@@ -304,6 +304,19 @@ function cbib_migrate_get_document_migrations() {
  */
 function cbib_migrate_get_post_migrations() {
   $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'post',
+    'class' => 'CbibPostMigration',
+    'arguments' => array(
+      'group' => 'post',
+      'description' => t('Migration of posts from Centralbibliotek.dk'),
+      'source_type' => 'group_news',
+      'destination_type' => 'post',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'group'),
+    ),
+  );
 
   return $migrations;
 }

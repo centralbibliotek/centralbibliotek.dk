@@ -12,3 +12,4 @@ files[] = migration_classes/central_library.inc
 files[] = migration_classes/group.inc
 files[] = migration_classes/event.inc
 files[] = migration_classes/document.inc
+files[] = migration_classes/post.inc
