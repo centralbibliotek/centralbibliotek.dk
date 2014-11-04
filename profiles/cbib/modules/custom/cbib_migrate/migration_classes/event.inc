@@ -62,7 +62,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $row->{'field_imagefile1:title'} = isset($img_data['title']) ? $img_data['title'] : NULL;
 
     // Convert from text to number.
-    $row->field_price = cbib_migrate_convert_to_number($row->field_price);
+    $row->field_price = array(cbib_migrate_convert_to_price($row->field_price[0]));
 
     // Convert type from text to term reference.
     $row->field_type = $this->convertTypeToTid($row->field_type);
@@ -71,7 +71,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $row->field_event_remove_subscription = $this->convertRegistrationType($row->field_event_remove_subscription);
 
     // Convert person fields from two fields to one field with two values.
-    $row->field_lecturer_legacy = $this->convertPerson($row->field_organizer, $row->field_email1);
+    $row->field_lecturer_legacy = $this->convertPerson($row->field_organiser, $row->field_email1);
     $row->field_contact_legacy = $this->convertPerson($row->field_contactname, $row->field_email2);
 
     // Notify if entity has a video. We will handle migration of video field manually.

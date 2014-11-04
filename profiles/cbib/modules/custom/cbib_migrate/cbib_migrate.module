@@ -345,6 +345,46 @@ function cbib_migrate_convert_to_number($text) {
 }
 
 /**
+ * Convert a string to a price during migration.
+ *
+ * @param $text
+ *   The text to convert.
+ * @return The double converted to or NULL for empty.
+ */
+function cbib_migrate_convert_to_price($text) {
+  // Convert to lower case.
+  $text_modif = mb_strtolower($text);
+
+  // Remove special characters.
+  $text_modif = preg_replace('/[^a-zæøå0-9 ]+/', '', $text_modif);
+
+  // Remove 'kr' at start and end of string.
+  $text_modif = preg_replace('/kr( )*$/', '', $text_modif);
+  $text_modif = preg_replace('/^( )*kr/', '', $text_modif);
+
+  // Remove spaces.
+  $text_modif = trim($text_modif);
+
+  // Allow empty.
+  if (empty($text_modif)) {
+    return NULL;
+  }
+
+  // If text is 'gratis', the price is 0.
+  if ($text_modif == 'gratis') {
+    return 0;
+  }
+
+  // Fail if remaining string is not numeric.
+  if (!is_numeric($text_modif)) {
+    cbib_migrate_register_message("Received value was not a price. Value: " . $text . ', ' . $text_modif, Migration::MESSAGE_WARNING);
+    return NULL;
+  }
+
+  return (double)$text_modif;
+}
+
+/**
  * Register message in migration.
  *
  * @param $message
