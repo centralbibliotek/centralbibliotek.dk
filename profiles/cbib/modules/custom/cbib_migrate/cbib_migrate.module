@@ -329,6 +329,19 @@ function cbib_migrate_get_post_migrations() {
 function cbib_migrate_get_news_item_migrations() {
   $migrations = array();
 
+  $migrations[] = array(
+    'machine_name' => 'news_item',
+    'class' => 'CbibNewsItemMigration',
+    'arguments' => array(
+      'group' => 'news_item',
+      'description' => t('Migration of news items from Centralbibliotek.dk'),
+      'source_type' => 'newsitem',
+      'destination_type' => 'news',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
+
   return $migrations;
 }
 

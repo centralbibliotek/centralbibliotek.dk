@@ -296,15 +296,23 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $this->addFieldMapping('field_registration_type', 'field_event_remove_subscription');
   }
 
+  /**
+   * Map the person fields.
+   *
+   * @return void.
+   */
   private function mapPersonFields() {
-    $this->addFieldMapping('field_lecturer', 'field_lecturer_legacy');
-    $this->addFieldMapping('field_contact', 'field_contact_legacy');
-
     $this->addUnmigratedSources(array(
       'field_organiser',
       'field_email1',
       'field_contactname',
       'field_email2',
+      'field_lecturer_legacy',
+      'field_contact_legacy',
+    ));
+    $this->addUnmigratedDestinations(array(
+      'field_lecturer',
+      'field_contact',
     ));
   }
 
@@ -381,10 +389,22 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
 
   /**
    * Fix radioactivity field.
+   * Double field does not support migrate, manually migrate.
    *
    * @return void.
    */
   public function prepare($node, StdClass $row) {
     $this->fixRadioactivityField($node);
+
+    $node->field_lecturer = array(
+      LANGUAGE_NONE => array(
+        0 => $row->field_lecturer_legacy,
+      ),
+    );
+    $node->field_contact = array(
+      LANGUAGE_NONE => array(
+        0 => $row->field_contact_legacy,
+      ),
+    );
   }
 }
