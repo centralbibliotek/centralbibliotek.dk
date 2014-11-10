@@ -21,3 +21,12 @@ function cbib_update_7101(&$sandbox) {
   module_enable(array('collation_fixer'));
   collation_fixer_fix_collation('field_data_title_field');
 }
+
+/**
+ * Disable commons_events and enable admin_menu.
+ */
+function cbib_update_7102(&$sandbox) {
+  module_disable(array('commons_events_pages', 'commons_events'));
+  module_enable(array('admin_menu'));
+  return 'Disable commons_event and enable admin_menu.';
+}
