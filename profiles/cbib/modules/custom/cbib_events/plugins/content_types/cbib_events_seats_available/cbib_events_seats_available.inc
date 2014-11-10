@@ -9,7 +9,7 @@ $plugin = array(
   'title' => t('Seats available'),
   'description' => t('Number of available seats.'),
   'content_types' => array('cbib_events_seats_available'),
-  'defaults' => array('cbib_events_no_seats_available_text' => ''),
+  'defaults' => array('cbib_events_no_seats_available_text' => '', 'cbib_events_unlimited_seats_available_text' => ''),
   'icon' => 'icon-events.png',
   'category' => t('Centralbibliotek'),
   'single' => TRUE,
@@ -26,6 +26,12 @@ function cbib_events_cbib_events_seats_available_content_type_edit_form($form, &
     '#title' => t('Full'),
     '#description' => t('Text to display when there are no seats available.'),
     '#default_value' => !empty($conf['cbib_events_no_seats_available_text']) ? $conf['cbib_events_no_seats_available_text'] : '',
+  );
+  $form['cbib_events_unlimited_seats_available_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Full'),
+    '#description' => t('Text to display when there are unlimited seats available.'),
+    '#default_value' => !empty($conf['cbib_events_unlimited_seats_available_text']) ? $conf['cbib_events_unlimited_seats_available_text'] : '',
   );
   return $form;
 }
@@ -57,14 +63,17 @@ function cbib_events_cbib_events_seats_available_content_type_render($subtype, $
 
   // Only add stuff if the node is an event.
   if ($context->data->type == 'event') {
-    $attendee = commons_events_get_raw_attendee_count($context->data);
+    $attendee = cbib_events_get_raw_attendee_count($context->data);
     $max = $context->data->field_number_of_attendees[LANGUAGE_NONE][0]['value'];
 
-    if (($max - $attendee) > 0) {
+    if ($max - $attendee > 0) {
       $pane->content = $max - $attendee;
     }
-    else {
+    elseif ($max > 0) {
       $pane->content = $conf['cbib_events_no_seats_available_text'];
+    }
+    else {
+      $pane->content = $conf['cbib_events_unlimited_seats_available_text'];
     }
   }
   return $pane;
