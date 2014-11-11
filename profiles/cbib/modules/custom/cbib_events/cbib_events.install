@@ -1,6 +1,12 @@
 <?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the cbib events module.
+ */
 
 /**
+ * Implements hook_enable().
+ *
  * Set default events roles upon enable
  */
 function cbib_events_enable() {
@@ -11,13 +17,14 @@ function cbib_events_enable() {
 
   $groups = og_get_all_group();
 
-  foreach ($groups AS $gid) {
+  foreach ($groups as $gid) {
     commons_groups_features_permission_rebuild('cbib_events', $gid);
   }
 }
 
 /**
  * Implements hook_install().
+ *
  * Creates a default datetime format for events.
  */
 function cbib_events_install() {
