@@ -345,6 +345,7 @@ function cbib_events_default_panels_mini() {
       'context' => 'requiredcontext_entity:node_1',
       'override_title' => 1,
       'override_title_text' => 'Ledige pladser',
+      'cbib_events_unlimited_seats_available_text' => 'Ubegrænset antal pladser',
     );
     $pane->cache = array();
     $pane->style = array(
