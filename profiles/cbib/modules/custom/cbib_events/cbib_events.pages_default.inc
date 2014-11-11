@@ -22,7 +22,7 @@ function cbib_events_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Events',
+    'title' => 'Arrangementer',
     'weight' => '2',
     'name' => 'main-menu',
     'parent' => array(
@@ -69,7 +69,7 @@ function cbib_events_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Events';
+  $display->title = 'Arrangementer';
   $display->uuid = 'f084cd6c-0d66-7ca4-c971-3c5cf182d2ec';
   $display->content = array();
   $display->panels = array();
