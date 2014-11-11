@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Commons Events theme functions.
+ * Central Bibliotek Events theme functions.
  */
 
 /**

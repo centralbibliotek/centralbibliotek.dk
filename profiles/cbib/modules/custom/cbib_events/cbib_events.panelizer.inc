@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * commons_groups_pages.panelizer.inc
+ * cbib_events.panelizer.inc
  */
 
 /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Commons Events form declarations.
+ * Central Bibliotek Events form declarations.
  */
 
  /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Commons module integration for the Commons Events module.
+ * Commons module integration for the Central Bibliotek Events module.
  */
 
 /**
