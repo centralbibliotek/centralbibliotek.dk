@@ -290,6 +290,7 @@ function cbib_events_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Begivenheder';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -501,6 +502,8 @@ function cbib_events_views_default_views() {
   /* Display: Landing Page pane */
   $handler = $view->new_display('panel_pane', 'Landing Page pane', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'dynamic-filter-lists';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -527,18 +530,18 @@ function cbib_events_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No events have been created yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indhold: Forfremmet til forside */
-  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['table'] = 'node';
-  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['promote']['expose']['label'] = 'Anbefalet';
   /* Sorteringskriterie: Indhold: Date -  startdato (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_date_value']['expose']['label'] = 'Dato';
+  /* Sorteringskriterie: Indhold: Forfremmet til forside */
+  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['table'] = 'node';
+  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['promote']['expose']['label'] = 'Anbefalet';
   $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['cbib_events_upcoming'] = array(
     t('Master'),
@@ -570,8 +573,8 @@ function cbib_events_views_default_views() {
     t('Central Bibliotek'),
     t('Landing Page pane'),
     t('No events have been created yet.'),
-    t('Anbefalet'),
     t('Dato'),
+    t('Anbefalet'),
     t('View panes'),
   );
   $export['cbib_events_upcoming'] = $view;
