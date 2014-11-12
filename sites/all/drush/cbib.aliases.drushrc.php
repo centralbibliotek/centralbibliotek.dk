@@ -19,6 +19,7 @@ $aliases['test'] = array(
     'branch' => 'develop',
     'restart-apache2' => TRUE,
     'restart-varnish' => FALSE,
+    'flowdock-token' => 'a7200e7e654379df303056fbf14faf74',
   ),
 );
 
