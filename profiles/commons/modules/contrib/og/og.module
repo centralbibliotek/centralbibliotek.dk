@@ -3211,10 +3211,10 @@ function og_role_grant_permissions($rid, array $permissions = array()) {
     if (!empty($modules[$name])) {
       db_merge('og_role_permission')
         ->key(array(
-          'rid' => $rid,
-          'permission' => $name,
-          'module' => $modules[$name],
-        ))
+            'rid' => (int) $rid,
+            'permission' => $name,
+            'module' => $modules[$name],
+          ))
         ->execute();
     }
   }
