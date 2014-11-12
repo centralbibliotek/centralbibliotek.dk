@@ -127,7 +127,9 @@ function cbib_events_theme($existing, $type, $theme, $path) {
 
 /**
  * Implements hook_theme_registry_alter().
- * Gives us the ability to insert our pretty date formatter for the dates we choose below.
+ *
+ * Gives us the ability to insert our pretty date formatter for the dates
+ * we choose below.
  */
 function cbib_events_theme_registry_alter(&$theme_registry) {
   $theme_registry['date_display_range']['theme path'] = drupal_get_path('module', 'cbib_events');
@@ -501,6 +503,7 @@ function cbib_events_block_view($delta = '') {
         );
       }
       break;
+
     case 'cbib_events_anonymous_login':
       if (user_is_anonymous()) {
         $block['subject'] = NULL;
@@ -546,6 +549,12 @@ function theme_cbib_events_date_display_range_simple($variables) {
   ));
 }
 
+/**
+ * Return a single date.
+ *
+ * @param $variables
+ * @return mixed
+ */
 function theme_cbib_events_date_display_single($variables) {
   return $variables['date'];
 }
@@ -631,6 +640,7 @@ function cbib_events_commons_notify_message_selection_alter(&$message_type, $hoo
 
 /**
  * Check whether to allow switching the event's registration type.
+ *
  * If there are registrations for the event, disallow changing the type. This
  * keeps registrations for an event consistent.
  */

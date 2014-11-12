@@ -5,9 +5,8 @@
  */
 
  /**
- * Form builder for Attend call to action on events, as long as registration
- * is available onsite.
- */
+  * Form builder for Attend call to action on events, as long as registration is available onsite.
+  */
 function cbib_events_attend_event_form($form, &$form_state, $event_node, $registration = NULL, $attendee_count = 0) {
   $form_state['event_node'] = $event_node;
   if (!registration_status('node', $event_node->nid, TRUE)) {
@@ -33,7 +32,7 @@ function cbib_events_attend_event_form($form, &$form_state, $event_node, $regist
     '#description' => t('+ Guests'),
     '#size' => 2,
     '#maxlength' => 2,
-    '#required' => false,
+    '#required' => FALSE,
   );
   $form['attending'] = array(
     '#theme_wrappers' => array('container'),
@@ -51,6 +50,7 @@ function cbib_events_attend_event_form($form, &$form_state, $event_node, $regist
 
 /**
  * Validation handler for attending an event.
+ *
  * Checks to make sure that space is available for attending, and that it
  * didn't fill up after the page load.
  */
