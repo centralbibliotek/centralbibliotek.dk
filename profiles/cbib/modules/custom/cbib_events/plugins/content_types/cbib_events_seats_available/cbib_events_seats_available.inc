@@ -63,7 +63,7 @@ function cbib_events_cbib_events_seats_available_content_type_render($subtype, $
 
   // Only add stuff if the node is an event.
   if ($context->data->type == 'event') {
-    $attendee = commons_events_get_raw_attendee_count($context->data);
+    $attendee = cbib_events_get_raw_attendee_count($context->data);
     $max = $context->data->field_number_of_attendees[LANGUAGE_NONE][0]['value'];
 
     if ($max - $attendee > 0) {
