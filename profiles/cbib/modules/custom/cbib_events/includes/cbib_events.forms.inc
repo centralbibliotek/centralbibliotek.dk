@@ -5,7 +5,7 @@
  */
 
  /**
-  * Form builder for Attend call to action on events, as long as registration is available onsite.
+  * Form for Attending a event, as long as registration is available.
   */
 function cbib_events_attend_event_form($form, &$form_state, $event_node, $registration = NULL, $attendee_count = 0) {
   $form_state['event_node'] = $event_node;

@@ -551,9 +551,6 @@ function theme_cbib_events_date_display_range_simple($variables) {
 
 /**
  * Return a single date.
- *
- * @param $variables
- * @return mixed
  */
 function theme_cbib_events_date_display_single($variables) {
   return $variables['date'];
