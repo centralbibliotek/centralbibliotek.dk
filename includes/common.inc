@@ -5396,14 +5396,6 @@ function drupal_system_listing($mask, $directory, $key = 'name', $min_depth = 1)
     }
   }
 
-  // Allow modules and themes in profiler base profiles too.
-  if (function_exists('profiler_v2_load_config')) {
-    $_profiler_v2_config = profiler_v2_load_config($profile);
-    if (!empty($_profiler_v2_config['base'])) {
-      $profiles[] = $_profiler_v2_config['base'];
-    }
-  }
-
   // In case both profile directories contain the same extension, the actual
   // profile always has precedence.
   $profiles[] = $profile;
