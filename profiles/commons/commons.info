@@ -1,8 +1,6 @@
 name = Commons
 description = Ready-to-use solution for building communities.
 core = 7.x
-distribution_name = "Drupal Commons"
-exclusive = TRUE
 
 ; Install required core modules.
 dependencies[] = block
@@ -99,12 +97,9 @@ dependencies[] = commons_media
 dependencies[] = commons_misc
 dependencies[] = commons_notify
 dependencies[] = commons_pages
-dependencies[] = commons_polls
 dependencies[] = commons_posts
 dependencies[] = commons_profile_base
 dependencies[] = commons_profile_social
-dependencies[] = commons_q_a
-dependencies[] = commons_q_a_pages
 dependencies[] = commons_radioactivity
 dependencies[] = commons_radioactivity_groups
 dependencies[] = commons_search
@@ -114,16 +109,26 @@ dependencies[] = commons_social_sharing
 dependencies[] = commons_trusted_contacts
 dependencies[] = commons_user_profile_pages
 dependencies[] = commons_utility_links
-dependencies[] = commons_wikis
-dependencies[] = commons_wikis_pages
 dependencies[] = commons_wysiwyg
 
 ; System Requirements.
 php_memory_limit = 128M
 
-; Information added by Drupal.org packaging script on 2014-08-08
-version = "7.x-3.17"
-core = "7.x"
-project = "commons"
-datestamp = "1407503928"
-
+; Central Bibliotek addition.
+dependencies[] = admin_menu
+dependencies[] = cbib_events
+dependencies[] = cbib_features
+dependencies[] = cbib_news
+dependencies[] = collation_fixer
+dependencies[] = commons_documents
+dependencies[] = devel
+dependencies[] = double_field
+dependencies[] = html5_tools
+dependencies[] = l10n_update
+dependencies[] = locale
+dependencies[] = mini_panels
+dependencies[] = clone
+dependencies[] = og_access
+dependencies[] = scheduler
+dependencies[] = views_data_export
+dependencies[] = watchdog_filtering

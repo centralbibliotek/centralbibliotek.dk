@@ -32,4 +32,5 @@ features[variable][] = menu_parent_news
 features[variable][] = node_options_news
 features[variable][] = node_preview_news
 features[variable][] = node_submitted_news
-project path = profiles/cbib/modules/custom
+features_exclude[dependencies][commons_bw] = commons_bw
+project path = profiles/commons/modules/custom
