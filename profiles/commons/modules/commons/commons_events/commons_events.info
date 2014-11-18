@@ -8,8 +8,6 @@ dependencies[] = addressfield_tokens
 dependencies[] = block
 dependencies[] = commons_body
 dependencies[] = commons_location
-; @todo Move message- field instances into another module in order to allow
-; Commons Events to function independently of Commons Notify.
 dependencies[] = commons_notify
 dependencies[] = commons_topics
 dependencies[] = ctools
@@ -29,7 +27,6 @@ dependencies[] = number
 dependencies[] = og
 dependencies[] = options
 dependencies[] = page_manager
-dependencies[] = radioactivity
 dependencies[] = registration
 dependencies[] = registration_views
 dependencies[] = strongarm
@@ -37,28 +34,42 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = views
 dependencies[] = views_content
+dependencies[] = views_data_export
 dependencies[] = views_load_more
 
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[field_base][] = field_comments
+features[field_base][] = field_contact
 features[field_base][] = field_date
+features[field_base][] = field_event_audience
+features[field_base][] = field_event_type
+features[field_base][] = field_lecturer
 features[field_base][] = field_location
-features[field_base][] = field_logo
+features[field_base][] = field_note
 features[field_base][] = field_number_of_attendees
 features[field_base][] = field_offsite_url
 features[field_base][] = field_organizers
+features[field_base][] = field_price
 features[field_base][] = field_registration
 features[field_base][] = field_registration_type
 features[field_instance][] = node-event-body
 features[field_instance][] = node-event-field_address
+features[field_instance][] = node-event-field_comments
+features[field_instance][] = node-event-field_contact
 features[field_instance][] = node-event-field_date
+features[field_instance][] = node-event-field_event_audience
+features[field_instance][] = node-event-field_event_type
+features[field_instance][] = node-event-field_image
+features[field_instance][] = node-event-field_lecturer
 features[field_instance][] = node-event-field_location
-features[field_instance][] = node-event-field_logo
+features[field_instance][] = registration-event-field_note
 features[field_instance][] = node-event-field_number_of_attendees
 features[field_instance][] = node-event-field_offsite_url
 features[field_instance][] = node-event-field_organizers
+features[field_instance][] = node-event-field_price
 features[field_instance][] = node-event-field_registration
 features[field_instance][] = node-event-field_registration_type
 features[field_instance][] = message-commons_events_event_node_created-field_message_rendered_body
@@ -74,6 +85,7 @@ features[og_features_permission][] = node:group:update any event content
 features[og_features_permission][] = node:group:update own event content
 features[page_manager_pages][] = views_events_landing_page
 features[registration_type][] = event
+features[taxonomy][] = event_types
 features[user_permission][] = create event content
 features[user_permission][] = create event registration
 features[user_permission][] = delete own event content
@@ -100,17 +112,15 @@ features[views_view][] = commons_events_event_attendee_list
 features[views_view][] = commons_events_organizers
 features[views_view][] = commons_events_upcoming
 features[views_view][] = commons_events_user_upcoming_events
-
-; Manually remove the Commons Follow module as a dependency until
-; https://www.drupal.org/node/766264 is fixed. Commons Follow dynamically adds a
-; views pane for events the user follows which causes Commons Events to appear
-; overridden.
 features_exclude[dependencies][commons_follow] = commons_follow
 features_exclude[dependencies][commons_trusted_contacts] = commons_trusted_contacts
-
-; Information added by Drupal.org packaging script on 2014-08-08
-version = "7.x-3.17"
-core = "7.x"
-project = "commons"
-datestamp = "1407503928"
-
+features_exclude[dependencies][commons_bw] = commons_bw
+features_exclude[dependencies][commons_groups] = commons_groups
+features_exclude[field_base][field_address] = field_address
+features_exclude[field_base][field_target_comments] = field_target_comments
+features_exclude[field_base][field_target_nodes] = field_target_nodes
+features_exclude[field_base][og_user_group_ref] = og_user_group_ref
+features_exclude[field_base][field_message_rendered_subject] = field_message_rendered_subject
+features_exclude[field_base][field_image] = field_image
+features_exclude[field_instance][node-event-og_user_group_ref] = node-event-og_user_group_ref
+features_exclude[field_instance][node-event-title_field] = node-event-title_field

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * cbib_events.panels_default.inc
+ * commons_events_pages.panels_default.inc
  */
 
 /**
  * Implements hook_default_panels_mini().
  */
-function cbib_events_default_panels_mini() {
+function commons_events_pages_default_panels_mini() {
   $export = array();
 
   $mini = new stdClass();
