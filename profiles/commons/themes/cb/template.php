@@ -63,6 +63,18 @@ function cb_field__field_contact($variables) {
 }
 
 /**
+ * Overrides theme_field__field_number_of_attendees().
+ *
+ * Special rendering if value is zero.
+ */
+function cb_field__field_number_of_attendees($variables) {
+  if ($variables['element']['#items'][0]['value'] == '0') {
+    return 'Ubegrænset';
+  }
+  return $variables['element']['#items'][0]['value'];
+}
+
+/**
  * Helper to render a double field as name and mail address.
  */
 function _cb_field_render_double_field_as_mailto_link($variables) {

@@ -9,7 +9,7 @@ $plugin = array(
   'title' => t('Seats available'),
   'description' => t('Number of available seats.'),
   'content_types' => array('cbib_events_seats_available'),
-  'defaults' => array('cbib_events_no_seats_available_text' => '', 'cbib_events_unlimited_seats_available_text' => ''),
+  'defaults' => array('cbib_events_no_seats_available_text' => ''),
   'icon' => 'icon-events.png',
   'category' => t('Centralbibliotek'),
   'single' => TRUE,
@@ -73,7 +73,9 @@ function cbib_events_cbib_events_seats_available_content_type_render($subtype, $
       $pane->content = $conf['cbib_events_no_seats_available_text'];
     }
     else {
-      $pane->content = $conf['cbib_events_unlimited_seats_available_text'];
+      // Unlimited and therefore no text.
+      $pane->title = '';
+      $pane->content = '';
     }
   }
   return $pane;
