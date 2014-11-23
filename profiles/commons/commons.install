@@ -853,3 +853,14 @@ function commons_update_3119() {
   variable_set('install_task', 'done');
   return array();
 }
+
+/*
+ * Enable dynamic main menu for Centralbibliotek.
+ */
+function commons_update_3120() {
+  $result = module_enable(array('cbib_menu'));
+  if ($result) {
+    return 'The cbib_menu module is enabled.';
+  }
+  throw new DrupalUpdateException('Something went wrong – the cbib_menu module is not all enabled!');
+}
