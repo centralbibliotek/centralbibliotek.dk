@@ -3,16 +3,17 @@
 /**
  * Set dynamic links according to main group (centralbibliotek).
  *
+ * The link will be changed in hook_translated_menu_link_alter().
+ * We need to edit and save the link for the option alter to work.
+ *
  * Implements hook_menu_link_alter().
  */
 function cbib_menu_menu_link_alter(&$link) {
-  if (!empty($_SESSION['cbib_menu_nid'])) {
-    if ($link['link_path'] == '<front>') {
-      $link['options']['alter'] = TRUE;
-    }
-    elseif (in_array($link['link_path'], array('events', 'groups', 'news'))) {
-      $link['options']['alter'] = TRUE;
-    }
+  if ($link['link_path'] == variable_get('site_frontpage') || $link['link_path'] == '<front>') {
+    $link['options']['alter'] = TRUE;
+  }
+  elseif (in_array($link['link_path'], array('events', 'groups', 'news'))) {
+    $link['options']['alter'] = TRUE;
   }
 }
 
@@ -23,12 +24,16 @@ function cbib_menu_menu_link_alter(&$link) {
  */
 function cbib_menu_translated_menu_link_alter(&$item, $map) {
   if (!empty($_SESSION['cbib_menu_nid'])) {
-    if ($item['href'] == '<front>') {
+    if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}";
     }
     elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}/{$item['href']}";
     }
+  }
+  // Set homepage link to front without alias.
+  if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
+    $item['href'] = '';
   }
 }
 
