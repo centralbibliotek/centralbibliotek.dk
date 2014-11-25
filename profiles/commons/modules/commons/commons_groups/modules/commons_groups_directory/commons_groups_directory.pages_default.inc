@@ -227,7 +227,7 @@ function commons_groups_directory_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Sub Groups';
+  $display->title = 'Grupper';
   $display->uuid = 'b342a293-2541-cc64-1577-839054c92368';
   $display->content = array();
   $display->panels = array();

@@ -64,7 +64,7 @@ function commons_events_default_message_type() {
 function commons_events_node_info() {
   $items = array(
     'event' => array(
-      'name' => t('Event'),
+      'name' => t('Begivenhed'),
       'base' => 'node_content',
       'description' => t('Post information about planned activities or meetings.'),
       'has_title' => '1',
