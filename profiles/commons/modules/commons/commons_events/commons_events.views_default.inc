@@ -527,18 +527,18 @@ function commons_events_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No events have been created yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indhold: Forfremmet til forside */
-  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['table'] = 'node';
-  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['promote']['expose']['label'] = 'Anbefalet';
   /* Sorteringskriterie: Indhold: Date -  startdato (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_date_value']['expose']['label'] = 'Dato';
+  /* Sorteringskriterie: Indhold: Forfremmet til forside */
+  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['table'] = 'node';
+  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['promote']['expose']['label'] = 'Anbefalet';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: Group pane group */
@@ -651,6 +651,7 @@ function commons_events_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
+    t('Load more'),
     t('.'),
     t(' deltagere'),
     t('[comment_count] comments'),
@@ -665,8 +666,8 @@ function commons_events_views_default_views() {
     t('Commons'),
     t('Landing Page pane'),
     t('No events have been created yet.'),
-    t('Anbefalet'),
     t('Dato'),
+    t('Anbefalet'),
     t('View panes'),
     t('Group pane group'),
   );
