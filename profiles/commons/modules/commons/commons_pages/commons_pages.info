@@ -1,18 +1,26 @@
 name = Commons Pages
 description = Provides a Page content type for creating static content.
-package = Commons - Content types
 core = 7.x
-
+package = Commons - Content types
+version = 7.x-3.17
+project = commons_pages
 dependencies[] = commons_body
 dependencies[] = ctools
 dependencies[] = features
+dependencies[] = file
+dependencies[] = image
+dependencies[] = link
+dependencies[] = media
 dependencies[] = node
 dependencies[] = strongarm
 dependencies[] = text
-
+datestamp = 1407503928
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[field_instance][] = node-page-body
+features[field_instance][] = node-page-field_document_file
+features[field_instance][] = node-page-field_image
+features[field_instance][] = node-page-field_link
 features[node][] = page
 features[variable][] = comment_anonymous_page
 features[variable][] = comment_default_mode_page
@@ -21,16 +29,14 @@ features[variable][] = comment_form_location_page
 features[variable][] = comment_page
 features[variable][] = comment_preview_page
 features[variable][] = comment_subject_field_page
+features[variable][] = field_bundle_settings_node__page
+features[variable][] = language_content_type_page
 features[variable][] = menu_options_page
 features[variable][] = menu_parent_page
 features[variable][] = node_options_page
 features[variable][] = node_preview_page
 features[variable][] = node_submitted_page
 features[variable][] = pathauto_node_page_pattern
-
-; Information added by Drupal.org packaging script on 2014-08-08
-version = "7.x-3.17"
-core = "7.x"
-project = "commons"
-datestamp = "1407503928"
-
+features_exclude[dependencies][commons_bw] = commons_bw
+features_exclude[dependencies][cbib_news] = cbib_news
+mtime = 1417947330

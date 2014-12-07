@@ -279,7 +279,7 @@ function commons_events_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 11,
+      'weight' => 18,
     ),
   );
 
@@ -320,7 +320,7 @@ function commons_events_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 16,
     ),
   );
 
@@ -396,7 +396,7 @@ function commons_events_field_default_field_instances() {
         ),
       ),
       'type' => 'textfield_&_textfield',
-      'weight' => 13,
+      'weight' => 20,
     ),
   );
 
@@ -457,7 +457,104 @@ function commons_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_document_file'
+  $field_instances['node-event-field_document_file'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 1,
+    'entity_type' => 'node',
+    'field_name' => 'field_document_file',
+    'label' => 'File',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 1,
+      'file_directory' => 'dokumenter',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 27,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_end_date'
+  $field_instances['node-event-field_end_date'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_end_date',
+    'label' => 'Tilmeldningsfrist',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 7,
     ),
   );
 
@@ -498,7 +595,7 @@ function commons_events_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 14,
     ),
   );
 
@@ -535,7 +632,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 10,
     ),
   );
 
@@ -600,7 +697,7 @@ function commons_events_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 14,
+      'weight' => 22,
     ),
   );
 
@@ -676,7 +773,7 @@ function commons_events_field_default_field_instances() {
         ),
       ),
       'type' => 'textfield_&_textfield',
-      'weight' => 12,
+      'weight' => 19,
     ),
   );
 
@@ -716,7 +813,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 17,
     ),
   );
 
@@ -760,7 +857,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 26,
     ),
   );
 
@@ -800,7 +897,7 @@ function commons_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -846,7 +943,7 @@ function commons_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete_tags',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -893,7 +990,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'numberfield',
-      'weight' => 8,
+      'weight' => 15,
     ),
   );
 
@@ -952,7 +1049,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'registration',
       'settings' => array(),
       'type' => 'registration_select',
-      'weight' => 16,
+      'weight' => 23,
     ),
   );
 
@@ -988,7 +1085,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 25,
     ),
   );
 
@@ -1035,6 +1132,7 @@ function commons_events_field_default_field_instances() {
   t('Enter 0 for unlimited');
   t('Event audience');
   t('Event type');
+  t('File');
   t('Kontaktperson');
   t('Lecturer');
   t('Location');
@@ -1047,6 +1145,7 @@ function commons_events_field_default_field_instances() {
   t('Subject');
   t('Target comment');
   t('Target nodes');
+  t('Tilmeldningsfrist');
   t('URL');
 
   return $field_instances;

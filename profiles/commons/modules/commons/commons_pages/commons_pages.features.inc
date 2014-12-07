@@ -19,13 +19,14 @@ function commons_pages_ctools_plugin_api($module = NULL, $api = NULL) {
 function commons_pages_node_info() {
   $items = array(
     'page' => array(
-      'name' => t('Page'),
+      'name' => t('Side'),
       'base' => 'node_content',
-      'description' => t('Use <em>basic pages</em> for your static content, such as an \'About us\' page.'),
+      'description' => t('Brug <em>simple sider</em> til dit statiske indhold, som f.eks. en "om os"-side.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

@@ -66,13 +66,14 @@ function commons_posts_default_message_type() {
 function commons_posts_node_info() {
   $items = array(
     'post' => array(
-      'name' => t('Post'),
+      'name' => t('Indlæg'),
       'base' => 'node_content',
       'description' => t('Start a conversation or share some information.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
