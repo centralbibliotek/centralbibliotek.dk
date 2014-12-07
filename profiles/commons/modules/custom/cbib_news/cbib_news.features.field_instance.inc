@@ -85,6 +85,49 @@ function cbib_news_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-news-field_document_file'
+  $field_instances['node-news-field_document_file'] = array(
+    'bundle' => 'news',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 1,
+    'entity_type' => 'node',
+    'field_name' => 'field_document_file',
+    'label' => 'File',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 1,
+      'file_directory' => 'dokumenter',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-news-field_image'
   $field_instances['node-news-field_image'] = array(
     'bundle' => 'news',
@@ -208,6 +251,7 @@ function cbib_news_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Billede');
+  t('File');
   t('Forfatter');
   t('Link');
 

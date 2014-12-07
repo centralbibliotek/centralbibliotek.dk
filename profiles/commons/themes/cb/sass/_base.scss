@@ -24,7 +24,7 @@
 //
 // Import components. These are not part of the standard Commons theme.
 //
-@import 'components/arnestyles';
+@import 'components/custom';
 @import 'components/fonts'; // @fontface fonts
 @import 'components/button'; // Custom cbib button styles
 @import 'components/message'; // System messages
@@ -43,3 +43,4 @@
 // Import "pages" (styles for specific pages - such as node types, profile page etc.)
 //
 @import 'pages/node-event'; // Node type event
+@import 'pages/node-news'; // Node type event

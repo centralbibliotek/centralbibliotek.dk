@@ -604,6 +604,24 @@ div.messages.error {
   margin-right: .5em;
 }
 
+.node-type-news .pane-node-created .block-content {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.node-type-news .pane-node-created .block-content .month {
+  font-size: 2em;
+  background-color: grey;
+  color: white;
+  text-transform: uppercase;
+}
+.node-type-news .pane-node-created .block-content .day {
+  font-size: 4em;
+  padding: 0;
+  margin: 0;
+}
+
 /*
  * Target IE 6, 7 and 8 (less than IE9)
  */
@@ -616,7 +634,7 @@ html {
 }
 
 body.front.not-logged-in #content {
-  background: url('../images/commons-drop.png?1410251672') right top no-repeat;
+  background: url('../images/commons-drop.png?1417951802') right top no-repeat;
 }
 body.front.not-logged-in .region-three-33-top {
   margin-bottom: 24px;

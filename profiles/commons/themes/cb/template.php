@@ -89,3 +89,15 @@ function _cb_field_render_double_field_as_mailto_link($variables) {
   }
   return implode(' / ', $items);
 }
+
+/**
+ * Implements hook_preprocess_panelizer_view_mode().
+ */
+function cb_preprocess_panelizer_view_mode(&$variables, $hook) {
+  // Add classed to identity the entity type being overridden.
+  $variables['classes_array'][] = drupal_html_class('panelizer-' . $variables['element']['#entity_type']);
+  unset($variables['title_attributes_array']);
+  unset($variables['title_element']);
+  $variables['title'] = '';
+}
+
