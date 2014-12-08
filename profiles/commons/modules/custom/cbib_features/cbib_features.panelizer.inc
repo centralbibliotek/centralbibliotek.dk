@@ -80,7 +80,7 @@ function cbib_features_panelizer_defaults() {
     $pane->panel = 'one_main';
     $pane->type = 'commons_bw_group';
     $pane->subtype = 'commons_bw_group';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 0,
@@ -167,7 +167,7 @@ function cbib_features_panelizer_defaults() {
     $pane->panel = 'one_main';
     $pane->type = 'views_panes';
     $pane->subtype = 'activity_group-panel_pane_1';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'items_per_page' => '4',
@@ -191,7 +191,7 @@ function cbib_features_panelizer_defaults() {
     $pane->panel = 'one_main';
     $pane->type = 'views_panes';
     $pane->subtype = 'commons_radioactivity_groups_active_in_group-panel_pane_1';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'arguments' => array(
@@ -217,7 +217,7 @@ function cbib_features_panelizer_defaults() {
     $pane->panel = 'one_main';
     $pane->type = 'views_panes';
     $pane->subtype = 'commons_contributors_group-panel_pane_2';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'context' => array(
@@ -367,7 +367,7 @@ function cbib_features_panelizer_defaults() {
       ),
       'context' => 'panelizer',
       'override_title' => 1,
-      'override_title_text' => '%title %keywords Bibliotekerne',
+      'override_title_text' => 'Bibliotekerne',
     );
     $pane->cache = array();
     $pane->style = array(
