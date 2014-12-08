@@ -12,8 +12,8 @@ function cbib_views_news_views_default_views() {
 
   $view = new view();
   $view->name = 'centralbibliotek_news';
-  $view->description = 'Display upcoming events site-wide, or per-group.';
-  $view->tag = 'commons_events';
+  $view->description = 'Display upcoming news site-wide, or per-group.';
+  $view->tag = 'Centralbibliotek';
   $view->base_table = 'node';
   $view->human_name = 'CentralBibliotek News';
   $view->core = 7;

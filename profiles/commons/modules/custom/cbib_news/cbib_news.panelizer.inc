@@ -466,7 +466,7 @@ function cbib_news_panelizer_defaults() {
     $pane->uuid = 'b653c719-b7df-411a-8701-e9ed4dca3f32';
     $display->content['new-b653c719-b7df-411a-8701-e9ed4dca3f32'] = $pane;
     $display->panels['one_main'][3] = 'new-b653c719-b7df-411a-8701-e9ed4dca3f32';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-e81cbdb0-164d-4fdb-90ee-1ecd9a27d6b8';
   $panelizer->display = $display;
   $export['node:news:default:teaser'] = $panelizer;

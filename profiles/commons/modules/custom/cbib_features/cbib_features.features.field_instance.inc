@@ -243,6 +243,45 @@ function cbib_features_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-centralbibliotek-field_phone'
+  $field_instances['node-centralbibliotek-field_phone'] = array(
+    'bundle' => 'centralbibliotek',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_phone',
+    'label' => 'Telefon',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'html5_tools',
+      'settings' => array(),
+      'type' => 'telwidget',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-centralbibliotek-field_website'
   $field_instances['node-centralbibliotek-field_website'] = array(
     'bundle' => 'centralbibliotek',
@@ -288,6 +327,7 @@ function cbib_features_field_default_field_instances() {
   t('E-mail');
   t('EAN');
   t('Library code');
+  t('Telefon');
   t('Website');
 
   return $field_instances;
