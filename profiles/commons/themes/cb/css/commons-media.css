@@ -26,6 +26,10 @@
   color: white;
 }
 
+.two-66-33 .region {
+  clear: none;
+}
+
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -624,6 +628,17 @@ div.messages.error {
   font-size: 4em;
   padding: 0;
   margin: 0;
+}
+
+.node-type-centralbibliotek #content .views-row {
+  width: 33.33%;
+  float: left;
+}
+.node-type-centralbibliotek .pane-entity-field {
+  margin: 0;
+}
+.node-type-centralbibliotek .pane-entity-field .field-label-inline {
+  margin: 0.5em 0;
 }
 
 .field-name-field-media-form {

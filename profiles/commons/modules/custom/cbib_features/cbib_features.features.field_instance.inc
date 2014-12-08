@@ -99,9 +99,10 @@ function cbib_features_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_agency',
-    'label' => 'Library code',
+    'label' => 'Biblioteksnummer',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -323,10 +324,10 @@ function cbib_features_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
+  t('Biblioteksnummer');
   t('CVR');
   t('E-mail');
   t('EAN');
-  t('Library code');
   t('Telefon');
   t('Website');
 
