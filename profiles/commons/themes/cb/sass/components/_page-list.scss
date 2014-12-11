@@ -1,0 +1,90 @@
+.page-news, .page-events, .page-groups {
+
+  .node-teaser {
+    h2 a {
+      color: $gray-darker;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .panel-col-first {
+      width: 330px;
+
+      @include respond(small-medium) {
+        width: 100%;
+      }
+    }
+
+    .panel-pane, .field-name-body, h2  {
+      margin: 0px;
+    }
+
+    .links a {
+      font-family: $alt-font;
+    }
+
+    &:after {
+      content: "";
+      width: 25px;
+      height: 64px;
+      background-size: 25px 64px;
+      background-image: url(../images/icons/region-arrow.png);
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -32px;
+
+      @include respond(small-medium) {
+        display: none;
+      }
+    }
+  }
+
+  .field-name-field-topics .field-items {
+    list-style: none;
+    padding: 0px;
+
+    .field-item {
+      @extend %tag;
+      text-transform: capitalize;
+      margin-right: 10px;
+      position: relative;
+      //padding: 0px;
+      @include transition-property(background-color);
+      @include transition-duration(200ms);
+      @include transition-timing-function(ease-in);
+
+      a {
+        padding: 5px 10px 5px 15px;
+        color: $gray-dark;
+        font-family: $sans-serif-arial-helvetica;
+        @include transition-property(color);
+        @include transition-duration(200ms);
+        @include transition-timing-function(ease-in);
+      }
+
+      &:before {
+        content: "";
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: $brand-green;
+        //pointer-events: none;
+      }
+
+      &:hover {
+        background-color: $brand-green;
+        color: $white !important;
+
+        a {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
