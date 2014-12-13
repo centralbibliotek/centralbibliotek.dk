@@ -311,10 +311,10 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['event_registration_settings'] = array(
       '#type' => 'fieldset',
       '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
+      '#collapsed' => TRUE,
       '#title' => t('Registration settings'),
       '#group' => 'additional_settings',
-      '#weight' => -10,
+      '#weight' => -100,
     );
 
     // Copy all of the registration settings into the custom fieldset.
@@ -323,6 +323,27 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['event_registration_settings']['field_status'] = $form['field_status'];
     $form['event_registration_settings']['field_number_of_attendees'] = $form['field_number_of_attendees'];
     $form['event_registration_settings']['field_registration'] = $form['field_registration'];
+    $form['event_registration_settings']['field_registration_date'] = $form['field_registration'];
+    $form['event_registration_settings']['field_send_reminder'] = $form['field_registration'];
+    $form['event_registration_settings']['field_registration'] = $form['field_registration'];
+    $form['event_registration_settings']['field_registration_date'] = $form['field_registration_date'];
+    $form['event_registration_settings']['field_send_reminder'] = $form['field_send_reminder'];
+    $form['event_registration_settings']['field_reminder_date'] = $form['field_reminder_date'];
+    $form['event_registration_settings']['field_reminder_text'] = $form['field_reminder_text'];
+
+
+    // Add token support:
+    if (module_exists('token')) {
+      $form['event_registration_settings']['token_tree'] = array(
+        '#theme' => 'token_tree',
+        '#token_types' => array(
+          'node',
+          'registration',
+        ),
+        '#global_types' => FALSE,
+        '#weight' => 100,
+      );
+    }
 
     // Unset all of the original registration settings.
     hide($form['field_organizers']);
@@ -330,6 +351,10 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     hide($form['field_status']);
     hide($form['field_number_of_attendees']);
     hide($form['field_registration']);
+    hide($form['field_registration_date']);
+    hide($form['field_send_reminder']);
+    hide($form['field_reminder_date']);
+    hide($form['field_reminder_text']);
 
     // Add additional submission and validation handlers.
     $form['#validate'][] = 'commons_events_node_form_validate';
@@ -368,8 +393,20 @@ function commons_events_node_form_submit($form, $form_state) {
       $settings['status'] = 0;
     }
 
+    // Set capacity.
     if (!empty($form_state['values']['field_number_of_attendees'][$language]['0']['value']) && is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value'])) {
       $settings['capacity'] = (int) $form_state['values']['field_number_of_attendees'][$language]['0']['value'];
+    }
+
+    // Set registration date.
+    $settings['open'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_registration_date'][$language]['0']['value']));
+    $settings['close'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_registration_date'][$language]['0']['value2']));
+
+    // Set reminder.
+    $settings['send_reminder'] = $form_state['values']['field_send_reminder'][$language]['0']['value'];
+    if ($settings['send_reminder']) {
+      $settings['reminder_date'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_reminder_date'][$language]['0']['value']));
+      $settings['reminder_text'] = $form_state['values']['field_reminder_text'][$language]['0']['value'];
     }
 
     $settings['settings'] = serialize($settings['settings']);
@@ -681,4 +718,71 @@ function commons_events_get_raw_attendee_count($node) {
   }
 
   return $attendee_count;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Trigger an Add user to registration.
+ */
+function commons_events_form_og_ui_add_users_alter(&$form, &$form_state) {
+  $form['#submit'][] = 'commons_events_form_og_ui_add_users_submit';
+}
+
+/**
+ * Submit handler to add user to event registration.
+ */
+function commons_events_form_og_ui_add_users_submit($form, &$form_state) {
+  $event_user = user_load_by_name($form_state['values']['name']);
+  if ($event_user) {
+    $event_node = node_load($form_state['values']['gid']);
+    $registration_type = registration_get_entity_registration_type('node', $event_node);
+    $registration = entity_get_controller('registration')->create(array(
+      'entity_type' => 'node',
+      'entity_id' => $event_node->nid,
+      'type' => $registration_type,
+    ));
+    $registration->user_uid = $event_user->uid;
+    $registration->author_uid = $event_user->uid;
+    $registration->state = NULL;
+    $registration->count = 0;
+    if (registration_save($registration)) {
+      drupal_set_message(t('Your registration was saved.'));
+
+      // Have the user automatically follow the event if Commons Follow (Node) is
+      // enabled.
+      if (module_exists('commons_follow_node')) {
+        commons_follow_node_follow_node($registration->entity_id, 'event', $event_user->uid);
+      }
+    }
+    else {
+      drupal_set_message(t('There was an error saving your registration.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Trigger a user removed from a event registration.
+ */
+function commons_events_form_og_ui_delete_membership_alter(&$form, &$form_state) {
+  $form['#submit'][] = 'commons_events_form_og_ui_delete_membership_submit';
+}
+
+/**
+ * Submit handler to remove user from an event registration.
+ */
+function commons_events_form_og_ui_delete_membership_submit($form, &$form_state) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'registration')
+    ->propertyCondition('user_uid', $form_state['build_info']['args'][2]->etid)
+    ->propertyCondition('entity_id', $form_state['build_info']['args'][1])
+    ->propertyCondition('entity_type', 'node');
+  $result = $query->execute();
+
+  if (isset($result['registration'])) {
+    registration_delete_multiple(array_keys($result['registration']));
+    drupal_set_message(t('Your registration has been cancelled.'));
+  }
 }

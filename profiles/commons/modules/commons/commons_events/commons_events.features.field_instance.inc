@@ -436,7 +436,7 @@ function commons_events_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_date',
-    'label' => 'Date',
+    'label' => 'Arrangementsdato',
     'required' => 1,
     'settings' => array(
       'default_value' => 'now',
@@ -457,7 +457,7 @@ function commons_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 6,
+      'weight' => 9,
     ),
   );
 
@@ -500,61 +500,7 @@ function commons_events_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 27,
-    ),
-  );
-
-  // Exported field_instance: 'node-event-field_end_date'
-  $field_instances['node-event-field_end_date'] = array(
-    'bundle' => 'event',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 22,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'field_end_date',
-    'label' => 'Tilmeldningsfrist',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'd/m/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 7,
+      'weight' => 31,
     ),
   );
 
@@ -595,7 +541,7 @@ function commons_events_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -897,7 +843,7 @@ function commons_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -990,7 +936,7 @@ function commons_events_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'numberfield',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -1018,6 +964,7 @@ function commons_events_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 1,
     'entity_type' => 'node',
     'field_name' => 'field_registration',
     'label' => 'Registration bundle',
@@ -1027,17 +974,19 @@ function commons_events_field_default_field_instances() {
         'capacity' => 0,
         'reminder' => array(
           'reminder_settings' => array(
-            'reminder_date' => '',
+            'reminder_date' => NULL,
             'reminder_template' => '',
           ),
           'send_reminder' => 0,
         ),
         'scheduling' => array(
-          'close' => '',
-          'open' => '',
+          'close' => NULL,
+          'open' => NULL,
         ),
         'settings' => array(
+          'confirmation' => 'Registration has been saved.',
           'from_address' => 'admin@example.com',
+          'maximum_spaces' => 1,
           'multiple_registrations' => 0,
         ),
         'status' => 1,
@@ -1049,6 +998,60 @@ function commons_events_field_default_field_instances() {
       'module' => 'registration',
       'settings' => array(),
       'type' => 'registration_select',
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_registration_date'
+  $field_instances['node-event-field_registration_date'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_registration_date',
+    'label' => 'Tilmeldningsdato',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'blank',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-0:+5',
+      ),
+      'type' => 'date_popup',
       'weight' => 23,
     ),
   );
@@ -1089,6 +1092,145 @@ function commons_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_reminder_date'
+  $field_instances['node-event-field_reminder_date'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 23,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_reminder_date',
+    'label' => 'Påmindelsesdato',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-0:+5',
+      ),
+      'type' => 'date_popup',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_reminder_text'
+  $field_instances['node-event-field_reminder_text'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Påmindelsesbesked at sende to alle registreret bruger. Tokens er supporteret, E.g., &#091;node:title&#093;.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 26,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_reminder_text',
+    'label' => 'Påmindelsesemail',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 30,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_send_reminder'
+  $field_instances['node-event-field_send_reminder'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 24,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_send_reminder',
+    'label' => 'Send påmindelse',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 27,
+    ),
+  );
+
   // Exported field_instance: 'registration-event-field_note'
   $field_instances['registration-event-field_note'] = array(
     'bundle' => 'event',
@@ -1118,17 +1260,17 @@ function commons_events_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 31,
+      'weight' => 4,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
+  t('Arrangementsdato');
   t('Billede');
   t('Body');
   t('Comments');
-  t('Date');
   t('Enter 0 for unlimited');
   t('Event audience');
   t('Event type');
@@ -1140,12 +1282,16 @@ function commons_events_field_default_field_instances() {
   t('Note');
   t('Organizers');
   t('Price');
+  t('Påmindelsesbesked at sende to alle registreret bruger. Tokens er supporteret, E.g., &#091;node:title&#093;.');
+  t('Påmindelsesdato');
+  t('Påmindelsesemail');
   t('Registration bundle');
   t('Registration type');
+  t('Send påmindelse');
   t('Subject');
   t('Target comment');
   t('Target nodes');
-  t('Tilmeldningsfrist');
+  t('Tilmeldningsdato');
   t('URL');
 
   return $field_instances;

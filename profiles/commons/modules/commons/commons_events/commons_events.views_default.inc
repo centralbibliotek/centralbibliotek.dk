@@ -315,13 +315,18 @@ function commons_events_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Forbindelse: Registration Settings: Indholdselement to Registration Settings */
+  $handler->display->display_options['relationships']['registration_settings_rel']['id'] = 'registration_settings_rel';
+  $handler->display->display_options['relationships']['registration_settings_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['registration_settings_rel']['field'] = 'registration_settings_rel';
+  $handler->display->display_options['relationships']['registration_settings_rel']['required'] = TRUE;
   /* Felt: Indhold: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Date */
+  /* Felt: Indhold: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -350,7 +355,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '[comment_count] comments';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-  /* Sorteringskriterie: Indhold: Date -  startdato (field_date) */
+  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -369,13 +374,14 @@ function commons_events_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Tilmeldningsfrist (field_end_date) */
-  $handler->display->display_options['filters']['field_end_date_value']['id'] = 'field_end_date_value';
-  $handler->display->display_options['filters']['field_end_date_value']['table'] = 'field_data_field_end_date';
-  $handler->display->display_options['filters']['field_end_date_value']['field'] = 'field_end_date_value';
-  $handler->display->display_options['filters']['field_end_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_end_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_end_date_value']['default_date'] = 'now';
+  /* Filterkriterie: Registration Settings: Close Date */
+  $handler->display->display_options['filters']['close']['id'] = 'close';
+  $handler->display->display_options['filters']['close']['table'] = 'registration_entity';
+  $handler->display->display_options['filters']['close']['field'] = 'close';
+  $handler->display->display_options['filters']['close']['relationship'] = 'registration_settings_rel';
+  $handler->display->display_options['filters']['close']['operator'] = '>=';
+  $handler->display->display_options['filters']['close']['value']['value'] = 'now';
+  $handler->display->display_options['filters']['close']['value']['type'] = 'offset';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
@@ -440,7 +446,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Date */
+  /* Felt: Indhold: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -512,7 +518,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No events have been created yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indhold: Date -  startdato (field_date) */
+  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -563,7 +569,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Date */
+  /* Felt: Indhold: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -633,6 +639,7 @@ function commons_events_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Load more'),
+    t('node being the Registration'),
     t('.'),
     t(' deltagere'),
     t('[comment_count] comments'),
@@ -713,7 +720,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  /* Sorteringskriterie: Indhold: Date -  startdato (field_date) */
+  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -742,7 +749,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filterkriterie: Indhold: Date -  startdato (field_date) */
+  /* Filterkriterie: Indhold: Arrangementsdato -  startdato (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';

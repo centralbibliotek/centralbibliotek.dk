@@ -16,6 +16,7 @@ files[] = includes/registration_handler_relationship.inc
 files[] = includes/registration_handler_field_entity_capacity_used.inc
 files[] = includes/registration_handler_field_entity_capacity_total.inc
 files[] = includes/registration_handler_field_entity_datetime.inc
+files[] = includes/registration_handler_filter_entity_datetime.inc
 files[] = includes/registration_handler_field_entity_settings_link.inc
 files[] = includes/registration_handler_field_entity_registration_status.inc
 

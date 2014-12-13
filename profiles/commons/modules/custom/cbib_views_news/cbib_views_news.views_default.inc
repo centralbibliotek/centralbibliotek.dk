@@ -89,8 +89,6 @@ function cbib_views_news_views_default_views() {
 
   /* Display: Global Block */
   $handler = $view->new_display('block', 'Global Block', 'cbib_newsletter_global_block');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -104,8 +102,6 @@ function cbib_views_news_views_default_views() {
 
   /* Display: Group pane all */
   $handler = $view->new_display('panel_pane', 'Group pane all', 'panel_pane_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
@@ -242,8 +238,6 @@ function cbib_views_news_views_default_views() {
 
   /* Display: Group pane group */
   $handler = $view->new_display('panel_pane', 'Group pane group', 'panel_pane_3');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
@@ -312,7 +306,6 @@ function cbib_views_news_views_default_views() {
     t('sidste »'),
     t('Load more'),
     t('Global Block'),
-    t('Kommende begivenheder'),
     t('Group pane all'),
     t('OG membership from node'),
     t('.'),

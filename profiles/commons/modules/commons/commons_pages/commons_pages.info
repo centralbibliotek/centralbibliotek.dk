@@ -39,4 +39,4 @@ features[variable][] = node_submitted_page
 features[variable][] = pathauto_node_page_pattern
 features_exclude[dependencies][commons_bw] = commons_bw
 features_exclude[dependencies][cbib_news] = cbib_news
-mtime = 1417947330
+features_exclude[dependencies][commons_documents] = commons_documents
