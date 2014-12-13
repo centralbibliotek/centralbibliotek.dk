@@ -43,11 +43,6 @@ function jump_menu($menu, $parent, $btn = FALSE, $max_depth = 0, $choose = 'Sele
     else {
         $options['hide'] = TRUE;
     }
-    // Pre-select current page
-    $current_url = url($_GET['q']);
-    if (!empty($current_url)) {
-      $options['default_value'] = $current_url;
-    }
     // Place initial select option value.
     $options['choose'] = t($choose);
     // Other available options...
