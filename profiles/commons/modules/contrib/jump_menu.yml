@@ -1,5 +1,0 @@
-patches:
-  -
-    patch: 'https://www.drupal.org/files/jump_menu-pre_select_current_page-1504520-10.patch'
-    home: 'https://www.drupal.org/node/1504520'
-    reason: 'etain current path on jump menu.'
