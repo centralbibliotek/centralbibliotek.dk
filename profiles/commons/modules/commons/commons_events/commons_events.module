@@ -231,135 +231,90 @@ function commons_events_entity_view_alter(&$build, $type) {
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
-function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
+function commons_events_form_event_node_form_alter(&$form, &$form_state, $form_id) {
   $node = $form_state['node'];
 
-  list(, , $bundle) = entity_extract_ids('node', $node);
-
-  if ($bundle == 'event' && empty($node->nid)) {
+  if (empty($node->nid)) {
     drupal_set_title(t('Create an event'));
   }
 
-  if ($bundle == 'event') {
-    // Attach custom CSS and JS to the form.
-    $form['#attached']['css'][] = drupal_get_path('module', 'commons_events') . '/css/commons_events.css';
-    $form['#attached']['js'][] = drupal_get_path('module', 'commons_events') . '/js/commons_events.js';
+  // Attach custom CSS and JS to the form.
+  $form['#attached']['css'][] = drupal_get_path('module', 'commons_events') . '/css/commons_events.css';
+  $form['#attached']['js'][] = drupal_get_path('module', 'commons_events') . '/js/commons_events.js';
 
-    // Remove the '-None-' option from all the dropdowns.
-    unset($form['field_location'][$form['field_location']['#language']]['#options']['_none']);
-    unset($form['field_registration_type'][$form['field_registration_type']['#language']]['#options']['_none']);
+  // Remove the '-None-' option from all the dropdowns.
+  unset($form['field_location'][$form['field_location']['#language']]['#options']['_none']);
+  unset($form['field_registration_type'][$form['field_registration_type']['#language']]['#options']['_none']);
 
-    // Remove the registration type description.
-    unset($form['field_registration'][$form['field_registration']['#language']]['0']['registration_type']['#description']);
+  // Remove the registration type description.
+  unset($form['field_registration'][$form['field_registration']['#language']]['0']['registration_type']['#description']);
 
-    // Default the event organizer to the user who is creating the node.
-    if (empty($form['field_organizers'][$form['field_organizers']['#language']]['#default_value'])) {
-      global $user;
-      $form['field_organizers'][$form['field_organizers']['#language']]['#default_value'] = format_username($user) . " (" . $user->uid . ")";
-    }
-
-    // Hide the Registration type field.
-    $form['field_registration']['#disabled'] = commons_events_event_type_disabled($node);
-
-    // Make the number of attendees field optional.
-    $form['field_number_of_attendees'][$form['field_number_of_attendees']['#language']]['0']['value']['#required'] = FALSE;
-
-    // Address field should be hidden if the event is online only.
-    $form['field_address']['#states'] = array(
-      'invisible' => array(
-        ':input[name^="field_location"]' => array('value' => 'online'),
-      ),
-    );
-
-    // Assume that registration is open by default.
-    $node_registration_status = 1;
-
-    // Use saved registration settings for existing events.
-    if (isset($node->nid)) {
-      $settings = registration_entity_settings('node', $node->nid);
-      $node_registration_status = $settings['status'];
-    }
-
-    // Add a status field to allow users to open and close registration.
-    $form['field_status'] = array(
-      '#type' => 'select',
-      '#title' => t('Status'),
-      '#options' => array(
-        1 => t('Open to new attendees'),
-        0 => t('Closed'),
-      ),
-      '#default_value' => $node_registration_status,
-      '#states' => array(
-        'visible' => array(
-          ':input[name^="field_registration_type"]' => array('value' => 'onsite'),
-        ),
-      ),
-      '#weight' => 10,
-    );
-
-    // Status and attendee limit are shown if registration is onsite.
-    $form['field_registration']['#states'] = $form['field_status']['#states'];
-
-    $form['field_number_of_attendees']['#states'] = $form['field_status']['#states'];
-    $form['field_number_of_attendees']['#states']['visible'][':input[name="field_status"]'] = array(
-      'value' => 1,
-    );
-    $form['field_number_of_attendees']['#weight'] = 11;
-
-    // Create a custom fieldset to hold the registration settings and add it to
-    // the additional settings group so it will be displayed as a vertical tab.
-    $form['event_registration_settings'] = array(
-      '#type' => 'fieldset',
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-      '#title' => t('Registration settings'),
-      '#group' => 'additional_settings',
-      '#weight' => -100,
-    );
-
-    // Copy all of the registration settings into the custom fieldset.
-    $form['event_registration_settings']['field_organizers'] = $form['field_organizers'];
-    $form['event_registration_settings']['field_registration_type'] = $form['field_registration_type'];
-    $form['event_registration_settings']['field_status'] = $form['field_status'];
-    $form['event_registration_settings']['field_number_of_attendees'] = $form['field_number_of_attendees'];
-    $form['event_registration_settings']['field_registration'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration_date'] = $form['field_registration'];
-    $form['event_registration_settings']['field_send_reminder'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration_date'] = $form['field_registration_date'];
-    $form['event_registration_settings']['field_send_reminder'] = $form['field_send_reminder'];
-    $form['event_registration_settings']['field_reminder_date'] = $form['field_reminder_date'];
-    $form['event_registration_settings']['field_reminder_text'] = $form['field_reminder_text'];
-
-
-    // Add token support:
-    if (module_exists('token')) {
-      $form['event_registration_settings']['token_tree'] = array(
-        '#theme' => 'token_tree',
-        '#token_types' => array(
-          'node',
-          'registration',
-        ),
-        '#global_types' => FALSE,
-        '#weight' => 100,
-      );
-    }
-
-    // Unset all of the original registration settings.
-    hide($form['field_organizers']);
-    hide($form['field_registration_type']);
-    hide($form['field_status']);
-    hide($form['field_number_of_attendees']);
-    hide($form['field_registration']);
-    hide($form['field_registration_date']);
-    hide($form['field_send_reminder']);
-    hide($form['field_reminder_date']);
-    hide($form['field_reminder_text']);
-
-    // Add additional submission and validation handlers.
-    $form['#validate'][] = 'commons_events_node_form_validate';
-    $form['#submit'][] = 'commons_events_node_form_submit';
+  // Default the event organizer to the user who is creating the node.
+  if (empty($form['field_organizers'][$form['field_organizers']['#language']]['#default_value'])) {
+    global $user;
+    $form['field_organizers'][$form['field_organizers']['#language']]['#default_value'] = format_username($user) . " (" . $user->uid . ")";
   }
+
+  // Hide the Registration type field.
+  $form['field_registration']['#disabled'] = commons_events_event_type_disabled($node);
+
+  // Make the number of attendees field optional.
+  $form['field_number_of_attendees'][$form['field_number_of_attendees']['#language']]['0']['value']['#required'] = FALSE;
+
+  // Address field should be hidden if the event is online only.
+  $form['field_address']['#states'] = array(
+    'invisible' => array(
+      ':input[name^="field_location"]' => array('value' => 'online'),
+    ),
+  );
+
+  // Assume that registration is open by default.
+  $node_registration_status = 1;
+
+  // Use saved registration settings for existing events.
+  if (isset($node->nid)) {
+    $settings = registration_entity_settings('node', $node->nid);
+    $node_registration_status = $settings['status'];
+  }
+
+  // Hide registration field.
+  $form['field_registration']['#states']['visible'][':input[name^="field_status"]'] = array(
+    'value' => -1,
+  );
+
+  // Status and attendee limit are shown if registration is onsite.
+  $form['field_number_of_attendees']['#states'] = $form['field_status']['#states'];
+  $form['field_number_of_attendees']['#states']['visible'][':input[name^="field_status"]'] = array(
+    'value' => 1,
+  );
+  $form['field_number_of_attendees']['#weight'] = 11;
+
+  // Add a status field to allow users to open and close registration.
+  $form['field_status'][$form['field_status']['#language']]['#default_value'] = $node_registration_status;
+  $form['field_status']['#states'] = array(
+    'visible' => array(
+      ':input[name^="field_registration_type"]' => array('value' => 'onsite'),
+    ),
+  );
+
+  // Add token support:
+  if (module_exists('token')) {
+    $render['token_tree'] = array(
+      '#theme' => 'token_tree',
+      '#token_types' => array(
+        'node',
+        'registration',
+      ),
+      '#global_types' => FALSE,
+      '#weight' => 100,
+    );
+    $token_help = render($render);
+    $form['field_reminder_text']['und']['#suffix'] .= $token_help;
+  }
+
+  // Add additional submission and validation handlers.
+  $form['#validate'][] = 'commons_events_node_form_validate';
+  $form['#submit'][] = 'commons_events_node_form_submit';
 }
 
 /**
@@ -371,7 +326,7 @@ function commons_events_node_form_validate($form, &$form_state) {
   switch ($form_state['values']['field_registration_type'][$language]['0']['value']) {
     case 'onsite':
       // Max attendees must be entered if the registration is open and onsite.
-      if ((int) $form_state['values']['field_status'] == 1 && (!is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value']))) {
+      if ($form_state['values'][$language]['0']['field_status'] == '1' && (!is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value']))) {
         form_set_error('field_number_of_attendees', t('Maximum number of attendees must be set for registrations to be accepted.'));
       }
       break;
@@ -622,8 +577,15 @@ function theme_commons_events_date_display_range_advanced($variables) {
   }
   else {
     if ($variables['dates']['value']['db']['object']->difference($variables['dates']['value2']['db']['object'], 'months') > 0) {
-      $variables['dates']['value']['db']['object']->limitGranularity(array('day', 'month'));
-      $variables['dates']['value2']['db']['object']->limitGranularity(array('day', 'month', 'year'));
+      $variables['dates']['value']['db']['object']->limitGranularity(array(
+          'day',
+          'month'
+        ));
+      $variables['dates']['value2']['db']['object']->limitGranularity(array(
+          'day',
+          'month',
+          'year'
+        ));
 
       $date1 = $variables['dates']['value']['db']['object']->format($variables['dates']['format'], FALSE);
       $date2 = $variables['dates']['value2']['db']['object']->format($variables['dates']['format'], FALSE);
@@ -635,11 +597,21 @@ function theme_commons_events_date_display_range_advanced($variables) {
           strpos($variables['dates']['format'], 'F') != 0 || strpos($variables['dates']['format'], 'n') != 0
         ) {
           $variables['dates']['value']['db']['object']->limitGranularity(array('day'));
-          $variables['dates']['value2']['db']['object']->limitGranularity(array('day', 'month', 'year'));
+          $variables['dates']['value2']['db']['object']->limitGranularity(array(
+              'day',
+              'month',
+              'year'
+            ));
         }
         else {
-          $variables['dates']['value']['db']['object']->limitGranularity(array('month', 'day'));
-          $variables['dates']['value2']['db']['object']->limitGranularity(array('day', 'year'));
+          $variables['dates']['value']['db']['object']->limitGranularity(array(
+              'month',
+              'day'
+            ));
+          $variables['dates']['value2']['db']['object']->limitGranularity(array(
+              'day',
+              'year'
+            ));
         }
 
         $date1 = $variables['dates']['value']['db']['object']->format($variables['dates']['format'], FALSE);
