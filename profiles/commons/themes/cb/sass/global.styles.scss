@@ -357,12 +357,9 @@ var {
     }
 
     &.node-promoted {
-        background-image: image-url("node-promoted-star.png");
-        background-position: top right;
-        background-repeat: no-repeat;
         border: none;
         position: relative;
-        @include border-radius(3px);
+
         &.user-picture-available {
             @include place-picture(50px, 10px);
         }
@@ -372,9 +369,17 @@ var {
             @extend %node-space-right;
         }
 
-        // &:hover {
-        //     background-color: darken($white, 3%);
-        // }
+        &:before {
+            content: "";
+            background-image: image-url("node-promoted-star.png");
+            background-repeat: no-repeat;
+            background-size: 40px;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 10px;
+            left: 0px;
+        }
     }
 
     .region {
@@ -1352,7 +1357,7 @@ h1.node-title {
 }
 
 // Load the post icon styles.
-@import "post-icons";
+//@import "post-icons";
 
 /* Titles fields */
 .views-field-title {

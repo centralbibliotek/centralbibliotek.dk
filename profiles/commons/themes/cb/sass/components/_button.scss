@@ -1,7 +1,7 @@
 %button-submit {
   border: 0;
   background: $brand-primary;
-  color: #fff;
+  color: $white !important;
   display: inline-block;
   margin: 0 .75em .75em 0;
   padding: .7em 1.5em;
@@ -38,7 +38,6 @@
 }
 
 
-
 %button-light {
   @extend %button-submit;
   background: $gray-light;
@@ -58,4 +57,12 @@
 
 %button-large {
   font-size: 1.25em;
+}
+
+
+.pager-load-more a, input[type=submit] {
+  @extend %button-submit;
+  border-radius: 40px;
+  padding: 15px 25px;
+  margin: 50px 0px;
 }

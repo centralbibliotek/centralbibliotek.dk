@@ -61,11 +61,11 @@
 }
 
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .pager-load-more a, input[type=submit], .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
   border: 0;
   background: #ff5479;
-  color: #fff;
+  color: white !important;
   display: inline-block;
   margin: 0 .75em .75em 0;
   padding: .7em 1.5em;
@@ -84,7 +84,7 @@
   transition: background-color 150ms ease;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .pager-load-more a:hover, input[type=submit]:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
   color: #fff;
   background: #ff6990;
@@ -93,7 +93,7 @@
   text-decoration: none;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .pager-load-more a:focus, input[type=submit]:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
   color: #fff;
   background: #ff6990;
@@ -120,6 +120,12 @@
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   font-size: 1.25em;
+}
+
+.pager-load-more a, input[type=submit] {
+  border-radius: 40px;
+  padding: 15px 25px;
+  margin: 50px 0px;
 }
 
 div.messages {
@@ -162,6 +168,7 @@ div.messages.error {
 .node-type-event #panels-ipe-paneid-7 .field-item {
   font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #424242;
+  letter-spacing: 1px;
   color: #fff;
   display: inline-block;
   padding: .4em .5em;
@@ -205,6 +212,33 @@ div.messages.error {
   color: #828282;
 }
 
+.page-news #page-top, .page-events #page-top, .page-groups #page-top {
+  display: none;
+}
+.page-news .view-filters input[type=text], .page-events .view-filters input[type=text], .page-groups .view-filters input[type=text] {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 0px;
+  height: 50px;
+  border-bottom: 2px solid #424242;
+  font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding-left: 0px;
+}
+.page-news .view-filters input:-moz-placeholder, .page-events .view-filters input:-moz-placeholder, .page-groups .view-filters input:-moz-placeholder {
+  color: #b8b8b8;
+}
+.page-news .view-filters input:-ms-input-placeholder, .page-events .view-filters input:-ms-input-placeholder, .page-groups .view-filters input:-ms-input-placeholder {
+  color: #b8b8b8;
+}
+.page-news .view-filters input::-moz-placeholder, .page-events .view-filters input::-moz-placeholder, .page-groups .view-filters input::-moz-placeholder {
+  color: #b8b8b8;
+}
+.page-news .view-filters input::-webkit-input-placeholder, .page-events .view-filters input::-webkit-input-placeholder, .page-groups .view-filters input::-webkit-input-placeholder {
+  color: #b8b8b8;
+}
+.page-news .row-type-event:before, .page-news .node-content-type-event:before, .page-events .row-type-event:before, .page-events .node-content-type-event:before, .page-groups .row-type-event:before, .page-groups .node-content-type-event:before {
+  display: none !important;
+}
 .page-news .node-teaser h2 a, .page-events .node-teaser h2 a, .page-groups .node-teaser h2 a {
   color: #424242;
   font-size: 20px;
@@ -218,6 +252,16 @@ div.messages.error {
   .page-news .node-teaser .panel-col-first, .page-events .node-teaser .panel-col-first, .page-groups .node-teaser .panel-col-first {
     width: 100%;
   }
+}
+.page-news .node-teaser .panel-col-first .inside, .page-events .node-teaser .panel-col-first .inside, .page-groups .node-teaser .panel-col-first .inside {
+  background-color: #f2f2f2;
+  min-height: 170px;
+}
+.page-news .node-teaser .panel-col-first img, .page-events .node-teaser .panel-col-first img, .page-groups .node-teaser .panel-col-first img {
+  min-height: 170px;
+}
+.page-news .node-teaser figure, .page-events .node-teaser figure, .page-groups .node-teaser figure {
+  line-height: 0px;
 }
 .page-news .node-teaser .panel-pane, .page-news .node-teaser .field-name-body, .page-news .node-teaser h2, .page-events .node-teaser .panel-pane, .page-events .node-teaser .field-name-body, .page-events .node-teaser h2, .page-groups .node-teaser .panel-pane, .page-groups .node-teaser .field-name-body, .page-groups .node-teaser h2 {
   margin: 0px;
