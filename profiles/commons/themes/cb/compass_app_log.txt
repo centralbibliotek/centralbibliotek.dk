@@ -12162,3 +12162,1666 @@ Load paths:
 2014-12-12 16:05:55 overwrite css/responsive.smartphone.portrait.css 
 2014-12-12 16:05:55 overwrite css/responsive.tablet.landscape.css 
 2014-12-12 16:05:55 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:16:45 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:45 overwrite css/commons-media.css 
+2014-12-15 20:16:47 overwrite css/global.base.css 
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:16:53 overwrite css/global.styles.css 
+2014-12-15 20:16:53 overwrite css/lt-ie9.css 
+2014-12-15 20:16:54 overwrite css/print.css 
+2014-12-15 20:16:55 overwrite css/responsive.custom.css 
+2014-12-15 20:16:56 overwrite css/responsive.desktop.css 
+2014-12-15 20:16:56 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:16:57 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:16:57 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:16:58 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:20:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:11 overwrite css/commons-media.css 
+2014-12-15 20:20:11 overwrite css/global.base.css 
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:15 overwrite css/global.styles.css 
+2014-12-15 20:20:16 overwrite css/lt-ie9.css 
+2014-12-15 20:20:16 overwrite css/print.css 
+2014-12-15 20:20:17 overwrite css/responsive.custom.css 
+2014-12-15 20:20:17 overwrite css/responsive.desktop.css 
+2014-12-15 20:20:17 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:20:18 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:20:18 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:20:19 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:20:24 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:25 overwrite css/commons-media.css 
+2014-12-15 20:20:25 overwrite css/global.base.css 
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:20:29 overwrite css/global.styles.css 
+2014-12-15 20:20:30 overwrite css/lt-ie9.css 
+2014-12-15 20:20:30 overwrite css/print.css 
+2014-12-15 20:20:31 overwrite css/responsive.custom.css 
+2014-12-15 20:20:31 overwrite css/responsive.desktop.css 
+2014-12-15 20:20:32 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:20:32 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:20:33 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:20:33 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:21:25 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:25 overwrite css/commons-media.css 
+2014-12-15 20:21:26 overwrite css/global.base.css 
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:29 overwrite css/global.styles.css 
+2014-12-15 20:21:29 overwrite css/lt-ie9.css 
+2014-12-15 20:21:30 overwrite css/print.css 
+2014-12-15 20:21:30 overwrite css/responsive.custom.css 
+2014-12-15 20:21:31 overwrite css/responsive.desktop.css 
+2014-12-15 20:21:31 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:21:31 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:21:32 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:21:32 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:21:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:38 identical css/commons-media.css 
+2014-12-15 20:21:38 identical css/global.base.css 
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:39 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:42 identical css/global.styles.css 
+2014-12-15 20:21:42 identical css/lt-ie9.css 
+2014-12-15 20:21:43 identical css/print.css 
+2014-12-15 20:21:43 identical css/responsive.custom.css 
+2014-12-15 20:21:44 identical css/responsive.desktop.css 
+2014-12-15 20:21:44 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:21:44 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:21:45 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:21:45 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:21:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:52 overwrite css/commons-media.css 
+2014-12-15 20:21:53 overwrite css/global.base.css 
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:21:56 overwrite css/global.styles.css 
+2014-12-15 20:21:57 overwrite css/lt-ie9.css 
+2014-12-15 20:21:57 overwrite css/print.css 
+2014-12-15 20:21:57 overwrite css/responsive.custom.css 
+2014-12-15 20:21:58 overwrite css/responsive.desktop.css 
+2014-12-15 20:21:58 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:21:59 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:21:59 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:21:59 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:22:00 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:00 identical css/commons-media.css 
+2014-12-15 20:22:10 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:10 overwrite css/commons-media.css 
+2014-12-15 20:22:11 overwrite css/global.base.css 
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:14 overwrite css/global.styles.css 
+2014-12-15 20:22:15 overwrite css/lt-ie9.css 
+2014-12-15 20:22:15 overwrite css/print.css 
+2014-12-15 20:22:16 overwrite css/responsive.custom.css 
+2014-12-15 20:22:16 overwrite css/responsive.desktop.css 
+2014-12-15 20:22:17 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:22:17 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:22:17 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:22:18 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:22:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:32 overwrite css/commons-media.css 
+2014-12-15 20:22:33 overwrite css/global.base.css 
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:22:36 overwrite css/global.styles.css 
+2014-12-15 20:22:37 overwrite css/lt-ie9.css 
+2014-12-15 20:22:37 overwrite css/print.css 
+2014-12-15 20:22:38 overwrite css/responsive.custom.css 
+2014-12-15 20:22:38 overwrite css/responsive.desktop.css 
+2014-12-15 20:22:38 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:22:39 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:22:39 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:22:39 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 overwrite css/commons-media.css 
+2014-12-15 20:23:32 overwrite css/global.base.css 
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:23:35 overwrite css/global.styles.css 
+2014-12-15 20:23:36 overwrite css/lt-ie9.css 
+2014-12-15 20:23:36 overwrite css/print.css 
+2014-12-15 20:23:36 overwrite css/responsive.custom.css 
+2014-12-15 20:23:37 overwrite css/responsive.desktop.css 
+2014-12-15 20:23:37 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:23:37 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:23:38 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:23:38 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 overwrite css/commons-media.css 
+2014-12-15 20:24:28 overwrite css/global.base.css 
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:28 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:24:31 overwrite css/global.styles.css 
+2014-12-15 20:24:32 overwrite css/lt-ie9.css 
+2014-12-15 20:24:32 overwrite css/print.css 
+2014-12-15 20:24:32 overwrite css/responsive.custom.css 
+2014-12-15 20:24:33 overwrite css/responsive.desktop.css 
+2014-12-15 20:24:33 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:24:34 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:24:34 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:24:35 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:26:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:49 overwrite css/commons-media.css 
+2014-12-15 20:26:49 overwrite css/global.base.css 
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:26:52 overwrite css/global.styles.css 
+2014-12-15 20:26:53 overwrite css/lt-ie9.css 
+2014-12-15 20:26:53 overwrite css/print.css 
+2014-12-15 20:26:54 overwrite css/responsive.custom.css 
+2014-12-15 20:26:54 overwrite css/responsive.desktop.css 
+2014-12-15 20:26:54 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:26:55 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:26:55 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:26:55 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 overwrite css/commons-media.css 
+2014-12-15 20:28:07 overwrite css/global.base.css 
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:07 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:08 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:10 overwrite css/global.styles.css 
+2014-12-15 20:28:11 overwrite css/lt-ie9.css 
+2014-12-15 20:28:11 overwrite css/print.css 
+2014-12-15 20:28:11 overwrite css/responsive.custom.css 
+2014-12-15 20:28:12 overwrite css/responsive.desktop.css 
+2014-12-15 20:28:12 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:28:13 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:28:13 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:28:14 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 overwrite css/commons-media.css 
+2014-12-15 20:28:36 overwrite css/global.base.css 
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:36 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:28:40 overwrite css/global.styles.css 
+2014-12-15 20:28:40 overwrite css/lt-ie9.css 
+2014-12-15 20:28:41 overwrite css/print.css 
+2014-12-15 20:28:41 overwrite css/responsive.custom.css 
+2014-12-15 20:28:41 overwrite css/responsive.desktop.css 
+2014-12-15 20:28:42 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:28:43 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:28:43 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:28:44 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:34:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:33 overwrite css/commons-media.css 
+2014-12-15 20:34:34 overwrite css/global.base.css 
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:34 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:34:37 overwrite css/global.styles.css 
+2014-12-15 20:34:37 overwrite css/lt-ie9.css 
+2014-12-15 20:34:38 overwrite css/print.css 
+2014-12-15 20:34:38 overwrite css/responsive.custom.css 
+2014-12-15 20:34:39 overwrite css/responsive.desktop.css 
+2014-12-15 20:34:39 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:34:40 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:34:40 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:34:40 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:36:50 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:50 overwrite css/commons-media.css 
+2014-12-15 20:36:50 overwrite css/global.base.css 
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:53 overwrite css/global.styles.css 
+2014-12-15 20:36:53 overwrite css/lt-ie9.css 
+2014-12-15 20:36:54 overwrite css/print.css 
+2014-12-15 20:36:54 overwrite css/responsive.custom.css 
+2014-12-15 20:36:54 overwrite css/responsive.desktop.css 
+2014-12-15 20:36:55 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:36:55 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:36:56 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:36:56 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:36:57 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:36:57 identical css/commons-media.css 
+2014-12-15 20:36:57 identical css/global.base.css 
+2014-12-15 20:40:13 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:13 overwrite css/commons-media.css 
+2014-12-15 20:40:14 overwrite css/global.base.css 
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:14 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:17 overwrite css/global.styles.css 
+2014-12-15 20:40:17 overwrite css/lt-ie9.css 
+2014-12-15 20:40:17 overwrite css/print.css 
+2014-12-15 20:40:18 overwrite css/responsive.custom.css 
+2014-12-15 20:40:18 overwrite css/responsive.desktop.css 
+2014-12-15 20:40:18 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:40:19 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:40:19 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:40:20 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:40:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:54 overwrite css/commons-media.css 
+2014-12-15 20:40:55 overwrite css/global.base.css 
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:40:58 overwrite css/global.styles.css 
+2014-12-15 20:40:58 overwrite css/lt-ie9.css 
+2014-12-15 20:40:58 overwrite css/print.css 
+2014-12-15 20:40:59 overwrite css/responsive.custom.css 
+2014-12-15 20:40:59 overwrite css/responsive.desktop.css 
+2014-12-15 20:40:59 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:41:00 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:41:00 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:41:00 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:46:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:26 overwrite css/commons-media.css 
+2014-12-15 20:46:27 overwrite css/global.base.css 
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:27 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:46:29 overwrite css/global.styles.css 
+2014-12-15 20:46:30 overwrite css/lt-ie9.css 
+2014-12-15 20:46:30 overwrite css/print.css 
+2014-12-15 20:46:31 overwrite css/responsive.custom.css 
+2014-12-15 20:46:31 overwrite css/responsive.desktop.css 
+2014-12-15 20:46:31 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:46:32 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:46:32 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:46:32 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:46:39     error sass/commons-media.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:39 overwrite css/commons-media.css 
+2014-12-15 20:46:40     error sass/global.base.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:40 overwrite css/global.base.css 
+2014-12-15 20:46:40     error sass/global.styles.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:40 overwrite css/global.styles.css 
+2014-12-15 20:46:41     error sass/lt-ie9.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:41 overwrite css/lt-ie9.css 
+2014-12-15 20:46:41     error sass/print.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:41 overwrite css/print.css 
+2014-12-15 20:46:42     error sass/responsive.custom.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:42 overwrite css/responsive.custom.css 
+2014-12-15 20:46:42     error sass/responsive.desktop.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:42 overwrite css/responsive.desktop.css 
+2014-12-15 20:46:43     error sass/responsive.smartphone.landscape.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:43 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:46:43     error sass/responsive.smartphone.portrait.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:43 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:46:44     error sass/responsive.tablet.landscape.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:44 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:46:44     error sass/responsive.tablet.portrait.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:44 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:46:45     error sass/commons-media.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:45 identical css/commons-media.css 
+2014-12-15 20:46:45     error sass/global.base.scss (Line 202 of sass/components/_main-header.scss: Invalid CSS after "...nd-image: url()": expected ";", was "&:hover {")
+2014-12-15 20:46:45 identical css/global.base.css 
+2014-12-15 20:46:46     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:46 overwrite css/global.styles.css 
+2014-12-15 20:46:46     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:46 overwrite css/lt-ie9.css 
+2014-12-15 20:46:47     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:47 overwrite css/print.css 
+2014-12-15 20:46:48     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:48 overwrite css/responsive.custom.css 
+2014-12-15 20:46:48     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:48 overwrite css/responsive.desktop.css 
+2014-12-15 20:46:49     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:49 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:46:49     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:49 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:46:50     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:50 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:46:50     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:50 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:46:51     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:51 overwrite css/commons-media.css 
+2014-12-15 20:46:52     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:52 overwrite css/global.base.css 
+2014-12-15 20:46:52     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:52 identical css/global.styles.css 
+2014-12-15 20:46:53     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:53 identical css/lt-ie9.css 
+2014-12-15 20:46:53     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:53 identical css/print.css 
+2014-12-15 20:46:54     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:54 identical css/responsive.custom.css 
+2014-12-15 20:46:54     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:54 identical css/responsive.desktop.css 
+2014-12-15 20:46:55     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:55 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:46:55     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:55 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:46:56     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:56 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:46:56     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:56 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:46:57     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:57 identical css/commons-media.css 
+2014-12-15 20:46:57     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:57 identical css/global.base.css 
+2014-12-15 20:46:58     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:58 identical css/global.styles.css 
+2014-12-15 20:46:58     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:58 identical css/lt-ie9.css 
+2014-12-15 20:46:59     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:59 identical css/print.css 
+2014-12-15 20:46:59     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:46:59 identical css/responsive.custom.css 
+2014-12-15 20:47:00     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:47:00 identical css/responsive.desktop.css 
+2014-12-15 20:47:00     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:47:00 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:47:01     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:47:01 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:47:01     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:47:01 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:47:02     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...kground-image: ": expected expression (e.g. 1px, bold), was ";")
+2014-12-15 20:47:02 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:47:09     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:09 overwrite css/commons-media.css 
+2014-12-15 20:47:10     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:10 overwrite css/global.base.css 
+2014-12-15 20:47:10     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:10 overwrite css/global.styles.css 
+2014-12-15 20:47:11     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:11 overwrite css/lt-ie9.css 
+2014-12-15 20:47:11     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:11 overwrite css/print.css 
+2014-12-15 20:47:12     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:12 overwrite css/responsive.custom.css 
+2014-12-15 20:47:12     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:12 overwrite css/responsive.desktop.css 
+2014-12-15 20:47:13     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:13 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:47:13     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:13 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:47:14     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:14 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:47:14     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:14 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:47:15     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:15 identical css/commons-media.css 
+2014-12-15 20:47:16     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:16 identical css/global.base.css 
+2014-12-15 20:47:16     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:16 identical css/global.styles.css 
+2014-12-15 20:47:17     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:17 identical css/lt-ie9.css 
+2014-12-15 20:47:17     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:17 identical css/print.css 
+2014-12-15 20:47:18     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:18 identical css/responsive.custom.css 
+2014-12-15 20:47:18     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:18 identical css/responsive.desktop.css 
+2014-12-15 20:47:19     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:19 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:47:19     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:19 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:47:20     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:20 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:47:20     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:47:20 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:48:54     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:54 identical css/commons-media.css 
+2014-12-15 20:48:54     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:54 identical css/global.base.css 
+2014-12-15 20:48:55     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:55 identical css/global.styles.css 
+2014-12-15 20:48:55     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:55 identical css/lt-ie9.css 
+2014-12-15 20:48:56     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:56 identical css/print.css 
+2014-12-15 20:48:56     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:56 identical css/responsive.custom.css 
+2014-12-15 20:48:57     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:57 identical css/responsive.desktop.css 
+2014-12-15 20:48:57     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:57 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:48:58     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:58 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:48:58     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:58 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:48:59     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:59 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:48:59     error sass/commons-media.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:48:59 identical css/commons-media.css 
+2014-12-15 20:49:00     error sass/global.base.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:00 identical css/global.base.css 
+2014-12-15 20:49:00     error sass/global.styles.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:00 identical css/global.styles.css 
+2014-12-15 20:49:01     error sass/lt-ie9.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:01 identical css/lt-ie9.css 
+2014-12-15 20:49:01     error sass/print.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:01 identical css/print.css 
+2014-12-15 20:49:02     error sass/responsive.custom.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:02 identical css/responsive.custom.css 
+2014-12-15 20:49:02     error sass/responsive.desktop.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:02 identical css/responsive.desktop.css 
+2014-12-15 20:49:03     error sass/responsive.smartphone.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:03 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:49:03     error sass/responsive.smartphone.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:03 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:49:04     error sass/responsive.tablet.landscape.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:04 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:49:04     error sass/responsive.tablet.portrait.scss (Line 200 of sass/components/_main-header.scss: Invalid CSS after "...ch-select-arrow": expected ")", was ".png);")
+2014-12-15 20:49:04 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:49:05 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:05 overwrite css/commons-media.css 
+2014-12-15 20:49:05 overwrite css/global.base.css 
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:06 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:08 overwrite css/global.styles.css 
+2014-12-15 20:49:09 overwrite css/lt-ie9.css 
+2014-12-15 20:49:09 overwrite css/print.css 
+2014-12-15 20:49:09 overwrite css/responsive.custom.css 
+2014-12-15 20:49:10 overwrite css/responsive.desktop.css 
+2014-12-15 20:49:10 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:49:10 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:49:11 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:49:11 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:49:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:32 overwrite css/commons-media.css 
+2014-12-15 20:49:32 overwrite css/global.base.css 
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:33 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:49:36 overwrite css/global.styles.css 
+2014-12-15 20:49:36 overwrite css/lt-ie9.css 
+2014-12-15 20:49:36 overwrite css/print.css 
+2014-12-15 20:49:37 overwrite css/responsive.custom.css 
+2014-12-15 20:49:37 overwrite css/responsive.desktop.css 
+2014-12-15 20:49:37 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:49:38 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:49:38 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:49:39 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:50:47 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:47 overwrite css/commons-media.css 
+2014-12-15 20:50:48 overwrite css/global.base.css 
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:48 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:50:51 overwrite css/global.styles.css 
+2014-12-15 20:50:51 overwrite css/lt-ie9.css 
+2014-12-15 20:50:52 overwrite css/print.css 
+2014-12-15 20:50:52 overwrite css/responsive.custom.css 
+2014-12-15 20:50:53 overwrite css/responsive.desktop.css 
+2014-12-15 20:50:53 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:50:53 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:50:54 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:50:54 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:52:58     error sass/commons-media.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:52:58 overwrite css/commons-media.css 
+2014-12-15 20:52:58     error sass/global.base.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:52:58 overwrite css/global.base.css 
+2014-12-15 20:52:59     error sass/global.styles.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:52:59 overwrite css/global.styles.css 
+2014-12-15 20:52:59     error sass/lt-ie9.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:52:59 overwrite css/lt-ie9.css 
+2014-12-15 20:52:59     error sass/print.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:52:59 overwrite css/print.css 
+2014-12-15 20:53:00     error sass/responsive.custom.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:53:00 overwrite css/responsive.custom.css 
+2014-12-15 20:53:00     error sass/responsive.desktop.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:53:00 overwrite css/responsive.desktop.css 
+2014-12-15 20:53:01     error sass/responsive.smartphone.landscape.scss (Line 207 of sass/components/_main-header.scss: Invalid CSS after "...mation-duration": expected ";", was ": 1s;")
+2014-12-15 20:53:01 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:53:01 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:53:02 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:53:02 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:53:02 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:02 overwrite css/commons-media.css 
+2014-12-15 20:53:03 overwrite css/global.base.css 
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:06 overwrite css/global.styles.css 
+2014-12-15 20:53:06 overwrite css/lt-ie9.css 
+2014-12-15 20:53:07 overwrite css/print.css 
+2014-12-15 20:53:07 overwrite css/responsive.custom.css 
+2014-12-15 20:53:08 overwrite css/responsive.desktop.css 
+2014-12-15 20:53:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:22 overwrite css/commons-media.css 
+2014-12-15 20:53:23 overwrite css/global.base.css 
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:25 overwrite css/global.styles.css 
+2014-12-15 20:53:26 overwrite css/lt-ie9.css 
+2014-12-15 20:53:26 overwrite css/print.css 
+2014-12-15 20:53:27 overwrite css/responsive.custom.css 
+2014-12-15 20:53:27 overwrite css/responsive.desktop.css 
+2014-12-15 20:53:27 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:53:28 identical css/responsive.smartphone.portrait.css 
+2014-12-15 20:53:28 identical css/responsive.tablet.landscape.css 
+2014-12-15 20:53:28 identical css/responsive.tablet.portrait.css 
+2014-12-15 20:53:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:29 overwrite css/commons-media.css 
+2014-12-15 20:53:29 overwrite css/global.base.css 
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:33 overwrite css/global.styles.css 
+2014-12-15 20:53:34 identical css/lt-ie9.css 
+2014-12-15 20:53:35 identical css/print.css 
+2014-12-15 20:53:35 identical css/responsive.custom.css 
+2014-12-15 20:53:36 identical css/responsive.desktop.css 
+2014-12-15 20:53:36 identical css/responsive.smartphone.landscape.css 
+2014-12-15 20:53:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:53:38 overwrite css/commons-media.css 
+2014-12-15 20:53:38 overwrite css/global.base.css 
+2014-12-15 20:53:39 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:53:39 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:53:40 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:55:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:53 overwrite css/commons-media.css 
+2014-12-15 20:55:54 overwrite css/global.base.css 
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:55 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:55:56 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:00 overwrite css/global.styles.css 
+2014-12-15 20:56:00 overwrite css/lt-ie9.css 
+2014-12-15 20:56:01 overwrite css/print.css 
+2014-12-15 20:56:01 overwrite css/responsive.custom.css 
+2014-12-15 20:56:02 overwrite css/responsive.desktop.css 
+2014-12-15 20:56:02 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:56:03 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:56:03 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:56:04 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:56:57 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:57 overwrite css/commons-media.css 
+2014-12-15 20:56:58 overwrite css/global.base.css 
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:56:58 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:00 overwrite css/global.styles.css 
+2014-12-15 20:57:01 overwrite css/lt-ie9.css 
+2014-12-15 20:57:01 overwrite css/print.css 
+2014-12-15 20:57:01 overwrite css/responsive.custom.css 
+2014-12-15 20:57:02 overwrite css/responsive.desktop.css 
+2014-12-15 20:57:02 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:57:02 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:57:03 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:57:03 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:57:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:11 overwrite css/commons-media.css 
+2014-12-15 20:57:12 overwrite css/global.base.css 
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:12 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:57:15 overwrite css/global.styles.css 
+2014-12-15 20:57:15 overwrite css/lt-ie9.css 
+2014-12-15 20:57:15 overwrite css/print.css 
+2014-12-15 20:57:16 overwrite css/responsive.custom.css 
+2014-12-15 20:57:16 overwrite css/responsive.desktop.css 
+2014-12-15 20:57:17 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:57:17 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:57:17 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:57:18 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:58:21 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 overwrite css/commons-media.css 
+2014-12-15 20:58:22 overwrite css/global.base.css 
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:22 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:23 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:58:25 overwrite css/global.styles.css 
+2014-12-15 20:58:25 overwrite css/lt-ie9.css 
+2014-12-15 20:58:26 overwrite css/print.css 
+2014-12-15 20:58:26 overwrite css/responsive.custom.css 
+2014-12-15 20:58:27 overwrite css/responsive.desktop.css 
+2014-12-15 20:58:27 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:58:27 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:58:28 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:58:28 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:59:19 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 overwrite css/commons-media.css 
+2014-12-15 20:59:20 overwrite css/global.base.css 
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:20 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:21 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:23 overwrite css/global.styles.css 
+2014-12-15 20:59:23 overwrite css/lt-ie9.css 
+2014-12-15 20:59:23 overwrite css/print.css 
+2014-12-15 20:59:24 overwrite css/responsive.custom.css 
+2014-12-15 20:59:24 overwrite css/responsive.desktop.css 
+2014-12-15 20:59:24 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:59:25 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:59:25 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:59:25 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:59:26 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:26 overwrite css/commons-media.css 
+2014-12-15 20:59:26 overwrite css/global.base.css 
+2014-12-15 20:59:30     error sass/commons-media.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:30 overwrite css/commons-media.css 
+2014-12-15 20:59:30     error sass/global.base.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:30 overwrite css/global.base.css 
+2014-12-15 20:59:30     error sass/global.styles.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:30 overwrite css/global.styles.css 
+2014-12-15 20:59:31     error sass/lt-ie9.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:31 overwrite css/lt-ie9.css 
+2014-12-15 20:59:31     error sass/print.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:31 overwrite css/print.css 
+2014-12-15 20:59:32     error sass/responsive.custom.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:32 overwrite css/responsive.custom.css 
+2014-12-15 20:59:32     error sass/responsive.desktop.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:32 overwrite css/responsive.desktop.css 
+2014-12-15 20:59:32     error sass/responsive.smartphone.landscape.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:32 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:59:33     error sass/responsive.smartphone.portrait.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:33 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:59:33     error sass/responsive.tablet.landscape.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:33 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:59:33     error sass/responsive.tablet.portrait.scss (Line 16 of sass/_base.scss: File to import not found or unreadable: animations.
+Load paths:
+  /Users/madshostrup/Sites/centralbibliotek.dk/profiles/commons/themes/cb/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/blueprint/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.1/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.4.3/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-2.3.2.1/vendor/assets/stylesheets
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-1.0.9/sass
+  /Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-4.3.1/scss
+  Compass::SpriteImporter
+  /vendor/assets/stylesheets
+  /vendor/assets/stylesheets)
+2014-12-15 20:59:33 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 20:59:37 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:37 overwrite css/commons-media.css 
+2014-12-15 20:59:38 overwrite css/global.base.css 
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:38 unchanged images/icons-s6788ffff3b.png
+2014-12-15 20:59:40 overwrite css/global.styles.css 
+2014-12-15 20:59:41 overwrite css/lt-ie9.css 
+2014-12-15 20:59:41 overwrite css/print.css 
+2014-12-15 20:59:41 overwrite css/responsive.custom.css 
+2014-12-15 20:59:42 overwrite css/responsive.desktop.css 
+2014-12-15 20:59:42 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 20:59:43 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 20:59:43 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 20:59:43 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:00:29 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:29 overwrite css/commons-media.css 
+2014-12-15 21:00:30 overwrite css/global.base.css 
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:30 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:00:33 overwrite css/global.styles.css 
+2014-12-15 21:00:33 overwrite css/lt-ie9.css 
+2014-12-15 21:00:33 overwrite css/print.css 
+2014-12-15 21:00:34 overwrite css/responsive.custom.css 
+2014-12-15 21:00:34 overwrite css/responsive.desktop.css 
+2014-12-15 21:00:35 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:00:35 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:00:35 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:00:36 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:01:10 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:10 overwrite css/commons-media.css 
+2014-12-15 21:01:11 overwrite css/global.base.css 
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:11 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:14 overwrite css/global.styles.css 
+2014-12-15 21:01:14 overwrite css/lt-ie9.css 
+2014-12-15 21:01:15 overwrite css/print.css 
+2014-12-15 21:01:15 overwrite css/responsive.custom.css 
+2014-12-15 21:01:15 overwrite css/responsive.desktop.css 
+2014-12-15 21:01:16 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:01:16 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:01:16 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:01:17 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:01:53 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:53 overwrite css/commons-media.css 
+2014-12-15 21:01:54 overwrite css/global.base.css 
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:54 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:01:56 overwrite css/global.styles.css 
+2014-12-15 21:01:57 overwrite css/lt-ie9.css 
+2014-12-15 21:01:57 overwrite css/print.css 
+2014-12-15 21:01:57 overwrite css/responsive.custom.css 
+2014-12-15 21:01:58 overwrite css/responsive.desktop.css 
+2014-12-15 21:01:58 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:01:58 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:01:59 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:01:59 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:03:31 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:31 overwrite css/commons-media.css 
+2014-12-15 21:03:32 overwrite css/global.base.css 
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:32 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:03:34 overwrite css/global.styles.css 
+2014-12-15 21:03:35 overwrite css/lt-ie9.css 
+2014-12-15 21:03:35 overwrite css/print.css 
+2014-12-15 21:03:36 overwrite css/responsive.custom.css 
+2014-12-15 21:03:36 overwrite css/responsive.desktop.css 
+2014-12-15 21:03:36 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:03:37 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:03:37 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:03:38 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:04:51 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:51 overwrite css/commons-media.css 
+2014-12-15 21:04:51 overwrite css/global.base.css 
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:52 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:04:54 overwrite css/global.styles.css 
+2014-12-15 21:04:55 overwrite css/lt-ie9.css 
+2014-12-15 21:04:55 overwrite css/print.css 
+2014-12-15 21:04:55 overwrite css/responsive.custom.css 
+2014-12-15 21:04:56 overwrite css/responsive.desktop.css 
+2014-12-15 21:04:56 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:04:56 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:04:57 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:04:57 overwrite css/responsive.tablet.portrait.css 
+2014-12-15 21:06:03 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:03 overwrite css/commons-media.css 
+2014-12-15 21:06:03 overwrite css/global.base.css 
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:04 unchanged images/icons-s6788ffff3b.png
+2014-12-15 21:06:07 overwrite css/global.styles.css 
+2014-12-15 21:06:07 overwrite css/lt-ie9.css 
+2014-12-15 21:06:07 overwrite css/print.css 
+2014-12-15 21:06:08 overwrite css/responsive.custom.css 
+2014-12-15 21:06:08 overwrite css/responsive.desktop.css 
+2014-12-15 21:06:08 overwrite css/responsive.smartphone.landscape.css 
+2014-12-15 21:06:09 overwrite css/responsive.smartphone.portrait.css 
+2014-12-15 21:06:09 overwrite css/responsive.tablet.landscape.css 
+2014-12-15 21:06:09 overwrite css/responsive.tablet.portrait.css 
