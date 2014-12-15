@@ -53,10 +53,10 @@ function commons_events_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'redirect' => array(
-          'weight' => '30',
+          'weight' => '2',
         ),
         'who_is_registering' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'anon_mail' => array(
           'weight' => '0',

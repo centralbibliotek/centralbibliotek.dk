@@ -62,4 +62,4 @@ features_exclude[dependencies][commons_bw] = commons_bw
 features_exclude[dependencies][commons_groups] = commons_groups
 features_exclude[dependencies][commons_media] = commons_media
 features_exclude[dependencies][cbib_news] = cbib_news
-mtime = 1417947908
+features_exclude[dependencies][commons_documents] = commons_documents

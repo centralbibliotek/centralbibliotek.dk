@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/registration-Add-views-filters-for-open-date-and-close-date-1949466-1.patch'
+    home: 'https://www.drupal.org/node/1949466'
+    reason: 'Added missing filter criteria for views with registration.'

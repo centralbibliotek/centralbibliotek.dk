@@ -57,7 +57,7 @@ function cbib_news_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'two_66_33';
+  $display->layout = 'one';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -70,6 +70,7 @@ function cbib_news_default_page_manager_pages() {
       'two_66_33_first' => NULL,
       'two_66_33_second' => NULL,
       'two_66_33_bottom' => NULL,
+      'one_main' => NULL,
     ),
   );
   $display->cache = array();
@@ -79,7 +80,7 @@ function cbib_news_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-b22d7f9a-54fa-4700-b385-49fb1c8a694d';
-    $pane->panel = 'two_66_33_first';
+    $pane->panel = 'one_main';
     $pane->type = 'views_panes';
     $pane->subtype = 'centralbibliotek_news-panel_pane_2';
     $pane->shown = TRUE;
@@ -95,7 +96,7 @@ function cbib_news_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'b22d7f9a-54fa-4700-b385-49fb1c8a694d';
     $display->content['new-b22d7f9a-54fa-4700-b385-49fb1c8a694d'] = $pane;
-    $display->panels['two_66_33_first'][0] = 'new-b22d7f9a-54fa-4700-b385-49fb1c8a694d';
+    $display->panels['one_main'][0] = 'new-b22d7f9a-54fa-4700-b385-49fb1c8a694d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
