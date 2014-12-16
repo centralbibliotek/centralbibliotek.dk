@@ -22,7 +22,7 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 
 .main-header {
 	height: auto;
-	min-height: 113px;
+	min-height: 140px;
 }
 
 #branding {
@@ -33,6 +33,14 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 #block-search-form {
 	width: 100%;
 	right: 0px;
+	top: 75px;
 	padding: 0 10px;
 	box-sizing: border-box;
+}
+
+
+#block-views-centralbiblioteker-block {
+    left: auto;
+    right: 10px;
+    top: 10px;
 }
