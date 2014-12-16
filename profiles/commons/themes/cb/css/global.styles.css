@@ -330,7 +330,9 @@ div.messages.error {
   }
 }
 .page-news .node-teaser .panel-col-first .inside, .page-node-news .node-teaser .panel-col-first .inside, .page-events .node-teaser .panel-col-first .inside, .page-node-events .node-teaser .panel-col-first .inside, .page-groups .node-teaser .panel-col-first .inside, .page-node-groups .node-teaser .panel-col-first .inside, .page-taxonomy .node-teaser .panel-col-first .inside, .node-type-centralbibliotek .node-teaser .panel-col-first .inside, .page-home .node-teaser .panel-col-first .inside {
-  background-color: #f2f2f2;
+  background-image: url(../images/no-image.jpg);
+  background-size: 50%;
+  background-position: center;
   min-height: 170px;
   position: relative;
 }

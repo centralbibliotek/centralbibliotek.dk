@@ -52,7 +52,9 @@
       }
 
       .inside {
-        background-color: darken($white, 5%);
+        background-image: url(../images/no-image.jpg);
+        background-size: 100%;
+        background-position: center;
         min-height: 170px;
         position: relative;
       }
