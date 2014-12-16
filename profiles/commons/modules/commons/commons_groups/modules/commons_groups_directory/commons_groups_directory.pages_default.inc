@@ -168,7 +168,7 @@ function commons_groups_directory_default_page_manager_pages() {
     ),
   );
   $page->menu = array(
-    'type' => 'tab',
+    'type' => 'none',
     'title' => 'Grupper',
     'name' => 'main-menu',
     'weight' => '-1',
