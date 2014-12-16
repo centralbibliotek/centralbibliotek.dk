@@ -101,7 +101,6 @@ function commons_events_views_default_views() {
   $handler->display->display_options['allow']['more_link'] = 0;
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 0;
-  $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
     'null' => array(
@@ -289,7 +288,7 @@ function commons_events_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Begivenheder';
+  $handler->display->display_options['title'] = 'Arrangementer';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -365,7 +364,6 @@ function commons_events_views_default_views() {
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -398,7 +396,7 @@ function commons_events_views_default_views() {
   /* Display: Global Block */
   $handler = $view->new_display('block', 'Global Block', 'commons_events_upcoming_global_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
+  $handler->display->display_options['title'] = 'Kommende arrangementer';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -413,7 +411,7 @@ function commons_events_views_default_views() {
   /* Display: Group pane all */
   $handler = $view->new_display('panel_pane', 'Group pane all', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
+  $handler->display->display_options['title'] = 'Kommende arrangementer';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
@@ -492,16 +490,8 @@ function commons_events_views_default_views() {
   /* Display: Landing Page pane */
   $handler = $view->new_display('panel_pane', 'Landing Page pane', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Arrangementer';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
-  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -522,20 +512,13 @@ function commons_events_views_default_views() {
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['sorts']['field_date_value']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['field_date_value']['expose']['label'] = 'Dato';
-  /* Sorteringskriterie: Indhold: Forfremmet til forside */
-  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['table'] = 'node';
-  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['promote']['expose']['label'] = 'Anbefalet';
+  $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: Group pane group */
   $handler = $view->new_display('panel_pane', 'Group pane group', 'panel_pane_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende begivenheder';
+  $handler->display->display_options['title'] = 'Kommende arrangementer';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
@@ -624,7 +607,7 @@ function commons_events_views_default_views() {
   );
   $translatables['commons_events_upcoming'] = array(
     t('Master'),
-    t('Begivenheder'),
+    t('Arrangementer'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -646,14 +629,12 @@ function commons_events_views_default_views() {
     t(','),
     t('Feed'),
     t('Global Block'),
-    t('Kommende begivenheder'),
+    t('Kommende arrangementer'),
     t('Group pane all'),
     t(' deltagere,'),
     t('Commons'),
     t('Landing Page pane'),
     t('No events have been created yet.'),
-    t('Dato'),
-    t('Anbefalet'),
     t('View panes'),
     t('Group pane group'),
     t('OG membership from node'),
@@ -741,7 +722,6 @@ function commons_events_views_default_views() {
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';

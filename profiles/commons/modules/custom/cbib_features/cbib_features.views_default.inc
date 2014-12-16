@@ -38,7 +38,7 @@ function cbib_features_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'jump_menu';
   $handler->display->display_options['style_options']['hide'] = TRUE;
   $handler->display->display_options['style_options']['path'] = 'path';
-  $handler->display->display_options['style_options']['choose'] = '- Vælg -';
+  $handler->display->display_options['style_options']['choose'] = 'Vælg region';
   $handler->display->display_options['style_options']['default_value'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Felt: Indhold: Sti */

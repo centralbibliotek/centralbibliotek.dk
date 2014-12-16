@@ -379,6 +379,30 @@ function cbib_news_panelizer_defaults() {
     $display->content['new-8a6a61d5-0c47-4674-8ff8-725e5c86278f'] = $pane;
     $display->panels['left'][0] = 'new-8a6a61d5-0c47-4674-8ff8-725e5c86278f';
     $pane = new stdClass();
+    $pane->pid = 'new-394aca58-2432-431a-88a3-9f68743917f5';
+    $pane->panel = 'left';
+    $pane->type = 'node_created';
+    $pane->subtype = 'node_created';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'format' => 'dato',
+      'context' => 'panelizer',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '394aca58-2432-431a-88a3-9f68743917f5';
+    $display->content['new-394aca58-2432-431a-88a3-9f68743917f5'] = $pane;
+    $display->panels['left'][1] = 'new-394aca58-2432-431a-88a3-9f68743917f5';
+    $pane = new stdClass();
     $pane->pid = 'new-e81cbdb0-164d-4fdb-90ee-1ecd9a27d6b8';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
