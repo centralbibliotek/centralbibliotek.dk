@@ -16,7 +16,7 @@
   }
 }
 
-.field-name-field-topics .field-items, .field-name-og-user-node .field-items {
+.field-name-field-topics .field-items, .field-name-og-user-node .field-items, .pane-node-og-group-ref .field-items {
     list-style: none;
     padding: 0px;
 
@@ -45,6 +45,7 @@
         position: absolute;
         top: 0px;
         left: 0px;
+        background-image: none;
         background: $brand-green;
       }
 

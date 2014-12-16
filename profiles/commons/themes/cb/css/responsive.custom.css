@@ -158,7 +158,7 @@ div.messages.error {
   box-shadow: none;
 }
 
-.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .pane-node-og-group-ref .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a,
 .node-type-event #panels-ipe-paneid-12 a, .page-news .node-teaser .panel-col-first .pane-node-created, .page-news .node-teaser .panel-col-first .pane-node-field-date, .page-node-news .node-teaser .panel-col-first .pane-node-created, .page-node-news .node-teaser .panel-col-first .pane-node-field-date, .page-events .node-teaser .panel-col-first .pane-node-created, .page-events .node-teaser .panel-col-first .pane-node-field-date, .page-node-events .node-teaser .panel-col-first .pane-node-created, .page-node-events .node-teaser .panel-col-first .pane-node-field-date, .page-groups .node-teaser .panel-col-first .pane-node-created, .page-groups .node-teaser .panel-col-first .pane-node-field-date, .page-node-groups .node-teaser .panel-col-first .pane-node-created, .page-node-groups .node-teaser .panel-col-first .pane-node-field-date, .page-taxonomy .node-teaser .panel-col-first .pane-node-created, .page-taxonomy .node-teaser .panel-col-first .pane-node-field-date, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-created, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-field-date, .page-home .node-teaser .panel-col-first .pane-node-created, .page-home .node-teaser .panel-col-first .pane-node-field-date, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item,
 .node-type-event #panels-ipe-paneid-7 .field-item {
@@ -172,7 +172,7 @@ div.messages.error {
   text-transform: uppercase;
 }
 
-.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .pane-node-og-group-ref .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr {
   background: #dddddd;
   color: #565656;
@@ -190,11 +190,11 @@ div.messages.error {
   text-decoration: none;
 }
 
-.field-name-field-topics .field-items, .field-name-og-user-node .field-items {
+.field-name-field-topics .field-items, .field-name-og-user-node .field-items, .pane-node-og-group-ref .field-items {
   list-style: none;
   padding: 0px;
 }
-.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item {
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .pane-node-og-group-ref .field-items .field-item {
   text-transform: capitalize;
   margin: 0px 10px 10px 0px;
   position: relative;
@@ -211,7 +211,7 @@ div.messages.error {
   -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-.field-name-field-topics .field-items .field-item a, .field-name-og-user-node .field-items .field-item a {
+.field-name-field-topics .field-items .field-item a, .field-name-og-user-node .field-items .field-item a, .pane-node-og-group-ref .field-items .field-item a {
   padding: 5px 10px 5px 15px;
   color: #565656;
   font-family: Arial, Helvetica, sans-serif;
@@ -228,20 +228,21 @@ div.messages.error {
   -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-.field-name-field-topics .field-items .field-item:before, .field-name-og-user-node .field-items .field-item:before {
+.field-name-field-topics .field-items .field-item:before, .field-name-og-user-node .field-items .field-item:before, .pane-node-og-group-ref .field-items .field-item:before {
   content: "";
   width: 5px;
   height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
+  background-image: none;
   background: #32d2b3;
 }
-.field-name-field-topics .field-items .field-item:hover, .field-name-og-user-node .field-items .field-item:hover {
+.field-name-field-topics .field-items .field-item:hover, .field-name-og-user-node .field-items .field-item:hover, .pane-node-og-group-ref .field-items .field-item:hover {
   background: #32d2b3;
   color: white !important;
 }
-.field-name-field-topics .field-items .field-item:hover a, .field-name-og-user-node .field-items .field-item:hover a {
+.field-name-field-topics .field-items .field-item:hover a, .field-name-og-user-node .field-items .field-item:hover a, .pane-node-og-group-ref .field-items .field-item:hover a {
   color: white;
   text-decoration: none;
 }
