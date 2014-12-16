@@ -1,11 +1,27 @@
 .node-type-centralbibliotek {
-  #content {
-    .views-row {
-      width: 33.33%;
-      float: left;
+
+  .views-exposed-form {
+    display: none;
+  }
+
+  .node-centralbibliotek {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .panel-display {
+      margin-top: 20px;
+    }
+
+    .pane-node-field-group-logo {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .pane-node-field-address h2 {
+      margin-bottom: 15px;
     }
   }
-  
+
   .pane-entity-field {
     margin: 0;
 

@@ -162,9 +162,9 @@ div.messages.error {
   box-shadow: none;
 }
 
-.page-news .field-name-field-topics .field-items .field-item, .page-node-news .field-name-field-topics .field-items .field-item, .page-events .field-name-field-topics .field-items .field-item, .page-node-events .field-name-field-topics .field-items .field-item, .page-groups .field-name-field-topics .field-items .field-item, .page-node-groups .field-name-field-topics .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a,
-.node-type-event #panels-ipe-paneid-12 a, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item,
+.node-type-event #panels-ipe-paneid-12 a, .page-news .node-teaser .panel-col-first .pane-node-created, .page-news .node-teaser .panel-col-first .pane-node-field-date, .page-node-news .node-teaser .panel-col-first .pane-node-created, .page-node-news .node-teaser .panel-col-first .pane-node-field-date, .page-events .node-teaser .panel-col-first .pane-node-created, .page-events .node-teaser .panel-col-first .pane-node-field-date, .page-node-events .node-teaser .panel-col-first .pane-node-created, .page-node-events .node-teaser .panel-col-first .pane-node-field-date, .page-groups .node-teaser .panel-col-first .pane-node-created, .page-groups .node-teaser .panel-col-first .pane-node-field-date, .page-node-groups .node-teaser .panel-col-first .pane-node-created, .page-node-groups .node-teaser .panel-col-first .pane-node-field-date, .page-taxonomy .node-teaser .panel-col-first .pane-node-created, .page-taxonomy .node-teaser .panel-col-first .pane-node-field-date, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-created, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-field-date, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item,
 .node-type-event #panels-ipe-paneid-7 .field-item {
   font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #424242;
@@ -176,7 +176,7 @@ div.messages.error {
   text-transform: uppercase;
 }
 
-.page-news .field-name-field-topics .field-items .field-item, .page-node-news .field-name-field-topics .field-items .field-item, .page-events .field-name-field-topics .field-items .field-item, .page-node-events .field-name-field-topics .field-items .field-item, .page-groups .field-name-field-topics .field-items .field-item, .page-node-groups .field-name-field-topics .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr {
   background: #dddddd;
   color: #565656;
@@ -192,6 +192,69 @@ div.messages.error {
 .node-type-event #panels-ipe-paneid-12 a:focus {
   background: #3ed2ff;
   text-decoration: none;
+}
+
+.field-name-field-topics .field-items, .field-name-og-user-node .field-items {
+  list-style: none;
+  padding: 0px;
+}
+.field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item {
+  text-transform: capitalize;
+  margin: 0px 10px 10px 0px;
+  position: relative;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+.field-name-field-topics .field-items .field-item a, .field-name-og-user-node .field-items .field-item a {
+  padding: 5px 10px 5px 15px;
+  color: #565656;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+.field-name-field-topics .field-items .field-item:before, .field-name-og-user-node .field-items .field-item:before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #32d2b3;
+}
+.field-name-field-topics .field-items .field-item:hover, .field-name-og-user-node .field-items .field-item:hover {
+  background: #32d2b3;
+  color: white !important;
+}
+.field-name-field-topics .field-items .field-item:hover a, .field-name-og-user-node .field-items .field-item:hover a {
+  color: white;
+  text-decoration: none;
+}
+
+.field-name-field-topics .field-items .field-item:before {
+  background: #2bc2ff;
+}
+.field-name-field-topics .field-items .field-item:hover {
+  background: #2bc2ff;
 }
 
 ::-webkit-input-placeholder {
@@ -212,10 +275,10 @@ div.messages.error {
   color: #828282;
 }
 
-.page-news #page-top, .page-node-news #page-top, .page-events #page-top, .page-node-events #page-top, .page-groups #page-top, .page-node-groups #page-top {
+.page-news #page-top, .page-node-news #page-top, .page-events #page-top, .page-node-events #page-top, .page-groups #page-top, .page-node-groups #page-top, .page-taxonomy #page-top, .node-type-centralbibliotek #page-top {
   display: none;
 }
-.page-news .view-filters input[type=text], .page-node-news .view-filters input[type=text], .page-events .view-filters input[type=text], .page-node-events .view-filters input[type=text], .page-groups .view-filters input[type=text], .page-node-groups .view-filters input[type=text] {
+.page-news .view-filters input[type=text], .page-node-news .view-filters input[type=text], .page-events .view-filters input[type=text], .page-node-events .view-filters input[type=text], .page-groups .view-filters input[type=text], .page-node-groups .view-filters input[type=text], .page-taxonomy .view-filters input[type=text], .node-type-centralbibliotek .view-filters input[type=text] {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 0px;
   height: 50px;
@@ -224,52 +287,75 @@ div.messages.error {
   font-size: 20px;
   padding-left: 0px;
 }
-.page-news .view-filters input:-moz-placeholder, .page-node-news .view-filters input:-moz-placeholder, .page-events .view-filters input:-moz-placeholder, .page-node-events .view-filters input:-moz-placeholder, .page-groups .view-filters input:-moz-placeholder, .page-node-groups .view-filters input:-moz-placeholder {
+.page-news .view-filters input:-moz-placeholder, .page-node-news .view-filters input:-moz-placeholder, .page-events .view-filters input:-moz-placeholder, .page-node-events .view-filters input:-moz-placeholder, .page-groups .view-filters input:-moz-placeholder, .page-node-groups .view-filters input:-moz-placeholder, .page-taxonomy .view-filters input:-moz-placeholder, .node-type-centralbibliotek .view-filters input:-moz-placeholder {
   color: #b8b8b8;
 }
-.page-news .view-filters input:-ms-input-placeholder, .page-node-news .view-filters input:-ms-input-placeholder, .page-events .view-filters input:-ms-input-placeholder, .page-node-events .view-filters input:-ms-input-placeholder, .page-groups .view-filters input:-ms-input-placeholder, .page-node-groups .view-filters input:-ms-input-placeholder {
+.page-news .view-filters input:-ms-input-placeholder, .page-node-news .view-filters input:-ms-input-placeholder, .page-events .view-filters input:-ms-input-placeholder, .page-node-events .view-filters input:-ms-input-placeholder, .page-groups .view-filters input:-ms-input-placeholder, .page-node-groups .view-filters input:-ms-input-placeholder, .page-taxonomy .view-filters input:-ms-input-placeholder, .node-type-centralbibliotek .view-filters input:-ms-input-placeholder {
   color: #b8b8b8;
 }
-.page-news .view-filters input::-moz-placeholder, .page-node-news .view-filters input::-moz-placeholder, .page-events .view-filters input::-moz-placeholder, .page-node-events .view-filters input::-moz-placeholder, .page-groups .view-filters input::-moz-placeholder, .page-node-groups .view-filters input::-moz-placeholder {
+.page-news .view-filters input::-moz-placeholder, .page-node-news .view-filters input::-moz-placeholder, .page-events .view-filters input::-moz-placeholder, .page-node-events .view-filters input::-moz-placeholder, .page-groups .view-filters input::-moz-placeholder, .page-node-groups .view-filters input::-moz-placeholder, .page-taxonomy .view-filters input::-moz-placeholder, .node-type-centralbibliotek .view-filters input::-moz-placeholder {
   color: #b8b8b8;
 }
-.page-news .view-filters input::-webkit-input-placeholder, .page-node-news .view-filters input::-webkit-input-placeholder, .page-events .view-filters input::-webkit-input-placeholder, .page-node-events .view-filters input::-webkit-input-placeholder, .page-groups .view-filters input::-webkit-input-placeholder, .page-node-groups .view-filters input::-webkit-input-placeholder {
+.page-news .view-filters input::-webkit-input-placeholder, .page-node-news .view-filters input::-webkit-input-placeholder, .page-events .view-filters input::-webkit-input-placeholder, .page-node-events .view-filters input::-webkit-input-placeholder, .page-groups .view-filters input::-webkit-input-placeholder, .page-node-groups .view-filters input::-webkit-input-placeholder, .page-taxonomy .view-filters input::-webkit-input-placeholder, .node-type-centralbibliotek .view-filters input::-webkit-input-placeholder {
   color: #b8b8b8;
 }
-.page-news .row-type-event:before, .page-news .node-content-type-event:before, .page-node-news .row-type-event:before, .page-node-news .node-content-type-event:before, .page-events .row-type-event:before, .page-events .node-content-type-event:before, .page-node-events .row-type-event:before, .page-node-events .node-content-type-event:before, .page-groups .row-type-event:before, .page-groups .node-content-type-event:before, .page-node-groups .row-type-event:before, .page-node-groups .node-content-type-event:before {
+.page-news .row-type-event:before, .page-news .node-content-type-event:before, .page-node-news .row-type-event:before, .page-node-news .node-content-type-event:before, .page-events .row-type-event:before, .page-events .node-content-type-event:before, .page-node-events .row-type-event:before, .page-node-events .node-content-type-event:before, .page-groups .row-type-event:before, .page-groups .node-content-type-event:before, .page-node-groups .row-type-event:before, .page-node-groups .node-content-type-event:before, .page-taxonomy .row-type-event:before, .page-taxonomy .node-content-type-event:before, .node-type-centralbibliotek .row-type-event:before, .node-type-centralbibliotek .node-content-type-event:before {
   display: none !important;
 }
-.page-news .node-teaser h2 a, .page-node-news .node-teaser h2 a, .page-events .node-teaser h2 a, .page-node-events .node-teaser h2 a, .page-groups .node-teaser h2 a, .page-node-groups .node-teaser h2 a {
+.page-news .node-teaser h2 a, .page-node-news .node-teaser h2 a, .page-events .node-teaser h2 a, .page-node-events .node-teaser h2 a, .page-groups .node-teaser h2 a, .page-node-groups .node-teaser h2 a, .page-taxonomy .node-teaser h2 a, .node-type-centralbibliotek .node-teaser h2 a {
   color: #424242;
   font-size: 20px;
   line-height: 1.2;
   margin-bottom: 5px;
 }
-.page-news .node-teaser .panel-col-first, .page-node-news .node-teaser .panel-col-first, .page-events .node-teaser .panel-col-first, .page-node-events .node-teaser .panel-col-first, .page-groups .node-teaser .panel-col-first, .page-node-groups .node-teaser .panel-col-first {
+.page-news .node-teaser .panel-col-first, .page-node-news .node-teaser .panel-col-first, .page-events .node-teaser .panel-col-first, .page-node-events .node-teaser .panel-col-first, .page-groups .node-teaser .panel-col-first, .page-node-groups .node-teaser .panel-col-first, .page-taxonomy .node-teaser .panel-col-first, .node-type-centralbibliotek .node-teaser .panel-col-first {
   width: 330px;
 }
 @media only screen and (max-width: 768px) {
-  .page-news .node-teaser .panel-col-first, .page-node-news .node-teaser .panel-col-first, .page-events .node-teaser .panel-col-first, .page-node-events .node-teaser .panel-col-first, .page-groups .node-teaser .panel-col-first, .page-node-groups .node-teaser .panel-col-first {
+  .page-news .node-teaser .panel-col-first, .page-node-news .node-teaser .panel-col-first, .page-events .node-teaser .panel-col-first, .page-node-events .node-teaser .panel-col-first, .page-groups .node-teaser .panel-col-first, .page-node-groups .node-teaser .panel-col-first, .page-taxonomy .node-teaser .panel-col-first, .node-type-centralbibliotek .node-teaser .panel-col-first {
     width: 100%;
   }
 }
-.page-news .node-teaser .panel-col-first .inside, .page-node-news .node-teaser .panel-col-first .inside, .page-events .node-teaser .panel-col-first .inside, .page-node-events .node-teaser .panel-col-first .inside, .page-groups .node-teaser .panel-col-first .inside, .page-node-groups .node-teaser .panel-col-first .inside {
+.page-news .node-teaser .panel-col-first .inside, .page-node-news .node-teaser .panel-col-first .inside, .page-events .node-teaser .panel-col-first .inside, .page-node-events .node-teaser .panel-col-first .inside, .page-groups .node-teaser .panel-col-first .inside, .page-node-groups .node-teaser .panel-col-first .inside, .page-taxonomy .node-teaser .panel-col-first .inside, .node-type-centralbibliotek .node-teaser .panel-col-first .inside {
   background-color: #f2f2f2;
   min-height: 170px;
+  position: relative;
 }
-.page-news .node-teaser .panel-col-first img, .page-node-news .node-teaser .panel-col-first img, .page-events .node-teaser .panel-col-first img, .page-node-events .node-teaser .panel-col-first img, .page-groups .node-teaser .panel-col-first img, .page-node-groups .node-teaser .panel-col-first img {
+.page-news .node-teaser .panel-col-first .pane-node-created, .page-news .node-teaser .panel-col-first .pane-node-field-date, .page-node-news .node-teaser .panel-col-first .pane-node-created, .page-node-news .node-teaser .panel-col-first .pane-node-field-date, .page-events .node-teaser .panel-col-first .pane-node-created, .page-events .node-teaser .panel-col-first .pane-node-field-date, .page-node-events .node-teaser .panel-col-first .pane-node-created, .page-node-events .node-teaser .panel-col-first .pane-node-field-date, .page-groups .node-teaser .panel-col-first .pane-node-created, .page-groups .node-teaser .panel-col-first .pane-node-field-date, .page-node-groups .node-teaser .panel-col-first .pane-node-created, .page-node-groups .node-teaser .panel-col-first .pane-node-field-date, .page-taxonomy .node-teaser .panel-col-first .pane-node-created, .page-taxonomy .node-teaser .panel-col-first .pane-node-field-date, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-created, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-field-date {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+}
+.page-news .node-teaser .panel-col-first .pane-node-created .field-item, .page-news .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-node-news .node-teaser .panel-col-first .pane-node-created .field-item, .page-node-news .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-events .node-teaser .panel-col-first .pane-node-created .field-item, .page-events .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-node-events .node-teaser .panel-col-first .pane-node-created .field-item, .page-node-events .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-groups .node-teaser .panel-col-first .pane-node-created .field-item, .page-groups .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-node-groups .node-teaser .panel-col-first .pane-node-created .field-item, .page-node-groups .node-teaser .panel-col-first .pane-node-field-date .field-item, .page-taxonomy .node-teaser .panel-col-first .pane-node-created .field-item, .page-taxonomy .node-teaser .panel-col-first .pane-node-field-date .field-item, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-created .field-item, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-field-date .field-item {
+  color: white;
+}
+.page-news .node-teaser .panel-col-first img, .page-node-news .node-teaser .panel-col-first img, .page-events .node-teaser .panel-col-first img, .page-node-events .node-teaser .panel-col-first img, .page-groups .node-teaser .panel-col-first img, .page-node-groups .node-teaser .panel-col-first img, .page-taxonomy .node-teaser .panel-col-first img, .node-type-centralbibliotek .node-teaser .panel-col-first img {
   min-height: 170px;
 }
-.page-news .node-teaser figure, .page-node-news .node-teaser figure, .page-events .node-teaser figure, .page-node-events .node-teaser figure, .page-groups .node-teaser figure, .page-node-groups .node-teaser figure {
+.page-news .node-teaser figure, .page-node-news .node-teaser figure, .page-events .node-teaser figure, .page-node-events .node-teaser figure, .page-groups .node-teaser figure, .page-node-groups .node-teaser figure, .page-taxonomy .node-teaser figure, .node-type-centralbibliotek .node-teaser figure {
   line-height: 0px;
 }
-.page-news .node-teaser .panel-pane, .page-news .node-teaser .field-name-body, .page-news .node-teaser h2, .page-node-news .node-teaser .panel-pane, .page-node-news .node-teaser .field-name-body, .page-node-news .node-teaser h2, .page-events .node-teaser .panel-pane, .page-events .node-teaser .field-name-body, .page-events .node-teaser h2, .page-node-events .node-teaser .panel-pane, .page-node-events .node-teaser .field-name-body, .page-node-events .node-teaser h2, .page-groups .node-teaser .panel-pane, .page-groups .node-teaser .field-name-body, .page-groups .node-teaser h2, .page-node-groups .node-teaser .panel-pane, .page-node-groups .node-teaser .field-name-body, .page-node-groups .node-teaser h2 {
+.page-news .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-node-news .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-events .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-node-events .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-groups .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-node-groups .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .page-taxonomy .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a, .node-type-centralbibliotek .node-teaser .pane-node-field-group-logo .field-name-field-group-logo a {
+  border: none;
+  box-shadow: none;
+  border-radius: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+}
+.page-news .node-teaser .panel-pane, .page-news .node-teaser .field-name-body, .page-news .node-teaser h2, .page-node-news .node-teaser .panel-pane, .page-node-news .node-teaser .field-name-body, .page-node-news .node-teaser h2, .page-events .node-teaser .panel-pane, .page-events .node-teaser .field-name-body, .page-events .node-teaser h2, .page-node-events .node-teaser .panel-pane, .page-node-events .node-teaser .field-name-body, .page-node-events .node-teaser h2, .page-groups .node-teaser .panel-pane, .page-groups .node-teaser .field-name-body, .page-groups .node-teaser h2, .page-node-groups .node-teaser .panel-pane, .page-node-groups .node-teaser .field-name-body, .page-node-groups .node-teaser h2, .page-taxonomy .node-teaser .panel-pane, .page-taxonomy .node-teaser .field-name-body, .page-taxonomy .node-teaser h2, .node-type-centralbibliotek .node-teaser .panel-pane, .node-type-centralbibliotek .node-teaser .field-name-body, .node-type-centralbibliotek .node-teaser h2 {
   margin: 0px;
 }
-.page-news .node-teaser .links a, .page-node-news .node-teaser .links a, .page-events .node-teaser .links a, .page-node-events .node-teaser .links a, .page-groups .node-teaser .links a, .page-node-groups .node-teaser .links a {
+.page-news .node-teaser .links a, .page-node-news .node-teaser .links a, .page-events .node-teaser .links a, .page-node-events .node-teaser .links a, .page-groups .node-teaser .links a, .page-node-groups .node-teaser .links a, .page-taxonomy .node-teaser .links a, .node-type-centralbibliotek .node-teaser .links a {
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-.page-news .node-teaser:after, .page-node-news .node-teaser:after, .page-events .node-teaser:after, .page-node-events .node-teaser:after, .page-groups .node-teaser:after, .page-node-groups .node-teaser:after {
+.page-news .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-news .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-events .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-events .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-groups .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-groups .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-taxonomy .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary {
+  max-height: 165px;
+  overflow: hidden;
+}
+.page-news .node-teaser:not(.node-centralbibliotek):after, .page-node-news .node-teaser:not(.node-centralbibliotek):after, .page-events .node-teaser:not(.node-centralbibliotek):after, .page-node-events .node-teaser:not(.node-centralbibliotek):after, .page-groups .node-teaser:not(.node-centralbibliotek):after, .page-node-groups .node-teaser:not(.node-centralbibliotek):after, .page-taxonomy .node-teaser:not(.node-centralbibliotek):after, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek):after {
   content: "";
   width: 25px;
   height: 64px;
@@ -282,64 +368,13 @@ div.messages.error {
   margin-top: -32px;
 }
 @media only screen and (max-width: 768px) {
-  .page-news .node-teaser:after, .page-node-news .node-teaser:after, .page-events .node-teaser:after, .page-node-events .node-teaser:after, .page-groups .node-teaser:after, .page-node-groups .node-teaser:after {
+  .page-news .node-teaser:not(.node-centralbibliotek):after, .page-node-news .node-teaser:not(.node-centralbibliotek):after, .page-events .node-teaser:not(.node-centralbibliotek):after, .page-node-events .node-teaser:not(.node-centralbibliotek):after, .page-groups .node-teaser:not(.node-centralbibliotek):after, .page-node-groups .node-teaser:not(.node-centralbibliotek):after, .page-taxonomy .node-teaser:not(.node-centralbibliotek):after, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek):after {
     display: none;
   }
 }
-.page-news .field-name-field-topics .field-items, .page-node-news .field-name-field-topics .field-items, .page-events .field-name-field-topics .field-items, .page-node-events .field-name-field-topics .field-items, .page-groups .field-name-field-topics .field-items, .page-node-groups .field-name-field-topics .field-items {
-  list-style: none;
-  padding: 0px;
-}
-.page-news .field-name-field-topics .field-items .field-item, .page-node-news .field-name-field-topics .field-items .field-item, .page-events .field-name-field-topics .field-items .field-item, .page-node-events .field-name-field-topics .field-items .field-item, .page-groups .field-name-field-topics .field-items .field-item, .page-node-groups .field-name-field-topics .field-items .field-item {
-  text-transform: capitalize;
-  margin-right: 10px;
-  position: relative;
-  -webkit-transition-property: background-color;
-  -moz-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 200ms;
-  -moz-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in;
-  -moz-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
-}
-.page-news .field-name-field-topics .field-items .field-item a, .page-node-news .field-name-field-topics .field-items .field-item a, .page-events .field-name-field-topics .field-items .field-item a, .page-node-events .field-name-field-topics .field-items .field-item a, .page-groups .field-name-field-topics .field-items .field-item a, .page-node-groups .field-name-field-topics .field-items .field-item a {
-  padding: 5px 10px 5px 15px;
-  color: #565656;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-transition-property: color;
-  -moz-transition-property: color;
-  -o-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 200ms;
-  -moz-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in;
-  -moz-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
-}
-.page-news .field-name-field-topics .field-items .field-item:before, .page-node-news .field-name-field-topics .field-items .field-item:before, .page-events .field-name-field-topics .field-items .field-item:before, .page-node-events .field-name-field-topics .field-items .field-item:before, .page-groups .field-name-field-topics .field-items .field-item:before, .page-node-groups .field-name-field-topics .field-items .field-item:before {
-  content: "";
-  width: 5px;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #32d2b3;
-}
-.page-news .field-name-field-topics .field-items .field-item:hover, .page-node-news .field-name-field-topics .field-items .field-item:hover, .page-events .field-name-field-topics .field-items .field-item:hover, .page-node-events .field-name-field-topics .field-items .field-item:hover, .page-groups .field-name-field-topics .field-items .field-item:hover, .page-node-groups .field-name-field-topics .field-items .field-item:hover {
-  background-color: #32d2b3;
-  color: white !important;
-}
-.page-news .field-name-field-topics .field-items .field-item:hover a, .page-node-news .field-name-field-topics .field-items .field-item:hover a, .page-events .field-name-field-topics .field-items .field-item:hover a, .page-node-events .field-name-field-topics .field-items .field-item:hover a, .page-groups .field-name-field-topics .field-items .field-item:hover a, .page-node-groups .field-name-field-topics .field-items .field-item:hover a {
-  color: white;
-  text-decoration: none;
+
+.page-node .field-name-og-user-node {
+  display: none;
 }
 
 .panel-pane,
@@ -645,7 +680,7 @@ div.messages.error {
 }
 #block-views-centralbiblioteker-block select {
   font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   width: 165px;
   height: 60px;
   color: #ff5479;
@@ -764,9 +799,22 @@ div.messages.error {
   margin: 0;
 }
 
-.node-type-centralbibliotek #content .views-row {
-  width: 33.33%;
-  float: left;
+.node-type-centralbibliotek .views-exposed-form {
+  display: none;
+}
+.node-type-centralbibliotek .node-centralbibliotek {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.node-type-centralbibliotek .node-centralbibliotek .panel-display {
+  margin-top: 20px;
+}
+.node-type-centralbibliotek .node-centralbibliotek .pane-node-field-group-logo {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.node-type-centralbibliotek .node-centralbibliotek .pane-node-field-address h2 {
+  margin-bottom: 15px;
 }
 .node-type-centralbibliotek .pane-entity-field {
   margin: 0;

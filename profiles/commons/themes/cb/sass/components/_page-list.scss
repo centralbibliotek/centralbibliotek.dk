@@ -1,4 +1,4 @@
-.page-news, .page-node-news, .page-events, .page-node-events, .page-groups, .page-node-groups {
+.page-news, .page-node-news, .page-events, .page-node-events, .page-groups, .page-node-groups, .page-taxonomy, .node-type-centralbibliotek {
   
   #page-top {
     display: none;
@@ -54,6 +54,19 @@
       .inside {
         background-color: darken($white, 5%);
         min-height: 170px;
+        position: relative;
+      }
+
+      .pane-node-created, .pane-node-field-date {
+        position: absolute;
+        bottom: 0px;
+        background-color: rgba(0,0,0,0.4);
+        @extend %date;
+        display: block;
+
+        .field-item {
+          color: $white;
+        }
       }
 
       img {
@@ -65,6 +78,16 @@
       line-height: 0px;
     }
 
+    .pane-node-field-group-logo .field-name-field-group-logo a {    
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+      -webkit-border-radius: none;
+      -moz-border-radius: none;
+      -ms-border-radius: none;
+      -o-border-radius: none;
+    }
+
     .panel-pane, .field-name-body, h2  {
       margin: 0px;
     }
@@ -72,7 +95,16 @@
     .links a {
       font-family: $alt-font;
     }
+  }
 
+  .node-teaser:not(.node-centralbibliotek) {
+
+    // if there are lots of breaks in summary this will force it to be low anyway
+    .field-type-text-with-summary {
+      max-height: 165px;
+      overflow: hidden;
+    }
+    
     &:after {
       content: "";
       width: 25px;
@@ -90,48 +122,8 @@
       }
     }
   }
+}
 
-  .field-name-field-topics .field-items {
-    list-style: none;
-    padding: 0px;
-
-    .field-item {
-      @extend %tag;
-      text-transform: capitalize;
-      margin-right: 10px;
-      position: relative;
-      @include transition-property(background-color);
-      @include transition-duration(200ms);
-      @include transition-timing-function(ease-in);
-
-      a {
-        padding: 5px 10px 5px 15px;
-        color: $gray-dark;
-        font-family: $sans-serif-arial-helvetica;
-        @include transition-property(color);
-        @include transition-duration(200ms);
-        @include transition-timing-function(ease-in);
-      }
-
-      &:before {
-        content: "";
-        width: 5px;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        background-color: $brand-green;
-      }
-
-      &:hover {
-        background-color: $brand-green;
-        color: $white !important;
-
-        a {
-          color: $white;
-          text-decoration: none;
-        }
-      }
-    }
-  }
+.page-node .field-name-og-user-node {
+  display: none;
 }
