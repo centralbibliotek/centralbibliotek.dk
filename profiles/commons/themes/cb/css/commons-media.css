@@ -276,9 +276,6 @@ div.messages.error {
   color: #828282;
 }
 
-.page-news #page-top, .page-node-news #page-top, .page-events #page-top, .page-node-events #page-top, .page-groups #page-top, .page-node-groups #page-top, .page-taxonomy #page-top, .node-type-centralbibliotek #page-top, .page-home #page-top {
-  display: none;
-}
 .page-news .view-filters input[type=text], .page-node-news .view-filters input[type=text], .page-events .view-filters input[type=text], .page-node-events .view-filters input[type=text], .page-groups .view-filters input[type=text], .page-node-groups .view-filters input[type=text], .page-taxonomy .view-filters input[type=text], .node-type-centralbibliotek .view-filters input[type=text], .page-home .view-filters input[type=text] {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 0px;
