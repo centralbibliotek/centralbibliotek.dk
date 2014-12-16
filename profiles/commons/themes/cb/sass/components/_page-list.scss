@@ -1,4 +1,4 @@
-.page-news, .page-node-news, .page-events, .page-node-events, .page-groups, .page-node-groups, .page-taxonomy, .node-type-centralbibliotek {
+.page-news, .page-node-news, .page-events, .page-node-events, .page-groups, .page-node-groups, .page-taxonomy, .node-type-centralbibliotek, .page-home {
   
   #page-top {
     display: none;
@@ -104,7 +104,7 @@
       max-height: 165px;
       overflow: hidden;
     }
-    
+
     &:after {
       content: "";
       width: 25px;

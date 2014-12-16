@@ -16,6 +16,10 @@
 			border-radius: 0px;
 			background: $brand-green;
 			padding: 15px 0px;
+
+			&:hover {
+				background: $brand-green-dark;
+			}
 		}
 	}
 }

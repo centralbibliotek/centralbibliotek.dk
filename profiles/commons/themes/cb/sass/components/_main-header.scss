@@ -189,6 +189,10 @@
   top: 28px;
   left: 265px;
 
+  .ctools-jump-menu-button {
+    display: none;
+  }
+
   select {
     font-family: $base-font;
     font-size: 20px;
