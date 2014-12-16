@@ -297,7 +297,7 @@ function cbib_features_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'image_style' => 'teaser',
+        'image_style' => 'full_node',
         'image_link' => 'content',
       ),
       'context' => 'panelizer',

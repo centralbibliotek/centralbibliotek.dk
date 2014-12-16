@@ -386,7 +386,7 @@ function cbib_news_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'format' => 'dato',
+      'format' => 'teaser_date',
       'context' => 'panelizer',
       'override_title' => 1,
       'override_title_text' => '<none>',
@@ -449,9 +449,11 @@ function cbib_news_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'trim_length' => 600,
+        'trim_length' => '250',
       ),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -465,33 +467,36 @@ function cbib_news_panelizer_defaults() {
     $display->content['new-3e904c8f-e1d7-460b-8480-677f317f2832'] = $pane;
     $display->panels['right'][1] = 'new-3e904c8f-e1d7-460b-8480-677f317f2832';
     $pane = new stdClass();
-    $pane->pid = 'new-b653c719-b7df-411a-8701-e9ed4dca3f32';
+    $pane->pid = 'new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
     $pane->panel = 'right';
-    $pane->type = 'node_links';
-    $pane->subtype = 'node_links';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:og_user_node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => FALSE,
-      'override_title_text' => '',
-      'build_mode' => 'teaser',
-      'identifier' => '',
-      'link' => TRUE,
+      'label' => 'hidden',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 1,
+      ),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_class' => 'link-wrapper',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'b653c719-b7df-411a-8701-e9ed4dca3f32';
-    $display->content['new-b653c719-b7df-411a-8701-e9ed4dca3f32'] = $pane;
-    $display->panels['right'][2] = 'new-b653c719-b7df-411a-8701-e9ed4dca3f32';
+    $pane->uuid = '1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
+    $display->content['new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20'] = $pane;
+    $display->panels['right'][2] = 'new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
     $pane = new stdClass();
     $pane->pid = 'new-d4bfc208-0cde-48fa-9efd-a431911f82ac';
     $pane->panel = 'right';
@@ -521,37 +526,6 @@ function cbib_news_panelizer_defaults() {
     $pane->uuid = 'd4bfc208-0cde-48fa-9efd-a431911f82ac';
     $display->content['new-d4bfc208-0cde-48fa-9efd-a431911f82ac'] = $pane;
     $display->panels['right'][3] = 'new-d4bfc208-0cde-48fa-9efd-a431911f82ac';
-    $pane = new stdClass();
-    $pane->pid = 'new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
-    $pane->panel = 'right';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:og_user_node';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'entityreference_label',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'link' => 1,
-      ),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
-    $display->content['new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20'] = $pane;
-    $display->panels['right'][4] = 'new-1f2701c5-dd61-4740-b3d6-7fb50b1cbf20';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-e81cbdb0-164d-4fdb-90ee-1ecd9a27d6b8';
   $panelizer->display = $display;
