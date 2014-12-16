@@ -226,7 +226,7 @@ function commons_events_default_page_manager_pages() {
     'logic' => 'and',
   );
   $page->menu = array(
-    'type' => 'tab',
+    'type' => 'none',
     'title' => 'Arrangementer',
     'name' => 'main-menu',
     'weight' => '2',
