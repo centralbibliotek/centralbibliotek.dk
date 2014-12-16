@@ -1,0 +1,6 @@
+ .node-type-group {
+	.field-label {
+		font-family: $alt-font;
+		@extend .pane-title;
+	}
+ }

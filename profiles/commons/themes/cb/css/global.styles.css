@@ -482,8 +482,12 @@ div.messages.error {
 #panels-ipe-paneid-26 .pane-node-attend-form {
   margin-top: 2em;
 }
-.block.pane-event-price .pane-node-attend-form .pane-title,
-#panels-ipe-paneid-26 .pane-node-attend-form .pane-title {
+.block.pane-event-price .pane-node-attend-form .pane-title, .block.pane-event-price .pane-node-attend-form .node-type-news .field-label, .node-type-news .block.pane-event-price .pane-node-attend-form .field-label, .block.pane-event-price .pane-node-attend-form .node-type-group .field-label, .node-type-group .block.pane-event-price .pane-node-attend-form .field-label,
+#panels-ipe-paneid-26 .pane-node-attend-form .pane-title,
+#panels-ipe-paneid-26 .pane-node-attend-form .node-type-news .field-label,
+.node-type-news #panels-ipe-paneid-26 .pane-node-attend-form .field-label,
+#panels-ipe-paneid-26 .pane-node-attend-form .node-type-group .field-label,
+.node-type-group #panels-ipe-paneid-26 .pane-node-attend-form .field-label {
   display: none;
 }
 .block.pane-event-price .pane-node-attend-form .block-content,
@@ -794,22 +798,12 @@ div.messages.error {
   margin-right: .5em;
 }
 
-.node-type-news .pane-node-created .block-content {
-  width: 100%;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid grey;
+.node-type-news .field-label {
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-.node-type-news .pane-node-created .block-content .month {
-  font-size: 2em;
-  background-color: grey;
-  color: white;
-  text-transform: uppercase;
-}
-.node-type-news .pane-node-created .block-content .day {
-  font-size: 4em;
-  padding: 0;
-  margin: 0;
+
+.node-type-group .field-label {
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .node-type-centralbibliotek .views-exposed-form {
@@ -834,6 +828,23 @@ div.messages.error {
 }
 .node-type-centralbibliotek .pane-entity-field .field-label-inline {
   margin: 0.5em 0;
+}
+
+.page-search .search-form-page input.form-search {
+  height: 60px;
+  font-size: 24px;
+  width: 80%;
+  display: inline-blocx;
+  border-right: 0px;
+}
+.page-search .search-form-page input.form-submit {
+  width: 20%;
+  height: 60px;
+  display: inline-block;
+  margin: 0px;
+  border-radius: 0px;
+  background: #32d2b3;
+  padding: 15px 0px;
 }
 
 /**
@@ -3708,7 +3719,9 @@ ul.action-links {
  *   Panels Styling
  * ========================================================================== */
 .node-title,
-.pane-title {
+.pane-title,
+.node-type-news .field-label,
+.node-type-group .field-label {
   font-weight: normal;
   font-size: 1.25em;
   color: #424242;
@@ -4664,7 +4677,7 @@ body.front .region-three-33-top h1 {
 body.front .region-three-33-top .commons_home-welcome-image {
   float: right;
 }
-body.front.not-logged-in #block-system-main .pane-1 .pane-title {
+body.front.not-logged-in #block-system-main .pane-1 .pane-title, body.front.not-logged-in #block-system-main .pane-1 .node-type-news .field-label, .node-type-news body.front.not-logged-in #block-system-main .pane-1 .field-label, body.front.not-logged-in #block-system-main .pane-1 .node-type-group .field-label, .node-type-group body.front.not-logged-in #block-system-main .pane-1 .field-label {
   font-weight: 700;
   font-size: 38px;
   color: #333333;

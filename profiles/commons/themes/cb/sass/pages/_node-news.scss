@@ -1,22 +1,27 @@
 .node-type-news {
-  .pane-node-created {
-    .block-content {
-      width: 100%;
-      text-align: center;
-      border-radius: 5px;
-      border: 1px solid grey;
 
-      .month {
-        font-size: 2em;
-        background-color: grey;
-        color: white;
-        text-transform: uppercase;
-      }
-      .day {
-        font-size: 4em;
-        padding: 0;
-        margin: 0;
-      }
-    }
+  .field-label {
+    font-family: $alt-font;
+    @extend .pane-title;
   }
+  // .pane-node-created {
+  //   .block-content {
+  //     width: 100%;
+  //     text-align: center;
+  //     border-radius: 5px;
+  //     border: 1px solid grey;
+
+  //     .month {
+  //       font-size: 2em;
+  //       background-color: grey;
+  //       color: white;
+  //       text-transform: uppercase;
+  //     }
+  //     .day {
+  //       font-size: 4em;
+  //       padding: 0;
+  //       margin: 0;
+  //     }
+  //   }
+  // }
 }

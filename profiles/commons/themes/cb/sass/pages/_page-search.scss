@@ -1,0 +1,21 @@
+.page-search {
+	.search-form-page {
+		input.form-search {
+			height: 60px;
+			font-size: 24px;
+			width: 80%;
+			display: inline-blocx;
+			border-right: 0px;
+		}
+
+		input.form-submit {
+			width: 20%;
+			height: 60px;
+			display: inline-block;
+			margin: 0px;
+			border-radius: 0px;
+			background: $brand-green;
+			padding: 15px 0px;
+		}
+	}
+}
