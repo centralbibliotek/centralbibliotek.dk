@@ -23,10 +23,6 @@ dependencies[] = radioactivity
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
-dependencies[] = views
-dependencies[] = views_content
-dependencies[] = views_litepager
-dependencies[] = views_load_more
 
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
@@ -52,17 +48,3 @@ features[variable][] = menu_options_group
 features[variable][] = menu_parent_group
 features[variable][] = pathauto_node_group_pattern
 features[variable][] = pathauto_node_pattern
-features[views_view][] = commons_bw_all
-features[views_view][] = commons_contributors_group
-features[views_view][] = commons_group_moderation
-features[views_view][] = commons_groups_contributors
-features[views_view][] = commons_groups_directory
-features[views_view][] = commons_groups_recent_content
-features[views_view][] = commons_groups_user_groups
-
-; Information added by Drupal.org packaging script on 2014-08-08
-version = "7.x-3.17"
-core = "7.x"
-project = "commons"
-datestamp = "1407503928"
-
