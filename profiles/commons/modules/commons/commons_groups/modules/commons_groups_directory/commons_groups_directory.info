@@ -5,6 +5,7 @@ package = Commons - Landing pages
 version = 7.x-3.17
 project = commons_groups_directory
 dependencies[] = commons_activity_streams_groups
+dependencies[] = commons_groups_views
 dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = views_content
