@@ -13,7 +13,7 @@ function cbib_news_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'views_newsletter_landing_page';
   $page->task = 'page';
-  $page->admin_title = 'Views Newsletter Landing Page';
+  $page->admin_title = 'Views Newsletter Landing Page All';
   $page->admin_description = 'A directory of groups.';
   $page->path = 'news';
   $page->access = array(
@@ -79,10 +79,10 @@ function cbib_news_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-b22d7f9a-54fa-4700-b385-49fb1c8a694d';
+    $pane->pid = 'new-9681b5d0-c3f9-422f-b254-253f5c89423d';
     $pane->panel = 'one_main';
     $pane->type = 'views_panes';
-    $pane->subtype = 'centralbibliotek_news-panel_pane_2';
+    $pane->subtype = 'centralbibliotek_news-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -94,9 +94,9 @@ function cbib_news_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'b22d7f9a-54fa-4700-b385-49fb1c8a694d';
-    $display->content['new-b22d7f9a-54fa-4700-b385-49fb1c8a694d'] = $pane;
-    $display->panels['one_main'][0] = 'new-b22d7f9a-54fa-4700-b385-49fb1c8a694d';
+    $pane->uuid = '9681b5d0-c3f9-422f-b254-253f5c89423d';
+    $display->content['new-9681b5d0-c3f9-422f-b254-253f5c89423d'] = $pane;
+    $display->panels['one_main'][0] = 'new-9681b5d0-c3f9-422f-b254-253f5c89423d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -108,7 +108,7 @@ function cbib_news_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'views_newsletter_landing_page_node';
   $page->task = 'page';
-  $page->admin_title = 'Views Newsletter Landing Page Node';
+  $page->admin_title = 'Views Newsletter Landing Page Group';
   $page->admin_description = '';
   $page->path = 'node/%node/news';
   $page->access = array(

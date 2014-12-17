@@ -544,10 +544,10 @@ function commons_groups_pages_panelizer_defaults() {
     $display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b'] = $pane;
     $display->panels['right'][1] = 'new-c22911c5-3c21-75b4-c5f3-80efb733956b';
     $pane = new stdClass();
-    $pane->pid = 'new-61f38a52-cef2-43df-b8d1-e4120c6b499c';
+    $pane->pid = 'new-61b3a571-f9d7-42cf-bf40-53fb532c6061';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:og_user_node';
+    $pane->subtype = 'node:og_group_ref';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -571,9 +571,9 @@ function commons_groups_pages_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '61f38a52-cef2-43df-b8d1-e4120c6b499c';
-    $display->content['new-61f38a52-cef2-43df-b8d1-e4120c6b499c'] = $pane;
-    $display->panels['right'][2] = 'new-61f38a52-cef2-43df-b8d1-e4120c6b499c';
+    $pane->uuid = '61b3a571-f9d7-42cf-bf40-53fb532c6061';
+    $display->content['new-61b3a571-f9d7-42cf-bf40-53fb532c6061'] = $pane;
+    $display->panels['right'][2] = 'new-61b3a571-f9d7-42cf-bf40-53fb532c6061';
     $pane = new stdClass();
     $pane->pid = 'new-706d940f-873f-4502-862f-89910b8d2b27';
     $pane->panel = 'right';

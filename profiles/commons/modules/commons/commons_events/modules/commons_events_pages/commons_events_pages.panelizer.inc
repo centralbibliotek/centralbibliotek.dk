@@ -493,7 +493,7 @@ function commons_events_pages_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(
-        'format_type' => 'teaser_date',
+        'format_type' => 'dato',
         'multiple_number' => '',
         'multiple_from' => '',
         'multiple_to' => '',
