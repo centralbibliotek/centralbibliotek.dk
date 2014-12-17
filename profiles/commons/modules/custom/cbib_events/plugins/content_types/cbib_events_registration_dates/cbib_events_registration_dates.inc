@@ -32,7 +32,7 @@ function cbib_events_cbib_events_registration_dates_content_type_edit_form($form
       'open' => t('Open'),
       'close' => t('Close'),
     ),
-    '#description' => t('Shoe registration open or close date.'),
+    '#description' => t('Show registration open or close date.'),
     '#default_value' => !empty($conf['cbib_events_registrations_dates_open_or_close']) ? $conf['cbib_events_registrations_dates_open_or_close'] : 'close',
   );
 
@@ -91,7 +91,13 @@ function cbib_events_cbib_events_registration_dates_content_type_render($subtype
     $registration_settings = registration_entity_settings('node', $context->data->nid);
 
     if (!empty($registration_settings[$open_or_close])) {
-      $pane->content = date_format_date(new DateObject($registration_settings[$open_or_close]), $date_format);
+      if ($open_or_close == 'open' && strtotime($registration_settings[$open_or_close]) < time()) {
+        // Hide this date if the registration is already open.
+        $pane->content = '';
+      }
+      else {
+        $pane->content = date_format_date(new DateObject($registration_settings[$open_or_close]), $date_format);
+      }
     }
   }
 
