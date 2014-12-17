@@ -16,4 +16,3 @@ features[views_view][] = commons_groups_contributors
 features[views_view][] = commons_groups_directory
 features[views_view][] = commons_groups_recent_content
 features[views_view][] = commons_groups_user_groups
-mtime = 1418819973
