@@ -372,6 +372,14 @@ function commons_events_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Tilmeldningsdato - slutdato (field_registration_date:value2) */
+  $handler->display->display_options['filters']['field_registration_date_value2']['id'] = 'field_registration_date_value2';
+  $handler->display->display_options['filters']['field_registration_date_value2']['table'] = 'field_data_field_registration_date';
+  $handler->display->display_options['filters']['field_registration_date_value2']['field'] = 'field_registration_date_value2';
+  $handler->display->display_options['filters']['field_registration_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_registration_date_value2']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_registration_date_value2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_registration_date_value2']['year_range'] = '-0:+3';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
