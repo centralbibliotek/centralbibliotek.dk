@@ -9,5 +9,4 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = centralbibliotek_news
 features_exclude[dependencies][ctools] = ctools
-mtime = 1417981393
 project path = profiles/commons/modules/custom
