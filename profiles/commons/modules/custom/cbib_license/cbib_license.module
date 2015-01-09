@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB License feature.
+ */
+
+include_once 'cbib_license.features.inc';

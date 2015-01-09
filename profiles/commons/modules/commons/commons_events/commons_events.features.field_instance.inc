@@ -484,7 +484,7 @@ function commons_events_field_default_field_instances() {
     'display_in_partial_form' => 1,
     'entity_type' => 'node',
     'field_name' => 'field_document_file',
-    'label' => 'File',
+    'label' => 'Vedhæftninger',
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
@@ -1317,7 +1317,6 @@ function commons_events_field_default_field_instances() {
   t('Event Status');
   t('Event audience');
   t('Event type');
-  t('File');
   t('Kontaktperson');
   t('Lecturer');
   t('Location');
@@ -1336,6 +1335,7 @@ function commons_events_field_default_field_instances() {
   t('Target nodes');
   t('Tilmeldningsdato');
   t('URL');
+  t('Vedhæftninger');
 
   return $field_instances;
 }

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB Library feature.
+ */
+
+include_once 'cbib_library.features.inc';

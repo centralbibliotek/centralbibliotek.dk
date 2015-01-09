@@ -79,7 +79,7 @@ function commons_pages_field_default_field_instances() {
     'display_in_partial_form' => 1,
     'entity_type' => 'node',
     'field_name' => 'field_document_file',
-    'label' => 'File',
+    'label' => 'Vedhæftninger',
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
@@ -225,8 +225,8 @@ function commons_pages_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Billede');
   t('Body');
-  t('File');
   t('Link');
+  t('Vedhæftninger');
 
   return $field_instances;
 }
