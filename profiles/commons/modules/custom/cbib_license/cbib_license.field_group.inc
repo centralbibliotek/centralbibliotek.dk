@@ -68,6 +68,7 @@ function cbib_license_field_group_info() {
       7 => 'field_library_ref',
       8 => 'field_license_taget',
       9 => 'field_license_ambassador',
+      10 => 'field_license_target',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

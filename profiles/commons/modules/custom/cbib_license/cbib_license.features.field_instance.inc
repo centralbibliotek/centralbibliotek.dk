@@ -347,7 +347,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -389,7 +389,7 @@ function cbib_license_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete_tags',
-      'weight' => 20,
+      'weight' => 21,
     ),
   );
 
@@ -866,7 +866,7 @@ function cbib_license_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 19,
+      'weight' => 20,
     ),
   );
 
@@ -1220,8 +1220,8 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-license-field_license_taget'
-  $field_instances['node-license-field_license_taget'] = array(
+  // Exported field_instance: 'node-license-field_license_target'
+  $field_instances['node-license-field_license_target'] = array(
     'bundle' => 'license',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1232,7 +1232,7 @@ function cbib_license_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 35,
+        'weight' => 38,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1242,7 +1242,7 @@ function cbib_license_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_license_taget',
+    'field_name' => 'field_license_target',
     'label' => 'Målgruppe',
     'required' => 0,
     'settings' => array(
@@ -1256,7 +1256,7 @@ function cbib_license_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -1436,7 +1436,7 @@ function cbib_license_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 18,
+      'weight' => 19,
     ),
   );
 
