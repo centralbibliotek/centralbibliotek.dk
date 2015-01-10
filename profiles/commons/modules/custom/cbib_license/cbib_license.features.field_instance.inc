@@ -65,7 +65,7 @@ function cbib_license_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gid png',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
