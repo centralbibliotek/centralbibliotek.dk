@@ -837,6 +837,26 @@ div.messages.error {
   margin: 0.5em 0;
 }
 
+.node-type-license .node-license {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.node-type-license .node-license .panel-display {
+  margin-top: 20px;
+}
+.node-type-license .node-license .pane-node-field-address h2 {
+  margin-bottom: 15px;
+}
+.node-type-license .panels-ipe-portlet-wrapper {
+  margin-bottom: 0.1em;
+}
+.node-type-license .pane-entity-field {
+  margin: 0;
+}
+.node-type-license .pane-entity-field .field-label-inline {
+  margin: 0.5em 0;
+}
+
 .page-search .search-form-page input.form-search {
   height: 60px;
   font-size: 24px;
