@@ -257,8 +257,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -283,8 +283,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -309,8 +309,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -362,8 +362,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -388,8 +388,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -414,8 +414,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -440,8 +440,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
@@ -534,8 +534,8 @@ function cbib_license_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'yes',
+        0 => 'Nej',
+        1 => 'Ja',
       ),
       'allowed_values_function' => '',
     ),
