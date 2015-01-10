@@ -93,13 +93,18 @@
     .links a {
       font-family: $alt-font;
     }
+
+    .panel-pane.pane-node-og-group-ref {
+      float: left;
+    }
   }
 
   .node-teaser:not(.node-centralbibliotek) {
 
     // if there are lots of breaks in summary this will force it to be low anyway
-    .field-type-text-with-summary {
-      max-height: 165px;
+    .center-wrapper .panel-col-last {
+      max-height: 170px;
+      min-height: 170px;
       overflow: hidden;
     }
 

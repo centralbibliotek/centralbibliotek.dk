@@ -153,7 +153,7 @@ function cbib_license_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 

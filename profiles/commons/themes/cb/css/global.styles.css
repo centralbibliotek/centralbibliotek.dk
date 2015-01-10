@@ -43,6 +43,10 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   clear: none;
 }
 
+.hover {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -364,8 +368,12 @@ div.messages.error {
 .page-news .node-teaser .links a, .page-node-news .node-teaser .links a, .page-events .node-teaser .links a, .page-node-events .node-teaser .links a, .page-groups .node-teaser .links a, .page-node-groups .node-teaser .links a, .page-taxonomy .node-teaser .links a, .node-type-centralbibliotek .node-teaser .links a, .page-home .node-teaser .links a {
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-.page-news .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-news .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-events .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-events .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-groups .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-node-groups .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-taxonomy .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary, .page-home .node-teaser:not(.node-centralbibliotek) .field-type-text-with-summary {
-  max-height: 165px;
+.page-news .node-teaser .panel-pane.pane-node-og-group-ref, .page-node-news .node-teaser .panel-pane.pane-node-og-group-ref, .page-events .node-teaser .panel-pane.pane-node-og-group-ref, .page-node-events .node-teaser .panel-pane.pane-node-og-group-ref, .page-groups .node-teaser .panel-pane.pane-node-og-group-ref, .page-node-groups .node-teaser .panel-pane.pane-node-og-group-ref, .page-taxonomy .node-teaser .panel-pane.pane-node-og-group-ref, .node-type-centralbibliotek .node-teaser .panel-pane.pane-node-og-group-ref, .page-home .node-teaser .panel-pane.pane-node-og-group-ref {
+  float: left;
+}
+.page-news .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-node-news .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-events .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-node-events .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-groups .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-node-groups .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-taxonomy .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last, .page-home .node-teaser:not(.node-centralbibliotek) .center-wrapper .panel-col-last {
+  max-height: 170px;
+  min-height: 170px;
   overflow: hidden;
 }
 .page-news .node-teaser:not(.node-centralbibliotek):after, .page-node-news .node-teaser:not(.node-centralbibliotek):after, .page-events .node-teaser:not(.node-centralbibliotek):after, .page-node-events .node-teaser:not(.node-centralbibliotek):after, .page-groups .node-teaser:not(.node-centralbibliotek):after, .page-node-groups .node-teaser:not(.node-centralbibliotek):after, .page-taxonomy .node-teaser:not(.node-centralbibliotek):after, .node-type-centralbibliotek .node-teaser:not(.node-centralbibliotek):after, .page-home .node-teaser:not(.node-centralbibliotek):after {
