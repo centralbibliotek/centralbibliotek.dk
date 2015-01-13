@@ -1215,8 +1215,10 @@ function commons_groups_views_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Grupper';
+  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['use_more_text'] = 'Vis mere';
+  $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1226,20 +1228,9 @@ function commons_groups_views_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-  $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['pager']['options']['more_button_text'] = 'Vis flere';
-  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
@@ -1298,13 +1289,34 @@ function commons_groups_views_views_default_views() {
   /* Display: Landing page all */
   $handler = $view->new_display('panel_pane', 'Landing page all', 'panel_pane_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Vis mere';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['pane_category']['name'] = 'Commons';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
-  /* Display: Landing page group */
-  $handler = $view->new_display('panel_pane', 'Landing page group', 'panel_pane_2');
+  /* Display: Landing page group frontpage */
+  $handler = $view->new_display('panel_pane', 'Landing page group frontpage', 'panel_pane_2');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['link_url'] = 'node/1!/groups';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Felt: Group membership (og_user_node) */
   $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
@@ -1322,9 +1334,29 @@ function commons_groups_views_views_default_views() {
 
   /* Display: Frontpage */
   $handler = $view->new_display('panel_pane', 'Frontpage', 'panel_pane_3');
+  $handler->display->display_options['link_url'] = 'groups';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pane_category']['name'] = 'Commons';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+
+  /* Display: Landing page group all */
+  $handler = $view->new_display('panel_pane', 'Landing page group all', 'panel_pane_4');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Vis mere';
+  $handler->display->display_options['defaults']['link_display'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['link_url'] = 'node/!1/groups';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -1335,19 +1367,34 @@ function commons_groups_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['pager']['options']['more_button_text'] = 'Vis flere';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Felt: Group membership (og_user_node) */
+  $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['field'] = 'og_user_node_target_id';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['pane_category']['name'] = 'Commons';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['commons_groups_directory'] = array(
     t('Master'),
     t('Grupper'),
-    t('mere'),
+    t('Vis mere'),
     t('Udfør'),
     t('Gendan'),
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
+    t('No groups have been created yet.'),
+    t('Feed'),
+    t('mere'),
+    t('Landing page all'),
     t('Antal elementer'),
     t('- Alle -'),
     t('Forskydning'),
@@ -1355,14 +1402,12 @@ function commons_groups_views_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('Vis flere'),
-    t('No groups have been created yet.'),
-    t('Feed'),
-    t('Landing page all'),
+    t('Load more'),
     t('Commons'),
-    t('Landing page group'),
+    t('Landing page group frontpage'),
     t('Alle'),
     t('Frontpage'),
+    t('Landing page group all'),
   );
   $export['commons_groups_directory'] = $view;
 

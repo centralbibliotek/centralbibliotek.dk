@@ -8,6 +8,7 @@ dependencies[] = commons_body
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = file
+dependencies[] = file_entity
 dependencies[] = image
 dependencies[] = link
 dependencies[] = media

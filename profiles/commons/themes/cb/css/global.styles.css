@@ -394,6 +394,11 @@ div.messages.error {
   }
 }
 
+/** Hide subtitle in views for group pages **/
+.page-panels.page-node-events h2.pane-title, .page-panels.page-node-events .node-type-news h2.field-label, .node-type-news .page-panels.page-node-events h2.field-label, .page-panels.page-node-events .node-type-group h2.field-label, .node-type-group .page-panels.page-node-events h2.field-label, .page-panels.page-node-news h2.pane-title, .page-panels.page-node-news .node-type-news h2.field-label, .node-type-news .page-panels.page-node-news h2.field-label, .page-panels.page-node-news .node-type-group h2.field-label, .node-type-group .page-panels.page-node-news h2.field-label, .page-panels.page-node-groups h2.pane-title, .page-panels.page-node-groups .node-type-news h2.field-label, .node-type-news .page-panels.page-node-groups h2.field-label, .page-panels.page-node-groups .node-type-group h2.field-label, .node-type-group .page-panels.page-node-groups h2.field-label, .page-panels.page-events h2.pane-title, .page-panels.page-events .node-type-news h2.field-label, .node-type-news .page-panels.page-events h2.field-label, .page-panels.page-events .node-type-group h2.field-label, .node-type-group .page-panels.page-events h2.field-label, .page-panels.page-news h2.pane-title, .page-panels.page-news .node-type-news h2.field-label, .node-type-news .page-panels.page-news h2.field-label, .page-panels.page-news .node-type-group h2.field-label, .node-type-group .page-panels.page-news h2.field-label, .page-panels.page-groups h2.pane-title, .page-panels.page-groups .node-type-news h2.field-label, .node-type-news .page-panels.page-groups h2.field-label, .page-panels.page-groups .node-type-group h2.field-label, .node-type-group .page-panels.page-groups h2.field-label {
+  display: none;
+}
+
 .panel-pane,
 .panels-ipe-portlet-wrapper {
   margin-bottom: 2em;

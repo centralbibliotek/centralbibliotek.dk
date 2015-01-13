@@ -126,3 +126,13 @@
     }
   }
 }
+
+/** Hide subtitle in views for group pages **/
+
+.page-panels {
+  &.page-node-events, &.page-node-news, &.page-node-groups, &.page-events, &.page-news, &.page-groups {
+    h2.pane-title {
+      display: none;
+    }
+  }
+}

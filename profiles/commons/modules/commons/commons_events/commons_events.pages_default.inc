@@ -185,10 +185,10 @@ function commons_events_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-f4dff80c-9824-4951-a82f-6ac5eaa09e16';
+    $pane->pid = 'new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
     $pane->panel = 'two_66_33_top';
     $pane->type = 'views_panes';
-    $pane->subtype = 'commons_events_upcoming-panel_pane_3';
+    $pane->subtype = 'commons_events_upcoming-panel_pane_4';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -204,9 +204,9 @@ function commons_events_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'f4dff80c-9824-4951-a82f-6ac5eaa09e16';
-    $display->content['new-f4dff80c-9824-4951-a82f-6ac5eaa09e16'] = $pane;
-    $display->panels['two_66_33_top'][0] = 'new-f4dff80c-9824-4951-a82f-6ac5eaa09e16';
+    $pane->uuid = 'e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
+    $display->content['new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c'] = $pane;
+    $display->panels['two_66_33_top'][0] = 'new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

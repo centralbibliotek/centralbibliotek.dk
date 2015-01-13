@@ -5,3 +5,34 @@
  */
 
 include_once 'cbib_features.features.inc';
+
+/**
+ * Set the option to default for parent element.
+ *
+ * Implements hook_form_ctools_jump_menu_alter().
+ */
+function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
+  if (empty($form['jump']['#default_value'])) {
+    $lookup_url = url($_GET['q']);
+    // YH - Reload - local fix for menu default value.
+    $lookup = explode('/', $lookup_url);
+    if (empty($lookup[0])) {
+      // remove first "/".
+      unset($lookup[0]);
+    }
+    while (1 < count($lookup)) {
+      // Remove last "/" element.
+      unset($lookup[count($lookup)]);
+      $lookup_url = url(implode('/', $lookup));
+      foreach ($form['jump']['#options'] as $path => $title) {
+        if (strpos($path, $lookup_url)) {
+          $default_value = $path;
+          break 2;
+        }
+      }
+    }
+    if (!empty($default_value)) {
+      $form['jump']['#default_value'] = $default_value;
+    }
+  }
+}
