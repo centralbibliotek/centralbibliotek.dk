@@ -512,7 +512,7 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '3667aa5b-3012-4677-b63f-081c5a6ba15a';
     $display->content['new-3667aa5b-3012-4677-b63f-081c5a6ba15a'] = $pane;
     $display->panels['two_66_33_second'][7] = 'new-3667aa5b-3012-4677-b63f-081c5a6ba15a';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:centralbibliotek:default:teaser'] = $panelizer;
