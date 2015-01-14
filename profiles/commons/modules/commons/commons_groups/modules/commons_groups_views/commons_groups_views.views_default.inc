@@ -952,7 +952,7 @@ function commons_groups_views_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['tab_options']['type'] = 'tab';
-  $handler->display->display_options['tab_options']['title'] = 'Groups';
+  $handler->display->display_options['tab_options']['title'] = 'Grupper';
   $handler->display->display_options['tab_options']['description'] = 'Groups Moderation';
   $handler->display->display_options['tab_options']['weight'] = '0';
 

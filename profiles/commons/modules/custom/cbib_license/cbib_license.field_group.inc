@@ -70,6 +70,7 @@ function cbib_license_field_group_info() {
       8 => 'field_license_target',
       9 => 'body',
       10 => 'field_license_search_example',
+      11 => 'field_topics',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

@@ -119,6 +119,7 @@ features[node][] = license
 features[page_manager_pages][] = license
 features[panelizer_defaults][] = node:license:default
 features[panelizer_defaults][] = node:license:default:teaser
+features[panelizer_defaults][] = user:user:default:token
 features[variable][] = field_bundle_settings_node__license
 features[variable][] = language_content_type_license
 features[variable][] = menu_options_license
