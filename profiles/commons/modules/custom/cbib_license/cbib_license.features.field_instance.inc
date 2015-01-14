@@ -44,8 +44,8 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_knowledge_center-field_knowledge_center_file'
-  $field_instances['field_collection_item-field_knowledge_center-field_knowledge_center_file'] = array(
+  // Exported field_instance: 'field_collection_item-field_knowledge_center-field_knowledge_center_edu_fil'
+  $field_instances['field_collection_item-field_knowledge_center-field_knowledge_center_edu_fil'] = array(
     'bundle' => 'field_knowledge_center',
     'deleted' => 0,
     'description' => '',
@@ -55,16 +55,16 @@ function cbib_license_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 2,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_knowledge_center_file',
-    'label' => 'Vedhæftninger',
+    'field_name' => 'field_knowledge_center_edu_fil',
+    'label' => 'Undervisningsmateriale',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => 'dokumenter',
       'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -76,7 +76,43 @@ function cbib_license_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 2,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_knowledge_center-field_knowledge_center_pr_fil'
+  $field_instances['field_collection_item-field_knowledge_center-field_knowledge_center_pr_fil'] = array(
+    'bundle' => 'field_knowledge_center',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_knowledge_center_pr_fil',
+    'label' => 'Markedsføringsmateriale',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => 'dokumenter',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 3,
     ),
   );
 
@@ -114,6 +150,48 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-body'
+  $field_instances['node-license-body'] = array(
+    'bundle' => 'license',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 39,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-license-field_document_file'
   $field_instances['node-license-field_document_file'] = array(
     'bundle' => 'license',
@@ -137,12 +215,12 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_document_file',
-    'label' => 'Vedhæftninger',
+    'label' => 'Andet',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => 'dokumenter',
-      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -153,7 +231,7 @@ function cbib_license_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -355,6 +433,7 @@ function cbib_license_field_default_field_instances() {
   $field_instances['node-license-field_library_ref'] = array(
     'bundle' => 'license',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -377,18 +456,24 @@ function cbib_license_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_library_ref',
     'label' => 'Biblioteker',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'entityreference',
       'settings' => array(
         'match_operator' => 'CONTAINS',
         'path' => '',
         'size' => 60,
       ),
-      'type' => 'entityreference_autocomplete_tags',
+      'type' => 'entityreference_autocomplete',
       'weight' => 21,
     ),
   );
@@ -807,7 +892,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_statistic',
-    'label' => 'Mulighed for statestikudtræk',
+    'label' => 'Mulighed for statistikudtræk',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -867,6 +952,91 @@ function cbib_license_field_default_field_instances() {
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance: 'node-license-field_license_data'
+  $field_instances['node-license-field_license_data'] = array(
+    'bundle' => 'license',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 41,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_license_data',
+    'label' => 'I databrønd?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 26,
+    ),
+  );
+
+  // Exported field_instance: 'node-license-field_license_education_file'
+  $field_instances['node-license-field_license_education_file'] = array(
+    'bundle' => 'license',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 44,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_license_education_file',
+    'label' => 'Undervisningsmateriale',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => 'dokumenter',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 5,
     ),
   );
 
@@ -1039,7 +1209,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_periode',
-    'label' => 'Periode',
+    'label' => 'Abonnementsperiode',
     'required' => 1,
     'settings' => array(
       'default_value' => 'now',
@@ -1105,6 +1275,48 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-field_license_pr_file'
+  $field_instances['node-license-field_license_pr_file'] = array(
+    'bundle' => 'license',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 43,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_license_pr_file',
+    'label' => 'Markedsføringsmateriale',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => 'dokumenter',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-license-field_license_proxy_start_url'
   $field_instances['node-license-field_license_proxy_start_url'] = array(
     'bundle' => 'license',
@@ -1141,6 +1353,95 @@ function cbib_license_field_default_field_instances() {
       'settings' => array(),
       'type' => 'urlwidget',
       'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance: 'node-license-field_license_search_example'
+  $field_instances['node-license-field_license_search_example'] = array(
+    'bundle' => 'license',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 40,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_license_search_example',
+    'label' => 'Søgeeksempler',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-license-field_license_similar_ref'
+  $field_instances['node-license-field_license_similar_ref'] = array(
+    'bundle' => 'license',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 42,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_license_similar_ref',
+    'label' => 'Lignende licenser',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 36,
     ),
   );
 
@@ -1206,7 +1507,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_subscription',
-    'label' => 'Tilmeldning',
+    'label' => 'Tilmelding',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1395,7 +1696,7 @@ function cbib_license_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -1494,7 +1795,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1535,19 +1836,25 @@ function cbib_license_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Abbreviated title');
+  t('Abonnementsperiode');
   t('Ambassadør');
+  t('Andet');
   t('Beskrivelse');
   t('Betaling');
   t('Biblioteker');
   t('Billede');
+  t('Body');
   t('Faustnummer');
+  t('I databrønd?');
+  t('Lignende licenser');
+  t('Markedsføringsmateriale');
   t('Metadata?');
   t('Mulighed for IP adgang');
   t('Mulighed for eletronisk kopi til andre biblioteker');
@@ -1556,23 +1863,23 @@ function cbib_license_field_default_field_instances() {
   t('Mulighed for password adgang');
   t('Mulighed for print til andre biblioteker');
   t('Mulighed for print til brugere');
-  t('Mulighed for statestikudtræk');
+  t('Mulighed for statistikudtræk');
   t('Målgruppe');
   t('Note til licensadgang');
   t('Nyhedsbrev');
   t('Opdatering af indhold');
   t('PID');
-  t('Periode');
   t('Producent');
   t('Proxy start url');
   t('Sproglig afgræsning');
   t('Status');
+  t('Søgeeksempler');
   t('Søgefaciliteter');
-  t('Tilmeldning');
+  t('Tilmelding');
   t('Titel');
   t('Titelliste');
   t('Titelliste (links)');
-  t('Vedhæftninger');
+  t('Undervisningsmateriale');
   t('Vidensbank');
   t('Web adresse');
 

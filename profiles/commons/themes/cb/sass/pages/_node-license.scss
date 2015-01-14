@@ -24,4 +24,38 @@
       margin: 0.5em 0;
     }
   }
+
+  .field-collection-view {
+    .field-label {
+      width: 100%;
+    }
+  }
+
+  .pane-user-field-name-first {
+    float: left;
+    margin-right: 0.5em;
+  }
+
+  .pane-user-mail  {
+    h2.pane-title {
+      color: #369;
+      display: inline;
+      float: none;
+      font-size: 1em;
+      font-family: inherit;
+      margin-bottom: 0;
+      font-weight: normal;
+      border: 0;
+      &:after {
+        content: ":";
+      };
+    }
+    .block-content {
+      display: inline;
+    }
+  }
+
+  .pane-node-field-license-pr-file, .pane-node-field-license-education-file, .pane-node-field-document-file{
+    margin: 1em 0;
+  }
 }
