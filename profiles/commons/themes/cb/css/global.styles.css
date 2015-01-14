@@ -866,7 +866,13 @@ div.messages.error {
 }
 .node-type-license .pane-user-field-name-first {
   float: left;
-  margin-right: 0.5em;
+  margin-right: 0.35em;
+}
+.node-type-license .pane-user-field-name-first h2.block-title {
+  display: none;
+}
+.node-type-license .field-name-field-name-last {
+  padding: 0.5em 0;
 }
 .node-type-license .pane-user-mail h2.pane-title, .node-type-license .pane-user-mail .node-type-news h2.field-label, .node-type-news .node-type-license .pane-user-mail h2.field-label, .node-type-license .pane-user-mail .node-type-group h2.field-label, .node-type-group .node-type-license .pane-user-mail h2.field-label {
   color: #369;

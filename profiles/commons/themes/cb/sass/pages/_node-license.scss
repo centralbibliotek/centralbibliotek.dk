@@ -33,7 +33,15 @@
 
   .pane-user-field-name-first {
     float: left;
-    margin-right: 0.5em;
+    margin-right: 0.35em;
+
+    h2.block-title {
+      display: none;
+    }
+  }
+
+  .field-name-field-name-last {
+    padding: 0.5em 0;
   }
 
   .pane-user-mail  {
@@ -55,7 +63,7 @@
     }
   }
 
-  .pane-node-field-license-pr-file, .pane-node-field-license-education-file, .pane-node-field-document-file{
+  .pane-node-field-license-pr-file, .pane-node-field-license-education-file, .pane-node-field-document-file {
     margin: 1em 0;
   }
 }
