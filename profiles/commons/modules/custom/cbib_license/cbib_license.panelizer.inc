@@ -1070,7 +1070,7 @@ function cbib_license_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(
-        'link' => 0,
+        'link' => 1,
       ),
       'context' => 'panelizer',
       'override_title' => 0,
