@@ -50,4 +50,7 @@ features[variable][] = site_name
 features[variable][] = watchdog_filtering_default_severity
 features[views_view][] = centralbiblioteker
 features_exclude[dependencies][commons_bw] = commons_bw
+features_exclude[dependencies][og] = og
+features_exclude[dependencies][og_ui] = og_ui
 features_exclude[field_base][field_telephone] = field_telephone
+features_exclude[field_instance][node-centralbibliotek-og_group_ref] = node-centralbibliotek-og_group_ref
