@@ -182,7 +182,7 @@ div.messages.error {
 .field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .pane-node-og-group-ref .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr,
 .node-type-event #panels-ipe-paneid-9 .adr, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a,
 .node-type-event #panels-ipe-paneid-12 a, .page-news .node-teaser .panel-col-first .pane-node-created, .page-news .node-teaser .panel-col-first .pane-node-field-date, .page-node-news .node-teaser .panel-col-first .pane-node-created, .page-node-news .node-teaser .panel-col-first .pane-node-field-date, .page-events .node-teaser .panel-col-first .pane-node-created, .page-events .node-teaser .panel-col-first .pane-node-field-date, .page-node-events .node-teaser .panel-col-first .pane-node-created, .page-node-events .node-teaser .panel-col-first .pane-node-field-date, .page-groups .node-teaser .panel-col-first .pane-node-created, .page-groups .node-teaser .panel-col-first .pane-node-field-date, .page-node-groups .node-teaser .panel-col-first .pane-node-created, .page-node-groups .node-teaser .panel-col-first .pane-node-field-date, .page-taxonomy .node-teaser .panel-col-first .pane-node-created, .page-taxonomy .node-teaser .panel-col-first .pane-node-field-date, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-created, .node-type-centralbibliotek .node-teaser .panel-col-first .pane-node-field-date, .page-home .node-teaser .panel-col-first .pane-node-created, .page-home .node-teaser .panel-col-first .pane-node-field-date, .page-license .node-teaser .panel-col-first .pane-node-created, .page-license .node-teaser .panel-col-first .pane-node-field-date, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item,
-.node-type-event #panels-ipe-paneid-7 .field-item {
+.node-type-event #panels-ipe-paneid-7 .field-item, .node-type-news .pane-node-created .block-content {
   font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #424242;
   letter-spacing: 1px;
@@ -812,6 +812,15 @@ div.messages.error {
 
 .node-type-news .field-label {
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.node-type-news .pane-node-created .block-content {
+  position: relative;
+  margin-top: -50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+}
+.node-type-news .pane-node-created .block-content .field-item {
+  color: white;
 }
 
 .node-type-group .field-label {
