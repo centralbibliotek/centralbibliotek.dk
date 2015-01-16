@@ -29,7 +29,7 @@ function cbib_news_default_page_manager_pages() {
       'type' => 'none',
       'title' => '',
       'name' => 'navigation',
-      'weight' => '-1',
+      'weight' => '-49',
     ),
   );
   $page->arguments = array();

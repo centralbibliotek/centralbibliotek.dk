@@ -78,7 +78,7 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
 }
 
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .pager-load-more a, input[type=submit], .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .more-link a, .pager-load-more a, input[type=submit], .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
   border: 0;
   background: #ff5479;
@@ -101,7 +101,7 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   transition: background-color 150ms ease;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .pager-load-more a:hover, input[type=submit]:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .more-link a:hover, .pager-load-more a:hover, input[type=submit]:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
   color: #fff;
   background: #ff6990;
@@ -110,7 +110,7 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   text-decoration: none;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .pager-load-more a:focus, input[type=submit]:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .more-link a:focus, .pager-load-more a:focus, input[type=submit]:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
   color: #fff;
   background: #ff6990;
@@ -139,10 +139,14 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   font-size: 1.25em;
 }
 
-.pager-load-more a, input[type=submit] {
+.more-link a, .pager-load-more a, input[type=submit] {
   border-radius: 40px;
   padding: 15px 25px;
   margin: 50px 0px;
+}
+
+.more-link a {
+  margin: 20px 0;
 }
 
 div.messages {
@@ -397,6 +401,11 @@ div.messages.error {
 /** Hide subtitle in views for group pages **/
 .page-panels.page-node-events h2.pane-title, .page-panels.page-node-events .node-type-news h2.field-label, .node-type-news .page-panels.page-node-events h2.field-label, .page-panels.page-node-events .node-type-group h2.field-label, .node-type-group .page-panels.page-node-events h2.field-label, .page-panels.page-node-news h2.pane-title, .page-panels.page-node-news .node-type-news h2.field-label, .node-type-news .page-panels.page-node-news h2.field-label, .page-panels.page-node-news .node-type-group h2.field-label, .node-type-group .page-panels.page-node-news h2.field-label, .page-panels.page-node-groups h2.pane-title, .page-panels.page-node-groups .node-type-news h2.field-label, .node-type-news .page-panels.page-node-groups h2.field-label, .page-panels.page-node-groups .node-type-group h2.field-label, .node-type-group .page-panels.page-node-groups h2.field-label, .page-panels.page-events h2.pane-title, .page-panels.page-events .node-type-news h2.field-label, .node-type-news .page-panels.page-events h2.field-label, .page-panels.page-events .node-type-group h2.field-label, .node-type-group .page-panels.page-events h2.field-label, .page-panels.page-news h2.pane-title, .page-panels.page-news .node-type-news h2.field-label, .node-type-news .page-panels.page-news h2.field-label, .page-panels.page-news .node-type-group h2.field-label, .node-type-group .page-panels.page-news h2.field-label, .page-panels.page-groups h2.pane-title, .page-panels.page-groups .node-type-news h2.field-label, .node-type-news .page-panels.page-groups h2.field-label, .page-panels.page-groups .node-type-group h2.field-label, .node-type-group .page-panels.page-groups h2.field-label, .page-panels.page-license h2.pane-title, .page-panels.page-license .node-type-news h2.field-label, .node-type-news .page-panels.page-license h2.field-label, .page-panels.page-license .node-type-group h2.field-label, .node-type-group .page-panels.page-license h2.field-label {
   display: none;
+}
+
+/** List title **/
+.front h2.pane-title, .front .node-type-news h2.field-label, .node-type-news .front h2.field-label, .front .node-type-group h2.field-label, .node-type-group .front h2.field-label {
+  font-size: 2em;
 }
 
 .panel-pane,
@@ -810,17 +819,20 @@ div.messages.error {
   margin-right: .5em;
 }
 
+.node-type-news .pane-node-title-field {
+  margin-bottom: 0;
+}
+.node-type-news .pane-node-title-field h1 {
+  margin: 1em 0 .75em;
+}
 .node-type-news .field-label {
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 .node-type-news .pane-node-created .block-content {
-  position: relative;
-  margin-top: -50px;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: block;
-}
-.node-type-news .pane-node-created .block-content .field-item {
+  background-color: #424242;
+  display: inline-block;
   color: white;
+  padding: .4em .5em;
 }
 
 .node-type-group .field-label {
@@ -1217,7 +1229,7 @@ var {
 .search-results-title {
   margin: 0 0 .5em;
   font-weight: normal;
-  font-size: 2.75em;
+  font-size: 2em;
   line-height: 1.2em;
   letter-spacing: -.025em;
 }
@@ -2510,17 +2522,10 @@ button, #panels-ipe-control-container
  * Generic styles for the more link
  */
 .more-link {
-  background-image: url('../images/icons/icon-more.png?1417951755');
-  background-repeat: no-repeat;
-  min-height: 14px;
   padding: 0 0 0 1.7em;
-  float: right;
+  text-align: center;
   font-size: 0.85em;
   line-height: 14px;
-  margin-top: 10px;
-}
-.more-link a {
-  color: #858585;
 }
 
 /**

@@ -55,12 +55,14 @@ function commons_events_pages_panelizer_defaults() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'file_rendered',
-      'delta_limit' => 0,
+      'formatter' => 'image',
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(
         'file_view_mode' => 'default',
+        'image_style' => 'full_node',
+        'image_link' => '',
       ),
       'context' => 'panelizer',
       'override_title' => 0,
@@ -259,7 +261,7 @@ function commons_events_pages_panelizer_defaults() {
       ),
       'context' => 'panelizer',
       'override_title' => 1,
-      'override_title_text' => 'For bibliotekerne i ...',
+      'override_title_text' => 'Region',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -408,7 +410,7 @@ function commons_events_pages_panelizer_defaults() {
     $display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'] = $pane;
     $display->panels['two_66_33_second'][5] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-35953f03-8878-47bb-800f-67c95d058508';
+  $display->title_pane = 'new-3dcbfc27-8ac0-428e-9926-4d20124df9d6';
   $panelizer->display = $display;
   $export['node:event:default'] = $panelizer;
 

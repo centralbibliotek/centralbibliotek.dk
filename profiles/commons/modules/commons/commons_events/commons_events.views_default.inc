@@ -22,7 +22,7 @@ function commons_events_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Attendees';
+  $handler->display->display_options['title'] = 'Deltagere';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'none';
@@ -168,7 +168,7 @@ function commons_events_views_default_views() {
   );
   $translatables['commons_events_event_attendee_list'] = array(
     t('Master'),
-    t('Attendees'),
+    t('Deltagere'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -373,7 +373,7 @@ function commons_events_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Tilmeldningsdato - slutdato (field_registration_date:value2) */
+  /* Filterkriterie: Indhold: Tilmeldingsdato - slutdato (field_registration_date:value2) */
   $handler->display->display_options['filters']['field_registration_date_value2']['id'] = 'field_registration_date_value2';
   $handler->display->display_options['filters']['field_registration_date_value2']['table'] = 'field_data_field_registration_date';
   $handler->display->display_options['filters']['field_registration_date_value2']['field'] = 'field_registration_date_value2';

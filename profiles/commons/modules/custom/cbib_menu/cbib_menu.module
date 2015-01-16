@@ -26,6 +26,7 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
   if (!empty($_SESSION['cbib_menu_nid'])) {
     if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}";
+      $item['title'] = $_SESSION['cbib_menu_title'];
     }
     elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}/{$item['href']}";
@@ -34,6 +35,7 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
   // Set homepage link to front without alias.
   if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
     $item['href'] = '';
+    $item['title'] = t('Home');
   }
 }
 
@@ -50,6 +52,7 @@ function cbib_menu_init() {
     $node = menu_get_object();
     if ($node->type == 'centralbibliotek') {
       $_SESSION['cbib_menu_nid'] = $node->nid;
+      $_SESSION['cbib_menu_title'] = $node->title;
     }
   }
 }

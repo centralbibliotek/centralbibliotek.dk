@@ -1031,7 +1031,7 @@ function commons_events_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_registration_date',
-    'label' => 'Tilmeldningsdato',
+    'label' => 'Tilmeldingsdato',
     'required' => 1,
     'settings' => array(
       'default_value' => 'now',
@@ -1333,7 +1333,7 @@ function commons_events_field_default_field_instances() {
   t('Subject');
   t('Target comment');
   t('Target nodes');
-  t('Tilmeldningsdato');
+  t('Tilmeldingsdato');
   t('URL');
   t('Vedhæftninger');
 

@@ -1,4 +1,11 @@
 .node-type-news {
+  .pane-node-title-field {
+    margin-bottom: 0;
+
+    h1 {
+      margin: 1em 0 .75em;
+    }
+  }
 
   .field-label {
     font-family: $alt-font;
@@ -7,15 +14,11 @@
 
   .pane-node-created {
     .block-content {
-      position: relative;
-      margin-top: -50px;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgb(66, 66, 66);
+      display: inline-block;
       @extend %date;
-      display: block;
-
-      .field-item {
-        color: $white;
-      }
+      color: $white;
+      padding: .4em .5em;
     }
   }
 }

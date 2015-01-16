@@ -61,9 +61,11 @@ function commons_groups_pages_panelizer_defaults() {
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
         'image_link' => '',
-        'image_style' => '50x50',
+        'image_style' => 'full_node',
       ),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -168,11 +170,13 @@ function commons_groups_pages_panelizer_defaults() {
     $pane->configuration = array(
       'label' => 'above',
       'formatter' => 'og_list_default',
-      'delta_limit' => 0,
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(),
       'context' => 'panelizer',
+      'override_title' => 1,
+      'override_title_text' => 'Region',
     );
     $pane->cache = array();
     $pane->style = array(
