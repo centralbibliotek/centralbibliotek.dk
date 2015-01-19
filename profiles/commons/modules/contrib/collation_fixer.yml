@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/collation_fixer_2410223.patch'
+    home: 'https://www.drupal.org/node/2410223'
+    reason: 'hook_requirements returns null.'

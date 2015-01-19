@@ -43,4 +43,9 @@ function collation_fixer_requirements($phase) {
       );
     }
   }
+
+  // Function must return an array.
+  else {
+    return array();
+  }
 }
