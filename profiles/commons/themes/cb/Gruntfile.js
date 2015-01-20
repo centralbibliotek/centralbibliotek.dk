@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     compass: {
       dist: {
         options: {
+          environment: 'production',
           config: 'config.rb'
         }
       }
@@ -14,7 +15,7 @@ module.exports = function (grunt) {
     watch: {
       compass: {
         files: ['sass/**/*.scss'],
-        tasks: ['compass']
+        tasks: ['compass'],
       },
 
       css: {

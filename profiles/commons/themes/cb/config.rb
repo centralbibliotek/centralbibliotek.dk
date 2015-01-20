@@ -11,7 +11,8 @@ output_style = :expanded
 
 relative_assets = true
 
-sourcemap = true
+# Source maps
+sourcemap = (environment == :development) ? true : false
 
 # line_comments and debug_info can be activated by setting the environment
 # flag to "development"
