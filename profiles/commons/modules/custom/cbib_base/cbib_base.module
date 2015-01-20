@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the CBIB base feature.
- */
-
-include_once 'cbib_base.features.inc';
