@@ -409,7 +409,7 @@ function commons_events_pages_panelizer_defaults() {
     $pane->uuid = 'd9b378c4-93e3-4445-b2da-c43dc1bd0588';
     $display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'] = $pane;
     $display->panels['two_66_33_second'][5] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-3dcbfc27-8ac0-428e-9926-4d20124df9d6';
   $panelizer->display = $display;
   $export['node:event:default'] = $panelizer;
