@@ -1,48 +1,6 @@
 // _base.scss imports _custom.scss (variables and mixins) and other partials.
 @import "base";
 //
-// Import components. These are not part of the standard Commons theme.
-//
-@import 'components/custom';
-@import 'components/fonts';
-// @fontface fonts
-@import 'components/button';
-// Custom cbib button styles
-@import 'components/message';
-// System messages
-@import 'components/user-avatar';
-// User profile picture badge avatar thing
-@import 'components/date';
-// Date or timestamp
-@import 'components/tag';
-@import 'components/forms';
-@import 'components/page-list';
-@import 'components/panels-ipe-portlet-wrapper';
-@import 'components/panels-ipe-paneid-24';
-// "Det praktiske" on Event
-@import 'components/panels-ipe-paneid-26';
-// "Tilmelding" on Event
-@import 'components/panels-ipe-paneid-4';
-// "List of attendees" on Event
-@import 'components/main-header';
-// Main header
-@import 'components/footer';
-// Main footer
-//
-// Import "pages" (styles for specific pages - such as node types, profile page etc.)
-//
-@import 'pages/node-event';
-// Node type event
-@import 'pages/node-news';
-// Node type news
-@import 'pages/node-group';
-// Node type group
-@import 'pages/node-centralbibliotek';
-// Node type centralbibliotek
-@import 'pages/node-license';
-// Node type license
-@import 'pages/page-search';
-
 // Search
 
 /**
@@ -231,7 +189,6 @@ var {
 
 .commons-pod {
   @extend %pod;
-  @extend %pod-content;
   /* Prevent pod nesting. */
   .commons-pod {
     margin: 0;
@@ -1914,9 +1871,6 @@ ul.node-action-links {
   }
   .pane-views-panes {
     @extend %pod;
-    .block-inner {
-      @extend %pod-content;
-    }
   }
 }
 
@@ -2624,9 +2578,6 @@ ul.action-links {
 body.page-node .pane-views-panes {
   .front.not-logged-in & {
     @extend %pod;
-    > div {
-      @extend %pod-content;
-    }
   }
 }
 
@@ -2638,7 +2589,6 @@ body.page-node .pane-views-panes {
   .view-commons-events-upcoming {
     .view-content {
       @extend %pod;
-      @extend %pod-content;
     }
   }
 }
@@ -2655,9 +2605,6 @@ body.page-node .pane-views-panes {
 
 .pane-commons-bw-group {
   @extend %pod;
-  > .block-inner {
-    @extend %pod-content;
-  }
 }
 
 .node-type-group {
@@ -2737,7 +2684,6 @@ body.page-node .pane-views-panes {
 .view-display-id-commons_events_upcoming_page .views-row {
   @extend %pod;
   article {
-    @extend %pod-content;
     .commons-events-form-float {
       float: right;
       margin: -40px 0 0 0;
@@ -2778,10 +2724,6 @@ body.page-node .pane-views-panes {
   > .view-content > .views-row {
     @extend %pod;
     position: relative;
-    > .node-teaser,
-    form {
-      @extend %pod-content;
-    }
   }
   .pane-node-body {
     margin-bottom: 0;
@@ -3729,7 +3671,6 @@ body.front.logged-in {
     margin-bottom: 0;
     &.widgets-active {
       @extend %pod;
-      @extend %pod-content;
     }
   }
 }
@@ -3791,9 +3732,6 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     .pane-views-panes {
       @extend %pod;
       margin-right: 0;
-      .block-inner {
-        @extend %pod-content;
-      }
     }
   }
   div.search-result-wrapper h3.title {
@@ -3960,7 +3898,6 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   .block-content {
     .search-results {
       @extend %pod;
-      @extend %pod-content;
     }
   }
 }
@@ -3968,7 +3905,6 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 .page-search-user {
   .user-results {
     @extend %pod;
-    @extend %pod-content;
   }
 }
 

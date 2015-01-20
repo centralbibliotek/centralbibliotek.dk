@@ -10,7 +10,10 @@ javascripts_dir = "scripts"
 output_style = :expanded
 
 relative_assets = true
- 
+
+# Source maps
+sourcemap = (environment == :development) ? true : false
+
 # line_comments and debug_info can be activated by setting the environment
 # flag to "development"
 line_comments = (environment == :development) ? true : false
