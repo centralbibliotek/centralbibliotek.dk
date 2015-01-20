@@ -1,0 +1,9 @@
+{
+  "name" : "scribe-theme",
+  "version" : "0.1.0",
+  "devDependencies" : {
+    "grunt" : "latest",
+    "grunt-contrib-compass" : "latest",
+    "grunt-contrib-watch" : "latest"
+  }
+}
