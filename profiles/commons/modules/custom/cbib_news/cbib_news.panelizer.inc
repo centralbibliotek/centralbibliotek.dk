@@ -198,7 +198,7 @@ function cbib_news_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'hidden',
       'formatter' => 'og_list_default',
       'delta_limit' => '0',
       'delta_offset' => '0',
@@ -227,27 +227,29 @@ function cbib_news_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'title',
       'formatter' => 'double_field_unformatted_list',
-      'delta_limit' => 0,
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(
         'first' => array(
-          'format' => '_none',
           'hidden' => 0,
+          'format' => '_none',
           'prefix' => '',
           'suffix' => ':&nbsp;',
         ),
         'second' => array(
-          'format' => '_none',
           'hidden' => 0,
+          'format' => '_none',
           'prefix' => '',
           'suffix' => '',
         ),
         'style' => 'inline',
       ),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -268,13 +270,15 @@ function cbib_news_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'title',
       'formatter' => 'link_default',
-      'delta_limit' => 0,
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -295,13 +299,15 @@ function cbib_news_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'title',
       'formatter' => 'file_default',
-      'delta_limit' => 0,
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
