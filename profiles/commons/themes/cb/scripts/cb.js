@@ -41,7 +41,7 @@
       });
 
       // Add click event to whole block that holds a link.
-      $(document, context).on('click', '.node-teaser .center-wrapper .panel-panel', function (event) {
+      $(document, context).delegate('.node-teaser .center-wrapper .panel-panel', 'click', function (event) {
         var href = $(this).find("a").attr("href");
         if (typeof href === "undefined") {
           href = $(this).parent().find("a").attr("href");
