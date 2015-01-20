@@ -19,7 +19,7 @@ function cbib_license_default_page_manager_pages() {
   $page->access = array();
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Licens',
+    'title' => 'Licenser',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
