@@ -33,10 +33,6 @@
   cursor: pointer;
 }
 
-.region-two-66-33-second .panel-pane {
-  margin-bottom: 1em;
-}
-
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
