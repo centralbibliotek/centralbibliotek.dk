@@ -33,6 +33,10 @@
   cursor: pointer;
 }
 
+.region-two-66-33-second .panel-pane {
+  margin-bottom: 1em;
+}
+
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -859,7 +863,10 @@ div.messages.error {
 .node-type-license .panels-ipe-portlet-wrapper {
   margin-bottom: 0.1em;
 }
-.node-type-license .pane-entity-field {
+.node-type-license .pane-entity-field.pane-node-field-topics {
+  margin-top: 0;
+}
+.node-type-license .pane-entity-field.no-title {
   margin: 0;
 }
 .node-type-license .pane-entity-field .field-label-inline {
