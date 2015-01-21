@@ -1337,17 +1337,6 @@ h1.node-title {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .view-plain & {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin: .3em 0;
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 // Load the post icon styles.
