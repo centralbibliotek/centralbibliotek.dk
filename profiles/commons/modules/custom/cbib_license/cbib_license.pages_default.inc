@@ -16,7 +16,10 @@ function cbib_license_default_page_manager_pages() {
   $page->admin_title = 'License';
   $page->admin_description = '';
   $page->path = 'license';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Licenser',

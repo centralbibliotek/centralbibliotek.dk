@@ -878,8 +878,10 @@ div.messages.error {
 .node-type-license .field-name-field-name-last {
   padding: 0.5em 0;
 }
-.node-type-license .pane-user-mail h2.pane-title, .node-type-license .pane-user-mail .node-type-news h2.field-label, .node-type-news .node-type-license .pane-user-mail h2.field-label, .node-type-license .pane-user-mail .node-type-group h2.field-label, .node-type-group .node-type-license .pane-user-mail h2.field-label {
-  color: #369;
+.node-type-license .user .panel-pane {
+  margin: 0;
+}
+.node-type-license .user h2.pane-title, .node-type-license .user .node-type-news h2.field-label, .node-type-news .node-type-license .user h2.field-label, .node-type-license .user .node-type-group h2.field-label, .node-type-group .node-type-license .user h2.field-label {
   display: inline;
   float: none;
   font-size: 1em;
@@ -888,10 +890,10 @@ div.messages.error {
   font-weight: normal;
   border: 0;
 }
-.node-type-license .pane-user-mail h2.pane-title:after, .node-type-license .pane-user-mail .node-type-news h2.field-label:after, .node-type-news .node-type-license .pane-user-mail h2.field-label:after, .node-type-license .pane-user-mail .node-type-group h2.field-label:after, .node-type-group .node-type-license .pane-user-mail h2.field-label:after {
+.node-type-license .user h2.pane-title:after, .node-type-license .user .node-type-news h2.field-label:after, .node-type-news .node-type-license .user h2.field-label:after, .node-type-license .user .node-type-group h2.field-label:after, .node-type-group .node-type-license .user h2.field-label:after {
   content: ":";
 }
-.node-type-license .pane-user-mail .block-content {
+.node-type-license .user .block-content {
   display: inline;
 }
 .node-type-license .pane-node-field-license-pr-file, .node-type-license .pane-node-field-license-education-file, .node-type-license .pane-node-field-document-file {
