@@ -375,17 +375,6 @@ var {
     display: none;
   }
 }
-.node-teaser.node-promoted:before {
-  content: "";
-  background-image: url('../images/node-promoted-star.png?1421671684');
-  background-repeat: no-repeat;
-  background-size: 40px;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 10px;
-  left: 0px;
-}
 .node-teaser .region {
   padding: 0px;
 }

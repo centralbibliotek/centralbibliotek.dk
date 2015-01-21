@@ -369,18 +369,6 @@ var {
     &.node-question {
       @extend %node-space-right;
     }
-
-    &:before {
-      content: "";
-      background-image: image-url("node-promoted-star.png");
-      background-repeat: no-repeat;
-      background-size: 40px;
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      top: 10px;
-      left: 0px;
-    }
   }
 
   .region {
