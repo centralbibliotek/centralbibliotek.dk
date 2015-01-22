@@ -1,5 +1,15 @@
-.page-news, .page-node-news, .page-events, .page-node-events, .page-groups, .page-node-groups, .page-taxonomy, .node-type-centralbibliotek, .page-home, .page-license {
-  
+.page-news,
+.page-node-news,
+.page-events,
+.page-node-events,
+.page-groups,
+.page-node-groups,
+.page-taxonomy,
+.node-type-centralbibliotek,
+.page-home,
+.page-licenses,
+.page-node-licenses {
+
   .view-filters {
     input[type=text] {
       background-color: rgba(0,0,0,0) !important;
@@ -12,19 +22,19 @@
     }
 
     input:-moz-placeholder {
-      color: lighten($light_gray,20%); 
+      color: lighten($light_gray,20%);
     }
 
     input:-ms-input-placeholder {
-      color: lighten($light_gray,20%); 
+      color: lighten($light_gray,20%);
     }
 
     input::-moz-placeholder {
-      color: lighten($light_gray,20%); 
+      color: lighten($light_gray,20%);
     }
 
-    input::-webkit-input-placeholder { 
-      color: lighten($light_gray,20%); 
+    input::-webkit-input-placeholder {
+      color: lighten($light_gray,20%);
     }
   }
 
@@ -76,7 +86,7 @@
       line-height: 0px;
     }
 
-    .pane-node-field-group-logo .field-name-field-group-logo a {    
+    .pane-node-field-group-logo .field-name-field-group-logo a {
       border: none;
       box-shadow: none;
       border-radius: none;
