@@ -73,7 +73,7 @@
       container = $('#block-views-centralbiblioteker-block', context);
       form = $('form', container);
       select = $('select', form);
-      selected = $('option[selected]', select);
+      selected = $('option:selected', select);
       replaceMenu = $('<ul>', { 'class' : 'region-select closed' });
 
       // Hide the select element since its not used.
