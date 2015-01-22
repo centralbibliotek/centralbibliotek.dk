@@ -691,10 +691,54 @@ div.messages.error {
   color: #333;
 }
 
+#block-views-centralbiblioteker-block .toggle-link, #block-views-centralbiblioteker-block ul.region-select li a {
+  padding: 1em;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  display: block;
+  font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #ff5479;
+}
+
 #block-views-centralbiblioteker-block {
   position: absolute;
   top: 28px;
-  left: 265px;
+  left: 255px;
+  z-index: 100;
+}
+#block-views-centralbiblioteker-block .toggle-link {
+  font-size: 20px;
+  background-image: url(../images/branch-select-arrow.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right center;
+  padding-right: 30px;
+}
+#block-views-centralbiblioteker-block ul.region-select {
+  padding: 0 0 0.5em;
+  background-color: #333;
+  font-size: 20px;
+  max-width: 180px;
+  margin: 0;
+}
+#block-views-centralbiblioteker-block ul.region-select.closed {
+  display: none;
+}
+#block-views-centralbiblioteker-block ul.region-select.open {
+  display: block;
+}
+#block-views-centralbiblioteker-block ul.region-select li {
+  list-style: none none;
+  margin: 0;
+}
+#block-views-centralbiblioteker-block ul.region-select li a {
+  padding: 0.5em 1em;
+  background: none;
+}
+#block-views-centralbiblioteker-block ul.region-select li a:hover {
+  color: #ff6990;
+  background-color: #424242;
 }
 #block-views-centralbiblioteker-block .ctools-jump-menu-button {
   display: none;
@@ -859,7 +903,10 @@ div.messages.error {
 .node-type-license .panels-ipe-portlet-wrapper {
   margin-bottom: 0.1em;
 }
-.node-type-license .pane-entity-field {
+.node-type-license .pane-entity-field.pane-node-field-topics {
+  margin-top: 0;
+}
+.node-type-license .pane-entity-field.no-title {
   margin: 0;
 }
 .node-type-license .pane-entity-field .field-label-inline {
@@ -878,8 +925,10 @@ div.messages.error {
 .node-type-license .field-name-field-name-last {
   padding: 0.5em 0;
 }
-.node-type-license .pane-user-mail h2.pane-title, .node-type-license .pane-user-mail .node-type-news h2.field-label, .node-type-news .node-type-license .pane-user-mail h2.field-label, .node-type-license .pane-user-mail .node-type-group h2.field-label, .node-type-group .node-type-license .pane-user-mail h2.field-label {
-  color: #369;
+.node-type-license .user .panel-pane {
+  margin: 0;
+}
+.node-type-license .user h2.pane-title, .node-type-license .user .node-type-news h2.field-label, .node-type-news .node-type-license .user h2.field-label, .node-type-license .user .node-type-group h2.field-label, .node-type-group .node-type-license .user h2.field-label {
   display: inline;
   float: none;
   font-size: 1em;
@@ -888,10 +937,10 @@ div.messages.error {
   font-weight: normal;
   border: 0;
 }
-.node-type-license .pane-user-mail h2.pane-title:after, .node-type-license .pane-user-mail .node-type-news h2.field-label:after, .node-type-news .node-type-license .pane-user-mail h2.field-label:after, .node-type-license .pane-user-mail .node-type-group h2.field-label:after, .node-type-group .node-type-license .pane-user-mail h2.field-label:after {
+.node-type-license .user h2.pane-title:after, .node-type-license .user .node-type-news h2.field-label:after, .node-type-news .node-type-license .user h2.field-label:after, .node-type-license .user .node-type-group h2.field-label:after, .node-type-group .node-type-license .user h2.field-label:after {
   content: ":";
 }
-.node-type-license .pane-user-mail .block-content {
+.node-type-license .user .block-content {
   display: inline;
 }
 .node-type-license .pane-node-field-license-pr-file, .node-type-license .pane-node-field-license-education-file, .node-type-license .pane-node-field-document-file {

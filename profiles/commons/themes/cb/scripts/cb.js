@@ -19,7 +19,7 @@
     attach: function (context, settings) {
       $('#search-block-form input[type="search"]').attr('placeholder', 'Søg på sitet...');
     }
-  }
+  };
 
   // Move the Commons utility links to another html element.
   // This is just a quick fix and should be refactored the Drupal way as the project matures.
@@ -30,7 +30,7 @@
 
       $(target).append(source);
     }
-  }
+  };
 
   // Add link to whole teaser node.
   Drupal.behaviors.addLinkToElement = {
@@ -50,6 +50,70 @@
         return false;
       });
     }
-  }
+  };
 
+  // Jump menu replacement for theming.
+  Drupal.behaviors.regionSelect = {
+    // We don't do this on mobile devices since they have cool select functionality.
+    attach: function (context) {
+      if (
+        navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/Blackberry/i)
+      ) {
+        return;
+      }
+
+      var container, form, select, selected, replaceMenu;
+
+      // Set selector variables.
+      container = $('#block-views-centralbiblioteker-block', context);
+      form = $('form', container);
+      select = $('select', form);
+      selected = $('option:selected', select);
+      replaceMenu = $('<ul>', { 'class' : 'region-select closed' });
+
+      // Hide the select element since its not used.
+      select.hide();
+
+      // Loop through each option in select element.
+      $('option', select).each(function (index) {
+        var option, item, link;
+        option = this;
+
+        // Ignore the first default option.
+        if (index !== 0) {
+          // Create a link that will trigger the option.
+          link = $('<a>').attr('href', '#').click(function (e) {
+            e.preventDefault();
+            $(option).attr('selected', 'selected');
+            select.trigger('change');
+          }).text(option.text);
+        }
+
+        // Set list item with link.
+        item = $('<li>').html(link);
+        // Append item to list.
+        replaceMenu.append(item);
+      });
+
+      // Add the replacement menu.
+      container.append(replaceMenu);
+
+      // Add a toggle link.
+      $('<a>', { 'href' : '#', 'class' : 'toggle-link'}).text(selected.text()).click(function (e) {
+        e.preventDefault();
+        e.stopPropagation()
+        replaceMenu.toggleClass('open closed');
+      }).insertBefore(replaceMenu);
+
+      // Remove menu on click.
+      $(context).click(function () {
+        $('.region-select.open').toggleClass('open closed');
+      });
+    }
+  };
 })(jQuery, Drupal, this, this.document);

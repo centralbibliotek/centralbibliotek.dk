@@ -18,7 +18,14 @@
   }
 
   .pane-entity-field {
-    margin: 0;
+
+    &.pane-node-field-topics {
+      margin-top: 0;
+    }
+
+    &.no-title {
+      margin: 0;
+    }
 
     .field-label-inline {
       margin: 0.5em 0;
@@ -44,9 +51,11 @@
     padding: 0.5em 0;
   }
 
-  .pane-user-mail  {
+  .user  {
+    .panel-pane {
+      margin: 0;
+    }
     h2.pane-title {
-      color: #369;
       display: inline;
       float: none;
       font-size: 1em;

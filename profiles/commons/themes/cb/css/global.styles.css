@@ -375,17 +375,6 @@ var {
     display: none;
   }
 }
-.node-teaser.node-promoted:before {
-  content: "";
-  background-image: url('../images/node-promoted-star.png?1421671684');
-  background-repeat: no-repeat;
-  background-size: 40px;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 10px;
-  left: 0px;
-}
 .node-teaser .region {
   padding: 0px;
 }
@@ -1777,17 +1766,6 @@ h1.node-title a:hover {
   padding-bottom: 0;
   margin-bottom: 0;
 }
-.view-plain .views-row {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin: .3em 0;
-}
-.view-plain .views-row:first-child {
-  margin-top: 0;
-}
-.view-plain .views-row:last-child {
-  margin-bottom: 0;
-}
 
 /* Titles fields */
 .views-field-title {
@@ -1939,9 +1917,6 @@ h1.node-title a:hover {
   width: 40px;
 }
 
-.page-node .field-label {
-  color: #369;
-}
 .page-node .field-name-field-topics,
 .page-node .field-name-og-group-ref {
   margin: 0;
