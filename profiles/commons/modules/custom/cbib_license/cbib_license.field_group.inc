@@ -21,7 +21,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Diverse',
-    'weight' => '9',
+    'weight' => '11',
     'children' => array(
       0 => 'field_license_abbreviated_title',
       1 => 'field_license_access_statistic',
@@ -57,7 +57,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Generelt',
-    'weight' => '7',
+    'weight' => '9',
     'children' => array(
       0 => 'field_faust_no',
       1 => 'field_language',
@@ -95,7 +95,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vidensbank',
-    'weight' => '10',
+    'weight' => '12',
     'children' => array(
       0 => 'field_knowledge_center',
     ),
@@ -122,7 +122,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Licensadgange',
-    'weight' => '8',
+    'weight' => '10',
     'children' => array(
       0 => 'field_license_access_copy_lib',
       1 => 'field_license_access_copy_user',
