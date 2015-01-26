@@ -1659,6 +1659,48 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-field_og_subscribe_settings'
+  $field_instances['node-license-field_og_subscribe_settings'] = array(
+    'bundle' => 'license',
+    'default_value' => array(
+      0 => array(
+        'value' => 'anyone',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 50,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_og_subscribe_settings',
+    'label' => 'Privacy settings',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 40,
+    ),
+  );
+
   // Exported field_instance: 'node-license-field_producer'
   $field_instances['node-license-field_producer'] = array(
     'bundle' => 'license',
@@ -1840,6 +1882,57 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-group_access'
+  $field_instances['node-license-group_access'] = array(
+    'bundle' => 'license',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 49,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_access',
+    'label' => 'Group visibility',
+    'required' => TRUE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'options_onoff',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'options_onoff',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 38,
+    ),
+    'widget_type' => 'options_select',
+  );
+
   // Exported field_instance: 'node-license-group_group'
   $field_instances['node-license-group_group'] = array(
     'bundle' => 'license',
@@ -1956,6 +2049,58 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-og_roles_permissions'
+  $field_instances['node-license-og_roles_permissions'] = array(
+    'bundle' => 'license',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 48,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'og_roles_permissions',
+    'label' => 'Group roles and permissions',
+    'required' => TRUE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Fuld',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Smagsprøve',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 37,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Abbreviated title');
@@ -1969,6 +2114,8 @@ function cbib_license_field_default_field_instances() {
   t('Body');
   t('Determine if this is an OG group.');
   t('Faustnummer');
+  t('Group roles and permissions');
+  t('Group visibility');
   t('Groups audience');
   t('Gruppe');
   t('I databrønd?');
@@ -1988,6 +2135,7 @@ function cbib_license_field_default_field_instances() {
   t('Nyhedsbrev');
   t('Opdatering af indhold');
   t('PID');
+  t('Privacy settings');
   t('Producent');
   t('Proxy start url');
   t('Sproglig afgræsning');
