@@ -12,7 +12,7 @@ function cbib_menu_menu_link_alter(&$link) {
   if ($link['link_path'] == variable_get('site_frontpage') || $link['link_path'] == '<front>') {
     $link['options']['alter'] = TRUE;
   }
-  elseif (in_array($link['link_path'], array('events', 'groups', 'news'))) {
+  elseif (in_array($link['link_path'], array('events', 'groups', 'news', 'licenses'))) {
     $link['options']['alter'] = TRUE;
   }
 }
@@ -28,7 +28,7 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}";
       $item['title'] = $_SESSION['cbib_menu_title'];
     }
-    elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
+    elseif (in_array($item['href'], array('events', 'groups', 'news', 'licenses'))) {
       $item['href'] = "node/{$_SESSION['cbib_menu_nid']}/{$item['href']}";
     }
   }
