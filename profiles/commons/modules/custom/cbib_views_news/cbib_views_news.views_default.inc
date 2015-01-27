@@ -23,6 +23,7 @@ function cbib_views_news_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Nyheder';
+  $handler->display->display_options['css_class'] = 'cb-teaser-list';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'Vis mere';
@@ -90,6 +91,7 @@ function cbib_views_news_views_default_views() {
 
   /* Display: Global Block */
   $handler = $view->new_display('block', 'Global Block', 'cbib_newsletter_global_block');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
