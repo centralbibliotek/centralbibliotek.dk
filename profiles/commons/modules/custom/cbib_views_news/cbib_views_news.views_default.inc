@@ -349,6 +349,64 @@ function cbib_views_news_views_default_views() {
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
+
+  /* Display: Newslist group contextual */
+  $handler = $view->new_display('panel_pane', 'Newslist group contextual', 'panel_pane_5');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Vis mere';
+  $handler->display->display_options['defaults']['link_display'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['link_url'] = 'node/!1/news';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Group (field_og_all_group_ref) */
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['id'] = 'field_og_all_group_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['field'] = 'field_og_all_group_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'gid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'OG membership: Group ID',
+    ),
+  );
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['centralbibliotek_news'] = array(
     t('Master'),
     t('Nyheder'),
@@ -380,6 +438,7 @@ function cbib_views_news_views_default_views() {
     t('OG membership from node'),
     t('Alle'),
     t('Landing page group all'),
+    t('Newslist group contextual'),
   );
   $export['centralbibliotek_news'] = $view;
 
