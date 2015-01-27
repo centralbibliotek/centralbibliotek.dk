@@ -123,7 +123,6 @@ features[field_instance][] = node-license-group_group
 features[field_instance][] = node-license-og_group_ref
 features[field_instance][] = node-license-og_roles_permissions
 features[node][] = license
-features[page_manager_pages][] = licence_landing_page_node
 features[page_manager_pages][] = license
 features[panelizer_defaults][] = node:license:default
 features[panelizer_defaults][] = node:license:default:teaser

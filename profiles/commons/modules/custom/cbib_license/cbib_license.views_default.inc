@@ -175,98 +175,6 @@ function cbib_license_views_default_views() {
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
-
-  /* Display: Landing page group all */
-  $handler = $view->new_display('panel_pane', 'Landing page group all', 'panel_pane_2');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'Vis mere';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
-  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
-  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['label'] = '';
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Arrangementsdato */
-  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
-  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['label'] = '';
-  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_date']['settings'] = array(
-    'format_type' => 'event_datetime',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Felt: Registration Settings: Spaces used */
-  $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
-  $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
-  $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
-  $handler->display->display_options['fields']['capacity_used']['label'] = '';
-  $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['capacity_used']['separator'] = '';
-  $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere,';
-  /* Felt: Indhold: Kommentarantal */
-  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
-  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
-  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
-  $handler->display->display_options['fields']['comment_count']['label'] = '';
-  $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['comment_count']['alter']['text'] = '[comment_count] comments';
-  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Felt: Group membership (og_user_node) */
-  $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['field'] = 'og_user_node_target_id';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_user_node_target_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-  $handler->display->display_options['argument_input'] = array(
-    'gid' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'OG membership: Group ID',
-    ),
-  );
-  $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['centralbibliotek_license'] = array(
     t('Master'),
     t('Vis mere'),
@@ -290,8 +198,6 @@ function cbib_license_views_default_views() {
     t('[comment_count] comments'),
     t(','),
     t('Centralbibliotek'),
-    t('Landing page group all'),
-    t('Alle'),
   );
   $export['centralbibliotek_license'] = $view;
 
