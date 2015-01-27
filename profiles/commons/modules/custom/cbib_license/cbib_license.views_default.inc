@@ -174,18 +174,19 @@ function cbib_license_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Referred licenses', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Licenser';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Groups (og_group_ref) */
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Kontekstuelt filter: Indhold: Licence group (og_group_license_ref) */
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['id'] = 'og_group_license_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['field'] = 'og_group_license_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterie: Indhold: Udgivet */

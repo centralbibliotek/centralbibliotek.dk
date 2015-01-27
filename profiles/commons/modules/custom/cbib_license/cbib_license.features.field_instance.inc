@@ -1697,7 +1697,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 40,
+      'weight' => 18,
     ),
   );
 
@@ -1882,6 +1882,46 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-license-field_topics'
+  $field_instances['node-license-field_topics'] = array(
+    'bundle' => 'license',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 45,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_topics',
+    'label' => 'Emner',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 22,
+    ),
+  );
+
   // Exported field_instance: 'node-license-group_access'
   $field_instances['node-license-group_access'] = array(
     'bundle' => 'license',
@@ -1928,7 +1968,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 38,
+      'weight' => 17,
     ),
     'widget_type' => 'options_select',
   );
@@ -1993,8 +2033,8 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-license-og_group_ref'
-  $field_instances['node-license-og_group_ref'] = array(
+  // Exported field_instance: 'node-license-og_group_license_ref'
+  $field_instances['node-license-og_group_license_ref'] = array(
     'bundle' => 'license',
     'default_value' => NULL,
     'default_value_function' => '',
@@ -2006,7 +2046,7 @@ function cbib_license_field_default_field_instances() {
         'module' => 'og_ui',
         'settings' => array(),
         'type' => 'og_list_default',
-        'weight' => 47,
+        'weight' => 51,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2017,8 +2057,8 @@ function cbib_license_field_default_field_instances() {
     ),
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
-    'field_name' => 'og_group_ref',
-    'label' => 'Groups audience',
+    'field_name' => 'og_group_license_ref',
+    'label' => 'Licence group',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -2107,7 +2147,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 16,
     ),
   );
 
@@ -2256,7 +2296,47 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-licenses-field_topics'
+  $field_instances['node-licenses-field_topics'] = array(
+    'bundle' => 'licenses',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_topics',
+    'label' => 'Emner',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 4,
     ),
   );
 
@@ -2306,7 +2386,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 8,
+      'weight' => 9,
     ),
     'widget_type' => 'options_select',
   );
@@ -2417,7 +2497,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -2433,12 +2513,13 @@ function cbib_license_field_default_field_instances() {
   t('Billede');
   t('Body');
   t('Determine if this is an OG group.');
+  t('Emner');
   t('Faustnummer');
   t('Group roles and permissions');
   t('Group visibility');
-  t('Groups audience');
   t('Gruppe');
   t('I databrønd?');
+  t('Licence group');
   t('Lignende licenser');
   t('Markedsføringsmateriale');
   t('Metadata?');
