@@ -43,7 +43,7 @@ function cbib_license_node_info() {
       'help' => '',
     ),
     'licenses' => array(
-      'name' => t('Licenses'),
+      'name' => t('Licens gruppe'),
       'base' => 'node_content',
       'description' => t('Lincensgruppe'),
       'has_title' => '1',
