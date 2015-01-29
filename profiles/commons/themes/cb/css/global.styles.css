@@ -3,7 +3,7 @@
 body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .view-content, .pane-commons-bw-group, .view-display-id-commons_events_upcoming_page .views-row, .view-commons-groups-directory > .view-content > .views-row,
 .view-commons-homepage-content .node-teaser.node-group > .view-content > .views-row, body.front.logged-in .view-commons-homepage-content > .view-content, body.front.logged-in #views-exposed-form-commons-homepage-content-panel-pane-1 .views-exposed-widgets.widgets-active, .page-events .region-three-25-50-25-third .pane-views-panes, .pane-search-result .block-content .search-results, .page-search-user .user-results {
   background-color: transparent;
-  margin: 10px 0;
+  margin: 0 0 10px;
 }
 
 .node.node-event > .node-content, .node.node-poll > .node-content, .node.node-question > .node-content, .node-teaser.node-promoted.node-event > .node-content, .node-teaser.node-promoted.node-poll > .node-content, .node-teaser.node-promoted.node-question > .node-content {
@@ -2226,10 +2226,6 @@ ul.comment-links li {
   }
 }
 
-.field-name-body {
-  margin-top: 1.7em;
-}
-
 .field-name-field-date {
   font-weight: normal;
 }
@@ -2993,7 +2989,6 @@ ul.action-links {
 }
 
 .pane-node-field-group-logo {
-  float: left;
   margin: 0 10px 10px 0;
 }
 .pane-node-field-group-logo .field-name-field-group-logo a {

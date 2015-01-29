@@ -1,25 +1,7 @@
-// Node type event
-
-/*body*/.node-type-event {
-
-  // Main content area
-  .region.region-two-66-33-first .region-inner { 
-    //background: #fff;
-    //padding: 0 20px 2em;
-    //border: 1px solid $gray-light;
-
-    .block {
-      margin-bottom: 0;
-    }
-
-    .panel-pane,
-    .panels-ipe-portlet-wrapper {
-      margin-bottom: 0;
-    }
-
-  }//.panels-ipe-regionid-two_66_33_first - main content area
-
-
+/**
+ * Node type event.
+ */
+.node-type-event {
   // Event title
   .field-name-title-field {
     h1 {
@@ -30,25 +12,17 @@
 
   // Event image
   .field-name-field-image {
-
-    // Make image go flush width main content area
-    // .file-image {
-    //   margin-right: -20px;
-    //   margin-left: -20px;
-    // }
-
     img {
       width: 100%;
-      //border-bottom: 1px solid $gray-light;
     }
   }
 
 
   // Event date
-  .region.region-two-66-33-first .pane-node-field-date, // Logged out
-  #panels-ipe-paneid-7 { // Logged in
+  .region.region-two-66-33-first .pane-node-field-date {
     float: left;
-    
+    margin-bottom: 0;
+
     .field-item {
       @extend %date;
     }
@@ -60,8 +34,7 @@
 
 
   // Event type
-  .region.region-two-66-33-first .pane-node-field-event-type, // Logged out
-  #panels-ipe-paneid-12 { // Logged in
+  .region.region-two-66-33-first .pane-node-field-event-type {
     ul {
       margin: 0;
       padding: 0;
@@ -78,7 +51,7 @@
     a {
       @extend %tag-blue;
     }
-    
+
     .field-type-taxonomy-term-reference {
       margin-bottom: 0;
     }
@@ -87,9 +60,9 @@
 
 
   // Event location
-  .region.region-two-66-33-first .pane-node-field-address, // Logged out
-  #panels-ipe-paneid-9 { // Logged in
+  .region.region-two-66-33-first .pane-node-field-address {
     float: left;
+    margin-bottom: 0;
 
     .adr {
       @extend %tag;
@@ -100,4 +73,4 @@
     margin-right: .5em;
   }
 
-}//.node-type-event
+}
