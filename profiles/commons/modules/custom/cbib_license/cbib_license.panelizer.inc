@@ -302,6 +302,68 @@ function cbib_license_panelizer_defaults() {
     $display->content['new-e171777c-c620-426a-8767-4d2af2427854'] = $pane;
     $display->panels['two_66_33_first'][7] = 'new-e171777c-c620-426a-8767-4d2af2427854';
     $pane = new stdClass();
+    $pane->pid = 'new-cad9b5da-1080-4a8f-8224-1aa24e0021e3';
+    $pane->panel = 'two_66_33_first';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_license_pr_file';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'file_view_mode' => 'teaser',
+      ),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = 'cad9b5da-1080-4a8f-8224-1aa24e0021e3';
+    $display->content['new-cad9b5da-1080-4a8f-8224-1aa24e0021e3'] = $pane;
+    $display->panels['two_66_33_first'][8] = 'new-cad9b5da-1080-4a8f-8224-1aa24e0021e3';
+    $pane = new stdClass();
+    $pane->pid = 'new-b16c5612-18f5-414b-8741-abf223eb7b85';
+    $pane->panel = 'two_66_33_first';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_license_education_file';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'file_view_mode' => 'teaser',
+      ),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->locks = array();
+    $pane->uuid = 'b16c5612-18f5-414b-8741-abf223eb7b85';
+    $display->content['new-b16c5612-18f5-414b-8741-abf223eb7b85'] = $pane;
+    $display->panels['two_66_33_first'][9] = 'new-b16c5612-18f5-414b-8741-abf223eb7b85';
+    $pane = new stdClass();
     $pane->pid = 'new-eb36af97-1d7b-45cd-94e2-13dc41820809';
     $pane->panel = 'two_66_33_first';
     $pane->type = 'entity_field';
@@ -331,11 +393,11 @@ function cbib_license_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 10;
     $pane->locks = array();
     $pane->uuid = 'eb36af97-1d7b-45cd-94e2-13dc41820809';
     $display->content['new-eb36af97-1d7b-45cd-94e2-13dc41820809'] = $pane;
-    $display->panels['two_66_33_first'][8] = 'new-eb36af97-1d7b-45cd-94e2-13dc41820809';
+    $display->panels['two_66_33_first'][10] = 'new-eb36af97-1d7b-45cd-94e2-13dc41820809';
     $pane = new stdClass();
     $pane->pid = 'new-830cc83b-7494-47c3-ad99-e916bdcf1e08';
     $pane->panel = 'two_66_33_second';
@@ -1160,64 +1222,6 @@ function cbib_license_panelizer_defaults() {
     $display->content['new-b1fc7ea4-1c1d-4fa3-8df5-b684159aefce'] = $pane;
     $display->panels['two_66_33_second'][27] = 'new-b1fc7ea4-1c1d-4fa3-8df5-b684159aefce';
     $pane = new stdClass();
-    $pane->pid = 'new-cad9b5da-1080-4a8f-8224-1aa24e0021e3';
-    $pane->panel = 'two_66_33_second';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_license_pr_file';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'file_default',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 28;
-    $pane->locks = array();
-    $pane->uuid = 'cad9b5da-1080-4a8f-8224-1aa24e0021e3';
-    $display->content['new-cad9b5da-1080-4a8f-8224-1aa24e0021e3'] = $pane;
-    $display->panels['two_66_33_second'][28] = 'new-cad9b5da-1080-4a8f-8224-1aa24e0021e3';
-    $pane = new stdClass();
-    $pane->pid = 'new-b16c5612-18f5-414b-8741-abf223eb7b85';
-    $pane->panel = 'two_66_33_second';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_license_education_file';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'file_default',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 29;
-    $pane->locks = array();
-    $pane->uuid = 'b16c5612-18f5-414b-8741-abf223eb7b85';
-    $display->content['new-b16c5612-18f5-414b-8741-abf223eb7b85'] = $pane;
-    $display->panels['two_66_33_second'][29] = 'new-b16c5612-18f5-414b-8741-abf223eb7b85';
-    $pane = new stdClass();
     $pane->pid = 'new-76acbffc-f28b-4334-8d94-c35d463eeec7';
     $pane->panel = 'two_66_33_second';
     $pane->type = 'entity_field';
@@ -1243,11 +1247,11 @@ function cbib_license_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 30;
+    $pane->position = 28;
     $pane->locks = array();
     $pane->uuid = '76acbffc-f28b-4334-8d94-c35d463eeec7';
     $display->content['new-76acbffc-f28b-4334-8d94-c35d463eeec7'] = $pane;
-    $display->panels['two_66_33_second'][30] = 'new-76acbffc-f28b-4334-8d94-c35d463eeec7';
+    $display->panels['two_66_33_second'][28] = 'new-76acbffc-f28b-4334-8d94-c35d463eeec7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
