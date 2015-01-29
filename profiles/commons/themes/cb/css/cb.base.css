@@ -917,6 +917,9 @@ div.messages.error {
 .node-type-license .panels-ipe-portlet-wrapper {
   margin-bottom: 0.1em;
 }
+.node-type-license .pane-entity-field.no-title {
+  margin: 0;
+}
 .node-type-license .pane-entity-field .field-label-inline {
   margin: 0.5em 0;
 }
