@@ -14,7 +14,7 @@ function cbib_license_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_licenses';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-menu';
   $export['additional_settings__active_tab_licenses'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -232,7 +232,9 @@ function cbib_license_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_licenses';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
   $export['menu_options_licenses'] = $strongarm;
 
   $strongarm = new stdClass();
