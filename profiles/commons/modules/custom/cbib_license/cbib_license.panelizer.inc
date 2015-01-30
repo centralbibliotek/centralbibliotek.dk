@@ -1459,25 +1459,6 @@ function cbib_license_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-36dd7fc4-6bc6-4ff0-bca5-db4e05ece15e';
-    $pane->panel = 'two_66_33_bottom';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'centralbibliotek_license-panel_pane_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36dd7fc4-6bc6-4ff0-bca5-db4e05ece15e';
-    $display->content['new-36dd7fc4-6bc6-4ff0-bca5-db4e05ece15e'] = $pane;
-    $display->panels['two_66_33_bottom'][0] = 'new-36dd7fc4-6bc6-4ff0-bca5-db4e05ece15e';
-    $pane = new stdClass();
     $pane->pid = 'new-77d18b49-1b36-4429-a0b9-b8f7206926bf';
     $pane->panel = 'two_66_33_bottom';
     $pane->type = 'views_panes';
@@ -1491,11 +1472,11 @@ function cbib_license_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '77d18b49-1b36-4429-a0b9-b8f7206926bf';
     $display->content['new-77d18b49-1b36-4429-a0b9-b8f7206926bf'] = $pane;
-    $display->panels['two_66_33_bottom'][1] = 'new-77d18b49-1b36-4429-a0b9-b8f7206926bf';
+    $display->panels['two_66_33_bottom'][0] = 'new-77d18b49-1b36-4429-a0b9-b8f7206926bf';
     $pane = new stdClass();
     $pane->pid = 'new-411a860b-37a9-4373-8ebc-020cabb98bc8';
     $pane->panel = 'two_66_33_first';
