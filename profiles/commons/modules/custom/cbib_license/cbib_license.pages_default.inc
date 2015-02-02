@@ -16,7 +16,10 @@ function cbib_license_default_page_manager_pages() {
   $page->admin_title = 'Files list';
   $page->admin_description = '';
   $page->path = 'vidensbank';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -92,7 +95,10 @@ function cbib_license_default_page_manager_pages() {
   $page->admin_title = 'License list';
   $page->admin_description = '';
   $page->path = 'licenser/liste';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(

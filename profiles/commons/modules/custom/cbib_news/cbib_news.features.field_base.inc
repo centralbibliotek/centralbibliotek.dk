@@ -124,7 +124,7 @@ function cbib_news_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
-      'handler' => 'og',
+      'handler' => 'og_commons',
       'handler_settings' => array(
         'behaviors' => array(
           'og_behavior' => array(
