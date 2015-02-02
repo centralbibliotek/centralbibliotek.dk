@@ -92,7 +92,7 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'licenses' => 'licenses',
+    'license' => 'license',
   );
 
   /* Display: Landing page all */
@@ -268,13 +268,22 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
+    'timestamp' => 'timestamp',
     'filename' => 'filename',
     'filesize' => 'filesize',
+    'title_field' => 'title_field',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'timestamp' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'filename' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -287,12 +296,25 @@ function cbib_license_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'title_field' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   /* Forbindelse: Filbrug: Indhold */
   $handler->display->display_options['relationships']['file_to_node']['id'] = 'file_to_node';
   $handler->display->display_options['relationships']['file_to_node']['table'] = 'file_usage';
   $handler->display->display_options['relationships']['file_to_node']['field'] = 'file_to_node';
   $handler->display->display_options['relationships']['file_to_node']['required'] = TRUE;
+  /* Felt: Fil: Upload-dato */
+  $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp']['date_format'] = 'teaser_date';
+  $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
   /* Felt: Fil: Navn */
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
@@ -328,7 +350,6 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['field'] = 'og_group_license_ref_target_id';
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['relationship'] = 'file_to_node';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_action'] = 'default';
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['number_of_records'] = '0';
@@ -364,6 +385,7 @@ function cbib_license_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Indhold'),
+    t('Upload-dato'),
     t('Navn'),
     t('Størrelse'),
     t('Licens'),

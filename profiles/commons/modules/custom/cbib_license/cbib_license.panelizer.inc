@@ -1609,7 +1609,7 @@ function cbib_license_panelizer_defaults() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<a class="license-lead" href="/licens">Se alle licenser</a>
+      'body' => '<a class="license-lead" href="/licenser/liste">Se alle licenser</a>
 ',
       'format' => 'filtered_html',
       'substitute' => 0,
