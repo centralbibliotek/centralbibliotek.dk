@@ -184,6 +184,7 @@ features[variable][] = scheduler_unpublish_required_licenses
 features[variable][] = scheduler_unpublish_revision_licenses
 features[variable][] = scheduler_use_vertical_tabs_licenses
 features[views_view][] = centralbibliotek_license
+features[views_view][] = file_directory
 features_exclude[dependencies][cbib_news] = cbib_news
 features_exclude[dependencies][commons_bw] = commons_bw
 features_exclude[dependencies][commons_documents] = commons_documents
