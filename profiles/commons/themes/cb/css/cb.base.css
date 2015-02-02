@@ -132,6 +132,24 @@
   margin: 20px 0;
 }
 
+a.lead-link {
+  padding: 5px 15px;
+  background-color: #ddd;
+  color: #565656;
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  border-left: 5px solid #565656;
+  -moz-transition: color 200ms ease-in, background-color 200ms ease-in;
+  -o-transition: color 200ms ease-in, background-color 200ms ease-in;
+  -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
+  transition: color 200ms ease-in, background-color 200ms ease-in;
+}
+a.lead-link:hover {
+  background-color: #565656;
+  color: #ddd;
+}
+
 div.messages {
   margin-top: 2em;
   margin-bottom: 2em;
