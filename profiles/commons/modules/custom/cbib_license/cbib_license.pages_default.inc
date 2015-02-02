@@ -58,7 +58,7 @@ function cbib_license_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Vidensbank';
   $display->uuid = 'd783ad8c-63fa-4202-a74d-1ed677cda454';
   $display->content = array();
   $display->panels = array();
@@ -137,7 +137,7 @@ function cbib_license_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Licenser';
   $display->uuid = '940f27da-94cb-4a84-9c70-99e3b24e403b';
   $display->content = array();
   $display->panels = array();
