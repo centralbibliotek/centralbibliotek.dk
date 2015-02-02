@@ -47,6 +47,25 @@ function commons_groups_pages_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $pane->panel = 'two_66_33_bottom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_news-panel_pane_5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $display->content['new-ea23f7be-8a92-476e-b3a3-d339142e56e3'] = $pane;
+    $display->panels['two_66_33_bottom'][0] = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $pane = new stdClass();
     $pane->pid = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
     $pane->panel = 'two_66_33_first';
     $pane->type = 'entity_field';
