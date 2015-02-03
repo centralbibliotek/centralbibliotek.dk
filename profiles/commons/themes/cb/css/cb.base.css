@@ -954,8 +954,21 @@ div.messages.error {
 .node-type-license .field-name-field-name-last {
   padding: 0.5em 0;
 }
+.node-type-license .user {
+  margin-bottom: 1em;
+}
 .node-type-license .user .panel-pane {
   margin: 0;
+  display: inline-block;
+  color: #828282;
+}
+.node-type-license .user .panel-pane.pane-user-field-phone .block-inner {
+  display: inline-block;
+}
+.node-type-license .user .panel-pane.pane-user-field-phone:before, .node-type-license .user .panel-pane.pane-user-field-phone:after {
+  content: ' | ';
+  color: #ddd;
+  user-select: none;
 }
 .node-type-license .user h2.pane-title, .node-type-license .user .node-type-news h2.field-label, .node-type-news .node-type-license .user h2.field-label, .node-type-license .user .node-type-group h2.field-label, .node-type-group .node-type-license .user h2.field-label {
   display: inline;

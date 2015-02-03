@@ -1866,7 +1866,7 @@ function cbib_license_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'inline',
+      'label' => 'hidden',
       'formatter' => 'text_default',
       'delta_limit' => 0,
       'delta_offset' => '0',
@@ -1897,8 +1897,8 @@ function cbib_license_panelizer_defaults() {
     $pane->configuration = array(
       'sanitize' => 1,
       'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '<none>',
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(

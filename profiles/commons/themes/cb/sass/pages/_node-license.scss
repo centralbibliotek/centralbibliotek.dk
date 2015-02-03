@@ -47,8 +47,22 @@
   }
 
   .user  {
+    margin-bottom: 1em;
     .panel-pane {
       margin: 0;
+      display: inline-block;
+      color: $gray;
+      &.pane-user-field-phone {
+        .block-inner {
+          display: inline-block;
+        }
+        &:before,
+        &:after {
+          content: ' | ';
+          color: $gray-light;
+          @include noselect;
+        }
+      }
     }
     h2.pane-title {
       display: inline;
