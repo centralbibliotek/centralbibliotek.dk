@@ -293,8 +293,8 @@ div.messages.error {
   color: #828282;
 }
 
-.cb-teaser-list .view-filters input[type=text],
-.page-taxonomy-term .view-filters input[type=text] {
+.cb-teaser-list .view-filters input[type="text"],
+.page-taxonomy-term .view-filters input[type="text"] {
   background-color: transparent !important;
   border: 0px;
   height: 50px;
@@ -968,6 +968,11 @@ div.messages.error {
 .node-type-license .user .panel-pane.pane-user-field-phone:before, .node-type-license .user .panel-pane.pane-user-field-phone:after {
   content: ' | ';
   color: #ddd;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .node-type-license .user h2.pane-title, .node-type-license .user .node-type-news h2.field-label, .node-type-news .node-type-license .user h2.field-label, .node-type-license .user .node-type-group h2.field-label, .node-type-group .node-type-license .user h2.field-label {
