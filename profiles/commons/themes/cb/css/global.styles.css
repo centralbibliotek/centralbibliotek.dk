@@ -2782,9 +2782,9 @@ ul.action-links {
 /**
  * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
  */
-.field-label {
+.field .field-label {
   font-size: 1em;
-  font-weight: 700;
+  font-weight: normal;
   font-family: inherit;
   line-height: inherit;
   margin-bottom: 0;
