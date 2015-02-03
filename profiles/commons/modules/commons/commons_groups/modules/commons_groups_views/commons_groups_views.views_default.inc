@@ -1215,6 +1215,7 @@ function commons_groups_views_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Grupper';
+  $handler->display->display_options['css_class'] = 'cb-teaser-list';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'Vis mere';
@@ -1318,7 +1319,7 @@ function commons_groups_views_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['link_url'] = 'node/1!/groups';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Felt: Group membership (og_user_node) */
+  /* Kontekstuelt filter: Felt: Centralbibliotek (og_user_node) */
   $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
   $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_user_node_target_id']['field'] = 'og_user_node_target_id';
@@ -1369,7 +1370,7 @@ function commons_groups_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Felt: Group membership (og_user_node) */
+  /* Kontekstuelt filter: Felt: Centralbibliotek (og_user_node) */
   $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
   $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_user_node_target_id']['field'] = 'og_user_node_target_id';

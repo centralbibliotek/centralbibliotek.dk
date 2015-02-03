@@ -30,3 +30,8 @@
 .hover {
   cursor: pointer;
 }
+
+// Buttons.
+a.lead-link {
+  @extend %lead-link;
+}

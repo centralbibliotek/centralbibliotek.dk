@@ -11,37 +11,17 @@ function cbib_license_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'licence_landing_page_node';
+  $page->name = 'files_list';
   $page->task = 'page';
-  $page->admin_title = 'Licence landing page group';
+  $page->admin_title = 'Files list';
   $page->admin_description = '';
-  $page->path = 'node/%node/licenses';
+  $page->path = 'vidensbank';
   $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'node_type',
-        'settings' => array(
-          'type' => array(
-            'centralbibliotek' => 'centralbibliotek',
-          ),
-        ),
-        'context' => 'argument_entity_id:node_1',
-        'not' => FALSE,
-      ),
-    ),
-    'logic' => 'and',
     'type' => 'none',
     'settings' => NULL,
   );
   $page->menu = array();
-  $page->arguments = array(
-    'node' => array(
-      'id' => 1,
-      'identifier' => 'Indholdselement: ID',
-      'name' => 'entity_id:node',
-      'settings' => array(),
-    ),
-  );
+  $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,
   );
@@ -49,13 +29,13 @@ function cbib_license_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_licence_landing_page_node_panel_context';
+  $handler->name = 'page_files_list_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'licence_landing_page_node';
+  $handler->subtask = 'files_list';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'Default list',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -78,22 +58,18 @@ function cbib_license_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Licenser';
-  $display->uuid = 'a1382a7f-b0d0-4a0e-9b81-081bfc4ff76c';
+  $display->title = 'Vidensbank';
+  $display->uuid = 'd783ad8c-63fa-4202-a74d-1ed677cda454';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1f35de66-949f-4877-8f09-a615640f8748';
+    $pane->pid = 'new-35cf31bf-ba5c-4812-a723-760a2f45257e';
     $pane->panel = 'two_66_33_top';
     $pane->type = 'views_panes';
-    $pane->subtype = 'centralbibliotek_license-panel_pane_2';
+    $pane->subtype = 'file_directory-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-      ),
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -102,39 +78,28 @@ function cbib_license_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '1f35de66-949f-4877-8f09-a615640f8748';
-    $display->content['new-1f35de66-949f-4877-8f09-a615640f8748'] = $pane;
-    $display->panels['two_66_33_top'][0] = 'new-1f35de66-949f-4877-8f09-a615640f8748';
+    $pane->uuid = '35cf31bf-ba5c-4812-a723-760a2f45257e';
+    $display->content['new-35cf31bf-ba5c-4812-a723-760a2f45257e'] = $pane;
+    $display->panels['two_66_33_top'][0] = 'new-35cf31bf-ba5c-4812-a723-760a2f45257e';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-35cf31bf-ba5c-4812-a723-760a2f45257e';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['licence_landing_page_node'] = $page;
+  $pages['files_list'] = $page;
 
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'license';
+  $page->name = 'license_list';
   $page->task = 'page';
-  $page->admin_title = 'License';
+  $page->admin_title = 'License list';
   $page->admin_description = '';
-  $page->path = 'licenses';
+  $page->path = 'licenser/liste';
   $page->access = array(
     'type' => 'none',
     'settings' => NULL,
   );
-  $page->menu = array(
-    'type' => 'normal',
-    'title' => 'Licenser',
-    'name' => 'main-menu',
-    'weight' => '0',
-    'parent' => array(
-      'type' => 'none',
-      'title' => '',
-      'name' => 'navigation',
-      'weight' => '0',
-    ),
-  );
+  $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,
@@ -143,14 +108,14 @@ function cbib_license_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_license_panel_context';
+  $handler->name = 'page_license_list_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'license';
+  $handler->subtask = 'license_list';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
-    'no_blocks' => 0,
+    'title' => 'Default list',
+    'no_blocks' => 1,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
@@ -160,22 +125,25 @@ function cbib_license_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'one';
+  $display->layout = 'two_66_33';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
-      'one_main' => NULL,
+      'two_66_33_top' => NULL,
+      'two_66_33_first' => NULL,
+      'two_66_33_second' => NULL,
+      'two_66_33_bottom' => NULL,
     ),
   );
   $display->cache = array();
   $display->title = 'Licenser';
-  $display->uuid = '87625eab-7309-4c23-8fd4-540da926671a';
+  $display->uuid = '940f27da-94cb-4a84-9c70-99e3b24e403b';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-84003b2a-6e12-484d-8766-2f6675460833';
-    $pane->panel = 'one_main';
+    $pane->pid = 'new-89f527f5-ee69-4162-92ba-e40a2fdcb586';
+    $pane->panel = 'two_66_33_top';
     $pane->type = 'views_panes';
     $pane->subtype = 'centralbibliotek_license-panel_pane_1';
     $pane->shown = TRUE;
@@ -189,14 +157,14 @@ function cbib_license_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '84003b2a-6e12-484d-8766-2f6675460833';
-    $display->content['new-84003b2a-6e12-484d-8766-2f6675460833'] = $pane;
-    $display->panels['one_main'][0] = 'new-84003b2a-6e12-484d-8766-2f6675460833';
+    $pane->uuid = '89f527f5-ee69-4162-92ba-e40a2fdcb586';
+    $display->content['new-89f527f5-ee69-4162-92ba-e40a2fdcb586'] = $pane;
+    $display->panels['two_66_33_top'][0] = 'new-89f527f5-ee69-4162-92ba-e40a2fdcb586';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-84003b2a-6e12-484d-8766-2f6675460833';
+  $display->title_pane = 'new-89f527f5-ee69-4162-92ba-e40a2fdcb586';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['license'] = $page;
+  $pages['license_list'] = $page;
 
   return $pages;
 

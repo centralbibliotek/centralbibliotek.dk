@@ -1,17 +1,7 @@
-.page-news,
-.page-node-news,
-.page-events,
-.page-node-events,
-.page-groups,
-.page-node-groups,
-.page-taxonomy,
-.node-type-centralbibliotek,
-.page-home,
-.page-licenses,
-.page-node-licenses {
-
+.cb-teaser-list,
+.page-taxonomy-term {
   .view-filters {
-    input[type=text] {
+    input[type="text"] {
       background-color: rgba(0,0,0,0) !important;
       border: 0px;
       height: 50px;

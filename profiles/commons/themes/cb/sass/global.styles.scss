@@ -1634,10 +1634,6 @@ ul.comment-links {
   }
 }
 
-.field-name-body {
-  margin-top: 1.7em;
-}
-
 .field-name-field-date {
   font-weight: normal;
 }
@@ -2454,9 +2450,9 @@ ul.action-links {
  * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
  */
 
-.field-label {
+.field .field-label {
   font-size: 1em;
-  font-weight: 700;
+  font-weight: normal;
   font-family: inherit;
   line-height: inherit;
   margin-bottom: 0;
@@ -2510,7 +2506,6 @@ ul.action-links {
 /* =============================================================================
  *   Panels Styling
  * ========================================================================== */
-
 .node-title,
 .pane-title {
   font-weight: normal;
@@ -2705,7 +2700,6 @@ body.page-node .pane-views-panes {
 }
 
 .pane-node-field-group-logo {
-  float: left;
   margin: 0 $gutter-width $gutter-width 0;
   .field-name-field-group-logo a {
     display: block;
@@ -3622,12 +3616,6 @@ body.front.logged-in {
       }
     }
     .article.node, .node-teaser.node-group {
-      .node-content {
-        form {
-        }
-        .field-name-body {
-        }
-      }
       .author-datetime {
         margin-bottom: 1.5em;
         clear: both;
