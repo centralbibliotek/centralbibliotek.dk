@@ -384,16 +384,26 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Group (field_og_all_group_ref) */
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['id'] = 'field_og_all_group_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['field'] = 'field_og_all_group_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_og_all_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Kontekstuelt filter: Indhold: Group reference (field_og_groups_ref) */
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['id'] = 'field_og_groups_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['field'] = 'field_og_groups_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Kontekstuelt filter: Indhold: License reference (field_og_licenses_ref) */
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['id'] = 'field_og_licenses_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['field'] = 'field_og_licenses_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(

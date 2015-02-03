@@ -168,7 +168,7 @@ function cbib_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -232,7 +232,7 @@ function cbib_news_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -288,12 +288,12 @@ function cbib_news_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
-  // Exported field_instance: 'node-news-field_og_all_group_ref'
-  $field_instances['node-news-field_og_all_group_ref'] = array(
+  // Exported field_instance: 'node-news-field_og_groups_ref'
+  $field_instances['node-news-field_og_groups_ref'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
     'default_value_function' => '',
@@ -307,7 +307,7 @@ function cbib_news_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -318,8 +318,8 @@ function cbib_news_field_default_field_instances() {
     ),
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
-    'field_name' => 'field_og_all_group_ref',
-    'label' => 'Group',
+    'field_name' => 'field_og_groups_ref',
+    'label' => 'Group reference',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -348,12 +348,69 @@ function cbib_news_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-news-field_og_licenses_ref'
+  $field_instances['node-news-field_og_licenses_ref'] = array(
+    'bundle' => 'news',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_og_licenses_ref',
+    'label' => 'License reference',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 6,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Billede');
   t('Body');
   t('Forfatter');
-  t('Group');
+  t('Group reference');
+  t('License reference');
   t('Link');
   t('Vedhæftninger');
 

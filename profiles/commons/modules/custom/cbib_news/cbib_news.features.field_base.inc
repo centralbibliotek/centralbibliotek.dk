@@ -101,13 +101,13 @@ function cbib_news_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_og_all_group_ref'
-  $field_bases['field_og_all_group_ref'] = array(
+  // Exported field_base: 'field_og_groups_ref'
+  $field_bases['field_og_groups_ref'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_og_all_group_ref',
+    'field_name' => 'field_og_groups_ref',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -140,6 +140,52 @@ function cbib_news_field_default_field_bases() {
         ),
         'target_bundles' => array(
           'group' => 'group',
+        ),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_og_licenses_ref'
+  $field_bases['field_og_licenses_ref'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_og_licenses_ref',
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'og_commons',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'og_behavior' => array(
+            'status' => TRUE,
+          ),
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'membership_type' => 'og_membership_type_default',
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
           'license' => 'license',
           'licenses' => 'licenses',
         ),
