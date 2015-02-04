@@ -1,46 +1,6 @@
 /**
  * Components.
  */
-/**
- * @file
- * Centralbibliotek.dk specific styling.
- */
-/**
- * Fix the attend forms placement when located in a pabel pane.
- */
-.pane-node-attend-form .block-content {
-  display: inline-block;
-}
-
-.region-header-two h3 {
-  display: none;
-}
-
-.region-header-two li {
-  display: inline-block;
-  border-bottom-style: none;
-}
-
-.region-header-two li a {
-  color: white;
-}
-
-.two-66-33 .region {
-  clear: none;
-}
-
-.hover {
-  cursor: pointer;
-}
-
-/**
- * Page wrapper.
- */
-.page {
-  background-color: white;
-  padding-top: 2em;
-}
-
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -299,6 +259,17 @@ div.messages.error {
 
 :-ms-input-placeholder {
   color: #828282;
+}
+
+/**
+ * @file
+ * Centralbibliotek comments styling.
+ */
+.pane-cbib-comments form {
+  margin-bottom: 3em;
+}
+.pane-cbib-comments form input[type="submit"] {
+  margin: 0;
 }
 
 .cb-teaser-list .view-filters input[type="text"],
@@ -847,6 +818,49 @@ div.messages.error {
   color: #fff;
 }
 
+/**
+ * @file
+ * Centralbibliotek.dk specific styling.
+ */
+/**
+ * Fix the attend forms placement when located in a pabel pane.
+ */
+.pane-node-attend-form .block-content {
+  display: inline-block;
+}
+
+.region-header-two h3 {
+  display: none;
+}
+
+.region-header-two li {
+  display: inline-block;
+  border-bottom-style: none;
+}
+
+.region-header-two li a {
+  color: white;
+}
+
+.two-66-33 .region {
+  clear: none;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+/**
+ * Page wrapper.
+ */
+.page {
+  background-color: white;
+  padding-top: 2em;
+}
+
+/**
+ * Pages
+ */
 /**
  * Node type event.
  */

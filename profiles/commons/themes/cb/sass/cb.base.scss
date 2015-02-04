@@ -3,42 +3,52 @@
 /**
  * Components.
  */
-@import "components/custom";
+// Fonts.
 @import "components/fonts";
-// @fontface fonts
+// Button styles.
 @import "components/button";
-// Custom cbib button styles
+// System messages.
 @import "components/message";
-// System messages
-@import "components/user-avatar";
 // User profile picture badge avatar thing
+@import "components/user-avatar";
+// Dates or timestamps.
 @import "components/date";
-// Date or timestamp
+// Tags
 @import "components/tag";
+// Generic Form syling.
 @import "components/forms";
+// Comments.
+@import "components/comments";
+// Content lists.
 @import "components/page-list";
+// Some very specific stuff indeed.
 @import "components/panels-ipe-portlet-wrapper";
+// "Det praktiske" on Event.
 @import "components/panels-ipe-paneid-24";
-// "Det praktiske" on Event
+// "Tilmelding" on Event.
 @import "components/panels-ipe-paneid-26";
-// "Tilmelding" on Event
+// "List of attendees" on Event.
 @import "components/panels-ipe-paneid-4";
-// "List of attendees" on Event
+// Main header.
 @import "components/main-header";
-// Main header
+// Main footer.
 @import "components/footer";
-// Main footer
-//
-// Import "pages" (styles for specific pages - such as node types, profile page etc.)
-//
+// Custom code.
+@import "components/custom";
+
+
+/**
+ * Pages
+ */
+// Node type event.
 @import "pages/node-event";
-// Node type event
+// Node type news.
 @import "pages/node-news";
-// Node type news
+// Node type group.
 @import "pages/node-group";
-// Node type group
+// Node type centralbibliotek.
 @import "pages/node-centralbibliotek";
-// Node type centralbibliotek
+// Node type license.
 @import "pages/node-license";
-// Node type license
+//  Search.
 @import "pages/page-search";

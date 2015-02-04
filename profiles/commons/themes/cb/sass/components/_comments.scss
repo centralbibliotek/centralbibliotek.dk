@@ -1,0 +1,16 @@
+/**
+ * @file
+ * Centralbibliotek comments styling.
+ */
+.pane-cbib-comments {
+  html.js & .block-content {
+    //display: none;
+  }
+
+  form {
+    margin-bottom: 3em;
+    input[type="submit"] {
+      margin: 0;
+    }
+  }
+}
