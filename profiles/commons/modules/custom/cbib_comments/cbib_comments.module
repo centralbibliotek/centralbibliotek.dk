@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB comments feature.
+ */
+
+include_once 'cbib_comments.features.inc';
