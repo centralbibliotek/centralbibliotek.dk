@@ -64,6 +64,8 @@ function commons_follow_group_flag_default_flags() {
     'global' => 0,
     'types' => array(
       0 => 'group',
+      1 => 'license',
+      2 => 'licenses',
     ),
     'flag_short' => 'Receive email updates',
     'flag_long' => '',
