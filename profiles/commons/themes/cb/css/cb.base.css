@@ -33,6 +33,14 @@
   cursor: pointer;
 }
 
+/**
+ * Page wrapper.
+ */
+.page {
+  background-color: white;
+  padding-top: 2em;
+}
+
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -617,7 +625,6 @@ div.messages.error {
 
 #main-menu {
   background: #ddd;
-  margin-bottom: 3em;
   overflow: hidden;
 }
 #main-menu .block {
