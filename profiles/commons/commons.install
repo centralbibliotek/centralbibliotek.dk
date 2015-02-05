@@ -854,22 +854,11 @@ function commons_update_3119() {
   return array();
 }
 
-/*
- * Enable dynamic main menu for Centralbibliotek.
- */
-function commons_update_3120() {
-  $result = module_enable(array('cbib_menu'));
-  if ($result) {
-    return 'The cbib_menu module is enabled.';
-  }
-  throw new DrupalUpdateException('Something went wrong – the cbib_menu module is not all enabled!');
-}
-
 /**
- * Enable Ultimate Cron module.
+ * Enable Cbib Menu and Ultimate Cron modules.
  */
-function commons_update_3121() {
-  $module_list = array('ultimate_cron');
+function commons_update_7102() {
+  $module_list = array('cbib_menu', 'ultimate_cron');
   module_enable($module_list);
   return array();
 }
