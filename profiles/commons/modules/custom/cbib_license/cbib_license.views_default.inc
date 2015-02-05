@@ -304,11 +304,17 @@ function cbib_license_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Forbindelse: Filbrug: Indhold */
-  $handler->display->display_options['relationships']['file_to_node']['id'] = 'file_to_node';
-  $handler->display->display_options['relationships']['file_to_node']['table'] = 'file_usage';
-  $handler->display->display_options['relationships']['file_to_node']['field'] = 'file_to_node';
-  $handler->display->display_options['relationships']['file_to_node']['required'] = TRUE;
+  /* Forbindelse: Fil: Field collection item som bruger Dokument */
+  $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['id'] = 'reverse_field_license_document_field_collection_item';
+  $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['table'] = 'file_managed';
+  $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['field'] = 'reverse_field_license_document_field_collection_item';
+  $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['required'] = TRUE;
+  /* Forbindelse: Field collection item: Entity with the Dokumenter (field_license_documents) */
+  $handler->display->display_options['relationships']['field_license_documents_node']['id'] = 'field_license_documents_node';
+  $handler->display->display_options['relationships']['field_license_documents_node']['table'] = 'field_collection_item';
+  $handler->display->display_options['relationships']['field_license_documents_node']['field'] = 'field_license_documents_node';
+  $handler->display->display_options['relationships']['field_license_documents_node']['relationship'] = 'reverse_field_license_document_field_collection_item';
+  $handler->display->display_options['relationships']['field_license_documents_node']['required'] = TRUE;
   /* Felt: Fil: Upload-dato */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'file_managed';
@@ -326,48 +332,75 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
   $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Title */
-  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
-  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['relationship'] = 'file_to_node';
-  $handler->display->display_options['fields']['title_field']['label'] = 'Licens';
-  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title_field']['type'] = 'title_linked';
-  $handler->display->display_options['fields']['title_field']['settings'] = array(
-    'title_style' => '_none',
-    'title_link' => 'content',
-    'title_class' => '',
-  );
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   /* Sorteringskriterie: Fil: Upload-dato */
   $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['table'] = 'file_managed';
   $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Licence group (og_group_license_ref) */
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['id'] = 'og_group_license_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['field'] = 'og_group_license_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['relationship'] = 'file_to_node';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['relationship'] = 'file_to_node';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'license' => 'license',
+  /* Filterkriterie: Field collection item: Type (field_license_document_type) */
+  $handler->display->display_options['filters']['field_license_document_type_value']['id'] = 'field_license_document_type_value';
+  $handler->display->display_options['filters']['field_license_document_type_value']['table'] = 'field_data_field_license_document_type';
+  $handler->display->display_options['filters']['field_license_document_type_value']['field'] = 'field_license_document_type_value';
+  $handler->display->display_options['filters']['field_license_document_type_value']['relationship'] = 'reverse_field_license_document_field_collection_item';
+  $handler->display->display_options['filters']['field_license_document_type_value']['value'] = array(
+    0 => '0',
+    1 => '1',
   );
+  $handler->display->display_options['filters']['field_license_document_type_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['operator_id'] = 'field_license_document_type_value_op';
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['label'] = 'Type (field_license_document_type)';
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['operator'] = 'field_license_document_type_value_op';
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['identifier'] = 'field_license_document_type_value';
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_license_document_type_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_license_document_type_value']['reduce_duplicates'] = TRUE;
 
-  /* Display: Licence group file collection */
-  $handler = $view->new_display('panel_pane', 'Licence group file collection', 'panel_pane_1');
+  /* Display: License documents */
+  $handler = $view->new_display('panel_pane', 'License documents', 'panel_pane_1');
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['fields_override'] = 0;
+
+  /* Display: Contextual license documents */
+  $handler = $view->new_display('panel_pane', 'Contextual license documents', 'panel_pane_2');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_license_documents_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  $handler->display->display_options['pane_category']['name'] = 'CentralBibliotek';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $translatables['file_directory'] = array(
     t('Master'),
     t('Filer'),
@@ -384,14 +417,17 @@ function cbib_license_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('Indhold'),
+    t('field_license_document'),
+    t('field_license_documents'),
     t('Upload-dato'),
     t('Navn'),
     t('Størrelse'),
-    t('Licens'),
-    t('Alle'),
-    t('Licence group file collection'),
+    t('Type (field_license_document_type)'),
+    t('License documents'),
     t('Centralbibliotek'),
+    t('Contextual license documents'),
+    t('Alle'),
+    t('CentralBibliotek'),
   );
   $export['file_directory'] = $view;
 

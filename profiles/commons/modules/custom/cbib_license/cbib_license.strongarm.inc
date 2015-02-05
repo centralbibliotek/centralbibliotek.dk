@@ -167,13 +167,13 @@ function cbib_license_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '15',
+          'weight' => '12',
         ),
         'path' => array(
-          'weight' => '14',
+          'weight' => '11',
         ),
         'redirect' => array(
-          'weight' => '13',
+          'weight' => '10',
         ),
       ),
       'display' => array(),
