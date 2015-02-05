@@ -130,5 +130,6 @@ dependencies[] = panels_mini
 dependencies[] = clone
 dependencies[] = og_access
 dependencies[] = scheduler
+dependencies[] = ultimate_cron
 dependencies[] = views_data_export
 dependencies[] = watchdog_filtering

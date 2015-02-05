@@ -864,3 +864,12 @@ function commons_update_3120() {
   }
   throw new DrupalUpdateException('Something went wrong – the cbib_menu module is not all enabled!');
 }
+
+/**
+ * Enable Ultimate Cron module.
+ */
+function commons_update_3121() {
+  $module_list = array('ultimate_cron');
+  module_enable($module_list);
+  return array();
+}
