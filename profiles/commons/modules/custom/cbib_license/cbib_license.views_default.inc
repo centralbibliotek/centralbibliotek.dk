@@ -362,6 +362,35 @@ function cbib_license_views_default_views() {
 
   /* Display: License documents */
   $handler = $view->new_display('panel_pane', 'License documents', 'panel_pane_1');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Fil: Upload-dato */
+  $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp']['date_format'] = 'teaser_date';
+  $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
+  /* Felt: Fil: Navn */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['filename']['alter']['ellipsis'] = FALSE;
+  /* Felt: Fil: Størrelse */
+  $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_license_documents_node';
+  $handler->display->display_options['fields']['title']['label'] = 'Licens';
+  /* Felt: Field collection item: Beskrivelse */
+  $handler->display->display_options['fields']['field_license_document_body']['id'] = 'field_license_document_body';
+  $handler->display->display_options['fields']['field_license_document_body']['table'] = 'field_data_field_license_document_body';
+  $handler->display->display_options['fields']['field_license_document_body']['field'] = 'field_license_document_body';
+  $handler->display->display_options['fields']['field_license_document_body']['relationship'] = 'reverse_field_license_document_field_collection_item';
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
@@ -424,6 +453,8 @@ function cbib_license_views_default_views() {
     t('Størrelse'),
     t('Type (field_license_document_type)'),
     t('License documents'),
+    t('Licens'),
+    t('Beskrivelse'),
     t('Centralbibliotek'),
     t('Contextual license documents'),
     t('Alle'),
