@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_features module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cbib_features_install() {
+  drupal_register_shutdown_function('_cbib_features_delete_install_profile_first_group');
+  drupal_register_shutdown_function('_cbib_features_enable_cb_theme');
+}
+
+/**
+ * Enable cb theme.
+ */
+function _cbib_features_enable_cb_theme() {
+  theme_enable(array('cb'));
+
+  // Set the default theme.
+  variable_set('theme_default', 'cb');
+}
+
+/**
+ * Delete the first group created by the install profile.
+ */
+function _cbib_features_delete_install_profile_first_group() {
+  $nodes = node_load_multiple(array(), array('type' => 'group', 'title' => 'Engineering team'));
+  if (!empty($nodes)) {
+    $node = current($nodes);
+    if (!empty($node->nid)) {
+      node_delete($node->nid);
+    }
+  }
+}
