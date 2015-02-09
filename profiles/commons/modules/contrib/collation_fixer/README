@@ -16,10 +16,8 @@ affect all tables - it's probably better to do it in hook_schema() or
 hook_schema_alter()):
 
   $databases = array(
-    'default' =>
-    array(
-      'default' =>
-      array(
+    'default' => array(
+      'default' => array(
         'database' => 'my-db',
         'username' => 'my-user',
         'password' => 'my-password',

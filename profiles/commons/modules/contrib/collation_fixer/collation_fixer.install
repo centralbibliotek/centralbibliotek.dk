@@ -19,7 +19,7 @@ function collation_fixer_requirements($phase) {
     if (empty($wrong_collations)) {
       return array(
         'collation_fixer' => array(
-          'title' => $t('Database collation check.'),
+          'title' => $t('Database collation status'),
           'value' => $t('OK'),
           'description' => $t('All tables have the correct database collation.'),
           'severity' => REQUIREMENT_OK,
@@ -36,16 +36,15 @@ function collation_fixer_requirements($phase) {
           'title' => $t('Database collation check.'),
           'value' => $t('Error'),
           'description' => $t('The following tables do not have the correct database collation: !tables.', array(
-                           '!tables' => implode(',', $fix_collation_links),
+                           '!tables' => implode(', ', $fix_collation_links),
                          )),
           'severity' => REQUIREMENT_ERROR,
         ),
       );
     }
   }
-
-  // Function must return an array.
   else {
+    // Function must return an array.
     return array();
   }
 }
