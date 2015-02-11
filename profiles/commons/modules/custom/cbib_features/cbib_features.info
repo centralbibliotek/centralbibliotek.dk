@@ -10,6 +10,7 @@ dependencies[] = cbib_views_news
 dependencies[] = cbib_menu
 dependencies[] = commons_groups
 dependencies[] = commons_location
+dependencies[] = collation_fixer
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = html5_tools
