@@ -5,6 +5,7 @@ core = 7.x
 
 dependencies[] = migrate
 dependencies[] = migrate_d2d
+dependencies[] = migrate_ui
 
 files[] = migration_classes/node.inc
 files[] = migration_classes/user_profile.inc
