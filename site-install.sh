@@ -4,6 +4,7 @@
 # We need a lot of options to do a drush site-install.
 #
 drush site-install commons \
+  install_configure_form.site_default_country=DK \
   install_configure_form.enable_acquia_connector \
   install_configure_form.acquia_connector_modules_acquia_agent \
   install_configure_form.acquia_connector_modules_acquia_spi \
