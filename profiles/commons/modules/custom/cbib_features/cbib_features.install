@@ -9,7 +9,7 @@
  * Implements hook_install().
  */
 function cbib_features_install() {
-  _cbib_features_fix_collations();
+  drupal_register_shutdown_function('_cbib_features_fix_collations');
   drupal_register_shutdown_function('_cbib_features_delete_install_profile_first_group');
   drupal_register_shutdown_function('_cbib_features_enable_cb_theme');
 }
@@ -67,7 +67,9 @@ function _cbib_features_fix_collations() {
   }
 
   // Set Danish collation on {field_data_title_field} to sort Aalborg last.
-  collation_fixer_fix_collation('field_data_title_field');
+  if (!empty($schema['field_data_title_field'])) {
+    collation_fixer_fix_collation('field_data_title_field');
+  }
 }
 
 /**
