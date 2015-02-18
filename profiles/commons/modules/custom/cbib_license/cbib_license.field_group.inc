@@ -96,9 +96,7 @@ function cbib_license_field_group_info() {
   $field_group->data = array(
     'label' => 'Vidensbank',
     'weight' => '12',
-    'children' => array(
-      0 => 'field_knowledge_center',
-    ),
+    'children' => array(),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
@@ -157,19 +155,20 @@ function cbib_license_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Documents',
+    'label' => 'Dokumenter',
     'weight' => '6',
     'children' => array(
       0 => 'field_license_documents',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Dokumenter',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_license_documents|node|license|form'] = $field_group;
