@@ -4,6 +4,12 @@ core        = 7.x
 base theme  = commons_origins
 release     = 7.x-1.x
 
+;; Panels Module layouts
+plugins[panels][layouts] = layouts
+
+; Responsive Panels - Standard layout
+settings[cb_3col_special]  = 'cb3'
+
 ;; Regions
 regions[sidebar_first]     = Sidebar first
 regions[sidebar_second]    = Sidebar second
