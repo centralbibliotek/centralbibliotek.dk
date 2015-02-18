@@ -1,0 +1,11 @@
+#panels-dnd-main .region {margin-bottom: 5px}
+#panels-dnd-main .region-cb3-first,
+#panels-dnd-main .region-cb3-second,
+#panels-dnd-main .region-cb3-third {float: left}
+
+#panels-dnd-main .region-cb3-first {width: 20%}
+#panels-dnd-main .region-cb3-second {width: 46%}
+#panels-dnd-main .region-cb3-third {width: 33%}
+
+#panels-dnd-main .region-cb3-second {margin-left: 0.5%; margin-right: 0.5%}
+#panels-dnd-main .region-cb3-bottom {clear: both}
