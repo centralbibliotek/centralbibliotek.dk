@@ -4,6 +4,7 @@ core = 7.x
 package = Centralbibliotek.dk
 dependencies[] = addressfield
 dependencies[] = cbib_admin_path
+dependencies[] = cbib_comments
 dependencies[] = cbib_library
 dependencies[] = cbib_license
 dependencies[] = cbib_views_news

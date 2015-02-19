@@ -35,3 +35,16 @@ function _cbib_features_delete_install_profile_first_group() {
     }
   }
 }
+
+/**
+ * Implements hook_update_N().
+ */
+
+/**
+ * Enable cbib_comments feature.
+ */
+function cbib_features_update_7101() {
+  if (module_exists('cbib_comments')) {
+    module_enable('cbib_comments');
+  }
+}
