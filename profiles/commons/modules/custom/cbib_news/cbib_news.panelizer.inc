@@ -47,6 +47,31 @@ function cbib_news_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-846e504b-771d-4b63-846f-d6b0b0c8dd23';
+    $pane->panel = 'two_66_33_bottom';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'cbib_comments';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '846e504b-771d-4b63-846f-d6b0b0c8dd23';
+    $display->content['new-846e504b-771d-4b63-846f-d6b0b0c8dd23'] = $pane;
+    $display->panels['two_66_33_bottom'][0] = 'new-846e504b-771d-4b63-846f-d6b0b0c8dd23';
+    $pane = new stdClass();
     $pane->pid = 'new-c41dea1a-722b-4d53-b2a5-1de7749f0a36';
     $pane->panel = 'two_66_33_first';
     $pane->type = 'entity_field';

@@ -47,6 +47,31 @@ function commons_events_pages_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-9eb4aba6-f9c9-44b1-89df-7624b299f5a0';
+    $pane->panel = 'two_66_33_bottom';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'cbib_comments';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9eb4aba6-f9c9-44b1-89df-7624b299f5a0';
+    $display->content['new-9eb4aba6-f9c9-44b1-89df-7624b299f5a0'] = $pane;
+    $display->panels['two_66_33_bottom'][0] = 'new-9eb4aba6-f9c9-44b1-89df-7624b299f5a0';
+    $pane = new stdClass();
     $pane->pid = 'new-5bd82edf-51af-450b-8d6d-8fdd9ffc0aa4';
     $pane->panel = 'two_66_33_first';
     $pane->type = 'entity_field';
