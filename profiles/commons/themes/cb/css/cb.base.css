@@ -147,6 +147,7 @@ ul.nostyle li {
   margin: 20px 0;
 }
 
+.lead-link a,
 a.lead-link {
   padding: 5px 15px;
   background-color: #ddd;
@@ -160,6 +161,7 @@ a.lead-link {
   -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   transition: color 200ms ease-in, background-color 200ms ease-in;
 }
+.lead-link a:hover,
 a.lead-link:hover {
   background-color: #565656;
   color: #ddd;

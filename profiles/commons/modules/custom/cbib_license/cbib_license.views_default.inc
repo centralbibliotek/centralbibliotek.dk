@@ -209,6 +209,10 @@ function cbib_license_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Textual list', 'panel_pane_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Licenserne';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
@@ -232,6 +236,53 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['fields']['title_field']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title_field']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indhold: Titel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+
+  /* Display: Textual list lead */
+  $handler = $view->new_display('panel_pane', 'Textual list lead', 'panel_pane_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'lead-link';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_type'] = '0';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Alle licenser';
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
@@ -272,6 +323,8 @@ function cbib_license_views_default_views() {
     t('Alle'),
     t('Textual list'),
     t('Licenserne'),
+    t('Textual list lead'),
+    t('Alle licenser'),
   );
   $export['centralbibliotek_license'] = $view;
 

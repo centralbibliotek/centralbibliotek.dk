@@ -993,6 +993,29 @@ function cbib_license_panelizer_defaults() {
     $pane->uuid = 'b5dd8366-f132-4a58-9c07-29d86492e6a5';
     $display->content['new-b5dd8366-f132-4a58-9c07-29d86492e6a5'] = $pane;
     $display->panels['two_66_33_first'][3] = 'new-b5dd8366-f132-4a58-9c07-29d86492e6a5';
+    $pane = new stdClass();
+    $pane->pid = 'new-d5b13a4a-d7ed-47df-8d2e-c28c9dd98f34';
+    $pane->panel = 'two_66_33_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_license-panel_pane_4';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'items_per_page' => '1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd5b13a4a-d7ed-47df-8d2e-c28c9dd98f34';
+    $display->content['new-d5b13a4a-d7ed-47df-8d2e-c28c9dd98f34'] = $pane;
+    $display->panels['two_66_33_second'][0] = 'new-d5b13a4a-d7ed-47df-8d2e-c28c9dd98f34';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-795f79ac-1630-488f-8305-becaedf3c340';
   $panelizer->display = $display;
