@@ -125,7 +125,6 @@ features[field_instance][] = node-license-og_roles_permissions
 features[field_instance][] = node-licenses-body
 features[field_instance][] = node-licenses-field_image
 features[field_instance][] = node-licenses-field_og_subscribe_settings
-features[field_instance][] = node-licenses-field_topics
 features[field_instance][] = node-licenses-group_access
 features[field_instance][] = node-licenses-group_group
 features[field_instance][] = node-licenses-og_roles_permissions

@@ -33,6 +33,21 @@
   cursor: pointer;
 }
 
+ol.nostyle,
+ul.nostyle {
+  list-style: none none;
+  margin: 0;
+  padding: 0;
+}
+ol.nostyle li,
+ul.nostyle li {
+  margin: 0;
+}
+
+.no-top {
+  margin-top: 0;
+}
+
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
@@ -132,12 +147,13 @@
   margin: 20px 0;
 }
 
+.lead-link a,
 a.lead-link {
   padding: 5px 15px;
   background-color: #ddd;
   color: #565656;
   display: block;
-  margin: 10px 0;
+  margin: 0 10px 0;
   text-decoration: none;
   border-left: 5px solid #565656;
   -moz-transition: color 200ms ease-in, background-color 200ms ease-in;
@@ -145,6 +161,7 @@ a.lead-link {
   -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   transition: color 200ms ease-in, background-color 200ms ease-in;
 }
+.lead-link a:hover,
 a.lead-link:hover {
   background-color: #565656;
   color: #ddd;
