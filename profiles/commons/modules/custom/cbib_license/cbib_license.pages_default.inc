@@ -69,7 +69,14 @@ function cbib_license_default_page_manager_pages() {
     $pane->subtype = 'file_directory-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'exposed' => array(
+        'field_license_document_type_value' => array(
+          0 => '0',
+          1 => '1',
+        ),
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,

@@ -115,7 +115,7 @@ function title_field_formatter_view($entity_type, $entity, $field, $instance, $l
     );
 
     if (!empty($settings['title_class'])) {
-      $element['#attributes'] = array('class' => $settings['title_class']);
+      $element['element']['#attributes'] = array('class' => $settings['title_class']);
     }
 
     $output = theme('html_tag', $element);

@@ -1,14 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: ying
- * Date: 07/01/15
- * Time: 15:59
+ * @file
+ * Centrabibliotek license install.
  */
 
 /**
- * license
- *
  * Implements hook_schema().
  */
 function cbib_license_schema() {
@@ -178,4 +174,38 @@ function cbib_license_schema() {
   );
 
   return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Remove old file fields from license.
+ */
+function cbib_license_update_7101() {
+  // Get field instances.
+  $field_instance = field_info_instances('node', 'license');
+  // Get instances.
+  $instances = array();
+  $instances[] = $field_instance['field_knowledge_center'];
+  $instances[] = $field_instance['field_knowledge_center'];
+  $instances[] = $field_instance['field_license_education_file'];
+  $instances[] = $field_instance['field_license_pr_file'];
+  $instances[] = $field_instance['field_document_file'];
+  // Remove instances.
+  foreach ($instances as $instance) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Remove tags field from license group.
+ */
+function cbib_license_update_7102() {
+  // Get instances.
+  $field_instance =  field_info_instances('node', 'licenses');
+  // Check for field instance.
+  if (!empty($field_instance['field_topics'])) {
+    // Remove instance.
+    field_delete_instance($field_instance['field_topics']);
+  }
 }

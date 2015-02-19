@@ -1,5 +1,0 @@
-patches:
-  -
-    patch: 'https://www.drupal.org/files/issues/SA-CORE-2014-005-D7.patch'
-    home: 'https://www.drupal.org/SA-CORE-2014-005'
-    reason: 'Drupal 7.32 / SA-CORE-2014-005 patch against SQL injection.'

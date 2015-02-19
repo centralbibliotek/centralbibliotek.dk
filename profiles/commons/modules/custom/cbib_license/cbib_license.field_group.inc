@@ -21,7 +21,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Diverse',
-    'weight' => '11',
+    'weight' => '9',
     'children' => array(
       0 => 'field_license_abbreviated_title',
       1 => 'field_license_access_statistic',
@@ -57,7 +57,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Generelt',
-    'weight' => '9',
+    'weight' => '7',
     'children' => array(
       0 => 'field_faust_no',
       1 => 'field_language',
@@ -96,9 +96,7 @@ function cbib_license_field_group_info() {
   $field_group->data = array(
     'label' => 'Vidensbank',
     'weight' => '12',
-    'children' => array(
-      0 => 'field_knowledge_center',
-    ),
+    'children' => array(),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
@@ -122,7 +120,7 @@ function cbib_license_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Licensadgange',
-    'weight' => '10',
+    'weight' => '8',
     'children' => array(
       0 => 'field_license_access_copy_lib',
       1 => 'field_license_access_copy_user',
@@ -146,6 +144,34 @@ function cbib_license_field_group_info() {
     ),
   );
   $export['group_license_access|node|license|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_license_documents|node|license|form';
+  $field_group->group_name = 'group_license_documents';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'license';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Dokumenter',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_license_documents',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'label' => 'Dokumenter',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'closed',
+    ),
+  );
+  $export['group_license_documents|node|license|form'] = $field_group;
 
   return $export;
 }
