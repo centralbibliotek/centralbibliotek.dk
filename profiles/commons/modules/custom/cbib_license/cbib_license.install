@@ -196,3 +196,16 @@ function cbib_license_update_7101() {
     field_delete_instance($instance);
   }
 }
+
+/**
+ * Remove tags field from license group.
+ */
+function cbib_license_update_7102() {
+  // Get instances.
+  $field_instance =  field_info_instances('node', 'licenses');
+  // Check for field instance.
+  if (!empty($field_instance['field_topics'])) {
+    // Remove instance.
+    field_delete_instance($field_instance['field_topics']);
+  }
+}

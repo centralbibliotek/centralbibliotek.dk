@@ -993,35 +993,6 @@ function cbib_license_panelizer_defaults() {
     $pane->uuid = 'b5dd8366-f132-4a58-9c07-29d86492e6a5';
     $display->content['new-b5dd8366-f132-4a58-9c07-29d86492e6a5'] = $pane;
     $display->panels['two_66_33_first'][3] = 'new-b5dd8366-f132-4a58-9c07-29d86492e6a5';
-    $pane = new stdClass();
-    $pane->pid = 'new-321bccae-9b37-4882-aeb6-4d380a054d2c';
-    $pane->panel = 'two_66_33_second';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_topics';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'taxonomy_term_reference_link',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(),
-      'context' => 'panelizer',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '321bccae-9b37-4882-aeb6-4d380a054d2c';
-    $display->content['new-321bccae-9b37-4882-aeb6-4d380a054d2c'] = $pane;
-    $display->panels['two_66_33_second'][0] = 'new-321bccae-9b37-4882-aeb6-4d380a054d2c';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-795f79ac-1630-488f-8305-becaedf3c340';
   $panelizer->display = $display;
