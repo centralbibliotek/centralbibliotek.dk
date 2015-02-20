@@ -454,12 +454,75 @@ function cbib_migrate_register_message($message, $level = Migration::MESSAGE_ERR
 /**
  * Convert text to link. Save a message if the text is not a link.
  *
- * @param $text
+ * @param string $text
  *   The text to convert.
- * @return Text that is a link, or NULL if input was not a link.
+ * @param string $destination
+ *   A social media destination  if known.
+ *
+ * @return
+ *   Text that is a link, or NULL if input was not a link.
  */
-function cbib_migrate_convert_to_link($text) {
+function cbib_migrate_convert_to_link($text, $destination = '') {
   $text = trim($text);
+
+  // Try some cleanups.
+  switch ($destination) {
+    case 'Twitter':
+      // Convert @username to URL.
+      $text = preg_replace('/^@/', 'https://twitter.com/', $text);
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?twitter\.com/i', 'https://twitter.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and remove www from URL.
+      $text = preg_replace('/\/(www\.)?twitter\.com/i', '/twitter.com', $text);
+      // Change old style Twitter link (#!).
+      $text = preg_replace('/\/#!\//', '/', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9]+)$/', 'https://twitter.com/$1', $text);
+      break;
+
+    case 'Facebook':
+      // Fix spelling mistakes.
+      $text = preg_replace('/facebookk\.com/i', 'facebook.com', $text);
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?facebook\.com/i', 'https://www.facebook.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.)?facebook\.com/i', '/www.facebook.com', $text);
+      // Change old style Facebook link (#!).
+      $text = preg_replace('/\/#!\//', '/', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'https://www.facebook.com/$1', $text);
+      break;
+
+    case 'LinkedIn':
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.|dk\.)?linkedin\.com/i', 'https://www.linkedin.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.|dk\.)?linkedin\.com/i', '/www.linkedin.com', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'https://www.linkedin.com/$1', $text);
+      break;
+
+    case 'Last.fm':
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?last\.fm/i', 'http://www.last.fm', $text);
+      // Lowercase protocol and change https links to http. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'http://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.)?last\.fm/i', '/www.last.fm', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'http://www.last.fm/user/$1', $text);
+      break;
+ }
 
   // Check if text is link
   if (preg_match('_^http(s?)://_', $text)) {
@@ -468,7 +531,7 @@ function cbib_migrate_convert_to_link($text) {
   else {
     // Allow empty.
     if (strlen(trim($text)) > 0) {
-      cbib_migrate_register_message('Text is not a link: ' . $text);
+      cbib_migrate_register_message('Text is not a ' . $destination . ' link: ' . $text);
     }
     return NULL;
   }

@@ -57,10 +57,10 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     $row->{'field_userimage:title'} = isset($img_data['title']) ? $img_data['title'] : NULL;
 
     // Convert text to link.
-    $row->field_facebook = cbib_migrate_convert_to_link($row->field_facebook);
-    $row->field_linkedin = cbib_migrate_convert_to_link($row->field_linkedin);
-    $row->field_lastfm   = cbib_migrate_convert_to_link($row->field_lastfm);
-    $row->field_twitter  = cbib_migrate_convert_to_link($row->field_twitter);
+    $row->field_facebook = cbib_migrate_convert_to_link($row->field_facebook, 'Facebook');
+    $row->field_linkedin = cbib_migrate_convert_to_link($row->field_linkedin, 'LinkedIn');
+    $row->field_lastfm   = cbib_migrate_convert_to_link($row->field_lastfm, 'Last.fm');
+    $row->field_twitter  = cbib_migrate_convert_to_link($row->field_twitter, 'Twitter');
 
     // Split name
     list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/",$row->title);
@@ -217,13 +217,13 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     $this->addFieldMapping('field_linkedin_url:attributes')
       ->defaultValue(array());
 
-    $this->addFieldMapping('field_lastfm_url',   'field_lastfm');
+    $this->addFieldMapping('field_lastfm_url', 'field_lastfm');
     $this->addFieldMapping('field_lastfm_url:title')
       ->defaultValue('LastFM');
     $this->addFieldMapping('field_lastfm_url:attributes')
       ->defaultValue(array());
 
-    $this->addFieldMapping('field_twitter_url',  'field_twitter');
+    $this->addFieldMapping('field_twitter_url', 'field_twitter');
     $this->addFieldMapping('field_twitter_url:title')
       ->defaultValue('Twitter');
     $this->addFieldMapping('field_twitter_url:attributes')
