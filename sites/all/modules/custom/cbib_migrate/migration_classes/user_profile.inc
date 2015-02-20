@@ -7,10 +7,9 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
     parent::__construct($arguments);
 
-    // To make sure that users are not created, we specify that
-    // we have already imported the regular user information,
-    // and that we should map to existing by uid field from 
-    // user source migration.
+    // To make sure that users are not created, we specify that we have already
+    // imported the regular user information, and that we should map to existing
+    // by uid field from user source migration.
     $this->addFieldMapping('uid', 'uid')
       ->sourceMigration('user');
 
@@ -62,8 +61,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     $row->field_lastfm   = cbib_migrate_convert_to_link($row->field_lastfm, 'Last.fm');
     $row->field_twitter  = cbib_migrate_convert_to_link($row->field_twitter, 'Twitter');
 
-    // Split name
-    list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/",$row->title);
+    // Split name.
+    list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/", $row->title);
 
     return TRUE;
   }
@@ -115,10 +114,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
   }
 
   /**
-   * Map the fields that only exist on destination,
-   * and should have a fixed value.
-   *
-   * @return void.
+   * Map fields that only exist on destination and should have a fixed value.
    */
   private function mapNonMigratedDestinationFields() {
     $this->addFieldMapping('group_group')
@@ -142,10 +138,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
   }
 
   /**
-   * Map the fields that exist on source, but that
-   * should not be migrated.
-   *
-   * @return void.
+   * Map the fields that exist on source, but that should not be migrated.
    */
   private function mapNonMigratedSourceFields() {
     $this->addUnmigratedSources(array(
@@ -156,10 +149,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
   }
 
   /**
-   * Map fields that are of the same type on source
-   * and destination
-   *
-   * @return void.
+   * Map fields that are of the same type on source and destination.
    */
   private function mapSameTypeFields() {
     $this->addFieldMapping('field_ean', 'field_ean_number');
@@ -175,8 +165,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
   /**
    * Map migration of the field_userimage field.
-   *
-   * @return void.
    */
   private function mapUserImageField() {
     // Map field as file id.
@@ -193,7 +181,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
   /**
    * Map address field.
-   * @see CbibMigrateDrupalNode6Migration::mapAddressField().
+   *
+   * @see CbibMigrateDrupalNode6Migration::mapAddressField()
    */
   private function mapAddressField() {
     CbibMigrateDrupalNode6Migration::mapAddressFieldFor($this, 'field_address', 'field_address_profile');
@@ -201,8 +190,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
   /**
    * Map link fields. Facebook, LinkedIn etc.
-   *
-   * @return void.
    */
   private function mapLinkFields() {
     $this->addFieldMapping('field_facebook_url', 'field_facebook');
@@ -239,7 +226,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
   /**
    * Set no language for fields.
-   * @see CbibMigrateDrupalNode6Migration::noLanguage().
+   *
+   * @see CbibMigrateDrupalNode6Migration::noLanguage()
    */
   private function noLanguage($fields) {
     CbibMigrateDrupalNode6Migration::noLanguageFor($this, $fields);
@@ -247,8 +235,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
   /**
    * Map name fields.
-   *
-   * @return void.
    */
   private function mapNameFields() {
     $this->addFieldMapping('field_name_first', 'field_first_name');

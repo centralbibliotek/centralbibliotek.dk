@@ -31,7 +31,8 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
       return FALSE;
     }
 
-    // Notify if entity has a video. We will handle migration of video field manually.
+    // Notify if entity has a video. We will handle migration of video field
+    // manually.
     if (!empty($row->field_video_embed) && !empty($row->field_video_embed[0])) {
       cbib_migrate_register_message("Entity has a value in field_video_embed. Handle this manually");
     }
