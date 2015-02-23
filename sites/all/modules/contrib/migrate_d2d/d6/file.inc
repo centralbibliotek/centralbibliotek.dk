@@ -29,6 +29,11 @@ class DrupalFile6Migration extends DrupalFileMigration {
                  ->condition('name', 'file_directory_path')
                  ->execute()
                  ->fetchField());
+
+    if (!$this->legacyPath) {
+      $this->legacyPath = 'sites/default/files/';
+    }
+
     // Strip ./ from the beginning
     if (substr($this->legacyPath, 0, 2) == './') {
       $this->legacyPath = substr($this->legacyPath, 2);
