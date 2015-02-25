@@ -171,35 +171,6 @@ class CbibGroupMigration extends CbibMigrateDrupalNode6Migration {
   }
 
   /**
-   * Try to find the user that is listed as the contact person,
-   * and join them to the group.
-   */
-  public function complete($node, StdClass $row) {
-    // The email of a contact person has been specified, try
-    // to find the user, and make them join the group.
-    if (!empty($row->field_email_contact)) {
-      $user = user_load_by_mail(trim($row->field_email_contact));
-
-      if ($user) {
-        // Sign the user up for this group.
-        og_group('node', $node->nid, array(
-          "entity type"     => "user",
-          "entity"          => $user,
-        ));
-
-        // Grant administrative role.
-        // TODO Which role should contact persons have?
-        og_role_grant('node', $node->nid, $user->uid, 6);
-      }
-      else {
-        // User not found.
-        cbib_migrate_register_message("Contact person with mail " . $row->field_email_contact . " not found!");
-        return;
-      }
-    }
-  }
-
-  /**
    * Fix radioactivity field.
    *
    * @return void.

@@ -370,21 +370,16 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
 
       if ($user) {
         // Sign the user up for this group.
-        og_group('node', $node->nid, array(
-          "entity type"     => "user",
-          "entity"          => $user,
-        ));
-
-        // Grant administrative role.
-        // TODO Which role should contact persons have?
-        og_role_grant('node', $node->nid, $user->uid, 6);
+        $this->grantOgMembershipAndRole($node, user_load($user->uid));
       }
       else {
         // User not found.
         cbib_migrate_register_message("Contact person with mail " . $row->field_email_contact . " not found!");
-        return;
       }
     }
+
+    // Migrate og memberships.
+    parent::complete($node, $row);
   }
 
   /**

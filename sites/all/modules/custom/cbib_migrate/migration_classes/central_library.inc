@@ -167,23 +167,19 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
    * to the group.
    */
   public function complete($node, stdClass $row) {
-    // Go through the staff of the library.
+    // Go through the staff of the library and add new og memberships.
     foreach ($row->field_staff as $member) {
       $uid = cbib_migrate_lookup_profile_uid($member);
+
       if ($uid == NULL) {
         cbib_migrate_register_message("Staff member with profile id " . $member . " not found in user mapping!");
         continue;
       }
 
-      // Sign the user up for this group.
-      og_group('node', $node->nid, array(
-        "entity type"     => "user",
-        "entity"          => user_load($uid),
-      ));
-
-      // Grant administrative role.
-      // TODO Can we depend on 6 as administrative role?
-      og_role_grant('node', $node->nid, $uid, 6);
+      $this->grantOgMembershipAndRole($node, user_load($uid), FALSE);
     }
+
+    // Migrate og memberships.
+    parent::complete($node, $row);
   }
 }

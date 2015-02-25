@@ -126,4 +126,61 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
         ->defaultValue(LANGUAGE_NONE);
     }
   }
+
+  public function complete($node, stdClass $row) {
+    $org_users = Database::getConnection('default', $this->sourceConnection)
+      ->select('og_uid', 'o')
+      ->fields('o')
+      ->condition('o.nid', $row->nid)
+      ->execute()
+      ->fetchAllAssoc('uid');
+
+    $org_uids = array();
+    foreach ($org_users as $org_user) {
+      $org_uids[] = $org_user->uid;
+    }
+
+    if ($org_uids) {
+      $uids = db_select('migrate_map_user', 'u')
+        ->fields('u', array('sourceid1', 'destid1'))
+        ->condition('u.sourceid1', $org_uids, 'IN')
+        ->execute()
+        ->fetchAllKeyed();
+    }
+    else {
+      $uids = array();
+    }
+
+    // Migrate root user to root user.
+    $uids[1] = 1;
+
+    foreach ($org_users as $org_user) {
+      if (empty($uids[$org_user->uid])) {
+        cbib_migrate_register_message("No mapping found for $org_user->uid");
+        continue;
+      }
+      $user = user_load($uids[$org_user->uid]);
+      if ($user) {
+        $this->grantOgMembershipAndRole($node, $user, $org_user->is_admin);
+      }
+      else {
+        cbib_migrate_register_message("No user found for mapping $org_user->uid => " . $uids[$org_user->uid]);
+      }
+    }
+  }
+
+  public function grantOgMembershipAndRole($node, $user, $admin = FALSE) {
+    // Sign the user up for this group.
+    og_group('node', $node->nid, array(
+      "entity type" => "user",
+      "entity" => $user,
+    ));
+
+    $roles = array_flip(og_roles('node', $node->type, $node->nid));
+
+    $gid = $admin ? $roles["administrator member"] : $roles["member"];
+
+    // Grant role.
+    og_role_grant('node', $node->nid, $user->uid, $gid);
+  }
 }
