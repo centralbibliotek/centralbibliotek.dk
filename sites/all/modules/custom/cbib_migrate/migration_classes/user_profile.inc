@@ -277,7 +277,18 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
    * Save the nid of the profile mapped to the new uid.
    */
   public function complete($user, $row) {
-    parent::complete($user, $row);
+    // DrupalUserMigration expects a fid in the picture property?
+    // Not sure why. But let's please it now and investigate later.
+    if ($user->picture) {
+      $user->picture = $user->picture->fid;
+    }
+
+    try {
+      parent::complete($user, $row);
+    }
+    catch (Exception $e) {
+      cbib_migrate_register_message((string) $e);
+    }
 
     // Apparently, some users do not have a profile.
     if ($row->nid) {
