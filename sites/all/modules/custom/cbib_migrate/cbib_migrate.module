@@ -154,7 +154,7 @@ function cbib_migrate_get_file_migrations() {
       'description' => t('Migration of files from Centralbibliotek.dk'),
       'user_migration' => 'user',
       'default_uid' => 1,
-      'source_dir' => getcwd() . "/old/",
+      'source_dir' => DRUPAL_ROOT . "/sites/default/old/files",
       'destination_dir' => 'public://legacy',
       'dependencies' => array('user'),
     ),
