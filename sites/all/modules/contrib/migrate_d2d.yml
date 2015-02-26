@@ -1,0 +1,4 @@
+patches:
+  -
+    patch: 'https://gist.githubusercontent.com/reload-deploy/53a72deeeab003217cbb/raw/83dfb732c1e5b90fe251b7c1ca37f9311d788c7a/default-legacy-path.patch'
+    reason: "Set default value for legacy path. This fix has already been committed to the\nmigrate_d2d module. However, no single patch file exists for it in the issue\nqueue, and upgrading the module depends on upgrading the migrate module to\n2.6+. If we upgrade the migrate module to 2.6, things break. Until we get a\nchance to upgrade our migration code in order to play ball with the migrate\nmodule, we apply this patch instead."

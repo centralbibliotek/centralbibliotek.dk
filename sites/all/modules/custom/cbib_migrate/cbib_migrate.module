@@ -1,0 +1,572 @@
+<?php
+
+/**
+ * This is example code for a Drupal 6 to Drupal 7 migration. This won't actually
+ * work without defining the referenced vocabularies, content types, and fields
+ * on each side.
+ */
+
+/**
+ * Implements hook_flush_caches().
+ */
+function cbib_migrate_flush_caches() {
+  cbib_migrate_register_migrations();
+}
+
+/**
+ * Register all migrations.
+ *
+ * @return void.
+ */
+function cbib_migrate_register_migrations() {
+  // Define how we are getting the data for the migration. Legacy connector
+  // from settings.php and 6 as major Drupal version.
+  $common_arguments = array(
+    'source_connection' => 'legacy',
+    'source_version' => 6,
+  );
+
+  $migrations = cbib_migrate_get_all_migrations();
+
+  // Register all the migrations.
+  foreach ($migrations as $migration) {
+    Migration::registerMigration($migration['class'], $migration['machine_name'], $common_arguments + $migration['arguments']);
+  }
+}
+
+/**
+ * Deregister all migrations.
+ *
+ * @return void.
+ */
+function cbib_migrate_deregister_migrations() {
+  $migrations = cbib_migrate_get_all_migrations();
+
+  // Deregister all the migrations.
+  foreach ($migrations as $migration) {
+    Migration::deregisterMigration($migration['machine_name']);
+  }
+}
+
+/**
+ * Get an array of all migrations. The returned migrations array
+ * has the following keys:
+ *   class: The name of the migration class.
+ *   arguments: The arguments for the migration.
+ *   machine_name: The machine name of the migration.
+ *
+ * @return Array of migrations as described above.
+ */
+function cbib_migrate_get_all_migrations() {
+  return array_merge(
+    // Get migrations for users.
+    cbib_migrate_get_user_migrations(),
+
+    // Get migrations for files.
+    cbib_migrate_get_file_migrations(),
+
+    // Get migrations for images (Billedefil/media -> Billede).
+    cbib_migrate_get_image_migrations(),
+
+    // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+    cbib_migrate_get_central_library_migrations(),
+
+    // Get migrations for user profiles.
+    cbib_migrate_get_profile_migrations(),
+
+    // Get migrations for groups (Gruppe/group -> Gruppe/group).
+    cbib_migrate_get_group_migrations(),
+
+    // Get migrations for events (Arrangement/event -> Begivenhed/event).
+    cbib_migrate_get_event_migrations(),
+
+    // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+    cbib_migrate_get_document_migrations(),
+
+    // Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+    cbib_migrate_get_post_migrations(),
+
+    // Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+    cbib_migrate_get_news_item_migrations(),
+
+    // Get migrations for pages (Tekstside/textpage -> Site/page).
+    cbib_migrate_get_page_migrations()
+  );
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function cbib_migrate_migrate_api() {
+  $api = array(
+    'api' => 2,
+  );
+  return $api;
+}
+
+/**
+ * Get migrations for users and their profile nodes.
+ *
+ * @return Array containing the arguments of the migration ('arguments' array key)
+ *   and the class that handles the migration ('class' array key).
+ */
+function cbib_migrate_get_user_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'role',
+    'class' => 'DrupalRole6Migration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of roles from Centralbibliotek.dk'),
+      'role_mappings' => array(
+        'Biblioteksadmin' => 'content moderator',
+      ),
+    ),
+  );
+
+  $migrations[] = array(
+    'machine_name' => 'user',
+    'class' => 'DrupalUser6Migration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of basic user information from Centralbibliotek.dk'),
+      'role_migration' => 'role',
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for files.
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_file_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'file',
+    'class' => 'DrupalFile6Migration',
+    'arguments' => array(
+      'group' => 'file',
+      'description' => t('Migration of files from Centralbibliotek.dk'),
+      'user_migration' => 'user',
+      'default_uid' => 1,
+      'source_dir' => DRUPAL_ROOT . "/sites/default/old/files",
+      'destination_dir' => 'public://legacy',
+      'dependencies' => array('user'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for images (Billedefil/media -> Billede).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_image_migrations() {
+  $migrations = array();
+
+  // We will leave this for now. Let's see if it required.
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_central_library_migrations() {
+  $migrations = array();
+
+  $central_library_migration = array(
+  );
+
+  $migrations[] = array(
+    'machine_name' => 'central_library',
+    'class' => 'CbibCentralLibraryMigration',
+    'arguments' => array(
+      'group' => 'central_library',
+      'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
+      'source_type' => 'library',
+      'destination_type' => 'centralbibliotek',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for profiles.
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_profile_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'user_profile',
+    'class' => 'CbibUserProfileMigration',
+    'arguments' => array(
+      'group' => 'user',
+      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
+      'role_migration' => 'role',
+      'dependencies' => array('file'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for groups (Gruppe/group -> Gruppe/group).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_group_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'group',
+    'class' => 'CbibGroupMigration',
+    'arguments' => array(
+      'group' => 'group',
+      'description' => t('Migration of groups from Centralbibliotek.dk'),
+      'source_type' => 'group',
+      'destination_type' => 'group',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for events (Arrangement/event -> Begivenhed/event).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_event_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'event',
+    'class' => 'CbibEventMigration',
+    'arguments' => array(
+      'group' => 'event',
+      'description' => t('Migration of events from Centralbibliotek.dk'),
+      'source_type' => 'event',
+      'destination_type' => 'event',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library', 'group'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for documents (Gruppefil/group_file -> Dokument/document).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_document_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'document',
+    'class' => 'CbibDocumentMigration',
+    'arguments' => array(
+      'group' => 'group',
+      'description' => t('Migration of documents from Centralbibliotek.dk'),
+      'source_type' => 'group_file',
+      'destination_type' => 'document',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'group'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for posts (Gruppenyhed/group_news -> Indlæg/post).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_post_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'post',
+    'class' => 'CbibPostMigration',
+    'arguments' => array(
+      'group' => 'group',
+      'description' => t('Migration of posts from Centralbibliotek.dk'),
+      'source_type' => 'group_news',
+      'destination_type' => 'post',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'group'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for news items (Nyhed/newsitem -> Nyhed/news).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_news_item_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'news_item',
+    'class' => 'CbibNewsItemMigration',
+    'arguments' => array(
+      'group' => 'news_item',
+      'description' => t('Migration of news items from Centralbibliotek.dk'),
+      'source_type' => 'newsitem',
+      'destination_type' => 'news',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for pages (Tekstside/textpage -> Site/page).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_page_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'page',
+    'class' => 'CbibPageMigration',
+    'arguments' => array(
+      'group' => 'page',
+      'description' => t('Migration of pages from Centralbibliotek.dk'),
+      'source_type' => 'textpage',
+      'destination_type' => 'page',
+      'user_migration' => 'user',
+      'dependencies' => array('user_profile', 'central_library'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Convert a string to a number during migration.
+ *
+ * @param $text
+ *   The text to convert.
+ * @return The integer converted to or NULL for empty.
+ */
+function cbib_migrate_convert_to_number($text) {
+  // Remove spaces.
+  $trimmed_text = str_replace(' ', '', $text);
+
+  // Allow empty value.
+  if (empty($trimmed_text)) {
+    return NULL;
+  }
+
+  // Fail if end value is not numeric
+  if (!is_numeric($trimmed_text)) {
+    cbib_migrate_register_message("Received value was not numeric. Value: " . $text, Migration::MESSAGE_WARNING);
+    return NULL;
+  }
+
+  // If we end up here, it is numeric. Cast and return.
+  return (int)$trimmed_text;
+}
+
+/**
+ * Convert a string to a price during migration.
+ *
+ * @param $text
+ *   The text to convert.
+ * @return The double converted to or NULL for empty.
+ */
+function cbib_migrate_convert_to_price($text) {
+  // Convert to lower case.
+  $text_modif = mb_strtolower($text);
+
+  // Remove special characters.
+  $text_modif = preg_replace('/[^a-zæøå0-9 ]+/', '', $text_modif);
+
+  // Remove 'kr' at start and end of string.
+  $text_modif = preg_replace('/kr( )*$/', '', $text_modif);
+  $text_modif = preg_replace('/^( )*kr/', '', $text_modif);
+
+  // Remove spaces.
+  $text_modif = trim($text_modif);
+
+  // Allow empty.
+  if (empty($text_modif)) {
+    return NULL;
+  }
+
+  // If text is 'gratis', the price is 0.
+  if ($text_modif == 'gratis') {
+    return 0;
+  }
+
+  // Fail if remaining string is not numeric.
+  if (!is_numeric($text_modif)) {
+    cbib_migrate_register_message("Received value was not a price. Value: " . $text, Migration::MESSAGE_WARNING);
+    return NULL;
+  }
+
+  return (double)$text_modif;
+}
+
+/**
+ * Register message in migration.
+ *
+ * @param $message
+ *   The message to register.
+ * @param $level
+ *   The level as defined in Migration class.
+ *   Defaults to Migration::MESSAGE_ERROR.
+ * @return void.
+ */
+function cbib_migrate_register_message($message, $level = Migration::MESSAGE_ERROR) {
+  $migration = Migration::currentMigration();
+
+  $migration->queueMessage($message, $level);
+}
+
+/**
+ * Convert text to link. Save a message if the text is not a link.
+ *
+ * @param string $text
+ *   The text to convert.
+ * @param string $destination
+ *   A social media destination  if known.
+ *
+ * @return
+ *   Text that is a link, or NULL if input was not a link.
+ */
+function cbib_migrate_convert_to_link($text, $destination = '') {
+  $text = trim($text);
+
+  // Try some cleanups.
+  switch ($destination) {
+    case 'Twitter':
+      // Convert @username to URL.
+      $text = preg_replace('/^@/', 'https://twitter.com/', $text);
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?twitter\.com/i', 'https://twitter.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and remove www from URL.
+      $text = preg_replace('/\/(www\.)?twitter\.com/i', '/twitter.com', $text);
+      // Change old style Twitter link (#!).
+      $text = preg_replace('/\/#!\//', '/', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9]+)$/', 'https://twitter.com/$1', $text);
+      break;
+
+    case 'Facebook':
+      // Fix spelling mistakes.
+      $text = preg_replace('/facebookk\.com/i', 'facebook.com', $text);
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?facebook\.com/i', 'https://www.facebook.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.)?facebook\.com/i', '/www.facebook.com', $text);
+      // Change old style Facebook link (#!).
+      $text = preg_replace('/\/#!\//', '/', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'https://www.facebook.com/$1', $text);
+      break;
+
+    case 'LinkedIn':
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.|dk\.)?linkedin\.com/i', 'https://www.linkedin.com', $text);
+      // Lowercase protocol and change http links to https. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'https://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.|dk\.)?linkedin\.com/i', '/www.linkedin.com', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'https://www.linkedin.com/$1', $text);
+      break;
+
+    case 'Last.fm':
+      // Convert link without protocol to full URL.
+      $text = preg_replace('/^(www\.)?last\.fm/i', 'http://www.last.fm', $text);
+      // Lowercase protocol and change https links to http. Also ensure to
+      // dashes in protocol.
+      $text = preg_replace('/^https?:\/?\//i', 'http://', $text);
+      // Lowercase hostname and add www to URL.
+      $text = preg_replace('/\/(www\.)?last\.fm/i', '/www.last.fm', $text);
+      // Convert username only to full URL.
+      $text = preg_replace('/^([A-Za-z0-9 ]+)$/', 'http://www.last.fm/user/$1', $text);
+      break;
+ }
+
+  // Check if text is link
+  if (preg_match('_^http(s?)://_', $text)) {
+    return $text;
+  }
+  else {
+    // Allow empty.
+    if (strlen(trim($text)) > 0) {
+      cbib_migrate_register_message('Text is not a ' . $destination . ' link: ' . $text);
+    }
+    return NULL;
+  }
+}
+
+/**
+ * Register a mapping from a profile nid to a new uid.
+ *
+ * @param $nid
+ *   The id of the profile node on the old system.
+ * @param $uid
+ *   The id of the new user.
+ * @return void.
+ */
+function cbib_migrate_register_profile_mapping($nid, $uid) {
+  $record = new StdClass();
+  $record->nid = $nid;
+  $record->uid = $uid;
+
+  drupal_write_record('cbib_migrate_profile_map', $record);
+}
+
+/**
+ * Lookup a mapping from a profile nid to a new user uid.
+ *
+ * @param $nid
+ *   The id of the profile node.
+ * @return The id of the new user.
+ */
+function cbib_migrate_lookup_profile_uid($nid) {
+  $row = db_select('cbib_migrate_profile_map', 'm')
+    ->condition('nid', $nid)
+    ->fields('m', array('uid'))
+    ->execute()
+    ->fetch();
+
+  return $row ? $row->uid : NULL;
+}

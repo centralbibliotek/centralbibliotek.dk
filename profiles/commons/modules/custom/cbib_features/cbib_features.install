@@ -9,6 +9,7 @@
  * Implements hook_install().
  */
 function cbib_features_install() {
+  drupal_register_shutdown_function('_cbib_features_fix_collations');
   drupal_register_shutdown_function('_cbib_features_delete_install_profile_first_group');
   drupal_register_shutdown_function('_cbib_features_enable_cb_theme');
 }
@@ -34,4 +35,46 @@ function _cbib_features_delete_install_profile_first_group() {
       node_delete($node->nid);
     }
   }
+}
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * Define collation on title fields and cache tables.
+ */
+function cbib_features_schema_alter(&$schema) {
+  // Define Danish collation on {field_data_title_field} to sort Aalborg last.
+  $schema['field_data_title_field']['collation'] = 'utf8_danish_ci';
+
+  // Define utf8_bin as collation on cache tables for better performance.
+  foreach ($schema as $table => $info) {
+    if (preg_match('/^cache.*/', $table)) {
+      $schema[$table]['collation'] = 'utf8_bin';
+    }
+  }
+}
+
+/**
+ * Fix collation of {field_data_title_field} and cache tables.
+ */
+function _cbib_features_fix_collations() {
+  // Set utf8_bin as collation on cache tables for better performance.
+  $schema = drupal_get_schema(NULL, TRUE);
+  foreach ($schema as $table => $info) {
+    if (preg_match('/^cache.*/', $table)) {
+      collation_fixer_fix_collation($table);
+    }
+  }
+
+  // Set Danish collation on {field_data_title_field} to sort Aalborg last.
+  if (!empty($schema['field_data_title_field'])) {
+    collation_fixer_fix_collation('field_data_title_field');
+  }
+}
+
+/**
+ * Fix collation of {field_data_title_field} and cache tables.
+ */
+function cbib_features_update_7101(&$sandbox) {
+  _cbib_features_fix_collations();
 }

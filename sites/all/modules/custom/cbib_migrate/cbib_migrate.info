@@ -1,0 +1,18 @@
+name = "Centralbibliotek.dk migration"
+description = "Migrate content from the old D6 centralbibliotek.dk to the new D7 Commons site"
+package = "Centralbibliotek.dk"
+core = 7.x
+
+dependencies[] = migrate
+dependencies[] = migrate_d2d
+dependencies[] = migrate_ui
+
+files[] = migration_classes/node.inc
+files[] = migration_classes/user_profile.inc
+files[] = migration_classes/central_library.inc
+files[] = migration_classes/group.inc
+files[] = migration_classes/event.inc
+files[] = migration_classes/document.inc
+files[] = migration_classes/post.inc
+files[] = migration_classes/news_item.inc
+files[] = migration_classes/page.inc

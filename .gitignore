@@ -7,3 +7,6 @@ sites/*/private
 .sass-cache
 .DS_Store
 compass_app_log.txt
+
+# Directory for containing a dump of the old sites files.
+old/

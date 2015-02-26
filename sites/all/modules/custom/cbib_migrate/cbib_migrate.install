@@ -1,0 +1,29 @@
+<?php
+function cbib_migrate_schema() {
+  $schema = array();
+
+  $schema['cbib_migrate_profile_map'] = array(
+    'description' => t('The mapping from profile nids to uids'),
+    'fields' => array(
+      'nid' => array(
+        'description' => t('The old nid of the users profile node.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'uid' => array(
+        'description' => t('The new uid of the user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+    ),
+    'unique keys' => array(
+      'nid' => array('nid'),
+      'uid' => array('uid'),
+      ),
+    'primary key' => array('nid', 'uid'),
+  );
+
+  return $schema;
+}
