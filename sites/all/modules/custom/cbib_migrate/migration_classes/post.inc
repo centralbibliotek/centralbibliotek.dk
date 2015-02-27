@@ -117,7 +117,7 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
    */
   private function mapLinkFields() {
     // TODO Field missing.
-    /*$this->addFieldMapping('field_link', 'field_attached_link');
+    $this->addFieldMapping('field_link', 'field_attached_link');
 
     $this->addUnmigratedSources(array(
       'field_attached_link:title',
@@ -126,11 +126,6 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
 
     $this->noLanguage(array(
       'field_link',
-    ));*/
-    $this->addUnmigratedSources(array(
-      'field_attached_link',
-      'field_attached_link:title',
-      'field_attached_link:attributes',
     ));
   }
 
