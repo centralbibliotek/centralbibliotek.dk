@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Implements hook_schema().
+ */
 function cbib_migrate_schema() {
   $schema = array();
 
@@ -26,4 +30,22 @@ function cbib_migrate_schema() {
   );
 
   return $schema;
+}
+
+/**
+ * Quick fix language for users and content.
+ */
+function cbib_migrate_update_7101() {
+  // Very quick and dirty! Be careful!
+  // Updating node does not result in the removal of the old url alias.
+  // We're doing this because some content and paths have acquired the language
+  // 'da'. Most likely because of i18n being installed at the time of the
+  // content creation.
+  try {
+    db_query("UPDATE {node} SET language = 'und' WHERE language = 'da'");
+    db_query("UPDATE {url_alias} SET language = 'und' WHERE language = 'da'");
+  }
+  catch (Exception $e) {
+    watchdog('cbib_migrate', 'Error updating language! Please take action! @error', array('@error' => (string) $e), WATCHDOG_ERROR);
+  }
 }
