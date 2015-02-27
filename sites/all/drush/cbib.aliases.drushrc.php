@@ -12,7 +12,7 @@ $aliases['prod'] = array(
   'root' => '/data/www/centralbibliotek.dk',
   'remote-host' => 'centralbib.dbc.dk',
   'remote-user' => 'reload',
-  'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts',
+  'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts -o LogLevel=Error',
   'deployotron' => array(
     'branch' => 'develop',
     'dump-dir' => '/home/reload/backups',
