@@ -18,14 +18,15 @@ function commons_follow_group_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function commons_follow_group_flag_default_flags() {
   $flags = array();
-
-  // Exported flag: "Groups".
+  // Exported flag: "Grupper".
   $flags['commons_follow_group'] = array(
     'content_type' => 'node',
     'title' => 'Groups',
     'global' => 0,
     'types' => array(
       0 => 'group',
+      1 => 'license',
+      2 => 'licenses',
     ),
     'flag_short' => 'Follow',
     'flag_long' => '',
@@ -56,7 +57,6 @@ function commons_follow_group_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-
   // Exported flag: "Commons Follow (Groups - Email)".
   $flags['email_group'] = array(
     'content_type' => 'node',
@@ -94,6 +94,6 @@ function commons_follow_group_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-
   return $flags;
+
 }

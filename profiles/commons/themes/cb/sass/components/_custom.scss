@@ -1,0 +1,55 @@
+/**
+ * @file
+ * Centralbibliotek.dk specific styling.
+ */
+
+/**
+ * Fix the attend forms placement when located in a pabel pane.
+ */
+.pane-node-attend-form .block-content {
+  display: inline-block;
+}
+
+.region-header-two h3 {
+  display: none;
+}
+
+.region-header-two li {
+  display: inline-block;
+  border-bottom-style: none;
+}
+
+.region-header-two li a {
+  color: white;
+}
+
+.two-66-33 .region {
+  clear: none;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+// Buttons.
+.lead-link a,
+a.lead-link {
+  @extend %lead-link;
+}
+
+// Lists.
+ol.nostyle,
+ul.nostyle {
+  list-style: none none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+  }
+}
+
+// Modifiers.
+.no-top {
+  margin-top: 0;
+}

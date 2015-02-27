@@ -1,5 +1,0 @@
-patches:
-  -
-    patch: 'https://www.drupal.org/files/issues/fix_disabled_module_errors-1616462-4.patch'
-    home: 'https://www.drupal.org/node/1616462#comment-9162023'
-    reason: 'Disabling/excluding core modules results in error.'

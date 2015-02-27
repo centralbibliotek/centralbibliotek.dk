@@ -28,13 +28,20 @@ function commons_events_pages_strongarm() {
         'choice' => 0,
       ),
       'teaser' => array(
-        'status' => 0,
-        'default' => 0,
+        'status' => 1,
+        'default' => 1,
         'choice' => 0,
       ),
     ),
   );
   $export['panelizer_defaults_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_event_pattern';
+  $strongarm->value = '[node:field-event-type:name]/[node:title]';
+  $export['pathauto_node_event_pattern'] = $strongarm;
 
   return $export;
 }

@@ -1,0 +1,44 @@
+@import "base";
+
+/**
+ * Components.
+ */
+@import "components/custom";
+@import "components/fonts";
+// @fontface fonts
+@import "components/button";
+// Custom cbib button styles
+@import "components/message";
+// System messages
+@import "components/user-avatar";
+// User profile picture badge avatar thing
+@import "components/date";
+// Date or timestamp
+@import "components/tag";
+@import "components/forms";
+@import "components/page-list";
+@import "components/panels-ipe-portlet-wrapper";
+@import "components/panels-ipe-paneid-24";
+// "Det praktiske" on Event
+@import "components/panels-ipe-paneid-26";
+// "Tilmelding" on Event
+@import "components/panels-ipe-paneid-4";
+// "List of attendees" on Event
+@import "components/main-header";
+// Main header
+@import "components/footer";
+// Main footer
+//
+// Import "pages" (styles for specific pages - such as node types, profile page etc.)
+//
+@import "pages/node-event";
+// Node type event
+@import "pages/node-news";
+// Node type news
+@import "pages/node-group";
+// Node type group
+@import "pages/node-centralbibliotek";
+// Node type centralbibliotek
+@import "pages/node-license";
+// Node type license
+@import "pages/page-search";

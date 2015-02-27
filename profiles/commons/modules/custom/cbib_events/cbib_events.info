@@ -1,0 +1,6 @@
+name = Cbib Events
+description = Centralbibliotek Events tools
+core = 7.x
+package = Centralbibliotek.dk
+dependencies[] = panels
+dependencies[] = commons_events

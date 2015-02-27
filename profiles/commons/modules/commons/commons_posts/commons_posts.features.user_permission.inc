@@ -14,7 +14,6 @@ function commons_posts_user_default_permissions() {
   $permissions['create post content'] = array(
     'name' => 'create post content',
     'roles' => array(
-      'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
@@ -23,9 +22,7 @@ function commons_posts_user_default_permissions() {
   // Exported permission: 'delete any post content'.
   $permissions['delete any post content'] = array(
     'name' => 'delete any post content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -33,7 +30,6 @@ function commons_posts_user_default_permissions() {
   $permissions['delete own post content'] = array(
     'name' => 'delete own post content',
     'roles' => array(
-      'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
@@ -42,9 +38,7 @@ function commons_posts_user_default_permissions() {
   // Exported permission: 'edit any post content'.
   $permissions['edit any post content'] = array(
     'name' => 'edit any post content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -52,7 +46,6 @@ function commons_posts_user_default_permissions() {
   $permissions['edit own post content'] = array(
     'name' => 'edit own post content',
     'roles' => array(
-      'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',

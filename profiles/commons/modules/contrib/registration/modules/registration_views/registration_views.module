@@ -35,6 +35,9 @@ function registration_views_views_data() {
     'field' => array(
       'handler' => 'registration_handler_field_entity_datetime',
     ),
+    'filter' => array(
+      'handler' => 'registration_handler_filter_entity_datetime',
+    ),    
   );
 
   $data['registration_entity']['close'] = array(
@@ -43,6 +46,9 @@ function registration_views_views_data() {
     'field' => array(
       'handler' => 'registration_handler_field_entity_datetime',
     ),
+    'filter' => array(
+      'handler' => 'registration_handler_filter_entity_datetime',
+    ),    
   );
 
   $data['registration_entity']['capacity_total'] = array(

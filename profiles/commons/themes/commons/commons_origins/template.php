@@ -23,33 +23,6 @@ function commons_origins_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements hook_commons_utility_links_alter().
- */
-function commons_origins_commons_utility_links_alter(&$element) {
-  // Add wrappers to title elements in notification links so that they can be
-  // replaced with an icon.
-  $iconify = array(
-    'unread-invitations',
-    'unread-messages',
-  );
-  foreach ($iconify as $name) {
-    if (isset($element[$name])) {
-      $words = explode(' ', $element[$name]['title']);
-      foreach($words as &$word) {
-        if(is_numeric($word)) {
-          $word = '<span class="notification-count">' . $word . '</span>';
-        }
-        else {
-          $word = '<span class="notification-label element-invisible">' . $word . '</span>';
-        }
-      }
-      $element[$name]['title'] = implode(' ', $words);
-      $element[$name]['html'] = TRUE;
-    }
-  }
-}
-
-/**
  * Implements hook_preprocess_media_oembed().
  */
 function commons_origins_preprocess_media_oembed(&$variables) {

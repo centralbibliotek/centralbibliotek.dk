@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/title-no_attributes-2428731-1.patch'
+    home: 'https://www.drupal.org/node/2428731'
+    reason: 'Attributes array gets placed outside element array. Patch puts it back (fixed in dev)'

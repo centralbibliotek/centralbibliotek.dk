@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/entityreference-1836106-20.patch'
+    home: 'https://www.drupal.org/node/1836106#comment-8696097'
+    reason: 'Can''t start drupal'

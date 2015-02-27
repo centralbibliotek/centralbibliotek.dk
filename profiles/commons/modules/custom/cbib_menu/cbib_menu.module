@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * Set dynamic links according to main group (centralbibliotek).
+ *
+ * The link will be changed in hook_translated_menu_link_alter().
+ * We need to edit and save the link for the option alter to work.
+ *
+ * Implements hook_menu_link_alter().
+ */
+function cbib_menu_menu_link_alter(&$link) {
+  if ($link['link_path'] == variable_get('site_frontpage') || $link['link_path'] == '<front>') {
+    $link['options']['alter'] = TRUE;
+  }
+  elseif (in_array($link['link_path'], array('events', 'groups', 'news'))) {
+    $link['options']['alter'] = TRUE;
+  }
+}
+
+/**
+ * Change links according to main group (centralbibliotek).
+ *
+ * Implements hook_translated_menu_link_alter().
+ */
+function cbib_menu_translated_menu_link_alter(&$item, $map) {
+  if (!empty($_SESSION['cbib_menu_nid'])) {
+    if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
+      $item['href'] = "node/{$_SESSION['cbib_menu_nid']}";
+      $item['title'] = $_SESSION['cbib_menu_title'];
+    }
+    elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
+      $item['href'] = "node/{$_SESSION['cbib_menu_nid']}/{$item['href']}";
+    }
+  }
+  // Set homepage link to front without alias.
+  if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
+    $item['href'] = '';
+    $item['title'] = t('Home');
+  }
+}
+
+/**
+ * Logic to handle which central library that has been chosen last.
+ *
+ * Implements hook_init().
+ */
+function cbib_menu_init() {
+  if (drupal_is_front_page()) {
+      $_SESSION['cbib_menu_nid'] = FALSE;
+  }
+  elseif (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == NULL) {
+    $node = menu_get_object();
+    if ($node->type == 'centralbibliotek') {
+      $_SESSION['cbib_menu_nid'] = $node->nid;
+      $_SESSION['cbib_menu_title'] = $node->title;
+    }
+  }
+}
+

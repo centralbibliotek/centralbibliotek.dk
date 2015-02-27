@@ -1,0 +1,87 @@
+.node-type-license {
+
+  .node-license {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .panel-display {
+      margin-top: 20px;
+    }
+
+    .pane-node-field-address h2 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .panels-ipe-portlet-wrapper {
+    margin-bottom: 0.1em;
+  }
+
+  .pane-entity-field {
+    &.no-title {
+      margin: 0;
+    }
+
+    .field-label-inline {
+      margin: 0.5em 0;
+    }
+  }
+
+  .field-collection-view {
+    .field-label {
+      width: 100%;
+    }
+  }
+
+  .pane-user-field-name-first {
+    float: left;
+    margin-right: 0.35em;
+
+    h2.block-title {
+      display: none;
+    }
+  }
+
+  .field-name-field-name-last {
+    padding: 0.5em 0;
+  }
+
+  .user  {
+    margin-bottom: 1em;
+    .panel-pane {
+      margin: 0;
+      display: inline-block;
+      color: $gray;
+      &.pane-user-field-phone {
+        .block-inner {
+          display: inline-block;
+        }
+        &:before,
+        &:after {
+          content: ' | ';
+          color: $gray-light;
+          @include noselect;
+        }
+      }
+    }
+    h2.pane-title {
+      display: inline;
+      float: none;
+      font-size: 1em;
+      font-family: inherit;
+      margin-bottom: 0;
+      font-weight: normal;
+      border: 0;
+      &:after {
+        content: ":";
+      };
+    }
+    .block-content {
+      display: inline;
+    }
+  }
+
+  .pane-node-field-license-pr-file, .pane-node-field-license-education-file, .pane-node-field-document-file {
+    margin: 1em 0;
+  }
+}

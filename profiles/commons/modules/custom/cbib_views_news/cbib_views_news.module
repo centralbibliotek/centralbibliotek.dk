@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cbib Views News feature.
+ */
+
+include_once 'cbib_views_news.features.inc';

@@ -1,0 +1,145 @@
+.cb-teaser-list,
+.page-taxonomy-term {
+  .view-filters {
+    input[type="text"] {
+      background-color: rgba(0,0,0,0) !important;
+      border: 0px;
+      height: 50px;
+      border-bottom: 2px solid $gray-darker;
+      font-family: $base-font;
+      font-size: 20px;
+      padding-left: 0px;
+    }
+
+    input:-moz-placeholder {
+      color: lighten($light_gray,20%);
+    }
+
+    input:-ms-input-placeholder {
+      color: lighten($light_gray,20%);
+    }
+
+    input::-moz-placeholder {
+      color: lighten($light_gray,20%);
+    }
+
+    input::-webkit-input-placeholder {
+      color: lighten($light_gray,20%);
+    }
+  }
+
+  .row-type-event:before, .node-content-type-event:before {
+    display: none !important; // hide default calendar event icon
+  }
+
+  .node-teaser {
+    h2 a {
+      color: $gray-darker;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .panel-col-first {
+      width: 330px;
+
+      @include respond(small-medium) {
+        width: 100%;
+      }
+
+      .inside {
+        background-image: url(../images/no-image.jpg);
+        background-size: 100%;
+        background-position: center;
+        min-height: 170px;
+        position: relative;
+      }
+
+      .pane-node-created, .pane-node-field-date {
+        position: absolute;
+        bottom: 0px;
+        background-color: rgba(0,0,0,0.4);
+        @extend %date;
+        display: block;
+
+        .field-item {
+          color: $white;
+        }
+      }
+
+      img {
+        min-height: 170px;
+      }
+    }
+
+    figure {
+      line-height: 0px;
+    }
+
+    .pane-node-field-group-logo .field-name-field-group-logo a {
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+      -webkit-border-radius: none;
+      -moz-border-radius: none;
+      -ms-border-radius: none;
+      -o-border-radius: none;
+    }
+
+    .panel-pane, .field-name-body, h2  {
+      margin: 0px;
+    }
+
+    .links a {
+      font-family: $alt-font;
+    }
+
+    .panel-pane.pane-node-og-group-ref {
+      float: left;
+    }
+  }
+
+  .node-teaser:not(.node-centralbibliotek) {
+
+    // if there are lots of breaks in summary this will force it to be low anyway
+    .center-wrapper .panel-col-last {
+      max-height: 170px;
+      min-height: 170px;
+      overflow: hidden;
+    }
+
+    &:after {
+      content: "";
+      width: 25px;
+      height: 64px;
+      background-size: 25px 64px;
+      background-image: url(../images/icons/region-arrow.png);
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -32px;
+
+      @include respond(small-medium) {
+        display: none;
+      }
+    }
+  }
+}
+
+/** Hide subtitle in views for group pages **/
+
+.page-panels {
+  &.page-node-events, &.page-node-news, &.page-node-groups, &.page-events, &.page-news, &.page-groups, &.page-license {
+    h2.pane-title {
+      display: none;
+    }
+  }
+}
+
+/** List title **/
+.front {
+  h2.pane-title {
+    font-size: 2em;
+  }
+}

@@ -1,3 +1,4 @@
-Host *.dbc.dk centralbibliotek.dk
+Host *.dbc.dk centralbibliotek.dk *.centralbibliotek.dk
+     ForwardAgent yes
      User reload
-     ProxyCommand ssh -o GlobalKnownHostsFile=${CBIB_DRUSH_DIR}/ssh/known_hosts -W %h:%p ding.reload.dk
+     ProxyCommand ssh -o GlobalKnownHostsFile=${CBIB_DRUSH_DIR}/ssh/known_hosts -W %h:%p ding.reload.dk 2> /dev/null
