@@ -71,6 +71,12 @@ function cbib_migrate_get_all_migrations() {
     // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
     cbib_migrate_get_central_library_migrations(),
 
+    // Get migrations for libraries (Bibliotek/library_regular -> Bibliotek/library).
+    cbib_migrate_get_library_migrations(),
+
+    // Get migrations for libraries (Licensguide Produkt/licenceguide_product -> Licens/License).
+    cbib_migrate_get_license_migrations(),
+
     // Get migrations for user profiles.
     cbib_migrate_get_profile_migrations(),
 
@@ -200,6 +206,53 @@ function cbib_migrate_get_central_library_migrations() {
   return $migrations;
 }
 
+/**
+ * Get migrations for libraries (Bibliotek/library_regular -> Bibliotek/library).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_library_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'library',
+    'class' => 'CbibLibraryMigration',
+    'arguments' => array(
+      'group' => 'cbib',
+      'description' => t('Migration of library nodes from Centralbibliotek.dk'),
+      'source_type' => 'library_regular',
+      'destination_type' => 'library',
+      'user_migration' => 'user',
+      'dependencies' => array('central_library'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for licenses (Licensguide Produkt/licenceguide_product -> Licens/license).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_license_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'license',
+    'class' => 'CbibLicenseMigration',
+    'arguments' => array(
+      'group' => 'cbib',
+      'description' => t('Migration of license nodes from Centralbibliotek.dk'),
+      'source_type' => 'licenceguide_product',
+      'destination_type' => 'license',
+      'user_migration' => 'user',
+      'dependencies' => array(),
+    ),
+  );
+
+  return $migrations;
+}
 /**
  * Get migrations for profiles.
  *
@@ -566,4 +619,12 @@ function cbib_migrate_lookup_profile_uid($nid) {
     ->fetch();
 
   return $row ? $row->uid : NULL;
+}
+
+function cbib_migrate_lookup_target_id($type, $id) {
+  return db_select("migrate_map_{$type}", 'm')
+    ->condition('sourceid1', $id)
+    ->fields('m', array('destid1'))
+    ->execute()
+    ->fetchColumn();
 }
