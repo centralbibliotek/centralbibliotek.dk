@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'http://cgit.drupalcode.org/cache_consistent/plain/drupal-7.28-transactional-cache.patch?id=1fb5ce8'
+    home: 'https://drupal.org/project/cache_consistent'
+    reason: 'Avoid cache being populated with stale data.'
