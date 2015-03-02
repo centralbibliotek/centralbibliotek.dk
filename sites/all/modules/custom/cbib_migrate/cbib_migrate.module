@@ -117,7 +117,7 @@ function cbib_migrate_get_user_migrations() {
     'machine_name' => 'role',
     'class' => 'DrupalRole6Migration',
     'arguments' => array(
-      'group' => 'user',
+      'group' => 'cbib',
       'description' => t('Migration of roles from Centralbibliotek.dk'),
       'role_mappings' => array(
         'Biblioteksadmin' => 'content moderator',
@@ -129,7 +129,7 @@ function cbib_migrate_get_user_migrations() {
     'machine_name' => 'user',
     'class' => 'DrupalUser6Migration',
     'arguments' => array(
-      'group' => 'user',
+      'group' => 'cbib',
       'description' => t('Migration of basic user information from Centralbibliotek.dk'),
       'role_migration' => 'role',
     ),
@@ -150,7 +150,7 @@ function cbib_migrate_get_file_migrations() {
     'machine_name' => 'file',
     'class' => 'DrupalFile6Migration',
     'arguments' => array(
-      'group' => 'file',
+      'group' => 'cbib',
       'description' => t('Migration of files from Centralbibliotek.dk'),
       'user_migration' => 'user',
       'default_uid' => 1,
@@ -184,14 +184,11 @@ function cbib_migrate_get_image_migrations() {
 function cbib_migrate_get_central_library_migrations() {
   $migrations = array();
 
-  $central_library_migration = array(
-  );
-
   $migrations[] = array(
     'machine_name' => 'central_library',
     'class' => 'CbibCentralLibraryMigration',
     'arguments' => array(
-      'group' => 'central_library',
+      'group' => 'cbib',
       'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
       'source_type' => 'library',
       'destination_type' => 'centralbibliotek',
@@ -215,7 +212,7 @@ function cbib_migrate_get_profile_migrations() {
     'machine_name' => 'user_profile',
     'class' => 'CbibUserProfileMigration',
     'arguments' => array(
-      'group' => 'user',
+      'group' => 'cbib',
       'description' => t('Migration of user profiles from Centralbibliotek.dk'),
       'role_migration' => 'role',
       'dependencies' => array('file'),
@@ -237,7 +234,7 @@ function cbib_migrate_get_group_migrations() {
     'machine_name' => 'group',
     'class' => 'CbibGroupMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of groups from Centralbibliotek.dk'),
       'source_type' => 'group',
       'destination_type' => 'group',
@@ -261,7 +258,7 @@ function cbib_migrate_get_event_migrations() {
     'machine_name' => 'event',
     'class' => 'CbibEventMigration',
     'arguments' => array(
-      'group' => 'event',
+      'group' => 'cbib',
       'description' => t('Migration of events from Centralbibliotek.dk'),
       'source_type' => 'event',
       'destination_type' => 'event',
@@ -285,7 +282,7 @@ function cbib_migrate_get_document_migrations() {
     'machine_name' => 'document',
     'class' => 'CbibDocumentMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of documents from Centralbibliotek.dk'),
       'source_type' => 'group_file',
       'destination_type' => 'document',
@@ -309,7 +306,7 @@ function cbib_migrate_get_post_migrations() {
     'machine_name' => 'post',
     'class' => 'CbibPostMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of posts from Centralbibliotek.dk'),
       'source_type' => 'group_news',
       'destination_type' => 'post',
@@ -333,7 +330,7 @@ function cbib_migrate_get_news_item_migrations() {
     'machine_name' => 'news_item',
     'class' => 'CbibNewsItemMigration',
     'arguments' => array(
-      'group' => 'news_item',
+      'group' => 'cbib',
       'description' => t('Migration of news items from Centralbibliotek.dk'),
       'source_type' => 'newsitem',
       'destination_type' => 'news',
@@ -357,7 +354,7 @@ function cbib_migrate_get_page_migrations() {
     'machine_name' => 'page',
     'class' => 'CbibPageMigration',
     'arguments' => array(
-      'group' => 'page',
+      'group' => 'cbib',
       'description' => t('Migration of pages from Centralbibliotek.dk'),
       'source_type' => 'textpage',
       'destination_type' => 'page',
