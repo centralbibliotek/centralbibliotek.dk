@@ -101,7 +101,6 @@ class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
       }
     }
     background_process_http_request_process($processes, array('limit' => 10));
-    dpm($data);
     $raw = drupal_json_encode($data);
   }
 }
