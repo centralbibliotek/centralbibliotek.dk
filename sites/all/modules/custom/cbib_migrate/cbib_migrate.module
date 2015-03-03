@@ -49,6 +49,25 @@ function cbib_migrate_deregister_migrations() {
 }
 
 /**
+ * Implements hook_feeds_plugins().
+ */
+function cbib_migrate_feeds_plugins() {
+  $path = drupal_get_path('module', 'cbib_migrate') . '/plugins';
+  $info = array();
+  $info['FeedsCbibAPIFetcher'] = array(
+    'name' => 'API Fetcher for centralbibliotekerne',
+    'description' => 'Download content from a URL.',
+    'handler' => array(
+      'parent' => 'FeedsFetcher', // This is the key name, not the class name.
+      'class' => 'FeedsCbibAPIFetcher',
+      'file' => 'FeedsCbibAPIFetcher.inc',
+      'path' => $path,
+    ),
+  );
+  return $info;
+}
+
+/**
  * Get an array of all migrations. The returned migrations array
  * has the following keys:
  *   class: The name of the migration class.
