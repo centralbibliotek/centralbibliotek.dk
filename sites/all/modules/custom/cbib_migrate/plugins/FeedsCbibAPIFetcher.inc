@@ -5,31 +5,43 @@
  * Home of the FeedsHTTPFetcher and related classes.
  */
 
-feeds_include_library('PuSHSubscriber.inc', 'PuSHSubscriber');
-
 /**
- * Result of FeedsHTTPFetcher::fetch().
+ * Result of FeedsCbibAPIFetcher::fetch().
  */
 class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
   protected $url;
+  protected $api_key;
+  protected $method;
   protected $file_path;
   protected $timeout;
+
+  public static function factory($url, $api_key, $method) {
+    switch ($method) {
+      case 'agreements':
+        $class = 'FeedsCbibAPIFetcherResultAgreements';
+        break;
+
+      case 'members':
+        $class = 'FeedsCbibAPIFetcherResultMembers';
+        break;
+
+      default:
+        throw new RuntimeException(t('Unknown method: %method', array('%method' => $method)));
+    }
+    return new $class($url, $api_key, $method);
+  }
 
   /**
    * Constructor.
    */
-  public function __construct($url = NULL, $api_key) {
+  public function __construct($url, $api_key, $method) {
     $this->url = $url;
     $this->api_key = $api_key;
+    $this->method = $method;
     parent::__construct('');
   }
 
-  /**
-   * Overrides FeedsFetcherResult::getRaw();
-   */
-  public function getRaw() {
-    feeds_include_library('http_request.inc', 'http_request');
-    //$result = http_request_get($this->url, NULL, NULL, NULL, $this->timeout);
+  protected function prepareRawFeed($url) {
     $options = array(
       'headers' => array(
         'Accept' => 'application/json',
@@ -39,11 +51,24 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
     if ($this->timeout) {
       $options['timeout'] = $this->timeout;
     }
-    $result = drupal_http_request($this->url, $options);
-    error_log(print_r($result, TRUE));
+
+    return array($url, $options);
+  }
+
+  /**
+   * Overrides FeedsFetcherResult::getRaw();
+   */
+  public function getRaw() {
+    $url = rtrim($this->url, '/') . '/' . $this->method;
+    list($url, $options) = $this->prepareRawFeed($url);
+
+    $result = drupal_http_request($url, $options);
+
     if (!in_array($result->code, array(200, 201, 202, 203, 204, 205, 206))) {
-      throw new Exception(t('Download of @url failed with code !code.', array('@url' => $this->url, '!code' => $result->code)));
+      throw new Exception(t('Download of @url failed with code !code.', array('@url' => $url, '!code' => $result->code)));
     }
+
+    $this->postProcessRaw($result->data);
     return $this->sanitizeRaw($result->data);
   }
 
@@ -57,6 +82,39 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
 }
 
 /**
+ * Result of FeedsCbibAPIFetcher::fetch().
+ */
+class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
+  public function postProcessRaw(&$raw) {
+    $raw = $this->sanitizeRaw($raw);
+    $data = drupal_json_decode($raw);
+    $processes = array();
+    foreach ($data['response'] as &$response) {
+      if ($response['subscribers']) {
+        $url = rtrim($this->url, '/') . '/agreement/' . $response['id'];
+        list($url, $options) = $this->prepareRawFeed($url);
+        $options += array('postpone' => TRUE, 'callback' => function ($result) use (&$response) {
+          $subscribers = drupal_json_decode($this->sanitizeRaw($result->data));
+          $response['subscribers'] = $subscribers['response']['subscribers'];
+        });
+        $processes[] = background_process_http_request($url, $options);
+      }
+    }
+    background_process_http_request_process($processes, array('limit' => 10));
+    dpm($data);
+    $raw = drupal_json_encode($data);
+  }
+}
+
+/**
+ * Result of FeedsCbibAPIFetcher::fetch().
+ */
+class FeedsCbibAPIFetcherResultMembers extends FeedsCbibAPIFetcherResult {
+  public function postProcessRaw(&$data) {
+  }
+}
+
+/**
  * Fetches data via the Cbib API.
  */
 class FeedsCbibAPIFetcher extends FeedsFetcher {
@@ -65,22 +123,10 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
    * Implements FeedsFetcher::fetch().
    */
   public function fetch(FeedsSource $source) {
-    $source_config = $source->getConfigFor($this);
-
-    $fetcher_result = new FeedsCbibAPIFetcherResult($source_config['source'], $this->config['api_key']);
+    $fetcher_result = FeedsCbibAPIFetcherResult::factory($this->config['source'], $this->config['api_key'], $this->config['method']);
     // When request_timeout is empty, the global value is used.
     $fetcher_result->setTimeout($this->config['request_timeout']);
     return $fetcher_result;
-  }
-
-  /**
-   * Clear caches.
-   */
-  public function clear(FeedsSource $source) {
-    $source_config = $source->getConfigFor($this);
-    $url = $source_config['source'];
-    feeds_include_library('http_request.inc', 'http_request');
-    http_request_clear_cache($url);
   }
 
   /**
@@ -89,20 +135,13 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
   public function request($feed_nid = 0) {
     feeds_dbg($_GET);
     @feeds_dbg(file_get_contents('php://input'));
-    // A subscription verification has been sent, verify.
-    if (isset($_GET['hub_challenge'])) {
-      $this->subscriber($feed_nid)->verifyRequest();
+    try {
+      feeds_source($this->id, $feed_nid)->existing()->import();
     }
-    // No subscription notification has ben sent, we are being notified.
-    else {
-      try {
-        feeds_source($this->id, $feed_nid)->existing()->import();
-      }
-      catch (Exception $e) {
-        // In case of an error, respond with a 503 Service (temporary) unavailable.
-        header('HTTP/1.1 503 "Not Found"', NULL, 503);
-        drupal_exit();
-      }
+    catch (Exception $e) {
+      // In case of an error, respond with a 503 Service (temporary) unavailable.
+      header('HTTP/1.1 503 "Not Found"', NULL, 503);
+      drupal_exit();
     }
     // Will generate the default 200 response.
     header('HTTP/1.1 200 "OK"', NULL, 200);
@@ -116,6 +155,8 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
     return array(
       'api_key' => '',
       'request_timeout' => NULL,
+      'source' => '',
+      'method' => 'agreements',
     );
   }
 
@@ -124,6 +165,24 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
    */
   public function configForm(&$form_state) {
     $form = array();
+    $form['source'] = array(
+      '#type' => 'textfield',
+      '#title' => t('URL'),
+      '#description' => t('Enter a feed URL.'),
+      '#default_value' => $this->config['source'],
+      '#maxlength' => NULL,
+      '#required' => TRUE,
+    );
+    $form['method'] = array(
+      '#type' => 'select',
+      '#title' => t('Method'),
+      '#description' => t('Method.'),
+      '#options' => array(
+        'agreements' => t('Agreements'),
+        'members' => t('Members'),
+      ),
+      '#default_value' => $this->config['method'],
+    );
     $form['api_key'] = array(
       '#type' => 'textfield',
       '#title' => t('API Key'),
@@ -143,85 +202,5 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
      '#size'=> 30,
    );
     return $form;
-  }
-
-  /**
-   * Expose source form.
-   */
-  public function sourceForm($source_config) {
-    $form = array();
-    $form['source'] = array(
-      '#type' => 'textfield',
-      '#title' => t('URL'),
-      '#description' => t('Enter a feed URL.'),
-      '#default_value' => isset($source_config['source']) ? $source_config['source'] : '',
-      '#maxlength' => NULL,
-      '#required' => TRUE,
-    );
-    return $form;
-  }
-
-  /**
-   * Override parent::sourceFormValidate().
-   */
-  public function sourceFormValidate(&$values) {
-    /*
-    $values['source'] = trim($values['source']);
-
-    if (!feeds_valid_url($values['source'], TRUE)) {
-      $form_key = 'feeds][' . get_class($this) . '][source';
-      form_set_error($form_key, t('The URL %source is invalid.', array('%source' => $values['source'])));
-    }
-    elseif ($this->config['auto_detect_feeds']) {
-      feeds_include_library('http_request.inc', 'http_request');
-      if ($url = http_request_get_common_syndication($values['source'])) {
-        $values['source'] = $url;
-      }
-    }
-    */
-  }
-
-  /**
-   * Override sourceSave() - subscribe to hub.
-   */
-  public function sourceSave(FeedsSource $source) {
-      /*
-    }
-    if ($this->config['use_pubsubhubbub']) {
-      // If this is a feeds node we want to delay the subscription to
-      // feeds_exit() to avoid transaction race conditions.
-      if ($source->feed_nid) {
-        $job = array('fetcher' => $this, 'source' => $source);
-        feeds_set_subscription_job($job);
-      }
-      else {
-        $this->subscribe($source);
-      }
-    }
-      */
-  }
-
-  /**
-   * Override sourceDelete() - unsubscribe from hub.
-   */
-  public function sourceDelete(FeedsSource $source) {
-      /*
-    if ($this->config['use_pubsubhubbub']) {
-      // If we're in a feed node, queue the unsubscribe,
-      // else process immediately.
-      if ($source->feed_nid) {
-        $job = array(
-          'type' => $source->id,
-          'id' => $source->feed_nid,
-          'period' => 0,
-          'periodic' => FALSE,
-        );
-        JobScheduler::get('feeds_push_unsubscribe')->set($job);
-      }
-      else {
-        $this->unsubscribe($source);
-      }
-    }
-      */
   }
 }
