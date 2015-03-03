@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ERMS Feeds feature.
+ */
+
+include_once 'cbib_feeds_erms.features.inc';
