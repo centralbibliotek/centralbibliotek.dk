@@ -323,13 +323,7 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['event_registration_settings']['field_status'] = $form['field_status'];
     $form['event_registration_settings']['field_number_of_attendees'] = $form['field_number_of_attendees'];
     $form['event_registration_settings']['field_registration'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration_date'] = $form['field_registration'];
-    $form['event_registration_settings']['field_send_reminder'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration'] = $form['field_registration'];
-    $form['event_registration_settings']['field_registration_date'] = $form['field_registration_date'];
-    $form['event_registration_settings']['field_send_reminder'] = $form['field_send_reminder'];
-    $form['event_registration_settings']['field_reminder_date'] = $form['field_reminder_date'];
-    $form['event_registration_settings']['field_reminder_text'] = $form['field_reminder_text'];
+
 
 
     // Add token support:
@@ -351,10 +345,6 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     hide($form['field_status']);
     hide($form['field_number_of_attendees']);
     hide($form['field_registration']);
-    hide($form['field_registration_date']);
-    hide($form['field_send_reminder']);
-    hide($form['field_reminder_date']);
-    hide($form['field_reminder_text']);
 
     // Add additional submission and validation handlers.
     $form['#validate'][] = 'commons_events_node_form_validate';
@@ -396,17 +386,6 @@ function commons_events_node_form_submit($form, $form_state) {
     // Set capacity.
     if (!empty($form_state['values']['field_number_of_attendees'][$language]['0']['value']) && is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value'])) {
       $settings['capacity'] = (int) $form_state['values']['field_number_of_attendees'][$language]['0']['value'];
-    }
-
-    // Set registration date.
-    $settings['open'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_registration_date'][$language]['0']['value']));
-    $settings['close'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_registration_date'][$language]['0']['value2']));
-
-    // Set reminder.
-    $settings['send_reminder'] = $form_state['values']['field_send_reminder'][$language]['0']['value'];
-    if ($settings['send_reminder']) {
-      $settings['reminder_date'] = date('Y-m-d H:i:s', strtotime($form_state['values']['field_reminder_date'][$language]['0']['value']));
-      $settings['reminder_text'] = $form_state['values']['field_reminder_text'][$language]['0']['value'];
     }
 
     $settings['settings'] = serialize($settings['settings']);
