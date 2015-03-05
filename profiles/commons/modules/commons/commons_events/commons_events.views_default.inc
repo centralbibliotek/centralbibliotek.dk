@@ -48,16 +48,16 @@ function commons_events_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Forbindelse: Tilmelding: Registration to Indholdselement */
+  /* Relationship: Registration: Registration to Node */
   $handler->display->display_options['relationships']['registration_related_node']['id'] = 'registration_related_node';
   $handler->display->display_options['relationships']['registration_related_node']['table'] = 'registration';
   $handler->display->display_options['relationships']['registration_related_node']['field'] = 'registration_related_node';
-  /* Forbindelse: Tilmelding: Bruger */
+  /* Relationship: Registration: User */
   $handler->display->display_options['relationships']['user_uid']['id'] = 'user_uid';
   $handler->display->display_options['relationships']['user_uid']['table'] = 'registration';
   $handler->display->display_options['relationships']['user_uid']['field'] = 'user_uid';
   $handler->display->display_options['relationships']['user_uid']['required'] = TRUE;
-  /* Felt: Bruger: Billede */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -65,14 +65,14 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = '50x50';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'user_uid';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -138,24 +138,24 @@ function commons_events_views_default_views() {
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Bruger: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'user_uid';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Felt: Bruger: E-mail */
+  /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'user_uid';
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
-  /* Felt: Felt: Telefon */
+  /* Field: Field: Telefon */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['relationship'] = 'user_uid';
-  /* Felt: Felt: EAN */
+  /* Field: Field: EAN */
   $handler->display->display_options['fields']['field_ean']['id'] = 'field_ean';
   $handler->display->display_options['fields']['field_ean']['table'] = 'field_data_field_ean';
   $handler->display->display_options['fields']['field_ean']['field'] = 'field_ean';
@@ -183,13 +183,14 @@ function commons_events_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('node from Registration'),
-    t('Bruger'),
+    t('User'),
     t('Alle'),
     t('Full Attendee List Block'),
+    t('more'),
     t('Content pane'),
     t('View panes'),
     t('Data export'),
-    t('Navn'),
+    t('Name'),
     t('E-mail'),
     t('Telefon'),
     t('EAN'),
@@ -224,12 +225,12 @@ function commons_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Forbindelse: Entity Reference: Refereret entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_organizers_target_id']['id'] = 'field_organizers_target_id';
   $handler->display->display_options['relationships']['field_organizers_target_id']['table'] = 'field_data_field_organizers';
   $handler->display->display_options['relationships']['field_organizers_target_id']['field'] = 'field_organizers_target_id';
   $handler->display->display_options['relationships']['field_organizers_target_id']['required'] = TRUE;
-  /* Felt: Bruger: Billede */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -237,7 +238,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = '50x50';
-  /* Kontekstuelt filter: Indhold: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -269,9 +270,10 @@ function commons_events_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Bruger entity refereret fra field_organizers'),
+    t('User entity referenced from field_organizers'),
     t('Alle'),
     t('Content pane'),
+    t('more'),
     t('View panes'),
   );
   $export['commons_events_organizers'] = $view;
@@ -316,18 +318,18 @@ function commons_events_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Forbindelse: Registration Settings: Indholdselement to Registration Settings */
+  /* Relationship: Registration Settings: Node to Registration Settings */
   $handler->display->display_options['relationships']['registration_settings_rel']['id'] = 'registration_settings_rel';
   $handler->display->display_options['relationships']['registration_settings_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['registration_settings_rel']['field'] = 'registration_settings_rel';
   $handler->display->display_options['relationships']['registration_settings_rel']['required'] = TRUE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Arrangementsdato */
+  /* Field: Content: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -340,7 +342,7 @@ function commons_events_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -348,7 +350,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
   $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -356,17 +358,17 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '[comment_count] comments';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
+  /* Sort criterion: Content: Arrangementsdato -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -374,14 +376,11 @@ function commons_events_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Tilmeldingsdato - slutdato (field_registration_date:value2) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_registration_date_value2']['id'] = 'field_registration_date_value2';
   $handler->display->display_options['filters']['field_registration_date_value2']['table'] = 'field_data_field_registration_date';
   $handler->display->display_options['filters']['field_registration_date_value2']['field'] = 'field_registration_date_value2';
   $handler->display->display_options['filters']['field_registration_date_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_registration_date_value2']['granularity'] = 'minute';
-  $handler->display->display_options['filters']['field_registration_date_value2']['default_date'] = 'now';
-  $handler->display->display_options['filters']['field_registration_date_value2']['year_range'] = '-0:+3';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
@@ -441,13 +440,13 @@ function commons_events_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Arrangementsdato */
+  /* Field: Content: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -460,7 +459,7 @@ function commons_events_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -468,7 +467,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
   $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere,';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -515,7 +514,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -523,7 +522,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No events have been created yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
+  /* Sort criterion: Content: Arrangementsdato -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -558,19 +557,19 @@ function commons_events_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: OG membership: OG membership from Indholdselement */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Arrangementsdato */
+  /* Field: Content: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -583,7 +582,7 @@ function commons_events_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -591,7 +590,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
   $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere,';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -600,7 +599,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '[comment_count] comments';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: OG membership: Group ID */
+  /* Contextual filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['gid']['field'] = 'gid';
@@ -659,19 +658,19 @@ function commons_events_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: OG membership: OG membership from Indholdselement */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Indhold: Arrangementsdato */
+  /* Field: Content: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -684,7 +683,7 @@ function commons_events_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -692,7 +691,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
   $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere,';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -701,7 +700,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '[comment_count] comments';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: OG membership: Group ID */
+  /* Contextual filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['gid']['field'] = 'gid';
@@ -747,6 +746,7 @@ function commons_events_views_default_views() {
     t('[comment_count] comments'),
     t(','),
     t('Feed'),
+    t('more'),
     t('Global Block'),
     t('Kommende arrangementer'),
     t('Landing page all'),
@@ -793,39 +793,39 @@ function commons_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'You are not attending any upcoming events.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Tilmelding: Indholdselement to Registration */
+  /* Relationship: Registration: Node to Registration */
   $handler->display->display_options['relationships']['registration_rel']['id'] = 'registration_rel';
   $handler->display->display_options['relationships']['registration_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['registration_rel']['field'] = 'registration_rel';
   $handler->display->display_options['relationships']['registration_rel']['required'] = TRUE;
-  /* Forbindelse: Tilmelding: Bruger */
+  /* Relationship: Registration: User */
   $handler->display->display_options['relationships']['user_uid']['id'] = 'user_uid';
   $handler->display->display_options['relationships']['user_uid']['table'] = 'registration';
   $handler->display->display_options['relationships']['user_uid']['field'] = 'user_uid';
   $handler->display->display_options['relationships']['user_uid']['relationship'] = 'registration_rel';
   $handler->display->display_options['relationships']['user_uid']['required'] = TRUE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  /* Sorteringskriterie: Indhold: Arrangementsdato -  startdato (field_date) */
+  /* Sort criterion: Content: Arrangementsdato -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Kontekstuelt filter: Tilmelding: Bruger */
+  /* Contextual filter: Registration: User */
   $handler->display->display_options['arguments']['user_uid']['id'] = 'user_uid';
   $handler->display->display_options['arguments']['user_uid']['table'] = 'registration';
   $handler->display->display_options['arguments']['user_uid']['field'] = 'user_uid';
@@ -836,20 +836,20 @@ function commons_events_views_default_views() {
   $handler->display->display_options['arguments']['user_uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['user_uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['user_uid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filterkriterie: Indhold: Arrangementsdato -  startdato (field_date) */
+  /* Filter criterion: Content: Arrangementsdato -  start date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -878,13 +878,13 @@ function commons_events_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Felt: Address */
+  /* Field: Field: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
@@ -897,7 +897,7 @@ function commons_events_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -906,7 +906,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['alter']['text'] = '<strong>[capacity_used]</strong> attendees,';
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -916,7 +916,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['separator'] = '';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Tilmelding: Bruger */
+  /* Contextual filter: Registration: User */
   $handler->display->display_options['arguments']['user_uid']['id'] = 'user_uid';
   $handler->display->display_options['arguments']['user_uid']['table'] = 'registration';
   $handler->display->display_options['arguments']['user_uid']['field'] = 'user_uid';
@@ -946,13 +946,13 @@ function commons_events_views_default_views() {
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Felt: Address */
+  /* Field: Field: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
@@ -965,7 +965,7 @@ function commons_events_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -974,7 +974,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['alter']['text'] = '<strong>[capacity_used]</strong> attendees,';
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -984,7 +984,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['separator'] = '';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Forfatter uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -1012,19 +1012,19 @@ function commons_events_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: Flag: commons_follow_node */
+  /* Relationship: Flags: commons_follow_node */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'commons_follow_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Felt: Felt: Address */
+  /* Field: Field: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
@@ -1037,7 +1037,7 @@ function commons_events_views_default_views() {
       'address' => 'address',
     ),
   );
-  /* Felt: Registration Settings: Spaces used */
+  /* Field: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -1046,7 +1046,7 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['alter']['text'] = '<strong>[capacity_used]</strong> attendees,';
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
-  /* Felt: Indhold: Kommentarantal */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -1066,9 +1066,10 @@ function commons_events_views_default_views() {
     t('Faldende'),
     t('You are not attending any upcoming events.'),
     t('node being the Registration'),
-    t('Bruger'),
+    t('User'),
     t('Alle'),
     t('Block'),
+    t('more'),
     t('You\'re attending - pane'),
     t('You\'re attending'),
     t('<strong>[capacity_used]</strong> attendees,'),
