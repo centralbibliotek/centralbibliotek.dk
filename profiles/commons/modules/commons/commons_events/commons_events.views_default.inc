@@ -376,11 +376,6 @@ function commons_events_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Broken/missing handler */
-  $handler->display->display_options['filters']['field_registration_date_value2']['id'] = 'field_registration_date_value2';
-  $handler->display->display_options['filters']['field_registration_date_value2']['table'] = 'field_data_field_registration_date';
-  $handler->display->display_options['filters']['field_registration_date_value2']['field'] = 'field_registration_date_value2';
-  $handler->display->display_options['filters']['field_registration_date_value2']['operator'] = '>=';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
