@@ -62,7 +62,11 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $row->{'field_imagefile1:title'} = isset($img_data['title']) ? $img_data['title'] : NULL;
 
     // Convert from text to number.
-    $row->field_price = array(cbib_migrate_convert_to_price($row->field_price[0]));
+    $price = cbib_migrate_convert_to_price($row->field_price[0]);
+    if ($price === FALSE) {
+      $row->body .= '<p>' . $row->field_price[0] . '</p>';
+    }
+    $row->field_price = array($price === FALSE ? NULL : $price);
 
     // Convert type from text to term reference.
     $row->field_type = $this->convertTypeToTid($row->field_type);

@@ -498,7 +498,7 @@ function cbib_migrate_convert_to_price($text) {
   // Fail if remaining string is not numeric.
   if (!is_numeric($text_modif)) {
     cbib_migrate_register_message("Received value was not a price. Value: " . $text, Migration::MESSAGE_WARNING);
-    return NULL;
+    return FALSE;
   }
 
   return (double)$text_modif;
