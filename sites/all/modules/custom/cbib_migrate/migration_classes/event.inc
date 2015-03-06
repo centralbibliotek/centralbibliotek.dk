@@ -120,7 +120,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
     // $query->join('content_field_attached_link', 'fal', 'fal.nid = n.nid AND fal.field_attached_link_url is not null');
     // $query->orderBy('n.nid');
-    // $query->range(0,250);
+    // $query->range(0,20);
 
     return $query;
   }
@@ -142,8 +142,8 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
       ->defaultValue(array());
     $this->addFieldMapping('field_location')
       ->defaultValue('physical');
-    $this->addFieldMapping('field_registration')
-      ->defaultValue('event');
+    //$this->addFieldMapping('field_registration:bundle')
+      //->defaultValue('event');
 
     $this->addUnmigratedDestinations(array('field_radioactivity'));
   }
@@ -168,7 +168,6 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
       'field_video_embed:title',
       'field_video_embed:description',
       'field_video_embed:duration',
-//      'field_rsvd', // TODO
     ), t('DNM'));
   }
 
@@ -425,6 +424,60 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     // Create/update registration entity.
     $settings['settings'] = serialize($settings['settings']);
     registration_update_entity_settings('node', $node->nid, $settings);
+
+    // @hack Ultra-ugly hack, because I can't seem to migrate the 'event'
+    // constant into field_registration:registration_type.
+    $key = array(
+      'entity_type' => 'node',
+      'entity_id' => $node->nid,
+      'deleted' => 0,
+      'delta' => 0,
+      'language' => LANGUAGE_NONE,
+    );
+    $fields = array(
+      'revision_id' => $node->vid,
+      'bundle' => 'event',
+      'field_registration_registration_type' => 'event',
+    );
+    db_merge('field_data_field_registration')
+      ->key($key)
+      ->fields($fields)
+      ->execute();
+
+    db_merge('field_revision_field_registration')
+      ->key($key)
+      ->fields($fields)
+      ->execute();
+
+    // Migrate attendees.
+    $users = Database::getConnection('default', $this->sourceConnection)
+      ->select('centralbibliotek_signup', 's')
+      ->fields('s')
+      ->condition('s.nid', $row->nid)
+      ->execute()
+      ->fetchAll();
+
+    foreach ($users as $user) {
+      $uid = cbib_migrate_lookup_target_id('user', $user->uid);
+      // Register attendees
+      $values = array(
+        'entity_type' => 'node',
+        'entity_id' => $node->nid,
+        'type' => 'event',
+        'created' => $user->signup_at,
+      );
+
+      $registration = entity_create('registration', $values);
+
+      if (!registration_is_registered($registration, NULL, $uid)) {
+        $registration->user_uid = $uid;
+        $registration->author_uid = $uid;
+        $registration->state = NULL;
+        $registration->count = 1;
+
+        registration_save($registration);
+      }
+    }
 
     // Migrate og memberships.
     parent::complete($node, $row);
