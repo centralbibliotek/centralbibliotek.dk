@@ -60,6 +60,10 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
    */
   public function getRaw() {
     $url = rtrim($this->url, '/') . '/' . $this->method;
+    $cache_key = "erms_method:" . md5($url);
+    if ($cache = cache_get($cache_key)) {
+      return $cache->data;
+    }
     list($url, $options) = $this->prepareRawFeed($url);
 
     $result = drupal_http_request($url, $options);
@@ -69,7 +73,12 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
     }
 
     $this->postProcessRaw($result->data);
-    return $this->sanitizeRaw($result->data);
+    $result = $this->sanitizeRaw($result->data);
+    $lifetime = variable_get('erms_feed_cache_lifetime', 3600);
+    if ($lifetime) {
+      cache_set($cache_key, $result, 'cache', time() + $lifetime);
+    }
+    return $result;
   }
 
   public function getTimeout() {
