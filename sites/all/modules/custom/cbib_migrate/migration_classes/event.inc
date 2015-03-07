@@ -76,7 +76,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
 
     // rsvd is the end time of the registration.
     $rsvd = $row->field_rsvd && reset($row->field_rsvd) ? reset($row->field_rsvd) : NULL;
-    $close_timestamp = $rsvd ? strtotime($rsvd) : 0;
+    //$close_timestamp = $rsvd ? strtotime($rsvd) : 0;
 
     // Number of attendees.
     $capacity = $row->field_participants && reset($row->field_participants) ? reset($row->field_participants) : 0;
@@ -89,20 +89,23 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $remove = $this->convertRegistrationType($row->field_event_remove_subscription);
 
     // Convert registration type from old text value to 0/1.
-    $row->registration_entity['status'] = ($rsvd && ($close_timestamp > time()) && !$remove) ? '1' : '0';
+    //$row->registration_entity['status'] = ($rsvd && ($close_timestamp > time()) && !$remove) ? '1' : '0';
+    //$row->registration_entity['status'] = !$remove ? '1' : '0';
+    $row->registration_entity['status'] = $rsvd && !$remove ? '1' : '0';
     $row->registration_entity['capacity'] = $capacity;
 
     // Convert person fields from two fields to one field with two values.
     $row->field_lecturer_legacy = $this->convertPerson($row->field_organiser, $row->field_email1);
     $row->field_contact_legacy = $this->convertPerson($row->field_contactname, $row->field_email2);
 
-    $row->field_registration_type = $row->field_attached_link && reset($row->field_attached_link) ? 'external' : 'onsite';
+    // $row->field_registration_type = $row->field_attached_link && reset($row->field_attached_link) ? 'external' : 'onsite';
 
     // Notify if entity has a video. We will handle migration of video field manually.
     if (!empty($row->field_video_embed) && !empty($row->field_video_embed[0])) {
       cbib_migrate_register_message("Entity has a value in field_video_embed. Handle this manually");
     }
 
+    //dpm($row);
     return TRUE;
   }
 
@@ -122,7 +125,8 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $query->leftJoin('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
     $query->leftJoin('location', 'l', 'l.lid = i.lid');
     $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
-
+    // $query->condition('n.nid', 12760);
+    // $query->range(0, 1);
     return $query;
   }
 
@@ -324,9 +328,12 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
    */
   private function mapRegistrationTypeField() {
     // $this->addFieldMapping('field_registration_type', 'field_event_remove_subscription');
-    $this->addFieldMapping('field_registration_type', 'field_registration_type');
+//    $this->addFieldMapping('field_registration_type', 'field_registration_type');
 //      ->defaultValue('onsite');
     // $this->addFieldMapping('field_status', 'field_status');
+
+    $this->addFieldMapping('field_registration_type')
+      ->defaultValue('onsite');
   }
 
   /**
