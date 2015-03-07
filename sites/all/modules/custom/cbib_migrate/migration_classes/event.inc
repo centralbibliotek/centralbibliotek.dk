@@ -122,10 +122,6 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $query->leftJoin('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
     $query->leftJoin('location', 'l', 'l.lid = i.lid');
     $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
-    // $query->join('content_field_attached_link', 'fal', 'fal.nid = n.nid AND fal.field_attached_link_url is not null');
-    // $query->join('content_field_organiser', 'fo', 'fo.nid = n.nid AND LENGTH(fo.field_organiser_value) > 255');
-    // $query->orderBy('n.nid');
-    // $query->range(0,20);
 
     return $query;
   }
