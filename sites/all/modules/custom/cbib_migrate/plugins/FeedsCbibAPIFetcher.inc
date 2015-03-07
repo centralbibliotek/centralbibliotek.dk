@@ -79,6 +79,8 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
   public function setTimeout($timeout) {
     $this->timeout = $timeout;
   }
+
+  public function postProcessRaw(&$raw) {}
 }
 
 /**
@@ -88,6 +90,9 @@ class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
   public function postProcessRaw(&$raw) {
     $raw = $this->sanitizeRaw($raw);
     $data = drupal_json_decode($raw);
+    if (!$data || !isset($data['response'])) {
+      throw new Exception(t('Invalid response from @url. Response: @response', array('@url' => $url, '@response' => $raw)));
+    }
     $processes = array();
     foreach ($data['response'] as &$response) {
       if ($response['subscribers']) {
