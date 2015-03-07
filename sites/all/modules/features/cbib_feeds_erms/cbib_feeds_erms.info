@@ -1,7 +1,7 @@
 name = ERMS Feeds
 description = ERMS Feeds
 core = 7.x
-package = Features
+package = Centralbibliotek.dk
 version = 7.x-1.0
 project = cbib_feeds_erms
 dependencies[] = cbib_migrate
