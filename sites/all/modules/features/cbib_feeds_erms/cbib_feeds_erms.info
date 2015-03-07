@@ -17,5 +17,6 @@ features[features_api][] = api:2
 features[feeds_importer][] = libraries
 features[feeds_importer][] = licenses
 features[feeds_tamper][] = libraries-id-sprintf
+features[feeds_tamper][] = libraries-parent-find_replace
 features[feeds_tamper][] = licenses-libraries-sprintf
 project path = sites/all/modules/features
