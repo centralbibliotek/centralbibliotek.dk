@@ -48,6 +48,12 @@ function cbib_feeds_erms_feeds_importer_default() {
             'debug' => 0,
             'weight' => '2',
           ),
+          'parent' => array(
+            'name' => 'Parent',
+            'value' => 'parent_isil',
+            'debug' => 0,
+            'weight' => '3',
+          ),
         ),
         'context' => array(
           'value' => '$.response.*',
@@ -85,6 +91,11 @@ function cbib_feeds_erms_feeds_importer_default() {
             'source' => 'id',
             'target' => 'guid',
             'unique' => 1,
+          ),
+          4 => array(
+            'source' => 'parent',
+            'target' => 'field_centralbibliotek_ref:field:node:centralbibliotek:field_agency',
+            'unique' => FALSE,
           ),
         ),
         'update_existing' => '2',
