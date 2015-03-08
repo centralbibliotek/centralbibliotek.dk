@@ -94,7 +94,7 @@ function cbib_feeds_erms_feeds_importer_default() {
           ),
           4 => array(
             'source' => 'parent',
-            'target' => 'field_centralbibliotek_ref:field:node:centralbibliotek:field_agency',
+            'target' => 'field_centralbibliotek_ref:field:node:centralbibliotek:field_agency:value',
             'unique' => FALSE,
           ),
         ),

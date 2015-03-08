@@ -36,17 +36,21 @@ function cbib_migrate_feeds_processor_targets_alter(&$targets, $entity_type, $bu
 
       foreach ($instances as $target_bundle => $target_instance) {
         foreach ($target_instance as $field_name => $field_instances) {
-          $tname = "$name:field:$target_type:$target_bundle:$field_name";
-          $targets[$tname] = array(
-            'name' => check_plain($instance['label'] . t(' (Entity reference by @field)', array(
-                '@field' => $field_name,
-              ))),
-            'callback' => 'cbib_migrate_feeds_set_target',
-            'description' => t('The field instance @label of @id matched by ISIL.', array(
-              '@label' => $instance['label'],
-              '@id' => $tname,
-            )),
-          );
+          $field_info = field_info_field($field_name);
+          foreach (array_keys($field_info['columns']) as $column_name) {
+            $tname = "$name:field:$target_type:$target_bundle:$field_name:$column_name";
+            $targets[$tname] = array(
+              'name' => check_plain($instance['label'] . t(' (Entity reference by field @field:@column)', array(
+                  '@field' => $field_name,
+                  '@column' => $column_name,
+                ))),
+              'callback' => 'cbib_migrate_feeds_set_target',
+              'description' => t('The field instance @label of @id matched by ISIL.', array(
+                '@label' => $instance['label'],
+                '@id' => $tname,
+              )),
+            );
+          }
         }
       }
     }
@@ -85,8 +89,8 @@ function cbib_migrate_feeds_set_target($source, $entity, $target, $value) {
   }
 
   // Determine the field we are matching against.
-  if (preg_match('/^(.*):field:(.*):(.*):(.*)$/', $target, $matches)) {
-    list(,$target, $target_type, $target_bundle, $target_field) = $matches;
+  if (preg_match('/^(.*):field:(.*):(.*):(.*):(.*)$/', $target, $matches)) {
+    list(,$target, $target_type, $target_bundle, $target_field, $target_column) = $matches;
   }
   else {
     return FALSE;
@@ -104,7 +108,7 @@ function cbib_migrate_feeds_set_target($source, $entity, $target, $value) {
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', $target_type)
         ->entityCondition('bundle', $target_bundle)
-        ->fieldCondition($target_field, 'value', $value, '=');
+        ->fieldCondition($target_field, $target_column, $value, '=');
       $result = $query->execute();
       foreach ($result[$target_type] as $target_entity) {
         $wrapper = entity_metadata_wrapper($target_type, $target_entity);
