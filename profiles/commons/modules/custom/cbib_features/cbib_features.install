@@ -78,3 +78,12 @@ function _cbib_features_fix_collations() {
 function cbib_features_update_7101(&$sandbox) {
   _cbib_features_fix_collations();
 }
+
+/**
+ * Enable Features Override module.
+ */
+function cbib_features_update_7102(&$sandbox) {
+  if (!module_exists('features_override')) {
+    module_enable(array('features_override'));
+  }
+}
