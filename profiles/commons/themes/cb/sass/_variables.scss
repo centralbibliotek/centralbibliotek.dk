@@ -196,6 +196,10 @@ $condensed-font: 'solido condensed medium', 'Helvetica Neue', Arial, Helvetica, 
 //
 $gutter-width: 10px;
 
+$headerTop: 20px;
+
+$h1Size: 1.65rem;
+
 // global chunk of code for importing
 
 $icons: sprite-map('icons/*.png', $spacing: 20px);

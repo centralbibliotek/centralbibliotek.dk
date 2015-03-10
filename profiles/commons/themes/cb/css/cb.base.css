@@ -612,7 +612,7 @@ div.messages.error {
 .main-header {
   background: #333;
   position: relative;
-  min-height: 113px;
+  min-height: 73px;
 }
 .main-header .container {
   position: relative;
@@ -620,7 +620,7 @@ div.messages.error {
 
 #branding {
   position: absolute;
-  top: 38px;
+  top: 20px;
   left: 10px;
   font-size: 1.25em;
   letter-spacing: -.035em;
@@ -636,6 +636,7 @@ div.messages.error {
   background: #ddd;
   margin-bottom: 3em;
   overflow: hidden;
+  padding: 0.5em 0;
 }
 #main-menu .block {
   margin-bottom: 0;
@@ -656,7 +657,6 @@ div.messages.error {
 #main-menu li a {
   color: #424242;
   display: block;
-  padding: .75em 0;
 }
 #main-menu li a:hover, #main-menu li a:focus {
   text-decoration: none;
@@ -671,7 +671,7 @@ div.messages.error {
 #block-search-form {
   width: 30%;
   position: absolute;
-  top: 38px;
+  top: 20px;
   right: 10px;
 }
 #block-search-form .form-item-custom-search-types {
@@ -680,7 +680,7 @@ div.messages.error {
 #block-search-form input[type="search"] {
   background: none;
   border: 0;
-  border-bottom: 1px solid #929292;
+  border-bottom: 1px solid #525252;
   box-shadow: none;
   border-radius: 0;
   color: #fff;
@@ -740,8 +740,6 @@ div.messages.error {
 }
 #main-menu .utility-links a {
   font-size: .8em;
-  padding-top: 1.15em;
-  padding-bottom: 1.15em;
 }
 #main-menu .utility-links li.active a {
   box-shadow: inset 0 -3px 0 0 #333;
@@ -749,9 +747,8 @@ div.messages.error {
 }
 
 #block-views-centralbiblioteker-block .toggle-link, #block-views-centralbiblioteker-block ul.region-select li a {
-  padding: 1em;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   text-decoration: none;
   display: block;
   font-family: "gotham rounded book", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -760,22 +757,23 @@ div.messages.error {
 
 #block-views-centralbiblioteker-block {
   position: absolute;
-  top: 28px;
+  top: 20px;
   left: 255px;
   z-index: 100;
 }
 #block-views-centralbiblioteker-block .toggle-link {
-  font-size: 20px;
+  font-size: 1.65rem;
+  padding: 0 1em;
   background-image: url(../images/branch-select-arrow.png);
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: right center;
-  padding-right: 30px;
+  padding-right: 40px;
 }
 #block-views-centralbiblioteker-block ul.region-select {
-  padding: 0 0 0.5em;
+  padding: 0;
   background-color: #333;
-  font-size: 20px;
+  font-size: 1.65rem;
   max-width: 180px;
   margin: 0;
 }

@@ -1,7 +1,7 @@
 .main-header {
   background: $gray-darkest;
   position: relative;
-  min-height: 113px;
+  min-height: 73px;
 
   .container {
     position: relative;
@@ -13,7 +13,7 @@
 
 #branding {
   position: absolute;
-  top: 38px;
+  top: $headerTop;
   left: 10px;
   font-size: 1.25em;
   letter-spacing: -.035em;
@@ -33,7 +33,7 @@
   background: $gray-light;
   margin-bottom: 3em;
   overflow: hidden;
-
+  padding: 0.5em 0;
   // Block container
   .block {
     margin-bottom: 0;
@@ -56,7 +56,6 @@
     a {
       color: $gray-darker;
       display: block;
-      padding: .75em 0;
 
       &:hover,
       &:focus {
@@ -78,7 +77,7 @@
 #block-search-form {
   width: 30%;
   position: absolute;
-  top: 38px;
+  top: $headerTop;
   right: 10px;
 
   .form-item-custom-search-types { display: none; } // Hide the site/users select box
@@ -87,7 +86,7 @@
   input[type="search"] {
     background: none;
     border: 0;
-    border-bottom: 1px solid $gray-search-field;
+    border-bottom: 1px solid darken($gray-search-field, 25%);
     box-shadow: none;
     border-radius: 0;
     color: #fff;
@@ -170,8 +169,6 @@
 
     a {
       font-size: .8em;
-      padding-top: 1.15em;
-      padding-bottom: 1.15em;
     }
 
     li.active a {
@@ -183,9 +180,8 @@
 }//#main-menu
 
 %toggle-link {
-  padding: 1em;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   text-decoration: none;
   display: block;
   font-family: $base-font;
@@ -195,25 +191,26 @@
 // Library branch selector
 #block-views-centralbiblioteker-block {
   position: absolute;
-  top: 28px;
+  top: $headerTop;
   left: 255px;
   z-index: 100;
 
   .toggle-link {
     @extend %toggle-link;
 
-    font-size: 20px;
+    font-size: $h1Size;
+    padding: 0 1em;
     background-image: url(../images/branch-select-arrow.png);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: right center;
-    padding-right: 30px;
+    padding-right: 40px;
   }
 
   ul.region-select {
-    padding: 0 0 0.5em;
+    padding: 0;
     background-color: $gray-darkest;
-    font-size: 20px;
+    font-size: $h1Size;
     max-width: 180px;
     margin: 0;
 
