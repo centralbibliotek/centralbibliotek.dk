@@ -767,14 +767,15 @@ div.messages.error {
   background-image: url(../images/branch-select-arrow.png);
   background-repeat: no-repeat;
   background-size: 20px;
-  background-position: right center;
-  padding-right: 40px;
+  background-position: right 1rem center;
+}
+#block-views-centralbiblioteker-block a {
+  width: 12rem;
 }
 #block-views-centralbiblioteker-block ul.region-select {
   padding: 0;
   background-color: #333;
   font-size: 1.65rem;
-  max-width: 180px;
   margin: 0;
 }
 #block-views-centralbiblioteker-block ul.region-select.closed {
