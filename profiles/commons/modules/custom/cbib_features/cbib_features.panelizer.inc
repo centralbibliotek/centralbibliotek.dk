@@ -140,7 +140,7 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '93e15674-d765-4f06-9fea-2c1a4898d6f4';
     $display->content['new-93e15674-d765-4f06-9fea-2c1a4898d6f4'] = $pane;
     $display->panels['one_main'][3] = 'new-93e15674-d765-4f06-9fea-2c1a4898d6f4';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:centralbibliotek:default'] = $panelizer;
@@ -266,7 +266,7 @@ function cbib_features_panelizer_defaults() {
       ),
       'context' => 'panelizer',
       'override_title' => 1,
-      'override_title_text' => '%node:title Bibliotekerne',
+      'override_title_text' => '%node:title Centralbibliotek',
     );
     $pane->cache = array();
     $pane->style = array(
