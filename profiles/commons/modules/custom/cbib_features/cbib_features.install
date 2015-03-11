@@ -87,3 +87,12 @@ function cbib_features_update_7102(&$sandbox) {
     module_enable(array('features_override'));
   }
 }
+
+/**
+ * Enable Cbib Commons Events features override module.
+ */
+function cbib_features_update_7103(&$sandbox) {
+  if (!module_exists('cbib_commons_events')) {
+    module_enable(array('cbib_commons_events'));
+  }
+}
