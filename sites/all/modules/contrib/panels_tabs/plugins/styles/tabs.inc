@@ -33,6 +33,7 @@ function theme_panels_tabs_style_render_region($vars) {
       'library' => array(array('system', 'ui.tabs')),
       'js' => array(
         drupal_get_path('module', 'panels_tabs') . '/js/panels_tabs.js' => array('type' => 'file'),
+        drupal_get_path('module', 'panels_tabs') . '/js/jquery.ba-bbq.js' => array('type' => 'file'),
       ),
     ),
   );
