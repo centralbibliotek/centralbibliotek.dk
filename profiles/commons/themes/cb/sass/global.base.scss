@@ -585,3 +585,31 @@ header[role=banner],
 .element-hidden {
   display: none;
 }
+
+// Override Chosen styling to be more like other styling
+.chosen-container-single {
+  .chosen-single div b {
+    background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  .chosen-single {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background: white none no-repeat right top;
+    box-shadow: none;
+    padding-top: .3em;
+    padding-bottom: .3em;
+  }
+
+  .chosen-drop {
+    box-shadow: none;
+    background: white none no-repeat right top;
+  }
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+  box-shadow: none;
+  background: white none no-repeat right top;
+}

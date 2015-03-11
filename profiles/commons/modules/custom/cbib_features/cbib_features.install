@@ -89,9 +89,18 @@ function cbib_features_update_7102(&$sandbox) {
 }
 
 /**
- * Enable Cbib Commons Events features override module.
+ * Enable Chosen module.
  */
 function cbib_features_update_7103(&$sandbox) {
+  if (!module_exists('chosen')) {
+    module_enable(array('chosen'));
+  }
+}
+
+/**
+ * Enable Cbib Commons Events features override module.
+ */
+function cbib_features_update_7104(&$sandbox) {
   if (!module_exists('cbib_commons_events')) {
     module_enable(array('cbib_commons_events'));
   }
