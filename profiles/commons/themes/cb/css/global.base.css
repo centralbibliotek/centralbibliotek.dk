@@ -523,8 +523,8 @@ header[role=banner],
 }
 
 .chosen-container-single .chosen-single div b {
-  background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
-  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==) !important;
+  background-size: 13px 4px !important;
   background-position: right center;
 }
 .chosen-container-single .chosen-single {
