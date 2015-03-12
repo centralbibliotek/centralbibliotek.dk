@@ -260,7 +260,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
   public function complete($user, $row) {
     // DrupalUserMigration expects a fid in the picture property?
     // Not sure why. But let's please it now and investigate later.
-    if ($user->picture) {
+    if ($user->picture && is_object($user->picture)) {
       $user->picture = $user->picture->fid;
     }
 
@@ -300,7 +300,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     }
 
     // Store user/isil relation for later use by the library feed importer.
-    if ($row->field_associated_library2) {
+    if (!empty($row->field_associated_library2)) {
       $isil = Database::getConnection('default', $this->sourceConnection)
         ->select('content_type_library_regular', 'l')
         ->fields('l', array('field_biblioteksnummer2_value'))
