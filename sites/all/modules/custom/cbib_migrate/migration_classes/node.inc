@@ -141,7 +141,7 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
     }
 
     if ($org_uids) {
-      $uids = db_select('migrate_map_user', 'u')
+      $uids = db_select('migrate_map_user_profile', 'u')
         ->fields('u', array('sourceid1', 'destid1'))
         ->condition('u.sourceid1', $org_uids, 'IN')
         ->execute()
