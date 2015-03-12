@@ -1,0 +1,15 @@
+name = Centralbibliotek - Commons Events
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_commons_events
+dependencies[] = commons_events
+features[features_api][] = api:2
+features[features_override_items][] = page_manager_pages.views_events_landing_page
+features[features_override_items][] = views_view.commons_events_upcoming
+features[features_overrides][] = page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-bf67dca8-b5a3-4cab-b883-41e2c3dbb6b1
+features[features_overrides][] = page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panel_settings|one_main
+features[features_overrides][] = page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panels|one_main|1
+features[features_overrides][] = views_view.commons_events_upcoming.display|default|display_options|filters|field_date_value
+features[features_overrides][] = views_view.commons_events_upcoming.display|panel_pane_5
+project path = sites/all/modules/features
