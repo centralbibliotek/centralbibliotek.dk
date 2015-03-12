@@ -105,3 +105,31 @@ function cbib_features_update_7104(&$sandbox) {
     module_enable(array('cbib_commons_events'));
   }
 }
+
+/**
+ * Clean up old and unused node url aliases.
+ */
+function cbib_features_update_7105(&$sandbox) {
+  // Find all non-broken node aliases.
+  $subquery = db_select('url_alias', 'su')
+    ->fields('su', array('pid'));
+  $subquery->join('node', 'n');
+  $subquery->where("su.source = CONCAT('node/', n.nid)");
+
+  // Find broken node aliases.
+  $pids = db_select('url_alias', 'u')
+    ->fields('u', array('pid'))
+    ->condition('u.pid', $subquery, 'NOT IN')
+    ->condition('u.source', 'node/%', 'LIKE')
+    ->execute()
+    ->fetchCol();
+
+  if ($pids) {
+    // Delete the broken node aliases.
+    db_delete('url_alias')
+      ->condition('pid', $pids, 'IN')
+      ->execute();
+  }
+
+  watchdog('cbib_features', 'Found and deleted @pids broken url node aliases', array('@pids' => count($pids)), WATCHDOG_INFO);
+}

@@ -38,6 +38,16 @@ function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
 }
 
 /**
+ * Implements hook_node_presave().
+ *
+ * We don't want multilingual nodes, as this could result in duplicate url
+ * aliases, so we force nodes to language neutral.
+ */
+function cbib_features_node_presave($node) {
+  $node->language = LANGUAGE_NONE;
+}
+
+/**
  * Implements hook_theme_registry_alter().
  *
  * Provide our own Danish One Line address formatter. We need it in the CSV
