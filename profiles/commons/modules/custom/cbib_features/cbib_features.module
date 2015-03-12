@@ -41,11 +41,9 @@ function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
   if (preg_match('@^node/\d+/(news|events|groups)$@', $source, $matches)) {
     foreach ($form['jump']['#options'] as $path => $title) {
       if ($path) {
-        // dpm($path);
         list($key, $new_path) = explode('::', $path);
         $new_path = drupal_get_normal_path(trim($new_path, '/'));
         $new_path = url($new_path . '/' . $matches[1]);
-        //dpm($new_path, $path);
         if ($form['jump']['#default_value'] === $path) {
           $form['jump']['#default_value'] = $new_path;
         }
