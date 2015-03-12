@@ -46,3 +46,55 @@ function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
 function cbib_features_node_presave($node) {
   $node->language = LANGUAGE_NONE;
 }
+
+/**
+ * Implements hook_theme_registry_alter().
+ *
+ * Provide our own Danish One Line address formatter. We need it in the CSV
+ * download so it should not be part of the theme.
+ */
+function cbib_features_theme_registry_alter(&$theme_registry) {
+  if (empty($theme_registry['addressfield_formatter__linear__dk'])) {
+    $theme_registry['addressfield_formatter__linear__dk']['function'] = 'cbib_features__addressfield_formatter__linear__dk';
+  }
+  if (empty($theme_registry['addressfield_formatter__linear__DK'])) {
+    $theme_registry['addressfield_formatter__linear__DK']['function'] = 'cbib_features__addressfield_formatter__linear__dk';
+  }
+}
+
+/**
+ * Overrides theme_addressfield_formatter__linear__dk().
+ */
+function cbib_features__addressfield_formatter__linear__dk($variables) {
+  $data = current($variables);
+  $loc = $data['#address'];
+
+  // Determine which location components to render
+  $out = array();
+  if (!empty($loc['name_line']) && $vars['name_line']) {
+    $out[] = $loc['name_line'];
+  }
+  if (!empty($loc['organisation_name']) && $vars['organisation_name']) {
+    $out[] = $loc['organisation_name'];
+  }
+  if (!empty($loc['thoroughfare'])) {
+    $out[] = $loc['thoroughfare'];
+  }
+  if (!empty($loc['premise']) && $vars['premise']) {
+    $out[] = $loc['premise'];
+  }
+  if (!empty($loc['postal_code']) && !empty($loc['locality'])) {
+    $out[] = $loc['postal_code'] . ' ' . $loc['locality'];
+  }
+  if (!empty($loc['administrative_area'])) {
+    $out[] = $loc['administrative_area'];
+  }
+  if ($loc['country'] != addressfield_tokens_default_country() && $country_name = _addressfield_tokens_country($loc['country'])) {
+    $out[] = $country_name;
+  }
+
+  // Render the location components
+  $output = implode(', ', $out);
+
+  return $output;
+}

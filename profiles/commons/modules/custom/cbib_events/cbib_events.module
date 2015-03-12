@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file
+ * Code for the Cbib Events feature.
+ */
+
+include_once 'cbib_events.features.inc';
 
 /**
  * @file
