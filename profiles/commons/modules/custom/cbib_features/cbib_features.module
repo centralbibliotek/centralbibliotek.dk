@@ -36,6 +36,9 @@ function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
     }
   }
 
+  // If standing on node/<nid>/events, and we switch region
+  // (aka central library), then we want to go to the events for that region
+  // instead of just the front page for that region.
   $new_options = array();
   $source = drupal_get_normal_path(request_path());
   if (preg_match('@^node/\d+/(news|events|groups)$@', $source, $matches)) {
