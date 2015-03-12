@@ -35,6 +35,37 @@ function cbib_features_form_ctools_jump_menu_alter(&$form, &$form_state) {
       $form['jump']['#default_value'] = $default_value;
     }
   }
+
+  // If standing on node/<nid>/events, and we switch region
+  // (aka central library), then we want to go to the events for that region
+  // instead of just the front page for that region.
+  $new_options = array();
+  $source = drupal_get_normal_path(request_path());
+  if (preg_match('@^node/\d+/(news|events|groups)$@', $source, $matches)) {
+    foreach ($form['jump']['#options'] as $path => $title) {
+      if ($path) {
+        list($key, $new_path) = explode('::', $path);
+        $new_path = drupal_get_normal_path(trim($new_path, '/'));
+        $new_path = url($new_path . '/' . $matches[1]);
+        if ($form['jump']['#default_value'] === $path) {
+          $form['jump']['#default_value'] = $new_path;
+        }
+        $path = $new_path;
+      }
+      $new_options[$path] = $title;
+    }
+    $form['jump']['#options'] = $new_options;
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ *
+ * We don't want multilingual nodes, as this could result in duplicate url
+ * aliases, so we force nodes to language neutral.
+ */
+function cbib_features_node_presave($node) {
+  $node->language = LANGUAGE_NONE;
 }
 
 /**
