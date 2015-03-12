@@ -123,7 +123,7 @@ class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
  * Result of FeedsCbibAPIFetcher::fetch().
  */
 class FeedsCbibAPIFetcherResultMembers extends FeedsCbibAPIFetcherResult {
-  public function postProcessRaw(&$data) {
+  public function postProcessRaw(&$raw) {
   }
 }
 

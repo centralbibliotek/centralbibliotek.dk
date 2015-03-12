@@ -53,10 +53,10 @@ function cbib_migrate_schema() {
         'default' => 0,
       ),
     ),
-    'unique keys' => array(
-      'uid' => array('uid'),
-    ),
     'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+  ),
   );
   return $schema;
 }
@@ -111,10 +111,10 @@ function cbib_migrate_update_7102() {
         'default' => 0,
       ),
     ),
-    'unique keys' => array(
-      'uid' => array('uid'),
-    ),
     'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+    ),
   );
   db_create_table('cbib_migrate_user_library_map', $schema);
 }

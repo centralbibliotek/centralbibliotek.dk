@@ -68,6 +68,32 @@ function cbib_migrate_feeds_plugins() {
 }
 
 /**
+ * Implements hook_feeds_after_save().
+ *
+ * After saving a library node, we must update the users reference to the
+ * library.
+ */
+function cbib_migrate_feeds_after_save($source, $entity, $item, $entity_id) {
+  if (!empty($entity->type) && $entity->type == 'library') {
+    if (!empty($item['isil'])) {
+      $uids = cbib_migrate_lookup_users_by_isil($item['isil']);
+      if ($uids) {
+        foreach ($uids as $uid) {
+          $user = user_load($uid);
+          $wrapper = entity_metadata_wrapper('user', $user);
+          $wrapper->field_library->set($entity_id);
+          $wrapper->save();
+
+          // We only need to set the library reference once (first time after
+          // migration). Mark the uid/isil relation as used.
+          cbib_migrate_register_user_library_mapping($user->uid, $item['isil'], 1);
+        }
+      }
+    }
+  }
+}
+
+/**
  * Get an array of all migrations. The returned migrations array
  * has the following keys:
  *   class: The name of the migration class.
@@ -602,12 +628,13 @@ function cbib_migrate_register_profile_mapping($nid, $uid) {
  * @return void.
  */
 function cbib_migrate_register_user_library_mapping($uid, $isil, $used = 0) {
-  $record = new StdClass();
-  $record->uid = $uid;
-  $record->isil = $isil;
-  $record->used= $used;
-
-  drupal_write_record('cbib_migrate_user_library_map', $record);
+  db_merge('cbib_migrate_user_library_map')
+    ->key(array('uid' => $uid))
+    ->fields(array(
+      'isil' => $isil,
+      'used' => $used,
+    ))
+    ->execute();
 }
 
 /**
@@ -635,13 +662,13 @@ function cbib_migrate_lookup_profile_uid($nid) {
  * @return
  *   The ISIL this user belongs to.
  */
-function cbib_migrate_lookup_isil($uid, $used = 0) {
+function cbib_migrate_lookup_users_by_isil($isil, $used = 0) {
   return db_select('cbib_migrate_user_library_map', 'm')
-    ->condition('uid', $uid)
+    ->fields('m', array('uid'))
+    ->condition('isil', $isil)
     ->condition('used', $used)
-    ->fields('m', array('isil'))
     ->execute()
-    ->fetchColumn();
+    ->fetchCol();
 }
 
 /**
