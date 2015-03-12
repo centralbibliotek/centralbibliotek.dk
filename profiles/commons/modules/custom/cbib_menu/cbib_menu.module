@@ -23,13 +23,15 @@ function cbib_menu_menu_link_alter(&$link) {
  * Implements hook_translated_menu_link_alter().
  */
 function cbib_menu_translated_menu_link_alter(&$item, $map) {
-  if (!empty($_SESSION['cbib_menu_nid'])) {
+  $cbib_menu = &drupal_static('cbib_menu', array());
+
+  if (!empty($cbib_menu['nid'])) {
     if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
-      $item['href'] = "node/{$_SESSION['cbib_menu_nid']}";
-      $item['title'] = $_SESSION['cbib_menu_title'];
+      $item['href'] = "node/{$cbib_menu['nid']}";
+      $item['title'] = $cbib_menu['title'];
     }
     elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
-      $item['href'] = "node/{$_SESSION['cbib_menu_nid']}/{$item['href']}";
+      $item['href'] = "node/{$cbib_menu['nid']}/{$item['href']}";
     }
   }
   // Set homepage link to front without alias.
@@ -45,14 +47,16 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
  * Implements hook_init().
  */
 function cbib_menu_init() {
+  $cbib_menu = &drupal_static('cbib_menu', array());
+
   if (drupal_is_front_page()) {
-      $_SESSION['cbib_menu_nid'] = FALSE;
+      $cbib_menu['nid'] = FALSE;
   }
-  elseif (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == NULL) {
-    $node = menu_get_object();
+  elseif (arg(0) == 'node' && is_numeric(arg(1))) {
+    $node = node_load(arg(1));
     if ($node->type == 'centralbibliotek') {
-      $_SESSION['cbib_menu_nid'] = $node->nid;
-      $_SESSION['cbib_menu_title'] = $node->title;
+      $cbib_menu['nid'] = $node->nid;
+      $cbib_menu['title'] = $node->title;
     }
   }
 }
