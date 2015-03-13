@@ -45,6 +45,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     // Split name.
     list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/", $row->title);
 
+    $row->field_ean_number = isset($row->field_ean_number) ? str_replace(' ', '', $row->field_ean_number) : '';
+
     return TRUE;
   }
 
