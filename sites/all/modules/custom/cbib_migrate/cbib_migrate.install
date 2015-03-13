@@ -29,6 +29,35 @@ function cbib_migrate_schema() {
     'primary key' => array('nid', 'uid'),
   );
 
+  $schema['cbib_migrate_user_library_map'] = array(
+    'description' => t('The mapping from users to library ISIL'),
+    'fields' => array(
+      'uid' => array(
+        'description' => t('The new uid of the user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'isil' => array(
+        'description' => t('The ISIL number this user belongs to.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'used' => array(
+        'description' => t('Whether or not this mapping has been used.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+  ),
+  );
   return $schema;
 }
 
@@ -48,4 +77,44 @@ function cbib_migrate_update_7101() {
   catch (Exception $e) {
     watchdog('cbib_migrate', 'Error updating language! Please take action! @error', array('@error' => (string) $e), WATCHDOG_ERROR);
   }
+}
+
+/**
+ * Add user -> library mapping table.
+ */
+function cbib_migrate_update_7102() {
+  // Deregister old user migration.
+  Migration::deregisterMigration("user");
+
+  // Create new table.
+  $schema = array(
+    'description' => t('The mapping from users to library ISIL'),
+    'fields' => array(
+      'uid' => array(
+        'description' => t('The new uid of the user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'isil' => array(
+        'description' => t('The ISIL number this user belongs to.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'used' => array(
+        'description' => t('Whether or not this mapping has been used.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+    ),
+  );
+  db_create_table('cbib_migrate_user_library_map', $schema);
 }

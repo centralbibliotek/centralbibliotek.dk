@@ -51,8 +51,6 @@ class FeedsExJsonPath extends FeedsExBase {
    */
   protected function executeSourceExpression($machine_name, $expression, $row) {
     $result = jsonPath($row, $expression);
-    error_log("Expression: $expression");
-    error_log(print_r($result, TRUE));
 
     if (is_scalar($result)) {
       return $result;
