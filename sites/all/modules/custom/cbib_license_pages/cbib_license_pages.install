@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_license_pages module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function cbib_license_pages_enable() {
+  module_load_include('inc', 'cbib_license_pages', 'cbib_license_pages.licensegroup');
+  cbib_license_pages_create_licensgroup();
+}
