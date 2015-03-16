@@ -133,3 +133,12 @@ function cbib_features_update_7105(&$sandbox) {
 
   watchdog('cbib_features', 'Found and deleted @pids broken url node aliases', array('@pids' => count($pids)), WATCHDOG_INFO);
 }
+
+/**
+ * Enable Cbib Commons Events features override module.
+ */
+function cbib_features_update_7106(&$sandbox) {
+  if (!module_exists('cbib_user_profile')) {
+    module_enable(array('cbib_user_profile'));
+  }
+}

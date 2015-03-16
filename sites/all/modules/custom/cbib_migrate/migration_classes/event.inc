@@ -204,7 +204,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $this->addFieldMapping('og_user_node', 'field_library')
       ->sourceMigration('central_library');
     $this->addFieldMapping('field_organizers', 'uid')
-      ->sourceMigration('user');
+      ->sourceMigration('user_profile');
   }
 
   /**
@@ -467,7 +467,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
       ->fetchAll();
 
     foreach ($users as $user) {
-      $uid = cbib_migrate_lookup_target_id('user', $user->uid);
+      $uid = cbib_migrate_lookup_target_id('user_profile', $user->uid);
       // Register attendees
       $values = array(
         'entity_type' => 'node',

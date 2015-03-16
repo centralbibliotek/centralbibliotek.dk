@@ -409,8 +409,31 @@ function commons_events_pages_panelizer_defaults() {
     $pane->uuid = 'd9b378c4-93e3-4445-b2da-c43dc1bd0588';
     $display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'] = $pane;
     $display->panels['two_66_33_second'][5] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588';
+    $pane = new stdClass();
+    $pane->pid = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71';
+    $pane->panel = 'two_66_33_second';
+    $pane->type = 'cbib_events_mailto';
+    $pane->subtype = 'cbib_events_mailto';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'panelizer',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '35ea1bae-7836-4e19-a8d0-a507e4537e71';
+    $display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71'] = $pane;
+    $display->panels['two_66_33_second'][6] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71';
   $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = 'new-3dcbfc27-8ac0-428e-9926-4d20124df9d6';
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:event:default'] = $panelizer;
 
