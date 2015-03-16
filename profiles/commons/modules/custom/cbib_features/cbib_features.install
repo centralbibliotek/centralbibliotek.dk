@@ -135,9 +135,18 @@ function cbib_features_update_7105(&$sandbox) {
 }
 
 /**
- * Enable cbib_license_pages module.
+ * Enable Cbib Commons Events features override module.
  */
 function cbib_features_update_7106(&$sandbox) {
+  if (!module_exists('cbib_user_profile')) {
+    module_enable(array('cbib_user_profile'));
+  }
+}
+
+/**
+ * Enable cbib_license_pages module.
+ */
+function cbib_features_update_7107(&$sandbox) {
   if (!module_exists('cbib_license_pages')) {
     module_enable(array('cbib_license_pages'));
   }

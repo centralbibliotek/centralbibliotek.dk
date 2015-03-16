@@ -45,6 +45,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     // Split name.
     list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/", $row->title);
 
+    $row->field_ean_number = isset($row->field_ean_number) ? str_replace(' ', '', $row->field_ean_number) : '';
+
     return TRUE;
   }
 
@@ -123,7 +125,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
    */
   private function mapNonMigratedSourceFields() {
     $this->addUnmigratedSources(array(
-      'field_otherworkplace',
       'field_associated_library2',
       'nid',
     ));
@@ -136,6 +137,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     $this->addFieldMapping('field_ean', 'field_ean_number');
     $this->addFieldMapping('field_phone', 'field_phone1');
     $this->addFieldMapping('field_job_title', 'field_job');
+    $this->addFieldMapping('field_alternate_work', 'field_otherworkplace');
 
     $this->noLanguage(array(
       'field_ean',
@@ -166,7 +168,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
    * @see CbibMigrateDrupalNode6Migration::mapAddressField()
    */
   private function mapAddressField() {
-    CbibMigrateDrupalNode6Migration::mapAddressFieldFor($this, 'field_address', 'field_address_profile');
+    $this->addFieldMapping('field_alternate_address', 'field_address_profile');
   }
 
   /**
