@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Code for the Cbib License Pages feature.
+ */
+
+include_once 'cbib_license_pages.features.inc';
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Unset panelizer and clone tab on the license group front page.
+ */
+function cbib_license_pages_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if (isset($router_item['page_arguments']) && is_array($router_item['page_arguments'])) {
+    $node = current($router_item['page_arguments']);
+    if (isset($node->nid) && $node->nid == variable_get('cbib_license_pages_front_nid')) {
+      foreach ($data['tabs'][0]['output'] as $delta => $tab) {
+        if (in_array($tab['#link']['path'], array('node/%/panelizer', 'node/%/clone/%'))) {
+          unset($data['tabs'][0]['output'][$delta]);
+        }
+      }
+    }
+  }
+}

@@ -142,3 +142,12 @@ function cbib_features_update_7106(&$sandbox) {
     module_enable(array('cbib_user_profile'));
   }
 }
+
+/**
+ * Enable cbib_license_pages module.
+ */
+function cbib_features_update_7107(&$sandbox) {
+  if (!module_exists('cbib_license_pages')) {
+    module_enable(array('cbib_license_pages'));
+  }
+}
