@@ -87,10 +87,8 @@ class CbibDocumentMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapEntityReferenceFields() {
-    // TODO Missing field right now.
-    /*$this->addFieldMapping('og_group_ref', 'field_relation_group')
-      ->sourceMigration('group');*/
-    $this->addUnmigratedSources(array('field_relation_group'));
+   $this->addFieldMapping('og_group_ref', 'field_relation_group')
+      ->sourceMigration('group');
   }
 
   /**
