@@ -161,3 +161,13 @@ function cbib_features_update_7108(&$sandbox) {
   }
   features_revert(array('cbib_page' => array('features_overrides', 'variable')));
 }
+
+/**
+ * Enable cbib_nationale_projekter module.
+ */
+function cbib_features_update_7109(&$sandbox) {
+  if (!module_exists('cbib_nationale_projekter')) {
+    module_enable(array('cbib_nationale_projekter'));
+  }
+  features_revert(array('cbib_nationale_projekter' => array('views_default', 'pages_default', 'features_overrides', 'menu_links')));
+}
