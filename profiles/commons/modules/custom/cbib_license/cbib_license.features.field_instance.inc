@@ -1314,7 +1314,7 @@ function cbib_license_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_license_status',
     'label' => 'Status',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -1354,7 +1354,7 @@ function cbib_license_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_license_subscription',
     'label' => 'Tilmelding',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
