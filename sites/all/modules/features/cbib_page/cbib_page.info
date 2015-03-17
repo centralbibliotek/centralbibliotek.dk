@@ -1,0 +1,16 @@
+name = CBIB Page
+core = 7.x
+package = Centralbibliotek.dk
+dependencies[] = cbib_page
+dependencies[] = commons_pages
+dependencies[] = ctools
+dependencies[] = panelizer
+dependencies[] = strongarm
+features[ctools][] = panelizer:panelizer:1
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[features_override_items][] = panelizer_defaults.node:page:default
+features[features_overrides][] = panelizer_defaults.node:page:default.display|title_pane
+features[panelizer_defaults][] = node:page:default
+features[variable][] = panelizer_defaults_node_page
+project path = sites/all/modules/features

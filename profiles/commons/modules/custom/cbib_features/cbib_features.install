@@ -151,3 +151,13 @@ function cbib_features_update_7107(&$sandbox) {
     module_enable(array('cbib_license_pages'));
   }
 }
+
+/**
+ * Enable cbib_page module.
+ */
+function cbib_features_update_7108(&$sandbox) {
+  if (!module_exists('cbib_page')) {
+    module_enable(array('cbib_page'));
+  }
+  features_revert(array('cbib_page' => array('features_overrides', 'variable')));
+}

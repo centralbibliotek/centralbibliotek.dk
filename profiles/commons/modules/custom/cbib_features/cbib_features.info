@@ -8,6 +8,7 @@ dependencies[] = cbib_library
 dependencies[] = cbib_license
 dependencies[] = cbib_license_pages
 dependencies[] = cbib_menu
+dependencies[] = cbib_page
 dependencies[] = cbib_views_news
 dependencies[] = collation_fixer
 dependencies[] = commons_groups

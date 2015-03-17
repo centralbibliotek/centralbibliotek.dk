@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB Page feature.
+ */
+
+include_once 'cbib_page.features.inc';
