@@ -43,8 +43,10 @@ function _cbib_features_delete_install_profile_first_group() {
  * Define collation on title fields and cache tables.
  */
 function cbib_features_schema_alter(&$schema) {
-  // Define Danish collation on {field_data_title_field} to sort Aalborg last.
+  // Define Danish collation on {node} and {field_data_title_field} to sort
+  // Aalborg etc. last.
   $schema['field_data_title_field']['collation'] = 'utf8_danish_ci';
+  $schema['node']['collation'] = 'utf8_danish_ci';
 
   // Define utf8_bin as collation on cache tables for better performance.
   foreach ($schema as $table => $info) {
@@ -69,6 +71,11 @@ function _cbib_features_fix_collations() {
   // Set Danish collation on {field_data_title_field} to sort Aalborg last.
   if (!empty($schema['field_data_title_field'])) {
     collation_fixer_fix_collation('field_data_title_field');
+  }
+
+  // Set Danish collation on {node} to sort Aabenraa etc. last.
+  if (!empty($schema['node'])) {
+    collation_fixer_fix_collation('node');
   }
 }
 
@@ -170,4 +177,12 @@ function cbib_features_update_7109(&$sandbox) {
     module_enable(array('cbib_nationale_projekter'));
   }
   features_revert(array('cbib_nationale_projekter' => array('views_default', 'pages_default', 'features_overrides', 'menu_links')));
+}
+
+/**
+ * Fix collation of {node} table. Library sorting on user profiles.
+ */
+function cbib_features_update_7110(&$sandbox) {
+  _cbib_features_fix_collations();
+  feature_revert(array('cbib_library' => array('field_base', 'field_instance')));
 }

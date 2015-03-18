@@ -188,9 +188,6 @@ function cbib_library_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
       ),
       'type' => 'options_select',
       'weight' => 7,

@@ -85,8 +85,8 @@ function cbib_library_field_default_field_bases() {
         ),
         'sort' => array(
           'direction' => 'ASC',
-          'field' => 'title_field:value',
-          'type' => 'field',
+          'property' => 'title',
+          'type' => 'property',
         ),
         'target_bundles' => array(
           'library' => 'library',
