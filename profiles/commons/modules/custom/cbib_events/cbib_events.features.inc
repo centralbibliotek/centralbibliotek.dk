@@ -62,5 +62,8 @@ function cbib_events_views_default_views_alter(&$data) {
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']['label'] = 'Navn'; /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']['link_to_user'] = FALSE; /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['path'] = 'node/%/registrations/DeltagerListe.csv'; /* WAS: 'node/%/registrations/deltagere.csv' */
+    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['encoding'] = 'utf8_decode'; /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['newline_token'] = 1; /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['replace_newlines'] = 1; /* WAS: 0 */
   }
 }

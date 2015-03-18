@@ -65,6 +65,9 @@ function cbib_events_features_override_default_overrides() {
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|label"] = 'Navn';
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|link_to_user"] = FALSE;
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|path"] = 'node/%/registrations/DeltagerListe.csv';
+  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|encoding"] = 'utf8_decode';
+  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|newline_token"] = 1;
+  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|replace_newlines"] = 1;
 
  return $overrides;
 }

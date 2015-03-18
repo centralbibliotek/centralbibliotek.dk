@@ -17,3 +17,6 @@ features[features_overrides][] = views_view.commons_events_event_attendee_list.d
 features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|label
 features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|link_to_user
 features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|path
+features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|encoding
+features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|newline_token
+features[features_overrides][] = views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|replace_newlines
