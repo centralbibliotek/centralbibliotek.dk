@@ -34,7 +34,7 @@ function cbib_events_cbib_events_add_attendee_content_type_render($subtype, $con
     $pane->title = t('Add attendee');
   }
 
-  // Only add stuff if the node is a registration.
+  // Only add stuff if the node is an event.
   if ($context->data->type == 'event') {
     $pane->content = drupal_get_form('cbib_events_add_attendee_form', $context->data->nid);
   }
@@ -91,7 +91,7 @@ function cbib_events_add_attendee_form_submit($form, &$form_state) {
     // Have the user automatically follow the event if Commons Follow (Node) is
     // enabled.
     if (module_exists('commons_follow_node')) {
-      commons_follow_node_follow_node($registration->entity_id, 'event', $event_user->uid);
+      commons_follow_node_follow_node($event_node->nid, 'event', $event_user->uid);
     }
   }
   else {

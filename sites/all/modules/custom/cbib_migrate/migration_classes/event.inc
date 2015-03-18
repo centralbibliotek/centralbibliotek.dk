@@ -486,6 +486,12 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
 
         registration_save($registration);
       }
+
+      // Have the user automatically follow the event if Commons Follow (Node) is
+      // enabled.
+      if (module_exists('commons_follow_node')) {
+        commons_follow_node_follow_node($node->nid, 'event', $user->uid);
+      }
     }
 
     // Migrate og memberships.
