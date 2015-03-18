@@ -143,3 +143,45 @@
     font-size: 2em;
   }
 }
+
+.node-type-centralbibliotek,
+.front {
+  .panel-col-first,
+  .views-row {
+    display: inline-block;
+    max-width: 302px;
+    vertical-align: top;
+    border-bottom: none;
+
+    .panel-col-bottom {
+      display: none;
+    }
+  }
+
+  .more-link {
+    display: none;
+  }
+
+  .cb-teaser-list {
+    h2 a {
+      font-size: 1.1em;
+    }
+
+    .node-teaser {
+      .center-wrapper {
+        .panel-col-last {
+          max-height: none;
+          width: 100%;
+
+          .inside {
+            margin: 0;
+          }
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

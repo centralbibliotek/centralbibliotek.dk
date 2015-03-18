@@ -447,6 +447,43 @@ div.messages.error {
   font-size: 2em;
 }
 
+.node-type-centralbibliotek .panel-col-first,
+.node-type-centralbibliotek .views-row,
+.front .panel-col-first,
+.front .views-row {
+  display: inline-block;
+  max-width: 302px;
+  vertical-align: top;
+  border-bottom: none;
+}
+.node-type-centralbibliotek .panel-col-first .panel-col-bottom,
+.node-type-centralbibliotek .views-row .panel-col-bottom,
+.front .panel-col-first .panel-col-bottom,
+.front .views-row .panel-col-bottom {
+  display: none;
+}
+.node-type-centralbibliotek .more-link,
+.front .more-link {
+  display: none;
+}
+.node-type-centralbibliotek .cb-teaser-list h2 a,
+.front .cb-teaser-list h2 a {
+  font-size: 1.1em;
+}
+.node-type-centralbibliotek .cb-teaser-list .node-teaser .center-wrapper .panel-col-last,
+.front .cb-teaser-list .node-teaser .center-wrapper .panel-col-last {
+  max-height: none;
+  width: 100%;
+}
+.node-type-centralbibliotek .cb-teaser-list .node-teaser .center-wrapper .panel-col-last .inside,
+.front .cb-teaser-list .node-teaser .center-wrapper .panel-col-last .inside {
+  margin: 0;
+}
+.node-type-centralbibliotek .cb-teaser-list .node-teaser:after,
+.front .cb-teaser-list .node-teaser:after {
+  display: none;
+}
+
 .panel-pane {
   margin-bottom: 2em;
 }
