@@ -473,6 +473,7 @@ div.messages.error {
 .node-type-centralbibliotek .cb-teaser-list .node-teaser .center-wrapper .panel-col-last,
 .front .cb-teaser-list .node-teaser .center-wrapper .panel-col-last {
   max-height: none;
+  min-height: 0;
   width: 100%;
 }
 .node-type-centralbibliotek .cb-teaser-list .node-teaser .center-wrapper .panel-col-last .inside,
