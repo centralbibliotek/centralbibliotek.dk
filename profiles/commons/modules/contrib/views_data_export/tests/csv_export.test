@@ -250,12 +250,14 @@ class CSVExportViewsDataExportTests extends ViewsDataExportSimpleExportTest {
       'newline_token' => 0,
     );
 
-    $expected = '"ID","Name","Age","Job"
+    $expected = <<<EOT
+"ID","Name","Age","Job"
 "1","John","25","Singer\r;Songwriter\r;Pianist"
 "2","George","27","Singer;Guitar player;Sitar player"
 "3","Ringo","28","Drummer"
 "4","Paul","26","Songwriter\rBass guitarist"
-"5","Meredith","30","Speaker"';
+"5","Meredith","30","Speaker"
+EOT;
 
     $message = 'Linefeed characters are replaced.';
 
