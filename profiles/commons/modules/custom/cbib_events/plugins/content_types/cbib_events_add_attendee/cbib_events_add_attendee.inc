@@ -42,10 +42,6 @@ function cbib_events_cbib_events_add_attendee_content_type_render($subtype, $con
 }
 
 function cbib_events_add_attendee_form($form, &$form_state) {
-  $nid = $form_state['build_info']['args'][0];
-  $node = node_load($nid);
-  // dpm($node, $nid);
-
   $form['user']['name'] = array(
     '#type' => 'textfield',
     '#title' => t('User name'),
