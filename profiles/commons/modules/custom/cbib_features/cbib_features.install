@@ -193,3 +193,13 @@ function cbib_features_update_7110(&$sandbox) {
 function cbib_features_update_7111(&$sandbox) {
   features_revert(array('cbib_features' => array('menu_links')));
 }
+
+/**
+ * Enable cbib_groups features.
+ */
+function cbib_features_update_7112(&$sandbox) {
+  if (!module_exists('cbib_groups')) {
+    module_enable(array('cbib_groups'));
+  }
+  features_revert(array('cbib_groups' => array('features_overrides')));
+}
