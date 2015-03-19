@@ -140,6 +140,28 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '93e15674-d765-4f06-9fea-2c1a4898d6f4';
     $display->content['new-93e15674-d765-4f06-9fea-2c1a4898d6f4'] = $pane;
     $display->panels['one_main'][3] = 'new-93e15674-d765-4f06-9fea-2c1a4898d6f4';
+    $pane = new stdClass();
+    $pane->pid = 'new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
+    $pane->panel = 'one_main';
+    $pane->type = 'commons_bw_group';
+    $pane->subtype = 'commons_bw_group';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
+    $display->content['new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08'] = $pane;
+    $display->panels['one_main'][4] = 'new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;

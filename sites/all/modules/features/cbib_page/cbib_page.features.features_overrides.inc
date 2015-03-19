@@ -12,7 +12,6 @@ function cbib_page_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: panelizer_defaults
-  $overrides["panelizer_defaults.node:page:default.display|title_pane"] = 'new-71bb3922-c9c3-4855-bce6-400ebddea84c';
 
  return $overrides;
 }

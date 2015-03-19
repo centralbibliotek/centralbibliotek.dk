@@ -1,7 +1,6 @@
 name = CBIB Page
 core = 7.x
 package = Centralbibliotek.dk
-dependencies[] = cbib_page
 dependencies[] = commons_pages
 dependencies[] = ctools
 dependencies[] = panelizer
