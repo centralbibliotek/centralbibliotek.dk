@@ -187,7 +187,6 @@ function cbib_news_field_default_field_bases() {
         ),
         'target_bundles' => array(
           'license' => 'license',
-          'licenses' => 'licenses',
         ),
       ),
       'target_type' => 'node',

@@ -14,7 +14,7 @@ function cbib_license_pages_enable() {
 }
 
 /**
- * Implements hook_update_N().
+ * Revert license pages features.
  */
 function cbib_license_pages_update_7101(&$sandbox) {
   features_revert(array(

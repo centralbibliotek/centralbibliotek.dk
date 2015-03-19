@@ -1053,6 +1053,7 @@ div.messages.error {
 }
 .pane-menu-menu-license-menu ul {
   padding-left: 0;
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 .pane-menu-menu-license-menu ul li.leaf {
   list-style-type: none;
@@ -1064,7 +1065,6 @@ div.messages.error {
   margin-right: 1em;
   background-color: #ddd;
   border: none;
-  font-size: 1.15em;
   line-height: 1.6;
 }
 .pane-menu-menu-license-menu ul li.leaf a {
