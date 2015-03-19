@@ -319,7 +319,7 @@ function cbib_news_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_og_groups_ref',
-    'label' => 'Group reference',
+    'label' => 'Grupper',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -441,12 +441,12 @@ function cbib_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
-  // Exported field_instance: 'node-news-og_group_ref'
-  $field_instances['node-news-og_group_ref'] = array(
+  // Exported field_instance: 'node-news-og_news_ref'
+  $field_instances['node-news-og_news_ref'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
     'default_value_function' => '',
@@ -458,7 +458,7 @@ function cbib_news_field_default_field_instances() {
         'module' => 'og_ui',
         'settings' => array(),
         'type' => 'og_list_default',
-        'weight' => 4,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -469,11 +469,21 @@ function cbib_news_field_default_field_instances() {
     ),
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
-    'field_name' => 'og_group_ref',
-    'label' => 'Centralbibliotek',
+    'field_name' => 'og_news_ref',
+    'label' => 'Nyhedsgrupper',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
         'prepopulate' => array(
           'status' => 0,
         ),
@@ -493,10 +503,10 @@ function cbib_news_field_default_field_instances() {
       ),
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
+      'active' => 0,
+      'module' => 'og',
       'settings' => array(),
-      'type' => 'options_buttons',
+      'type' => 'og_complex',
       'weight' => 4,
     ),
   );
@@ -505,12 +515,12 @@ function cbib_news_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Billede');
   t('Body');
-  t('Centralbibliotek');
   t('Emner');
   t('Forfatter');
-  t('Group reference');
+  t('Grupper');
   t('License reference');
   t('Link');
+  t('Nyhedsgrupper');
   t('Vedhæftninger');
 
   return $field_instances;
