@@ -12,6 +12,15 @@ function cbib_events_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: views_view
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|fields|name"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|fields|realname"] = array(
+    'id' => 'realname',
+    'table' => 'realname',
+    'field' => 'realname',
+    'relationship' => 'user_uid',
+    'label' => '',
+    'element_label_colon' => FALSE,
+  );
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|defaults|exposed_form"] = FALSE;
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|exposed_form"] = array(
     'type' => 'basic',
@@ -61,9 +70,16 @@ function cbib_events_features_override_default_overrides() {
     'field' => 'field_note',
     'label' => 'Bemærkninger',
   );
-  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|format_username"] = FALSE;
-  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|label"] = 'Navn';
-  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name|link_to_user"] = FALSE;
+  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|name"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|fields|realname"] = array(
+    'id' => 'realname',
+    'table' => 'realname',
+    'field' => 'realname',
+    'relationship' => 'user_uid',
+    'label' => 'Navn',
+    'element_label_colon' => FALSE,
+    'link_to_user' => FALSE,
+  );
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|path"] = 'node/%/registrations/DeltagerListe.csv';
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|encoding"] = 'utf8_decode';
   $overrides["views_view.commons_events_event_attendee_list.display|views_data_export_1|display_options|style_options|newline_token"] = 1;

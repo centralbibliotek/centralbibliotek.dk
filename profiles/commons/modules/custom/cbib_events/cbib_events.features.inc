@@ -18,6 +18,14 @@ function cbib_events_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function cbib_events_views_default_views_alter(&$data) {
   if (isset($data['commons_events_event_attendee_list'])) {
+    $data['commons_events_event_attendee_list']->display['default']->display_options['fields']['realname'] = array(
+      'id' => 'realname',
+      'table' => 'realname',
+      'field' => 'realname',
+      'relationship' => 'user_uid',
+      'label' => '',
+      'element_label_colon' => FALSE,
+    ); /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['defaults']['exposed_form'] = FALSE; /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['exposed_form'] = array(
       'type' => 'basic',
@@ -67,12 +75,20 @@ function cbib_events_views_default_views_alter(&$data) {
       'field' => 'field_note',
       'label' => 'Bemærkninger',
     ); /* WAS: '' */
-    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']['format_username'] = FALSE; /* WAS: '' */
-    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']['label'] = 'Navn'; /* WAS: '' */
-    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']['link_to_user'] = FALSE; /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['realname'] = array(
+      'id' => 'realname',
+      'table' => 'realname',
+      'field' => 'realname',
+      'relationship' => 'user_uid',
+      'label' => 'Navn',
+      'element_label_colon' => FALSE,
+      'link_to_user' => FALSE,
+    ); /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['path'] = 'node/%/registrations/DeltagerListe.csv'; /* WAS: 'node/%/registrations/deltagere.csv' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['encoding'] = 'utf8_decode'; /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['newline_token'] = 1; /* WAS: '' */
     $data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['style_options']['replace_newlines'] = 1; /* WAS: 0 */
+    unset($data['commons_events_event_attendee_list']->display['default']->display_options['fields']['name']);
+    unset($data['commons_events_event_attendee_list']->display['views_data_export_1']->display_options['fields']['name']);
   }
 }
