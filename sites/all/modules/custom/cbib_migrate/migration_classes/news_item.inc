@@ -132,7 +132,7 @@ class CbibNewsItemMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapEntityReferenceFields() {
-    $this->addFieldMapping('og_group_ref', 'field_relatedto')
+    $this->addFieldMapping('og_news_ref', 'field_relatedto')
       ->sourceMigration('central_library');
   }
 
