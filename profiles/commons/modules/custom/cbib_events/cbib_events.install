@@ -9,5 +9,5 @@
  * Revert features_overrides for realname changes.
  */
 function cbib_events_update_7101(&$sandbox) {
-  features_revert(array('cbib_events' => array('features_overrides')));
+  features_revert(array('cbib_events' => array('features_overrides', 'features_override_items')));
 }
