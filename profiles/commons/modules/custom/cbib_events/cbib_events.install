@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_events module.
+ */
+
+/**
+ * Revert features_overrides for realname changes.
+ */
+function cbib_events_update_7101(&$sandbox) {
+  features_revert(array('cbib_events' => array('features_overrides')));
+}
