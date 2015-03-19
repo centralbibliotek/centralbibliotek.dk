@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_nationale_projekter module.
+ */
+
+/**
+ * Revert menu_links feature.
+ */
+function cbib_nationale_projekter_update_7101(&$sandbox) {
+  features_revert(array('cbib_nationale_projekter' => array('menu_links')));
+}

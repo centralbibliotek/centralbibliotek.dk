@@ -186,3 +186,10 @@ function cbib_features_update_7110(&$sandbox) {
   _cbib_features_fix_collations();
   features_revert(array('cbib_library' => array('field_base', 'field_instance')));
 }
+
+/**
+ * Revert menu_links feature.
+ */
+function cbib_features_update_7111(&$sandbox) {
+  features_revert(array('cbib_features' => array('menu_links')));
+}
