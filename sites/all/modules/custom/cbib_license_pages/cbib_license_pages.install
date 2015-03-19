@@ -12,3 +12,19 @@ function cbib_license_pages_enable() {
   module_load_include('inc', 'cbib_license_pages', 'cbib_license_pages.licensegroup');
   cbib_license_pages_create_licensgroup();
 }
+
+/**
+ * Implements hook_update_N().
+ */
+function cbib_license_pages_update_7101(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'page_manager_pages',
+        'page_manager_handlers',
+        'menu_links',
+      ),
+      'cbib_license' => array(
+        'panelizer_defaults',
+      ),
+    ));
+}

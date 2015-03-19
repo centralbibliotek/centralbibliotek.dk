@@ -213,17 +213,13 @@ return FALSE;',
     $display->content['new-4217fe9c-2561-438d-847c-4a289f5b4bf0'] = $pane;
     $display->panels['two_66_33_first'][4] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
     $pane = new stdClass();
-    $pane->pid = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
-    $pane->panel = 'two_66_33_second';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'centralbibliotek_news-panel_pane_5';
+    $pane->pid = 'new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
+    $pane->panel = 'two_66_33_first';
+    $pane->type = 'commons_bw_group';
+    $pane->subtype = 'commons_bw_group';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'arguments' => array(
-        'field_topics_tid' => 'all',
-        'field_topics_tid_1' => '22',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -233,13 +229,13 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = 'ea23f7be-8a92-476e-b3a3-d339142e56e3';
-    $display->content['new-ea23f7be-8a92-476e-b3a3-d339142e56e3'] = $pane;
-    $display->panels['two_66_33_second'][0] = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $pane->uuid = '00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
+    $display->content['new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a'] = $pane;
+    $display->panels['two_66_33_first'][5] = 'new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
     $pane = new stdClass();
-    $pane->pid = 'new-866b0f59-cc9f-4879-8871-21168fecfeb6';
+    $pane->pid = 'new-139bd3d3-a5fa-4957-9bbd-c80ebce63d57';
     $pane->panel = 'two_66_33_second';
     $pane->type = 'views_panes';
     $pane->subtype = 'centralbibliotek_news-panel_pane_5';
@@ -247,8 +243,34 @@ return FALSE;',
     $pane->access = array();
     $pane->configuration = array(
       'arguments' => array(
+        'field_topics_tid' => 'all',
+        'field_topics_tid_1' => '23',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Nyheder',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '139bd3d3-a5fa-4957-9bbd-c80ebce63d57';
+    $display->content['new-139bd3d3-a5fa-4957-9bbd-c80ebce63d57'] = $pane;
+    $display->panels['two_66_33_second'][0] = 'new-139bd3d3-a5fa-4957-9bbd-c80ebce63d57';
+    $pane = new stdClass();
+    $pane->pid = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $pane->panel = 'two_66_33_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_news-panel_pane_5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'field_topics_tid' => '23',
         'field_topics_tid_1' => 'all',
-        'field_topics_tid' => '22',
       ),
       'override_title' => 1,
       'override_title_text' => 'Driftsnyheder',
@@ -261,9 +283,9 @@ return FALSE;',
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '866b0f59-cc9f-4879-8871-21168fecfeb6';
-    $display->content['new-866b0f59-cc9f-4879-8871-21168fecfeb6'] = $pane;
-    $display->panels['two_66_33_second'][1] = 'new-866b0f59-cc9f-4879-8871-21168fecfeb6';
+    $pane->uuid = 'ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $display->content['new-ea23f7be-8a92-476e-b3a3-d339142e56e3'] = $pane;
+    $display->panels['two_66_33_second'][1] = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
     $pane = new stdClass();
     $pane->pid = 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6';
     $pane->panel = 'two_66_33_second';
@@ -800,7 +822,10 @@ function cbib_license_pages_default_page_manager_pages() {
   $page->admin_title = 'License ambassadors';
   $page->admin_description = '';
   $page->path = 'licens/ambassadoerere';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
