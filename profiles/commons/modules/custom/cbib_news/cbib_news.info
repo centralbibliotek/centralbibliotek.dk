@@ -47,7 +47,6 @@ features[field_instance][] = node-news-field_link
 features[field_instance][] = node-news-field_og_groups_ref
 features[field_instance][] = node-news-field_og_licenses_ref
 features[field_instance][] = node-news-field_topics
-features[field_instance][] = node-news-og_group_ref
 features[field_instance][] = node-news-og_news_ref
 features[node][] = news
 features[page_manager_pages][] = views_newsletter_landing_page
