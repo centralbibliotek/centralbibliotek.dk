@@ -17,3 +17,4 @@ features[menu_links][] = menu-license-menu_formidling-og-pr:licens/formidling-og
 features[page_manager_handlers][] = node_view_panel_context_2
 features[page_manager_pages][] = licens_alle_licenser
 features[page_manager_pages][] = licens_formidling_og_pr
+features[page_manager_pages][] = license_ambassadors

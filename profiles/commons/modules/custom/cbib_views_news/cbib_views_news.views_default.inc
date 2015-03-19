@@ -405,16 +405,68 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Emner (field_topics) */
+  $handler->display->display_options['arguments']['field_topics_tid']['id'] = 'field_topics_tid';
+  $handler->display->display_options['arguments']['field_topics_tid']['table'] = 'field_data_field_topics';
+  $handler->display->display_options['arguments']['field_topics_tid']['field'] = 'field_topics_tid';
+  $handler->display->display_options['arguments']['field_topics_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_topics_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_topics_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_topics_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_topics_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Emner (field_topics) */
+  $handler->display->display_options['arguments']['field_topics_tid_1']['id'] = 'field_topics_tid_1';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['table'] = 'field_data_field_topics';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['field'] = 'field_topics_tid';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_topics_tid_1']['not'] = TRUE;
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
-    'gid' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
+    'field_og_groups_ref_target_id' => array(
+      'type' => 'none',
+      'context' => 'entity:user.field_alternate_address',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'OG membership: Group ID',
+      'label' => 'Indhold: Group reference (field_og_groups_ref)',
+    ),
+    'field_og_licenses_ref_target_id' => array(
+      'type' => 'none',
+      'context' => 'entity:user.field_alternate_address',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: License reference (field_og_licenses_ref)',
+    ),
+    'field_topics_tid' => array(
+      'type' => 'user',
+      'context' => 'entity:user.field_alternate_address',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Emner (field_topics)',
+    ),
+    'field_topics_tid_1' => array(
+      'type' => 'user',
+      'context' => 'entity:user.field_alternate_address',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Emner (field_topics) - exclude',
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
