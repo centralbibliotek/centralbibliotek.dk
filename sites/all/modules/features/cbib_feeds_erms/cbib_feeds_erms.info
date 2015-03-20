@@ -19,6 +19,6 @@ features[feeds_importer][] = licenses
 features[feeds_tamper][] = libraries-id-sprintf
 features[feeds_tamper][] = libraries-parent-find_replace
 features[feeds_tamper][] = licenses-databroend-convert_boolean
-features[feeds_tamper][] = licenses-id-licenses_id_sprintf
+features[feeds_tamper][] = licenses-id-sprintf
 features[feeds_tamper][] = licenses-libraries-sprintf
 project path = sites/all/modules/features
