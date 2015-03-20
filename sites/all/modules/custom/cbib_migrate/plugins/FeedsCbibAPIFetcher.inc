@@ -101,22 +101,21 @@ class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
     $raw = $this->sanitizeRaw($raw);
     $data = drupal_json_decode($raw);
     if (!$data || !isset($data['response'])) {
-      throw new Exception(t('Invalid response from @url. Response: @response', array('@url' => $url, '@response' => $raw)));
+      throw new Exception(t('Invalid response from @url. Response: @response', array('@url' => rtrim($this->url, '/') . '/' . $this->method, '@response' => $raw)));
     }
-    $processes = array();
     foreach ($data['response'] as &$response) {
       if ($response['subscribers']) {
         $url = rtrim($this->url, '/') . '/agreement/' . $response['id'];
         list($url, $options) = $this->prepareRawFeed($url);
-        $options += array('postpone' => TRUE, 'callback' => function ($result) use (&$response) {
-          $subscribers = drupal_json_decode($this->sanitizeRaw($result->data));
-          $subscribers['response']['subscribers'] = $subscribers['response']['subscribers'] ? $subscribers['response']['subscribers'] : array();
-          $response['subscribers'] = $subscribers['response']['subscribers'];
-        });
-        $processes[] = background_process_http_request($url, $options);
+        $result = drupal_http_request($url, $options);
+        if (empty($result) || empty($result->data) || !isset($data['response'])) {
+          throw new Exception(t('Invalid response from @url. Response: @response', array('@url' => $url, '@response' => print_r($result, TRUE))));
+        }
+        $subscribers = drupal_json_decode($this->sanitizeRaw($result->data));
+        $subscribers['response']['subscribers'] = !empty($subscribers['response']['subscribers']) ? $subscribers['response']['subscribers'] : array();
+        $response['subscribers'] = $subscribers['response']['subscribers'];
       }
     }
-    background_process_http_request_process($processes, array('limit' => 10));
     $raw = drupal_json_encode($data);
   }
 }
