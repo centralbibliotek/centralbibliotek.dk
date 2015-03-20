@@ -59,8 +59,9 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
    * Overrides FeedsFetcherResult::getRaw();
    */
   public function getRaw() {
+    $batch = batch_get();
     $url = rtrim($this->url, '/') . '/' . $this->method;
-    $cache_key = "erms_method:" . md5($url);
+    $cache_key = "erms_method:" . $batch['id'] . ':' . md5($url);
     if ($cache = cache_get($cache_key)) {
       return $cache->data;
     }
@@ -109,6 +110,7 @@ class FeedsCbibAPIFetcherResultAgreements extends FeedsCbibAPIFetcherResult {
         list($url, $options) = $this->prepareRawFeed($url);
         $options += array('postpone' => TRUE, 'callback' => function ($result) use (&$response) {
           $subscribers = drupal_json_decode($this->sanitizeRaw($result->data));
+          $subscribers['response']['subscribers'] = $subscribers['response']['subscribers'] ? $subscribers['response']['subscribers'] : array();
           $response['subscribers'] = $subscribers['response']['subscribers'];
         });
         $processes[] = background_process_http_request($url, $options);
