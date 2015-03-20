@@ -484,6 +484,13 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
         $registration->state = NULL;
         $registration->count = 1;
 
+        // Migrate users signup messages to field_note on registrations.
+        if (!empty($user->signup_msg)) {
+          dpm($user->signup_msg, '$user->signup_msg');
+          $registration->field_note[LANGUAGE_NONE][0]['value'] = $user->signup_msg;
+          $registration->field_note[LANGUAGE_NONE][0]['format'] = 'plain_text';
+        }
+
         registration_save($registration);
       }
 
