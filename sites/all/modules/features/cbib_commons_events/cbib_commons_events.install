@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_commons_events module.
+ */
+
+/**
+ * Revert field_instance to get field_og_groups_ref on events.
+ */
+function cbib_commons_events_update_7101(&$sandbox) {
+  features_revert(array('cbib_commons_events' => array('field_instance')));
+}

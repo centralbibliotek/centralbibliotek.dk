@@ -122,6 +122,9 @@ function cbib_migrate_get_all_migrations() {
     // Get migrations for events (Arrangement/event -> Begivenhed/event).
     cbib_migrate_get_event_migrations(),
 
+    // Get migrations for group events (Gruppebegivenhed/group_event -> Begivenhed/event).
+    cbib_migrate_get_group_event_migrations(),
+
     // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
     cbib_migrate_get_document_migrations(),
 
@@ -328,6 +331,30 @@ function cbib_migrate_get_event_migrations() {
       'group' => 'cbib',
       'description' => t('Migration of events from Centralbibliotek.dk'),
       'source_type' => 'event',
+      'destination_type' => 'event',
+      'user_migration' => 'user_profile',
+      'dependencies' => array('user_profile', 'central_library', 'group'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for group_events (Gruppebegivenhed/event -> Begivenhed/event).
+ *
+ * @see cbib_migrate_get_group_migrations().
+ */
+function cbib_migrate_get_group_event_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'group_event',
+    'class' => 'CbibGroupEventMigration',
+    'arguments' => array(
+      'group' => 'cbib',
+      'description' => t('Migration of group events from Centralbibliotek.dk'),
+      'source_type' => 'group_event',
       'destination_type' => 'event',
       'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'central_library', 'group'),

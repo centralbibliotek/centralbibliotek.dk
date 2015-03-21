@@ -182,7 +182,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
    *
    * @return void.
    */
-  private function mapSameTypeFields() {
+  protected function mapSameTypeFields() {
     $this->addFieldMapping('title_field', 'title');
     $this->addFieldMapping('field_event_audience', 'field_target_group');
     $this->addFieldMapping('field_comments', 'field_comments');
@@ -200,7 +200,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
    *
    * @return void.
    */
-  private function mapEntityReferenceFields() {
+  protected function mapEntityReferenceFields() {
     $this->addFieldMapping('og_user_node', 'field_library')
       ->sourceMigration('central_library');
     $this->addFieldMapping('field_organizers', 'uid')
@@ -264,7 +264,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
    *
    * @return void.
    */
-  private function mapDateFields() {
+  protected function mapDateFields() {
     $this->addFieldMapping('field_date', 'field_date');
     $this->addFieldMapping('field_date:to', 'field_date:value2');
     $this->addFieldMapping('field_date:timezone')

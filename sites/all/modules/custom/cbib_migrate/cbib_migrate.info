@@ -15,6 +15,7 @@ files[] = migration_classes/library.inc
 files[] = migration_classes/license.inc
 files[] = migration_classes/group.inc
 files[] = migration_classes/event.inc
+files[] = migration_classes/group_event.inc
 files[] = migration_classes/document.inc
 files[] = migration_classes/post.inc
 files[] = migration_classes/news_item.inc
