@@ -63,6 +63,79 @@ function cbib_commons_events_default_page_manager_pages_alter(&$data) {
 }
 
 /**
+ * Implements hook_panelizer_defaults_override_alter().
+ */
+function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
+  if (isset($data['node:event:default'])) {
+    $data['node:event:default']->display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71']->position = 7; /* WAS: 6 */
+    $data['node:event:default']->display->content['new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3'] = (object) array(
+          'pid' => 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3',
+          'panel' => 'two_66_33_first',
+          'type' => 'commons_bw_group',
+          'subtype' => 'commons_bw_group',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 6,
+          'locks' => array(),
+          'uuid' => '3b2c96a8-75d7-4633-bbe4-193c5a5baaa3',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-88ab00da-745f-4432-a400-935fdac10fb8']->position = 2; /* WAS: 1 */
+    $data['node:event:default']->display->content['new-8aeb8fd4-93ee-4020-a4fc-99d6af152098'] = (object) array(
+          'pid' => 'new-8aeb8fd4-93ee-4020-a4fc-99d6af152098',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_og_groups_ref',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'title',
+            'formatter' => 'og_list_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(
+              'link' => 0,
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => '8aeb8fd4-93ee-4020-a4fc-99d6af152098',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-aef85835-68a5-2494-b107-136f1cb92749']->position = 5; /* WAS: 4 */
+    $data['node:event:default']->display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588']->position = 6; /* WAS: 5 */
+    $data['node:event:default']->display->content['new-eb217e95-60ad-4363-afd5-d3f0ba1c3132']->position = 3; /* WAS: 2 */
+    $data['node:event:default']->display->content['new-ffd2a39f-cad3-4bec-8606-cf9a4c698131']->position = 4; /* WAS: 3 */
+    $data['node:event:default']->display->panels['two_66_33_first'][6] = 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][1] = 'new-8aeb8fd4-93ee-4020-a4fc-99d6af152098'; /* WAS: 'new-88ab00da-745f-4432-a400-935fdac10fb8' */
+    $data['node:event:default']->display->panels['two_66_33_second'][2] = 'new-88ab00da-745f-4432-a400-935fdac10fb8'; /* WAS: 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132' */
+    $data['node:event:default']->display->panels['two_66_33_second'][3] = 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132'; /* WAS: 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131' */
+    $data['node:event:default']->display->panels['two_66_33_second'][4] = 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131'; /* WAS: 'new-aef85835-68a5-2494-b107-136f1cb92749' */
+    $data['node:event:default']->display->panels['two_66_33_second'][5] = 'new-aef85835-68a5-2494-b107-136f1cb92749'; /* WAS: 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588' */
+    $data['node:event:default']->display->panels['two_66_33_second'][6] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'; /* WAS: 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71' */
+    $data['node:event:default']->display->panels['two_66_33_second'][7] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71'; /* WAS: '' */
+  }
+}
+
+/**
  * Implements hook_views_default_views_alter().
  */
 function cbib_commons_events_views_default_views_alter(&$data) {

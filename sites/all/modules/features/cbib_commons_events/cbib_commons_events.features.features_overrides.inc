@@ -61,6 +61,73 @@ function cbib_commons_events_features_override_default_overrides() {
   );
   $overrides["page_manager_pages.views_events_landing_page_node.default_handlers|page_views_events_landing_page_node_panel_context|conf|display|panels|two_66_33_top|1"] = 'new-a2ee2613-1dbe-45bd-85eb-a8ba632aab84';
 
+  // Exported overrides for: panelizer_defaults
+  $overrides["panelizer_defaults.node:event:default.display|content|new-35ea1bae-7836-4e19-a8d0-a507e4537e71|position"] = 7;
+  $overrides["panelizer_defaults.node:event:default.display|content|new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3"] = (object) array(
+      'pid' => 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3',
+      'panel' => 'two_66_33_first',
+      'type' => 'commons_bw_group',
+      'subtype' => 'commons_bw_group',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 6,
+      'locks' => array(),
+      'uuid' => '3b2c96a8-75d7-4633-bbe4-193c5a5baaa3',
+    );
+  $overrides["panelizer_defaults.node:event:default.display|content|new-88ab00da-745f-4432-a400-935fdac10fb8|position"] = 2;
+  $overrides["panelizer_defaults.node:event:default.display|content|new-8aeb8fd4-93ee-4020-a4fc-99d6af152098"] = (object) array(
+      'pid' => 'new-8aeb8fd4-93ee-4020-a4fc-99d6af152098',
+      'panel' => 'two_66_33_second',
+      'type' => 'entity_field',
+      'subtype' => 'node:field_og_groups_ref',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'label' => 'title',
+        'formatter' => 'og_list_default',
+        'delta_limit' => 0,
+        'delta_offset' => 0,
+        'delta_reversed' => 0,
+        'formatter_settings' => array(
+          'link' => 0,
+        ),
+        'context' => 'panelizer',
+        'override_title' => 0,
+        'override_title_text' => '',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 1,
+      'locks' => array(),
+      'uuid' => '8aeb8fd4-93ee-4020-a4fc-99d6af152098',
+    );
+  $overrides["panelizer_defaults.node:event:default.display|content|new-aef85835-68a5-2494-b107-136f1cb92749|position"] = 5;
+  $overrides["panelizer_defaults.node:event:default.display|content|new-d9b378c4-93e3-4445-b2da-c43dc1bd0588|position"] = 6;
+  $overrides["panelizer_defaults.node:event:default.display|content|new-eb217e95-60ad-4363-afd5-d3f0ba1c3132|position"] = 3;
+  $overrides["panelizer_defaults.node:event:default.display|content|new-ffd2a39f-cad3-4bec-8606-cf9a4c698131|position"] = 4;
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_first|6"] = 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|1"] = 'new-8aeb8fd4-93ee-4020-a4fc-99d6af152098';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|2"] = 'new-88ab00da-745f-4432-a400-935fdac10fb8';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|3"] = 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|4"] = 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|5"] = 'new-aef85835-68a5-2494-b107-136f1cb92749';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|6"] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588';
+  $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|7"] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71';
+
   // Exported overrides for: views_view
   $overrides["views_view.commons_events_upcoming.display|default|display_options|filters|field_date_value"] = array(
     'id' => 'field_date_value',

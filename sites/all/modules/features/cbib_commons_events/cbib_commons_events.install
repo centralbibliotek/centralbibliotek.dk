@@ -11,3 +11,10 @@
 function cbib_commons_events_update_7101(&$sandbox) {
   features_revert(array('cbib_commons_events' => array('field_instance')));
 }
+
+/**
+ * Revert features_override to get groups on event panelizer defaults.
+ */
+function cbib_commons_events_update_7102(&$sandbox) {
+  features_revert(array('cbib_commons_events' => array('features_override')));
+}
