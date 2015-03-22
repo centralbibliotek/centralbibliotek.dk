@@ -8,6 +8,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     // Make fields extracted programatically appear in UI.
     $this->sourceFields['field_imagefile1:alt'] = 'Image alt extracted from data';
     $this->sourceFields['field_imagefile1:title'] = 'Image title extracted from data';
+    $this->sourceFields['upload'] = 'Attached file with D6 upload module';
 
     // Make legacy person fields appear in UI.
     $this->sourceFields['field_lecturer_legacy'] = 'Combined lecturer field.';
@@ -41,6 +42,8 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     $this->mapRegistrationTypeField();
 
     $this->mapPersonFields();
+
+    $this->mapFileField();
   }
 
   /**
@@ -50,6 +53,14 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+
+    // Look up the upload files in the source database.
+    $row->upload = Database::getConnection('default', $this->arguments['source_connection'])
+      ->select('upload', 'u')
+      ->fields('u')
+      ->condition('u.nid', $row->nid)
+      ->execute()
+      ->fetchAllAssoc('fid', PDO::FETCH_ASSOC);
 
     // If image was not selected by upload, choose the one from referenced entity.
     if (empty($row->field_imagefile1)) {
@@ -523,5 +534,43 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
         0 => $row->field_contact_legacy,
       ),
     );
+  }
+
+  /**
+   * Map the upload property.
+   *
+   * @see prepareRow
+   *
+   * @return void.
+   */
+  private function mapFileField() {
+    $this->addFieldMapping('field_document_file', 'upload')
+      ->sourceMigration('file');
+    $this->addFieldMapping('field_document_file:file_class')
+      ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_document_file:preserve_files')
+         ->defaultValue(TRUE);
+    $this->addFieldMapping('field_document_file:language')
+      ->defaultValue(LANGUAGE_NONE);
+    $this->addFieldMapping('field_document_file:description', 'upload')
+      ->callbacks(array($this, 'getUploadDescription'))
+      ->defaultValue('');
+    // TODO Check that this default is right.
+    $this->addFieldMapping('field_document_file:display')
+      ->defaultValue(0);
+  }
+
+  /**
+   * Get the descriptions for the upload files.
+   */
+  protected function getUploadDescription($value) {
+    if (!empty($value)) {
+      $descriptions = array();
+      foreach ($value as $delta => $file) {
+        $descriptions[] = $file['description'];
+      }
+      return $descriptions;
+    }
+    return '';
   }
 }
