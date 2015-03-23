@@ -11,6 +11,8 @@ output_style = :expanded
 
 relative_assets = true
 
+asset_cache_buster :none
+
 # Source maps
 sourcemap = (environment == :development) ? true : false
 
