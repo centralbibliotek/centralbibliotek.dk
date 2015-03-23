@@ -325,6 +325,7 @@ function cbib_features_field_default_field_instances() {
   $field_instances['node-centralbibliotek-og_group_ref'] = array(
     'bundle' => 'centralbibliotek',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -342,13 +343,15 @@ function cbib_features_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'og_group_ref',
     'label' => 'Groups audience',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'behaviors' => array(
         'og_widget' => array(
+          'access_override' => 0,
           'admin' => array(
             'widget_type' => 'entityreference_autocomplete',
           ),
@@ -356,6 +359,9 @@ function cbib_features_field_default_field_instances() {
             'widget_type' => 'options_select',
           ),
           'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
         ),
       ),
       'user_register_form' => FALSE,
@@ -373,6 +379,7 @@ function cbib_features_field_default_field_instances() {
       ),
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
