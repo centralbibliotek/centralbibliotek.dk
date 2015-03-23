@@ -227,4 +227,32 @@ class CbibGroupMigration extends CbibMigrateDrupalNode6Migration {
     }
     return '';
   }
+
+  public function grantOgMembershipAndRole($node, $user, $admin = FALSE, $follow = TRUE) {
+    // Sign the user up for this group.
+    og_group('node', $node->nid, array(
+      "entity type" => "user",
+      "entity" => $user,
+    ));
+
+    $roles = array_flip(og_roles('node', $node->type, $node->nid));
+
+    $gid = $admin ? $roles["administrator member"] : $roles["member"];
+    if (!$gid) {
+      cbib_migrate_register_message("No acceptable role found for $node->type:$node->nid (" . join(', ', $roles) . ")");
+    }
+
+
+    // Grant role.
+    og_role_grant('node', $node->nid, $user->uid, $gid);
+
+    // Have the user automatically follow the group if Commons Follow (Group) is
+    // enabled.
+    if ($follow && module_exists('commons_follow_group')) {
+      // The owner of the content automatically follows the content
+      if ($flag = flag_get_flag('commons_follow_group')) {
+        $flag->flag('flag', $node->nid, $user);
+      }
+    }
+  }
 }

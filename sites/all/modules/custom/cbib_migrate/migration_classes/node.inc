@@ -169,7 +169,7 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
     }
   }
 
-  public function grantOgMembershipAndRole($node, $user, $admin = FALSE) {
+  public function grantOgMembershipAndRole($node, $user, $admin = FALSE, $follow = TRUE) {
     // Sign the user up for this group.
     og_group('node', $node->nid, array(
       "entity type" => "user",
@@ -179,8 +179,18 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
     $roles = array_flip(og_roles('node', $node->type, $node->nid));
 
     $gid = $admin ? $roles["administrator member"] : $roles["member"];
+    if (!$gid) {
+      cbib_migrate_register_message("No acceptable role found for $node->type:$node->nid (" . join(', ', $roles) . ")");
+    }
+
 
     // Grant role.
     og_role_grant('node', $node->nid, $user->uid, $gid);
+
+    // Have the user automatically follow the event if Commons Follow (Node) is
+    // enabled.
+    if ($follow && module_exists('commons_follow_node')) {
+      commons_follow_node_follow_node($node->nid, $node->type, $user->uid);
+    }
   }
 }

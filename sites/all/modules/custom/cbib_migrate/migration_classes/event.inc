@@ -507,7 +507,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
       // Have the user automatically follow the event if Commons Follow (Node) is
       // enabled.
       if (module_exists('commons_follow_node')) {
-        commons_follow_node_follow_node($node->nid, 'event', $user->uid);
+        commons_follow_node_follow_node($node->nid, $node->type, $user->uid);
       }
     }
 
