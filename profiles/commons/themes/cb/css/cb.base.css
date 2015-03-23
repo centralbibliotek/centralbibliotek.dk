@@ -672,7 +672,7 @@ div.messages.error {
 
 #main-menu {
   background: #ddd;
-  margin-bottom: 3em;
+  margin-bottom: 0;
   overflow: hidden;
   padding: 0.5em 0;
 }
@@ -997,6 +997,9 @@ div.messages.error {
   padding: 0.5rem;
   font-size: 1em;
   margin-right: 1em;
+}
+.page-events .ui-tabs ul {
+  margin-bottom: 2em;
 }
 
 .node-type-news .pane-node-title-field {
