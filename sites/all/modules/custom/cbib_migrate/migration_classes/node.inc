@@ -82,9 +82,11 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
       'thoroughfare' => array('source_field' => 'street'),
       'premise' => array('source_field' => 'additional'),
       'postal_code' => array('source_field' => 'postal_code'),
+      'organisation_name' => array('source_field' => 'name'),
     );
     $ctx->addFieldMapping($dest_field_name, 'country')
-         ->arguments($address_arguments);
+      ->callbacks('strtoupper')
+      ->arguments($address_arguments);
     // Hide these sources because they are added as arguments
     $ctx->addUnmigratedSources(array(
       $source_field_name,
@@ -93,6 +95,7 @@ class CbibMigrateDrupalNode6Migration extends DrupalNode6Migration {
       'street',
       'additional',
       'postal_code',
+      'name',
     ));
     $ctx->addUnmigratedDestinations(array(
       $dest_field_name . ':administrative_area',
