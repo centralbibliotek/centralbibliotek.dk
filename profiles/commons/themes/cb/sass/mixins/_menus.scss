@@ -1,0 +1,42 @@
+@mixin menu-primary($modifier: "") {
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      list-style-image: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      margin-right: 1.5em;
+      font-size: 1.15em;
+
+      a {
+        color: $gray-darker;
+        display: block;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: $gray-darkest;
+          box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
+        }
+      }
+
+      &.ui-state-active a,
+      &.active-trail a {
+        box-shadow: inset 0 -3px 0 0 $gray-darkest;
+        color: $gray-darkest;
+      }
+    }
+  }
+
+  @if $modifier == "sub" {
+    ul li {
+      background-color: $gray-light;
+      padding: 0.5rem;
+      font-size: 1em;
+      margin-right: 1em;
+    }
+  }
+}
