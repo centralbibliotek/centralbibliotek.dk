@@ -58,7 +58,6 @@
 
   }
 
-
   // Event location
   .region.region-two-66-33-first .pane-node-field-address {
     float: left;
@@ -72,5 +71,46 @@
   .region.region-two-66-33-first .pane-node-field-address {
     margin-right: .5em;
   }
+}
 
+// jQuery ui tabs override.
+.page-events .ui-tabs{
+  font-size: 1em;
+  line-height: 1.6;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  .ui-tabs-panel {
+    padding: 0;
+  }
+
+  ul {
+    background: none;
+    border: none;
+    line-height: inherit;
+
+    li {
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      @include border-radius(0);
+
+      &.ui-tabs-selected {
+        padding-bottom: 0.5rem;
+      }
+      a {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  // Style it.
+  @include menu-primary("sub");
+
+  ul {
+    margin-bottom: 2em;
+  }
 }
