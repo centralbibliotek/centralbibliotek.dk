@@ -58,7 +58,7 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
     // Required for mapping address fields correctly.
     $query->leftJoin('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
     $query->leftJoin('location', 'l', 'l.lid = i.lid');
-    $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
+    $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country', 'name'));
     return $query;
   }
 
