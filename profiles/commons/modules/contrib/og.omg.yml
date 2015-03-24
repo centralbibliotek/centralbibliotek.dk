@@ -7,3 +7,7 @@ patches:
     patch: 'https://www.drupal.org/files/issues/og-invalid_datetime_format-1491420-2.patch'
     home: 'https://www.drupal.org/node/1491420'
     reason: 'Working around a "Invalid datetime".'
+  -
+    patch: 'https://www.drupal.org/files/issues/og-incorrect_results-2358929-3.patch'
+    home: 'https://www.drupal.org/node/2358929'
+    reason: 'Incorrect results from og_get_group_audience_fields() if called twice using different $group_bundle parameter'
