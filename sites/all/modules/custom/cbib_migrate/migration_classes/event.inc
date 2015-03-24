@@ -154,8 +154,6 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
       ->defaultValue(0);
     $this->addFieldMapping('field_og_subscribe_settings')
       ->defaultValue('anyone');
-    $this->addFieldMapping('og_user_group_ref')
-      ->defaultValue(array());
     $this->addFieldMapping('field_location')
       ->defaultValue('physical');
     //$this->addFieldMapping('field_registration:bundle')

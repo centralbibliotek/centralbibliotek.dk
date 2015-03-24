@@ -50,9 +50,6 @@ class CbibDocumentMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapNonMigratedDestinationFields() {
-    $this->addFieldMapping('og_user_group_ref')
-      ->defaultValue(array());
-
     $this->addUnmigratedDestinations(array('field_radioactivity'));
   }
 
