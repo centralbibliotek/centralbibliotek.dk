@@ -126,7 +126,7 @@ class CbibPageMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapEntityReferenceFields() {
-    $this->addFieldMapping('og_group_ref', 'field_library2')
+    $this->addFieldMapping('field_centralbibliotek_ref', 'field_library2')
       ->sourceMigration('central_library');
   }
 

@@ -212,7 +212,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   protected function mapEntityReferenceFields() {
-    $this->addFieldMapping('og_user_node', 'field_library')
+    $this->addFieldMapping('og_group_ref', 'field_library')
       ->sourceMigration('central_library');
     $this->addFieldMapping('field_organizers', 'uid')
       ->sourceMigration('user_profile');

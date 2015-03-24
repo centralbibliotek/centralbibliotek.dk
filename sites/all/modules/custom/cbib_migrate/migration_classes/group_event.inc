@@ -32,7 +32,7 @@ class CbibGroupEventMigration extends CbibEventMigration {
    * @return void.
    */
   protected function mapEntityReferenceFields() {
-    $this->addFieldMapping('field_og_groups_ref', 'field_group_relation')
+    $this->addFieldMapping('og_group_ref', 'field_group_relation')
       ->sourceMigration('group');
     $this->addFieldMapping('field_organizers', 'uid')
       ->sourceMigration('user_profile');
