@@ -82,6 +82,18 @@ function cbib_migrate_feeds_after_save($source, $entity, $item, $entity_id) {
           $user = user_load($uid);
           $wrapper = entity_metadata_wrapper('user', $user);
           $wrapper->field_library->set($entity_id);
+
+          // Add a reference to the users central library if we can deduce one
+          // from their library.
+          try {
+            $central_library_id = $wrapper->field_library->field_centralbibliotek_ref->getIdentifier();
+            $wrapper->field_centralbibliotek_ref->set($central_library_id);
+          }
+          catch (\Exception $e) {
+            // Intentionally blank. Just ignore missing central library
+            // references.
+          }
+
           $wrapper->save();
 
           // We only need to set the library reference once (first time after
