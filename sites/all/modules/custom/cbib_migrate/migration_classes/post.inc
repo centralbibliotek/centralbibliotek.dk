@@ -103,7 +103,6 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
   private function mapEntityReferenceFields() {
     $this->addFieldMapping('og_group_ref', 'field_group_relation3')
       ->sourceMigration('group');
-    $this->addUnmigratedSources(array('field_group_relation3'));
   }
 
   /**
