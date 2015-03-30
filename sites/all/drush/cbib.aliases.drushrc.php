@@ -43,11 +43,8 @@ $aliases['test'] = array(
 
 $aliases['legacy'] = array(
   'uri' => 'centralbibliotek.dk',
-  'root' => '/data/www/centralbibliotek.dk/htdocs',
-  'remote-host' => 'oshima.dbc.dk',
+  'root' => '/data/www/old-cbib',
+  'remote-host' => 'centralbib.dbc.dk',
   'remote-user' => 'reload',
   'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts',
-  'path-aliases' => array(
-    '%drush-script' => '/home/reload/bin/drush',
-  ),
 );
