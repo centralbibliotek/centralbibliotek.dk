@@ -41,6 +41,8 @@ function _cbib_features_delete_install_profile_first_group() {
  * Implements hook_schema_alter().
  *
  * Define collation on title fields and cache tables.
+ *
+ * Add extra index to {panelizer_entity} table.
  */
 function cbib_features_schema_alter(&$schema) {
   // Define Danish collation on {node} and {field_data_title_field} to sort
@@ -54,6 +56,9 @@ function cbib_features_schema_alter(&$schema) {
       $schema[$table]['collation'] = 'utf8_bin';
     }
   }
+
+  // Add extra index to {panelizer_entity} table.
+  $schema['panelizer_entity']['indexes']['idx_revision'] = array('revision_id', 'entity_type');
 }
 
 /**
@@ -202,4 +207,28 @@ function cbib_features_update_7112(&$sandbox) {
     module_enable(array('cbib_groups'));
   }
   features_revert(array('cbib_groups' => array('features_overrides')));
+}
+
+/**
+ * Add extra index to {panelizer_entity} table.
+ */
+function cbib_features_update_7113(&$sandbox) {
+  _cbib_features_add_new_indexes();
+}
+
+/**
+ * Add extra indexes to tables.
+ */
+function _cbib_features_add_new_indexes() {
+  $schema = array();
+  cbib_features_schema_alter($schema);
+  foreach ($schema as $table => $table_def) {
+    if (db_table_exists($table) && !empty($table_def['indexes'])) {
+      foreach ($table_def['indexes'] as $index_name => $fields) {
+        if (!db_index_exists($table, $index_name)) {
+          db_add_index($table, $index_name, $fields);
+        }
+      }
+    }
+  }
 }
