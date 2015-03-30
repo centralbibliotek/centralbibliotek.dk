@@ -255,7 +255,7 @@ function cbib_license_default_panels_mini() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Licenseadgange';
+  $display->title = 'Licensadgange';
   $display->uuid = '878b6514-5458-400c-9032-ffcdf3b88a9e';
   $display->content = array();
   $display->panels = array();
