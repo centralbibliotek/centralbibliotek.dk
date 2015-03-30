@@ -21,7 +21,7 @@ $aliases['prod'] = array(
     'restart-varnish' => FALSE,
     'flowdock-token' => 'a7200e7e654379df303056fbf14faf74',
     'newrelic-api-key' => '120fd65c787d6de27897a44cce59495fa4002740d8e367c',
-    'newrelic-appname' => 'centralbibliotek.dk',
+    'newrelic-app-name' => 'centralbibliotek.dk',
   ),
 );
 
