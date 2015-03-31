@@ -40,3 +40,16 @@ function cbib_license_pages_update_7102(&$sandbox) {
       ),
     ));
 }
+
+/**
+ * Revert license pages features.
+ */
+function cbib_license_pages_update_7103(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'pages_default',
+        'views_default',
+        'menu_links',
+      ),
+    ));
+}

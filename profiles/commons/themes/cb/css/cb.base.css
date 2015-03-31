@@ -1175,6 +1175,21 @@ div.messages.error {
   display: none !important;
 }
 
+.view-ambassad-rliste .view-grouping-header {
+  color: #424242;
+  font-weight: normal;
+  font-size: 1.25em;
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.view-ambassad-rliste h3 {
+  color: #424242;
+  font-weight: normal;
+  font-size: 1.15em;
+}
+.view-ambassad-rliste .views-row {
+  border: none;
+}
+
 .page-search .search-form-page input.form-search {
   height: 60px;
   font-size: 24px;

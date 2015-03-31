@@ -656,6 +656,10 @@ function cbib_license_pages_default_page_manager_pages() {
       'cb3_second' => NULL,
       'cb3_third' => NULL,
       'cb3_bottom' => NULL,
+      'two_33_66_top' => NULL,
+      'two_33_66_first' => NULL,
+      'two_33_66_second' => NULL,
+      'two_33_66_bottom' => NULL,
     ),
   );
   $display->cache = array();
@@ -686,6 +690,25 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->uuid = '2be5ba3a-4590-4d63-b0e3-86d9d646d15a';
     $display->content['new-2be5ba3a-4590-4d63-b0e3-86d9d646d15a'] = $pane;
     $display->panels['two_33_66_first'][0] = 'new-2be5ba3a-4590-4d63-b0e3-86d9d646d15a';
+    $pane = new stdClass();
+    $pane->pid = 'new-dfc59a03-21d9-45f2-a168-39b1b3f76001';
+    $pane->panel = 'two_33_66_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ambassad_rliste-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'dfc59a03-21d9-45f2-a168-39b1b3f76001';
+    $display->content['new-dfc59a03-21d9-45f2-a168-39b1b3f76001'] = $pane;
+    $display->panels['two_33_66_second'][0] = 'new-dfc59a03-21d9-45f2-a168-39b1b3f76001';
     $pane = new stdClass();
     $pane->pid = 'new-17c3963f-a00b-4ae2-98a7-de74c82cbe3b';
     $pane->panel = 'two_33_66_top';

@@ -130,3 +130,23 @@
     }
   }
 }
+
+// Ambassador list.
+.view-ambassad-rliste {
+  .view-grouping-header {
+    color: $gray-darker;
+    font-weight: normal;
+    font-size: 1.25em;
+    font-family: $alt-font;
+  }
+
+  h3 {
+    color: $gray-darker;
+    font-weight: normal;
+    font-size: 1.15em;
+  }
+
+  .views-row {
+    border: none;
+  }
+}
