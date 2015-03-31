@@ -14,6 +14,13 @@ function cbib_license_pages_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function cbib_license_pages_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_default_page_manager_handlers_alter().
  */
 function cbib_license_pages_default_page_manager_handlers_alter(&$data) {
