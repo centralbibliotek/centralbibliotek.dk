@@ -226,6 +226,15 @@ function cbib_features_update_7114(&$sandbox) {
 }
 
 /**
+ * Enable entitycache module.
+ */
+function cbib_features_update_7115(&$sandbox) {
+  if (!module_exists('entitycache')) {
+    module_enable(array('entitycache'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
