@@ -40,7 +40,7 @@ function cbib_events_cbib_events_mailto_content_type_render($subtype, $conf, $ar
     // $pane->content = 'TEST: ' . $nid;
     $mails = db_query("SELECT mail FROM {users} u JOIN {registration} r ON u.uid = r.user_uid WHERE r.entity_id = :nid", array(':nid' => $nid))->fetchCol();
     if ($mails) {
-      $pane->content = '<a href="mailto:' . join(',', $mails) . '">' . t('Mail attendees') . '</a>';
+      $pane->content = '<a href="mailto:' . join(';', $mails) . '">' . t('Mail attendees') . '</a>';
     }
 
   }
