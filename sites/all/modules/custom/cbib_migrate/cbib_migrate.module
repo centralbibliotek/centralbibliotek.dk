@@ -79,7 +79,7 @@ function cbib_migrate_feeds_after_save($source, $entity, $item, $entity_id) {
       $uids = cbib_migrate_lookup_users_by_isil($item['isil']);
       if ($uids) {
         foreach ($uids as $uid) {
-          $user = user_load($uid);
+          $user = user_load($uid, TRUE);
           $wrapper = entity_metadata_wrapper('user', $user);
           $wrapper->field_library->set($entity_id);
 
