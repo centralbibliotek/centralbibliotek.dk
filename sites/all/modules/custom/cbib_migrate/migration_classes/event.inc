@@ -102,7 +102,7 @@ class CbibEventMigration extends CbibMigrateDrupalNode6Migration {
     // Convert registration type from old text value to 0/1.
     //$row->registration_entity['status'] = ($rsvd && ($close_timestamp > time()) && !$remove) ? '1' : '0';
     //$row->registration_entity['status'] = !$remove ? '1' : '0';
-    $row->registration_entity['status'] = $rsvd && !$remove ? '1' : '0';
+    $row->registration_entity['status'] = !$remove ? '1' : '0';
     $row->registration_entity['capacity'] = $capacity;
 
     // Convert person fields from two fields to one field with two values.
