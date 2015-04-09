@@ -51,4 +51,63 @@ function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) 
   $form['#attached']['css'] = array(
     drupal_get_path('module', 'cbib_events') . '/css/node-edit.css',
   );
+
+  // We exchange the submit handler in Commons Events
+  // (commons_events_node_form_submit()) with our own variant. We have removed
+  // the 'Automatically register the node creator for the event' part.
+  $delta = array_search('commons_events_node_form_submit', $form['#submit']);
+  if ($delta !== FALSE) {
+    $form['#submit'][$delta] = 'cbib_events_node_form_submit';
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * We ensure that our form_alter is added before Commons Events' form_alter by
+ * altering the hook order.
+ */
+function cbib_events_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
+    unset($implementations['cbib_events']);
+    $implementations['cbib_events'] = FALSE;
+  }
+}
+
+/**
+ * Custom node form submit handler.
+ *
+ * This is a variation of the submit handler in Commons Events
+ * (commons_events_node_form_submit()). We have removed the 'Automatically
+ * register the node creator for the event' part.
+ *
+ * The submit handler is added in cbib_events_form_event_node_form_alter().
+ *
+ * We ensure that the above form_alter is added before Commons Events'
+ * form_alter by altering the hook order in
+ * cbib_events_module_implements_alter().
+ *
+ * @see commons_events_node_form_submit()
+ * @see cbib_events_form_event_node_form_alter()
+ * @see cbib_events_module_implements_alter()
+ */
+function cbib_events_node_form_submit($form, $form_state) {
+  $node = $form_state['node'];
+  $language = (isset($form_state['language']) ? $form_state['language'] : LANGUAGE_NONE);
+
+  if (isset($node->nid)) {
+    $settings = registration_entity_settings('node', $node->nid);
+    $settings['status'] = (int) $form_state['values']['field_status'];
+
+    if ($form_state['values']['field_registration_type'][$language]['0']['value'] == 'external') {
+      $settings['status'] = 0;
+    }
+
+    if (!empty($form_state['values']['field_number_of_attendees'][$language]['0']['value']) && is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value'])) {
+      $settings['capacity'] = (int) $form_state['values']['field_number_of_attendees'][$language]['0']['value'];
+    }
+
+    $settings['settings'] = serialize($settings['settings']);
+    registration_update_entity_settings('node', $node->nid, $settings);
+  }
 }
