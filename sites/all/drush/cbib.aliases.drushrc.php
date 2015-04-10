@@ -17,6 +17,7 @@ $aliases['prod'] = array(
   'deployotron' => array(
     'branch' => 'develop',
     'dump-dir' => '/home/reload/backups',
+    'num-dumps' => 3,
     'restart-apache2' => TRUE,
     'restart-varnish' => FALSE,
     'flowdock-token' => 'a7200e7e654379df303056fbf14faf74',
