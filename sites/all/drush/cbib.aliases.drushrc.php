@@ -8,7 +8,7 @@
 putenv('CBIB_DRUSH_DIR=' . __DIR__);
 
 $aliases['prod'] = array(
-  'uri' => 'ny.centralbibliotek.dk',
+  'uri' => 'centralbibliotek.dk',
   'root' => '/data/www/centralbibliotek.dk',
   'remote-host' => 'centralbib.dbc.dk',
   'remote-user' => 'reload',
