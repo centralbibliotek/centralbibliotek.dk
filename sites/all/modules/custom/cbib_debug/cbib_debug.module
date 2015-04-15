@@ -35,5 +35,6 @@ function cbib_debug_node_update($node) {
 
     // For now fix the registration type so the users won't suffer.
     $node->field_registration[LANGUAGE_NONE][0]['registration_type']['registration_type'] = 'event';
+    field_attach_update('node', $node);
   }
 }
