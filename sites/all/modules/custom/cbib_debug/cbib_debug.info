@@ -1,0 +1,4 @@
+name = CBIB Debug
+description = Debugging functionality for centralbibliotek.dk
+core = 7.x
+configure = admin/config/system/variable/group/cbib_debug
