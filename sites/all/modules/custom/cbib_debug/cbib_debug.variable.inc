@@ -26,7 +26,7 @@ function cbib_debug_variable_info($options) {
 function cbib_debug_variable_group_info() {
   $groups['cbib_debug'] = array(
     'title' => t('Debugging'),
-    'description' => t('Centralbibliotek.dk debugging functionality.'),
+    'description' => t('Centralbibliotek.dk debugging functionality'),
   );
 
   return $groups;
