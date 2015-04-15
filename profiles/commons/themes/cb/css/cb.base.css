@@ -203,7 +203,8 @@ div.messages.error {
 
 .field-name-field-topics .field-items .field-item, .field-name-og-user-node .field-items .field-item, .pane-node-og-group-ref .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a, .cb-teaser-list .node-teaser .panel-col-first .pane-node-created, .cb-teaser-list .node-teaser .panel-col-first .pane-node-field-date,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created,
-.page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item, .node-type-news .pane-node-created .block-content {
+.page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location,
+.page-taxonomy-term .node-teaser .panel-col-first .pane-cbib-time-and-location, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item, .node-type-news .pane-node-created .block-content {
   font-family: "solido condensed medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #424242;
   letter-spacing: 1px;
@@ -370,13 +371,26 @@ div.messages.error {
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
   display: block;
 }
 .cb-teaser-list .node-teaser .panel-col-first .pane-node-created .field-item, .cb-teaser-list .node-teaser .panel-col-first .pane-node-field-date .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date .field-item {
+  color: #fff;
+}
+.cb-teaser-list .node-teaser .panel-col-first .pane-node-created, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location,
+.page-taxonomy-term .node-teaser .panel-col-first .pane-node-created,
+.page-taxonomy-term .node-teaser .panel-col-first .pane-cbib-time-and-location {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+.cb-teaser-list .node-teaser .panel-col-first .pane-node-created .field-item, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location .field-item,
+.page-taxonomy-term .node-teaser .panel-col-first .pane-node-created .field-item,
+.page-taxonomy-term .node-teaser .panel-col-first .pane-cbib-time-and-location .field-item {
   color: #fff;
 }
 .cb-teaser-list .node-teaser .panel-col-first img,
