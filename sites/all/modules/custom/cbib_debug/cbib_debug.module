@@ -38,3 +38,16 @@ function cbib_debug_node_update($node) {
     field_attach_update('node', $node);
   }
 }
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * We ensure that our node_update is execute as the last hook_node_update() in
+ * case some other implementation introduces the problem..
+ */
+function cbib_debug_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'node_update' && isset($implementations['cbib_debug'])) {
+    unset($implementations['cbib_debug']);
+    $implementations['cbib_debug'] = FALSE;
+  }
+}
