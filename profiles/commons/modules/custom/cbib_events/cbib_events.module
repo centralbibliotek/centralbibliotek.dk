@@ -59,6 +59,9 @@ function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) 
   if ($delta !== FALSE) {
     $form['#submit'][$delta] = 'cbib_events_node_form_submit';
   }
+
+  // Add our form validate function.
+  $form['#validate'][] = 'cbib_events_node_form_validate';
 }
 
 /**
@@ -71,6 +74,32 @@ function cbib_events_module_implements_alter(&$implementations, $hook) {
   if ($hook == 'form_alter' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
     unset($implementations['cbib_events']);
     $implementations['cbib_events'] = FALSE;
+  }
+}
+
+/**
+ * Unset commons_groups modules "redirect to group" submit handler.
+ *
+ * We unset the submit handler in a form validate function because our
+ * form_alter hooks wil run before those of commons_groups' form_alter hooks. We
+ * cannot modify the hooks order in hook_module_implements_alter() because
+ * commons_groups also modify the hook order.
+ *
+ * Alternatives to implementing this in a form validate function would be to
+ * alter the system weight or the name of this module to be higher than the
+ * weight/name of commons_groups. That way our hook_module_implements_alter()
+ * would be called later than that of commons_groups and so we would be able to
+ * ensure that form_alter hooks was run after those of commons_groups. Downsides
+ * to that would be to consider side effects on all the other code in this
+ * module by being called later.
+ *
+ * @see commons_groups_node_in_group_submit()
+ */
+function cbib_events_node_form_validate($form, &$form_state) {
+  foreach ($form_state['submit_handlers'] as $delta => $submit_handler) {
+    if ($submit_handler == 'commons_groups_node_in_group_submit') {
+      unset($form_state['submit_handlers'][$delta]);
+    }
   }
 }
 
