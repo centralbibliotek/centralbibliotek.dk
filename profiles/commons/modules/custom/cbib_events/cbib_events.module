@@ -47,7 +47,7 @@ function cbib_events_menu_local_tasks_alter(&$data, $router_item, $root_path) {
  * Implements hook_form_FORM_ID_alter() for event_node_form().
  */
 function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) {
-  $form['field_registration_date']['und'][0]['#title'] = 'Tilmelding åbner';
+  $form['field_registration_date'][LANGUAGE_NONE][0]['#title'] = 'Tilmelding åbner';
   $form['#attached']['css'] = array(
     drupal_get_path('module', 'cbib_events') . '/css/node-edit.css',
   );
