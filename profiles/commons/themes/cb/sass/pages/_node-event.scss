@@ -114,3 +114,13 @@
     margin-bottom: 2em;
   }
 }
+
+.commons-events-form-float {
+  .field-name-field-note {
+    margin-bottom: 2ex;
+
+    .description, label {
+      display: none;
+    }
+  }
+}

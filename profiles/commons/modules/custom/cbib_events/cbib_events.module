@@ -42,6 +42,42 @@ function cbib_events_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   }
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter() for commons_events_attend_event_form().
+ *
+ * Expose field_note on event registration form.
+ */
+function cbib_events_form_commons_events_attend_event_form_alter(&$form, &$form_state, $form_id) {
+  // Attach fields from the registration entity.
+  field_attach_form('registration', $form_state['registration'], $form, $form_state);
+
+  // Put the note field in early (before submit is what we want).
+  if (!empty($form['field_note'])) {
+    $form['field_note']['#weight'] = -1;
+  }
+
+  // Add description as placeholder text to hint users of what to use the field
+  // for.
+  if (!empty($form['field_note'][LANGUAGE_NONE]['#description'])) {
+    $form['field_note'][LANGUAGE_NONE][0]['value']['#attributes']['placeholder'] = $form['field_note'][LANGUAGE_NONE]['#description'];
+  }
+
+  // Add our submit handler - must come before commons_events_attend_event_form_submit().
+  array_unshift($form['#submit'], 'cbib_events_commons_events_attend_event_form_submit');
+}
+
+/**
+ * Submit handler for adding field_note to registration object.
+ *
+ * commons_events_attend_event_form_submit() will save the registration.
+ *
+ * @see commons_events_attend_event_form_submit()
+ */
+function cbib_events_commons_events_attend_event_form_submit($form, &$form_state) {
+  if (!empty($form_state['values']['field_note'][LANGUAGE_NONE][0]['value'])) {
+    $form_state['registration']->field_note = $form_state['values']['field_note'];
+  }
+}
 
 /**
  * Implements hook_form_FORM_ID_alter() for event_node_form().

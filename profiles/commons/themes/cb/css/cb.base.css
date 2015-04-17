@@ -1016,6 +1016,13 @@ div.messages.error {
   margin-bottom: 2em;
 }
 
+.commons-events-form-float .field-name-field-note {
+  margin-bottom: 2ex;
+}
+.commons-events-form-float .field-name-field-note .description, .commons-events-form-float .field-name-field-note label {
+  display: none;
+}
+
 .node-type-news .pane-node-title-field {
   margin-bottom: 0;
 }
