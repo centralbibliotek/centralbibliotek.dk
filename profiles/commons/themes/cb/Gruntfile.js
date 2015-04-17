@@ -12,10 +12,19 @@ module.exports = function (grunt) {
       }
     },
 
+    shell: {
+      options: {
+        stderr: false
+      },
+      target: {
+        command: 'drush cc css-js'
+      }
+    },
+
     watch: {
       compass: {
         files: ['sass/**/*.scss'],
-        tasks: ['compass'],
+        tasks: ['compass', 'shell'],
       },
 
       css: {
@@ -29,5 +38,6 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['compass', 'watch']);
+  grunt.loadNpmTasks('grunt-shell');
+  grunt.registerTask('default', ['compass', 'shell', 'watch']);
 };
