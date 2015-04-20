@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://gist.githubusercontent.com/reload-deploy/558cb74732130daff021/raw/c84e8fc63b425b545208847d6d1597788af68d1d/media-Media_Browser_Library_not_shown-1889422-D7.x-2.0-alpha4.patch'
+    home: '1889422'
+    reason: 'Media Browser Library not shown'
