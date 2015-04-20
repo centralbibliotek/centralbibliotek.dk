@@ -186,6 +186,7 @@ div.messages.error {
   color: #ff5479;
 }
 
+.pane-node-followers-panel-pane-1 .views-field-picture,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
   background: none;
@@ -637,29 +638,35 @@ div.messages.error {
   margin-bottom: 0;
 }
 
+.pane-node-followers-panel-pane-1 .block-content,
 .pane-commons-events-event-attendee-list-panel-pane-1 .block-content,
 #panels-ipe-paneid-4 .block-content {
   padding-top: .2em;
 }
+.pane-node-followers-panel-pane-1 .view-commons-events-event-attendee-list,
 .pane-commons-events-event-attendee-list-panel-pane-1 .view-commons-events-event-attendee-list,
 #panels-ipe-paneid-4 .view-commons-events-event-attendee-list {
   background-color: transparent;
 }
+.pane-node-followers-panel-pane-1 .views-view-grid td,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
   padding: 0;
 }
+.pane-node-followers-panel-pane-1 .views-field-picture,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
   float: left;
   width: 24px;
   margin-right: .55em;
 }
+.pane-node-followers-panel-pane-1 .views-field-name,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-name,
 #panels-ipe-paneid-4 .views-field-name {
   height: 24px;
   line-height: 1.9;
 }
+.pane-node-followers-panel-pane-1 .views-view-grid td,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
   padding-bottom: .5em;
