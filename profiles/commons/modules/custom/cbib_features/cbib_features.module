@@ -156,3 +156,18 @@ function cbib_features_theme_token_tree(&$variables) {
   }
   return theme_token_tree($variables);
 }
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * The media widget doesn't work well with cardinality 1. We wrap it in a
+ * fieldset and pretend it is a multiple widget.
+ */
+function cbib_features_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (!empty($element[0]['#type']) && $element[0]['#type'] == 'media' &&
+    !empty($context['field']['cardinality']) && $context['field']['cardinality'] == 1) {
+    $element['#theme'] = 'media_widget_multiple';
+    $element['#title'] = $element[0]['#title'];
+    $element['#theme_wrappers'] = array('fieldset');
+  }
+}
