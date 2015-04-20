@@ -11,3 +11,7 @@ patches:
     patch: 'https://www.drupal.org/files/issues/og-incorrect_results-2358929-3.patch'
     home: 'https://www.drupal.org/node/2358929'
     reason: 'Incorrect results from og_get_group_audience_fields() if called twice using different $group_bundle parameter'
+  -
+    patch: 'https://www.drupal.org/files/issues/add-gid-to-relationship-field-1890370-34.patch'
+    home: 'https://www.drupal.org/node/1890370'
+    reason: 'SQLSTATE[42S22]: Column not found: 1054 Unknown column ''og_membership.field_og_ref_target_id'' in ''on clause'''
