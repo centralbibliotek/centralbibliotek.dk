@@ -176,3 +176,28 @@ function cbib_events_node_form_submit($form, $form_state) {
     registration_update_entity_settings('node', $node->nid, $settings);
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter() for registration_entity_settings_form().
+ *
+ * We add another submit handler to ensure the max capacity of an event is also
+ * propagated back to the event node (the value is duplicated in the data model
+ * by Drupal Commons).
+ *
+ * @see cbib_events_registration_entity_settings_form_submit()
+ */
+function cbib_events_form_registration_entity_settings_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'cbib_events_registration_entity_settings_form_submit';
+}
+
+/**
+ * Ensure the max capacity of an event is propagated back to the event node.
+ *
+ * @see cbib_events_form_registration_entity_settings_form_alter()
+ */
+function cbib_events_registration_entity_settings_form_submit($form, $form_state) {
+  $node = entity_load_single($form_state['entity']['entity_type'], $form_state['entity']['entity_id']);
+  $node_wrapper = entity_metadata_wrapper($form_state['entity']['entity_type'], $node);
+  $node_wrapper->field_number_of_attendees->set($form['capacity']['#value']);
+  $node_wrapper->save();
+}
