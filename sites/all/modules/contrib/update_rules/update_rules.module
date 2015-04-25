@@ -65,6 +65,7 @@ function update_rules_update_status_alter(&$projects) {
         'recommended_release' => (isset($project['recommended'])) ? $project['recommended'] : 'unknown',
         'status'              => $project['status'],
         'host'                => $host,
+        'release_link'        => (isset($project['recommended'])) ? $project['releases'][$project['recommended']]['release_link'] : '',
       );
 
       // This is our project_release value for this project + release combination

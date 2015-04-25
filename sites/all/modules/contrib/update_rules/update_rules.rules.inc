@@ -33,6 +33,11 @@ function update_rules_rules_event_info() {
         'label' => t('Recommended release'),
         'description' => t('Example: 7.x-1.3'),
       ),
+      'release_link' => array(
+        'type'  => 'text',
+        'label' => t('Release link for recommended release'),
+        'description' => t('Example: https://www.drupal.org/node/1960424'),
+      ),
       'status' => array(
         'type'  => 'integer',
         'label' => t('Status of the project'),
@@ -98,6 +103,13 @@ function update_rules_rules_action_info() {
         'description'   => t('Example: 7.x-1.3'),
         'optional'      => FALSE,
         'default value' => '[recommended-release:value]',
+      ),
+      'release_link' => array(
+        'type'          => 'text',
+        'label'         => t('Release link for recommended release'),
+        'description'   => t('Example: https://www.drupal.org/node/1960424'),
+        'optional'      => FALSE,
+        'default value' => '[release-link:value]',
       ),
     ),
   );
