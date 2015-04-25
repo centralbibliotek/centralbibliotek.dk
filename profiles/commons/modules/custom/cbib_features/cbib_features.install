@@ -244,6 +244,15 @@ function cbib_features_update_7116(&$sandbox) {
 }
 
 /**
+ * Enable Reload Jira Update modules.
+ */
+function cbib_features_update_7117(&$sandbox) {
+  if (!module_exists('reload_jira_update')) {
+    module_enable(array('reload_jira_update'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
