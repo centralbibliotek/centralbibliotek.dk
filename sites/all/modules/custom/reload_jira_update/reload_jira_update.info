@@ -1,0 +1,16 @@
+name = Reload Jira Update
+description = Create Jira issue for important project updates
+core = 7.x
+package = Reload
+dependencies[] = ctools
+dependencies[] = entity
+dependencies[] = jira_rest_rules
+dependencies[] = rules
+dependencies[] = strongarm
+dependencies[] = update_rules
+configure = admin/config/workflow/rules/reaction/manage/rules_reload_jira_update_create_issue
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[rules_config][] = rules_reload_jira_update_create_issue
+features[rules_config][] = rules_reload_jira_update_status_label
+features[variable][] = jira_rest_jirainstanceurl
