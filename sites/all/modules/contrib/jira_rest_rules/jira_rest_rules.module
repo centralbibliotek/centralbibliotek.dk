@@ -36,6 +36,7 @@ function jira_rest_rules_create_issue(array $settings) {
       $issue = jira_rest_createissue($username, $password, $issuedata);
 
       return array(
+        'jira_instanceurl' => variable_get('jira_rest_jirainstanceurl'),
         'jira_issue_id' => $issue->id,
         'jira_issue_key' => $issue->key,
         'jira_issue_self' => $issue->self,
@@ -47,6 +48,7 @@ function jira_rest_rules_create_issue(array $settings) {
   }
 
   return array(
+    'jira_instanceurl' => variable_get('jira_rest_jirainstanceurl'),
     'jira_issue_id' => NULL,
     'jira_issue_key' => NULL,
     'jira_issue_self' => NULL,

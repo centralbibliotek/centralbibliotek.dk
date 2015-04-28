@@ -35,6 +35,10 @@ function jira_rest_rules_rules_action_info() {
       ),
     ),
     'provides' => array(
+      'jira_instanceurl' => array(
+        'type' => 'text',
+        'label' => t('Jira instance URL'),
+      ),
       'jira_issue_id' => array(
         'type' => 'integer',
         'label' => t('Jira issue ID'),
