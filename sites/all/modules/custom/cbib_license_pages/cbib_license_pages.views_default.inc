@@ -51,26 +51,30 @@ function cbib_license_pages_views_default_views() {
   );
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Entity Reference: Referencing entity */
+  /* Forbindelse: Entity Reference: Refererende entity */
   $handler->display->display_options['relationships']['reverse_field_license_ambassador_node']['id'] = 'reverse_field_license_ambassador_node';
   $handler->display->display_options['relationships']['reverse_field_license_ambassador_node']['table'] = 'users';
   $handler->display->display_options['relationships']['reverse_field_license_ambassador_node']['field'] = 'reverse_field_license_ambassador_node';
   $handler->display->display_options['relationships']['reverse_field_license_ambassador_node']['required'] = TRUE;
-  /* Field: Content: Title */
+  /* Forbindelse: Entity Reference: Refereret entity */
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['id'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['field'] = 'field_centralbibliotek_ref_target_id';
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_license_ambassador_node';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: User: Name */
+  /* Felt: Bruger: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Field: Centralbibliotek */
+  /* Felt: Felt: Centralbibliotek */
   $handler->display->display_options['fields']['field_centralbibliotek_ref']['id'] = 'field_centralbibliotek_ref';
   $handler->display->display_options['fields']['field_centralbibliotek_ref']['table'] = 'field_data_field_centralbibliotek_ref';
   $handler->display->display_options['fields']['field_centralbibliotek_ref']['field'] = 'field_centralbibliotek_ref';
@@ -80,12 +84,16 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['fields']['field_centralbibliotek_ref']['settings'] = array(
     'link' => 1,
   );
-  /* Sort criterion: User: Created date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: User: Active */
+  /* Sorteringskriterie: Indhold: Titel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'field_centralbibliotek_ref_target_id';
+  /* Sorteringskriterie: Bruger: Last Name (field_name_last) */
+  $handler->display->display_options['sorts']['field_name_last_value']['id'] = 'field_name_last_value';
+  $handler->display->display_options['sorts']['field_name_last_value']['table'] = 'field_data_field_name_last';
+  $handler->display->display_options['sorts']['field_name_last_value']['field'] = 'field_name_last_value';
+  /* Filterkriterie: Bruger: Aktiv */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -103,9 +111,9 @@ function cbib_license_pages_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Content referencing User from field_license_ambassador'),
+    t('Indhold refererer til Bruger fra field_license_ambassador'),
+    t('Indhold entity refereret fra field_centralbibliotek_ref'),
     t('Content pane'),
-    t('more'),
     t('View panes'),
   );
   $export['ambassad_rliste'] = $view;
@@ -144,33 +152,33 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'document' => 'document',
   );
-  /* Filter criterion: Content: Licens: Formidling og PR (field_formidling_og_pr) */
+  /* Filterkriterie: Indhold: Licens: Formidling og PR (field_formidling_og_pr) */
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['id'] = 'field_formidling_og_pr_value';
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['table'] = 'field_data_field_formidling_og_pr';
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['field'] = 'field_formidling_og_pr_value';
@@ -196,7 +204,6 @@ function cbib_license_pages_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Content pane'),
-    t('more'),
     t('View panes'),
   );
   $export['formidling_og_pr_dokumenter'] = $view;
