@@ -30,7 +30,7 @@ function cbib_license_pages_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -48,
     'customized' => 1,
   );
   // Exported menu link: menu-license-menu_erms:https://library-erms.com
@@ -53,7 +53,7 @@ function cbib_license_pages_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 5,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: menu-license-menu_formidling-og-pr:licens/formidling-og-pr
@@ -76,7 +76,7 @@ function cbib_license_pages_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 3,
+    'weight' => -49,
     'customized' => 1,
   );
   // Exported menu link: menu-license-menu_licensforside:node/127
@@ -99,7 +99,7 @@ function cbib_license_pages_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 1,
+    'weight' => -50,
     'customized' => 1,
   );
   // Translatables

@@ -545,7 +545,9 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => 'Formidling og PR',
-      'body' => '<p>Beskrivelse om&nbsp;formidling og PR</p>
+      'body' => '<p>På denne side finder du materialer om generel formidling, PR og markedsføring af licenserne.</p>
+
+<p>Materialer der knytter sig til specifikke licenser kan findes under de enkelte licenser.</p>
 ',
       'format' => 'filtered_html',
       'substitute' => TRUE,
