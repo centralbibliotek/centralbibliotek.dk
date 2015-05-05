@@ -33,6 +33,29 @@ function cbib_license_pages_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
+  // Exported menu link: menu-license-menu_biblioteker:biblioteker
+  $menu_links['menu-license-menu_biblioteker:biblioteker'] = array(
+    'menu_name' => 'menu-license-menu',
+    'link_path' => 'biblioteker',
+    'router_path' => 'biblioteker',
+    'link_title' => 'Biblioteker',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-license-menu_biblioteker:biblioteker',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
   // Exported menu link: menu-license-menu_erms:https://library-erms.com
   $menu_links['menu-license-menu_erms:https://library-erms.com'] = array(
     'menu_name' => 'menu-license-menu',
@@ -105,6 +128,7 @@ function cbib_license_pages_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Ambassadørliste');
+  t('Biblioteker');
   t('ERMS');
   t('Formidling og PR');
   t('Licensforside');

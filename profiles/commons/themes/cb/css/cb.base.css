@@ -1223,17 +1223,20 @@ div.messages.error {
   display: none !important;
 }
 
+.view-biblioteker .view-grouping-header,
 .view-ambassad-rliste .view-grouping-header {
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+.view-biblioteker h3,
 .view-ambassad-rliste h3 {
   color: #424242;
   font-weight: normal;
   font-size: 1.15em;
 }
+.view-biblioteker .views-row,
 .view-ambassad-rliste .views-row {
   border: none;
 }
