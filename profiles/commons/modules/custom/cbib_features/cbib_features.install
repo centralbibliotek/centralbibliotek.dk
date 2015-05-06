@@ -253,6 +253,23 @@ function cbib_features_update_7117(&$sandbox) {
 }
 
 /**
+ * Fix translatable setting of title_field.
+ *
+ * Centralbibliotek.dk is not a multilingual site but 'title_field' is marked as
+ * translatable causing problems when adding titles to nodes.
+ *
+ * We alter the translatable setting for the fields replaced by title_field.
+ *
+ * @see title_entity_info()
+ * @see cbib_features_entity_info_alter()
+ */
+function cbib_features_update_7118(&$sandbox) {
+  $title_field = field_read_field('title_field');
+  $title_field['translatable'] = FALSE;
+  field_update_field($title_field);
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {

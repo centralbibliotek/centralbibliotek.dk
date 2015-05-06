@@ -173,16 +173,25 @@ function cbib_features_field_widget_form_alter(&$element, &$form_state, $context
 }
 
 /**
- * Implements hook_field_available_languages_alter().
+ * Implements hook_entity_info_alter().
  *
  * Centralbibliotek.dk is not a multilingual site but 'title_field' is marked as
  * translatable causing problems when adding titles to nodes.
  *
- * We simply alter the available languages for 'title_field' to only be
- * LANGUAGE_NONE.
+ * We alter the translatable setting for the fields replaced by title_field.
+ *
+ * @see title_entity_info()
+ * @see cbib_features_update_7118()
  */
-function cbib_features_field_available_languages_alter(&$languages, $context) {
-  if (!empty($context['field']['field_name']) && $context['field']['field_name'] == 'title_field') {
-    $languages = array(LANGUAGE_NONE);
+function cbib_features_entity_info_alter(&$entity_info) {
+  $entity_info['node']['field replacement']['title']['field']['translatable'] = FALSE;
+
+  if (module_exists('taxonomy')) {
+    $entity_info['taxonomy_term']['field replacement']['name']['field']['translatable'] = FALSE;
+    $entity_info['taxonomy_term']['field replacement']['description']['field']['translatable'] = FALSE;
+  }
+
+  if (module_exists('comment')) {
+    $entity_info['comment']['field replacement']['subject']['field']['translatable'] = FALSE;
   }
 }
