@@ -74,7 +74,8 @@
 }
 
 // jQuery ui tabs override.
-.page-events .ui-tabs{
+.page-events .ui-tabs,
+.page-node-events .ui-tabs {
   font-size: 1em;
   line-height: 1.6;
   border: none;

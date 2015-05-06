@@ -53,3 +53,14 @@ function cbib_license_pages_update_7103(&$sandbox) {
       ),
     ));
 }
+
+/**
+ * Revert license pages menu component.
+ */
+function cbib_license_pages_update_7104(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'menu_links',
+      ),
+    ));
+}

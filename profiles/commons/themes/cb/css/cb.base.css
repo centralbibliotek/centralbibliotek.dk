@@ -961,22 +961,26 @@ div.messages.error {
   margin-right: .5em;
 }
 
-.page-events .ui-tabs {
+.page-events .ui-tabs,
+.page-node-events .ui-tabs {
   font-size: 1em;
   line-height: 1.6;
   border: none;
   background-color: transparent;
   padding: 0;
 }
-.page-events .ui-tabs .ui-tabs-panel {
+.page-events .ui-tabs .ui-tabs-panel,
+.page-node-events .ui-tabs .ui-tabs-panel {
   padding: 0;
 }
-.page-events .ui-tabs ul {
+.page-events .ui-tabs ul,
+.page-node-events .ui-tabs ul {
   background: none;
   border: none;
   line-height: inherit;
 }
-.page-events .ui-tabs ul li {
+.page-events .ui-tabs ul li,
+.page-node-events .ui-tabs ul li {
   border: none;
   background: none;
   padding: 0;
@@ -985,18 +989,22 @@ div.messages.error {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-.page-events .ui-tabs ul li.ui-tabs-selected {
+.page-events .ui-tabs ul li.ui-tabs-selected,
+.page-node-events .ui-tabs ul li.ui-tabs-selected {
   padding-bottom: 0.5rem;
 }
-.page-events .ui-tabs ul li a {
+.page-events .ui-tabs ul li a,
+.page-node-events .ui-tabs ul li a {
   padding: 0;
   margin: 0;
 }
-.page-events .ui-tabs ul {
+.page-events .ui-tabs ul,
+.page-node-events .ui-tabs ul {
   margin: 0;
   padding: 0;
 }
-.page-events .ui-tabs ul li {
+.page-events .ui-tabs ul li,
+.page-node-events .ui-tabs ul li {
   list-style-type: none;
   list-style-image: none;
   margin: 0;
@@ -1005,26 +1013,33 @@ div.messages.error {
   margin-right: 1.5em;
   font-size: 1.15em;
 }
-.page-events .ui-tabs ul li a {
+.page-events .ui-tabs ul li a,
+.page-node-events .ui-tabs ul li a {
   color: #424242;
   display: block;
 }
-.page-events .ui-tabs ul li a:hover, .page-events .ui-tabs ul li a:focus {
+.page-events .ui-tabs ul li a:hover, .page-events .ui-tabs ul li a:focus,
+.page-node-events .ui-tabs ul li a:hover,
+.page-node-events .ui-tabs ul li a:focus {
   text-decoration: none;
   color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
 }
-.page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.active-trail a {
+.page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.active-trail a,
+.page-node-events .ui-tabs ul li.ui-state-active a,
+.page-node-events .ui-tabs ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
 }
-.page-events .ui-tabs ul li {
+.page-events .ui-tabs ul li,
+.page-node-events .ui-tabs ul li {
   background-color: #ddd;
   padding: 0.5rem;
   font-size: 1em;
   margin-right: 1em;
 }
-.page-events .ui-tabs ul {
+.page-events .ui-tabs ul,
+.page-node-events .ui-tabs ul {
   margin-bottom: 2em;
 }
 
@@ -1208,17 +1223,20 @@ div.messages.error {
   display: none !important;
 }
 
+.view-biblioteker .view-grouping-header,
 .view-ambassad-rliste .view-grouping-header {
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+.view-biblioteker h3,
 .view-ambassad-rliste h3 {
   color: #424242;
   font-weight: normal;
   font-size: 1.15em;
 }
+.view-biblioteker .views-row,
 .view-ambassad-rliste .views-row {
   border: none;
 }
