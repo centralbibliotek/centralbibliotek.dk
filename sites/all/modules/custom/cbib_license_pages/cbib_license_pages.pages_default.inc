@@ -329,7 +329,10 @@ function cbib_license_pages_default_page_manager_pages() {
   $page->admin_title = 'Biblioteker';
   $page->admin_description = 'List of libraries';
   $page->path = 'biblioteker';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
