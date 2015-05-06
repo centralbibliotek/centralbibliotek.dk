@@ -151,3 +151,23 @@
     border: none;
   }
 }
+
+// make some links in embassador-list grey instead of link-color
+.view-ambassad-rliste{
+  .view-grouping-header a, .item-list h3 a{
+    color: $dark_gray;
+    &:hover{
+      color: $tab_active_text;
+    }
+  }
+
+  .item-list h3{
+    margin-top: 0;
+  }
+
+  .view-grouping{
+    margin-top: 1.5em;
+  }
+}
+
+
