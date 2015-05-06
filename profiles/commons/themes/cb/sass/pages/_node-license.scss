@@ -153,7 +153,7 @@
 }
 
 // make some links in embassador-list grey instead of link-color
-.view-ambassad-rliste{
+.view-ambassad-rliste {
   .view-grouping-header a, .item-list h3 a{
     color: $dark_gray;
     &:hover{

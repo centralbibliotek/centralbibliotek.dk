@@ -1241,6 +1241,19 @@ div.messages.error {
   border: none;
 }
 
+.view-ambassad-rliste .view-grouping-header a, .view-ambassad-rliste .item-list h3 a {
+  color: #333333;
+}
+.view-ambassad-rliste .view-grouping-header a:hover, .view-ambassad-rliste .item-list h3 a:hover {
+  color: #ff5479;
+}
+.view-ambassad-rliste .item-list h3 {
+  margin-top: 0;
+}
+.view-ambassad-rliste .view-grouping {
+  margin-top: 1.5em;
+}
+
 .page-search .search-form-page input.form-search {
   height: 60px;
   font-size: 24px;
