@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_library module.
+ */
+
+/**
+ * Revert library strongarm variables.
+ */
+function cbib_library_update_7101(&$sandbox) {
+  features_revert(array(
+      'cbib_library' => array(
+        'variable',
+      ),
+    ));
+}
