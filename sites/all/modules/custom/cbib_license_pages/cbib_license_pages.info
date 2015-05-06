@@ -30,3 +30,5 @@ features[page_manager_pages][] = license_ambassadors
 features[views_view][] = ambassad_rliste
 features[views_view][] = biblioteker
 features[views_view][] = formidling_og_pr_dokumenter
+features[views_view][] = library_license_list
+features[views_view][] = licens_responsibles
