@@ -93,6 +93,11 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['sorts']['field_name_last_value']['id'] = 'field_name_last_value';
   $handler->display->display_options['sorts']['field_name_last_value']['table'] = 'field_data_field_name_last';
   $handler->display->display_options['sorts']['field_name_last_value']['field'] = 'field_name_last_value';
+  /* Sorteringskriterie: Indhold: Titel */
+  $handler->display->display_options['sorts']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['sorts']['title_1']['table'] = 'node';
+  $handler->display->display_options['sorts']['title_1']['field'] = 'title';
+  $handler->display->display_options['sorts']['title_1']['relationship'] = 'reverse_field_license_ambassador_node';
   /* Filterkriterie: Bruger: Aktiv */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
