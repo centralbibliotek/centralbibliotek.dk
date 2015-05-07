@@ -376,6 +376,14 @@ var {
   }
 }
 
+
+// style user-picture to be inside article instead of left from it
+.node-teaser{
+  &.node{
+    padding: 10px 10px 10px 70px!important;
+  }
+}
+
 .user-picture,
 .views-field-picture,
 .profile-badge-picture {
