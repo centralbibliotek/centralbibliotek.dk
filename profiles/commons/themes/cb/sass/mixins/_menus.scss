@@ -39,4 +39,51 @@
       margin-right: 1em;
     }
   }
+
+  /*@if $modifier == "sub" {
+    ul li {
+      margin-right: 1em;
+      font-size: 1em;
+      background-color: red;
+      a {
+        margin: 0 0.5em;
+        padding: .7em 1em;
+        display: inline-block;
+        border: none;
+        background-color: $gray-light;
+        &,
+        span {
+          color: $gray-darkest;
+        }
+        &:hover {
+          background-color: $gray-light;
+          color: $tab_text_hover;
+          text-decoration: underline;
+        }
+      }
+      &.active a {
+        position: relative;
+        background-color: $tab_active_text;
+        border: none;
+        text-decoration: none;
+        &,
+        &:hover {
+          background-color: $tab_active_text;
+          color: #ffffff;
+        }
+        &,
+        &:after {
+          border-color: $tab_active_text transparent transparent;
+        }
+        &,
+        span {
+          //color: $tab_active_text;
+        }
+      }
+      &.active{ // active li-element itself
+        background-color: $tab_active_text;
+      }
+
+    }
+  }*/
 }
