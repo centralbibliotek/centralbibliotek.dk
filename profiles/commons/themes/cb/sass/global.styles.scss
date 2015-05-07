@@ -590,7 +590,7 @@ optgroup {
     height: 0;
     margin-left: .2em;
     border: .4em solid transparent;
-    border-top-color: $light_blue;
+    border-top-color: $gray-dark;
   }
 }
 
@@ -1169,7 +1169,8 @@ ul.links {
   }
 }
 
-.quicktabs-style-commons-pills ul.quicktabs-tabs,
+// old version
+//.quicktabs-style-commons-pills ul.quicktabs-tabs,
 ul.primary.tabs {
   border-bottom-color: $gray-light;
   padding: 0;
@@ -1207,9 +1208,114 @@ ul.primary.tabs {
   }
 }
 
+// new version, active pills are pink
+/*.quicktabs-style-commons-pills ul.quicktabs-tabs{
+  border-bottom-color: $gray-light;
+  padding: 0;
+  li {
+    margin-right: 1em;
+    font-size: 1em;
+    background-color: $gray-light;
+    a {
+      margin: 0 0.5em;
+      padding: .7em 1em;
+      display: inline-block;
+      border: none;
+      background-color: $gray-light;
+      &,
+      span {
+        color: $gray-darkest;
+      }
+      &:hover {
+        background-color: $gray-light;
+        color: $tab_text_hover;
+        text-decoration: underline;
+      }
+    }
+    &.active a {
+      position: relative;
+      background-color: $tab_active_text;
+      border: none;
+      text-decoration: none;
+      &,
+      &:hover {
+        background-color: $tab_active_text;
+        color: #ffffff;
+      }
+      &,
+      &:after {
+        border-color: $tab_active_text transparent transparent;
+      }
+      &,
+      span {
+        //color: $tab_active_text;
+      }
+    }
+    &.active{ // active li-element itself
+        background-color: $tab_active_text;
+         }
+  }
+}*/
+
+// style pills same way as sub-menu
+.quicktabs-style-commons-pills ul.quicktabs-tabs{
+  border-bottom-color: $gray-light;
+  padding: 0;
+  li {
+    margin-right: 1em;
+    padding: 0.5rem;
+    font-size: 1em;
+    background-color: $gray-light;
+    a {
+      padding:0 10px 0 0;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      background-color: $gray-light;
+      &,
+      span {
+        color: $gray-darkest;
+      }
+      &:hover {
+        background-color: $gray-light;
+        color: $tab_text_hover;
+        box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
+        border-radius: 0px;
+      }
+      &:before{
+        background-image: none !important; // remove icons infront of pills
+      }
+    }
+    &.active a {
+      background-color: $tab_active_background;
+      box-shadow: inset 0 -3px 0 0 $gray-darkest;
+      border-radius: 0px;
+      color: #000000 !important;
+      &,
+      &:hover {
+        color: $tab_text_hover;
+      }
+      &,
+      &:after {
+        border-color: transparent transparent transparent;
+      }
+      &,
+      &:before {
+        background-image: none !important; // remove icons infront of pills
+      }
+      &,
+      span {
+        color: #000000;
+      }
+    }
+  }
+}
+
+
 .quicktabs-style-commons-pills ul.quicktabs-tabs li {
   text-transform: uppercase;
   font-size: .8em;
+
 }
 
 /**
@@ -1217,11 +1323,11 @@ ul.primary.tabs {
  */
 
 h1.node-title {
-  color: $dark_blue;
+  color:$gray_dark !important;
   font-size: 20px;
   a {
     text-decoration: none;
-    color: $dark_blue;
+    color:$gray_dark !important;
     &:hover {
       text-decoration: underline;
     }
@@ -2650,6 +2756,7 @@ body.page-node .pane-views-panes {
  *   Views Styling
  * ========================================================================== */
 
+
 .view-display-id-commons_events_upcoming_page .views-row {
   @extend %pod;
   article {
@@ -3035,7 +3142,8 @@ body.page-node .pane-views-panes {
   margin-top: 0;
   margin-bottom: .2em;
   margin-left: -68px;
-  color: rgb(70, 187, 46);
+  color: $gray-darker;
+  font-family: $alt-font;
   @include respond(only-small) {
     margin-left: 0;
   }
@@ -4134,7 +4242,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 }
 
 /**
- * Commons Origins Pallete Choices
+ * Commons Origins Pallet Choices
  */
 
 #edit-commons-origins-palette {
