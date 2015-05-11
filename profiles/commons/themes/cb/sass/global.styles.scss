@@ -1375,10 +1375,13 @@ h1.node-title {
 
 /* Views exposed form */
 .views-exposed-form {
+
+  margin-bottom: 2em;
+
   .views-exposed-widget {
-    float: none;
-    padding: 0;
-    margin: 1.7em 0;
+    float: left;
+    padding: 0.5em 1em 0 0;
+    margin: 0 1.7em;
     &:first-child {
       margin-top: 0;
     }
@@ -1412,7 +1415,7 @@ h1.node-title {
     }
   }
   .views-submit-button {
-    padding-top: 2.15em;
+    //padding-top: 2.15em;
     @include respond(small-medium) {
       margin-top: .5em;
       padding-top: 0;
@@ -2425,10 +2428,12 @@ ul.menu {
  * ========================================================================== */
 
 ul.pager {
-  clear: both;
+  //clear: both;
   margin: 0;
+  // This works beautifully because everything is inline.
   text-align: center;
 }
+
 
 .item-list ul.pager li {
   margin: 0;
@@ -2436,7 +2441,7 @@ ul.pager {
 
 ul.pager li {
   background-image: none;
-  display: inline;
+  //display: inline;
   list-style-type: none;
   padding: .5em;
   &.pager-current {
@@ -2447,6 +2452,84 @@ ul.pager li {
 .block ul.pager li {
   margin: 0;
 }
+
+
+//adjust pagination to Jacques design
+// Weird selector but necessary to get the selector points needed.
+html body div div div .item-list-pager ul.pager {
+  border-top: 1px solid $gray-light;
+  padding-top: 50px;
+
+  li{
+    background-color: transparent !important;
+    // This is necessary since one of the pages has class .ui-tabs
+    // and the other does not.
+    display: inline-block;
+    padding: 0;
+    margin: 0 10px;
+    // Crazy reset selector.
+    a[class*="action-item"] {
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    &.pager-current{
+      color: $tab_active_text;
+      padding-top: 8px;
+    }
+
+    &.pager-next,
+    &.pager-previous,
+    &.pager-first,
+    &.pager-last {
+      padding: 0px;
+      border-radius: 20px;
+      background-color: $gray-light !important;
+      position:relative;
+      top:9px;
+      &:hover{
+        background-color: $tab_active_text !important;
+        transform:scale(1.3);
+        //@include transform('scale(1.3)');
+        border-radius: 25px;
+
+        a{
+          color: #ffffff !important;
+        }
+      }
+    }
+    &.pager-next a,
+    &.pager-previous a,
+    &.pager-first a,
+    &.pager-last a{
+      font-size: 3em;
+      font-weight: 200;
+      line-height: 35px;
+      height: 40px;
+      width: 40px;
+      border-radius: 20px;
+      &:hover{
+        box-shadow: none;
+
+      }
+    }
+    &.pager-item a:hover{
+      text-decoration: underline;
+      color: $tab_active_text !important;
+    }
+    a{
+      color: $gray !important;
+      border: none;
+      text-shadow: none ;
+      background:none;
+      line-height: 40px;
+      &:hover{
+        box-shadow:none !important;
+      }
+    }
+  }
+}
+
 
 /* =============================================================================
  *   Skip Navigation

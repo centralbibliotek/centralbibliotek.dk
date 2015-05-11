@@ -153,9 +153,12 @@
 }
 
 // make some links in embassador-list grey instead of link-color
+.view-biblioteker,
 .view-ambassad-rliste {
   .view-grouping-header a, .item-list h3 a{
     color: $dark_gray;
+    font-size: 1.15em;
+    font-family: $alt-font;
     &:hover{
       color: $tab_active_text;
     }

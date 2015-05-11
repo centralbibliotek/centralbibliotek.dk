@@ -826,7 +826,10 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->subtype = 'ambassad_rliste-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Ambassadørliste',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,

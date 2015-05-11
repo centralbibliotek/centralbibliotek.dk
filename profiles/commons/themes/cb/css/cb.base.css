@@ -1579,69 +1579,53 @@ div.messages.error {
   display: none !important;
 }
 
-<<<<<<< Updated upstream
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003137}}
 .view-biblioteker .view-grouping-header,
-=======
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003136}}
->>>>>>> Stashed changes
 .view-ambassad-rliste .view-grouping-header {
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
   font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-<<<<<<< Updated upstream
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003144}}
 .view-biblioteker h3,
-=======
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003143}}
->>>>>>> Stashed changes
 .view-ambassad-rliste h3 {
   color: #424242;
   font-weight: normal;
   font-size: 1.15em;
 }
-<<<<<<< Updated upstream
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003150}}
 .view-biblioteker .views-row,
-=======
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003149}}
->>>>>>> Stashed changes
 .view-ambassad-rliste .views-row {
   border: none;
 }
 
-<<<<<<< Updated upstream
-.view-ambassad-rliste .view-grouping-header a, .view-ambassad-rliste .item-list h3 a {
-  color: #333333;
-}
-.view-ambassad-rliste .view-grouping-header a:hover, .view-ambassad-rliste .item-list h3 a:hover {
-  color: #ff5479;
-}
-.view-ambassad-rliste .item-list h3 {
-  margin-top: 0;
-}
-=======
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003156}}
-.view-ambassad-rliste .view-grouping-header a, .view-ambassad-rliste .item-list h3 a {
-  color: #333333;
-}
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003158}}
-.view-ambassad-rliste .view-grouping-header a:hover, .view-ambassad-rliste .item-list h3 a:hover {
-  color: #ff5479;
+.view-biblioteker .view-grouping-header a, .view-biblioteker .item-list h3 a,
+.view-ambassad-rliste .view-grouping-header a,
+.view-ambassad-rliste .item-list h3 a {
+  color: #333333;
+  font-size: 1.15em;
+  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003163}}
-.view-ambassad-rliste .item-list h3 {
-  margin-top: 0;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003162}}
+.view-biblioteker .view-grouping-header a:hover, .view-biblioteker .item-list h3 a:hover,
+.view-ambassad-rliste .view-grouping-header a:hover,
+.view-ambassad-rliste .item-list h3 a:hover {
+  color: #ff5479;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003167}}
->>>>>>> Stashed changes
+.view-biblioteker .item-list h3,
+.view-ambassad-rliste .item-list h3 {
+  margin-top: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003171}}
+.view-biblioteker .view-grouping,
 .view-ambassad-rliste .view-grouping {
   margin-top: 1.5em;
 }
 
-<<<<<<< Updated upstream
-=======
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/pages\/_page-search\.scss}line{font-family:\000033}}
->>>>>>> Stashed changes
 .page-search .search-form-page input.form-search {
   height: 60px;
   font-size: 24px;
