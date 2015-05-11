@@ -270,6 +270,15 @@ function cbib_features_update_7118(&$sandbox) {
 }
 
 /**
+ * Enable Cbib DBC License Feeds module.
+ */
+function cbib_features_update_7119(&$sandbox) {
+  if (!module_exists('cbib_dbc_license_feeds')) {
+    module_enable(array('cbib_dbc_license_feeds'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
