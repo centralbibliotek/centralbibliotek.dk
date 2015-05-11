@@ -82,7 +82,7 @@ function cbib_dbc_license_feeds_field_formatter_view($entity_type, $entity, $fie
       foreach ($items as $delta => $item) {
         $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
         setlocale(LC_TIME, 'da_DK');
-        $element[$delta] = array('#markup' => strftime('%e %b %Y', $date->format('U')));
+        $element[$delta] = array('#markup' => ucwords(strftime('%e %b %Y', $date->format('U'))));
       }
       break;
 
@@ -91,7 +91,7 @@ function cbib_dbc_license_feeds_field_formatter_view($entity_type, $entity, $fie
       foreach ($items as $delta => $item) {
         $date = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
         setlocale(LC_TIME, 'da_DK');
-        $element[$delta] = array('#markup' => strftime('%e %b %Y', $date->format('U')));
+        $element[$delta] = array('#markup' => ucwords(strftime('%e %b %Y', $date->format('U'))));
       }
       break;
   }
