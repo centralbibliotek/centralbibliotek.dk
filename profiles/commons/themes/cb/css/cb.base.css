@@ -160,12 +160,17 @@ ul.nostyle li {
   margin: 50px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000372}}
+.page-flag-confirm-flag-inappropriate-node input[type=submit], .page-flag-confirm-unflag-inappropriate-node input[type=submit] {
+  margin: 0 50px 0 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000377}}
 .more-link a {
   margin: 20px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000381}}
 .lead-link a,
 a.lead-link {
   padding: 5px 15px;
@@ -180,7 +185,7 @@ a.lead-link {
   -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   transition: color 200ms ease-in, background-color 200ms ease-in;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/profiles\/commons\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000391}}
 .lead-link a:hover,
 a.lead-link:hover {
   background-color: #565656;
