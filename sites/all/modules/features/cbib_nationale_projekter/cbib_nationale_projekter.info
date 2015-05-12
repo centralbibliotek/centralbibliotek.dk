@@ -1,6 +1,7 @@
 name = CBIB Nationale Projekter
 core = 7.x
 package = Centralbibliotek.dk
+dependencies[] = cbib_features
 dependencies[] = features
 dependencies[] = menu
 dependencies[] = page_manager
