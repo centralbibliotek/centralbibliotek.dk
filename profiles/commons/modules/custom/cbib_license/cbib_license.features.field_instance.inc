@@ -10,111 +10,6 @@
 function cbib_license_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_license_documents-field_license_document'
-  $field_instances['field_collection_item-field_license_documents-field_license_document'] = array(
-    'bundle' => 'field_license_documents',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_license_document',
-    'label' => 'Dokument',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => 'license',
-      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf jpg gif png',
-      'max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_license_documents-field_license_document_body'
-  $field_instances['field_collection_item-field_license_documents-field_license_document_body'] = array(
-    'bundle' => 'field_license_documents',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_license_document_body',
-    'label' => 'Beskrivelse',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_license_documents-field_license_document_type'
-  $field_instances['field_collection_item-field_license_documents-field_license_document_type'] = array(
-    'bundle' => 'field_license_documents',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_license_document_type',
-    'label' => 'Type',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 0,
-    ),
-  );
-
   // Exported field_instance: 'node-license-body'
   $field_instances['node-license-body'] = array(
     'bundle' => 'license',
@@ -240,6 +135,9 @@ function cbib_license_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
+      'resup' => 0,
+      'resup_autostart' => 0,
+      'resup_max_filesize' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -427,7 +325,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_copy_lib',
-    'label' => 'Mulighed for eletronisk kopi til andre biblioteker',
+    'label' => 'Eletronisk kopi til andre biblioteker',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -471,7 +369,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_copy_user',
-    'label' => 'Mulighed for eletronisk kopi til brugere',
+    'label' => 'Eletronisk kopi til brugere',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -515,7 +413,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_ip',
-    'label' => 'Mulighed for IP adgang',
+    'label' => 'IP-adgang',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -600,7 +498,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_password',
-    'label' => 'Mulighed for password adgang',
+    'label' => 'Password-adgang',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -644,7 +542,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_print_lib',
-    'label' => 'Mulighed for print til andre biblioteker',
+    'label' => 'Print til andre biblioteker',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -688,7 +586,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_print_user',
-    'label' => 'Mulighed for print til brugere',
+    'label' => 'Print til brugere',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -732,7 +630,7 @@ function cbib_license_field_default_field_instances() {
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_license_access_remote_user',
-    'label' => 'Mulighed for fjernbrugeradgang',
+    'label' => 'Fjernbrugeradgang',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -877,50 +775,6 @@ function cbib_license_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 26,
-    ),
-  );
-
-  // Exported field_instance: 'node-license-field_license_documents'
-  $field_instances['node-license-field_license_documents'] = array(
-    'bundle' => 'license',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Tilføj',
-          'delete' => 'Slet',
-          'description' => TRUE,
-          'edit' => 'Redigér',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 52,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'field_license_documents',
-    'label' => 'Dokumenter',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 37,
     ),
   );
 
@@ -1545,7 +1399,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -1816,7 +1670,7 @@ function cbib_license_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 12,
     ),
     'widget_type' => 'options_select',
   );
@@ -1881,161 +1735,36 @@ function cbib_license_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-license-og_group_license_ref'
-  $field_instances['node-license-og_group_license_ref'] = array(
-    'bundle' => 'license',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'og_ui',
-        'settings' => array(),
-        'type' => 'og_list_default',
-        'weight' => 51,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'og_group_license_ref',
-    'label' => 'Licence group',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'access_override' => 0,
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'view modes' => array(
-      'full' => array(
-        'custom settings' => FALSE,
-        'label' => 'Fuld',
-        'type' => 'og_list_default',
-      ),
-      'teaser' => array(
-        'custom settings' => FALSE,
-        'label' => 'Smagsprøve',
-        'type' => 'og_list_default',
-      ),
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'og',
-      'settings' => array(),
-      'type' => 'og_complex',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-license-og_roles_permissions'
-  $field_instances['node-license-og_roles_permissions'] = array(
-    'bundle' => 'license',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 48,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'og_roles_permissions',
-    'label' => 'Group roles and permissions',
-    'required' => TRUE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'view modes' => array(
-      'full' => array(
-        'custom settings' => FALSE,
-        'label' => 'Fuld',
-        'type' => 'list_default',
-      ),
-      'teaser' => array(
-        'custom settings' => FALSE,
-        'label' => 'Smagsprøve',
-        'type' => 'list_default',
-      ),
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 13,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Abbreviated title');
   t('Abonnementsperiode');
   t('Ambassadør');
-  t('Beskrivelse');
   t('Betaling');
   t('Biblioteker');
   t('Billede');
   t('Body');
   t('Determine if this is an OG group.');
-  t('Dokument');
-  t('Dokumenter');
+  t('Eletronisk kopi til andre biblioteker');
+  t('Eletronisk kopi til brugere');
   t('Emner');
   t('Faustnummer');
-  t('Group roles and permissions');
+  t('Fjernbrugeradgang');
   t('Group visibility');
   t('Gruppe');
   t('I databrønd?');
-  t('Licence group');
+  t('IP-adgang');
   t('Lignende licenser');
   t('Metadata?');
-  t('Mulighed for IP adgang');
-  t('Mulighed for eletronisk kopi til andre biblioteker');
-  t('Mulighed for eletronisk kopi til brugere');
-  t('Mulighed for fjernbrugeradgang');
-  t('Mulighed for password adgang');
-  t('Mulighed for print til andre biblioteker');
-  t('Mulighed for print til brugere');
   t('Mulighed for statistikudtræk');
   t('Målgruppe');
   t('Note til licensadgang');
   t('Nyhedsbrev');
   t('Opdatering af indhold');
   t('PID');
+  t('Password-adgang');
+  t('Print til andre biblioteker');
+  t('Print til brugere');
   t('Privacy settings');
   t('Producent');
   t('Proxy start url');
@@ -2046,7 +1775,6 @@ function cbib_license_field_default_field_instances() {
   t('Tilmelding');
   t('Titelliste');
   t('Titelliste (links)');
-  t('Type');
   t('Web adresse');
 
   return $field_instances;
