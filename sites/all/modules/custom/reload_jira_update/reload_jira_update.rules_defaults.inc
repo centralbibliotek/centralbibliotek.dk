@@ -51,7 +51,7 @@ function reload_jira_update_default_rules_configuration() {
           }
         },
         { "mail" : {
-            "to" : "lounge.team+security+[project-name:value]+[jira-issue-key:value]@reload.flowdock.com",
+            "to" : "centralbibliotek-dk.team+security+[project-name:value]+[jira-issue-key:value]@reload.flowdock.com",
             "subject" : "[site:name]: [project-name:value] ([recommended-release:value])",
             "message" : "Drupal project: [project-title:value] ([project-name:value])\\r\\nDrupal project status: [status-label:value]\\r\\n\\r\\nCurrent release: [current-release:value]\\r\\nRecommended release: [recommended-release:value]\\r\\nRelease link: [release-link:value]\\r\\n\\r\\nSite: [site:url]\\r\\n\\r\\nJira Issue: [jira-instanceurl:value]\\/browse\\/[jira-issue-key:value]\\r\\n",
             "language" : [ "" ]
