@@ -51,13 +51,13 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Field: Content: Arrangementsdato */
+  /* Felt: Indhold: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -70,18 +70,18 @@ function cbib_views_news_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -140,13 +140,13 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Field: Content: Arrangementsdato */
+  /* Felt: Indhold: Arrangementsdato */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -159,7 +159,7 @@ function cbib_views_news_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Registration Settings: Spaces used */
+  /* Felt: Registration Settings: Spaces used */
   $handler->display->display_options['fields']['capacity_used']['id'] = 'capacity_used';
   $handler->display->display_options['fields']['capacity_used']['table'] = 'node';
   $handler->display->display_options['fields']['capacity_used']['field'] = 'capacity_used';
@@ -167,7 +167,7 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['fields']['capacity_used']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['capacity_used']['separator'] = '';
   $handler->display->display_options['fields']['capacity_used']['suffix'] = ' deltagere,';
-  /* Field: Content: Comment count */
+  /* Felt: Indhold: Kommentarantal */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -210,7 +210,7 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Text area */
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -218,11 +218,11 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No events have been created yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Promoted to front page */
+  /* Sorteringskriterie: Indhold: Forfremmet til forside */
   $handler->display->display_options['sorts']['promote']['id'] = 'promote';
   $handler->display->display_options['sorts']['promote']['table'] = 'node';
   $handler->display->display_options['sorts']['promote']['field'] = 'promote';
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -255,13 +255,13 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: OG membership: OG membership from Node */
+  /* Forbindelse: OG membership: OG membership from Indholdselement */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: OG membership: Group ID */
+  /* Kontekstuelt filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['gid']['field'] = 'gid';
@@ -311,7 +311,6 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -319,13 +318,13 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: OG membership: OG membership from Node */
+  /* Forbindelse: OG membership: OG membership from Indholdselement */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: OG membership: Group ID */
+  /* Kontekstuelt filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['gid']['field'] = 'gid';
@@ -384,27 +383,7 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Group reference (field_og_groups_ref) */
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['id'] = 'field_og_groups_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['field'] = 'field_og_groups_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_og_groups_ref_target_id']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: License reference (field_og_licenses_ref) */
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['id'] = 'field_og_licenses_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['field'] = 'field_og_licenses_ref_target_id';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_og_licenses_ref_target_id']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: Emner (field_topics) */
+  /* Kontekstuelt filter: Indhold: Emner (field_topics) */
   $handler->display->display_options['arguments']['field_topics_tid']['id'] = 'field_topics_tid';
   $handler->display->display_options['arguments']['field_topics_tid']['table'] = 'field_data_field_topics';
   $handler->display->display_options['arguments']['field_topics_tid']['field'] = 'field_topics_tid';
@@ -413,7 +392,7 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['arguments']['field_topics_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_topics_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_topics_tid']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: Emner (field_topics) */
+  /* Kontekstuelt filter: Indhold: Emner (field_topics) */
   $handler->display->display_options['arguments']['field_topics_tid_1']['id'] = 'field_topics_tid_1';
   $handler->display->display_options['arguments']['field_topics_tid_1']['table'] = 'field_data_field_topics';
   $handler->display->display_options['arguments']['field_topics_tid_1']['field'] = 'field_topics_tid';
@@ -423,6 +402,16 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['arguments']['field_topics_tid_1']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_topics_tid_1']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_topics_tid_1']['not'] = TRUE;
+  /* Kontekstuelt filter: Indhold: Tilknytning (og_group_ref) */
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['pane_category']['name'] = 'Centralbibliotek';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
@@ -435,22 +424,6 @@ function cbib_views_news_views_default_views() {
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
-    'field_og_groups_ref_target_id' => array(
-      'type' => 'none',
-      'context' => 'entity:user.field_alternate_address',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Indhold: Group reference (field_og_groups_ref)',
-    ),
-    'field_og_licenses_ref_target_id' => array(
-      'type' => 'none',
-      'context' => 'entity:user.field_alternate_address',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Indhold: License reference (field_og_licenses_ref)',
-    ),
     'field_topics_tid' => array(
       'type' => 'user',
       'context' => 'entity:user.field_alternate_address',
@@ -466,6 +439,14 @@ function cbib_views_news_views_default_views() {
       'panel' => '0',
       'fixed' => '',
       'label' => 'Indhold: Emner (field_topics) - exclude',
+    ),
+    'og_group_ref_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Tilknytning (og_group_ref)',
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
