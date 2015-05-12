@@ -279,6 +279,15 @@ function cbib_features_update_7119(&$sandbox) {
 }
 
 /**
+ * Enable CBIB Spam Protection feature module.
+ */
+function cbib_features_update_7120(&$sandbox) {
+  if (!module_exists('cbib_spam_protection')) {
+    module_enable(array('cbib_spam_protection'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
