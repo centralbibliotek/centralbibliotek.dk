@@ -157,8 +157,11 @@ function cbib_news_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'dokumenter',
-      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf png jpg jpeg gif',
       'max_filesize' => '',
+      'resup' => 1,
+      'resup_autostart' => 1,
+      'resup_max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -207,6 +210,9 @@ function cbib_news_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
+      'resup' => 0,
+      'resup_autostart' => 0,
+      'resup_max_filesize' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -292,118 +298,6 @@ function cbib_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_og_groups_ref'
-  $field_instances['node-news-field_og_groups_ref'] = array(
-    'bundle' => 'news',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 7,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'field_og_groups_ref',
-    'label' => 'Grupper',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'access_override' => 0,
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'og',
-      'settings' => array(),
-      'type' => 'og_complex',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-news-field_og_licenses_ref'
-  $field_instances['node-news-field_og_licenses_ref'] = array(
-    'bundle' => 'news',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 8,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'field_og_licenses_ref',
-    'label' => 'License reference',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'access_override' => 0,
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'og',
-      'settings' => array(),
-      'type' => 'og_complex',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'node-news-field_topics'
   $field_instances['node-news-field_topics'] = array(
     'bundle' => 'news',
@@ -445,20 +339,20 @@ function cbib_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-og_news_ref'
-  $field_instances['node-news-og_news_ref'] = array(
+  // Exported field_instance: 'node-news-og_group_ref'
+  $field_instances['node-news-og_group_ref'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
     'default_value_function' => '',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Angiv hvilke centralbiblioteker og/eller licenser nyheden er knyttet til.',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'og_ui',
         'settings' => array(),
         'type' => 'og_list_default',
-        'weight' => 11,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -469,8 +363,8 @@ function cbib_news_field_default_field_instances() {
     ),
     'display_in_partial_form' => 0,
     'entity_type' => 'node',
-    'field_name' => 'og_news_ref',
-    'label' => 'Nyhedsgrupper',
+    'field_name' => 'og_group_ref',
+    'label' => 'Tilknytning',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -480,7 +374,7 @@ function cbib_news_field_default_field_instances() {
             'widget_type' => 'entityreference_autocomplete',
           ),
           'default' => array(
-            'widget_type' => 'options_select',
+            'widget_type' => 'entityreference_autocomplete',
           ),
           'status' => TRUE,
         ),
@@ -513,15 +407,13 @@ function cbib_news_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Angiv hvilke centralbiblioteker og/eller licenser nyheden er knyttet til.');
   t('Billede');
   t('Body');
-  t('Centralbibliotek');
   t('Emner');
   t('Forfatter');
-  t('Grupper');
-  t('License reference');
   t('Link');
-  t('Nyhedsgrupper');
+  t('Tilknytning');
   t('Vedhæftninger');
 
   return $field_instances;
