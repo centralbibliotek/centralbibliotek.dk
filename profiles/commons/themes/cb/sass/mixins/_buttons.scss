@@ -7,7 +7,7 @@
 
 // These are the default skins and sizes. They can be overridden with alternate
 // values.
-$buttons: (default, #fefefe) (active, #f3f3f3, true) (primary, rgb(70, 187, 46)) (primary-active, rgb(70, 187, 46), true) !default;
+$buttons: (default, #fefefe) (active, #f3f3f3, true) (primary, $brand-primary /*rgb(70, 187, 46)*/) (primary-active, $brand-primary-light /*rgb(70, 187, 46)*/, true) !default;
 $button-sizes: (default, 1em, .5em 1.5em) (small, .88em, .3em 1em) (large, 1.2em, .5em 1.5em) !default;
 $button-contrast: 60 !default;
 
@@ -85,7 +85,7 @@ $button-contrast: 60 !default;
   %button-#{$name} {
     background-color: $base-color;
     @if $flat == false {
-      @include background(linear-gradient(lighten($base-color, 5), darken($base-color, 5)))
+      @include background(background-color($brand-primary))//background(linear-gradient(lighten($base-color, 5), darken($base-color, 5)))
     }
     @else {
       @include box-shadow(inset .1em .1em .2em darken($base-color, 30));

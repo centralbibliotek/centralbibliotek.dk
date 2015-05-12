@@ -865,6 +865,8 @@ button,
     border-width: 4px;
     border-right-color: $border;
   }
+
+
 }
 
 /* Reset some styles for the admin toolbar. */
@@ -929,6 +931,7 @@ button,
     display: none !important;
   }
 }
+
 
 /* Report as inappropriate */
 .flag-inappropriate-node,
@@ -2494,7 +2497,7 @@ html body div div div .item-list-pager ul.pager {
         border-radius: 25px;
 
         a{
-          color: #ffffff !important;
+          color: #ffffff;
         }
       }
     }
@@ -2515,20 +2518,58 @@ html body div div div .item-list-pager ul.pager {
     }
     &.pager-item a:hover{
       text-decoration: underline;
-      color: $tab_active_text !important;
+      color: $tab_active_text;
     }
     a{
-      color: $gray !important;
+      color: $gray;
       border: none;
       text-shadow: none ;
       background:none;
       line-height: 40px;
       &:hover{
-        box-shadow:none !important;
+        box-shadow:none;
       }
     }
   }
 }
+
+// styling for load-more-pagination, make it look like a button
+// same weird selector as for other pagination, but needed to target
+html body div div div .item-list-pager ul.pager-load-more{
+  li.pager-next {
+
+    a {
+      width: auto;
+      display: inline;
+      border-radius: 40px;
+      padding: 15px 25px;
+      background-color: $brand-primary;
+      color: #fff !important;
+      font-size: 1em;
+
+      &:hover {
+        background-color: $brand-primary-light;
+        height: auto;
+      }
+    }
+    &:hover{
+      transform: scale(1);
+    }
+  }
+
+}
+
+
+// make empty-pager invisible
+html body div div div .item-list-pager ul.pager-load-more-empty {
+  li.pager-next {
+    background-color: transparent !important;
+    &:hover{
+      background-color: transparent !important;
+    }
+  }
+}
+
 
 
 /* =============================================================================
