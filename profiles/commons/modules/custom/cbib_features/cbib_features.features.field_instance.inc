@@ -15,13 +15,13 @@ function cbib_features_field_default_field_instances() {
     'bundle' => 'centralbibliotek',
     'default_value' => array(
       0 => array(
-        'element_key' => 'node|centralbibliotek|field_address|und|0',
         'thoroughfare' => '',
         'premise' => '',
         'postal_code' => '',
+        'dependent_locality' => '',
         'locality' => '',
+        'administrative_area' => '',
         'country' => 'DK',
-        'organisation_name' => '',
       ),
     ),
     'deleted' => 0,
@@ -46,6 +46,7 @@ function cbib_features_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_address',
     'label' => 'Address',
@@ -63,7 +64,9 @@ function cbib_features_field_default_field_instances() {
         'format_handlers' => array(
           'address' => 'address',
           'address-hide-country' => 'address-hide-country',
-          'organisation' => 0,
+          'organisation' => 'organisation',
+          'address-hide-postal-code' => 0,
+          'address-hide-street' => 0,
           'name-full' => 0,
           'name-oneline' => 0,
         ),
@@ -163,6 +166,51 @@ function cbib_features_field_default_field_instances() {
       'settings' => array(),
       'type' => 'numberfield',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-centralbibliotek-field_document_file'
+  $field_instances['node-centralbibliotek-field_document_file'] = array(
+    'bundle' => 'centralbibliotek',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_document_file',
+    'label' => 'Vedhæftninger',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf png jpg jpeg gif',
+      'max_filesize' => '',
+      'resup' => 1,
+      'resup_autostart' => 1,
+      'resup_max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 19,
     ),
   );
 
@@ -321,72 +369,6 @@ function cbib_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-centralbibliotek-og_group_ref'
-  $field_instances['node-centralbibliotek-og_group_ref'] = array(
-    'bundle' => 'centralbibliotek',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'og_ui',
-        'settings' => array(),
-        'type' => 'og_list_default',
-        'weight' => 19,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'og_group_ref',
-    'label' => 'Groups audience',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'access_override' => 0,
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'view modes' => array(
-      'full' => array(
-        'custom settings' => FALSE,
-        'label' => 'Fuld',
-        'type' => 'og_list_default',
-      ),
-      'teaser' => array(
-        'custom settings' => FALSE,
-        'label' => 'Smagsprøve',
-        'type' => 'og_list_default',
-      ),
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'og',
-      'settings' => array(),
-      'type' => 'og_complex',
-      'weight' => 18,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
@@ -394,8 +376,8 @@ function cbib_features_field_default_field_instances() {
   t('CVR');
   t('E-mail');
   t('EAN');
-  t('Groups audience');
   t('Telefon');
+  t('Vedhæftninger');
   t('Website');
 
   return $field_instances;

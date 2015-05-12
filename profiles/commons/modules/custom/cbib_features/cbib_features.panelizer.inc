@@ -166,28 +166,6 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '93e15674-d765-4f06-9fea-2c1a4898d6f4';
     $display->content['new-93e15674-d765-4f06-9fea-2c1a4898d6f4'] = $pane;
     $display->panels['one_main'][4] = 'new-93e15674-d765-4f06-9fea-2c1a4898d6f4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
-    $pane->panel = 'one_main';
-    $pane->type = 'commons_bw_group';
-    $pane->subtype = 'commons_bw_group';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = 'e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
-    $display->content['new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08'] = $pane;
-    $display->panels['one_main'][5] = 'new-e0ba4917-8a0d-4b2e-a5ca-419da609eb08';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
@@ -560,6 +538,35 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '3667aa5b-3012-4677-b63f-081c5a6ba15a';
     $display->content['new-3667aa5b-3012-4677-b63f-081c5a6ba15a'] = $pane;
     $display->panels['two_66_33_second'][7] = 'new-3667aa5b-3012-4677-b63f-081c5a6ba15a';
+    $pane = new stdClass();
+    $pane->pid = 'new-9aa68120-2268-4422-926b-e0f9c7309744';
+    $pane->panel = 'two_66_33_second';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_document_file';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '9aa68120-2268-4422-926b-e0f9c7309744';
+    $display->content['new-9aa68120-2268-4422-926b-e0f9c7309744'] = $pane;
+    $display->panels['two_66_33_second'][8] = 'new-9aa68120-2268-4422-926b-e0f9c7309744';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
