@@ -288,6 +288,13 @@ function cbib_features_update_7120(&$sandbox) {
 }
 
 /**
+ * Feature revert cbib_spam_protection variables.
+ */
+function cbib_features_update_7121(&$sandbox) {
+  features_revert(array('cbib_spam_protection' => array('variable')));
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
