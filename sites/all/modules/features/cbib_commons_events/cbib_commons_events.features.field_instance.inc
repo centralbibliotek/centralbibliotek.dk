@@ -10,22 +10,19 @@
 function cbib_commons_events_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event-field_og_groups_ref'
-  $field_instances['node-event-field_og_groups_ref'] = array(
+  // Exported field_instance: 'node-event-field_link'
+  $field_instances['node-event-field_link'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
-    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 25,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -34,90 +31,40 @@ function cbib_commons_events_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
-    'display_in_partial_form' => 0,
     'entity_type' => 'node',
-    'field_name' => 'field_og_groups_ref',
-    'label' => 'Grupper',
-    'required' => 0,
+    'field_name' => 'field_link',
+    'label' => 'Link',
+    'required' => FALSE,
     'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'access_override' => 0,
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'status' => TRUE,
-        ),
-        'prepopulate' => array(
-          'status' => 0,
-        ),
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
       ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
       'user_register_form' => FALSE,
+      'validate_url' => 1,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'og',
+      'module' => 'link',
       'settings' => array(),
-      'type' => 'og_complex',
-      'weight' => 7,
-    ),
-  );
-
-  // Exported field_instance: 'node-event-og_user_node'
-  $field_instances['node-event-og_user_node'] = array(
-    'bundle' => 'event',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 14,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_in_partial_form' => 0,
-    'entity_type' => 'node',
-    'field_name' => 'og_user_node',
-    'label' => 'Centralbibliotek',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_buttons',
-      'weight' => 6,
+      'type' => 'link_field',
+      'weight' => 29,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Centralbibliotek');
-  t('Grupper');
+  t('Link');
 
   return $field_instances;
 }

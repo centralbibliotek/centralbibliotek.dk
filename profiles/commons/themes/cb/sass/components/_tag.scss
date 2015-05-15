@@ -16,7 +16,15 @@
   }
 }
 
-.field-name-field-topics .field-items, .field-name-og-user-node .field-items, .pane-node-og-group-ref .field-items {
+
+.page-events .field-name-field-event-type .field-items a{
+  display: inline;
+}
+
+.field-name-field-topics .field-items,
+.field-name-og-user-node .field-items,
+.pane-node-og-group-ref .field-items,
+.field-name-field-event-type .field-items {
     list-style: none;
     padding: 0px;
 
@@ -61,7 +69,8 @@
     }
   }
 
-  .field-name-field-topics .field-items .field-item {
+  .field-name-field-topics .field-items .field-item,
+  .field-name-field-event-type .field-items .field-item{
     &:before {
       background: $brand-blue;
     }

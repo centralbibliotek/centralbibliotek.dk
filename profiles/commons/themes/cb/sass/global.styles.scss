@@ -2884,6 +2884,22 @@ body.page-node .pane-views-panes {
   }
 }
 
+//styling for panel showing user profile
+// first item has a CSS-class attached to target and remove the clear
+.page-user .panels-ipe-portlet-content section.first-profile-item{
+
+  .clearfix:after{
+    clear: none;
+  }
+}
+
+// since clear gets removed on first item, second item displays 20px larger than others
+.page-user .pane-user-field-phone{
+  margin-bottom: 6px;
+}
+
+
+
 /* =============================================================================
  *   Views Styling
  * ========================================================================== */
