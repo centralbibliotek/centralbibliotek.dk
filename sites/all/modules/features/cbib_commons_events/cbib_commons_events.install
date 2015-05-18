@@ -18,3 +18,10 @@ function cbib_commons_events_update_7101(&$sandbox) {
 function cbib_commons_events_update_7102(&$sandbox) {
   features_revert(array('cbib_commons_events' => array('features_override')));
 }
+
+/**
+ * Revert features_override_items to get items/tags on event panelizer on teasers.
+ */
+function cbib_commons_events_update_7103(&$sandbox) {
+    features_revert(array('cbib_commons_events' => array('features_override_items')));
+}
