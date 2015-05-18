@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_field_default_field_instances_alter().
+ */
+function cbib_commons_events_field_default_field_instances_alter(&$data) {
+  if (isset($data['user-user-field_linkedin_url'])) {
+    $data['user-user-field_linkedin_url']['settings']['title_label_use_field_label'] = FALSE; /* WAS: '' */
+  }
+}
+
+/**
  * Implements hook_default_page_manager_pages_alter().
  */
 function cbib_commons_events_default_page_manager_pages_alter(&$data) {
@@ -261,12 +270,75 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
     $data['node:event:default']->display->panels['two_66_33_second'][9] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71'; /* WAS: '' */
     unset($data['node:event:default']->display->content['new-3dcbfc27-8ac0-428e-9926-4d20124df9d6']);
   }
+  if (isset($data['node:event:default:teaser'])) {
+    $data['node:event:default:teaser']->display->content['new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0'] = (object) array(
+          'pid' => 'new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0',
+          'panel' => 'bottom',
+          'type' => 'entity_field',
+          'subtype' => 'node:og_group_ref',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'entityreference_label',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(
+              'link' => 1,
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => 'Grupper:',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0',
+        ); /* WAS: '' */
+    $data['node:event:default:teaser']->display->content['new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f']->position = 2; /* WAS: 0 */
+    $data['node:event:default:teaser']->display->content['new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a'] = (object) array(
+          'pid' => 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
+          'panel' => 'left',
+          'type' => 'cbib_time_and_location',
+          'subtype' => 'cbib_time_and_location',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'cbib_events_time_and_location_date_format' => 'teaser_date',
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => 'e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
+        ); /* WAS: '' */
+    $data['node:event:default:teaser']->display->panels['bottom'][0] = 'new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0'; /* WAS: 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f' */
+    $data['node:event:default:teaser']->display->panels['bottom'][2] = 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f'; /* WAS: '' */
+    $data['node:event:default:teaser']->display->panels['left'][1] = 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a'; /* WAS: 'new-bb59c3b5-c74b-4c7a-a057-52a118a0133b' */
+    unset($data['node:event:default:teaser']->display->content['new-bb59c3b5-c74b-4c7a-a057-52a118a0133b']);
+  }
 }
 
 /**
  * Implements hook_views_default_views_alter().
  */
 function cbib_commons_events_views_default_views_alter(&$data) {
+  if (isset($data['backlinks'])) {
+    unset($data['backlinks']->display['default']->display_options['fields']['title']['link_to_node']);
+  }
   if (isset($data['commons_events_upcoming'])) {
     $data['commons_events_upcoming']->display['default']->display_options['filters']['field_date_value'] = array(
       'id' => 'field_date_value',
@@ -386,6 +458,10 @@ function cbib_commons_events_views_default_views_alter(&$data) {
         'format' => 'filtered_html',
       ),
     ); /* WAS: '' */
+    $data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['options']['tags']['first'] = '«'; /* WAS: '« første' */
+    $data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['options']['tags']['last'] = '»'; /* WAS: 'sidste »' */
+    $data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['options']['tags']['next'] = '›'; /* WAS: 'næste ›' */
+    $data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['options']['tags']['previous'] = '‹'; /* WAS: '‹ forrige' */
     $data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['type'] = 'full'; /* WAS: 'load_more' */
     $data['commons_events_upcoming']->display['panel_pane_5'] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:13:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:14:{s:5:"title";b:0;s:16:"hide_admin_links";b:0;s:5:"pager";b:0;s:12:"style_plugin";b:0;s:13:"style_options";b:0;s:10:"row_plugin";b:0;s:11:"row_options";b:0;s:5:"empty";b:0;s:13:"relationships";b:0;s:6:"fields";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;s:13:"filter_groups";b:0;s:7:"filters";b:0;}s:5:"title";s:23:"Tidligere arrangementer";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"15";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:12:"style_plugin";s:7:"default";s:10:"row_plugin";s:4:"node";s:11:"row_options";a:1:{s:5:"links";b:0;}s:5:"empty";a:1:{s:4:"area";a:6:{s:2:"id";s:4:"area";s:5:"table";s:5:"views";s:5:"field";s:4:"area";s:5:"empty";b:1;s:7:"content";s:38:"<em>Ingen tidligere arrangementer</em>";s:6:"format";s:13:"filtered_html";}}s:6:"fields";a:4:{s:11:"title_field";a:5:{s:2:"id";s:11:"title_field";s:5:"table";s:22:"field_data_title_field";s:5:"field";s:11:"title_field";s:5:"label";s:0:"";s:14:"link_to_entity";i:1;}s:10:"field_date";a:6:{s:2:"id";s:10:"field_date";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:10:"field_date";s:5:"label";s:0:"";s:19:"element_label_colon";b:0;s:8:"settings";a:5:{s:11:"format_type";s:14:"event_datetime";s:6:"fromto";s:4:"both";s:15:"multiple_number";s:0:"";s:13:"multiple_from";s:0:"";s:11:"multiple_to";s:0:"";}}s:13:"capacity_used";a:7:{s:2:"id";s:13:"capacity_used";s:5:"table";s:4:"node";s:5:"field";s:13:"capacity_used";s:5:"label";s:0:"";s:19:"element_label_colon";b:0;s:9:"separator";s:0:"";s:6:"suffix";s:11:" deltagere,";}s:13:"comment_count";a:6:{s:2:"id";s:13:"comment_count";s:5:"table";s:23:"node_comment_statistics";s:5:"field";s:13:"comment_count";s:5:"label";s:0:"";s:5:"alter";a:2:{s:10:"alter_text";b:1;s:4:"text";s:24:"[comment_count] comments";}s:19:"element_label_colon";b:0;}}s:5:"sorts";a:1:{s:16:"field_date_value";a:4:{s:2:"id";s:16:"field_date_value";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:16:"field_date_value";s:5:"order";s:4:"DESC";}}s:7:"filters";a:3:{s:6:"status";a:5:{s:2:"id";s:6:"status";s:5:"table";s:4:"node";s:5:"field";s:6:"status";s:5:"value";i:1;s:5:"group";i:1;}s:4:"type";a:5:{s:2:"id";s:4:"type";s:5:"table";s:4:"node";s:5:"field";s:4:"type";s:5:"value";a:1:{s:5:"event";s:5:"event";}s:5:"group";i:1;}s:16:"field_date_value";a:7:{s:2:"id";s:16:"field_date_value";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:16:"field_date_value";s:8:"operator";s:1:"<";s:9:"form_type";s:9:"date_text";s:12:"default_date";s:3:"now";s:10:"year_range";s:7:"-10:+10";}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:14:"argument_input";a:1:{s:3:"gid";a:6:{s:4:"type";s:7:"context";s:7:"context";s:15:"entity:node.nid";s:16:"context_optional";i:0;s:5:"panel";s:1:"0";s:5:"fixed";s:0:"";s:5:"label";s:23:"OG membership: Group ID";}}}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_5";s:13:"display_title";s:27:"Landing page all - previous";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}'); /* WAS: '' */
     $data['commons_events_upcoming']->display['panel_pane_6'] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:17:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:17:{s:5:"title";b:0;s:16:"hide_admin_links";b:0;s:8:"use_more";b:0;s:15:"use_more_always";b:0;s:13:"use_more_text";b:0;s:12:"link_display";b:0;s:5:"pager";b:0;s:12:"style_plugin";b:0;s:13:"style_options";b:0;s:10:"row_plugin";b:0;s:11:"row_options";b:0;s:13:"relationships";b:0;s:6:"fields";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;s:13:"filter_groups";b:0;s:7:"filters";b:0;}s:5:"title";s:23:"Tidligere arrangementer";s:15:"use_more_always";b:0;s:13:"use_more_text";s:8:"Vis mere";s:12:"link_display";s:10:"custom_url";s:8:"link_url";s:9:"!1/events";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"15";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:12:"style_plugin";s:7:"default";s:10:"row_plugin";s:4:"node";s:13:"relationships";a:1:{s:17:"og_membership_rel";a:4:{s:2:"id";s:17:"og_membership_rel";s:5:"table";s:4:"node";s:5:"field";s:17:"og_membership_rel";s:8:"required";b:1;}}s:6:"fields";a:4:{s:11:"title_field";a:5:{s:2:"id";s:11:"title_field";s:5:"table";s:22:"field_data_title_field";s:5:"field";s:11:"title_field";s:5:"label";s:0:"";s:14:"link_to_entity";i:1;}s:10:"field_date";a:6:{s:2:"id";s:10:"field_date";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:10:"field_date";s:5:"label";s:0:"";s:19:"element_label_colon";b:0;s:8:"settings";a:5:{s:11:"format_type";s:14:"event_datetime";s:6:"fromto";s:4:"both";s:15:"multiple_number";s:0:"";s:13:"multiple_from";s:0:"";s:11:"multiple_to";s:0:"";}}s:13:"capacity_used";a:7:{s:2:"id";s:13:"capacity_used";s:5:"table";s:4:"node";s:5:"field";s:13:"capacity_used";s:5:"label";s:0:"";s:19:"element_label_colon";b:0;s:9:"separator";s:0:"";s:6:"suffix";s:11:" deltagere,";}s:13:"comment_count";a:6:{s:2:"id";s:13:"comment_count";s:5:"table";s:23:"node_comment_statistics";s:5:"field";s:13:"comment_count";s:5:"label";s:0:"";s:5:"alter";a:2:{s:10:"alter_text";b:1;s:4:"text";s:24:"[comment_count] comments";}s:19:"element_label_colon";b:0;}}s:5:"sorts";a:1:{s:16:"field_date_value";a:4:{s:2:"id";s:16:"field_date_value";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:16:"field_date_value";s:5:"order";s:4:"DESC";}}s:9:"arguments";a:1:{s:3:"gid";a:9:{s:2:"id";s:3:"gid";s:5:"table";s:13:"og_membership";s:5:"field";s:3:"gid";s:12:"relationship";s:17:"og_membership_rel";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:7:"filters";a:3:{s:6:"status";a:5:{s:2:"id";s:6:"status";s:5:"table";s:4:"node";s:5:"field";s:6:"status";s:5:"value";i:1;s:5:"group";i:1;}s:4:"type";a:5:{s:2:"id";s:4:"type";s:5:"table";s:4:"node";s:5:"field";s:4:"type";s:5:"value";a:1:{s:5:"event";s:5:"event";}s:5:"group";i:1;}s:16:"field_date_value";a:7:{s:2:"id";s:16:"field_date_value";s:5:"table";s:21:"field_data_field_date";s:5:"field";s:16:"field_date_value";s:8:"operator";s:1:"<";s:9:"form_type";s:9:"date_text";s:12:"default_date";s:3:"now";s:10:"year_range";s:7:"-10:+10";}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:14:"argument_input";a:1:{s:3:"gid";a:6:{s:4:"type";s:7:"context";s:7:"context";s:15:"entity:node.nid";s:16:"context_optional";i:0;s:5:"panel";s:1:"0";s:5:"fixed";s:0:"";s:5:"label";s:23:"OG membership: Group ID";}}}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_6";s:13:"display_title";s:33:"Landing page group all - previous";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}'); /* WAS: '' */

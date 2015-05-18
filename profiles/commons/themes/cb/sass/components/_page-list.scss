@@ -115,17 +115,18 @@
 
     // if there are lots of breaks in summary this will force it to be low anyway
     .center-wrapper .panel-col-last{
-      max-height: 200px;
-      min-height: 200px;
+      max-height: 170px;
+      min-height: 170px;
       overflow: hidden;
+      margin-bottom: 30px;
 
       //target height of body as well
-      .pane-node-body{
-        max-height: 44px;
-        min-height: 44px;
-        overflow: hidden;
-        margin-bottom: 20px;
-      }
+//      .pane-node-body{
+//        max-height: 44px;
+//        min-height: 44px;
+//        overflow: hidden;
+//        margin-bottom: 20px;
+//      }
 
     }
 
