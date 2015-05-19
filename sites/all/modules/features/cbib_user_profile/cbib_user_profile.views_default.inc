@@ -107,7 +107,7 @@ function cbib_user_profile_views_default_views() {
   /* Display: previous attended events */
   $handler = $view->new_display('panel_pane', 'previous attended events', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Tideligere arrangementer';
+  $handler->display->display_options['title'] = 'Tidligere arrangementer';
   $handler->display->display_options['display_description'] = 'show all events a specific user has attended';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
@@ -168,7 +168,7 @@ function cbib_user_profile_views_default_views() {
     t('mere'),
     t('View panes'),
     t('previous attended events'),
-    t('Tideligere arrangementer'),
+    t('Tidligere arrangementer'),
     t('show all events a specific user has attended'),
     t('Antal elementer'),
     t('- Alle -'),
