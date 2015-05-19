@@ -24,7 +24,7 @@ function cbib_user_profile_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tilmeldte arrangementer';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['use_more_text'] = 'vis flere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -98,14 +98,61 @@ function cbib_user_profile_views_default_views() {
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
-  $handler->display->display_options['filters']['field_date_value2']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['field_date_value2']['year_range'] = '-0:+3';
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  /* Display: upcoming events */
+  $handler = $view->new_display('panel_pane', 'upcoming events', 'panel_pane_1');
+  $handler->display->display_options['display_description'] = 'show all events a specific user is registered for';
+
+  /* Display: previous attended events */
+  $handler = $view->new_display('panel_pane', 'previous attended events', 'panel_pane_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Tideligere arrangementer';
+  $handler->display->display_options['display_description'] = 'show all events a specific user has attended';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
+  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Ufiltreret tekst */
+  $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['label'] = 'No results summary';
+  $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area_text_custom']['content'] = 'Denne person har ikke deltaget i nogle arrangementer endnu';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Arrangementsdato - slutdato (field_date:value2) */
+  $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_date_value2']['year_range'] = '-0:+3';
   $translatables['commons_follow_events_a_specific_user_attends'] = array(
     t('Master'),
     t('Tilmeldte arrangementer'),
-    t('mere'),
+    t('vis flere'),
     t('Udfør'),
     t('Gendan'),
     t('Sortér efter'),
@@ -116,8 +163,22 @@ function cbib_user_profile_views_default_views() {
     t('node being the Registration'),
     t('Bruger'),
     t('Alle'),
-    t('Content pane'),
+    t('upcoming events'),
+    t('show all events a specific user is registered for'),
+    t('mere'),
     t('View panes'),
+    t('previous attended events'),
+    t('Tideligere arrangementer'),
+    t('show all events a specific user has attended'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('«'),
+    t('‹'),
+    t('›'),
+    t('»'),
+    t('Load more'),
+    t('Denne person har ikke deltaget i nogle arrangementer endnu'),
   );
   $export['commons_follow_events_a_specific_user_attends'] = $view;
 
