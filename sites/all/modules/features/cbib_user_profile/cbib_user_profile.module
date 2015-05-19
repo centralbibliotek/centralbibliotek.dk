@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the User profile feature.
  */
+
+include_once 'cbib_user_profile.features.inc';
