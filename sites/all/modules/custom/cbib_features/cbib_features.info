@@ -3,7 +3,6 @@ description = Node type centralbibliotek.
 core = 7.x
 package = Centralbibliotek.dk
 dependencies[] = addressfield
-dependencies[] = admin_menu
 dependencies[] = cbib_admin_path
 dependencies[] = cbib_events
 dependencies[] = cbib_features
