@@ -306,6 +306,15 @@ function cbib_features_update_7122(&$sandbox) {
 }
 
 /**
+ * Enable Global Redirect module.
+ */
+function cbib_features_update_7123(&$sandbox) {
+  if (!module_exists('globalredirect')) {
+    module_enable(array('globalredirect'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
