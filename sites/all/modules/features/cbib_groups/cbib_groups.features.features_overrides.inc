@@ -33,7 +33,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 10,
+      'position' => 11,
       'locks' => array(),
       'uuid' => '1f218aab-81dc-4e02-8c86-79210bed4a0c',
     );
@@ -62,6 +62,34 @@ function cbib_groups_features_override_default_overrides() {
       'position' => 4,
       'locks' => array(),
       'uuid' => '6437b227-b02b-4d81-8547-46a1ee7e9ab8',
+    );
+  $overrides["panelizer_defaults.node:group:default.display|content|new-90fefac3-d876-4b2f-8940-b031517444b5"] = (object) array(
+      'pid' => 'new-90fefac3-d876-4b2f-8940-b031517444b5',
+      'panel' => 'two_66_33_second',
+      'type' => 'entity_field',
+      'subtype' => 'node:field_link',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'label' => 'title',
+        'formatter' => 'link_default',
+        'delta_limit' => 0,
+        'delta_offset' => 0,
+        'delta_reversed' => 0,
+        'formatter_settings' => array(),
+        'context' => 'panelizer',
+        'override_title' => 0,
+        'override_title_text' => '',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 10,
+      'locks' => array(),
+      'uuid' => '90fefac3-d876-4b2f-8940-b031517444b5',
     );
   $overrides["panelizer_defaults.node:group:default.display|content|new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74"] = (object) array(
       'pid' => 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74',
@@ -92,7 +120,8 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_bottom"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|4"] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|1"] = 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|10"] = 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|10"] = 'new-90fefac3-d876-4b2f-8940-b031517444b5';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|11"] = 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|2"] = 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|3"] = 'new-d10871fa-ea33-40f2-b568-dda6955d2571';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|4"] = 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a';

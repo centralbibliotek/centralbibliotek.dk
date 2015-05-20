@@ -91,6 +91,25 @@ return FALSE;',
     $display->content['new-67a94508-4f7a-4c6d-9470-dd70cdbc96b1'] = $pane;
     $display->panels['two_33_66_first'][0] = 'new-67a94508-4f7a-4c6d-9470-dd70cdbc96b1';
     $pane = new stdClass();
+    $pane->pid = 'new-f5bbdb44-fccb-4f3c-a31b-f72d80fabd40';
+    $pane->panel = 'two_33_66_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_license-panel_pane_5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f5bbdb44-fccb-4f3c-a31b-f72d80fabd40';
+    $display->content['new-f5bbdb44-fccb-4f3c-a31b-f72d80fabd40'] = $pane;
+    $display->panels['two_33_66_second'][0] = 'new-f5bbdb44-fccb-4f3c-a31b-f72d80fabd40';
+    $pane = new stdClass();
     $pane->pid = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
     $pane->panel = 'two_33_66_second';
     $pane->type = 'views_panes';
@@ -111,11 +130,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'ea23f7be-8a92-476e-b3a3-d339142e56e3';
     $display->content['new-ea23f7be-8a92-476e-b3a3-d339142e56e3'] = $pane;
-    $display->panels['two_33_66_second'][0] = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
+    $display->panels['two_33_66_second'][1] = 'new-ea23f7be-8a92-476e-b3a3-d339142e56e3';
     $pane = new stdClass();
     $pane->pid = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
     $pane->panel = 'two_33_66_second';
@@ -143,11 +162,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '8567ca5b-9641-4b81-b9f4-079402a9464a';
     $display->content['new-8567ca5b-9641-4b81-b9f4-079402a9464a'] = $pane;
-    $display->panels['two_33_66_second'][1] = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
+    $display->panels['two_33_66_second'][2] = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
     $pane = new stdClass();
     $pane->pid = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88';
     $pane->panel = 'two_33_66_second';
@@ -176,11 +195,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = 'e627add5-b6cb-4c15-8ff7-40caca347d88';
     $display->content['new-e627add5-b6cb-4c15-8ff7-40caca347d88'] = $pane;
-    $display->panels['two_33_66_second'][2] = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88';
+    $display->panels['two_33_66_second'][3] = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88';
     $pane = new stdClass();
     $pane->pid = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
     $pane->panel = 'two_33_66_second';
@@ -203,11 +222,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '55cd68c0-3a53-4a0d-af36-35da29489356';
     $display->content['new-55cd68c0-3a53-4a0d-af36-35da29489356'] = $pane;
-    $display->panels['two_33_66_second'][3] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
+    $display->panels['two_33_66_second'][4] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
     $pane = new stdClass();
     $pane->pid = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
     $pane->panel = 'two_33_66_second';
@@ -231,11 +250,11 @@ return FALSE;',
       'css_class' => 'link-wrapper',
     );
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'bb5618ef-915c-4faa-ba77-bbb198184e22';
     $display->content['new-bb5618ef-915c-4faa-ba77-bbb198184e22'] = $pane;
-    $display->panels['two_33_66_second'][4] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
+    $display->panels['two_33_66_second'][5] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
     $pane = new stdClass();
     $pane->pid = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
     $pane->panel = 'two_33_66_second';
@@ -260,11 +279,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = '4217fe9c-2561-438d-847c-4a289f5b4bf0';
     $display->content['new-4217fe9c-2561-438d-847c-4a289f5b4bf0'] = $pane;
-    $display->panels['two_33_66_second'][5] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
+    $display->panels['two_33_66_second'][6] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
     $pane = new stdClass();
     $pane->pid = 'new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
     $pane->panel = 'two_33_66_second';
@@ -282,11 +301,11 @@ return FALSE;',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 7;
     $pane->locks = array();
     $pane->uuid = '00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
     $display->content['new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a'] = $pane;
-    $display->panels['two_33_66_second'][6] = 'new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
+    $display->panels['two_33_66_second'][7] = 'new-00393ec2-6b71-4caf-b7cd-1d3a7d08b01a';
     $pane = new stdClass();
     $pane->pid = 'new-77381d67-6d7f-4c46-9af1-932309cca488';
     $pane->panel = 'two_33_66_top';
@@ -868,6 +887,127 @@ function cbib_license_pages_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['license_ambassadors'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'page_license_news';
+  $page->task = 'page';
+  $page->admin_title = 'Licens nyheder';
+  $page->admin_description = 'displaying all license-news';
+  $page->path = 'licens/nyheder';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_page_license_news_panel_context_2';
+  $handler->task = 'page';
+  $handler->subtask = 'page_license_news';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'Licens nyheder',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'two_33_66';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'two_33_66_top' => NULL,
+      'two_33_66_first' => NULL,
+      'two_33_66_second' => NULL,
+      'two_33_66_bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'a1d6cbb9-ee05-41e1-8d9c-993e72f20739';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-c165ac5a-c750-409c-a35a-69d40ae592a0';
+    $pane->panel = 'two_33_66_first';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_license-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'items_per_page' => '10',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c165ac5a-c750-409c-a35a-69d40ae592a0';
+    $display->content['new-c165ac5a-c750-409c-a35a-69d40ae592a0'] = $pane;
+    $display->panels['two_33_66_first'][0] = 'new-c165ac5a-c750-409c-a35a-69d40ae592a0';
+    $pane = new stdClass();
+    $pane->pid = 'new-85f818f6-12d5-41b7-a54d-cfa3722cb15d';
+    $pane->panel = 'two_33_66_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'centralbibliotek_license-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '85f818f6-12d5-41b7-a54d-cfa3722cb15d';
+    $display->content['new-85f818f6-12d5-41b7-a54d-cfa3722cb15d'] = $pane;
+    $display->panels['two_33_66_second'][0] = 'new-85f818f6-12d5-41b7-a54d-cfa3722cb15d';
+    $pane = new stdClass();
+    $pane->pid = 'new-63cfa452-7905-4781-8a4a-3851ddad50d9';
+    $pane->panel = 'two_33_66_top';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-license-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '63cfa452-7905-4781-8a4a-3851ddad50d9';
+    $display->content['new-63cfa452-7905-4781-8a4a-3851ddad50d9'] = $pane;
+    $display->panels['two_33_66_top'][0] = 'new-63cfa452-7905-4781-8a4a-3851ddad50d9';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['page_license_news'] = $page;
 
   return $pages;
 

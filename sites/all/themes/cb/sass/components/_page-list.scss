@@ -111,12 +111,12 @@
     }
   }
 
-.node-teaser:not(.node-centralbibliotek, .node-type-license) {
+.node-teaser:not(.node-centralbibliotek) {
 
     // if there are lots of breaks in summary this will force it to be low anyway
     .center-wrapper .panel-col-last{
       max-height: 170px;
-      min-height: 170px;
+      //min-height: 170px;
       overflow: hidden;
       margin-bottom: 30px;
 
@@ -220,38 +220,43 @@
 // License news list
 .panel-pane.pane-centralbibliotek-license-panel-pane-5{
   margin-bottom: 0em;
-}
 
-.view-centralbibliotek-license {
+  .view-centralbibliotek-license {
 
-  .views-row {
-    display: inline-block;
-    max-width: 45%;
-    vertical-align: top;
-    border-bottom: none;
-    margin-right: 4%;
-    margin-bottom: 0px;
+    .views-row {
+      display: inline-block;
+      max-width: 45%;
+      vertical-align: top;
+      border-bottom: none;
+      margin-right: 4%;
+      margin-bottom: 0px;
 
-    .panel-col-first{
-      width: 100%;
-      //transform: scale(0.7);
-    }
-
-    .panel-col-last{
-      width: 100%;
-    }
-
-    .node-teaser{
-      padding: 20px 0px 0px !important;
-
-      .panel-display{
-        margin-left:0px;
+      .panel-col-first{
+        width: 100%;
+        //transform: scale(0.7);
       }
+
+      .panel-col-last{
+        width: 100%;
+      }
+
+      .node-teaser{
+        padding: 20px 0px 0px !important;
+
+        .panel-display{
+          margin-left:0px;
+        }
+
+        &:after{
+          display:none;
+        }
+      }
+
+      //    .panel-col-bottom {
+      //      display: none;
+      //    }
     }
 
-//    .panel-col-bottom {
-//      display: none;
-//    }
   }
-
 }
+

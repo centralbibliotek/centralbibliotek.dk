@@ -125,6 +125,29 @@ function cbib_license_pages_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: menu-license-menu_nyheder:licens/nyheder
+  $menu_links['menu-license-menu_nyheder:licens/nyheder'] = array(
+    'menu_name' => 'menu-license-menu',
+    'link_path' => 'licens/nyheder',
+    'router_path' => 'licens/nyheder',
+    'link_title' => 'Nyheder',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-license-menu_nyheder:licens/nyheder',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Ambassadørliste');
@@ -132,6 +155,7 @@ function cbib_license_pages_menu_default_menu_links() {
   t('ERMS');
   t('Formidling og PR');
   t('Licensforside');
+  t('Nyheder');
 
 
   return $menu_links;
