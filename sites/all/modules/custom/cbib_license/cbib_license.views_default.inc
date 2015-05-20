@@ -294,6 +294,28 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+
+  /* Display: License news */
+  $handler = $view->new_display('panel_pane', 'License news', 'panel_pane_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Licens nyheder';
+  $handler->display->display_options['display_description'] = 'show the two latest news within license-group';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Vis mere';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $translatables['centralbibliotek_license'] = array(
     t('Master'),
     t('Vis mere'),
@@ -325,6 +347,10 @@ function cbib_license_views_default_views() {
     t('Licenserne'),
     t('Textual list lead'),
     t('Alle licenser'),
+    t('License news'),
+    t('Licens nyheder'),
+    t('show the two latest news within license-group'),
+    t('View panes'),
   );
   $export['centralbibliotek_license'] = $view;
 
@@ -398,12 +424,12 @@ function cbib_license_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Forbindelse: Handler mangler eller er i stykker */
+  /* Forbindelse: Fil: Field collection item som bruger Dokument */
   $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['id'] = 'reverse_field_license_document_field_collection_item';
   $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['table'] = 'file_managed';
   $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['field'] = 'reverse_field_license_document_field_collection_item';
   $handler->display->display_options['relationships']['reverse_field_license_document_field_collection_item']['required'] = TRUE;
-  /* Forbindelse: Handler mangler eller er i stykker */
+  /* Forbindelse: Field collection item: Entity with the Dokumenter (field_license_documents) */
   $handler->display->display_options['relationships']['field_license_documents_node']['id'] = 'field_license_documents_node';
   $handler->display->display_options['relationships']['field_license_documents_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_license_documents_node']['field'] = 'field_license_documents_node';
@@ -431,7 +457,7 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['sorts']['timestamp']['table'] = 'file_managed';
   $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filterkriterie: Field collection item: Type (field_license_document_type) */
   $handler->display->display_options['filters']['field_license_document_type_value']['id'] = 'field_license_document_type_value';
   $handler->display->display_options['filters']['field_license_document_type_value']['table'] = 'field_data_field_license_document_type';
   $handler->display->display_options['filters']['field_license_document_type_value']['field'] = 'field_license_document_type_value';
@@ -479,7 +505,7 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'field_license_documents_node';
   $handler->display->display_options['fields']['title']['label'] = 'Licens';
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Field collection item: Beskrivelse */
   $handler->display->display_options['fields']['field_license_document_body']['id'] = 'field_license_document_body';
   $handler->display->display_options['fields']['field_license_document_body']['table'] = 'field_data_field_license_document_body';
   $handler->display->display_options['fields']['field_license_document_body']['field'] = 'field_license_document_body';
@@ -539,15 +565,15 @@ function cbib_license_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('reverse_field_license_document_field_collection_item'),
-    t('field_license_documents_node'),
+    t('field_license_document'),
+    t('field_license_documents'),
     t('Upload-dato'),
     t('Navn'),
     t('Størrelse'),
     t('Type (field_license_document_type)'),
     t('License documents'),
     t('Licens'),
-    t('Handler i stykker field_data_field_license_document_body.field_license_document_body'),
+    t('Beskrivelse'),
     t('Centralbibliotek'),
     t('Contextual license documents'),
     t('Alle'),
