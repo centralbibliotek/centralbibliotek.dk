@@ -166,7 +166,7 @@
   }
 }
 
-.node-type-centralbibliotek,
+.node-type-centralbibliotek:not(.node-license),
 .front {
   .panel-col-first,
   .views-row {
@@ -219,44 +219,52 @@
 
 // License news list
 .panel-pane.pane-centralbibliotek-license-panel-pane-5{
-  margin-bottom: 0em;
+  border-bottom: 1px solid $gray-light;
+}
 
-  .view-centralbibliotek-license {
+  .view-centralbibliotek-license .views-row {
+//      display: inline-block;
+//      max-width: 45%;
+//      vertical-align: top;
+//      border-bottom: none;
+//      margin-right: 4%;
+//      margin-bottom: 0px;
 
-    .views-row {
-      display: inline-block;
-      max-width: 45%;
-      vertical-align: top;
-      border-bottom: none;
-      margin-right: 4%;
-      margin-bottom: 0px;
 
       .panel-col-first{
-        width: 100%;
-        //transform: scale(0.7);
+        //width: 100%;
+        transform: scale(0.7);
+        margin: -23px 0 0 -50px;
+
+        //adjust date, because of the scale
+        .pane-node-created{
+          transform: scale(1.4);
+          bottom: 5px;
+          left: 17px;
+        }
       }
 
       .panel-col-last{
-        width: 100%;
+        margin-left: -50px;
       }
 
       .node-teaser{
-        padding: 20px 0px 0px !important;
+        padding: 20px 0px!important;
 
         .panel-display{
           margin-left:0px;
         }
 
-        &:after{
-          display:none;
-        }
+//        &:after{
+//          display:none;
+//        }
       }
 
       //    .panel-col-bottom {
       //      display: none;
       //    }
-    }
+    
 
   }
-}
+//}
 

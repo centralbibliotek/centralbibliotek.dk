@@ -3151,7 +3151,7 @@ html body div div div .item-list-pager ul.pager li.pager-current {
   padding-top: 8px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032485}}
-html body div div div .item-list-pager ul.pager li.pager-next, html body div div div .item-list-pager ul.pager li.pager-previous, html body div div div .item-list-pager ul.pager li.pager-first, html body div div div .item-list-pager ul.pager li.pager-last {
+html body div div div .item-list-pager ul.pager li.pager-next, html body div div div .item-list-pager ul.pager li.pager-previous, html body div div div .item-list-pager ul.pager li.pager-first a, html body div div div .item-list-pager ul.pager li.pager-last a {
   padding: 0px;
   border-radius: 20px;
   background-color: #ddd !important;
@@ -3159,14 +3159,10 @@ html body div div div .item-list-pager ul.pager li.pager-next, html body div div
   top: 9px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032494}}
-html body div div div .item-list-pager ul.pager li.pager-next:hover, html body div div div .item-list-pager ul.pager li.pager-previous:hover, html body div div div .item-list-pager ul.pager li.pager-first:hover, html body div div div .item-list-pager ul.pager li.pager-last:hover {
+html body div div div .item-list-pager ul.pager li.pager-next:hover, html body div div div .item-list-pager ul.pager li.pager-previous:hover, html body div div div .item-list-pager ul.pager li.pager-first a:hover, html body div div div .item-list-pager ul.pager li.pager-last a:hover {
   background-color: #ff5479 !important;
   transform: scale(1.3);
   border-radius: 25px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032500}}
-html body div div div .item-list-pager ul.pager li.pager-next:hover a, html body div div div .item-list-pager ul.pager li.pager-previous:hover a, html body div div div .item-list-pager ul.pager li.pager-first:hover a, html body div div div .item-list-pager ul.pager li.pager-last:hover a {
-  color: #ffffff;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032505}}
 html body div div div .item-list-pager ul.pager li.pager-next a, html body div div div .item-list-pager ul.pager li.pager-previous a, html body div div div .item-list-pager ul.pager li.pager-first a, html body div div div .item-list-pager ul.pager li.pager-last a {
