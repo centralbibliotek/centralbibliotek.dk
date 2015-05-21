@@ -233,12 +233,12 @@
 
       .panel-col-first{
         //width: 100%;
-        transform: scale(0.7);
+        @include transform(scale(0.7));
         margin: -23px 0 0 -50px;
 
         //adjust date, because of the scale
         .pane-node-created{
-          transform: scale(1.4);
+          @include transform(scale(1.4));
           bottom: 5px;
           left: 17px;
         }
@@ -263,7 +263,7 @@
       //    .panel-col-bottom {
       //      display: none;
       //    }
-    
+
 
   }
 //}

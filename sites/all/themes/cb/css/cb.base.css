@@ -631,11 +631,17 @@ div.messages.error {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003234}}
 .view-centralbibliotek-license .views-row .panel-col-first {
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
   transform: scale(0.7);
   margin: -23px 0 0 -50px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003240}}
 .view-centralbibliotek-license .views-row .panel-col-first .pane-node-created {
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
   transform: scale(1.4);
   bottom: 5px;
   left: 17px;
