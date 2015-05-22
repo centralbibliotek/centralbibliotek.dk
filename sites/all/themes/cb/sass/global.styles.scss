@@ -378,13 +378,18 @@ var {
 
 
 // not license-nodes, since that display has a sidebar
-.node-teaser:not(.node-license){
-  &.node{
-    padding: 10px 10px 10px 70px!important;
-  }
-}
+//.node-teaser:not(.node-license){
+//  &.node{
+//    //padding: 10px 10px 10px 70px!important;
+//  }
+//}
 
 // style user-picture to be inside article instead of left from it
+article.user-picture-available{
+  padding: 10px 10px 10px 70px!important;
+}
+
+
 .user-picture,
 .views-field-picture,
 .profile-badge-picture {
@@ -2477,7 +2482,7 @@ html body div div div .item-list-pager ul.pager {
       box-sizing: inherit;
     }
 
-    &.pager-current{
+    &.pager-current a{
       color: $tab_active_text;
       padding-top: 8px;
     }
@@ -2496,6 +2501,7 @@ html body div div div .item-list-pager ul.pager {
         @include transform(scale(1.3));
         //@include transform('scale(1.3)');
         border-radius: 25px;
+        color: #ffffff;
 
 //        a{
 //          color: #ffffff;
