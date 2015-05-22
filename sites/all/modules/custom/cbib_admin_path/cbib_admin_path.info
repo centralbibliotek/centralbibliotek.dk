@@ -10,4 +10,3 @@ dependencies[] = admin_path
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = admin_path
-project path = profiles/commons/modules/custom
