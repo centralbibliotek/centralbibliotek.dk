@@ -199,6 +199,11 @@
           .inside {
             margin: 0;
           }
+
+          //add padding-right to body, to make it easier to read
+          .pane-node-body{
+            padding-right: 10%;
+          }
         }
       }
 
