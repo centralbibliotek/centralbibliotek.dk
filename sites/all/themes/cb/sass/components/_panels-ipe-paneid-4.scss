@@ -33,6 +33,10 @@
   .views-view-grid td {
     padding-bottom: .5em;
     display: block;
+    // in order to also work in IE
+    float: left;
+    width: 100%;
+    overflow: hidden;
   }
 
 }//#panels-ipe-paneid-4
