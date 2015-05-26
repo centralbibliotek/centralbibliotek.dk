@@ -1,8 +1,7 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/_extend-styles\.scss}line{font-family:\0000311}}
 .commons-pod, .page-user .pane-views-panes, .front.not-logged-in .pane-views-panes, .front.not-logged-in
 .pane-views, .front.not-logged-in
-body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .view-content, .pane-commons-bw-group, .page-user #content
-.view-display-id-commons_events_upcoming_page .views-row, .view-commons-groups-directory > .view-content > .views-row,
+body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .view-content, .pane-commons-bw-group, .view-display-id-commons_events_upcoming_page .views-row, .view-commons-groups-directory > .view-content > .views-row,
 .view-commons-homepage-content .node-teaser.node-group > .view-content > .views-row, body.front.logged-in .view-commons-homepage-content > .view-content, body.front.logged-in #views-exposed-form-commons-homepage-content-panel-pane-1 .views-exposed-widgets.widgets-active, .page-events .region-three-25-50-25-third .pane-views-panes, .pane-search-result .block-content .search-results, .page-search-user .user-results {
   background-color: transparent;
   margin: 0 0 10px;
@@ -3156,17 +3155,17 @@ html body div div div .item-list-pager ul.pager li.pager-current a {
 html body div div div .item-list-pager ul.pager li.pager-next a, html body div div div .item-list-pager ul.pager li.pager-previous a, html body div div div .item-list-pager ul.pager li.pager-first a, html body div div div .item-list-pager ul.pager li.pager-last a {
   padding: 0px;
   border-radius: 20px;
-  background-color: #ddd !important;
+  background-color: #ddd;
   position: relative;
   top: 9px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032500}}
 html body div div div .item-list-pager ul.pager li.pager-next a:hover, html body div div div .item-list-pager ul.pager li.pager-previous a:hover, html body div div div .item-list-pager ul.pager li.pager-first a:hover, html body div div div .item-list-pager ul.pager li.pager-last a:hover {
-  background-color: #ff5479 !important;
-  -moz-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+  background-color: #ff5479;
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
   border-radius: 25px;
   color: #ffffff;
 }
@@ -3203,7 +3202,7 @@ html body div div div .item-list-pager ul.pager li a:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032546}}
 html body div div div .item-list-pager ul.pager-load-more {
-  padding: 30px 0px 50px;
+  padding: 20px 0px 50px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032550}}
 html body div div div .item-list-pager ul.pager-load-more.pager-load-more-empty {
@@ -3214,7 +3213,7 @@ html body div div div .item-list-pager ul.pager-load-more li.pager-next a {
   width: auto;
   display: inline;
   border-radius: 40px;
-  padding: 15px 25px;
+  padding: 10px 25px;
   background-color: #ff5479;
   color: #fff !important;
   font-size: 1em;
@@ -3546,8 +3545,20 @@ ul.action-links {
   }
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032907}}
+.page-user #content section.first-profile-item .clearfix:after {
+  clear: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032913}}
+.page-user .pane-user-field-phone {
+  margin-bottom: 6px;
+}
+
+/* =============================================================================
+ *   Views Styling
+ * ========================================================================== */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000032927}}
-.page-user #content
 .view-display-id-commons_events_upcoming_page .views-row article .commons-events-form-float {
   float: right;
   margin: -40px 0 0 0;
