@@ -118,3 +118,25 @@ function cbib_migrate_update_7102() {
   );
   db_create_table('cbib_migrate_user_library_map', $schema);
 }
+
+/**
+ * Add groups members as group followers.
+ *
+ * This was forgotten in the group migration.
+ */
+function cbib_migrate_update_7103(&$sandbox) {
+  $query = db_select('og_membership', 'ogm');
+  $query->leftJoin('node', 'n', 'ogm.gid = n.nid');
+  $members = $query->fields('n', array('nid', 'type'))
+           ->fields('ogm', array('etid'))
+           ->condition('ogm.entity_type', 'user')
+           ->condition('n.type', 'group')
+           ->execute();
+
+  while ($member = $members->fetchObject()) {
+    // Skip the admin user 1.
+    if ($member->etid <> 1) {
+      commons_follow_node_follow_node($member->nid, $member->type, $member->etid);
+    }
+  }
+}
