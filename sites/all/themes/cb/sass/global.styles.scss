@@ -2455,6 +2455,7 @@ ul.pager li {
   padding: .5em;
   &.pager-current {
     font-weight: 700;
+    color: $tab_active_text;
   }
 }
 
@@ -2901,7 +2902,7 @@ body.page-node .pane-views-panes {
 
 //styling for panel showing user profile
 // first item has a CSS-class attached to target and remove the clear
-.page-user .panels-ipe-portlet-content section.first-profile-item{
+.page-user #content section.first-profile-item{
 
   .clearfix:after{
     clear: none;
