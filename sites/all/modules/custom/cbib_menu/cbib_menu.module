@@ -39,6 +39,12 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
     $item['href'] = '';
     $item['title'] = t('Home');
   }
+
+  // Add active trail.
+  $active_trail = end(menu_get_active_trail());
+  if (!empty($active_trail['href']) && $active_trail['href'] == $item['href']) {
+    $item['in_active_trail'] = TRUE;
+  }
 }
 
 /**
