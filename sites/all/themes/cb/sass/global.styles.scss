@@ -2567,7 +2567,7 @@ html body div div div .item-list-pager ul.pager-load-more{
       }
     }
     &:hover{
-      @include transform(scale(1));
+      //@include transform(scale(1));
     }
   }
 

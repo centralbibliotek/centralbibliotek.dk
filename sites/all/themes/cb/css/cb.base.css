@@ -314,8 +314,8 @@ div.messages.error {
 .field-name-og-user-node .field-items .field-item a,
 .pane-node-og-group-ref .field-items .field-item a,
 .field-name-field-event-type .field-items .field-item a {
-  display: inline;
-  padding: 5px 10px 5px 15px;
+  display: inline-block;
+  padding: 1px 10px 1px 15px;
   color: #565656;
   font-family: Arial, Helvetica, sans-serif;
   -moz-transition-property: color;

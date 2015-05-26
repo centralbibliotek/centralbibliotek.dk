@@ -43,8 +43,8 @@
       @include transition-timing-function(ease-in);
 
       a {
-        display: inline;  // needed, because some a-elements inherit inline-block
-        padding: 5px 10px 5px 15px;
+        display: inline-block;  
+        padding: 1px 10px 1px 15px;
         color: $gray-dark;
         font-family: $sans-serif-arial-helvetica;
         @include transition-property(color);
