@@ -163,6 +163,14 @@
 .front {
   h2.pane-title {
     font-size: 2em;
+    a{
+      color: #000000;
+
+      &:hover{
+        color:$brand-primary;
+      }
+    }
+
   }
 }
 
@@ -186,7 +194,7 @@
     //display: none;
     text-align: right;
     margin:0px;
-    
+
   }
 
   .cb-teaser-list {
