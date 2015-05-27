@@ -208,8 +208,14 @@ function cbib_views_news_views_default_views() {
   /* Display: Frontpage */
   $handler = $view->new_display('panel_pane', 'Frontpage', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Nyheder';
+  $handler->display->display_options['title'] = '<a href="/nyheder">Nyheder</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Se alle';
   $handler->display->display_options['defaults']['link_display'] = FALSE;
   $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['link_url'] = 'news';
@@ -511,7 +517,8 @@ function cbib_views_news_views_default_views() {
     t('Alle'),
     t('Centralbibliotek'),
     t('Frontpage'),
-    t('mere'),
+    t('<a href="/nyheder">Nyheder</a>'),
+    t('Se alle'),
     t('No events have been created yet.'),
     t('Landing page group frontpage'),
     t('OG membership from node'),
