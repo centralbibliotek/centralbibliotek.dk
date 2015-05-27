@@ -180,8 +180,13 @@
     }
   }
 
+
   .more-link {
-    display: none;
+    // show on frontpage
+    //display: none;
+    text-align: right;
+    margin:0px;
+    
   }
 
   .cb-teaser-list {
@@ -195,6 +200,7 @@
           max-height: none;
           min-height: 0;
           width: 100%;
+          margin-bottom: 0;
 
           .inside {
             margin: 0;
