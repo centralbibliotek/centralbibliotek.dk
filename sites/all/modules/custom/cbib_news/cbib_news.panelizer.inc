@@ -206,7 +206,7 @@ function cbib_news_panelizer_defaults() {
       'formatter_settings' => array(),
       'context' => 'panelizer',
       'override_title' => 1,
-      'override_title_text' => 'Region',
+      'override_title_text' => 'Tilknytning',
     );
     $pane->cache = array();
     $pane->style = array(

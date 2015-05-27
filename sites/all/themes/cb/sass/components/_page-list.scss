@@ -190,7 +190,6 @@
 
 
   .more-link {
-    // show on frontpage
     //display: none;
     text-align: right;
     margin:0px;
@@ -242,12 +241,9 @@
 }
 
   .view-centralbibliotek-license .views-row {
-//      display: inline-block;
-//      max-width: 45%;
-//      vertical-align: top;
-//      border-bottom: none;
-//      margin-right: 4%;
-//      margin-bottom: 0px;
+
+    margin-bottom: 0;
+    padding-bottom: 0;
 
 
       .panel-col-first{
@@ -267,8 +263,14 @@
         margin-left: -50px;
       }
 
+      .panel-col-bottom{
+        display: none;
+      }
+
+
+
       .node-teaser{
-        padding: 20px 0px!important;
+        padding: 25px 0 0;//!important;
 
         .panel-display{
           margin-left:0px;
