@@ -238,54 +238,52 @@
 // License news list
 .panel-pane.pane-centralbibliotek-license-panel-pane-5{
   border-bottom: 1px solid $gray-light;
+
+  .views-row{
+    .panel-col-bottom{
+      display: none;
+    }
+  }
 }
 
+.page-licens div div div, .page-node-127{
   .view-centralbibliotek-license .views-row {
 
     margin-bottom: 0;
     padding-bottom: 0;
 
 
-      .panel-col-first{
-        //width: 100%;
-        @include transform(scale(0.7));
-        margin: -23px 0 0 -50px;
+    .panel-col-first{
+      //width: 100%;
+      @include transform(scale(0.7));
+      margin: -23px 0 0 -50px;
 
-        //adjust date, because of the scale
-        .pane-node-created{
-          @include transform(scale(1.4));
-          bottom: 5px;
-          left: 17px;
-        }
+      //adjust date, because of the scale
+      .pane-node-created{
+        @include transform(scale(1.4));
+        bottom: 5px;
+        left: 17px;
+      }
+    }
+
+    .center-wrapper .panel-col-last{
+      margin-left: -50px; // to make background-image fit too
+      margin-bottom: 5px;
+    }
+
+    .panel-col-bottom{
+      margin-bottom: 50px;
+    }
+
+
+    .node-teaser{
+      padding: 25px 0 0;//!important;
+
+      .panel-display{
+        margin-left:0px;
       }
 
-      .panel-col-last{
-        margin-left: -50px;
-      }
-
-      .panel-col-bottom{
-        display: none;
-      }
-
-
-
-      .node-teaser{
-        padding: 25px 0 0;//!important;
-
-        .panel-display{
-          margin-left:0px;
-        }
-
-//        &:after{
-//          display:none;
-//        }
-      }
-
-      //    .panel-col-bottom {
-      //      display: none;
-      //    }
-
-
+    }
   }
-//}
+}
 

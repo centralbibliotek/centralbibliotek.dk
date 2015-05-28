@@ -644,22 +644,26 @@ div.messages.error {
 .panel-pane.pane-centralbibliotek-license-panel-pane-5 {
   border-bottom: 1px solid #ddd;
 }
-
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003243}}
-.view-centralbibliotek-license .views-row {
+.panel-pane.pane-centralbibliotek-license-panel-pane-5 .views-row .panel-col-bottom {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003250}}
+.page-licens div div div .view-centralbibliotek-license .views-row, .page-node-127 .view-centralbibliotek-license .views-row {
   margin-bottom: 0;
   padding-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003249}}
-.view-centralbibliotek-license .views-row .panel-col-first {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003256}}
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first, .page-node-127 .view-centralbibliotek-license .views-row .panel-col-first {
   -moz-transform: scale(0.7);
   -ms-transform: scale(0.7);
   -webkit-transform: scale(0.7);
   transform: scale(0.7);
   margin: -23px 0 0 -50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003255}}
-.view-centralbibliotek-license .views-row .panel-col-first .pane-node-created {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003262}}
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first .pane-node-created, .page-node-127 .view-centralbibliotek-license .views-row .panel-col-first .pane-node-created {
   -moz-transform: scale(1.4);
   -ms-transform: scale(1.4);
   -webkit-transform: scale(1.4);
@@ -667,20 +671,21 @@ div.messages.error {
   bottom: 5px;
   left: 17px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003262}}
-.view-centralbibliotek-license .views-row .panel-col-last {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003269}}
+.page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last, .page-node-127 .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
   margin-left: -50px;
+  margin-bottom: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003266}}
-.view-centralbibliotek-license .views-row .panel-col-bottom {
-  display: none;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003274}}
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-bottom, .page-node-127 .view-centralbibliotek-license .views-row .panel-col-bottom {
+  margin-bottom: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003272}}
-.view-centralbibliotek-license .views-row .node-teaser {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003279}}
+.page-licens div div div .view-centralbibliotek-license .views-row .node-teaser, .page-node-127 .view-centralbibliotek-license .views-row .node-teaser {
   padding: 25px 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003275}}
-.view-centralbibliotek-license .views-row .node-teaser .panel-display {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_page-list\.scss}line{font-family:\00003282}}
+.page-licens div div div .view-centralbibliotek-license .views-row .node-teaser .panel-display, .page-node-127 .view-centralbibliotek-license .views-row .node-teaser .panel-display {
   margin-left: 0px;
 }
 
