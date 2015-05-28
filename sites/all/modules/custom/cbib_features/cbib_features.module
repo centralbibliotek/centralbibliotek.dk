@@ -195,3 +195,20 @@ function cbib_features_entity_info_alter(&$entity_info) {
     $entity_info['comment']['field replacement']['subject']['field']['translatable'] = FALSE;
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Added link-field to hideable in mini-browsing-widget from commons. Implemented same way as commons.
+ *
+ * @see commons_documents_form_commons_bw_partial_node_form_alter()
+ */
+function cbib_features_form_commons_bw_partial_node_form_alter(&$form, &$form_state) {
+  if (empty($form['#entity']) || $form['#entity']->type != 'document') {
+    return;
+  }
+
+  if (isset($form['field_link'])) {
+    $form['field_link']['#attributes']['class'][] = 'hideable-field';
+  }
+}
