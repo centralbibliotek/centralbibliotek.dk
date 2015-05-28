@@ -1,4 +1,6 @@
-%button-submit {
+
+// exclude the ones that should not be affected
+%button-submit:not(.field-add-more-submit){
   border: 0;
   background: $brand-primary;
   color: $white !important;
@@ -6,7 +8,7 @@
   margin: 0 .75em .75em 0;
   padding: .7em 1.5em;
   text-align: center;
-  border-radius: 1px;
+  border-radius: 40px;
   position: relative;
   vertical-align: top;
   letter-spacing: -.01em;
@@ -63,7 +65,7 @@
 .more-link a, .pager-load-more a, input[type=submit] {
   @extend %button-submit;
   border-radius: 40px;
-  padding: 10px 25px;
+  padding: 15px 25px;
   margin: 50px 0px;
 }
 

@@ -3745,6 +3745,59 @@ tr {
   }
 }
 
+/**
+ * Browsing widget form tables
+ */
+.page-node #commons-bw-partial-node-form-document{
+
+  table{
+    border-color: transparent;
+    thead{
+      border-color: transparent;
+      tr{
+        background-color: transparent;
+      }
+    }
+
+    tbody{
+      border-color: $border;
+      border-left: 1px solid $border;
+      border-right: 1px solid $border;
+      border-bottom: 1px solid $border;
+      tr{
+        background-color: transparent;
+      }
+    }
+
+    td select{
+      margin: inherit;
+      padding: .5em;
+      padding-right: 20px;
+    }
+  }
+
+  input.field-add-more-submit{
+
+    margin-top: .8em;
+    border-radius: 0;
+    padding: 0.5em 1.5em;
+  }
+
+  .fieldset-outer-wrapper, #edit-field-link{
+    padding: 0 .7em 1.7em;
+
+    fieldset legend{
+      display: none;
+    }
+  }
+
+  .form-textarea-wrapper{
+    margin: 10px 7.em 20px;
+  }
+
+
+}
+
 /* =============================================================================
  *   Messages
  * ========================================================================== */

@@ -84,10 +84,10 @@ ul.nostyle li {
   font-style: normal;
   font-weight: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\000031}}
-.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active, .more-link a, .pager-load-more a, input[type=submit], .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\000033}}
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit),
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit), .more-link a:not(.field-add-more-submit), .pager-load-more a:not(.field-add-more-submit), input[type=submit]:not(.field-add-more-submit), .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit),
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit) {
   border: 0;
   background: #ff5479;
   color: #fff !important;
@@ -95,7 +95,7 @@ ul.nostyle li {
   margin: 0 .75em .75em 0;
   padding: .7em 1.5em;
   text-align: center;
-  border-radius: 1px;
+  border-radius: 40px;
   position: relative;
   vertical-align: top;
   letter-spacing: -.01em;
@@ -108,69 +108,69 @@ ul.nostyle li {
   -o-transition: background-color 150ms ease;
   transition: background-color 150ms ease;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000324}}
-.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover, .more-link a:hover, .pager-load-more a:hover, input[type=submit]:hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:hover,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000326}}
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):hover, .more-link a:not(.field-add-more-submit):hover, .pager-load-more a:not(.field-add-more-submit):hover, input[type=submit]:not(.field-add-more-submit):hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):hover {
   color: #fff;
   background: #ff6990;
   cursor: pointer;
   outline: none;
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000333}}
-.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus, .more-link a:focus, .pager-load-more a:focus, input[type=submit]:focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:focus,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:focus {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000335}}
+.block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):focus, .more-link a:not(.field-add-more-submit):focus, .pager-load-more a:not(.field-add-more-submit):focus, input[type=submit]:not(.field-add-more-submit):focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):focus {
   color: #fff;
   background: #ff6990;
   outline: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000343}}
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   background: #ddd;
   color: #565656;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000348}}
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover {
   color: #565656;
   background: #d0d0d0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000353}}
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus {
   color: #565656;
   background: #d0d0d0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000360}}
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   font-size: 1.25em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000365}}
 .more-link a, .pager-load-more a, input[type=submit] {
   border-radius: 40px;
-  padding: 10px 25px;
+  padding: 15px 25px;
   margin: 50px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000374}}
 .page-flag-confirm-flag-inappropriate-node input[type=submit], .page-flag-confirm-unflag-inappropriate-node input[type=submit] {
   margin: 0 50px 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000379}}
 .more-link a {
   margin: 20px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000383}}
 .lead-link a,
 a.lead-link {
   padding: 5px 15px;
@@ -185,7 +185,7 @@ a.lead-link {
   -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   transition: color 200ms ease-in, background-color 200ms ease-in;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_button\.scss}line{font-family:\0000393}}
 .lead-link a:hover,
 a.lead-link:hover {
   background-color: #565656;
