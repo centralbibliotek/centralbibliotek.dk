@@ -240,8 +240,8 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
               'link' => 1,
             ),
             'context' => 'panelizer',
-            'override_title' => 0,
-            'override_title_text' => '',
+            'override_title' => 1,
+            'override_title_text' => 'Tilknytning',
           ),
           'cache' => array(),
           'style' => array(
@@ -302,6 +302,7 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           'uuid' => '4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0',
         ); /* WAS: '' */
     $data['node:event:default:teaser']->display->content['new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f']->position = 2; /* WAS: 0 */
+    $data['node:event:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->configuration['formatter_settings']['trim_length'] = 250; /* WAS: 600 */
     $data['node:event:default:teaser']->display->content['new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a'] = (object) array(
           'pid' => 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
           'panel' => 'left',
@@ -447,6 +448,8 @@ function cbib_commons_events_views_default_views_alter(&$data) {
         ),
       ),
     ); /* WAS: '' */
+    $data['commons_events_upcoming']->display['panel_pane_2']->display_options['title'] = '<a href="/arrangementer">Kommende arrangementer</a>'; /* WAS: 'Arrangementer' */
+    $data['commons_events_upcoming']->display['panel_pane_2']->display_options['use_more_text'] = 'Se alle'; /* WAS: 'Vis mere' */
     $data['commons_events_upcoming']->display['panel_pane_4']->display_options['defaults']['empty'] = FALSE; /* WAS: '' */
     $data['commons_events_upcoming']->display['panel_pane_4']->display_options['empty'] = array(
       'area' => array(
@@ -470,6 +473,7 @@ function cbib_commons_events_views_default_views_alter(&$data) {
     unset($data['commons_events_upcoming']->display['panel_pane_1']->display_options['pager']['options']['effects']);
     unset($data['commons_events_upcoming']->display['panel_pane_1']->display_options['pager']['options']['more_button_text']);
     unset($data['commons_events_upcoming']->display['panel_pane_2']->display_options['sorts']['field_date_value']['order']);
+    unset($data['commons_events_upcoming']->display['panel_pane_2']->display_options['use_more']);
     unset($data['commons_events_upcoming']->display['panel_pane_4']->display_options['pager']['options']['effects']);
   }
 }

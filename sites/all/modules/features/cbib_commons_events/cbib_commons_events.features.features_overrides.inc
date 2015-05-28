@@ -230,8 +230,8 @@ function cbib_commons_events_features_override_default_overrides() {
           'link' => 1,
         ),
         'context' => 'panelizer',
-        'override_title' => 0,
-        'override_title_text' => '',
+        'override_title' => 1,
+        'override_title_text' => 'Tilknytning',
       ),
       'cache' => array(),
       'style' => array(
@@ -290,6 +290,7 @@ function cbib_commons_events_features_override_default_overrides() {
     );
   $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f|position"] = 2;
   $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-bb59c3b5-c74b-4c7a-a057-52a118a0133b"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-c22911c5-3c21-75b4-c5f3-80efb733956b|configuration|formatter_settings|trim_length"] = 250;
   $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a"] = (object) array(
       'pid' => 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
       'panel' => 'left',
@@ -430,6 +431,9 @@ function cbib_commons_events_features_override_default_overrides() {
     ),
   );
   $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|sorts|field_date_value|order"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|title"] = '<a href="/arrangementer">Kommende arrangementer</a>';
+  $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|use_more"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|use_more_text"] = 'Se alle';
   $overrides["views_view.commons_events_upcoming.display|panel_pane_4|display_options|defaults|empty"] = FALSE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_4|display_options|empty"] = array(
     'area' => array(
