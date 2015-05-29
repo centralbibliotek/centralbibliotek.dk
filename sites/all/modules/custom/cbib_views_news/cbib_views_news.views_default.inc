@@ -270,9 +270,10 @@ function cbib_views_news_views_default_views() {
 
   /* Display: Landing page group frontpage */
   $handler = $view->new_display('panel_pane', 'Landing page group frontpage', 'panel_pane_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/news">Nyheder</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_always'] = FALSE;
@@ -521,6 +522,7 @@ function cbib_views_news_views_default_views() {
     t('Se alle'),
     t('No events have been created yet.'),
     t('Landing page group frontpage'),
+    t('<a href="/news">Nyheder</a>'),
     t('OG membership from node'),
     t('Landing page group all'),
     t('Newslist group contextual'),

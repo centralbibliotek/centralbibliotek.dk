@@ -159,18 +159,21 @@
   }
 }
 
-/** List title **/
-.front {
+/** Style List title links **/
+#panels-ipe-paneid-279, #panels-ipe-paneid-280, #panels-ipe-paneid-281{
+  h2.pane-title a{
+    color: #000000;
+
+    &:hover{
+      color:$brand-primary;
+    }
+  }
+}
+
+/*List title*/
+.front{
   h2.pane-title {
     font-size: 2em;
-    a{
-      color: #000000;
-
-      &:hover{
-        color:$brand-primary;
-      }
-    }
-
   }
 }
 
