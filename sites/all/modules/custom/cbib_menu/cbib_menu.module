@@ -1,12 +1,17 @@
 <?php
 
 /**
+ * @file
+ * Handle selected Centralbibliotek and menu.
+ */
+
+/**
+ * Implements hook_menu_link_alter().
+ *
  * Set dynamic links according to main group (centralbibliotek).
  *
  * The link will be changed in hook_translated_menu_link_alter().
  * We need to edit and save the link for the option alter to work.
- *
- * Implements hook_menu_link_alter().
  */
 function cbib_menu_menu_link_alter(&$link) {
   if ($link['link_path'] == variable_get('site_frontpage') || $link['link_path'] == '<front>') {
@@ -18,22 +23,31 @@ function cbib_menu_menu_link_alter(&$link) {
 }
 
 /**
- * Change links according to main group (centralbibliotek).
- *
  * Implements hook_translated_menu_link_alter().
+ *
+ * Change links according to selected Centralbibliotek.
+ *
+ * The selected Centralbibliotek is stored in the session. hook_init() and
+ * hook_form_FORM_ID_alter() for ctools_jump_menu() takes care of that.
+ *
+ * @see cbib_menu_init()
+ * @see cbib_menu_form_ctools_jump_menu_alter()
  */
 function cbib_menu_translated_menu_link_alter(&$item, $map) {
-  $cbib_menu = &drupal_static('cbib_menu', array());
+  drupal_session_start();
+  $centralbibliotek = isset($_SESSION['cbib_centralbibliotek']) ? $_SESSION['cbib_centralbibliotek'] : FALSE;
 
-  if (!empty($cbib_menu['nid'])) {
+  if (!empty($centralbibliotek) && is_numeric($centralbibliotek)) {
     if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
-      $item['href'] = "node/{$cbib_menu['nid']}";
-      $item['title'] = $cbib_menu['title'];
+      $item['href'] = 'node/' . $centralbibliotek;
+      $cbib_node = node_load($centralbibliotek);
+      $item['title'] = $cbib_node->title;
     }
     elseif (in_array($item['href'], array('events', 'groups', 'news'))) {
-      $item['href'] = "node/{$cbib_menu['nid']}/{$item['href']}";
+      $item['href'] = 'node/' . $centralbibliotek . '/' . $item['href'];
     }
   }
+
   // Set homepage link to front without alias.
   if ($item['href'] == variable_get('site_frontpage') || $item['href'] == '<front>') {
     $item['href'] = '';
@@ -48,22 +62,132 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
 }
 
 /**
- * Logic to handle which central library that has been chosen last.
- *
  * Implements hook_init().
+ *
+ * Some pages need to force the selected Centralbibliotek and not just rely on
+ * the jump menu setting it.
+ *
+ * 1) The front page must disable the selection.
+ *
+ * 2) News, events, and groups listings must enforce the Centralbibliotek the
+ * page belongs to.
+ *
+ * 3) Centralbibliotek front pages must enforce it to themselves.
  */
 function cbib_menu_init() {
-  $cbib_menu = &drupal_static('cbib_menu', array());
-
   if (drupal_is_front_page()) {
-      $cbib_menu['nid'] = FALSE;
+    drupal_session_start();
+    $_SESSION['cbib_centralbibliotek'] = FALSE;
   }
-  elseif (arg(0) == 'node' && is_numeric(arg(1))) {
-    $node = node_load(arg(1));
-    if ($node->type == 'centralbibliotek') {
-      $cbib_menu['nid'] = $node->nid;
-      $cbib_menu['title'] = $node->title;
+  elseif (preg_match('@^node/(\d+)?/?(news|events|groups)$@', current_path(), $matches)) {
+    $_SESSION['cbib_centralbibliotek'] = $matches[1];
+  }
+  else {
+    $node = menu_get_object();
+    if (!empty($node->type) && $node->type == 'centralbibliotek') {
+      $_SESSION['cbib_centralbibliotek'] = $node->nid;
     }
   }
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter() for ctools_jump_menu().
+ *
+ * Manipulate the jump menu to point to the desired locations instead.
+ *
+ * On default the jump menu has entries for each Centralbibliotek and the links
+ * point to the front pages of each Centralbibliotek.
+ *
+ * We want the menu entries to instead point at:
+ *
+ * 1) Unchanged if we are currently looking at the front page or a
+ * Centralbibliotek front page.
+ *
+ * 2) On the news, events, and group listings we want to link to the
+ * corresponding page on the other Centralbibliotek.
+ *
+ * 3) On all other pages we want to link to the same page.
+ *
+ * When a menu entry is selected (regardless of the above options) we want to
+ * change the "active" Centralbibliotek.
+ */
+function cbib_menu_form_ctools_jump_menu_alter(&$form, &$form_state) {
+  drupal_session_start();
+
+  // Lookup some of the data we will need later.
+  $centralbibliotek = isset($_SESSION['cbib_centralbibliotek']) ? $_SESSION['cbib_centralbibliotek'] : FALSE;
+  $current_path = current_path();
+  $node = menu_get_object();
+
+  $options = array();
+
+  // Let iterate over the items in the jump menu so we can build a new.
+  foreach ($form['jump']['#options'] as $path => $title) {
+    // Special care for the first element (has an empty path);
+    if (empty($path)) {
+      $options[$path] = $title;
+      continue;
+    }
+
+    // An item is build up from a key and a path.
+    $option = explode('::' . base_path(), $path);
+
+    // Set the 3rd element to the nid of the Centralbibliotek the current item
+    // points at.
+    $item_node = menu_get_object('node', 1, drupal_get_normal_path($option[1]));
+    if (!empty($item_node->type) && $item_node->type == 'centralbibliotek') {
+      $option[2] = $item_node->nid;
+    }
+    else {
+      $option[2] = FALSE;
+    }
+
+    // If the current path is either a news, events, or group listing handle
+    // case 2.
+    if (preg_match('@^node/(\d+)?/?(news|events|groups)$@', $current_path, $matches)) {
+      $option[1] = url('node/' . $option[2] . '/' . $matches[2]);
+    }
+    else {
+      // If this is not case 1 (not the front page or Centralbibliotek front
+      // page) it must be case 3. Handle that.
+      if (!drupal_is_front_page() && (empty($node->type) || $node->type <> 'centralbibliotek')) {
+        $option[1] = url($current_path);
+      }
+    }
+    // Case 1 was leaving the path unchanged so there is no need to handle it
+    // specifically.
+    // Now let us set this item as the selected value if value in the session
+    // matches the menu item.
+    if ($centralbibliotek == $option[2]) {
+      $form['jump']['#default_value'] = implode('::', $option);
+    }
+
+    // Now add what we figured out to the new $options array.
+    $options[implode('::', $option)] = $title;
+  }
+
+  $form['jump']['#options'] = $options;
+  $form['#validate'][] = 'cbib_menu_jump_menu_validate';
+}
+
+/**
+ * Validate handler for the jump menu.
+ *
+ * In the validate handler we set the selected Centralbibliotek as the active
+ * Centralbibliotek in the user session.
+ *
+ * We should ideally have done this in a submit handler instead but something
+ * manipulates the added submit handlers after us so we do it here instead.
+ *
+ * @see cbib_menu_form_ctools_jump_menu_alter()
+ */
+function cbib_menu_jump_menu_validate($form, &$form_state) {
+  // The nid of the selected is stored as the 3rd element of the jump value.
+  $values = explode('::', $form_state['values']['jump']);
+
+  // Set the Centralbibliotek nid in the session.
+  if (!empty($values[2]) && is_numeric($values[2])) {
+    drupal_session_start();
+    $_SESSION['cbib_centralbibliotek'] = $values[2];
+  }
+}
