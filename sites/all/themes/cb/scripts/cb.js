@@ -10,7 +10,9 @@
   // wrapping it with an "anonymous closure". See:
   // - https://drupal.org/node/1446420
   // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
-(function ($, Drupal, window, document, undefined) {
+(function ($, Drupal, window, document) {
+
+  "use strict";
 
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
@@ -65,21 +67,28 @@
         return;
       }
 
-      var container, form, select, selected, replaceMenu;
+      var container;
+      var form;
+      var select;
+      var selected;
+      var replaceMenu;
 
       // Set selector variables.
       container = $('#block-views-centralbiblioteker-block', context);
       form = $('form', container);
       select = $('select', form);
       selected = $('option:selected', select);
-      replaceMenu = $('<ul>', { 'class' : 'region-select closed' });
+      replaceMenu = $('<ul>', {'class': 'region-select closed'});
 
       // Hide the select element since its not used.
       select.hide();
 
       // Loop through each option in select element.
       $('option', select).each(function (index) {
-        var option, item, link, href;
+        var option;
+        var item;
+        var link;
+        var href;
         option = this;
         href = option.value.split('::');
 
@@ -109,9 +118,9 @@
       if (typeof href === 'undefined') {
         href = '/';
       }
-      $('<a>', { 'href' : href, 'class' : 'toggle-link'}).text(selected.text()).click(function (e) {
+      $('<a>', {'href': href, 'class': 'toggle-link'}).text(selected.text()).click(function (e) {
         e.preventDefault();
-        e.stopPropagation()
+        e.stopPropagation();
         replaceMenu.toggleClass('open closed');
       }).insertBefore(replaceMenu);
 
