@@ -1,4 +1,3 @@
-// Misc javascript for the cb theme
 /**
  * @file
  * A JavaScript file for the theme.
@@ -12,7 +11,6 @@
   // - https://drupal.org/node/1446420
   // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
-
 
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
@@ -81,16 +79,19 @@
 
       // Loop through each option in select element.
       $('option', select).each(function (index) {
-        var option, item, link;
+        var option, item, link, href;
         option = this;
+        href = option.value.split('::');
 
         // Ignore the first default option.
         if (index !== 0) {
           // Create a link that will trigger the option.
-          link = $('<a>').attr('href', '#').click(function (e) {
+          link = $('<a>').attr('href', href[1]).click(function (e) {
             e.preventDefault();
             $(option).attr('selected', 'selected');
-            select.trigger('change');
+            // Do a form submit to let ctools jump menu handle the
+            // navigation.
+            form.submit();
           }).text(option.text);
         }
 
@@ -104,7 +105,11 @@
       container.append(replaceMenu);
 
       // Add a toggle link.
-      $('<a>', { 'href' : '#', 'class' : 'toggle-link'}).text(selected.text()).click(function (e) {
+      var href = selected[0].value.split('::')[1];
+      if (typeof href === 'undefined') {
+        href = '/';
+      }
+      $('<a>', { 'href' : href, 'class' : 'toggle-link'}).text(selected.text()).click(function (e) {
         e.preventDefault();
         e.stopPropagation()
         replaceMenu.toggleClass('open closed');
