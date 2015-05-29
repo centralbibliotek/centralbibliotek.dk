@@ -700,5 +700,136 @@ function cbib_license_views_default_views() {
   );
   $export['file_directory'] = $view;
 
+  $view = new view();
+  $view->name = 'license_contacts';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'License contacts';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_license_responsible_ref_node']['id'] = 'reverse_field_license_responsible_ref_node';
+  $handler->display->display_options['relationships']['reverse_field_license_responsible_ref_node']['table'] = 'users';
+  $handler->display->display_options['relationships']['reverse_field_license_responsible_ref_node']['field'] = 'reverse_field_license_responsible_ref_node';
+  $handler->display->display_options['relationships']['reverse_field_license_responsible_ref_node']['label'] = 'Indhold refererer til Bruger fra field_license_responsible_ref';
+  $handler->display->display_options['relationships']['reverse_field_license_responsible_ref_node']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['id'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['field'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['label'] = 'Indhold entity refereret fra field_centralbibliotek_ref';
+  /* Field: User: Library */
+  $handler->display->display_options['fields']['field_library']['id'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['table'] = 'field_data_field_library';
+  $handler->display->display_options['fields']['field_library']['field'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['label'] = 'Bibliotek';
+  $handler->display->display_options['fields']['field_library']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_library']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Field: Centralbibliotek */
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['id'] = 'field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['field'] = 'field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['relationship'] = 'reverse_field_license_responsible_ref_node';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Navn';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: Field: Telefon */
+  $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
+  $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['element_label_colon'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  /* Sort criterion: User: Library (field_library) */
+  $handler->display->display_options['sorts']['field_library_target_id']['id'] = 'field_library_target_id';
+  $handler->display->display_options['sorts']['field_library_target_id']['table'] = 'field_data_field_library';
+  $handler->display->display_options['sorts']['field_library_target_id']['field'] = 'field_library_target_id';
+  /* Sort criterion: Field: Centralbibliotek (field_centralbibliotek_ref) */
+  $handler->display->display_options['sorts']['field_centralbibliotek_ref_target_id']['id'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['sorts']['field_centralbibliotek_ref_target_id']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['sorts']['field_centralbibliotek_ref_target_id']['field'] = 'field_centralbibliotek_ref_target_id';
+  /* Sort criterion: User: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'users';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Data export */
+  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = 'LicensKontaktpersoner.csv';
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['separator'] = ';';
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 1;
+  $handler->display->display_options['style_options']['replace_newlines'] = 1;
+  $handler->display->display_options['style_options']['newline_token'] = '1';
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['path'] = 'licens/kontaktpersoner.csv';
+  $translatables['license_contacts'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Indhold refererer til Bruger fra field_license_responsible_ref'),
+    t('Indhold entity refereret fra field_centralbibliotek_ref'),
+    t('Bibliotek'),
+    t('Centralbibliotek'),
+    t('Navn'),
+    t('Telefon'),
+    t('E-mail'),
+    t('Data export'),
+  );
+  $export['license_contacts'] = $view;
+
   return $export;
 }
