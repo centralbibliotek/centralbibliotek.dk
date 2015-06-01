@@ -162,17 +162,6 @@ function cbib_features_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
   $handler->display->display_options['fields']['field_job_title']['label'] = '';
   $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_library_ref_node';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'empty';
-  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   /* Filterkriterie: Bruger: Aktiv */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -265,6 +254,39 @@ function cbib_features_views_default_views() {
       'label' => 'Indhold: Nid',
     ),
   );
+
+  /* Display: Staff_list */
+  $handler = $view->new_display('panel_pane', 'Staff_list', 'panel_pane_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Centralbibliotekets personale';
+  $handler->display->display_options['display_description'] = 'List where staff can be attached to Centralbibliotek';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
+  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Entity Reference: Refererende entity */
+  $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['id'] = 'reverse_field_personale_ref_node';
+  $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['table'] = 'users';
+  $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['field'] = 'reverse_field_personale_ref_node';
+  $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['required'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Bruger: Last Name (field_name_last) */
+  $handler->display->display_options['sorts']['field_name_last_value']['id'] = 'field_name_last_value';
+  $handler->display->display_options['sorts']['field_name_last_value']['table'] = 'field_data_field_name_last';
+  $handler->display->display_options['sorts']['field_name_last_value']['field'] = 'field_name_last_value';
+  /* Sorteringskriterie: Realname: Rigtigt navn */
+  $handler->display->display_options['sorts']['realname']['id'] = 'realname';
+  $handler->display->display_options['sorts']['realname']['table'] = 'realname';
+  $handler->display->display_options['sorts']['realname']['field'] = 'realname';
   $translatables['library_employees'] = array(
     t('Master'),
     t('Medarbejdere'),
@@ -283,11 +305,15 @@ function cbib_features_views_default_views() {
     t('»'),
     t('Indhold entity refereret fra field_library'),
     t('Indhold refererer til Indhold fra field_library_ref'),
-    t('Alle'),
     t('View panes'),
     t('Employee_list'),
     t('Tilknyttede medarbejdere'),
     t('list showing all employees of a library'),
+    t('Alle'),
+    t('Staff_list'),
+    t('Centralbibliotekets personale'),
+    t('List where staff can be attached to Centralbibliotek'),
+    t('Indhold refererer til Bruger fra field_personale_ref'),
   );
   $export['library_employees'] = $view;
 

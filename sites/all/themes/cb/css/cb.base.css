@@ -215,7 +215,7 @@ div.messages.error {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_user-avatar\.scss}line{font-family:\000031}}
-.pane-library-employees-panel-pane-2 .views-field-picture,
+.pane-library-employees-panel-pane-3 .views-field-picture,
 .pane-node-followers-panel-pane-1 .views-field-picture,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
@@ -877,28 +877,28 @@ div.messages.error {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\000038}}
-.pane-library-employees-panel-pane-2 .block-content,
+.pane-library-employees-panel-pane-3 .block-content,
 .pane-node-followers-panel-pane-1 .block-content,
 .pane-commons-events-event-attendee-list-panel-pane-1 .block-content,
 #panels-ipe-paneid-4 .block-content {
   padding-top: .2em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000313}}
-.pane-library-employees-panel-pane-2 .view-commons-events-event-attendee-list,
+.pane-library-employees-panel-pane-3 .view-commons-events-event-attendee-list,
 .pane-node-followers-panel-pane-1 .view-commons-events-event-attendee-list,
 .pane-commons-events-event-attendee-list-panel-pane-1 .view-commons-events-event-attendee-list,
 #panels-ipe-paneid-4 .view-commons-events-event-attendee-list {
   background-color: transparent;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000317}}
-.pane-library-employees-panel-pane-2 .views-view-grid td,
+.pane-library-employees-panel-pane-3 .views-view-grid td,
 .pane-node-followers-panel-pane-1 .views-view-grid td,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
   padding: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000321}}
-.pane-library-employees-panel-pane-2 .views-field-picture,
+.pane-library-employees-panel-pane-3 .views-field-picture,
 .pane-node-followers-panel-pane-1 .views-field-picture,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-picture,
 #panels-ipe-paneid-4 .views-field-picture {
@@ -907,7 +907,7 @@ div.messages.error {
   margin-right: .55em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000328}}
-.pane-library-employees-panel-pane-2 .views-field-name,
+.pane-library-employees-panel-pane-3 .views-field-name,
 .pane-node-followers-panel-pane-1 .views-field-name,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-name,
 #panels-ipe-paneid-4 .views-field-name {
@@ -915,14 +915,14 @@ div.messages.error {
   line-height: 1.9;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000333}}
-.pane-library-employees-panel-pane-2 .views-field-field-job-title,
+.pane-library-employees-panel-pane-3 .views-field-field-job-title,
 .pane-node-followers-panel-pane-1 .views-field-field-job-title,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-field-field-job-title,
 #panels-ipe-paneid-4 .views-field-field-job-title {
   padding-left: 2.3em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000339}}
-.pane-library-employees-panel-pane-2 .views-view-grid td,
+.pane-library-employees-panel-pane-3 .views-view-grid td,
 .pane-node-followers-panel-pane-1 .views-view-grid td,
 .pane-commons-events-event-attendee-list-panel-pane-1 .views-view-grid td,
 #panels-ipe-paneid-4 .views-view-grid td {
@@ -933,21 +933,21 @@ div.messages.error {
   overflow: hidden;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000349}}
-.pane-library-employees-panel-pane-2 div.item-list-pager ul.pager,
+.pane-library-employees-panel-pane-3 div.item-list-pager ul.pager,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager,
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager {
   padding-top: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000352}}
-.pane-library-employees-panel-pane-2 div.item-list-pager ul.pager .pager-current,
+.pane-library-employees-panel-pane-3 div.item-list-pager ul.pager .pager-current,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager .pager-current,
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager .pager-current,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager .pager-current {
   line-height: 40px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000356}}
-.pane-library-employees-panel-pane-2 div.item-list-pager ul.pager .pager-previous a, .pane-library-employees-panel-pane-2 div.item-list-pager ul.pager .pager-next a,
+.pane-library-employees-panel-pane-3 div.item-list-pager ul.pager .pager-previous a, .pane-library-employees-panel-pane-3 div.item-list-pager ul.pager .pager-next a,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager .pager-previous a,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager .pager-next a,
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager .pager-previous a,
@@ -962,7 +962,7 @@ div.messages.error {
   top: 7px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_panels-ipe-paneid-4\.scss}line{font-family:\0000361}}
-.pane-library-employees-panel-pane-2 div.item-list-pager ul.pager .pager-previous a:hover, .pane-library-employees-panel-pane-2 div.item-list-pager ul.pager .pager-next a:hover,
+.pane-library-employees-panel-pane-3 div.item-list-pager ul.pager .pager-previous a:hover, .pane-library-employees-panel-pane-3 div.item-list-pager ul.pager .pager-next a:hover,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager .pager-previous a:hover,
 .pane-node-followers-panel-pane-1 div.item-list-pager ul.pager .pager-next a:hover,
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager .pager-previous a:hover,
