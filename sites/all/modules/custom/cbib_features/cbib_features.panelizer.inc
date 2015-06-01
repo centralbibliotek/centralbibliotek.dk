@@ -567,6 +567,29 @@ function cbib_features_panelizer_defaults() {
     $pane->uuid = '9aa68120-2268-4422-926b-e0f9c7309744';
     $display->content['new-9aa68120-2268-4422-926b-e0f9c7309744'] = $pane;
     $display->panels['two_66_33_second'][8] = 'new-9aa68120-2268-4422-926b-e0f9c7309744';
+    $pane = new stdClass();
+    $pane->pid = 'new-e2c12914-2e8b-4697-a637-0beda8e6eb57';
+    $pane->panel = 'two_66_33_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'library_employees-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->locks = array();
+    $pane->uuid = 'e2c12914-2e8b-4697-a637-0beda8e6eb57';
+    $display->content['new-e2c12914-2e8b-4697-a637-0beda8e6eb57'] = $pane;
+    $display->panels['two_66_33_second'][9] = 'new-e2c12914-2e8b-4697-a637-0beda8e6eb57';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;

@@ -2466,7 +2466,7 @@ ul.pager li {
 
 //adjust pagination to Jacques design
 // Weird selector but necessary to get the selector points needed.
-html body div div div .item-list-pager ul.pager {
+html body div div .item-list-pager ul.pager {
   border-top: 1px solid $gray-light;
   padding-top: 50px;
 
@@ -2496,33 +2496,23 @@ html body div div div .item-list-pager ul.pager {
       border-radius: 20px;
       background-color: $gray-light; // !important;
       position:relative;
-      top:9px;
-      &:hover{
-        background-color: $tab_active_text; // !important;
-        @include transform(scale(1.2));
-        border-radius: 25px;
-        color: #ffffff;
-
-//        a{
-//          color: #ffffff;
-//        }
-      }
-    }
-    &.pager-next a,
-    &.pager-previous a,
-    &.pager-first a,
-    &.pager-last a{
+      top:6px;
       font-size: 3em;
       font-weight: 200;
       line-height: 35px;
       height: 40px;
       width: 40px;
       border-radius: 20px;
+
       &:hover{
         box-shadow: none;
-
+        background-color: $tab_active_text; // !important;
+        @include transform(scale(1.2));
+        border-radius: 25px;
+        color: #ffffff;
       }
     }
+
     &.pager-item a:hover{
       text-decoration: underline;
       color: $tab_active_text;

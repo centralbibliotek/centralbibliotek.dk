@@ -292,6 +292,55 @@ function cbib_features_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-centralbibliotek-field_library_ref'
+  $field_instances['node-centralbibliotek-field_library_ref'] = array(
+    'bundle' => 'centralbibliotek',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_library_ref',
+    'label' => 'Lokalbiblioteks_ref',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 21,
+    ),
+  );
+
   // Exported field_instance: 'node-centralbibliotek-field_phone'
   $field_instances['node-centralbibliotek-field_phone'] = array(
     'bundle' => 'centralbibliotek',
@@ -376,6 +425,7 @@ function cbib_features_field_default_field_instances() {
   t('CVR');
   t('E-mail');
   t('EAN');
+  t('Lokalbiblioteks_ref');
   t('Telefon');
   t('Vedhæftninger');
   t('Website');
