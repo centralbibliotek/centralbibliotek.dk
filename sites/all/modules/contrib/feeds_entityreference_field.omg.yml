@@ -1,0 +1,4 @@
+project:
+  type: git
+  origin: 'http://git.drupal.org/sandbox/gielfeldt/2448283.git'
+  revision: fea391e65d0460d29e5ee033e539d6d38a15287d
