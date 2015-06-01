@@ -1,0 +1,4 @@
+project:
+  type: git
+  origin: 'http://git.drupal.org/project/i18n.git'
+  revision: 3777b86d34a3e5e2c1e9b691b629f5b038d0a092
