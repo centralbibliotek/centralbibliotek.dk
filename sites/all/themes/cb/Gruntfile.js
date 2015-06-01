@@ -17,7 +17,7 @@ module.exports = function (grunt) {
         stderr: false
       },
       target: {
-        command: 'drush cc css-js'
+        command: 'drush advagg-fna'
       }
     },
 
