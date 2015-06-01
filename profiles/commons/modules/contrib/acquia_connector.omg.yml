@@ -1,0 +1,6 @@
+info-file: acquia_agent/acquia_agent.info
+patches:
+  -
+    patch: 'http://drupal.org/files/issues/move-message-generation-2289903-1.patch'
+    home: 'https://drupal.org/node/2289903#comment-8899833'
+    reason: 'Fix signup messages displayed during install.'

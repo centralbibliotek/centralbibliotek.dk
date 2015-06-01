@@ -1,0 +1,9 @@
+project:
+  type: git
+  origin: 'http://git.drupal.org/project/apachesolr_user.git'
+  revision: a86c5aebfceaf4a3fc53544762a36ca1b70809d5
+patches:
+  -
+    patch: 'https://www.drupal.org/files/2077281-apache-solr-user-check-3.patch'
+    home: 'https://www.drupal.org/node/2077281#comment-7807937'
+    reason: 'Added by Drupal Commons in make file: Check the user object before trying to display a result'
