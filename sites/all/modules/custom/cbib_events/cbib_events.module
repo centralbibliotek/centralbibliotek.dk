@@ -201,3 +201,28 @@ function cbib_events_registration_entity_settings_form_submit($form, $form_state
   $node_wrapper->field_number_of_attendees->set($form['capacity']['#value']);
   $node_wrapper->save();
 }
+
+/**
+ * Implements hook_views_post_execute().
+ *
+ * The @total count in the view does not count guest attendees.
+ *
+ * We need the more precise total count in the view header so we'll adjust it
+ * here.
+ *
+ * @see commons_events_get_raw_attendee_count()
+ */
+function cbib_events_views_post_execute(&$view) {
+  // Only do this on the content pane views display.
+  if ($view->name == 'commons_events_event_attendee_list' && $view->current_display == 'panel_pane_1' &&
+    !empty($view->args[0]) && is_numeric($view->args[0])) {
+    // Load the node from the views context.
+    $node = node_load($view->args[0]);
+
+    // Ask Commons Events for the real attendee count.
+    $count = commons_events_get_raw_attendee_count($node);
+
+    // Update the count in the header content (replace @total with the count).
+    $view->header['result']->options['content'] = strtr($view->header['result']->options['content'], array('@total' => $count));
+  }
+}
