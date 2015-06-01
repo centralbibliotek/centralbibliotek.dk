@@ -807,6 +807,7 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['style_options']['newline_token'] = '1';
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['style_options']['encoding'] = 'utf8_decode';
   $handler->display->display_options['path'] = 'licens/kontaktpersoner.csv';
   $handler->display->display_options['displays'] = array(
     'panel_pane_1' => 'panel_pane_1',
