@@ -920,10 +920,7 @@ function cbib_license_pages_default_page_manager_pages() {
   $page->admin_title = 'Licens nyheder';
   $page->admin_description = 'displaying all license-news';
   $page->path = 'licens/nyheder';
-  $page->access = array(
-    'type' => 'none',
-    'settings' => NULL,
-  );
+  $page->access = array();
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
