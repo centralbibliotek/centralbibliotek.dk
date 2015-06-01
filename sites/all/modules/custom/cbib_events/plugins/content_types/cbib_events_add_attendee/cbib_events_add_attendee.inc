@@ -41,6 +41,9 @@ function cbib_events_cbib_events_add_attendee_content_type_render($subtype, $con
   return $pane;
 }
 
+/**
+ * Add attendee form.
+ */
 function cbib_events_add_attendee_form($form, &$form_state) {
   $form['user']['name'] = array(
     '#type' => 'textfield',
@@ -60,6 +63,11 @@ function cbib_events_add_attendee_form($form, &$form_state) {
   return $form;
 }
 
+/**
+ * Validate handler for Add attendee form.
+ *
+ * @see cbib_events_add_attendee_form()
+ */
 function cbib_events_add_attendee_form_validate($form, &$form_state) {
   $user = user_load_by_name($form_state['values']['name']);
   if (!$user) {
@@ -68,6 +76,11 @@ function cbib_events_add_attendee_form_validate($form, &$form_state) {
   }
 }
 
+/**
+ * Submit handler for Add attendee form.
+ *
+ * @see cbib_events_add_attendee_form()
+ */
 function cbib_events_add_attendee_form_submit($form, &$form_state) {
   $event_user = user_load_by_name($form_state['values']['name']);
   global $user;

@@ -62,14 +62,15 @@ function cbib_events_form_commons_events_attend_event_form_alter(&$form, &$form_
     $form['field_note'][LANGUAGE_NONE][0]['value']['#attributes']['placeholder'] = $form['field_note'][LANGUAGE_NONE]['#description'];
   }
 
-  // Add our submit handler - must come before commons_events_attend_event_form_submit().
+  // Add our submit handler - must come before
+  // commons_events_attend_event_form_submit().
   array_unshift($form['#submit'], 'cbib_events_commons_events_attend_event_form_submit');
 }
 
 /**
  * Submit handler for adding field_note to registration object.
  *
- * commons_events_attend_event_form_submit() will save the registration.
+ * Commons_events_attend_event_form_submit() will save the registration.
  *
  * @see commons_events_attend_event_form_submit()
  */
