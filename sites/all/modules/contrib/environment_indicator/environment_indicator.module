@@ -356,7 +356,7 @@ function environment_indicator_navbar() {
       '#type' => 'navbar_item',
       'tab' => array(
         '#type' => 'link',
-        '#title' => $environment_info['name'] . ' (' . $environment_info['git_branch'] .')',
+        '#title' => $environment_info['name'],
         '#href' => '',
         '#options' => array(
           'attributes' => array(
@@ -581,7 +581,7 @@ function environment_indicator_environment_indicator_matched_indicator_alter(&$e
     if (empty($git_describe)) {
       return;
     }
-    $tag_branch_parts = explode('/', $git_describe, 2);
+    $tag_branch_parts = explode('/', $git_describe);
     if (!empty($tag_branch_parts[1])) {
       $environment_info['git_branch'] = trim($tag_branch_parts[1]);
     }

@@ -343,6 +343,7 @@ class FeedsNodeProcessor extends FeedsProcessor {
     $entity_type = $this->entityType();
     $bundle = $this->bundle();
     drupal_alter('feeds_processor_targets', $targets, $entity_type, $bundle);
+
     return $targets;
   }
 
