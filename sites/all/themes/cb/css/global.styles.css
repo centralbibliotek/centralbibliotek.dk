@@ -7990,4 +7990,11 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   background-image: linear-gradient(to bottom, #0b769c 0%, #0c80ab 100%);
 }
 
-/*# sourceMappingURL=global.styles.css.map */
+.view-license-contacts .view-empty {
+  display: inline-block;
+}
+.view-license-contacts .feed-icon {
+  display: inline-block;
+  margin: .3ex .5em 0 0;
+  float: left;
+}

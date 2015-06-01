@@ -4550,3 +4550,15 @@ body.front.logged-in .view-commons-homepage-content .article.node {
  */
 
 @import "palettes";
+
+.view-license-contacts {
+  .view-empty {
+    display: inline-block;
+  }
+
+  .feed-icon {
+    display: inline-block;
+    margin: .3ex .5em 0 0;
+    float: left;
+  }
+}

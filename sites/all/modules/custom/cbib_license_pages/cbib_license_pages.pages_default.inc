@@ -378,7 +378,7 @@ function cbib_license_pages_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'two_33_66';
+  $display->layout = 'three_25_50_25';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -387,6 +387,11 @@ function cbib_license_pages_default_page_manager_pages() {
       'two_33_66_first' => NULL,
       'two_33_66_second' => NULL,
       'two_33_66_bottom' => NULL,
+      'three_25_50_25_top' => NULL,
+      'three_25_50_25_first' => NULL,
+      'three_25_50_25_second' => NULL,
+      'three_25_50_25_third' => NULL,
+      'three_25_50_25_bottom' => NULL,
     ),
   );
   $display->cache = array();
@@ -396,7 +401,7 @@ function cbib_license_pages_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-a9b62590-3c6d-4a51-bd6a-35028eec3fbb';
-    $pane->panel = 'two_33_66_first';
+    $pane->panel = 'three_25_50_25_first';
     $pane->type = 'views_panes';
     $pane->subtype = 'centralbibliotek_license-panel_pane_3';
     $pane->shown = TRUE;
@@ -416,10 +421,10 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'a9b62590-3c6d-4a51-bd6a-35028eec3fbb';
     $display->content['new-a9b62590-3c6d-4a51-bd6a-35028eec3fbb'] = $pane;
-    $display->panels['two_33_66_first'][0] = 'new-a9b62590-3c6d-4a51-bd6a-35028eec3fbb';
+    $display->panels['three_25_50_25_first'][0] = 'new-a9b62590-3c6d-4a51-bd6a-35028eec3fbb';
     $pane = new stdClass();
     $pane->pid = 'new-594cc0e0-7fb5-4fd6-921c-743ac63c8d28';
-    $pane->panel = 'two_33_66_second';
+    $pane->panel = 'three_25_50_25_second';
     $pane->type = 'views_panes';
     $pane->subtype = 'biblioteker-panel_pane_1';
     $pane->shown = TRUE;
@@ -438,10 +443,29 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '594cc0e0-7fb5-4fd6-921c-743ac63c8d28';
     $display->content['new-594cc0e0-7fb5-4fd6-921c-743ac63c8d28'] = $pane;
-    $display->panels['two_33_66_second'][0] = 'new-594cc0e0-7fb5-4fd6-921c-743ac63c8d28';
+    $display->panels['three_25_50_25_second'][0] = 'new-594cc0e0-7fb5-4fd6-921c-743ac63c8d28';
+    $pane = new stdClass();
+    $pane->pid = 'new-f13d3f24-7d8c-4b22-b3a1-8f67d2276d4c';
+    $pane->panel = 'three_25_50_25_third';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'license_contacts-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f13d3f24-7d8c-4b22-b3a1-8f67d2276d4c';
+    $display->content['new-f13d3f24-7d8c-4b22-b3a1-8f67d2276d4c'] = $pane;
+    $display->panels['three_25_50_25_third'][0] = 'new-f13d3f24-7d8c-4b22-b3a1-8f67d2276d4c';
     $pane = new stdClass();
     $pane->pid = 'new-a1e6381a-790d-47de-a400-c37404cb5fa6';
-    $pane->panel = 'two_33_66_top';
+    $pane->panel = 'three_25_50_25_top';
     $pane->type = 'block';
     $pane->subtype = 'menu-menu-license-menu';
     $pane->shown = TRUE;
@@ -460,7 +484,7 @@ function cbib_license_pages_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'a1e6381a-790d-47de-a400-c37404cb5fa6';
     $display->content['new-a1e6381a-790d-47de-a400-c37404cb5fa6'] = $pane;
-    $display->panels['two_33_66_top'][0] = 'new-a1e6381a-790d-47de-a400-c37404cb5fa6';
+    $display->panels['three_25_50_25_top'][0] = 'new-a1e6381a-790d-47de-a400-c37404cb5fa6';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-594cc0e0-7fb5-4fd6-921c-743ac63c8d28';
   $handler->conf['display'] = $display;
@@ -896,7 +920,10 @@ function cbib_license_pages_default_page_manager_pages() {
   $page->admin_title = 'Licens nyheder';
   $page->admin_description = 'displaying all license-news';
   $page->path = 'licens/nyheder';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
