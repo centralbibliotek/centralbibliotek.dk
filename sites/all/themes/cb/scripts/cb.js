@@ -54,19 +54,7 @@
 
   // Jump menu replacement for theming.
   Drupal.behaviors.regionSelect = {
-    // We don't do this on mobile devices since they have cool select functionality.
     attach: function (context) {
-      if (
-        navigator.userAgent.match(/Android/i) ||
-        navigator.userAgent.match(/webOS/i) ||
-        navigator.userAgent.match(/iPhone/i) ||
-        navigator.userAgent.match(/iPod/i) ||
-        navigator.userAgent.match(/iPad/i) ||
-        navigator.userAgent.match(/Blackberry/i)
-      ) {
-        return;
-      }
-
       var container;
       var form;
       var select;
@@ -79,6 +67,24 @@
       select = $('select', form);
       selected = $('option:selected', select);
       replaceMenu = $('<ul>', {'class': 'region-select closed'});
+
+      // We don't do this on mobile devices since they have cool
+      // select functionality. We just submit the form on change
+      // (otherwise ctools modules builtin JavaScript will alter the
+      // form submit to link GET).
+      if (
+        navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/Blackberry/i)
+      ) {
+        select.change(function () {
+          form.submit();
+        });
+        return;
+      }
 
       // Hide the select element since its not used.
       select.hide();
