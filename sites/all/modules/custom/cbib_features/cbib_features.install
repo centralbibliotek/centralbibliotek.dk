@@ -324,6 +324,15 @@ function cbib_features_update_7124(&$sandbox) {
 }
 
 /**
+ * Enable CBIB Site Homepage feature module.
+ */
+function cbib_features_update_7125(&$sandbox) {
+  if (!module_exists('cbib_site_homepage')) {
+    module_enable(array('cbib_site_homepage'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
