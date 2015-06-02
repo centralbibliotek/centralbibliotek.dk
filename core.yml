@@ -1,5 +1,33 @@
 patches:
   -
+    patch: 'https://www.drupal.org/files/install_profile_requirements_on_install.patch'
+    home: 'https://www.drupal.org/node/1971072'
+    resaon: 'This patch allows install profile to list requirements on the install page'
+  -
+    patch: 'https://www.drupal.org/files/drupal-7.x-allow_profile_change_sys_req-1772316-21.patch'
+    home: 'https://www.drupal.org/node/1772316#comment-6457618'
+    resaon: 'This patch allows install profiles to set a minimum memory limit.'
+  -
+    patch: 'https://www.drupal.org/files/1664602-1.patch'
+    home: 'https://www.drupal.org/node/1664602#comment-6221066'
+    resaon: 'Allow to specify SCRIPT HTML element attributes through drupal_add_js()'
+  -
+    patch: 'https://www.drupal.org/files/issues/drupal-106721-optimize_node_access_queries-81.patch'
+    home: 'https://www.drupal.org/comment/8516319#comment-8516319'
+    resaon: 'Optimize node access queries.'
+  -
+    patch: 'https://www.drupal.org/files/issues/node_access_grants-static-cache-11.patch'
+    home: 'https://www.drupal.org/comment/8495029#comment-8495029'
+    resaon: 'Statically cache node access grants'
+  -
+    patch: 'https://www.drupal.org/files/issues/1805690_11.patch'
+    home: 'https://www.drupal.org/node/1805690#comment-8734045'
+    resaon: 'File_get_file_references is slow and buggy'
+  -
+    patch: 'https://www.drupal.org/files/issues/comment-unpublish-d7-2289369-1-do-not-test.patch'
+    home: 'https://www.drupal.org/node/2289369#comment-8897089'
+    resaon: 'hook_comment_unpublish is never invoked'
+  -
     patch: 'http://cgit.drupalcode.org/cache_consistent/plain/drupal-7.28-transactional-cache.patch?id=1fb5ce8'
     home: 'https://drupal.org/project/cache_consistent'
     reason: 'Avoid cache being populated with stale data.'
