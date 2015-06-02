@@ -1,6 +1,8 @@
 name = Commons
 description = Ready-to-use solution for building communities.
 core = 7.x
+distribution_name = "Drupal Commons"
+exclusive = TRUE
 
 ; Install required core modules.
 dependencies[] = block
@@ -97,9 +99,12 @@ dependencies[] = commons_media
 dependencies[] = commons_misc
 dependencies[] = commons_notify
 dependencies[] = commons_pages
+dependencies[] = commons_polls
 dependencies[] = commons_posts
 dependencies[] = commons_profile_base
 dependencies[] = commons_profile_social
+dependencies[] = commons_q_a
+dependencies[] = commons_q_a_pages
 dependencies[] = commons_radioactivity
 dependencies[] = commons_radioactivity_groups
 dependencies[] = commons_search
@@ -109,6 +114,8 @@ dependencies[] = commons_social_sharing
 dependencies[] = commons_trusted_contacts
 dependencies[] = commons_user_profile_pages
 dependencies[] = commons_utility_links
+dependencies[] = commons_wiki
+dependencies[] = commons_wiki_pages
 dependencies[] = commons_wysiwyg
 
 ; System Requirements.
