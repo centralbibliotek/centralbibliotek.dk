@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/2104643-revert-qt-487518-5.patch'
+    home: 'https://www.drupal.org/node/2104643'
+    resaon: 'Quicktabs breaks when tabs are hidden'

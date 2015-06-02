@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/2225889-realname-correct-menu-3.patch'
+    home: 'https://www.drupal.org/node/2225889'
+    resaon: 'Realname entityreference autocomplete API update'

@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/privatemsg-1573000-64.patch'
+    home: 'https://www.drupal.org/node/1573000'
+    resaon: 'Add preliminary Views integration.'
+  -
+    patch: 'Enable privatemsg_realname when realname is enabled.'
+    home: 'https://www.drupal.org/node/2070719'
+    resaon: 'Enable privatemsg_realname when realname is enabled.'

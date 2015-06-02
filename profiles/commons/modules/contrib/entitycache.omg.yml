@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/entityreference-autocomplete-widget-single-entity-1959624-6.patch'
+    home: 'https://www.drupal.org/node/1959624#comment-8451891'
+    reason: 'Autocomplete widgets cannot reference a single entity result.'

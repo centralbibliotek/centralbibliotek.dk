@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/check-for-default-value-function-2304301-1.patch'
+    home: 'https://www.drupal.org/node/2304301#comment-8973459'
+    resaon: 'Entityreference prepopulate overwrites field instance custom default value functions.'

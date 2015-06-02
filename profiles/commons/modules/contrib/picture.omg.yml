@@ -1,0 +1,21 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/add-ctools-dependency-2173043-1.patch'
+    home: 'https://www.drupal.org/node/2173043'
+    resaon: 'Add ctools as a dependency'
+  -
+    patch: 'https://www.drupal.org/files/issues/translate-filter-tips-2139459-1.patch'
+    home: 'https://www.drupal.org/node/2139459'
+    resaon: 'Allow filter tips to be translated'
+  -
+    patch: 'https://www.drupal.org/files/issues/move-uninstall-hook-implementation-2173015-1.patch'
+    home: 'https://www.drupal.org/node/2173015'
+    resaon: 'Move hook_uninstall() to picture.install to fix issues on uninstall.'
+  -
+    patch: 'https://www.drupal.org/files/issues/remove-file-formatter-hook-implementation-2172831-1.patch'
+    home: 'https://www.drupal.org/node/2172841'
+    resaon: 'Remove implementation of hook_file_formatter_info() to remove duplicate file formatter.'
+  -
+    patch: 'https://www.drupal.org/files/issues/remove-ctools-hook-implementation-2172831-1.patch'
+    home: 'https://www.drupal.org/node/2172831'
+    resaon: 'Remove implementation of hook_ctools_plugin_api() to fix issues with features.'
