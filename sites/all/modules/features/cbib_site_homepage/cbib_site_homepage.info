@@ -1,6 +1,6 @@
 name = CBIB Site Homepage
 core = 7.x
-package = Features
+package = Centralbibliotek
 dependencies[] = commons_site_homepage
 dependencies[] = ctools
 dependencies[] = panelizer
