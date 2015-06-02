@@ -97,6 +97,11 @@ function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) 
     $form['#submit'][$delta] = 'cbib_events_node_form_submit';
   }
 
+  // Move registration settings to the top.
+  if (isset($form['event_registration_settings']['#weight'])) {
+    $form['event_registration_settings']['#weight'] = -100;
+  }
+
   // Add our form validate function.
   $form['#validate'][] = 'cbib_events_node_form_validate';
 }
