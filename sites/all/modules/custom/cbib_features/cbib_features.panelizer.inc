@@ -574,7 +574,11 @@ function cbib_features_panelizer_defaults() {
     $pane->subtype = 'library_employees-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,

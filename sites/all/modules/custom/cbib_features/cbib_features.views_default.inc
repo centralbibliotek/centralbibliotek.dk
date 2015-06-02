@@ -162,6 +162,17 @@ function cbib_features_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
   $handler->display->display_options['fields']['field_job_title']['label'] = '';
   $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_personale_ref_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   /* Filterkriterie: Bruger: Aktiv */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -223,6 +234,16 @@ function cbib_features_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['field'] = 'reverse_field_personale_ref_node';
   $handler->display->display_options['relationships']['reverse_field_personale_ref_node']['required'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Nid',
+    ),
+  );
   $translatables['library_employees'] = array(
     t('Master'),
     t('Medarbejdere'),
@@ -241,6 +262,7 @@ function cbib_features_views_default_views() {
     t('»'),
     t('Indhold entity refereret fra field_library'),
     t('Indhold refererer til Indhold fra field_library_ref'),
+    t('Alle'),
     t('View panes'),
     t('Staff_list'),
     t('Centralbibliotekets personale'),
