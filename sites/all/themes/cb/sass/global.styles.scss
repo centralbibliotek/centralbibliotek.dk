@@ -1180,6 +1180,8 @@ button,
 
 .field-name-group-group {
 
+
+
 // style them exactly as submit-buttons
   a{
     padding: .7em 1.5em;
@@ -1202,6 +1204,11 @@ button,
     //-moz-transition: background-color 150ms ease;
     //-o-transition: background-color 150ms ease;
     //transition: background-color 150ms ease;
+
+    &:hover{
+      background-image: none;
+      background-color: $brand-primary-light;
+    }
   }
 }
 
