@@ -310,8 +310,8 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     // the additional settings group so it will be displayed as a vertical tab.
     $form['event_registration_settings'] = array(
       '#type' => 'fieldset',
-      '#collapsible' => FALSE,
-      '#collapsed' => TRUE,
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
       '#title' => t('Registration settings'),
       '#group' => 'additional_settings',
       '#weight' => -10,

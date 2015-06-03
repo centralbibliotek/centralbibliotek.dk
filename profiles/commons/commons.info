@@ -114,8 +114,8 @@ dependencies[] = commons_social_sharing
 dependencies[] = commons_trusted_contacts
 dependencies[] = commons_user_profile_pages
 dependencies[] = commons_utility_links
-dependencies[] = commons_wiki
-dependencies[] = commons_wiki_pages
+dependencies[] = commons_wikis
+dependencies[] = commons_wikis_pages
 dependencies[] = commons_wysiwyg
 
 ; System Requirements.
