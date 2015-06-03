@@ -324,21 +324,6 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['event_registration_settings']['field_number_of_attendees'] = $form['field_number_of_attendees'];
     $form['event_registration_settings']['field_registration'] = $form['field_registration'];
 
-
-
-    // Add token support:
-    if (module_exists('token')) {
-      $form['event_registration_settings']['token_tree'] = array(
-        '#theme' => 'token_tree',
-        '#token_types' => array(
-          'node',
-          'registration',
-        ),
-        '#global_types' => FALSE,
-        '#weight' => 100,
-      );
-    }
-
     // Unset all of the original registration settings.
     hide($form['field_organizers']);
     hide($form['field_registration_type']);
