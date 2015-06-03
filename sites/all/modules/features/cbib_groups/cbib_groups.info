@@ -2,7 +2,6 @@ name = CBIB Groups
 core = 7.x
 package = Centralbibliotek.dk
 dependencies[] = commons_groups_pages
-dependencies[] = commons_groups_views
 dependencies[] = commons_posts
 dependencies[] = ctools
 dependencies[] = panelizer
