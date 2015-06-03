@@ -786,6 +786,7 @@ button,
 }
 
 [class*="action-item-small"] {
+
   @extend %button-small-layout;
 }
 
@@ -1180,10 +1181,9 @@ button,
 
 .field-name-group-group {
 
-
-
 // style them exactly as submit-buttons
   a{
+    background-color: $brand-primary;
     padding: .7em 1.5em;
     border: 0;
     color: $white !important;
