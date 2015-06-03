@@ -258,8 +258,8 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|7"] = 'new-632cdf26-2846-4b05-ba51-0bef3789c6c4';
   $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|8"] = 'new-aef85835-68a5-2494-b107-136f1cb92749';
   $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|9"] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71';
-  $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0"] = (object) array(
-      'pid' => 'new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0',
+  $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-3499fc7f-c316-45e1-b841-0d16159f8296"] = (object) array(
+      'pid' => 'new-3499fc7f-c316-45e1-b841-0d16159f8296',
       'panel' => 'bottom',
       'type' => 'entity_field',
       'subtype' => 'node:og_group_ref',
@@ -276,7 +276,7 @@ function cbib_commons_events_features_override_default_overrides() {
         ),
         'context' => 'panelizer',
         'override_title' => 0,
-        'override_title_text' => 'Grupper:',
+        'override_title_text' => '',
       ),
       'cache' => array(),
       'style' => array(
@@ -286,7 +286,7 @@ function cbib_commons_events_features_override_default_overrides() {
       'extras' => array(),
       'position' => 0,
       'locks' => array(),
-      'uuid' => '4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0',
+      'uuid' => '3499fc7f-c316-45e1-b841-0d16159f8296',
     );
   $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f|position"] = 2;
   $overrides["panelizer_defaults.node:event:default:teaser.display|content|new-bb59c3b5-c74b-4c7a-a057-52a118a0133b"]["DELETED"] = TRUE;
@@ -314,7 +314,7 @@ function cbib_commons_events_features_override_default_overrides() {
       'locks' => array(),
       'uuid' => 'e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
     );
-  $overrides["panelizer_defaults.node:event:default:teaser.display|panels|bottom|0"] = 'new-4c9fe216-2ec6-4b45-9d9b-b5fcfeaf76c0';
+  $overrides["panelizer_defaults.node:event:default:teaser.display|panels|bottom|0"] = 'new-3499fc7f-c316-45e1-b841-0d16159f8296';
   $overrides["panelizer_defaults.node:event:default:teaser.display|panels|bottom|2"] = 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f';
   $overrides["panelizer_defaults.node:event:default:teaser.display|panels|left|1"] = 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a';
 
@@ -334,6 +334,7 @@ function cbib_commons_events_features_override_default_overrides() {
     'id' => 'og_group_ref_target_id',
     'table' => 'og_membership',
     'field' => 'og_group_ref_target_id',
+    'label' => 'Indhold entity refereret fra og_group_ref',
   );
   $overrides["views_view.commons_events_upcoming.display|panel_pane_1|display_options|defaults|filter_groups"] = FALSE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_1|display_options|defaults|filters"] = FALSE;
@@ -433,7 +434,8 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|sorts|field_date_value|order"]["DELETED"] = TRUE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|title"] = '<a href="/arrangementer">Kommende arrangementer</a>';
   $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|use_more"]["DELETED"] = TRUE;
-  $overrides["views_view.commons_events_upcoming.display|panel_pane_2|display_options|use_more_text"] = 'Se alle';
+  $overrides["views_view.commons_events_upcoming.display|panel_pane_3|display_options|title"] = '<a href="/node/!1/events">Kommende arrangementer</a>';
+  $overrides["views_view.commons_events_upcoming.display|panel_pane_3|display_options|use_more"]["DELETED"] = TRUE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_4|display_options|defaults|empty"] = FALSE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_4|display_options|empty"] = array(
     'area' => array(
