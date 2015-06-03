@@ -1166,6 +1166,45 @@ button,
   line-height: 14px;
 }
 
+//align left on events - "Se alle gruppens arrangementer"
+.view-commons-events-upcoming{
+  .more-link{
+    text-align: left;
+    padding: .75em 0;
+  }
+}
+
+/**
+ * action-item-link on moderated groups "Tilmeld gruppe"
+ */
+
+.field-name-group-group {
+
+// style them exactly as submit-buttons
+  a{
+    padding: .7em 1.5em;
+    border: 0;
+    color: $white !important;
+    letter-spacing: -.01em;
+    line-height: 1;
+    text-shadow: none !important;
+    border-radius: 40px;
+    font-size: .85em;
+    //vertical-align: top;
+    //display: inline-block;
+    //background: $brand-primary;
+    //margin: 0 .75em .75em 0;
+    //text-align: center;
+    //position: relative;
+    //-webkit-box-shadow: none !important;
+    //box-shadow: none !important;
+    //-webkit-transition: background-color 150ms ease;
+    //-moz-transition: background-color 150ms ease;
+    //-o-transition: background-color 150ms ease;
+    //transition: background-color 150ms ease;
+  }
+}
+
 /**
  * Generic styles for links. See the ul.links declaration in node and comment stylesheets
  */
@@ -1224,55 +1263,6 @@ ul.primary.tabs {
     }
   }
 }
-
-// new version, active pills are pink
-/*.quicktabs-style-commons-pills ul.quicktabs-tabs{
-  border-bottom-color: $gray-light;
-  padding: 0;
-  li {
-    margin-right: 1em;
-    font-size: 1em;
-    background-color: $gray-light;
-    a {
-      margin: 0 0.5em;
-      padding: .7em 1em;
-      display: inline-block;
-      border: none;
-      background-color: $gray-light;
-      &,
-      span {
-        color: $gray-darkest;
-      }
-      &:hover {
-        background-color: $gray-light;
-        color: $tab_text_hover;
-        text-decoration: underline;
-      }
-    }
-    &.active a {
-      position: relative;
-      background-color: $tab_active_text;
-      border: none;
-      text-decoration: none;
-      &,
-      &:hover {
-        background-color: $tab_active_text;
-        color: #ffffff;
-      }
-      &,
-      &:after {
-        border-color: $tab_active_text transparent transparent;
-      }
-      &,
-      span {
-        //color: $tab_active_text;
-      }
-    }
-    &.active{ // active li-element itself
-        background-color: $tab_active_text;
-         }
-  }
-}*/
 
 // style pills same way as sub-menu
 .quicktabs-style-commons-pills ul.quicktabs-tabs{
