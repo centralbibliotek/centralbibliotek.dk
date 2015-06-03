@@ -334,7 +334,6 @@ function cbib_commons_events_features_override_default_overrides() {
     'id' => 'og_group_ref_target_id',
     'table' => 'og_membership',
     'field' => 'og_group_ref_target_id',
-    'label' => 'Indhold entity refereret fra og_group_ref',
   );
   $overrides["views_view.commons_events_upcoming.display|panel_pane_1|display_options|defaults|filter_groups"] = FALSE;
   $overrides["views_view.commons_events_upcoming.display|panel_pane_1|display_options|defaults|filters"] = FALSE;

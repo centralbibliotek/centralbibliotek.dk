@@ -355,7 +355,6 @@ function cbib_commons_events_views_default_views_alter(&$data) {
       'id' => 'og_group_ref_target_id',
       'table' => 'og_membership',
       'field' => 'og_group_ref_target_id',
-      'label' => 'Indhold entity refereret fra og_group_ref',
     ); /* WAS: '' */
     $data['commons_events_upcoming']->display['panel_pane_1']->display_options['defaults']['filter_groups'] = FALSE; /* WAS: '' */
     $data['commons_events_upcoming']->display['panel_pane_1']->display_options['defaults']['filters'] = FALSE; /* WAS: '' */
