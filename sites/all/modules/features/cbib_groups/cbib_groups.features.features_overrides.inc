@@ -133,5 +133,167 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|9"] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
   $overrides["panelizer_defaults.node:group:default.display|title_pane"] = 0;
 
+  // Exported overrides for: views_view
+  $overrides["views_view.commons_bw_all.display|default|display_options|sorts|field_radioactivity_radioactivity_energy|expose|label"] = 'most active';
+  $overrides["views_view.commons_bw_posts.display|default|display_options|sorts|field_radioactivity_radioactivity_energy|expose|label"] = 'most active';
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|options|expose"] = array(
+    'items_per_page_label' => 'Antal elementer',
+    'items_per_page_options_all_label' => '- Alle -',
+    'offset_label' => 'Forskydning',
+  );
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|options|id"] = 0;
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|options|items_per_page"] = 15;
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|options|quantity"] = 9;
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|options|tags"] = array(
+    'first' => '« første',
+    'previous' => '‹ forrige',
+    'next' => 'næste ›',
+    'last' => 'sidste »',
+  );
+  $overrides["views_view.commons_groups_directory.display|default|display_options|pager|type"] = 'full';
+  $overrides["views_view.commons_groups_directory.display|default|display_options|sorts|created|expose"] = array(
+    'label' => 'Oprettelsesdato',
+  );
+  $overrides["views_view.commons_groups_directory.display|default|display_options|use_more"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_groups_directory.display|feed|display_options|defaults|sorts"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|feed|display_options|sorts"] = array(
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'order' => 'DESC',
+      'expose' => array(
+        'label' => 'Oprettelsesdato',
+      ),
+    ),
+  );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|sorts"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|effects"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|tags|first"] = '«';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|tags|last"] = '»';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|tags|next"] = '›';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|tags|previous"] = '‹';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|type"] = 'full';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|sorts"] = array(
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'order' => 'DESC',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Oprettelsesdato',
+      ),
+    ),
+    'title' => array(
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Titel',
+      ),
+    ),
+  );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|defaults|pager"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|defaults|sorts"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|defaults|title"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|pager"] = array(
+    'type' => 'some',
+    'options' => array(
+      'items_per_page' => 3,
+      'offset' => 0,
+    ),
+  );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|sorts"] = array(
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'order' => 'DESC',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Oprettelsesdato',
+      ),
+    ),
+    'title' => array(
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Titel',
+      ),
+    ),
+  );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_2|display_options|title"] = '<a href="/node/!1/groups">Grupper</a>';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_3|display_options|defaults|title"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_3|display_options|title"] = '<a href="/grupper">Grupper</a>';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|defaults|sorts"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|pager|options|tags|first"] = '«';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|pager|options|tags|last"] = '»';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|pager|options|tags|next"] = '›';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|pager|options|tags|previous"] = '‹';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4|display_options|sorts"] = array(
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'order' => 'DESC',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Oprettelsesdato',
+      ),
+    ),
+    'title' => array(
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Titel',
+      ),
+    ),
+  );
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|pager|options|effects"] = array(
+    'speed' => 'slow',
+  );
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|pager|options|tags|first"] = '«';
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|pager|options|tags|last"] = '»';
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|pager|options|tags|next"] = '›';
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|pager|options|tags|previous"] = '‹';
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|defaults|pager"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|defaults|use_ajax"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|defaults|use_more"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|defaults|use_more_always"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|defaults|use_more_text"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|pager"] = array(
+    'type' => 'load_more',
+    'options' => array(
+      'items_per_page' => 5,
+      'offset' => 0,
+      'id' => 0,
+      'quantity' => 9,
+      'expose' => array(
+        'items_per_page_label' => 'Antal elementer',
+        'items_per_page_options_all_label' => '- Alle -',
+        'offset_label' => 'Forskydning',
+      ),
+      'tags' => array(
+        'first' => '«',
+        'previous' => '‹',
+        'next' => '›',
+        'last' => '»',
+      ),
+      'effects' => array(
+        'speed' => 'slow',
+      ),
+    ),
+  );
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|use_ajax"] = TRUE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|use_more"] = TRUE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|use_more_always"] = FALSE;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|use_more_text"] = 'mere';
+
  return $overrides;
 }

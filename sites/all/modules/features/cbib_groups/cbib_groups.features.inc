@@ -131,3 +131,177 @@ function cbib_groups_panelizer_defaults_override_alter(&$data) {
     unset($data['node:group:default']->display->panels['two_66_33_bottom']);
   }
 }
+
+/**
+ * Implements hook_views_default_views_alter().
+ */
+function cbib_groups_views_default_views_alter(&$data) {
+  if (isset($data['commons_bw_all'])) {
+    $data['commons_bw_all']->display['default']->display_options['sorts']['field_radioactivity_radioactivity_energy']['expose']['label'] = 'most active'; /* WAS: 'mest aktive' */
+  }
+  if (isset($data['commons_bw_posts'])) {
+    $data['commons_bw_posts']->display['default']->display_options['sorts']['field_radioactivity_radioactivity_energy']['expose']['label'] = 'most active'; /* WAS: 'mest aktive' */
+  }
+  if (isset($data['commons_groups_directory'])) {
+    $data['commons_groups_directory']->display['default']->display_options['pager']['options']['expose'] = array(
+      'items_per_page_label' => 'Antal elementer',
+      'items_per_page_options_all_label' => '- Alle -',
+      'offset_label' => 'Forskydning',
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['default']->display_options['pager']['options']['id'] = 0; /* WAS: '' */
+    $data['commons_groups_directory']->display['default']->display_options['pager']['options']['items_per_page'] = 15; /* WAS: 3 */
+    $data['commons_groups_directory']->display['default']->display_options['pager']['options']['quantity'] = 9; /* WAS: '' */
+    $data['commons_groups_directory']->display['default']->display_options['pager']['options']['tags'] = array(
+      'first' => '« første',
+      'previous' => '‹ forrige',
+      'next' => 'næste ›',
+      'last' => 'sidste »',
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['default']->display_options['pager']['type'] = 'full'; /* WAS: 'some' */
+    $data['commons_groups_directory']->display['default']->display_options['sorts']['created']['expose'] = array(
+      'label' => 'Oprettelsesdato',
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['feed']->display_options['defaults']['sorts'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['feed']->display_options['sorts'] = array(
+      'created' => array(
+        'id' => 'created',
+        'table' => 'node',
+        'field' => 'created',
+        'order' => 'DESC',
+        'expose' => array(
+          'label' => 'Oprettelsesdato',
+        ),
+      ),
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['defaults']['sorts'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['options']['tags']['first'] = '«'; /* WAS: '« første' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['options']['tags']['last'] = '»'; /* WAS: 'sidste »' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['options']['tags']['next'] = '›'; /* WAS: 'næste ›' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['options']['tags']['previous'] = '‹'; /* WAS: '‹ forrige' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['type'] = 'full'; /* WAS: 'load_more' */
+    $data['commons_groups_directory']->display['panel_pane_1']->display_options['sorts'] = array(
+      'created' => array(
+        'id' => 'created',
+        'table' => 'node',
+        'field' => 'created',
+        'order' => 'DESC',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Oprettelsesdato',
+        ),
+      ),
+      'title' => array(
+        'id' => 'title',
+        'table' => 'node',
+        'field' => 'title',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Titel',
+        ),
+      ),
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['defaults']['pager'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['defaults']['sorts'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['defaults']['title'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['pager'] = array(
+      'type' => 'some',
+      'options' => array(
+        'items_per_page' => 3,
+        'offset' => 0,
+      ),
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['sorts'] = array(
+      'created' => array(
+        'id' => 'created',
+        'table' => 'node',
+        'field' => 'created',
+        'order' => 'DESC',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Oprettelsesdato',
+        ),
+      ),
+      'title' => array(
+        'id' => 'title',
+        'table' => 'node',
+        'field' => 'title',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Titel',
+        ),
+      ),
+    ); /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_2']->display_options['title'] = '<a href="/node/!1/groups">Grupper</a>'; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_3']->display_options['defaults']['title'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_3']->display_options['title'] = '<a href="/grupper">Grupper</a>'; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['defaults']['sorts'] = FALSE; /* WAS: '' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['pager']['options']['tags']['first'] = '«'; /* WAS: '« første' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['pager']['options']['tags']['last'] = '»'; /* WAS: 'sidste »' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['pager']['options']['tags']['next'] = '›'; /* WAS: 'næste ›' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['pager']['options']['tags']['previous'] = '‹'; /* WAS: '‹ forrige' */
+    $data['commons_groups_directory']->display['panel_pane_4']->display_options['sorts'] = array(
+      'created' => array(
+        'id' => 'created',
+        'table' => 'node',
+        'field' => 'created',
+        'order' => 'DESC',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Oprettelsesdato',
+        ),
+      ),
+      'title' => array(
+        'id' => 'title',
+        'table' => 'node',
+        'field' => 'title',
+        'exposed' => TRUE,
+        'expose' => array(
+          'label' => 'Titel',
+        ),
+      ),
+    ); /* WAS: '' */
+    unset($data['commons_groups_directory']->display['default']->display_options['use_more']);
+    unset($data['commons_groups_directory']->display['panel_pane_1']->display_options['pager']['options']['effects']);
+  }
+  if (isset($data['commons_groups_user_groups'])) {
+    $data['commons_groups_user_groups']->display['default']->display_options['pager']['options']['effects'] = array(
+      'speed' => 'slow',
+    ); /* WAS: '' */
+    $data['commons_groups_user_groups']->display['default']->display_options['pager']['options']['tags']['first'] = '«'; /* WAS: '« første' */
+    $data['commons_groups_user_groups']->display['default']->display_options['pager']['options']['tags']['last'] = '»'; /* WAS: 'sidste »' */
+    $data['commons_groups_user_groups']->display['default']->display_options['pager']['options']['tags']['next'] = '›'; /* WAS: 'næste ›' */
+    $data['commons_groups_user_groups']->display['default']->display_options['pager']['options']['tags']['previous'] = '‹'; /* WAS: '‹ forrige' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['defaults']['pager'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['defaults']['use_ajax'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['defaults']['use_more'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['defaults']['use_more_always'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['defaults']['use_more_text'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['pager'] = array(
+      'type' => 'load_more',
+      'options' => array(
+        'items_per_page' => 5,
+        'offset' => 0,
+        'id' => 0,
+        'quantity' => 9,
+        'expose' => array(
+          'items_per_page_label' => 'Antal elementer',
+          'items_per_page_options_all_label' => '- Alle -',
+          'offset_label' => 'Forskydning',
+        ),
+        'tags' => array(
+          'first' => '«',
+          'previous' => '‹',
+          'next' => '›',
+          'last' => '»',
+        ),
+        'effects' => array(
+          'speed' => 'slow',
+        ),
+      ),
+    ); /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['use_ajax'] = TRUE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['use_more'] = TRUE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['use_more_always'] = FALSE; /* WAS: '' */
+    $data['commons_groups_user_groups']->display['panel_pane_1']->display_options['use_more_text'] = 'mere'; /* WAS: '' */
+  }
+}
