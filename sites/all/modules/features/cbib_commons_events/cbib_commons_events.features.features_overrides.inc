@@ -320,6 +320,39 @@ function cbib_commons_events_features_override_default_overrides() {
 
   // Exported overrides for: views_view
   $overrides["views_view.backlinks.display|default|display_options|fields|title|link_to_node"]["DELETED"] = TRUE;
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|pager|options|tags|first"] = '«';
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|pager|options|tags|last"] = '»';
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|pager|options|tags|next"] = '›';
+  $overrides["views_view.commons_events_event_attendee_list.display|default|display_options|pager|options|tags|previous"] = '‹';
+  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|defaults|header"] = FALSE;
+  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|defaults|pager"] = FALSE;
+  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|header"] = array(
+    'result' => array(
+      'id' => 'result',
+      'table' => 'views',
+      'field' => 'result',
+      'content' => '<p>I alt @total deltagere</p>',
+    ),
+  );
+  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|pager"] = array(
+    'type' => 'mini',
+    'options' => array(
+      'items_per_page' => 20,
+      'offset' => 0,
+      'id' => 0,
+      'expose' => array(
+        'items_per_page_label' => 'Antal elementer',
+        'items_per_page_options_all_label' => '- Alle -',
+        'offset_label' => 'Forskydning',
+      ),
+      'tags' => array(
+        'first' => '«',
+        'previous' => '‹',
+        'next' => '›',
+        'last' => '»',
+      ),
+    ),
+  );
   $overrides["views_view.commons_events_upcoming.display|default|display_options|filters|field_date_value"] = array(
     'id' => 'field_date_value',
     'table' => 'field_data_field_date',

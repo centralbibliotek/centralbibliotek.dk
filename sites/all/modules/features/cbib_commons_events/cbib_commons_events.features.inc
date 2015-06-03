@@ -340,6 +340,41 @@ function cbib_commons_events_views_default_views_alter(&$data) {
   if (isset($data['backlinks'])) {
     unset($data['backlinks']->display['default']->display_options['fields']['title']['link_to_node']);
   }
+  if (isset($data['commons_events_event_attendee_list'])) {
+    $data['commons_events_event_attendee_list']->display['default']->display_options['pager']['options']['tags']['first'] = '«'; /* WAS: '« første' */
+    $data['commons_events_event_attendee_list']->display['default']->display_options['pager']['options']['tags']['last'] = '»'; /* WAS: 'sidste »' */
+    $data['commons_events_event_attendee_list']->display['default']->display_options['pager']['options']['tags']['next'] = '›'; /* WAS: 'næste ›' */
+    $data['commons_events_event_attendee_list']->display['default']->display_options['pager']['options']['tags']['previous'] = '‹'; /* WAS: '‹ forrige' */
+    $data['commons_events_event_attendee_list']->display['panel_pane_1']->display_options['defaults']['header'] = FALSE; /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['panel_pane_1']->display_options['defaults']['pager'] = FALSE; /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['panel_pane_1']->display_options['header'] = array(
+      'result' => array(
+        'id' => 'result',
+        'table' => 'views',
+        'field' => 'result',
+        'content' => '<p>I alt @total deltagere</p>',
+      ),
+    ); /* WAS: '' */
+    $data['commons_events_event_attendee_list']->display['panel_pane_1']->display_options['pager'] = array(
+      'type' => 'mini',
+      'options' => array(
+        'items_per_page' => 20,
+        'offset' => 0,
+        'id' => 0,
+        'expose' => array(
+          'items_per_page_label' => 'Antal elementer',
+          'items_per_page_options_all_label' => '- Alle -',
+          'offset_label' => 'Forskydning',
+        ),
+        'tags' => array(
+          'first' => '«',
+          'previous' => '‹',
+          'next' => '›',
+          'last' => '»',
+        ),
+      ),
+    ); /* WAS: '' */
+  }
   if (isset($data['commons_events_upcoming'])) {
     $data['commons_events_upcoming']->display['default']->display_options['filters']['field_date_value'] = array(
       'id' => 'field_date_value',
