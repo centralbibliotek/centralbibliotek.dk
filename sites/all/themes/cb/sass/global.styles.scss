@@ -4562,3 +4562,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     float: left;
   }
 }
+
+body.front.not-logged-in #content {
+  background-image: none !important;
+}
