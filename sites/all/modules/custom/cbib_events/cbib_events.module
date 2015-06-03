@@ -109,11 +109,16 @@ function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) 
 /**
  * Implements hook_module_implements_alter().
  *
- * We ensure that our form_alter is added before Commons Events' form_alter by
- * altering the hook order.
+ * We ensure that our form_alter and views_post_excute is added after Commons
+ * Events' form_alter and views_post_execute by altering the hook order.
  */
 function cbib_events_module_implements_alter(&$implementations, $hook) {
   if ($hook == 'form_alter' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
+    unset($implementations['cbib_events']);
+    $implementations['cbib_events'] = FALSE;
+  }
+
+  if ($hook == 'views_post_execute' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
     unset($implementations['cbib_events']);
     $implementations['cbib_events'] = FALSE;
   }
@@ -216,7 +221,11 @@ function cbib_events_registration_entity_settings_form_submit($form, $form_state
  * We need the more precise total count in the view header so we'll adjust it
  * here.
  *
+ * We also remove the "attachment_before" added by Commons Events on the
+ * "Upcomming Events" view.
+ *
  * @see commons_events_get_raw_attendee_count()
+ * @see commons_events_views_post_execute()
  */
 function cbib_events_views_post_execute(&$view) {
   // Only do this on the content pane views display.
@@ -230,5 +239,9 @@ function cbib_events_views_post_execute(&$view) {
 
     // Update the count in the header content (replace @total with the count).
     $view->header['result']->options['content'] = strtr($view->header['result']->options['content'], array('@total' => $count));
+  }
+
+  if ($view->name == 'commons_events_upcoming' && $view->current_display == 'panel_pane_2') {
+    unset($view->attachment_before);
   }
 }
