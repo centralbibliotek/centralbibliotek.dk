@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * commons_pages.views_default.inc
+ * cbib_page.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function commons_pages_views_default_views() {
+function cbib_page_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -37,42 +37,41 @@ function commons_pages_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Forbindelse: OG membership: OG membership from Indholdselement */
-  $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
-  /* Felt: Indhold: Titel */
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['id'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['field'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['relationships']['field_centralbibliotek_ref_target_id']['label'] = 'Indhold entity refereret fra field_centralbibliotek_ref';
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Kontekstuelt filter: OG membership: Group ID */
-  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['relationship'] = 'og_membership_rel';
-  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['gid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Contextual filter: Field: Centralbibliotek (field_centralbibliotek_ref) */
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['id'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['field'] = 'field_centralbibliotek_ref_target_id';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_centralbibliotek_ref_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -91,9 +90,10 @@ function commons_pages_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('OG membership from node'),
+    t('Indhold entity refereret fra field_centralbibliotek_ref'),
     t('Alle'),
     t('Block'),
+    t('more'),
   );
   $export['cbib_sider'] = $view;
 

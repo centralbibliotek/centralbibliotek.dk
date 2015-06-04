@@ -41,7 +41,6 @@ features[variable][] = node_options_page
 features[variable][] = node_preview_page
 features[variable][] = node_submitted_page
 features[variable][] = pathauto_node_page_pattern
-features[views_view][] = cbib_sider
 features_exclude[dependencies][commons_bw] = commons_bw
 features_exclude[dependencies][cbib_news] = cbib_news
 features_exclude[dependencies][commons_documents] = commons_documents
