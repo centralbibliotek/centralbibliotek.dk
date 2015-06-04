@@ -333,6 +333,15 @@ function cbib_features_update_7125(&$sandbox) {
 }
 
 /**
+ * Enable jQuery Update module.
+ */
+function cbib_features_update_7125(&$sandbox) {
+  if (!module_exists('jquery_update')) {
+    module_enable(array('jquery_update'));
+  }
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {
