@@ -335,7 +335,7 @@ function cbib_features_update_7125(&$sandbox) {
 /**
  * Enable jQuery Update module.
  */
-function cbib_features_update_7125(&$sandbox) {
+function cbib_features_update_7126(&$sandbox) {
   if (!module_exists('jquery_update')) {
     module_enable(array('jquery_update'));
   }
