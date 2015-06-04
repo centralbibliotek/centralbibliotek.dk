@@ -241,6 +241,10 @@ function cbib_events_views_post_execute(&$view) {
     $view->header['result']->options['content'] = strtr($view->header['result']->options['content'], array('@total' => $count));
   }
 
+  if ($view->name == 'commons_events_upcoming' && $view->current_display == 'panel_pane_1') {
+    unset($view->attachment_after);
+  }
+
   if ($view->name == 'commons_events_upcoming' && $view->current_display == 'panel_pane_2') {
     unset($view->attachment_before);
   }
