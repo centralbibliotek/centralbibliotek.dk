@@ -2490,23 +2490,28 @@ html body div div .item-list-pager ul.pager {
     &.pager-first a,
     &.pager-last a {
       padding: 0px;
-      border-radius: 20px;
       background-color: $gray-light; // !important;
       position:relative;
-      top:6px;
+      top:7px;
       font-size: 3em;
+      letter-spacing: -1px; // to make arrows be more centered
       font-weight: 200;
-      line-height: 35px;
-      height: 40px;
-      width: 40px;
-      border-radius: 20px;
+      line-height: 30px;
+      height: 38px;
+      width: 38px;
+      border-radius: 19px;
 
       &:hover{
         box-shadow: none;
         background-color: $tab_active_text; // !important;
-        @include transform(scale(1.2));
+        @include transform(scale(1.1));
         border-radius: 25px;
         color: #ffffff;
+      }
+
+      &:focus{
+        color: $gray;
+        box-shadow: none;
       }
     }
 
