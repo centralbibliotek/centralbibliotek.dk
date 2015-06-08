@@ -2820,6 +2820,18 @@ body.page-node .pane-views-panes {
   }
 }
 
+//style topic-tag-panel in single-event-view
+#panels-ipe-paneid-167{
+
+  // to keep body on separate line even though there is no topic attached
+  .panels-ipe-empty-pane{
+    display:block;
+    color: transparent;
+    height: 20px;
+    margin-bottom: 2em;
+  }
+}
+
 .pane-commons-bw-group {
   @extend %pod;
 }
