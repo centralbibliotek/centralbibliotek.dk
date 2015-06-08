@@ -1277,11 +1277,11 @@ ul.primary.tabs {
   padding: 0;
   li {
     margin-right: 1em;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0;
     font-size: 1em;
     background-color: $gray-light;
     a {
-      padding:0 10px 0 0;
+      padding:0 10px 0.4em 0;
       text-decoration: none;
       display: inline-block;
       border: none;

@@ -1868,13 +1868,13 @@ ul.primary.tabs li.active a span {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000031278}}
 .quicktabs-style-commons-pills ul.quicktabs-tabs li {
   margin-right: 1em;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0;
   font-size: 1em;
   background-color: #ddd;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000031283}}
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a {
-  padding: 0 10px 0 0;
+  padding: 0 10px 0.4em 0;
   text-decoration: none;
   display: inline-block;
   border: none;
