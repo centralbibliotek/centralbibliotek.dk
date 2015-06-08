@@ -1008,7 +1008,7 @@ div.messages.error {
   background: #ddd;
   margin-bottom: 0;
   overflow: hidden;
-  padding: 0.5em 0;
+  padding: 0.5em 0 0 0;
   /*@if $modifier == "sub" {
     ul li {
       margin-right: 1em;
@@ -1090,6 +1090,7 @@ div.messages.error {
 #main-menu ul li.ui-state-active a, #main-menu ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
+  padding-bottom: .4em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_main-header\.scss}line{font-family:\0000344}}
 #main-menu ul {
@@ -1492,8 +1493,9 @@ div.messages.error {
 .page-node-events .ui-tabs ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
+  padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000336}}
 .page-events .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
   background-color: #ddd;
@@ -1745,8 +1747,9 @@ div.messages.error {
 .pane-menu-menu-license-menu ul li.ui-state-active a, .pane-menu-menu-license-menu ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
+  padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000336}}
 .pane-menu-menu-license-menu ul li {
   background-color: #ddd;
   padding: 0.5rem;
