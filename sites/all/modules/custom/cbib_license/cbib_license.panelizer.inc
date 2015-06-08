@@ -454,24 +454,16 @@ function cbib_license_panelizer_defaults() {
     $display->content['new-5b2e8fc1-58f5-4cbb-97bc-aae175d06bed'] = $pane;
     $display->panels['cb3_third'][4] = 'new-5b2e8fc1-58f5-4cbb-97bc-aae175d06bed';
     $pane = new stdClass();
-    $pane->pid = 'new-76acbffc-f28b-4334-8d94-c35d463eeec7';
+    $pane->pid = 'new-306025be-5488-4e01-8f2c-a8454fb617ba';
     $pane->panel = 'cb3_third';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_library_ref';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'biblioteker-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'entityreference_label',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'link' => 0,
+      'context' => array(
+        0 => 'panelizer',
       ),
-      'context' => 'panelizer',
-      'override_title' => 1,
-      'override_title_text' => 'Abonnerende biblioteker',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -481,9 +473,9 @@ function cbib_license_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = '76acbffc-f28b-4334-8d94-c35d463eeec7';
-    $display->content['new-76acbffc-f28b-4334-8d94-c35d463eeec7'] = $pane;
-    $display->panels['cb3_third'][5] = 'new-76acbffc-f28b-4334-8d94-c35d463eeec7';
+    $pane->uuid = '306025be-5488-4e01-8f2c-a8454fb617ba';
+    $display->content['new-306025be-5488-4e01-8f2c-a8454fb617ba'] = $pane;
+    $display->panels['cb3_third'][5] = 'new-306025be-5488-4e01-8f2c-a8454fb617ba';
     $pane = new stdClass();
     $pane->pid = 'new-ffefc899-0959-47bb-9442-b13eabcf24e3';
     $pane->panel = 'cb3_third';
