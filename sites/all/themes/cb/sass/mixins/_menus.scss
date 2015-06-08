@@ -15,12 +15,13 @@
       a {
         color: $gray-darker;
         display: block;
+        padding-bottom: .4em;
         &:hover,
         &:focus {
           text-decoration: none;
           color: $gray-darkest;
           box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
-          padding-bottom: .4em;
+          //padding-bottom: .4em;
         }
       }
 
