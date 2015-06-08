@@ -365,14 +365,15 @@ div.messages.error {
   color: #fff;
   text-decoration: none;
   box-shadow: none;
+  padding-bottom: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000382}}
 .field-name-field-topics .field-items .field-item:before,
 .field-name-field-event-type .field-items .field-item:before {
   background: #2bc2ff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000386}}
 .field-name-field-topics .field-items .field-item:hover,
 .field-name-field-event-type .field-items .field-item:hover {
   background: #2bc2ff;
@@ -1085,8 +1086,9 @@ div.messages.error {
   text-decoration: none;
   color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
+  padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000327}}
 #main-menu ul li.ui-state-active a, #main-menu ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
@@ -1486,8 +1488,9 @@ div.messages.error {
   text-decoration: none;
   color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
+  padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000327}}
 .page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.active-trail a,
 .page-node-events .ui-tabs ul li.ui-state-active a,
 .page-node-events .ui-tabs ul li.active-trail a {
@@ -1495,13 +1498,25 @@ div.messages.error {
   color: #333;
   padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000337}}
 .page-events .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
   background-color: #ddd;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0;
   font-size: 1em;
   margin-right: 1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000343}}
+.page-events .ui-tabs ul li a,
+.page-node-events .ui-tabs ul li a {
+  cursor: pointer !important;
+  padding-bottom: 0.5rem;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000348}}
+.page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.ui-state-hover a,
+.page-node-events .ui-tabs ul li.ui-state-active a,
+.page-node-events .ui-tabs ul li.ui-state-hover a {
+  padding-bottom: 0.5rem;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/pages\/_node-event\.scss}line{font-family:\00003114}}
 .page-events .ui-tabs ul,
@@ -1742,19 +1757,29 @@ div.messages.error {
   text-decoration: none;
   color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
+  padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000327}}
 .pane-menu-menu-license-menu ul li.ui-state-active a, .pane-menu-menu-license-menu ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 #333;
   color: #333;
   padding-bottom: .4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000337}}
 .pane-menu-menu-license-menu ul li {
   background-color: #ddd;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0;
   font-size: 1em;
   margin-right: 1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000343}}
+.pane-menu-menu-license-menu ul li a {
+  cursor: pointer !important;
+  padding-bottom: 0.5rem;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/mixins\/_menus\.scss}line{font-family:\0000348}}
+.pane-menu-menu-license-menu ul li.ui-state-active a, .pane-menu-menu-license-menu ul li.ui-state-hover a {
+  padding-bottom: 0.5rem;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/pages\/_node-license\.scss}line{font-family:\00003102}}

@@ -20,6 +20,7 @@
           text-decoration: none;
           color: $gray-darkest;
           box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
+          padding-bottom: .4em;
         }
       }
 
@@ -35,9 +36,19 @@
   @if $modifier == "sub" {
     ul li {
       background-color: $gray-light;
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 0;
       font-size: 1em;
       margin-right: 1em;
+
+      a{
+        cursor: pointer !important;
+        padding-bottom: 0.5rem;
+      }
+
+      &.ui-state-active a,
+      &.ui-state-hover a{
+        padding-bottom: 0.5rem;
+      }
     }
   }
 
