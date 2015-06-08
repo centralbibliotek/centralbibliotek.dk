@@ -139,16 +139,12 @@
     ul li {
       margin-right: 0;
       margin-left: 1em;
-
-      &:focus a,
-      &:hover a{
-        // to get underline same vertical position as rest of menu
-        padding-bottom: .8em;
-      }
+      padding-top: 5px; // to align item horizontally on bottom with rest of menu-items
     }
 
     a {
       font-size: .8em;
+
     }
 
   }//.utility-links
