@@ -1281,7 +1281,7 @@ ul.primary.tabs {
     font-size: 1em;
     background-color: $gray-light;
     a {
-      padding:0 10px 5px 0;
+      padding:0 1px 8px;
       text-decoration: none;
       display: inline-block;
       border: none;
@@ -1298,6 +1298,7 @@ ul.primary.tabs {
       }
       &:before{
         background-image: none !important; // remove icons infront of pills
+        width:0px !important; // else underline is longer then text
       }
     }
     &.active a {
@@ -1305,7 +1306,6 @@ ul.primary.tabs {
       box-shadow: inset 0 -3px 0 0 $gray-darkest;
       border-radius: 0px;
       color: #000000 !important;
-      //padding-bottom: .4em;
       &,
       &:hover {
         color: $tab_text_hover;
@@ -1317,6 +1317,7 @@ ul.primary.tabs {
       &,
       &:before {
         background-image: none !important; // remove icons in front of pills
+        //width:0px !important; // else underline is longer then text
       }
       &,
       span {
