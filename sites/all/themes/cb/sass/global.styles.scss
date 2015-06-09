@@ -3669,6 +3669,14 @@ form.commons-events-form-float {
   }
 }
 
+
+//style field-add-more-submit-buttons
+form input.field-add-more-submit{
+  margin-top: .8em;
+  border-radius: 0;
+  padding: 0.5em 1.5em;
+}
+
 /* =============================================================================
  *   Tables
  * ========================================================================== */
@@ -3785,12 +3793,12 @@ tr {
     }
   }
 
-  input.field-add-more-submit{
-
-    margin-top: .8em;
-    border-radius: 0;
-    padding: 0.5em 1.5em;
-  }
+//  input.field-add-more-submit{
+//
+//    margin-top: .8em;
+//    border-radius: 0;
+//    padding: 0.5em 1.5em;
+//  }
 
   .fieldset-outer-wrapper, #edit-field-link{
     padding: 0 .7em 1.7em;
