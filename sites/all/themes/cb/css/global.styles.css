@@ -4434,21 +4434,15 @@ tr.even td.active {
   padding: .5em;
   padding-right: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033796}}
-.page-node #commons-bw-partial-node-form-document input.field-add-more-submit {
-  margin-top: .8em;
-  border-radius: 0;
-  padding: 0.5em 1.5em;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033803}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033797}}
 .page-node #commons-bw-partial-node-form-document .fieldset-outer-wrapper, .page-node #commons-bw-partial-node-form-document #edit-field-link {
   padding: 0 .7em 1.7em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033806}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033800}}
 .page-node #commons-bw-partial-node-form-document .fieldset-outer-wrapper fieldset legend, .page-node #commons-bw-partial-node-form-document #edit-field-link fieldset legend {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033811}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033805}}
 .page-node #commons-bw-partial-node-form-document .form-textarea-wrapper {
   margin: 10px 0.7em 20px;
 }
@@ -4456,12 +4450,12 @@ tr.even td.active {
 /* =============================================================================
  *   Messages
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033822}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033816}}
 div.messages {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033826}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033820}}
 div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
@@ -4470,7 +4464,7 @@ div.messages ul {
 /**
  * Unpublished nodes
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033839}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033833}}
 .node-unpublished p.unpublished,
 .comment-unpublished p.unpublished {
   color: pink;
@@ -4491,23 +4485,23 @@ div.messages ul {
 /* =============================================================================
  *    Maintenance pages
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033849}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033843}}
 .maintenance-page .container {
   padding: 40px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033855}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033849}}
 .db-offline .container {
   margin: 0 auto;
   padding: 40px 0;
   width: 100%;
   max-width: 960px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033861}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033855}}
 .db-offline div.messages {
   margin: 20px 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033864}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033858}}
 .db-offline #content {
   padding: 20px 0;
 }
@@ -4518,7 +4512,7 @@ div.messages ul {
 /**
  * Admin menu overrides
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033877}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033871}}
 #admin-menu {
   margin: 0;
   padding: 0;
@@ -4527,7 +4521,7 @@ div.messages ul {
 /**
  * Devel Module
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033886}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033880}}
 .dev-query {
   background: #eee;
   padding: 30px;
@@ -4536,11 +4530,11 @@ div.messages ul {
 /**
  * Styleguide module tweaks
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033895}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033889}}
 #styleguide-header {
   padding: 0 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033897}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033891}}
 #styleguide-header .item-list {
   font-family: inherit;
   margin: 0 20px 20px 0;
@@ -4551,73 +4545,73 @@ div.messages ul {
 /* =============================================================================
  *   Front Page specific
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033910}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033904}}
 body.front .region-three-33-top {
   font-size: 24px;
   font-weight: 300;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033913}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033907}}
 body.front .region-three-33-top h1 {
   color: #333333;
   font-size: 40px;
   font-weight: 700;
   line-height: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033919}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033913}}
 body.front .region-three-33-top .commons_home-welcome-image {
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033926}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033920}}
 body.front.not-logged-in #block-system-main .pane-1 .pane-title {
   font-weight: 700;
   font-size: 38px;
   color: #333333;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033936}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033930}}
 .commons-events-form-float {
   float: right;
   margin-left: 15px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033939}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033933}}
 .commons-events-form-float input {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033944}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033938}}
 .commons-event-count {
   font-size: 1.2em;
   font-weight: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033951}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033945}}
 body.front.logged-in .view-commons-homepage-content > .view-content {
   padding: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033954}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033948}}
 body.front.logged-in .view-commons-homepage-content > .view-content > .views-row {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033959}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033953}}
 body.front.logged-in .view-commons-homepage-content .article.node .author-datetime, body.front.logged-in .view-commons-homepage-content .node-teaser.node-group .author-datetime {
   margin-bottom: 1.5em;
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033964}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033958}}
 body.front.logged-in .view-commons-homepage-content .views-row-first {
   border-top: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033967}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033961}}
 body.front.logged-in .view-commons-homepage-content .item-list {
   padding: 10px 0 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033971}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033965}}
 body.front.logged-in #views-exposed-form-commons-homepage-content-panel-pane-1 .views-exposed-widgets {
   padding: 10px 0;
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033983}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033977}}
 body.front.logged-in .view-commons-homepage-content .article.node.no-user-picture .node-header,
 body.front.logged-in .view-commons-homepage-content .article.node.no-user-picture .node-content,
 body.front.logged-in .view-commons-homepage-content .article.node.no-user-picture .author-datetime,
@@ -4628,21 +4622,21 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033997}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033991}}
 #quicktabs-commons_follow_ui .flag-email-group a,
 #quicktabs-commons_follow_ui .flag-email-node a,
 #quicktabs-commons_follow_ui .flag-email-user a,
 #quicktabs-commons_follow_ui .flag-email-term a {
   cursor: default;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033999}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033993}}
 #quicktabs-commons_follow_ui .flag-email-group a input,
 #quicktabs-commons_follow_ui .flag-email-node a input,
 #quicktabs-commons_follow_ui .flag-email-user a input,
 #quicktabs-commons_follow_ui .flag-email-term a input {
   cursor: default;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034005}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000033999}}
 #quicktabs-commons_follow_ui .flag-email-group a span,
 #quicktabs-commons_follow_ui .flag-email-group span span,
 #quicktabs-commons_follow_ui .flag-email-node a span,
@@ -4657,15 +4651,15 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  *  Placeholder styles
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034017}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034011}}
 #menu-bar.nav .menu-item-193 a {
   background-image: url('../images/icons/icon-home.png');
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034020}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034014}}
 #menu-bar.nav .menu-item-194 a {
   background-image: url('../images/icons/icon-groups.png');
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034023}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034017}}
 #menu-bar.nav .menu-item-195 a {
   background-image: url('../images/icons/icon-events.png');
 }
@@ -4673,15 +4667,15 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Events Page
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034034}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034028}}
 .page-events .region-three-25-50-25-third .pane-views-panes {
   margin-right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034033}}
 .page-events div.search-result-wrapper h3.title {
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034041}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034035}}
 .page-events div.search-result-wrapper h3.title a {
   color: #2783b9;
 }
@@ -4740,15 +4734,15 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034053}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034047}}
 .pane-commons-events-commons-events-create-event-link {
   text-align: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034055}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034049}}
 .pane-commons-events-commons-events-create-event-link .block-inner {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034062}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034056}}
 .pane-commons-events-commons-events-create-event-link a:before {
   background: url('../images/icons-sd0cd9e4276.png') 0 -404px no-repeat;
   width: 15px;
@@ -4765,16 +4759,16 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Search
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034077}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034071}}
 .search-form-page .form-type-textfield label {
   white-space: nowrap;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034080}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034074}}
 .search-form-page .form-type-textfield input {
   width: auto;
 }
 @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034084}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034078}}
   .search-form-page .form-type-textfield,
   .search-form-page .form-type-textfield input {
     display: block;
@@ -4782,7 +4776,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   }
 }
 @media only screen and (min-width: 481px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034092}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034086}}
   .search-form-page .form-item {
     margin-bottom: 0;
   }
@@ -4838,23 +4832,23 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   text-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034096}}
 .action-item-search[type="submit"], .action-item-search[type="submit"]:hover, .action-item-search[type="submit"]:active, .action-item-search[type="submit"]:focus {
   background-position: 1.5em center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034104}}
 .action-item-search {
   float: right;
   margin-right: 0;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034108}}
 .action-item-search, .action-item-search[type="submit"] {
   padding-left: 3em;
 }
 @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034104}}
   .action-item-search {
     float: none;
     clear: both;
@@ -4862,38 +4856,38 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   }
 }
 @media only screen and (min-width: 481px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034104}}
   .action-item-search {
     margin-top: 0;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034126}}
 .block-facetapi {
   margin-bottom: .7em;
   padding-bottom: .7em;
   border-bottom: 1px solid #e0e0e0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034130}}
 .block-facetapi:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034135}}
 .block-facetapi .block-title {
   margin-bottom: 10px;
   color: #828282;
   font-size: 1.2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034148}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034142}}
 .facetapi-facetapi-links,
 .facetapi-date-range {
   margin: 0;
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034146}}
 .facetapi-facetapi-links li.leaf,
 .facetapi-date-range li.leaf {
   margin-left: 0;
@@ -4956,73 +4950,73 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034163}}
 .facetapi-processed, .block-content .facetapi-processed {
   margin-bottom: 0;
   padding-left: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034174}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034168}}
 .facetapi-processed li.last, .block-content .facetapi-processed li.last {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034175}}
 .search-results-title,
 .search-results-wrapper > h2 {
   margin-top: .2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034186}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034180}}
 .search-results {
   margin-top: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034182}}
 .search-results, .block-content .search-results {
   margin-bottom: 0;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034213}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034207}}
 .search-result {
   border-bottom: 1px solid #e0e0e0;
   list-style-type: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034216}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034210}}
 .search-result, .block-content .search-result {
   padding-bottom: .7em;
   margin-bottom: .7em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034220}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034214}}
 .search-result:last-child, .block-content .search-result:last-child {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034226}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034220}}
 .search-result h2 {
   font-size: 1.429em;
   line-height: 1.2em;
   margin: .5em 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034231}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034225}}
 .search-result .title {
   margin-top: 0;
   margin-bottom: .2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034235}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034229}}
 .search-result .search-result-url {
   color: #828282;
   font-size: .85em;
   margin-bottom: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034241}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034235}}
 .apachesolr_search-results .search-result .title,
 .apachesolr_search-results .search-result .search-result-url,
 .apachesolr_search-results .search-result .search-result-date,
 .apachesolr_search-results .search-result .search-result-snippet-info {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034247}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034241}}
 .apachesolr_search-results .search-result .pane-node-flag-commons-follow-group-link {
   position: static;
   right: auto;
@@ -5031,7 +5025,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 }
 
 /* Search profiles */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034252}}
 .profile-search-result {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -5042,37 +5036,37 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   width: 48.5%;
   margin-right: 2%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034265}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034259}}
 .profile-search-result:nth-child(even) {
   margin-right: 0;
 }
 @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034252}}
   .profile-search-result {
     width: 100%;
     margin-right: 0;
   }
 }
 @media only screen and (min-width: 769px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034252}}
   .profile-search-result {
     width: 31.5%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034275}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034269}}
   .profile-search-result:nth-child(even) {
     margin-right: 2%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034278}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034272}}
   .profile-search-result:nth-child(3n) {
     margin-right: 0;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034283}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034277}}
 .commons-pod .profile-search-result {
   width: 100%;
   margin-right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034286}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034280}}
 .commons-pod .profile-search-result .profile-actions {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -5084,24 +5078,24 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034294}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034288}}
 .profile-search-result h4 {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034299}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034293}}
 .profile-header,
 .profile-content {
   margin-left: 72px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034304}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034298}}
 .profile-header {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034306}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034300}}
 .profile-header .user-picture {
   position: relative;
   top: -1.2em;
@@ -5148,7 +5142,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff 50%, #ffffff);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034311}}
 .associated-groups-title,
 .associated-groups,
 .group-item {
@@ -5158,37 +5152,37 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   white-space: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034320}}
 .associated-groups-title {
   font-weight: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034325}}
 .associated-groups, .block-content .associated-groups {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034331}}
 .associated-groups-title,
 .group-item {
   margin-right: .2em;
   font-size: .88em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034338}}
 .group-item:after {
   content: ",";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034341}}
 .group-item:last-child {
   margin-right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034343}}
 .group-item:last-child:after {
   content: ".";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034349}}
 .profile-actions {
   clear: both;
   width: 100%;
@@ -5205,7 +5199,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   -webkit-border-bottom-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034360}}
 .profile-actions .field {
   /* Make fields in the wrapper inline. */
   display: inline-block;
@@ -5214,7 +5208,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Notification settings
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034373}}
 .view-commons-follow-node .views-field-ops,
 .view-commons-follow-node .views-field-ops-1,
 .view-commons-follow-user .views-field-ops,
@@ -5223,13 +5217,13 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 .view-commons-follow-taxonomy-term .views-field-ops-1 {
   width: 20%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034377}}
 .view-commons-follow-node .views-field-ops,
 .view-commons-follow-user .views-field-ops,
 .view-commons-follow-taxonomy-term .views-field-ops {
   text-align: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034380}}
 .view-commons-follow-node .views-field-ops-1,
 .view-commons-follow-user .views-field-ops-1,
 .view-commons-follow-taxonomy-term .views-field-ops-1 {
@@ -5239,7 +5233,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Trusted contacts
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034392}}
 .views-field-field-membership-token a:first-child:after {
   content: "|";
   display: inline-block;
@@ -5247,7 +5241,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   color: #333333;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034409}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034403}}
 .trusted-status-request:before {
   content: "\271a";
   position: relative;
@@ -5258,7 +5252,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   line-height: .6em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034421}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034415}}
 .message-contact:before {
   content: "";
   background: url('../images/icons-sd0cd9e4276.png') 0 -1056px no-repeat;
@@ -5273,20 +5267,20 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Private message
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034433}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034427}}
 .privatemsg-conversation .form-actions,
 .privatemsg-conversation .form-actions [class*="action-item"] {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034440}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034434}}
 .privatemsg-message-participants {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e0e0e0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034446}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034440}}
 .privatemsg-message {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -5297,7 +5291,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   padding-left: 72px;
   border-bottom: 1px solid #e0e0e0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034453}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034447}}
 .privatemsg-message .user-picture {
   position: relative;
   float: left;
@@ -5305,13 +5299,13 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   margin-left: -72px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034461}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034455}}
 .privatemsg-message-links {
   font-size: .88em;
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034467}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034461}}
 .message-delete:before {
   content: "\2715";
   display: inline-block;
@@ -5323,16 +5317,16 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Commons Origins Pallet Choices
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034481}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034475}}
 #edit-commons-origins-palette .form-item-commons-origins-palette {
   clear: both;
   margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034484}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034478}}
 #edit-commons-origins-palette .form-item-commons-origins-palette input[type="radio"] {
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034487}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034481}}
 #edit-commons-origins-palette .form-item-commons-origins-palette label {
   margin-left: 20px;
 }
@@ -5340,7 +5334,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Login and signup form
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034498}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034492}}
 #user-login input[type="text"], #user-login input[type="password"], #user-register-form input[type="text"], #user-register-form input[type="password"] {
   width: 20em;
   max-width: 100%;
@@ -5349,21 +5343,21 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Profile listings
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034507}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034501}}
 .profile-badges {
   margin: 0 0 0 -10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034508}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034502}}
 .profile-badges, .block-content .profile-badges {
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034513}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034507}}
 [dir="rtl"] .profile-badges {
   margin-right: -10px;
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034519}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034513}}
 .profile-badge {
   float: left;
   display: block;
@@ -5374,52 +5368,52 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034526}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034520}}
 [dir="rtl"] .profile-badge {
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034529}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034523}}
 .profile-badge, .block-content .profile-badge {
   margin: 0 0 10px 0;
   padding-left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034533}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034527}}
 [dir="rtl"] .profile-badge, [dir="rtl"] .block-content .profile-badge {
   padding-right: 10px;
   padding-left: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034538}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034532}}
 .profile-badge:nth-child(3n+1) {
   clear: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034540}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034534}}
 [dir="rtl"] .profile-badge:nth-child(3n+1) {
   clear: right;
 }
 @media only screen and (min-width: 769px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034519}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034513}}
   .profile-badge {
     width: 25%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034546}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034540}}
   .profile-badge:nth-child(3n+1) {
     clear: none;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034548}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034542}}
   [dir="rtl"] .profile-badge:nth-child(3n+1) {
     clear: none;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034552}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034546}}
   .profile-badge:nth-child(4n+1) {
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034554}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034548}}
   [dir="rtl"] .profile-badge:nth-child(4n+1) {
     clear: right;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034561}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034555}}
 .profile-badge-picture .user-picture {
   background: none;
   padding: 0;
@@ -5431,7 +5425,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   box-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034568}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034562}}
 .profile-badge-name {
   display: block;
   line-height: 1.2em;
@@ -7997,18 +7991,18 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   background-image: linear-gradient(to bottom, #0b769c 0%, #0c80ab 100%);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034582}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034576}}
 .view-license-contacts .view-empty {
   display: inline-block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034586}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034580}}
 .view-license-contacts .feed-icon {
   display: inline-block;
   margin: .3ex .5em 0 0;
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034593}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/global\.styles\.scss}line{font-family:\000034587}}
 body.front.not-logged-in #content {
   background-image: none !important;
 }

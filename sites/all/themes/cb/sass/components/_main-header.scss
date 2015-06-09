@@ -140,11 +140,23 @@
       margin-right: 0;
       margin-left: 1em;
       padding-top: 5px; // to align item horizontally on bottom with rest of menu-items
+      float:left;
+
+      // hide part of name if too long
+      &.name{
+        overflow: hidden;
+        a{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          max-width: 165px;
+          overflow: hidden;
+
+        }
+      }
     }
 
     a {
       font-size: .8em;
-
     }
 
   }//.utility-links
