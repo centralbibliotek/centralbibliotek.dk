@@ -1191,7 +1191,7 @@ div.messages.error {
 #main-menu .utility-links ul li.name a {
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 165px;
+  max-width: 143px;
   overflow: hidden;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_main-header\.scss}line{font-family:\00003158}}
