@@ -5,6 +5,33 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function cbib_groups_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
+}
+
+/**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function cbib_groups_default_page_manager_pages_alter(&$data) {
+  if (isset($data['groups_directory'])) {
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-bf6c6f1b-08a6-3874-7186-c955c763c092']->panel = 'one_main'; /* WAS: 'two_66_33_first' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->layout = 'one'; /* WAS: 'two_66_33' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panel_settings['style_settings']['one_main'] = NULL; /* WAS: '' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['one_main'] = array(
+      0 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
+    ); /* WAS: '' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->title = 'Grupper'; /* WAS: 'Groups' */
+    unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-3db36521-fb53-58a4-c9e2-137a2dacee07']);
+    unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['two_66_33_first']);
+    unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['two_66_33_top']);
+  }
+}
+
+/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_groups_panelizer_defaults_override_alter(&$data) {
