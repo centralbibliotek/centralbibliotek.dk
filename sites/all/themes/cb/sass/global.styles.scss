@@ -2820,17 +2820,19 @@ body.page-node .pane-views-panes {
   }
 }
 
-//style topic-tag-panel in single-event-view
-#panels-ipe-paneid-167{
 
-  // to keep body on separate line even though there is no topic attached
-  .panels-ipe-empty-pane{
-    display:block;
-    color: transparent;
-    height: 20px;
-    margin-bottom: 2em;
-  }
+//Display single event: get body to not wrap around address-tag if missing topic-tag
+#panels-ipe-paneid-168, //logged in
+.not-logged-in.node-type-event #content .pane-node-body{ //not logged in
+  clear: both;
+  margin-top: 4em;
 }
+
+#panels-ipe-paneid-167, //logged-ind
+.not-logged-in.node-type-event #content .pane-node-field-event-type{ //not logged-in
+  float:left;
+}
+
 
 .pane-commons-bw-group {
   @extend %pod;
