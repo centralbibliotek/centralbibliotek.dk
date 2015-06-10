@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * commons_events_pages.panels_default.inc
+ * cbib_commons_events.panels_default.inc
  */
 
 /**

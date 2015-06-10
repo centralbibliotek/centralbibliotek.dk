@@ -73,8 +73,8 @@ function cbib_commons_events_default_page_manager_pages_alter(&$data) {
     ); /* WAS: '' */
     $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panel_settings['style_settings']['one_main'] = NULL; /* WAS: '' */
     $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['one_main'] = array(
-      0 => 'new-32b27953-fb87-4007-a96a-96e394cf9f2a',
-      1 => 'new-6fc1bd46-7845-4419-88e9-224c883d8d7d',
+      0 => 'new-6fc1bd46-7845-4419-88e9-224c883d8d7d',
+      1 => 'new-32b27953-fb87-4007-a96a-96e394cf9f2a',
     ); /* WAS: '' */
     $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->title = 'Arrangementer'; /* WAS: 'Events' */
     $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->title_pane = 'new-6fc1bd46-7845-4419-88e9-224c883d8d7d'; /* WAS: 'new-9118fc7d-3da5-cf54-5152-5d66043812b2' */

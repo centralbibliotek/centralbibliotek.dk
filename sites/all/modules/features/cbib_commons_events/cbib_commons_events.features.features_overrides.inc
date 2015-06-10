@@ -64,8 +64,8 @@ function cbib_commons_events_features_override_default_overrides() {
   );
   $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panel_settings|style_settings|one_main"] = NULL;
   $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panels|one_main"] = array(
-    0 => 'new-32b27953-fb87-4007-a96a-96e394cf9f2a',
-    1 => 'new-6fc1bd46-7845-4419-88e9-224c883d8d7d',
+    0 => 'new-6fc1bd46-7845-4419-88e9-224c883d8d7d',
+    1 => 'new-32b27953-fb87-4007-a96a-96e394cf9f2a',
   );
   $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panels|two_66_33_first"]["DELETED"] = TRUE;
   $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panels|two_66_33_second"]["DELETED"] = TRUE;
