@@ -145,6 +145,98 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|9"] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
   $overrides["panelizer_defaults.node:group:default.display|title_pane"] = 0;
 
+  // Exported overrides for: variable
+  $overrides["variable.comment_centralbibliotek.value"] = 2;
+  $overrides["variable.comment_group.value"] = 2;
+  $overrides["variable.comment_license.value"] = 2;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|extra_fields|form|metatags"] = array(
+    'weight' => 14,
+  );
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|extra_fields|form|path"] = array(
+    'weight' => 13,
+  );
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|extra_fields|form|redirect"] = array(
+    'weight' => 12,
+  );
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|extra_fields|form|title"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|diff_standard"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|full"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|rss"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|search_index"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|search_result"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|teaser"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|token"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|metatags"] = array(
+    'weight' => 40,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|path"] = array(
+    'weight' => 30,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|redirect"] = array(
+    'weight' => 30,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|diff_standard"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|full"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|rss"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|search_index"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|search_result"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|teaser"] = array(
+    'custom_settings' => TRUE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|token"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__group.value|extra_fields|form|metatags"] = array(
+    'weight' => 10,
+  );
+  $overrides["variable.field_bundle_settings_node__group.value|extra_fields|form|path"] = array(
+    'weight' => 9,
+  );
+  $overrides["variable.field_bundle_settings_node__group.value|extra_fields|form|redirect"] = array(
+    'weight' => 8,
+  );
+  $overrides["variable.field_bundle_settings_node__group.value|extra_fields|form|title"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|diff_standard"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|full"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|rss"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|search_index"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|search_result"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|teaser"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|token"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|metatags"] = array(
+    'weight' => 13,
+  );
+  $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|path"] = array(
+    'weight' => 11,
+  );
+  $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|redirect"] = array(
+    'weight' => 10,
+  );
+  $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|title"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|metatags"] = array(
+    'weight' => 10,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|path"] = array(
+    'weight' => 9,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|redirect"] = array(
+    'weight' => 8,
+  );
+  $overrides["variable.node_options_group.value|0"] = 'status';
+  $overrides["variable.node_submitted_group.value"] = 1;
+  $overrides["variable.og_group_manager_default_rids_node_group.og_group_manager_default_rids_node_group"]["DELETED"] = TRUE;
+  $overrides["variable.pathauto_node_pattern.value"] = 'content/[node:title]';
+
   // Exported overrides for: views_view
   $overrides["views_view.commons_bw_all.display|default|display_options|arguments|gid|exception"] = array(
     'title' => 'Alle',

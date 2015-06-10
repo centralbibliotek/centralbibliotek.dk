@@ -349,6 +349,25 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
 }
 
 /**
+ * Implements hook_strongarm_alter().
+ */
+function cbib_commons_events_strongarm_alter(&$data) {
+  if (isset($data['comment_event'])) {
+    $data['comment_event']->value = 2; /* WAS: 0 */
+  }
+  if (isset($data['field_bundle_settings_node__event'])) {
+    $data['field_bundle_settings_node__event']->value['extra_fields']['form']['metatags']['weight'] = 16; /* WAS: 15 */
+    $data['field_bundle_settings_node__event']->value['view_modes']['diff_standard'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+  }
+  if (isset($data['panelizer_defaults_node_event'])) {
+    $data['panelizer_defaults_node_event']->value['view modes']['teaser']['default'] = 1; /* WAS: 0 */
+    $data['panelizer_defaults_node_event']->value['view modes']['teaser']['status'] = 1; /* WAS: 0 */
+  }
+}
+
+/**
  * Implements hook_views_default_views_alter().
  */
 function cbib_commons_events_views_default_views_alter(&$data) {

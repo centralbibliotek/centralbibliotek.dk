@@ -22,3 +22,12 @@ function cbib_page_ctools_plugin_api($module = NULL, $api = NULL) {
 function cbib_page_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
+
+/**
+ * Implements hook_strongarm_alter().
+ */
+function cbib_page_strongarm_alter(&$data) {
+  if (isset($data['pathauto_node_page_pattern'])) {
+    $data['pathauto_node_page_pattern']->value = ''; /* WAS: 'content/[node:title]' */
+  }
+}

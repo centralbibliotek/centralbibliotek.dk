@@ -160,6 +160,126 @@ function cbib_groups_panelizer_defaults_override_alter(&$data) {
 }
 
 /**
+ * Implements hook_strongarm_alter().
+ */
+function cbib_groups_strongarm_alter(&$data) {
+  if (isset($data['comment_centralbibliotek'])) {
+    $data['comment_centralbibliotek']->value = 2; /* WAS: 0 */
+  }
+  if (isset($data['comment_group'])) {
+    $data['comment_group']->value = 2; /* WAS: 0 */
+  }
+  if (isset($data['comment_license'])) {
+    $data['comment_license']->value = 2; /* WAS: 0 */
+  }
+  if (isset($data['field_bundle_settings_node__centralbibliotek'])) {
+    $data['field_bundle_settings_node__centralbibliotek']->value['extra_fields']['form']['metatags'] = array(
+      'weight' => 14,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__centralbibliotek']->value['extra_fields']['form']['path'] = array(
+      'weight' => 13,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__centralbibliotek']->value['extra_fields']['form']['redirect'] = array(
+      'weight' => 12,
+    ); /* WAS: '' */
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['extra_fields']['form']['title']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['diff_standard']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['full']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['rss']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['search_index']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['search_result']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['teaser']);
+    unset($data['field_bundle_settings_node__centralbibliotek']->value['view_modes']['token']);
+  }
+  if (isset($data['field_bundle_settings_node__document'])) {
+    $data['field_bundle_settings_node__document']->value['extra_fields']['form']['metatags'] = array(
+      'weight' => 40,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['extra_fields']['form']['path'] = array(
+      'weight' => 30,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['extra_fields']['form']['redirect'] = array(
+      'weight' => 30,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['diff_standard'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['full'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['rss'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['search_index'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['search_result'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['teaser'] = array(
+      'custom_settings' => TRUE,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__document']->value['view_modes']['token'] = array(
+      'custom_settings' => FALSE,
+    ); /* WAS: '' */
+  }
+  if (isset($data['field_bundle_settings_node__group'])) {
+    $data['field_bundle_settings_node__group']->value['extra_fields']['form']['metatags'] = array(
+      'weight' => 10,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__group']->value['extra_fields']['form']['path'] = array(
+      'weight' => 9,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__group']->value['extra_fields']['form']['redirect'] = array(
+      'weight' => 8,
+    ); /* WAS: '' */
+    unset($data['field_bundle_settings_node__group']->value['extra_fields']['form']['title']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['diff_standard']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['full']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['rss']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['search_index']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['search_result']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['teaser']);
+    unset($data['field_bundle_settings_node__group']->value['view_modes']['token']);
+  }
+  if (isset($data['field_bundle_settings_node__license'])) {
+    $data['field_bundle_settings_node__license']->value['extra_fields']['form']['metatags'] = array(
+      'weight' => 13,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__license']->value['extra_fields']['form']['path'] = array(
+      'weight' => 11,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__license']->value['extra_fields']['form']['redirect'] = array(
+      'weight' => 10,
+    ); /* WAS: '' */
+    unset($data['field_bundle_settings_node__license']->value['extra_fields']['form']['title']);
+  }
+  if (isset($data['field_bundle_settings_node__post'])) {
+    $data['field_bundle_settings_node__post']->value['extra_fields']['form']['metatags'] = array(
+      'weight' => 10,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__post']->value['extra_fields']['form']['path'] = array(
+      'weight' => 9,
+    ); /* WAS: '' */
+    $data['field_bundle_settings_node__post']->value['extra_fields']['form']['redirect'] = array(
+      'weight' => 8,
+    ); /* WAS: '' */
+  }
+  if (isset($data['node_options_group'])) {
+    $data['node_options_group']->value[0] = 'status'; /* WAS: 'revision' */
+  }
+  if (isset($data['node_submitted_group'])) {
+    $data['node_submitted_group']->value = 1; /* WAS: 0 */
+  }
+  if (isset($data['og_group_manager_default_rids_node_group'])) {
+    unset($data['og_group_manager_default_rids_node_group']);
+  }
+  if (isset($data['pathauto_node_pattern'])) {
+    $data['pathauto_node_pattern']->value = 'content/[node:title]'; /* WAS: 'groups/[node:commons-groups-first-group]/[node:title]' */
+  }
+}
+
+/**
  * Implements hook_views_default_views_alter().
  */
 function cbib_groups_views_default_views_alter(&$data) {

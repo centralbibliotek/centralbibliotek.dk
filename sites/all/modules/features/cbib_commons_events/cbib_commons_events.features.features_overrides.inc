@@ -326,6 +326,15 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:event:default:teaser.display|panels|bottom|2"] = 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f';
   $overrides["panelizer_defaults.node:event:default:teaser.display|panels|left|1"] = 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a';
 
+  // Exported overrides for: variable
+  $overrides["variable.comment_event.value"] = 2;
+  $overrides["variable.field_bundle_settings_node__event.value|extra_fields|form|metatags|weight"] = 16;
+  $overrides["variable.field_bundle_settings_node__event.value|view_modes|diff_standard"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.panelizer_defaults_node_event.value|view modes|teaser|default"] = 1;
+  $overrides["variable.panelizer_defaults_node_event.value|view modes|teaser|status"] = 1;
+
   // Exported overrides for: views_view
   $overrides["views_view.backlinks.display|default|display_options|fields|title|link_to_node"]["DELETED"] = TRUE;
 

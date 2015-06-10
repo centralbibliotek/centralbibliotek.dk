@@ -1,12 +1,15 @@
 name = Commons Events
 description = Provides an Event content type for hosting events.
-core = 7.x
 package = Commons - Content types
+core = 7.x
+
 dependencies[] = addressfield
 dependencies[] = addressfield_tokens
 dependencies[] = block
 dependencies[] = commons_body
 dependencies[] = commons_location
+; @todo Move message- field instances into another module in order to allow
+; Commons Events to function independently of Commons Notify.
 dependencies[] = commons_notify
 dependencies[] = commons_topics
 dependencies[] = ctools
@@ -95,9 +98,15 @@ features[user_permission][] = edit own event content
 features[user_permission][] = update own event registration
 features[user_permission][] = view event registration
 features[user_permission][] = view own event registration
+features[variable][] = comment_anonymous_event
+features[variable][] = comment_default_mode_event
+features[variable][] = comment_default_per_page_event
+features[variable][] = comment_event
+features[variable][] = comment_form_location_event
+features[variable][] = comment_preview_event
+features[variable][] = comment_subject_field_event
 features[variable][] = field_bundle_settings_message__commons_events_event_node_created
-features[variable][] = field_bundle_settings_registration__event
-features[variable][] = language_content_type_event
+features[variable][] = field_bundle_settings_node__event
 features[variable][] = menu_options_event
 features[variable][] = menu_parent_event
 features[variable][] = node_options_event
