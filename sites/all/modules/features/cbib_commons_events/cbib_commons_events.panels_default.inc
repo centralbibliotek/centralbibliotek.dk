@@ -7,7 +7,7 @@
 /**
  * Implements hook_default_panels_mini().
  */
-function commons_events_pages_default_panels_mini() {
+function cbib_commons_events_default_panels_mini() {
   $export = array();
 
   $mini = new stdClass();
