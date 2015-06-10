@@ -353,7 +353,7 @@ div.messages.error {
 .field-name-og-user-node .field-items .field-item:hover,
 .pane-node-og-group-ref .field-items .field-item:hover,
 .field-name-field-event-type .field-items .field-item:hover {
-  background: #32d2b3;
+  background: #33debd;
   color: #fff !important;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000370}}
@@ -365,18 +365,30 @@ div.messages.error {
   color: #fff;
   text-decoration: none;
   box-shadow: none;
-  padding-bottom: 1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000378}}
+.field-name-field-topics .field-items .field-item:hover:before,
+.field-type-taxonomy-term-reference .field-items .field-item:hover:before,
+.field-name-og-user-node .field-items .field-item:hover:before,
+.pane-node-og-group-ref .field-items .field-item:hover:before,
+.field-name-field-event-type .field-items .field-item:hover:before {
+  background: #33debd;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000382}}
-.field-name-field-topics .field-items .field-item:before,
-.field-name-field-event-type .field-items .field-item:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000387}}
+html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:before,
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:before {
   background: #2bc2ff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000386}}
-.field-name-field-topics .field-items .field-item:hover,
-.field-name-field-event-type .field-items .field-item:hover {
-  background: #2bc2ff;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000391}}
+html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover,
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover {
+  background: #3ed2ff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_tag\.scss}line{font-family:\0000396}}
+html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover:before,
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover:before {
+  background: #3ed2ff;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/components\/_forms\.scss}line{font-family:\000032}}
@@ -1358,7 +1370,7 @@ div.messages.error {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/pages\/_node-event\.scss}line{font-family:\0000343}}
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type li {
-  display: inline;
+  display: inline-block;
   list-style-type: none;
   padding: 0;
   margin: 0;
