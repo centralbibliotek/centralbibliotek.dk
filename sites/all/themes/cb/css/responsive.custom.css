@@ -131,12 +131,12 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003170}}
   .main-header {
     min-height: 140px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003177}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003174}}
   #block-search-form {
     width: 100%;
     box-sizing: border-box;
@@ -145,30 +145,39 @@
     padding: 10px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003186}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003183}}
   .pane-menu-menu-license-menu ul li {
     margin: 0 1em 1em 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003189}}
+  #main-menu ul li {
+    margin-bottom: .5em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003192}}
+  #main-menu ul li.active-trail a {
+    padding-bottom: .2em;
   }
 }
 /*
  * Tablet sizes and up
  */
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003204}}
   body.front.not-logged-in #content {
     background: url('../images/commons-drop.png') right top no-repeat;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003201}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003208}}
   body.front.not-logged-in .region-three-33-top {
     margin-bottom: 24px;
     min-height: 300px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003207}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003214}}
   body.front.not-logged-in #block-system-main .pane-1 {
     float: left;
     width: 56%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003218}}
   body.front.not-logged-in #block-system-main .pane-2 {
     float: right;
     width: 40%;

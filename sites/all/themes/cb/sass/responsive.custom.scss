@@ -133,9 +133,6 @@
     width: auto;
     padding: 0;
   }
-
-
-
 }
 
 /*
@@ -185,6 +182,16 @@
   // add some spacing to license-menu, when stacked
   .pane-menu-menu-license-menu ul li{
     margin: 0 1em 1em 0;
+  }
+
+
+  // space out menu-items when stacked
+  #main-menu ul li{
+    margin-bottom: .5em;
+
+    &.active-trail a{
+      padding-bottom: .2em;
+    }
   }
 
 }
