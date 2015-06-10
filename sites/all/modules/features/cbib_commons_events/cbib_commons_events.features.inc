@@ -123,20 +123,111 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           'locks' => array(),
           'uuid' => '0b838ec5-ab01-496e-ada7-c0320534dd42',
         ); /* WAS: '' */
-    $data['node:event:default']->display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71']->access['logic'] = 'and'; /* WAS: '' */
-    $data['node:event:default']->display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71']->access['plugins'] = array(
-      0 => array(
-        'name' => 'role',
-        'settings' => array(
-          'rids' => array(
-            0 => 2,
+    $data['node:event:default']->display->content['new-2d57af3b-2e3b-4ee9-a09c-078a500d503e'] = (object) array(
+          'pid' => 'new-2d57af3b-2e3b-4ee9-a09c-078a500d503e',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_address',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'addressfield_components',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'components' => array(
+                'locality' => 'locality',
+              ),
+              'separator' => ', ',
+              'use_widget_handlers' => 1,
+              'format_handlers' => array(
+                'address' => 'address',
+              ),
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
           ),
-        ),
-        'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-    ); /* WAS: '' */
-    $data['node:event:default']->display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71']->position = 9; /* WAS: 6 */
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 3,
+          'locks' => array(),
+          'uuid' => '2d57af3b-2e3b-4ee9-a09c-078a500d503e',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-35953f03-8878-47bb-800f-67c95d058508'] = (object) array(
+          'pid' => 'new-35953f03-8878-47bb-800f-67c95d058508',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:title_field',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'title_linked',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'title_style' => 'h1',
+              'title_link' => '',
+              'title_class' => '',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => '35953f03-8878-47bb-800f-67c95d058508',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-35ea1bae-7836-4e19-a8d0-a507e4537e71'] = (object) array(
+          'pid' => 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71',
+          'panel' => 'two_66_33_second',
+          'type' => 'cbib_events_mailto',
+          'subtype' => 'cbib_events_mailto',
+          'shown' => TRUE,
+          'access' => array(
+            'plugins' => array(
+              0 => array(
+                'name' => 'role',
+                'settings' => array(
+                  'rids' => array(
+                    0 => 2,
+                  ),
+                ),
+                'context' => 'logged-in-user',
+                'not' => FALSE,
+              ),
+            ),
+            'logic' => 'and',
+          ),
+          'configuration' => array(
+            'context' => 'panelizer',
+            'override_title' => 1,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 9,
+          'locks' => array(),
+          'uuid' => '35ea1bae-7836-4e19-a8d0-a507e4537e71',
+        ); /* WAS: '' */
     $data['node:event:default']->display->content['new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3'] = (object) array(
           'pid' => 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3',
           'panel' => 'two_66_33_first',
@@ -185,6 +276,66 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           'position' => 1,
           'locks' => array(),
           'uuid' => '4c2fb65e-0095-4fe4-8137-4065111adcea',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-5adc886d-1a3a-468d-b25b-f344f7c86072'] = (object) array(
+          'pid' => 'new-5adc886d-1a3a-468d-b25b-f344f7c86072',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:body',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'text_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 5,
+          'locks' => array(),
+          'uuid' => '5adc886d-1a3a-468d-b25b-f344f7c86072',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-5bd82edf-51af-450b-8d6d-8fdd9ffc0aa4'] = (object) array(
+          'pid' => 'new-5bd82edf-51af-450b-8d6d-8fdd9ffc0aa4',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_image',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'image',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(
+              'file_view_mode' => 'default',
+              'image_style' => 'full_node',
+              'image_link' => '',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '5bd82edf-51af-450b-8d6d-8fdd9ffc0aa4',
         ); /* WAS: '' */
     $data['node:event:default']->display->content['new-632cdf26-2846-4b05-ba51-0bef3789c6c4'] = (object) array(
           'pid' => 'new-632cdf26-2846-4b05-ba51-0bef3789c6c4',
@@ -239,8 +390,70 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           'locks' => array(),
           'uuid' => '63433d85-f8ce-4ff5-92df-391aca0c05a0',
         ); /* WAS: '' */
-    $data['node:event:default']->display->content['new-88ab00da-745f-4432-a400-935fdac10fb8']->position = 3; /* WAS: 1 */
-    $data['node:event:default']->display->content['new-aef85835-68a5-2494-b107-136f1cb92749']->position = 8; /* WAS: 4 */
+    $data['node:event:default']->display->content['new-88ab00da-745f-4432-a400-935fdac10fb8'] = (object) array(
+          'pid' => 'new-88ab00da-745f-4432-a400-935fdac10fb8',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_event_audience',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'title',
+            'formatter' => 'text_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 1,
+            'override_title_text' => 'Målgruppe',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 3,
+          'locks' => array(),
+          'uuid' => '88ab00da-745f-4432-a400-935fdac10fb8',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-aef85835-68a5-2494-b107-136f1cb92749']->configuration['items_per_page'] = 25; /* WAS: 20 */
+    $data['node:event:default']->display->content['new-aef85835-68a5-2494-b107-136f1cb92749']->position = 8; /* WAS: 1 */
+    $data['node:event:default']->display->content['new-b6527fae-58a4-463e-9cc8-7200e1acc920'] = (object) array(
+          'pid' => 'new-b6527fae-58a4-463e-9cc8-7200e1acc920',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_date',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'date_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(
+              'format_type' => 'dato',
+              'multiple_number' => 1,
+              'multiple_from' => '',
+              'multiple_to' => '',
+              'fromto' => 'value',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 2,
+          'locks' => array(),
+          'uuid' => 'b6527fae-58a4-463e-9cc8-7200e1acc920',
+        ); /* WAS: '' */
     $data['node:event:default']->display->content['new-c3480894-214d-4a16-ad1d-9eafbfbb42dd'] = (object) array(
           'pid' => 'new-c3480894-214d-4a16-ad1d-9eafbfbb42dd',
           'panel' => 'two_66_33_second',
@@ -271,40 +484,48 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           'locks' => array(),
           'uuid' => 'c3480894-214d-4a16-ad1d-9eafbfbb42dd',
         ); /* WAS: '' */
-    $data['node:event:default']->display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588']->position = 6; /* WAS: 5 */
-    $data['node:event:default']->display->content['new-eb217e95-60ad-4363-afd5-d3f0ba1c3132']->position = 4; /* WAS: 2 */
-    $data['node:event:default']->display->content['new-ffd2a39f-cad3-4bec-8606-cf9a4c698131']->position = 5; /* WAS: 3 */
-    $data['node:event:default']->display->panels['two_66_33_first'][6] = 'new-63433d85-f8ce-4ff5-92df-391aca0c05a0'; /* WAS: '' */
-    $data['node:event:default']->display->panels['two_66_33_first'][7] = 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3'; /* WAS: '' */
-    $data['node:event:default']->display->panels['two_66_33_second'][0] = 'new-c3480894-214d-4a16-ad1d-9eafbfbb42dd'; /* WAS: 'new-3dcbfc27-8ac0-428e-9926-4d20124df9d6' */
-    $data['node:event:default']->display->panels['two_66_33_second'][1] = 'new-4c2fb65e-0095-4fe4-8137-4065111adcea'; /* WAS: 'new-88ab00da-745f-4432-a400-935fdac10fb8' */
-    $data['node:event:default']->display->panels['two_66_33_second'][2] = 'new-0b838ec5-ab01-496e-ada7-c0320534dd42'; /* WAS: 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132' */
-    $data['node:event:default']->display->panels['two_66_33_second'][3] = 'new-88ab00da-745f-4432-a400-935fdac10fb8'; /* WAS: 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131' */
-    $data['node:event:default']->display->panels['two_66_33_second'][4] = 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132'; /* WAS: 'new-aef85835-68a5-2494-b107-136f1cb92749' */
-    $data['node:event:default']->display->panels['two_66_33_second'][5] = 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131'; /* WAS: 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588' */
-    $data['node:event:default']->display->panels['two_66_33_second'][6] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'; /* WAS: 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71' */
-    $data['node:event:default']->display->panels['two_66_33_second'][7] = 'new-632cdf26-2846-4b05-ba51-0bef3789c6c4'; /* WAS: '' */
-    $data['node:event:default']->display->panels['two_66_33_second'][8] = 'new-aef85835-68a5-2494-b107-136f1cb92749'; /* WAS: '' */
-    $data['node:event:default']->display->panels['two_66_33_second'][9] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71'; /* WAS: '' */
-    unset($data['node:event:default']->display->content['new-3dcbfc27-8ac0-428e-9926-4d20124df9d6']);
-  }
-  if (isset($data['node:event:default:teaser'])) {
-    $data['node:event:default:teaser']->display->content['new-3499fc7f-c316-45e1-b841-0d16159f8296'] = (object) array(
-          'pid' => 'new-3499fc7f-c316-45e1-b841-0d16159f8296',
-          'panel' => 'bottom',
+    $data['node:event:default']->display->content['new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'] = (object) array(
+          'pid' => 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588',
+          'panel' => 'two_66_33_second',
           'type' => 'entity_field',
-          'subtype' => 'node:og_group_ref',
+          'subtype' => 'node:field_document_file',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'title',
+            'formatter' => 'file_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 6,
+          'locks' => array(),
+          'uuid' => 'd9b378c4-93e3-4445-b2da-c43dc1bd0588',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->content['new-e2773749-a522-4643-b068-3ba6c6710a17'] = (object) array(
+          'pid' => 'new-e2773749-a522-4643-b068-3ba6c6710a17',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_event_type',
           'shown' => TRUE,
           'access' => array(),
           'configuration' => array(
             'label' => 'hidden',
-            'formatter' => 'entityreference_label',
+            'formatter' => 'taxonomy_term_reference_link',
             'delta_limit' => 0,
             'delta_offset' => 0,
-            'delta_reversed' => 0,
-            'formatter_settings' => array(
-              'link' => 1,
-            ),
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
             'context' => 'panelizer',
             'override_title' => 0,
             'override_title_text' => '',
@@ -315,24 +536,23 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           ),
           'css' => array(),
           'extras' => array(),
-          'position' => 0,
+          'position' => 4,
           'locks' => array(),
-          'uuid' => '3499fc7f-c316-45e1-b841-0d16159f8296',
+          'uuid' => 'e2773749-a522-4643-b068-3ba6c6710a17',
         ); /* WAS: '' */
-    $data['node:event:default:teaser']->display->content['new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f']->position = 2; /* WAS: 0 */
-    $data['node:event:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->configuration['formatter_settings']['trim_length'] = 250; /* WAS: 600 */
-    $data['node:event:default:teaser']->display->content['new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a'] = (object) array(
-          'pid' => 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
-          'panel' => 'left',
-          'type' => 'cbib_time_and_location',
-          'subtype' => 'cbib_time_and_location',
+    $data['node:event:default']->display->content['new-eb217e95-60ad-4363-afd5-d3f0ba1c3132'] = (object) array(
+          'pid' => 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132',
+          'panel' => 'two_66_33_second',
+          'type' => 'panels_mini',
+          'subtype' => 'event_information',
           'shown' => TRUE,
           'access' => array(),
           'configuration' => array(
-            'cbib_events_time_and_location_date_format' => 'teaser_date',
-            'context' => 'panelizer',
-            'override_title' => 0,
-            'override_title_text' => '',
+            'context' => array(
+              0 => 'panelizer',
+            ),
+            'override_title' => 1,
+            'override_title_text' => 'Det praktiske',
           ),
           'cache' => array(),
           'style' => array(
@@ -340,14 +560,54 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
           ),
           'css' => array(),
           'extras' => array(),
-          'position' => 1,
+          'position' => 4,
           'locks' => array(),
-          'uuid' => 'e194ca35-4e2b-4d01-9c97-5bf4492ee63a',
+          'uuid' => 'eb217e95-60ad-4363-afd5-d3f0ba1c3132',
         ); /* WAS: '' */
-    $data['node:event:default:teaser']->display->panels['bottom'][0] = 'new-3499fc7f-c316-45e1-b841-0d16159f8296'; /* WAS: 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f' */
-    $data['node:event:default:teaser']->display->panels['bottom'][2] = 'new-a2646c91-cad9-4bae-bbb8-8cebdf49c02f'; /* WAS: '' */
-    $data['node:event:default:teaser']->display->panels['left'][1] = 'new-e194ca35-4e2b-4d01-9c97-5bf4492ee63a'; /* WAS: 'new-bb59c3b5-c74b-4c7a-a057-52a118a0133b' */
-    unset($data['node:event:default:teaser']->display->content['new-bb59c3b5-c74b-4c7a-a057-52a118a0133b']);
+    $data['node:event:default']->display->content['new-ffd2a39f-cad3-4bec-8606-cf9a4c698131'] = (object) array(
+          'pid' => 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131',
+          'panel' => 'two_66_33_second',
+          'type' => 'panels_mini',
+          'subtype' => 'event_price',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'context' => array(
+              0 => 'panelizer',
+            ),
+            'override_title' => 1,
+            'override_title_text' => 'Tilmelding',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 5,
+          'locks' => array(),
+          'uuid' => 'ffd2a39f-cad3-4bec-8606-cf9a4c698131',
+        ); /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][0] = 'new-5bd82edf-51af-450b-8d6d-8fdd9ffc0aa4'; /* WAS: 'new-f259289a-8ef0-6aa4-2592-c59928474958' */
+    $data['node:event:default']->display->panels['two_66_33_first'][1] = 'new-35953f03-8878-47bb-800f-67c95d058508'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][2] = 'new-b6527fae-58a4-463e-9cc8-7200e1acc920'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][3] = 'new-2d57af3b-2e3b-4ee9-a09c-078a500d503e'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][4] = 'new-e2773749-a522-4643-b068-3ba6c6710a17'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][5] = 'new-5adc886d-1a3a-468d-b25b-f344f7c86072'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][6] = 'new-63433d85-f8ce-4ff5-92df-391aca0c05a0'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_first'][7] = 'new-3b2c96a8-75d7-4633-bbe4-193c5a5baaa3'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][0] = 'new-c3480894-214d-4a16-ad1d-9eafbfbb42dd'; /* WAS: 'new-a2912068-e5e2-c804-b1ba-3260dc059c9b' */
+    $data['node:event:default']->display->panels['two_66_33_second'][1] = 'new-4c2fb65e-0095-4fe4-8137-4065111adcea'; /* WAS: 'new-aef85835-68a5-2494-b107-136f1cb92749' */
+    $data['node:event:default']->display->panels['two_66_33_second'][2] = 'new-0b838ec5-ab01-496e-ada7-c0320534dd42'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][3] = 'new-88ab00da-745f-4432-a400-935fdac10fb8'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][4] = 'new-eb217e95-60ad-4363-afd5-d3f0ba1c3132'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][5] = 'new-ffd2a39f-cad3-4bec-8606-cf9a4c698131'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][6] = 'new-d9b378c4-93e3-4445-b2da-c43dc1bd0588'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][7] = 'new-632cdf26-2846-4b05-ba51-0bef3789c6c4'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][8] = 'new-aef85835-68a5-2494-b107-136f1cb92749'; /* WAS: '' */
+    $data['node:event:default']->display->panels['two_66_33_second'][9] = 'new-35ea1bae-7836-4e19-a8d0-a507e4537e71'; /* WAS: '' */
+    unset($data['node:event:default']->display->content['new-a2912068-e5e2-c804-b1ba-3260dc059c9b']);
+    unset($data['node:event:default']->display->content['new-f259289a-8ef0-6aa4-2592-c59928474958']);
   }
 }
 
