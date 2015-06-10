@@ -23,6 +23,11 @@
     float: left;
     width: 24px;
     margin-right: .55em;
+
+    // do not show little arrow from user-profile-badge in this context
+    &:after{
+      display:none;
+    }
   }
 
   .views-field-name {
