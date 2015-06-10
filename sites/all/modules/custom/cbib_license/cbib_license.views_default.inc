@@ -188,16 +188,6 @@ function cbib_license_views_default_views() {
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Handler mangler eller er i stykker */
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['id'] = 'og_group_license_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['field'] = 'og_group_license_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_license_ref_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterie: Indhold: Udgivet */
@@ -455,7 +445,6 @@ function cbib_license_views_default_views() {
     t('Referred licenses'),
     t('Licenser'),
     t('mere'),
-    t('Alle'),
     t('Textual list'),
     t('Licenserne'),
     t('Textual list lead'),
@@ -463,6 +452,7 @@ function cbib_license_views_default_views() {
     t('Latest license news'),
     t('Sidste nyt'),
     t('show the latest news within license-group'),
+    t('Alle'),
     t('View panes'),
     t('All license news'),
     t('Licens nyheder'),

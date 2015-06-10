@@ -97,7 +97,6 @@ features[variable][] = pathauto_forum_pattern
 features[variable][] = pathauto_node_centralbibliotek_pattern
 features[variable][] = pathauto_node_document_pattern
 features[variable][] = pathauto_node_library_pattern
-features[variable][] = pathauto_node_licenses_pattern
 features[variable][] = pathauto_node_post_pattern
 features[variable][] = pathauto_punctuation_hyphen
 features[variable][] = pathauto_taxonomy_term_event_types_pattern
