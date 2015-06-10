@@ -35,6 +35,9 @@
 
   // Event type
   .region.region-two-66-33-first .pane-node-field-event-type {
+
+    margin-bottom: 0;
+
     ul {
       margin: 0;
       padding: 0;
@@ -61,7 +64,7 @@
   // Event location
   .region.region-two-66-33-first .pane-node-field-address {
     float: left;
-    margin-bottom: 0;
+    //margin-bottom: 0;
 
     .adr {
       @extend %tag;
@@ -69,7 +72,12 @@
   }
 
   .region.region-two-66-33-first .pane-node-field-address {
-    margin-right: .5em;
+    margin: 0 0.5em 2em 0;
+  }
+
+  // prevent body to float up if topic-tag is missing
+  .region.region-two-66-33-first .pane-node-body {
+    clear:both;
   }
 }
 

@@ -2821,19 +2821,6 @@ body.page-node .pane-views-panes {
 }
 
 
-//Display single event: get body to not wrap around address-tag if missing topic-tag
-#panels-ipe-paneid-168, //logged in
-.not-logged-in.node-type-event #content .pane-node-body{ //not logged in
-  clear: both;
-  margin-top: 4em;
-}
-
-#panels-ipe-paneid-167, //logged-ind
-.not-logged-in.node-type-event #content .pane-node-field-event-type{ //not logged-in
-  float:left;
-}
-
-
 .pane-commons-bw-group {
   @extend %pod;
 }
