@@ -18,11 +18,32 @@ function cbib_groups_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function cbib_groups_default_page_manager_pages_alter(&$data) {
   if (isset($data['groups_directory'])) {
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b'] = (object) array(
+          'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+          'panel' => 'two_66_33_second',
+          'type' => 'views_panes',
+          'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+        ); /* WAS: '' */
     $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-bf6c6f1b-08a6-3874-7186-c955c763c092']->panel = 'one_main'; /* WAS: 'two_66_33_first' */
     $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->layout = 'one'; /* WAS: 'two_66_33' */
     $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panel_settings['style_settings']['one_main'] = NULL; /* WAS: '' */
     $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['one_main'] = array(
       0 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
+    ); /* WAS: '' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['two_66_33_second'] = array(
+      0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
     ); /* WAS: '' */
     $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->title = 'Grupper'; /* WAS: 'Groups' */
     unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-3db36521-fb53-58a4-c9e2-137a2dacee07']);

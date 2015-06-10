@@ -13,6 +13,24 @@ function cbib_groups_features_override_default_overrides() {
 
   // Exported overrides for: page_manager_pages
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-3db36521-fb53-58a4-c9e2-137a2dacee07"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b"] = (object) array(
+      'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+      'panel' => 'two_66_33_second',
+      'type' => 'views_panes',
+      'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+    );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|panel"] = 'one_main';
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout"] = 'one';
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|one_main"] = NULL;
@@ -20,6 +38,9 @@ function cbib_groups_features_override_default_overrides() {
     0 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
   );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_first"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_second"] = array(
+    0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+  );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_top"]["DELETED"] = TRUE;
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|title"] = 'Grupper';
 
