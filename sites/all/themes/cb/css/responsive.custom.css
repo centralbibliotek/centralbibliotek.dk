@@ -32,7 +32,7 @@
   /*
    * Float Region blocks example:
    * In smaller screen sizes we can remove the float and widths so all blocks
-   * stack instead of displaying horizonally. The selector used here is an
+   * stack instead of displaying horizontally. The selector used here is an
    * "attribute selector" which will match on any float block class. Use your
    * inspector or Firebug to get the classes from the page output if you need
    * more granular control over block alignment and stacking.
@@ -137,26 +137,40 @@
     margin-right: 0;
     vertical-align: middle;
   }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003156}}
+  .main-header {
+    min-height: 140px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003160}}
+  #block-search-form {
+    width: 100%;
+    box-sizing: border-box;
+    top: 75px;
+    right: 0px;
+    padding: 10px;
+  }
 }
 /*
  * Tablet sizes and up
  */
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003162}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003174}}
   body.front.not-logged-in #content {
     background: url('../images/commons-drop.png') right top no-repeat;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003166}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003178}}
   body.front.not-logged-in .region-three-33-top {
     margin-bottom: 24px;
     min-height: 300px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003172}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003184}}
   body.front.not-logged-in #block-system-main .pane-1 {
     float: left;
     width: 56%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003188}}
   body.front.not-logged-in #block-system-main .pane-2 {
     float: right;
     width: 40%;

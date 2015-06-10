@@ -43,7 +43,7 @@
   /*
    * Float Region blocks example:
    * In smaller screen sizes we can remove the float and widths so all blocks
-   * stack instead of displaying horizonally. The selector used here is an
+   * stack instead of displaying horizontally. The selector used here is an
    * "attribute selector" which will match on any float block class. Use your
    * inspector or Firebug to get the classes from the page output if you need
    * more granular control over block alignment and stacking.
@@ -70,7 +70,7 @@
     position: static;
   }
 
-  // The toolbar should not be persitently in view on small screens.
+  // The toolbar should not be persistently in view on small screens.
   #toolbar {
     position: static;
     margin: 0;
@@ -85,7 +85,7 @@
     clip: rect(1px, 1px, 1px, 1px);
   }
 
-  // Remove the panels adminstration controls on small screens.
+  // Remove the panels administration controls on small screens.
   div#panels-ipe-control-container {
     display: none !important;
   }
@@ -151,6 +151,18 @@
         }
       }
     }
+  }
+
+  .main-header{
+    min-height: 140px;
+  }
+
+  #block-search-form{
+    width: 100%;
+    box-sizing: border-box;
+    top: 75px;
+    right: 0px;
+    padding: 10px;
   }
 }
 
