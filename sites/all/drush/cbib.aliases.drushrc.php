@@ -24,6 +24,24 @@ $aliases['prod'] = array(
     'newrelic-api-key' => '120fd65c787d6de27897a44cce59495fa4002740d8e367c',
     'newrelic-app-name' => 'centralbibliotek.dk',
   ),
+  // Skip cache tables and the like.
+  'source-command-specific' => array (
+    'sql-sync' => array (
+      'structure-tables-key' => 'common',
+      'structure-tables' => array(
+        'common' => array(
+          'cache',
+          'cache_*',
+          'ctools_*_cache',
+          'history',
+          'sessions',
+          'views_data_export_object_cache',
+          'votingapi_cache',
+          'watchdog',
+        ),
+      ),
+    ),
+  ),
 );
 
 $aliases['test'] = array(
