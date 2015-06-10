@@ -57,8 +57,60 @@ function cbib_groups_default_page_manager_pages_alter(&$data) {
  */
 function cbib_groups_panelizer_defaults_override_alter(&$data) {
   if (isset($data['node:group:default'])) {
-    $data['node:group:default']->display->content['new-0bb1221d-a648-4332-a630-67359e011329']->position = 7; /* WAS: 6 */
-    $data['node:group:default']->display->content['new-16bb1e2b-5444-464c-995a-923d2f0a31c6']->configuration['override_title_text'] = 'Tilknytning'; /* WAS: 'Region' */
+    $data['node:group:default']->display->content['new-0bb1221d-a648-4332-a630-67359e011329'] = (object) array(
+          'pid' => 'new-0bb1221d-a648-4332-a630-67359e011329',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_og_access_default_value',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'hidden',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 7,
+          'locks' => array(),
+          'uuid' => '0bb1221d-a648-4332-a630-67359e011329',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-16bb1e2b-5444-464c-995a-923d2f0a31c6'] = (object) array(
+          'pid' => 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:og_group_ref',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'og_list_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 1,
+            'override_title_text' => 'Tilknytning',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '16bb1e2b-5444-464c-995a-923d2f0a31c6',
+        ); /* WAS: '' */
     $data['node:group:default']->display->content['new-1f218aab-81dc-4e02-8c86-79210bed4a0c'] = (object) array(
           'pid' => 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c',
           'panel' => 'two_66_33_second',
@@ -111,11 +163,144 @@ function cbib_groups_panelizer_defaults_override_alter(&$data) {
           'locks' => array(),
           'uuid' => '24f4b75a-80ea-447a-9f3b-a4e200746f48',
         ); /* WAS: '' */
-    $data['node:group:default']->display->content['new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7']->position = 5; /* WAS: 4 */
-    $data['node:group:default']->display->content['new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a']->position = 4; /* WAS: 3 */
-    $data['node:group:default']->display->content['new-40462470-5167-4125-9316-c8812de239f6']->position = 6; /* WAS: 5 */
-    $data['node:group:default']->display->content['new-4217fe9c-2561-438d-847c-4a289f5b4bf0']->panel = 'two_66_33_second'; /* WAS: 'two_66_33_first' */
-    $data['node:group:default']->display->content['new-4217fe9c-2561-438d-847c-4a289f5b4bf0']->position = 9; /* WAS: 4 */
+    $data['node:group:default']->display->content['new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7'] = (object) array(
+          'pid' => 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:group_access',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'hidden',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 5,
+          'locks' => array(),
+          'uuid' => '2e7fc52a-d884-4fc9-9589-fa8f31e876d7',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a'] = (object) array(
+          'pid' => 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_radioactivity',
+          'shown' => FALSE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'above',
+            'formatter' => 'radioactivity_combo_formatter',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'energy' => 10,
+              'type' => 'none',
+              'accuracy' => 100,
+            ),
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 4,
+          'locks' => array(),
+          'uuid' => '39374465-a69f-4fb2-a2d2-aaa4bfa7491a',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-40462470-5167-4125-9316-c8812de239f6'] = (object) array(
+          'pid' => 'new-40462470-5167-4125-9316-c8812de239f6',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_og_subscribe_settings',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'list_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 6,
+          'locks' => array(),
+          'uuid' => '40462470-5167-4125-9316-c8812de239f6',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-4217fe9c-2561-438d-847c-4a289f5b4bf0'] = (object) array(
+          'pid' => 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_document_file',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'title',
+            'formatter' => 'file_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 9,
+          'locks' => array(),
+          'uuid' => '4217fe9c-2561-438d-847c-4a289f5b4bf0',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-55cd68c0-3a53-4a0d-af36-35da29489356'] = (object) array(
+          'pid' => 'new-55cd68c0-3a53-4a0d-af36-35da29489356',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:body',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'text_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 2,
+          'locks' => array(),
+          'uuid' => '55cd68c0-3a53-4a0d-af36-35da29489356',
+        ); /* WAS: '' */
     $data['node:group:default']->display->content['new-6437b227-b02b-4d81-8547-46a1ee7e9ab8'] = (object) array(
           'pid' => 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8',
           'panel' => 'two_66_33_first',
@@ -136,6 +321,37 @@ function cbib_groups_panelizer_defaults_override_alter(&$data) {
           'position' => 4,
           'locks' => array(),
           'uuid' => '6437b227-b02b-4d81-8547-46a1ee7e9ab8',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-8567ca5b-9641-4b81-b9f4-079402a9464a'] = (object) array(
+          'pid' => 'new-8567ca5b-9641-4b81-b9f4-079402a9464a',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_group_logo',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'image',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'image_link' => '',
+              'image_style' => 'full_node',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '8567ca5b-9641-4b81-b9f4-079402a9464a',
         ); /* WAS: '' */
     $data['node:group:default']->display->content['new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74'] = (object) array(
           'pid' => 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74',
@@ -159,24 +375,304 @@ function cbib_groups_panelizer_defaults_override_alter(&$data) {
           'locks' => array(),
           'uuid' => '99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74',
         ); /* WAS: '' */
-    $data['node:group:default']->display->content['new-aa495b28-e361-44b1-871d-74132433a821']->position = 8; /* WAS: 7 */
-    $data['node:group:default']->display->content['new-bcc18207-63ae-43c3-8bb4-77518e5bccd3']->position = 2; /* WAS: 1 */
-    $data['node:group:default']->display->content['new-d10871fa-ea33-40f2-b568-dda6955d2571']->position = 3; /* WAS: 2 */
-    $data['node:group:default']->display->panels['two_66_33_first'][4] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8'; /* WAS: 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0' */
-    $data['node:group:default']->display->panels['two_66_33_second'][1] = 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74'; /* WAS: 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3' */
+    $data['node:group:default']->display->content['new-aa495b28-e361-44b1-871d-74132433a821'] = (object) array(
+          'pid' => 'new-aa495b28-e361-44b1-871d-74132433a821',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_topics',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'title',
+            'formatter' => 'taxonomy_term_reference_link',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 8,
+          'locks' => array(),
+          'uuid' => 'aa495b28-e361-44b1-871d-74132433a821',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-bb5618ef-915c-4faa-ba77-bbb198184e22'] = (object) array(
+          'pid' => 'new-bb5618ef-915c-4faa-ba77-bbb198184e22',
+          'panel' => 'two_66_33_first',
+          'type' => 'node_links',
+          'subtype' => 'node_links',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => FALSE,
+            'override_title_text' => '',
+            'build_mode' => 'page_manager',
+            'identifier' => '',
+            'link' => TRUE,
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(
+            'css_class' => 'link-wrapper',
+          ),
+          'extras' => array(),
+          'position' => 3,
+          'locks' => array(),
+          'uuid' => 'bb5618ef-915c-4faa-ba77-bbb198184e22',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-bcc18207-63ae-43c3-8bb4-77518e5bccd3'] = (object) array(
+          'pid' => 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:group_group',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'commons_groups_group_subscribe',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'field_name' => 0,
+            ),
+            'context' => 'panelizer',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 2,
+          'locks' => array(),
+          'uuid' => 'bcc18207-63ae-43c3-8bb4-77518e5bccd3',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-d10871fa-ea33-40f2-b568-dda6955d2571'] = (object) array(
+          'pid' => 'new-d10871fa-ea33-40f2-b568-dda6955d2571',
+          'panel' => 'two_66_33_second',
+          'type' => 'entity_field',
+          'subtype' => 'node:og_roles_permissions',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'list_default',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 3,
+          'locks' => array(),
+          'uuid' => 'd10871fa-ea33-40f2-b568-dda6955d2571',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->content['new-e627add5-b6cb-4c15-8ff7-40caca347d88'] = (object) array(
+          'pid' => 'new-e627add5-b6cb-4c15-8ff7-40caca347d88',
+          'panel' => 'two_66_33_first',
+          'type' => 'entity_field',
+          'subtype' => 'node:title_field',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'title_linked',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'title_style' => 'h1',
+              'title_link' => '',
+              'title_class' => '',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => 'e627add5-b6cb-4c15-8ff7-40caca347d88',
+        ); /* WAS: '' */
+    $data['node:group:default']->display->hide_title = 1; /* WAS: 0 */
+    $data['node:group:default']->display->panels['two_66_33_first'][0] = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a'; /* WAS: 'new-10f12c5b-679e-d294-b1bd-9aac845800f5' */
+    $data['node:group:default']->display->panels['two_66_33_first'][1] = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88'; /* WAS: 'new-80b62348-7cee-e304-5d65-0ce1b6bbb216' */
+    $data['node:group:default']->display->panels['two_66_33_first'][2] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_first'][3] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_first'][4] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_second'][0] = 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6'; /* WAS: 'new-13120946-03a1-bfc4-2d74-f39dd758ebce' */
+    $data['node:group:default']->display->panels['two_66_33_second'][1] = 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74'; /* WAS: 'new-a7009535-0e2a-2c94-edd2-4ecc953c4ca2' */
     $data['node:group:default']->display->panels['two_66_33_second'][10] = 'new-24f4b75a-80ea-447a-9f3b-a4e200746f48'; /* WAS: '' */
     $data['node:group:default']->display->panels['two_66_33_second'][11] = 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c'; /* WAS: '' */
-    $data['node:group:default']->display->panels['two_66_33_second'][2] = 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3'; /* WAS: 'new-d10871fa-ea33-40f2-b568-dda6955d2571' */
-    $data['node:group:default']->display->panels['two_66_33_second'][3] = 'new-d10871fa-ea33-40f2-b568-dda6955d2571'; /* WAS: 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a' */
-    $data['node:group:default']->display->panels['two_66_33_second'][4] = 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a'; /* WAS: 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7' */
-    $data['node:group:default']->display->panels['two_66_33_second'][5] = 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7'; /* WAS: 'new-40462470-5167-4125-9316-c8812de239f6' */
-    $data['node:group:default']->display->panels['two_66_33_second'][6] = 'new-40462470-5167-4125-9316-c8812de239f6'; /* WAS: 'new-0bb1221d-a648-4332-a630-67359e011329' */
-    $data['node:group:default']->display->panels['two_66_33_second'][7] = 'new-0bb1221d-a648-4332-a630-67359e011329'; /* WAS: 'new-aa495b28-e361-44b1-871d-74132433a821' */
+    $data['node:group:default']->display->panels['two_66_33_second'][2] = 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3'; /* WAS: 'new-ba735f2b-4734-7724-098d-1925c6a4bb47' */
+    $data['node:group:default']->display->panels['two_66_33_second'][3] = 'new-d10871fa-ea33-40f2-b568-dda6955d2571'; /* WAS: 'new-52796f83-93dd-2cf4-41aa-33520dc31e5f' */
+    $data['node:group:default']->display->panels['two_66_33_second'][4] = 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_second'][5] = 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_second'][6] = 'new-40462470-5167-4125-9316-c8812de239f6'; /* WAS: '' */
+    $data['node:group:default']->display->panels['two_66_33_second'][7] = 'new-0bb1221d-a648-4332-a630-67359e011329'; /* WAS: '' */
     $data['node:group:default']->display->panels['two_66_33_second'][8] = 'new-aa495b28-e361-44b1-871d-74132433a821'; /* WAS: '' */
     $data['node:group:default']->display->panels['two_66_33_second'][9] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0'; /* WAS: '' */
-    $data['node:group:default']->display->title_pane = 0; /* WAS: 'new-bb5618ef-915c-4faa-ba77-bbb198184e22' */
-    unset($data['node:group:default']->display->content['new-ea23f7be-8a92-476e-b3a3-d339142e56e3']);
-    unset($data['node:group:default']->display->panels['two_66_33_bottom']);
+    $data['node:group:default']->display->title = ''; /* WAS: '%node:title' */
+    $data['node:group:default']->display->uuid = 'c7b76f7e-3bdf-4853-9197-e495df4f36b9'; /* WAS: '819deb2a-c56c-2214-558d-c52460a89778' */
+    $data['node:group:default']->pipeline = 'standard'; /* WAS: 'ipe' */
+    $data['node:group:default']->title = 'Standard'; /* WAS: 'Default' */
+    unset($data['node:group:default']->display->content['new-10f12c5b-679e-d294-b1bd-9aac845800f5']);
+    unset($data['node:group:default']->display->content['new-13120946-03a1-bfc4-2d74-f39dd758ebce']);
+    unset($data['node:group:default']->display->content['new-52796f83-93dd-2cf4-41aa-33520dc31e5f']);
+    unset($data['node:group:default']->display->content['new-80b62348-7cee-e304-5d65-0ce1b6bbb216']);
+    unset($data['node:group:default']->display->content['new-a7009535-0e2a-2c94-edd2-4ecc953c4ca2']);
+    unset($data['node:group:default']->display->content['new-ba735f2b-4734-7724-098d-1925c6a4bb47']);
+    unset($data['node:group:default']->display->panel_settings['style_settings']['bottom']);
+    unset($data['node:group:default']->display->panel_settings['style_settings']['left']);
+    unset($data['node:group:default']->display->panel_settings['style_settings']['right']);
+    unset($data['node:group:default']->display->panel_settings['style_settings']['top']);
+  }
+  if (isset($data['node:group:default:teaser'])) {
+    $data['node:group:default:teaser']->display->content['new-196054ef-3346-4b6e-8e02-74b161d22ff5'] = (object) array(
+          'pid' => 'new-196054ef-3346-4b6e-8e02-74b161d22ff5',
+          'panel' => 'bottom',
+          'type' => 'entity_field',
+          'subtype' => 'node:field_topics',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'taxonomy_term_reference_link',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => '196054ef-3346-4b6e-8e02-74b161d22ff5',
+        ); /* WAS: '' */
+    $data['node:group:default:teaser']->display->content['new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b'] = (object) array(
+          'pid' => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
+          'panel' => 'right',
+          'type' => 'entity_field',
+          'subtype' => 'node:title_field',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'title_linked',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => FALSE,
+            'formatter_settings' => array(
+              'title_style' => 'h2',
+              'title_link' => 'content',
+              'title_class' => '',
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
+        ); /* WAS: '' */
+    $data['node:group:default:teaser']->display->content['new-5c57aa04-dee5-417a-bdb7-188f99645897'] = (object) array(
+          'pid' => 'new-5c57aa04-dee5-417a-bdb7-188f99645897',
+          'panel' => 'bottom',
+          'type' => 'entity_field',
+          'subtype' => 'node:og_group_ref',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'label' => 'hidden',
+            'formatter' => 'entityreference_label',
+            'delta_limit' => 0,
+            'delta_offset' => 0,
+            'delta_reversed' => 0,
+            'formatter_settings' => array(
+              'link' => 1,
+            ),
+            'context' => 'panelizer',
+            'override_title' => 0,
+            'override_title_text' => '',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '5c57aa04-dee5-417a-bdb7-188f99645897',
+        ); /* WAS: '' */
+    $data['node:group:default:teaser']->display->content['new-926a99b3-8e75-aa14-2542-16f2ab9e70b3']->configuration['formatter_settings']['image_style'] = 'teaser'; /* WAS: '50x50' */
+    $data['node:group:default:teaser']->display->content['new-926a99b3-8e75-aa14-2542-16f2ab9e70b3']->panel = 'left'; /* WAS: 'one_main' */
+    $data['node:group:default:teaser']->display->content['new-926a99b3-8e75-aa14-2542-16f2ab9e70b3']->position = 0; /* WAS: 3 */
+    $data['node:group:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->configuration['formatter_settings']['trim_length'] = 250; /* WAS: 600 */
+    $data['node:group:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->configuration['override_title'] = 1; /* WAS: 0 */
+    $data['node:group:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->configuration['override_title_text'] = ''; /* WAS: 'Por que no se ve?' */
+    $data['node:group:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->panel = 'right'; /* WAS: 'one_main' */
+    $data['node:group:default:teaser']->display->content['new-c22911c5-3c21-75b4-c5f3-80efb733956b']->position = 1; /* WAS: 4 */
+    $data['node:group:default:teaser']->display->hide_title = 1; /* WAS: 0 */
+    $data['node:group:default:teaser']->display->layout = 'twocol_stacked'; /* WAS: 'one' */
+    $data['node:group:default:teaser']->display->panel_settings['style_settings']['bottom'] = NULL; /* WAS: '' */
+    $data['node:group:default:teaser']->display->panel_settings['style_settings']['left'] = NULL; /* WAS: '' */
+    $data['node:group:default:teaser']->display->panel_settings['style_settings']['right'] = NULL; /* WAS: '' */
+    $data['node:group:default:teaser']->display->panel_settings['style_settings']['top'] = NULL; /* WAS: '' */
+    $data['node:group:default:teaser']->display->panels['bottom'] = array(
+      0 => 'new-5c57aa04-dee5-417a-bdb7-188f99645897',
+      1 => 'new-196054ef-3346-4b6e-8e02-74b161d22ff5',
+    ); /* WAS: '' */
+    $data['node:group:default:teaser']->display->panels['left'] = array(
+      0 => 'new-926a99b3-8e75-aa14-2542-16f2ab9e70b3',
+    ); /* WAS: '' */
+    $data['node:group:default:teaser']->display->panels['right'] = array(
+      0 => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
+      1 => 'new-c22911c5-3c21-75b4-c5f3-80efb733956b',
+    ); /* WAS: '' */
+    unset($data['node:group:default:teaser']->display->content['new-026f9d2d-fd0e-d794-1971-47eb628a7f6e']);
+    unset($data['node:group:default:teaser']->display->content['new-13859111-e3fa-5e54-a93c-57f09d719e38']);
+    unset($data['node:group:default:teaser']->display->content['new-6c3207ac-19f3-8184-11ba-e3aee789a9c8']);
+    unset($data['node:group:default:teaser']->display->content['new-cb706c02-36e8-a414-c9f5-c34bf15861ca']);
+    unset($data['node:group:default:teaser']->display->content['new-f7a3719c-d7be-f024-ed91-c8c0df943df4']);
+    unset($data['node:group:default:teaser']->display->panels['one_main']);
   }
 }
 
