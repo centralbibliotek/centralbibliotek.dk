@@ -123,6 +123,17 @@
     width: auto;
     padding: 0;
   }
+
+  // add some spacing to event-tabs when stacked
+  .page-events .ui-tabs ul li,
+  .page-node-events .ui-tabs ul li{
+    margin: 0 1em 1em 0;
+
+    &.ui-tabs-active{
+      margin: 0 1em 1em 0;
+    }
+  }
+
 }
 
 /*
@@ -156,6 +167,12 @@
 //    }
 //  }
 
+  // add some spacing to license-menu, when stacked
+  .pane-menu-menu-license-menu ul li{
+    margin: 0 1em 1em 0;
+  }
+
+  // prevent search-form from sliding under region-picker
   .main-header{
     min-height: 140px;
   }

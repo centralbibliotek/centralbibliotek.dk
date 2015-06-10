@@ -24,7 +24,6 @@
  * Smartphone sizes and down
  */
 @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000338}}
   body.toolbar {
     padding-top: 0 !important;
   }
@@ -40,37 +39,31 @@
    * "Float Region blocks" is an extension for floating blocks in regions, see
    * your themes appearance settings, under the Extensions tab.
    */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000354}}
   .region[class*="float-blocks"] .block {
     float: none;
     width: 100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000359}}
   .commons-bw-create-all-widget-types {
     left: auto;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000363}}
   .page-node-add #edit-additional-settings {
     width: 100%;
     position: static;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000368}}
   .page-node-add .field-type-taxonomy-term-reference-form {
     width: 100%;
     position: static;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000374}}
   #toolbar {
     position: static;
     margin: 0;
     padding: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000380}}
   #toolbar-user {
     position: absolute;
     height: 1px;
@@ -80,24 +73,20 @@
     clip: rect(1px, 1px, 1px, 1px);
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000389}}
   div#panels-ipe-control-container {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\0000394}}
   #quicktabs-container-commons_bw .quicktabs-tabpage .view-filters,
   #quicktabs-container-commons_bw .quicktabs-tabpage .attachment-before {
     float: none;
     display: block;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003104}}
   #quicktabs-commons_follow_ui .quicktabs-style-commons-tabs li {
     display: block;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003113}}
   .view-commons-follow-node .views-field-ops,
   .view-commons-follow-node .views-field-ops-1,
   .view-commons-follow-user .views-field-ops,
@@ -107,7 +96,6 @@
     width: 33.333%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003119}}
   .primary-fields,
   .supplementary-fields {
     display: block;
@@ -115,17 +103,28 @@
     width: auto;
     padding: 0;
   }
+
+  .page-events .ui-tabs ul li,
+  .page-node-events .ui-tabs ul li {
+    margin: 0 1em 1em 0;
+  }
+  .page-events .ui-tabs ul li.ui-tabs-active,
+  .page-node-events .ui-tabs ul li.ui-tabs-active {
+    margin: 0 1em 1em 0;
+  }
 }
 /*
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003159}}
+  .pane-menu-menu-license-menu ul li {
+    margin: 0 1em 1em 0;
+  }
+
   .main-header {
     min-height: 140px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003163}}
   #block-search-form {
     width: 100%;
     box-sizing: border-box;
@@ -138,25 +137,19 @@
  * Tablet sizes and up
  */
 @media only screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003177}}
   body.front.not-logged-in #content {
     background: url('../images/commons-drop.png') right top no-repeat;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003181}}
   body.front.not-logged-in .region-three-33-top {
     margin-bottom: 24px;
     min-height: 300px;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003187}}
   body.front.not-logged-in #block-system-main .pane-1 {
     float: left;
     width: 56%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.custom\.scss}line{font-family:\00003191}}
   body.front.not-logged-in #block-system-main .pane-2 {
     float: right;
     width: 40%;
   }
 }
-
-/*# sourceMappingURL=responsive.custom.css.map */
