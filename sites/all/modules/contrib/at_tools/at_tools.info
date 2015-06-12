@@ -1,0 +1,10 @@
+name = AT Tools
+description = Helper functions for Adaptivetheme.
+core = 7.x
+
+; Information added by Drupal.org packaging script on 2013-12-05
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "at_tools"
+datestamp = "1386284005"
+
