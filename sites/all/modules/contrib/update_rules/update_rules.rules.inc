@@ -38,6 +38,12 @@ function update_rules_rules_event_info() {
         'label' => t('Release link for recommended release'),
         'description' => t('Example: https://www.drupal.org/node/1960424'),
       ),
+      'release_type' => array(
+        'type'  => 'list<text>',
+        'label' => t('Release type terms for recommended release'),
+        'description' => t('Example: "Security update", "Bug fixes"'),
+        'options list' => 'update_rules_release_types',
+      ),
       'status' => array(
         'type'  => 'integer',
         'label' => t('Status of the project'),

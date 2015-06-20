@@ -351,6 +351,13 @@ function cbib_features_update_7127(&$sandbox) {
 }
 
 /**
+ * Revert Reload Jira Update feature.
+ */
+function cbib_features_update_7128(&$sandbox) {
+  features_revert(array('reload_jira_update' => array('rules_config')));
+}
+
+/**
  * Add extra indexes to tables.
  */
 function _cbib_features_add_new_indexes() {

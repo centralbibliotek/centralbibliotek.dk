@@ -25,3 +25,4 @@ The dependencies are (including indirect dependencies):
  * `rules`
  * `strongarm`
  * `update_rules`
+   * Including [patch](https://www.drupal.org/files/issues/update_rules-release_link_for_recommended_release-2477835-4.patch) from [#2477835](https://www.drupal.org/node/2477835).

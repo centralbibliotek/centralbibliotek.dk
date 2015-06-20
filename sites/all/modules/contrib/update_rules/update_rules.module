@@ -34,6 +34,17 @@ function update_rules_already_processed_group_ids() {
 }
 
 /**
+ * Returns an array of options for the release type terms.
+ */
+function update_rules_release_types() {
+  return array(
+    'Security update' => t('Security update'),
+    'Bug fixes' => t('Bug fixes'),
+    'New features' => t('New features'),
+  );
+}
+
+/**
  * Implements hook_update_status_alter().
  *
  * The system has determined which updates are needed.
@@ -66,6 +77,7 @@ function update_rules_update_status_alter(&$projects) {
         'status'              => $project['status'],
         'host'                => $host,
         'release_link'        => (isset($project['recommended'])) ? $project['releases'][$project['recommended']]['release_link'] : '',
+        'release_type'        => (isset($project['recommended'])) ? $project['releases'][$project['recommended']]['terms']['Release type'] : array(),
       );
 
       // This is our project_release value for this project + release combination
