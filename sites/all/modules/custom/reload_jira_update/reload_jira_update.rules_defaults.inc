@@ -13,9 +13,10 @@ function reload_jira_update_default_rules_configuration() {
       "LABEL" : "Create Jira issue for important project updates",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "update_rules", "jira_rest_rules" ],
+      "REQUIRES" : [ "jira_rest_rules", "rules", "update_rules" ],
       "ON" : { "update_rules_after_checking_exclude_current" : [] },
       "IF" : [
+        { "jira_rest_rules_credentials_exists" : [] },
         { "data_is" : {
             "data" : [ "status" ],
             "op" : "IN",
