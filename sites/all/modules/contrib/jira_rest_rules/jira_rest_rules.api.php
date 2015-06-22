@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * API documentation for the Jira REST Rules module.
+ */
+
+/**
  * Manipulate issue data before submission to Jira.
  *
  * Building a Jira issue data structure in rules action forms can be complex if
@@ -11,7 +16,7 @@
  *
  * The example below Adds project status, project name, and site-name as labels.
  *
- * @param array $issuedata;
+ * @param array $issuedata
  *   Issue data as already prefilled by the rules action.
  * @param array $settings
  *   Settings as provided to the rules action.

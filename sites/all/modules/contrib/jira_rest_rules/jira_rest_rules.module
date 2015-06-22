@@ -54,3 +54,13 @@ function jira_rest_rules_create_issue(array $settings) {
     'jira_issue_self' => NULL,
   );
 }
+
+/**
+ * Jira REST Credentials exists.
+ *
+ * @return bool
+ *   Return TRUE if username and password have been set.
+ */
+function jira_rest_rules_credentials_exists() {
+  return ((variable_get('jira_rest_username') != FALSE) && (variable_get('jira_rest_password') != FALSE));
+}

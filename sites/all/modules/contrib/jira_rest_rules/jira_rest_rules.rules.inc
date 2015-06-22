@@ -56,3 +56,15 @@ function jira_rest_rules_rules_action_info() {
 
   return $items;
 }
+
+/**
+ * Implements hook_rules_condition_info().
+ */
+function jira_rest_rules_rules_condition_info() {
+  $conditions['jira_rest_rules_credentials_exists'] = array(
+    'label' => t('Jira REST credentials exists'),
+    'group' => t('Jira REST Rules'),
+  );
+
+  return $conditions;
+}
