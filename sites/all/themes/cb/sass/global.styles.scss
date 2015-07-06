@@ -582,6 +582,7 @@ optgroup {
     border: 0;
     padding: 0;
   }
+
 }
 
 /* Simulate a chosen select form value as inline text. */
@@ -2910,6 +2911,26 @@ body.page-node .pane-views-panes {
 }
 
 
+
+// Styling for panel displaying a single license node.
+// -> Custom layout "Centralbibliotek CB - AT Three column 25, 42, 33".
+// Since there is some error we haven't located yet precisely, but which results in the width
+// for this panel does not get set correctly, we make a quick fix through CSS to set the correct width.
+// Once the issue fixed, this CSS-code should be removed and the width again set automatically through
+// panels. JIRA-issue about this created 6/7/15.
+
+body.node-type-license .cb3 {
+
+  .region-cb3-first{
+    width: 20%;
+  }
+  .region-cb3-second{
+    width: 46.666666%;
+  }
+  .region-cb3-third{
+    width: 33.333333%;
+  }
+}
 
 /* =============================================================================
  *   Views Styling
