@@ -252,6 +252,12 @@ function file_field_insert($entity_type, $entity, $field, $instance, $langcode, 
  * Checks for files that have been removed from the object.
  */
 function file_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  // Check whether the field is defined on the object.
+  if (!isset($entity->{$field['field_name']})) {
+    // We cannot check for removed files if the field is not defined.
+    return;
+  }
+
   list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
 
   // On new revisions, all files are considered to be a new usage and no
@@ -1000,30 +1006,6 @@ function file_field_formatter_view($entity_type, $entity, $field, $instance, $la
   }
 
   return $element;
-}
-
-/**
- * Determine whether a field references files stored in {file_managed}.
- *
- * @param array $field
- *   A field array.
- *
- * @return
- *   The field column if the field references {file_managed}.fid, typically
- *   fid, FALSE if it doesn't.
- */
-
-function file_field_find_file_reference_column($field) {
-  foreach ($field['foreign keys'] as $data) {
-    if ($data['table'] == 'file_managed') {
-      foreach ($data['columns'] as $field_column => $column) {
-        if ($column == 'fid') {
-          return $field_column;
-        }
-      }
-    }
-  }
-  return FALSE;
 }
 
 /**
