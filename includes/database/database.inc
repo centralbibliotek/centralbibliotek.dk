@@ -1906,6 +1906,7 @@ class DatabaseTransaction {
     // If we rolled back then the transaction would have already been popped.
     if (!$this->rolledBack) {
       $this->connection->popTransaction($this->name);
+      DrupalCache::commit($this->connection->transactionDepth());
     }
   }
 
@@ -1931,6 +1932,7 @@ class DatabaseTransaction {
   public function rollback() {
     $this->rolledBack = TRUE;
     $this->connection->rollback($this->name);
+    DrupalCache::rollback($this->connection->transactionDepth());
   }
 }
 
