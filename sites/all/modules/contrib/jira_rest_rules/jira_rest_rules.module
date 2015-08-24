@@ -15,10 +15,12 @@
  *   New variables provided by the action.
  */
 function jira_rest_rules_create_issue(array $settings) {
-  $username = variable_get('jira_rest_username', FALSE);
-  $password = variable_get('jira_rest_password', FALSE);
+  $options = array(
+    'username' => variable_get('jira_rest_username', FALSE),
+    'password' => variable_get('jira_rest_password', FALSE),
+  );
 
-  if ($username && $password) {
+  if ($options['username'] && $options['password']) {
     $issuedata = array(
       'fields' => array(
         'project' => array('key' => $settings['project']),
@@ -33,7 +35,7 @@ function jira_rest_rules_create_issue(array $settings) {
     drupal_alter('jira_rest_rules_issuedata', $issuedata, $settings, $operation);
 
     try {
-      $issue = jira_rest_createissue($username, $password, $issuedata);
+      $issue = jira_rest_issue_create($issuedata, $options);
 
       return array(
         'jira_instanceurl' => variable_get('jira_rest_jirainstanceurl'),

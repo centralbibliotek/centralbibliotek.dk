@@ -1,12 +1,12 @@
 name = Jira REST Rules
 description = Jira REST Rules integration.
 core = 7.x
-dependencies[] = jira_rest
+dependencies[] = jira_rest (>=7.x-6.0)
 dependencies[] = rules
 
-; Information added by Drupal.org packaging script on 2015-06-22
-version = "7.x-1.1"
+; Information added by Drupal.org packaging script on 2015-06-26
+version = "7.x-1.2"
 core = "7.x"
 project = "jira_rest_rules"
-datestamp = "1434952081"
+datestamp = "1435348981"
 
