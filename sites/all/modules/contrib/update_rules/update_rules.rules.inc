@@ -110,13 +110,6 @@ function update_rules_rules_action_info() {
         'optional'      => FALSE,
         'default value' => '[recommended-release:value]',
       ),
-      'release_link' => array(
-        'type'          => 'text',
-        'label'         => t('Release link for recommended release'),
-        'description'   => t('Example: https://www.drupal.org/node/1960424'),
-        'optional'      => FALSE,
-        'default value' => '[release-link:value]',
-      ),
     ),
   );
 

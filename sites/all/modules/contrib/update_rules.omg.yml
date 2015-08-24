@@ -1,5 +1,0 @@
-patches:
-  -
-    patch: 'https://www.drupal.org/files/issues/update_rules-release_link_for_recommended_release-2477835-6.patch'
-    home: 'https://www.drupal.org/node/2477835'
-    reason: 'Release link and type for recommended release'

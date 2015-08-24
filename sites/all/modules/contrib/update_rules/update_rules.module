@@ -48,7 +48,6 @@ function update_rules_release_types() {
  * Implements hook_update_status_alter().
  *
  * The system has determined which updates are needed.
- * Send an email to ActiveCollab to create a task for each security update.
  */
 function update_rules_update_status_alter(&$projects) {
   // Load the releases
@@ -77,7 +76,7 @@ function update_rules_update_status_alter(&$projects) {
         'status'              => $project['status'],
         'host'                => $host,
         'release_link'        => (isset($project['recommended']) && isset($project['releases'][$project['recommended']]['release_link'])) ? $project['releases'][$project['recommended']]['release_link'] : '',
-        'release_type'        => (isset($project['recommended'])) && isset($project['releases'][$project['recommended']]['terms']['Release type']) ? $project['releases'][$project['recommended']]['terms']['Release type'] : array(),
+        'release_type'        => (isset($project['recommended']) && isset($project['releases'][$project['recommended']]['terms']['Release type'])) ? $project['releases'][$project['recommended']]['terms']['Release type'] : array(),
       );
 
       // This is our project_release value for this project + release combination
