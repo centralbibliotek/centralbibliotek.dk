@@ -4,6 +4,7 @@ core = 7.x
 package = Reload
 dependencies[] = ctools
 dependencies[] = entity
+dependencies[] = features
 dependencies[] = jira_rest_rules
 dependencies[] = rules
 dependencies[] = strongarm

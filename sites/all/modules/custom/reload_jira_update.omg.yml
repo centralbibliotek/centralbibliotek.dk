@@ -1,0 +1,4 @@
+project:
+  type: git
+  origin: 'https://github.com/reload/reload_jira_update.git'
+  revision: 7d22c36fe5d2b3c0237d8df0037ace106a6c761c
