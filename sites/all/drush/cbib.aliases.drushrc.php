@@ -14,6 +14,9 @@ $aliases['prod'] = array(
   'remote-user' => 'reload',
   'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts -o LogLevel=Error',
   'dump-dir' => '/home/reload/backups',
+  'path-aliases' => array(
+    '%drush-script' => '/home/reload/bin/drush',
+  ),
   'deployotron' => array(
     'branch' => 'develop',
     'dump-dir' => '/home/reload/backups',
