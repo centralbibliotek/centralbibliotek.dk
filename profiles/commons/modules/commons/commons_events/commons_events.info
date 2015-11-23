@@ -74,7 +74,6 @@ features[og_features_permission][] = node:group:update any event content
 features[og_features_permission][] = node:group:update own event content
 features[page_manager_pages][] = views_events_landing_page
 features[registration_type][] = event
-features[taxonomy][] = event_types
 features[user_permission][] = create event content
 features[user_permission][] = create event registration
 features[user_permission][] = delete own event content
@@ -101,18 +100,17 @@ features[views_view][] = commons_events_event_attendee_list
 features[views_view][] = commons_events_organizers
 features[views_view][] = commons_events_upcoming
 features[views_view][] = commons_events_user_upcoming_events
+
+; Manually remove the Commons Follow module as a dependency until
+; https://www.drupal.org/node/766264 is fixed. Commons Follow dynamically adds a
+; views pane for events the user follows which causes Commons Events to appear
+; overridden.
 features_exclude[dependencies][commons_follow] = commons_follow
 features_exclude[dependencies][commons_trusted_contacts] = commons_trusted_contacts
-features_exclude[dependencies][commons_bw] = commons_bw
-features_exclude[dependencies][commons_groups] = commons_groups
-features_exclude[dependencies][cbib_news] = cbib_news
-features_exclude[dependencies][commons_documents] = commons_documents
-features_exclude[field_base][field_address] = field_address
-features_exclude[field_base][field_target_comments] = field_target_comments
-features_exclude[field_base][field_target_nodes] = field_target_nodes
-features_exclude[field_base][og_user_group_ref] = og_user_group_ref
-features_exclude[field_base][field_message_rendered_subject] = field_message_rendered_subject
-features_exclude[field_base][field_image] = field_image
-features_exclude[field_instance][node-event-og_user_group_ref] = node-event-og_user_group_ref
-features_exclude[field_instance][node-event-title_field] = node-event-title_field
-features_exclude[field_instance][node-event-og_user_node] = node-event-og_user_node
+
+; Information added by Drupal.org packaging script on 2014-08-08
+version = "7.x-3.17"
+core = "7.x"
+project = "commons"
+datestamp = "1407503928"
+

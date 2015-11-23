@@ -120,3 +120,10 @@ dependencies[] = commons_wysiwyg
 
 ; System Requirements.
 php_memory_limit = 128M
+
+; Information added by Drupal.org packaging script on 2014-08-08
+version = "7.x-3.17"
+core = "7.x"
+project = "commons"
+datestamp = "1407503928"
+

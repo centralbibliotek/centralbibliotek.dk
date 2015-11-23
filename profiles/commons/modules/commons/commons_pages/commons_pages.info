@@ -11,7 +11,6 @@ dependencies[] = strongarm
 dependencies[] = text
 
 features[ctools][] = strongarm:strongarm:1
-features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[field_instance][] = node-page-body
 features[node][] = page
@@ -22,8 +21,6 @@ features[variable][] = comment_form_location_page
 features[variable][] = comment_page
 features[variable][] = comment_preview_page
 features[variable][] = comment_subject_field_page
-features[variable][] = field_bundle_settings_node__page
-features[variable][] = language_content_type_page
 features[variable][] = menu_options_page
 features[variable][] = menu_parent_page
 features[variable][] = node_options_page
