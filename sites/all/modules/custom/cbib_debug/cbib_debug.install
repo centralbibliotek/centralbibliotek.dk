@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_debug module.
+ */
+
+/**
+ * Reintroduce field group_content_access (was accidentally lost in action).
+ */
+function cbib_debug_update_7101(&$sandbox) {
+  $base = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'group_content_access',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => '0',
+    'module' => 'list',
+    'no_ui' => TRUE,
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Use group defaults',
+        1 => 'Public - accessible to all site users',
+        2 => 'Private - accessible only to group members',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => '0',
+    'type' => 'list_integer',
+  );
+  field_create_field($base);
+
+  $commons_groups_entity_types = commons_groups_get_group_content_entity_types();
+  if (!empty($commons_groups_entity_types)) {
+    foreach ($commons_groups_entity_types as $entity_type => $bundles) {
+      foreach (array_keys($bundles) as $bundle) {
+        $instance = array(
+          'bundle' => $bundle,
+          'default_value' => array(
+            0 => array(
+              'value' => 0,
+            ),
+          ),
+          'deleted' => '0',
+          'description' => '',
+          'display' => array(
+            'default' => array(
+              'label' => 'hidden',
+              'settings' => array(),
+              'type' => 'hidden',
+              'weight' => 5,
+            ),
+            'teaser' => array(
+              'label' => 'hidden',
+              'settings' => array(),
+              'type' => 'hidden',
+              'weight' => 0,
+            ),
+          ),
+          'entity_type' => $entity_type,
+          'field_name' => 'group_content_access',
+          'label' => 'Group content visibility',
+          'required' => TRUE,
+          'settings' => array(
+            'user_register_form' => FALSE,
+          ),
+          'view modes' => array(
+            'full' => array(
+              'label' => 'above',
+              'type' => 'list_default',
+            ),
+            'teaser' => array(
+              'label' => 'above',
+              'type' => 'list_default',
+            ),
+          ),
+          'widget' => array(
+            'module' => 'options',
+            'settings' => array(),
+            'type' => 'options_select',
+            'weight' => 16,
+          ),
+          'widget_type' => 'options_select',
+        );
+
+        field_create_instance($instance);
+      }
+    }
+  }
+}
