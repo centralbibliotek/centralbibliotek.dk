@@ -243,7 +243,7 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '7';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -254,6 +254,7 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
   $handler->display->display_options['pager']['options']['tags']['next'] = '›';
   $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Vis flere';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
@@ -323,7 +324,7 @@ function cbib_license_pages_views_default_views() {
     t('‹'),
     t('›'),
     t('»'),
-    t('Load more'),
+    t('Vis flere'),
     t('Indhold refererer til Indhold fra field_library_ref'),
     t('Alle'),
     t('View panes'),
@@ -390,7 +391,7 @@ function cbib_license_pages_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'document' => 'document',
   );
-  /* Filterkriterie: Indhold: Licens: Formidling og PR (field_formidling_og_pr) */
+  /* Filterkriterie: Handler mangler eller er i stykker */
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['id'] = 'field_formidling_og_pr_value';
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['table'] = 'field_data_field_formidling_og_pr';
   $handler->display->display_options['filters']['field_formidling_og_pr_value']['field'] = 'field_formidling_og_pr_value';
