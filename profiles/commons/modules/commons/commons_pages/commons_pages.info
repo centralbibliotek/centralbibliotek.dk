@@ -1,30 +1,19 @@
 name = Commons Pages
 description = Provides a Page content type for creating static content.
-core = 7.x
 package = Commons - Content types
-version = 7.x-3.17
-project = commons_pages
+core = 7.x
+
 dependencies[] = commons_body
 dependencies[] = ctools
 dependencies[] = features
-dependencies[] = file
-dependencies[] = file_entity
-dependencies[] = image
-dependencies[] = link
-dependencies[] = media
 dependencies[] = node
-dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = text
-dependencies[] = views
-datestamp = 1407503928
+
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[field_instance][] = node-page-body
-features[field_instance][] = node-page-field_document_file
-features[field_instance][] = node-page-field_image
-features[field_instance][] = node-page-field_link
 features[node][] = page
 features[variable][] = comment_anonymous_page
 features[variable][] = comment_default_mode_page
@@ -41,8 +30,10 @@ features[variable][] = node_options_page
 features[variable][] = node_preview_page
 features[variable][] = node_submitted_page
 features[variable][] = pathauto_node_page_pattern
-features_exclude[dependencies][commons_bw] = commons_bw
-features_exclude[dependencies][cbib_news] = cbib_news
-features_exclude[dependencies][commons_documents] = commons_documents
-features_exclude[dependencies][og_ui] = og_ui
-features_exclude[field_instance][node-page-og_group_ref] = node-page-og_group_ref
+
+; Information added by Drupal.org packaging script on 2014-08-08
+version = "7.x-3.17"
+core = "7.x"
+project = "commons"
+datestamp = "1407503928"
+
