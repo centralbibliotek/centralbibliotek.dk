@@ -18,7 +18,7 @@ $aliases['prod'] = array(
     '%drush-script' => '/home/reload/bin/drush',
   ),
   'deployotron' => array(
-    'branch' => 'develop',
+    'branch' => 'master',
     'dump-dir' => '/home/reload/backups',
     'num-dumps' => 3,
     'restart-apache2' => TRUE,
