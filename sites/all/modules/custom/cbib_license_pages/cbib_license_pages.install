@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_license_pages module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function cbib_license_pages_enable() {
+  module_load_include('inc', 'cbib_license_pages', 'cbib_license_pages.licensegroup');
+  cbib_license_pages_create_licensgroup();
+}
+
+/**
+ * Revert license pages features.
+ */
+function cbib_license_pages_update_7101(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'page_manager_pages',
+        'page_manager_handlers',
+        'menu_links',
+      ),
+      'cbib_license' => array(
+        'panelizer_defaults',
+      ),
+    ));
+}
+
+/**
+ * Revert license pages features.
+ */
+function cbib_license_pages_update_7102(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'pages_default',
+        'views_default',
+      ),
+    ));
+}
+
+/**
+ * Revert license pages features.
+ */
+function cbib_license_pages_update_7103(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'pages_default',
+        'views_default',
+        'menu_links',
+      ),
+    ));
+}
+
+/**
+ * Revert license pages menu component.
+ */
+function cbib_license_pages_update_7104(&$sandbox) {
+  features_revert(array(
+      'cbib_license_pages' => array(
+        'menu_links',
+      ),
+    ));
+}

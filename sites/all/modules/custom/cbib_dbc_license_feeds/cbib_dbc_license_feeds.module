@@ -1,0 +1,100 @@
+<?php
+/**
+ * @file
+ * Code for the Cbib DBC license feeds.
+ */
+
+include_once 'cbib_dbc_license_feeds.features.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ *
+ * The feed to DBC contained some weird TRUE/FALSE values. We maintain backward
+ * compatibility by implementing them here as a field formatter.
+ *
+ * @see cbib_dbc_license_feeds_field_formatter_view()
+ */
+function cbib_dbc_license_feeds_field_formatter_info() {
+  return array(
+    'cbib_dbc_license_feeds_format' => array(
+      'label' => t('DBC License Feed Format'),
+      'field types' => array('list_boolean'),
+    ),
+    'cbib_dbc_license_feeds_library_number_format' => array(
+      'label' => t('DBC License Feed Library Number Format'),
+      'field types' => array('text'),
+    ),
+    'cbib_dbc_license_feeds_start_date'  => array(
+      'label' => t('DBC License Feed Start Date Format'),
+      'field types' => array('datetime'),
+    ),
+    'cbib_dbc_license_feeds_end_date'  => array(
+      'label' => t('DBC License Feed End Date Format'),
+      'field types' => array('datetime'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * The feed to DBC contained some weird TRUE/FALSE values. We maintain backward
+ * compatibility by implementing them here as a field formatter.
+ *
+ * @see cbib_dbc_license_feeds_field_formatter_info()
+ */
+function cbib_dbc_license_feeds_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  // The true values for the boolean fields. The false values are always 'no'.
+  $truth_values = array(
+    'field_license_access_ip' => 'Mulighed for IP adgang',
+    'field_license_access_password' => 'Mulighed for password adgang',
+    'field_license_access_remote_user' => 'Mulighed for fjernbrugeradgang',
+    'field_license_access_print_user' => 'Mulighed for print til brugere',
+    'field_license_access_print_lib' => 'Mulighed for print til andre biblioteker',
+    'field_license_access_copy_user' => 'Mulighed for eletronisk kopi til brugere',
+    'field_license_access_copy_lib' => 'Mulighed for eletronisk kopi til andre biblioteker',
+    'field_license_metadata' => 'Metadata?',
+  );
+
+  $element = array();
+
+  switch ($display['type']) {
+    case 'cbib_dbc_license_feeds_format':
+      foreach ($items as $delta => $item) {
+        if ($item['value']) {
+          $element[$delta] = array('#markup' => $truth_values[$field['field_name']]);
+        }
+        else {
+          $element[$delta] = array('#markup' => 'no');
+        }
+      }
+      break;
+
+    case 'cbib_dbc_license_feeds_library_number_format':
+      // We need to strip the 'DK-' part of the library number.
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array('#markup' => preg_replace('/^DK-/', '', $item['safe_value']));
+      }
+      break;
+
+    case 'cbib_dbc_license_feeds_start_date':
+      // Start and end dates must be formatted as (1 Maj 2015).
+      foreach ($items as $delta => $item) {
+        $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
+        setlocale(LC_TIME, 'da_DK');
+        $element[$delta] = array('#markup' => ucwords(strftime('%e %b %Y', $date->format('U'))));
+      }
+      break;
+
+    case 'cbib_dbc_license_feeds_end_date':
+      // Start and end dates must be formatted as (1 Maj 2015).
+      foreach ($items as $delta => $item) {
+        $date = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
+        setlocale(LC_TIME, 'da_DK');
+        $element[$delta] = array('#markup' => ucwords(strftime('%e %b %Y', $date->format('U'))));
+      }
+      break;
+  }
+
+  return $element;
+}

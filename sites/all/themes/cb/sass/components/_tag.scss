@@ -1,0 +1,99 @@
+%tag {
+  @extend %date;
+  background: $gray-light;
+  color: $gray-dark;
+}
+
+%tag-blue {
+  @extend %date;
+  background: $brand-blue;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background: $brand-blue-light;
+    text-decoration: none;
+  }
+}
+
+
+// override display: block;
+.page-events .field-name-field-event-type,
+.page-events .field-name-field-topics {
+  .field-items a{
+    display: inline;
+  }
+}
+
+.field-name-field-topics .field-items,
+.field-type-taxonomy-term-reference .field-items,
+.field-name-og-user-node .field-items,
+.pane-node-og-group-ref .field-items,
+.field-name-field-event-type .field-items {
+    list-style: none;
+    padding: 0px;
+
+    .field-item {
+      @extend %tag;
+      text-transform: capitalize;
+      margin: 0px 10px 10px 0px;
+      position: relative;
+      @include transition-property(background);
+      @include transition-duration(200ms);
+      @include transition-timing-function(ease-in);
+
+      a {
+        display: inline-block;  
+        padding: 1px 10px 1px 15px;
+        color: $gray-dark;
+        font-family: $sans-serif-arial-helvetica;
+        @include transition-property(color);
+        @include transition-duration(200ms);
+        @include transition-timing-function(ease-in);
+      }
+
+      &:before {
+        content: "";
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-image: none;
+        background: $brand-green;
+      }
+
+      &:hover {
+        background: $brand-green-light;
+        color: $white !important;
+
+        a {
+          color: $white;
+          text-decoration: none;
+          box-shadow: none;
+          //padding-bottom: 1px;
+        }
+      }
+
+      &:hover:before{
+        background: $brand-green-light;
+      }
+    }
+  }
+
+  html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item,
+  html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item{
+//    display: inline-block;
+    &:before{
+      background: $brand-blue;
+    }
+
+    &:hover {
+      background: $brand-blue-light;
+    }
+
+
+    &:hover:before{
+      background: $brand-blue-light ;
+    }
+  }

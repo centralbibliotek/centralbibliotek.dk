@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/947516-rate-node-links-15.patch'
+    home: 'https://www.drupal.org/node/947516#comment-6979780'
+    resaon: 'Add widget to node/comment $links.'
+  -
+    patch: 'https://www.drupal.org/files/issues/attach-rate-css-2180853-3.patch'
+    home: 'https://www.drupal.org/node/2180853'
+    resaon: 'Only load CSS when necessary.'

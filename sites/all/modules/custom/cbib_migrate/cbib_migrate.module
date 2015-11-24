@@ -49,6 +49,63 @@ function cbib_migrate_deregister_migrations() {
 }
 
 /**
+ * Implements hook_feeds_plugins().
+ */
+function cbib_migrate_feeds_plugins() {
+  $path = drupal_get_path('module', 'cbib_migrate') . '/plugins';
+  $info = array();
+  $info['FeedsCbibAPIFetcher'] = array(
+    'name' => 'API Fetcher for centralbibliotekerne',
+    'description' => 'Download content from a URL.',
+    'handler' => array(
+      'parent' => 'FeedsFetcher', // This is the key name, not the class name.
+      'class' => 'FeedsCbibAPIFetcher',
+      'file' => 'FeedsCbibAPIFetcher.inc',
+      'path' => $path,
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_feeds_after_save().
+ *
+ * After saving a library node, we must update the users reference to the
+ * library.
+ */
+function cbib_migrate_feeds_after_save($source, $entity, $item, $entity_id) {
+  if (!empty($entity->type) && $entity->type == 'library') {
+    if (!empty($item['isil'])) {
+      $uids = cbib_migrate_lookup_users_by_isil($item['isil']);
+      if ($uids) {
+        foreach ($uids as $uid) {
+          $user = user_load($uid, TRUE);
+          $wrapper = entity_metadata_wrapper('user', $user);
+          $wrapper->field_library->set($entity->nid);
+
+          // Add a reference to the users central library if we can deduce one
+          // from their library.
+          try {
+            $central_library_id = $wrapper->field_library->field_centralbibliotek_ref->getIdentifier();
+            $wrapper->field_centralbibliotek_ref->set($central_library_id);
+          }
+          catch (\Exception $e) {
+            // Intentionally blank. Just ignore missing central library
+            // references.
+          }
+
+          $wrapper->save();
+
+          // We only need to set the library reference once (first time after
+          // migration). Mark the uid/isil relation as used.
+          cbib_migrate_register_user_library_mapping($user->uid, $item['isil'], 1);
+        }
+      }
+    }
+  }
+}
+
+/**
  * Get an array of all migrations. The returned migrations array
  * has the following keys:
  *   class: The name of the migration class.
@@ -71,14 +128,14 @@ function cbib_migrate_get_all_migrations() {
     // Get migrations for central libraries (Centralbibliotek/library -> Centralbibliotek/centralbibliotek).
     cbib_migrate_get_central_library_migrations(),
 
-    // Get migrations for user profiles.
-    cbib_migrate_get_profile_migrations(),
-
     // Get migrations for groups (Gruppe/group -> Gruppe/group).
     cbib_migrate_get_group_migrations(),
 
     // Get migrations for events (Arrangement/event -> Begivenhed/event).
     cbib_migrate_get_event_migrations(),
+
+    // Get migrations for group events (Gruppebegivenhed/group_event -> Begivenhed/event).
+    cbib_migrate_get_group_event_migrations(),
 
     // Get migrations for documents (Gruppefil/group_file -> Dokument/document).
     cbib_migrate_get_document_migrations(),
@@ -117,7 +174,7 @@ function cbib_migrate_get_user_migrations() {
     'machine_name' => 'role',
     'class' => 'DrupalRole6Migration',
     'arguments' => array(
-      'group' => 'user',
+      'group' => 'cbib',
       'description' => t('Migration of roles from Centralbibliotek.dk'),
       'role_mappings' => array(
         'Biblioteksadmin' => 'content moderator',
@@ -126,12 +183,13 @@ function cbib_migrate_get_user_migrations() {
   );
 
   $migrations[] = array(
-    'machine_name' => 'user',
-    'class' => 'DrupalUser6Migration',
+    'machine_name' => 'user_profile',
+    'class' => 'CbibUserProfileMigration',
     'arguments' => array(
-      'group' => 'user',
-      'description' => t('Migration of basic user information from Centralbibliotek.dk'),
+      'group' => 'cbib',
+      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
       'role_migration' => 'role',
+      'dependencies' => array('file'),
     ),
   );
 
@@ -150,13 +208,11 @@ function cbib_migrate_get_file_migrations() {
     'machine_name' => 'file',
     'class' => 'DrupalFile6Migration',
     'arguments' => array(
-      'group' => 'file',
+      'group' => 'cbib',
       'description' => t('Migration of files from Centralbibliotek.dk'),
-      'user_migration' => 'user',
       'default_uid' => 1,
       'source_dir' => DRUPAL_ROOT . "/sites/default/old/files",
       'destination_dir' => 'public://legacy',
-      'dependencies' => array('user'),
     ),
   );
 
@@ -184,18 +240,15 @@ function cbib_migrate_get_image_migrations() {
 function cbib_migrate_get_central_library_migrations() {
   $migrations = array();
 
-  $central_library_migration = array(
-  );
-
   $migrations[] = array(
     'machine_name' => 'central_library',
     'class' => 'CbibCentralLibraryMigration',
     'arguments' => array(
-      'group' => 'central_library',
+      'group' => 'cbib',
       'description' => t('Migration of central library nodes from Centralbibliotek.dk'),
       'source_type' => 'library',
       'destination_type' => 'centralbibliotek',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile'),
     ),
   );
@@ -204,21 +257,47 @@ function cbib_migrate_get_central_library_migrations() {
 }
 
 /**
- * Get migrations for profiles.
+ * Get migrations for libraries (Bibliotek/library_regular -> Bibliotek/library).
  *
  * @see cbib_migrate_get_user_migrations().
  */
-function cbib_migrate_get_profile_migrations() {
+function cbib_migrate_get_library_migrations() {
   $migrations = array();
 
   $migrations[] = array(
-    'machine_name' => 'user_profile',
-    'class' => 'CbibUserProfileMigration',
+    'machine_name' => 'library',
+    'class' => 'CbibLibraryMigration',
     'arguments' => array(
-      'group' => 'user',
-      'description' => t('Migration of user profiles from Centralbibliotek.dk'),
-      'role_migration' => 'role',
-      'dependencies' => array('file'),
+      'group' => 'cbib',
+      'description' => t('Migration of library nodes from Centralbibliotek.dk'),
+      'source_type' => 'library_regular',
+      'destination_type' => 'library',
+      'user_migration' => 'user_profile',
+      'dependencies' => array('central_library'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for licenses (Licensguide Produkt/licenceguide_product -> Licens/license).
+ *
+ * @see cbib_migrate_get_user_migrations().
+ */
+function cbib_migrate_get_license_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'license',
+    'class' => 'CbibLicenseMigration',
+    'arguments' => array(
+      'group' => 'cbib',
+      'description' => t('Migration of license nodes from Centralbibliotek.dk'),
+      'source_type' => 'licenceguide_product',
+      'destination_type' => 'license',
+      'user_migration' => 'user_profile',
+      'dependencies' => array(),
     ),
   );
 
@@ -237,11 +316,11 @@ function cbib_migrate_get_group_migrations() {
     'machine_name' => 'group',
     'class' => 'CbibGroupMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of groups from Centralbibliotek.dk'),
       'source_type' => 'group',
       'destination_type' => 'group',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'central_library'),
     ),
   );
@@ -261,11 +340,35 @@ function cbib_migrate_get_event_migrations() {
     'machine_name' => 'event',
     'class' => 'CbibEventMigration',
     'arguments' => array(
-      'group' => 'event',
+      'group' => 'cbib',
       'description' => t('Migration of events from Centralbibliotek.dk'),
       'source_type' => 'event',
       'destination_type' => 'event',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
+      'dependencies' => array('user_profile', 'central_library', 'group'),
+    ),
+  );
+
+  return $migrations;
+}
+
+/**
+ * Get migrations for group_events (Gruppebegivenhed/event -> Begivenhed/event).
+ *
+ * @see cbib_migrate_get_group_migrations().
+ */
+function cbib_migrate_get_group_event_migrations() {
+  $migrations = array();
+
+  $migrations[] = array(
+    'machine_name' => 'group_event',
+    'class' => 'CbibGroupEventMigration',
+    'arguments' => array(
+      'group' => 'cbib',
+      'description' => t('Migration of group events from Centralbibliotek.dk'),
+      'source_type' => 'group_event',
+      'destination_type' => 'event',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'central_library', 'group'),
     ),
   );
@@ -285,11 +388,11 @@ function cbib_migrate_get_document_migrations() {
     'machine_name' => 'document',
     'class' => 'CbibDocumentMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of documents from Centralbibliotek.dk'),
       'source_type' => 'group_file',
       'destination_type' => 'document',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'group'),
     ),
   );
@@ -309,11 +412,11 @@ function cbib_migrate_get_post_migrations() {
     'machine_name' => 'post',
     'class' => 'CbibPostMigration',
     'arguments' => array(
-      'group' => 'group',
+      'group' => 'cbib',
       'description' => t('Migration of posts from Centralbibliotek.dk'),
       'source_type' => 'group_news',
       'destination_type' => 'post',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'group'),
     ),
   );
@@ -333,11 +436,11 @@ function cbib_migrate_get_news_item_migrations() {
     'machine_name' => 'news_item',
     'class' => 'CbibNewsItemMigration',
     'arguments' => array(
-      'group' => 'news_item',
+      'group' => 'cbib',
       'description' => t('Migration of news items from Centralbibliotek.dk'),
       'source_type' => 'newsitem',
       'destination_type' => 'news',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'central_library'),
     ),
   );
@@ -357,11 +460,11 @@ function cbib_migrate_get_page_migrations() {
     'machine_name' => 'page',
     'class' => 'CbibPageMigration',
     'arguments' => array(
-      'group' => 'page',
+      'group' => 'cbib',
       'description' => t('Migration of pages from Centralbibliotek.dk'),
       'source_type' => 'textpage',
       'destination_type' => 'page',
-      'user_migration' => 'user',
+      'user_migration' => 'user_profile',
       'dependencies' => array('user_profile', 'central_library'),
     ),
   );
@@ -429,7 +532,7 @@ function cbib_migrate_convert_to_price($text) {
   // Fail if remaining string is not numeric.
   if (!is_numeric($text_modif)) {
     cbib_migrate_register_message("Received value was not a price. Value: " . $text, Migration::MESSAGE_WARNING);
-    return NULL;
+    return FALSE;
   }
 
   return (double)$text_modif;
@@ -555,6 +658,25 @@ function cbib_migrate_register_profile_mapping($nid, $uid) {
 }
 
 /**
+ * Register a mapping from a user to library.
+ *
+ * @param $uid
+ *   The id of the new user.
+ * @param $uid
+ *   The isil of the associated library.
+ * @return void.
+ */
+function cbib_migrate_register_user_library_mapping($uid, $isil, $used = 0) {
+  db_merge('cbib_migrate_user_library_map')
+    ->key(array('uid' => $uid))
+    ->fields(array(
+      'isil' => $isil,
+      'used' => $used,
+    ))
+    ->execute();
+}
+
+/**
  * Lookup a mapping from a profile nid to a new user uid.
  *
  * @param $nid
@@ -569,4 +691,39 @@ function cbib_migrate_lookup_profile_uid($nid) {
     ->fetch();
 
   return $row ? $row->uid : NULL;
+}
+
+/**
+ * Lookup a mapping from a user uid to an ISIL.
+ *
+ * @param $uid
+ *   The id of the mew user.
+ * @return
+ *   The ISIL this user belongs to.
+ */
+function cbib_migrate_lookup_users_by_isil($isil, $used = 0) {
+  return db_select('cbib_migrate_user_library_map', 'm')
+    ->fields('m', array('uid'))
+    ->condition('isil', $isil)
+    ->condition('used', $used)
+    ->execute()
+    ->fetchCol();
+}
+
+/**
+ * Lookup an id in the migrate mapping tables.
+ *
+ * @param string $type
+ *   The type/name of the mapping (e.g. user, etc.)
+ * @param string $id
+ *   The source id.
+ * @return string
+ *   The destination id.
+ */
+function cbib_migrate_lookup_target_id($type, $id) {
+  return db_select("migrate_map_{$type}", 'm')
+    ->condition('sourceid1', $id)
+    ->fields('m', array('destid1'))
+    ->execute()
+    ->fetchColumn();
 }

@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_commons_events module.
+ */
+
+/**
+ * Revert field_instance to get field_og_groups_ref on events.
+ */
+function cbib_commons_events_update_7101(&$sandbox) {
+  features_revert(array('cbib_commons_events' => array('field_instance')));
+}
+
+/**
+ * Revert features_override to get groups on event panelizer defaults.
+ */
+function cbib_commons_events_update_7102(&$sandbox) {
+  features_revert(array('cbib_commons_events' => array('features_override')));
+}
+
+/**
+ * Revert features_override_items to get items/tags on event panelizer on teasers.
+ */
+function cbib_commons_events_update_7103(&$sandbox) {
+    features_revert(array('cbib_commons_events' => array('features_overrides')));
+}

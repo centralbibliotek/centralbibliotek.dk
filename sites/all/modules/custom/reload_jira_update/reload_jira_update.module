@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * Code for the Reload Jira Update feature.
+ */
+
+include_once 'reload_jira_update.features.inc';
+
+/**
+ * Implements hook_jira_rest_rules_issuedata_alter().
+ *
+ * Add project status, project name, and site-name as labels.
+ */
+function reload_jira_update_jira_rest_rules_issuedata_alter(array &$issuedata, array &$settings, &$operation) {
+  if ($operation == 'create') {
+    $labels = array();
+
+    // Add the status as label. Makes it easy to find issues with similar update
+    // types.
+    if (!empty($settings['state']->variables['status_label'])) {
+      $labels[] = drupal_clean_css_identifier($settings['state']->variables['status_label']);
+    }
+
+    // Add the project_name as label. Makes it easy to find similar update
+    // issues.
+    if (!empty($settings['state']->variables['project_name'])) {
+      $labels[] = $settings['state']->variables['project_name'];
+    }
+
+    // Add the site_name as label. Use drupal_clean_css_identifier() to ensure
+    // it only consists of valid characters.
+    if ($site_name = variable_get('site_name', FALSE)) {
+      $labels[] = drupal_clean_css_identifier($site_name);
+    }
+
+    // Only add site_name to the Site field (customfield_12300) on project OUT -
+    // it doesn't exist on other projects.
+    if ($issuedata['fields']['project']['key'] == 'OUT' && $site_name = variable_get('site_name', FALSE)) {
+      $issuedata['fields']['customfield_12300'] = $site_name;
+    }
+
+    $issuedata['fields']['labels'] = $labels;
+  }
+}

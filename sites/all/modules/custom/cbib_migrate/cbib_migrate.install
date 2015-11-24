@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Implements hook_schema().
+ */
 function cbib_migrate_schema() {
   $schema = array();
 
@@ -25,5 +29,114 @@ function cbib_migrate_schema() {
     'primary key' => array('nid', 'uid'),
   );
 
+  $schema['cbib_migrate_user_library_map'] = array(
+    'description' => t('The mapping from users to library ISIL'),
+    'fields' => array(
+      'uid' => array(
+        'description' => t('The new uid of the user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'isil' => array(
+        'description' => t('The ISIL number this user belongs to.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'used' => array(
+        'description' => t('Whether or not this mapping has been used.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+  ),
+  );
   return $schema;
+}
+
+/**
+ * Quick fix language for users and content.
+ */
+function cbib_migrate_update_7101() {
+  // Very quick and dirty! Be careful!
+  // Updating node does not result in the removal of the old url alias.
+  // We're doing this because some content and paths have acquired the language
+  // 'da'. Most likely because of i18n being installed at the time of the
+  // content creation.
+  try {
+    db_query("UPDATE {node} SET language = 'und' WHERE language = 'da'");
+    db_query("UPDATE {url_alias} SET language = 'und' WHERE language = 'da'");
+  }
+  catch (Exception $e) {
+    watchdog('cbib_migrate', 'Error updating language! Please take action! @error', array('@error' => (string) $e), WATCHDOG_ERROR);
+  }
+}
+
+/**
+ * Add user -> library mapping table.
+ */
+function cbib_migrate_update_7102() {
+  // Deregister old user migration.
+  Migration::deregisterMigration("user");
+
+  // Create new table.
+  $schema = array(
+    'description' => t('The mapping from users to library ISIL'),
+    'fields' => array(
+      'uid' => array(
+        'description' => t('The new uid of the user.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'isil' => array(
+        'description' => t('The ISIL number this user belongs to.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'used' => array(
+        'description' => t('Whether or not this mapping has been used.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'idx_lookup' => array('isil', 'used'),
+    ),
+  );
+  db_create_table('cbib_migrate_user_library_map', $schema);
+}
+
+/**
+ * Add groups members as group followers.
+ *
+ * This was forgotten in the group migration.
+ */
+function cbib_migrate_update_7103(&$sandbox) {
+  $query = db_select('og_membership', 'ogm');
+  $query->leftJoin('node', 'n', 'ogm.gid = n.nid');
+  $members = $query->fields('n', array('nid', 'type'))
+           ->fields('ogm', array('etid'))
+           ->condition('ogm.entity_type', 'user')
+           ->condition('n.type', 'group')
+           ->execute();
+
+  while ($member = $members->fetchObject()) {
+    // Skip the admin user 1.
+    if ($member->etid <> 1) {
+      commons_follow_node_follow_node($member->nid, $member->type, $member->etid);
+    }
+  }
 }

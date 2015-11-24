@@ -1,0 +1,162 @@
+<?php
+/**
+ * @file
+ * Code for the Cbib Features feature.
+ */
+
+include_once 'cbib_features.features.inc';
+
+/**
+ * Implements hook_node_presave().
+ *
+ * We don't want multilingual nodes, as this could result in duplicate url
+ * aliases, so we force nodes to language neutral.
+ */
+function cbib_features_node_presave($node) {
+  $node->language = LANGUAGE_NONE;
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ *
+ * Provide our own Danish One Line address formatter. We need it in the CSV
+ * download so it should not be part of the theme.
+ */
+function cbib_features_theme_registry_alter(&$theme_registry) {
+  if (empty($theme_registry['addressfield_formatter__linear__dk'])) {
+    $theme_registry['addressfield_formatter__linear__dk']['function'] = 'cbib_features__addressfield_formatter__linear__dk';
+  }
+  if (empty($theme_registry['addressfield_formatter__linear__DK'])) {
+    $theme_registry['addressfield_formatter__linear__DK']['function'] = 'cbib_features__addressfield_formatter__linear__dk';
+  }
+
+  // Prevent theme('token_tree') from generating ridiculous amounts of
+  // inline markup.
+  $theme_registry['token_tree']['function'] = 'cbib_features_theme_token_tree';
+}
+
+/**
+ * Overrides theme_addressfield_formatter__linear__dk().
+ */
+function cbib_features__addressfield_formatter__linear__dk($variables) {
+  $data = current($variables);
+  $loc = $data['#address'];
+
+  // Determine which location components to render
+  $out = array();
+  if (!empty($loc['name_line']) && $vars['name_line']) {
+    $out[] = $loc['name_line'];
+  }
+  if (!empty($loc['organisation_name']) && $vars['organisation_name']) {
+    $out[] = $loc['organisation_name'];
+  }
+  if (!empty($loc['thoroughfare'])) {
+    $out[] = $loc['thoroughfare'];
+  }
+  if (!empty($loc['premise']) && $vars['premise']) {
+    $out[] = $loc['premise'];
+  }
+  if (!empty($loc['postal_code']) && !empty($loc['locality'])) {
+    $out[] = $loc['postal_code'] . ' ' . $loc['locality'];
+  }
+  if (!empty($loc['administrative_area'])) {
+    $out[] = $loc['administrative_area'];
+  }
+  if ($loc['country'] != addressfield_tokens_default_country() && $country_name = _addressfield_tokens_country($loc['country'])) {
+    $out[] = $country_name;
+  }
+
+  // Render the location components
+  $output = implode(', ', $out);
+
+  return $output;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for commons_bw_partial_node_form__document().
+ *
+ * Only show 'Formidling og PR' checkbox on licenses and the license frontpage group.
+ */
+function cbib_features_form_commons_bw_partial_node_form__document_alter(&$form, &$form_state, $form_id) {
+  if (!empty($form_state['group_id'])) {
+    $group = node_load($form_state['group_id']);
+    if ($group->type != 'license' && $group->nid != variable_get('cbib_license_pages_front_nid') && isset($form['field_formidling_og_pr'])) {
+      $form['field_formidling_og_pr']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * By default theme('token_tree') renders ridiculous amounts of
+ * inline markup. We can prevent this by forcing it to always
+ * use its friendlier 'dialog' option (which instead outputs a
+ * link to a separate page with all the markup).
+ *
+ * n.b. If the path starts with 'token/tree' then we are requesting
+ * that separate page, and must render the full tree.
+ *
+ * @see cbib_features_theme_registry_alter().
+ * @see http://www.pixelite.co.nz/article/how-speed-drupal-altering-tokens-ui/
+ */
+function cbib_features_theme_token_tree(&$variables) {
+  if (arg(0) != 'token' || arg(1) != 'tree') {
+    $variables['dialog'] = TRUE;
+  }
+  return theme_token_tree($variables);
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * The media widget doesn't work well with cardinality 1. We wrap it in a
+ * fieldset and pretend it is a multiple widget.
+ */
+function cbib_features_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (!empty($element[0]['#type']) && $element[0]['#type'] == 'media' &&
+    !empty($context['field']['cardinality']) && $context['field']['cardinality'] == 1) {
+    $element['#theme'] = 'media_widget_multiple';
+    $element['#title'] = $element[0]['#title'];
+    $element['#theme_wrappers'] = array('fieldset');
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Centralbibliotek.dk is not a multilingual site but 'title_field' is marked as
+ * translatable causing problems when adding titles to nodes.
+ *
+ * We alter the translatable setting for the fields replaced by title_field.
+ *
+ * @see title_entity_info()
+ * @see cbib_features_update_7118()
+ */
+function cbib_features_entity_info_alter(&$entity_info) {
+  $entity_info['node']['field replacement']['title']['field']['translatable'] = FALSE;
+
+  if (module_exists('taxonomy')) {
+    $entity_info['taxonomy_term']['field replacement']['name']['field']['translatable'] = FALSE;
+    $entity_info['taxonomy_term']['field replacement']['description']['field']['translatable'] = FALSE;
+  }
+
+  if (module_exists('comment')) {
+    $entity_info['comment']['field replacement']['subject']['field']['translatable'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Added link-field to hideable in mini-browsing-widget from commons. Implemented same way as commons.
+ *
+ * @see commons_documents_form_commons_bw_partial_node_form_alter()
+ */
+function cbib_features_form_commons_bw_partial_node_form_alter(&$form, &$form_state) {
+  if (empty($form['#entity']) || $form['#entity']->type != 'document') {
+    return;
+  }
+
+  if (isset($form['field_link'])) {
+    $form['field_link']['#attributes']['class'][] = 'hideable-field';
+  }
+}

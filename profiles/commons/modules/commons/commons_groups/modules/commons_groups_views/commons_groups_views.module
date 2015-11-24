@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Commons Groups Views.
- */
-
-include_once 'commons_groups_views.features.inc';

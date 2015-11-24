@@ -853,12 +853,3 @@ function commons_update_3119() {
   variable_set('install_task', 'done');
   return array();
 }
-
-/**
- * Enable Cbib Menu and Ultimate Cron modules.
- */
-function commons_update_7102() {
-  $module_list = array('cbib_menu', 'ultimate_cron');
-  module_enable($module_list);
-  return array();
-}

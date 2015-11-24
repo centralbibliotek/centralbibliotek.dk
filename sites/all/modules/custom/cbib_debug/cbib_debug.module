@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Debugging functionality for centralbibliotek.dk.
+ */
+
+/**
+ * Implements hook_node_update().
+ *
+ * If registration type is not event register an error in New Relic for further
+ * debugging. Also change the registration type to "event" so the users won't
+ * suffer from this bug.
+ *
+ * @see https://reload.atlassian.net/browse/CBDK-239
+ */
+function cbib_debug_node_update($node) {
+  if (!empty($node->field_registration[LANGUAGE_NONE][0]['registration_type']['registration_type'])
+    && ($node->field_registration[LANGUAGE_NONE][0]['registration_type']['registration_type'] != 'event')
+    && variable_get('cbib_debug_trace_cbdk_239', TRUE)) {
+    // Trow an exception so we get an attached stack trace we can send to New
+    // Relic and log an error to Watchdog.
+    try {
+      throw new \DomainException('Registration type is not "event" (CBDK-239).');
+    }
+    catch (\DomainException $e) {
+      $link = NULL;
+      if (extension_loaded('newrelic')) {
+        newrelic_notice_error($e->getMessage(), $e);
+        $link = l(t('New Relic'), 'https://rpm.newrelic.com/accounts/939903/applications/13508602/traced_errors');
+      }
+
+      watchdog_exception('cbib_debug', $e, NULL, array(), WATCHDOG_ERROR, $link);
+    }
+
+    // For now fix the registration type so the users won't suffer.
+    $node->field_registration[LANGUAGE_NONE][0]['registration_type']['registration_type'] = 'event';
+    field_attach_update('node', $node);
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * We ensure that our node_update is execute as the last hook_node_update() in
+ * case some other implementation introduces the problem..
+ */
+function cbib_debug_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'node_update' && isset($implementations['cbib_debug'])) {
+    unset($implementations['cbib_debug']);
+    $implementations['cbib_debug'] = FALSE;
+  }
+}

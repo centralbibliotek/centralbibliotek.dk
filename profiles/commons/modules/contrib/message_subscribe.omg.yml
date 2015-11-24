@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/group-context-1828184-53.patch'
+    home: 'https://www.drupal.org/node/1828184'
+    resaon: 'Message Subscribe sends emails regardless of context'
+  -
+    patch: 'https://www.drupal.org/files/issues/2184567-message-subscribe-blocked-users-23.patch'
+    home: 'https://www.drupal.org/node/2184567'
+    resaon: "By default, don\'t notify blocked users"

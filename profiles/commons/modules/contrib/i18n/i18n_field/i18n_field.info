@@ -1,0 +1,8 @@
+name = Field translation
+description = Translate field properties
+dependencies[] = field
+dependencies[] = i18n_string
+package = Multilingual - Internationalization
+core = 7.x
+files[] = i18n_field.inc
+files[] = i18n_field.test

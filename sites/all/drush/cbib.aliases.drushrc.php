@@ -8,17 +8,42 @@
 putenv('CBIB_DRUSH_DIR=' . __DIR__);
 
 $aliases['prod'] = array(
-  'uri' => 'ny.centralbibliotek.dk',
+  'uri' => 'centralbibliotek.dk',
   'root' => '/data/www/centralbibliotek.dk',
   'remote-host' => 'centralbib.dbc.dk',
   'remote-user' => 'reload',
-  'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts',
+  'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts -o LogLevel=Error',
+  'dump-dir' => '/home/reload/backups',
+  'path-aliases' => array(
+    '%drush-script' => '/home/reload/bin/drush',
+  ),
   'deployotron' => array(
-    'branch' => 'develop',
+    'branch' => 'master',
     'dump-dir' => '/home/reload/backups',
+    'num-dumps' => 3,
     'restart-apache2' => TRUE,
     'restart-varnish' => FALSE,
     'flowdock-token' => 'a7200e7e654379df303056fbf14faf74',
+    'newrelic-api-key' => '120fd65c787d6de27897a44cce59495fa4002740d8e367c',
+    'newrelic-app-name' => 'centralbibliotek.dk',
+  ),
+  // Skip cache tables and the like.
+  'source-command-specific' => array (
+    'sql-sync' => array (
+      'structure-tables-key' => 'common',
+      'structure-tables' => array(
+        'common' => array(
+          'cache',
+          'cache_*',
+          'ctools_*_cache',
+          'history',
+          'sessions',
+          'views_data_export_object_cache',
+          'votingapi_cache',
+          'watchdog',
+        ),
+      ),
+    ),
   ),
 );
 
@@ -30,6 +55,7 @@ $aliases['test'] = array(
   'path-aliases' => array(
     '%drush-script' => '/home/reload/bin/drush',
   ),
+  'dump-dir' => '/home/reload/backups',
   'deployotron' => array(
     'branch' => 'develop',
     'restart-apache2' => FALSE,
@@ -40,11 +66,8 @@ $aliases['test'] = array(
 
 $aliases['legacy'] = array(
   'uri' => 'centralbibliotek.dk',
-  'root' => '/data/www/centralbibliotek.dk/htdocs',
-  'remote-host' => 'oshima.dbc.dk',
+  'root' => '/data/www/old-cbib',
+  'remote-host' => 'centralbib.dbc.dk',
   'remote-user' => 'reload',
   'ssh-options' => '-F ' . __DIR__ . '/ssh/config -o GlobalKnownHostsFile=' . __DIR__ . '/ssh/known_hosts',
-  'path-aliases' => array(
-    '%drush-script' => '/home/reload/bin/drush',
-  ),
 );

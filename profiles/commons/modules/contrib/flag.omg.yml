@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/1965760.29.flag_.entity-tokens.patch'
+    home: 'https://www.drupal.org/node/1965760'
+    resaon: 'Manually set taxonomy term flag types because its different.'
+  -
+    patch: 'https://www.drupal.org/files/flag-default-flags-alter-hook-2027091-03.patch'
+    home: 'https://www.drupal.org/node/2027091#comment-8012263'
+    reason: 'Provide a hook to allow default flag definitions to be altered.'

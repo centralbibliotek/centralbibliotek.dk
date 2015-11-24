@@ -14,26 +14,18 @@ function commons_pages_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
- * Implements hook_views_api().
- */
-function commons_pages_views_api($module = NULL, $api = NULL) {
-  return array("api" => "3.0");
-}
-
-/**
  * Implements hook_node_info().
  */
 function commons_pages_node_info() {
   $items = array(
     'page' => array(
-      'name' => t('Side'),
+      'name' => t('Page'),
       'base' => 'node_content',
-      'description' => t('Brug <em>simple sider</em> til dit statiske indhold, som f.eks. en "om os"-side.'),
+      'description' => t('Use <em>basic pages</em> for your static content, such as an \'About us\' page.'),
       'has_title' => '1',
-      'title_label' => t('Titel'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );
-  drupal_alter('node_info', $items);
   return $items;
 }

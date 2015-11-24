@@ -37,6 +37,9 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
     $row->field_cb_cvr = cbib_migrate_convert_to_number($row->field_cb_cvr);
     $row->field_biblioteksnummer = cbib_migrate_convert_to_number($row->field_biblioteksnummer);
 
+    // Strip down title to only the first part (city name).
+    $row->title = preg_replace('/(\w+)\b.*/', '$1', $row->title);
+
     // Extract title and alt from image data.
     $img_data = unserialize($row->{'field_image_library:data'});
     $row->{'field_image_library:alt'} = isset($img_data['alt']) ? $img_data['alt'] : NULL;
@@ -55,7 +58,7 @@ class CbibCentralLibraryMigration extends CbibMigrateDrupalNode6Migration {
     // Required for mapping address fields correctly.
     $query->leftJoin('location_instance', 'i', 'i.nid = n.nid AND i.vid = n.vid');
     $query->leftJoin('location', 'l', 'l.lid = i.lid');
-    $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country'));
+    $query->fields('l', array('street', 'additional', 'city', 'province', 'postal_code', 'country', 'name'));
     return $query;
   }
 

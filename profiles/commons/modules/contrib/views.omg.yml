@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/views-content_access_filter_per_core_performance-2204257-4_0.patch'
+    home: 'https://www.drupal.org/comment/8516039#comment-8516039'
+    resaon: 'Update Views Content access filter per core performance improvements.'

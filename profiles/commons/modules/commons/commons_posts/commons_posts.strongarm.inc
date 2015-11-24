@@ -134,15 +134,6 @@ function commons_posts_strongarm() {
         'title' => array(
           'weight' => '-5',
         ),
-        'metatags' => array(
-          'weight' => '10',
-        ),
-        'path' => array(
-          'weight' => '9',
-        ),
-        'redirect' => array(
-          'weight' => '8',
-        ),
       ),
       'display' => array(),
     ),

@@ -1,0 +1,382 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_features module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cbib_features_install() {
+  drupal_register_shutdown_function('_cbib_features_fix_collations');
+  drupal_register_shutdown_function('_cbib_features_delete_install_profile_first_group');
+  drupal_register_shutdown_function('_cbib_features_enable_cb_theme');
+}
+
+/**
+ * Enable cb theme.
+ */
+function _cbib_features_enable_cb_theme() {
+  theme_enable(array('cb'));
+
+  // Set the default theme.
+  variable_set('theme_default', 'cb');
+}
+
+/**
+ * Delete the first group created by the install profile.
+ */
+function _cbib_features_delete_install_profile_first_group() {
+  $nodes = node_load_multiple(array(), array('type' => 'group', 'title' => 'Engineering team'));
+  if (!empty($nodes)) {
+    $node = current($nodes);
+    if (!empty($node->nid)) {
+      node_delete($node->nid);
+    }
+  }
+}
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * Define collation on title fields and cache tables.
+ *
+ * Add extra index to {panelizer_entity} table.
+ */
+function cbib_features_schema_alter(&$schema) {
+  // Define Danish collation on {node} and {field_data_title_field} to sort
+  // Aalborg etc. last.
+  $schema['field_data_title_field']['collation'] = 'utf8_danish_ci';
+  $schema['node']['collation'] = 'utf8_danish_ci';
+
+  // Define utf8_bin as collation on cache tables for better performance.
+  foreach ($schema as $table => $info) {
+    if (preg_match('/^cache.*/', $table)) {
+      $schema[$table]['collation'] = 'utf8_bin';
+    }
+  }
+
+  // Add extra index to {panelizer_entity} table.
+  $schema['panelizer_entity']['indexes']['idx_revision'] = array('revision_id', 'entity_type');
+}
+
+/**
+ * Fix collation of {field_data_title_field} and cache tables.
+ */
+function _cbib_features_fix_collations() {
+  // Set utf8_bin as collation on cache tables for better performance.
+  $schema = drupal_get_schema(NULL, TRUE);
+  foreach ($schema as $table => $info) {
+    if (preg_match('/^cache.*/', $table)) {
+      collation_fixer_fix_collation($table);
+    }
+  }
+
+  // Set Danish collation on {field_data_title_field} to sort Aalborg last.
+  if (!empty($schema['field_data_title_field'])) {
+    collation_fixer_fix_collation('field_data_title_field');
+  }
+
+  // Set Danish collation on {node} to sort Aabenraa etc. last.
+  if (!empty($schema['node'])) {
+    collation_fixer_fix_collation('node');
+  }
+}
+
+/**
+ * Fix collation of {field_data_title_field} and cache tables.
+ */
+function cbib_features_update_7101(&$sandbox) {
+  _cbib_features_fix_collations();
+}
+
+/**
+ * Enable Features Override module.
+ */
+function cbib_features_update_7102(&$sandbox) {
+  if (!module_exists('features_override')) {
+    module_enable(array('features_override'));
+  }
+}
+
+/**
+ * Enable Chosen module.
+ */
+function cbib_features_update_7103(&$sandbox) {
+  if (!module_exists('chosen')) {
+    module_enable(array('chosen'));
+  }
+}
+
+/**
+ * Enable Cbib Commons Events features override module.
+ */
+function cbib_features_update_7104(&$sandbox) {
+  if (!module_exists('cbib_commons_events')) {
+    module_enable(array('cbib_commons_events'));
+  }
+}
+
+/**
+ * Clean up old and unused node url aliases.
+ */
+function cbib_features_update_7105(&$sandbox) {
+  // Find all non-broken node aliases.
+  $subquery = db_select('url_alias', 'su')
+    ->fields('su', array('pid'));
+  $subquery->join('node', 'n');
+  $subquery->where("su.source = CONCAT('node/', n.nid)");
+
+  // Find broken node aliases.
+  $pids = db_select('url_alias', 'u')
+    ->fields('u', array('pid'))
+    ->condition('u.pid', $subquery, 'NOT IN')
+    ->condition('u.source', 'node/%', 'LIKE')
+    ->execute()
+    ->fetchCol();
+
+  if ($pids) {
+    // Delete the broken node aliases.
+    db_delete('url_alias')
+      ->condition('pid', $pids, 'IN')
+      ->execute();
+  }
+
+  watchdog('cbib_features', 'Found and deleted @pids broken url node aliases', array('@pids' => count($pids)), WATCHDOG_INFO);
+}
+
+/**
+ * Enable Cbib Commons Events features override module.
+ */
+function cbib_features_update_7106(&$sandbox) {
+  if (!module_exists('cbib_user_profile')) {
+    module_enable(array('cbib_user_profile'));
+  }
+}
+
+/**
+ * Enable cbib_license_pages module.
+ */
+function cbib_features_update_7107(&$sandbox) {
+  if (!module_exists('cbib_license_pages')) {
+    module_enable(array('cbib_license_pages'));
+  }
+}
+
+/**
+ * Enable cbib_page module.
+ */
+function cbib_features_update_7108(&$sandbox) {
+  if (!module_exists('cbib_page')) {
+    module_enable(array('cbib_page'));
+  }
+  features_revert(array('cbib_page' => array('features_overrides', 'variable')));
+}
+
+/**
+ * Enable cbib_nationale_projekter module.
+ */
+function cbib_features_update_7109(&$sandbox) {
+  if (!module_exists('cbib_nationale_projekter')) {
+    module_enable(array('cbib_nationale_projekter'));
+  }
+  features_revert(array('cbib_nationale_projekter' => array('views_default', 'pages_default', 'features_overrides', 'menu_links')));
+}
+
+/**
+ * Fix collation of {node} table. Library sorting on user profiles.
+ */
+function cbib_features_update_7110(&$sandbox) {
+  _cbib_features_fix_collations();
+  features_revert(array('cbib_library' => array('field_base', 'field_instance')));
+}
+
+/**
+ * Revert menu_links feature.
+ */
+function cbib_features_update_7111(&$sandbox) {
+  features_revert(array('cbib_features' => array('menu_links')));
+}
+
+/**
+ * Enable cbib_groups features.
+ */
+function cbib_features_update_7112(&$sandbox) {
+  if (!module_exists('cbib_groups')) {
+    module_enable(array('cbib_groups'));
+  }
+  features_revert(array('cbib_groups' => array('features_overrides')));
+}
+
+/**
+ * Add extra index to {panelizer_entity} table.
+ */
+function cbib_features_update_7113(&$sandbox) {
+  _cbib_features_add_new_indexes();
+}
+
+/**
+ * Enable file_resup module.
+ */
+function cbib_features_update_7114(&$sandbox) {
+  if (!module_exists('file_resup')) {
+    module_enable(array('file_resup'));
+  }
+}
+
+/**
+ * Enable entitycache module.
+ */
+function cbib_features_update_7115(&$sandbox) {
+  if (!module_exists('entitycache')) {
+    module_enable(array('entitycache'));
+  }
+}
+
+/**
+ * Enable cbib_follow module.
+ */
+function cbib_features_update_7116(&$sandbox) {
+  if (!module_exists('cbib_follow')) {
+    module_enable(array('cbib_follow'));
+  }
+}
+
+/**
+ * Enable Reload Jira Update modules.
+ */
+function cbib_features_update_7117(&$sandbox) {
+  if (!module_exists('reload_jira_update')) {
+    module_enable(array('reload_jira_update'));
+  }
+}
+
+/**
+ * Fix translatable setting of title_field.
+ *
+ * Centralbibliotek.dk is not a multilingual site but 'title_field' is marked as
+ * translatable causing problems when adding titles to nodes.
+ *
+ * We alter the translatable setting for the fields replaced by title_field.
+ *
+ * @see title_entity_info()
+ * @see cbib_features_entity_info_alter()
+ */
+function cbib_features_update_7118(&$sandbox) {
+  $title_field = field_read_field('title_field');
+  $title_field['translatable'] = FALSE;
+  field_update_field($title_field);
+}
+
+/**
+ * Enable Cbib DBC License Feeds module.
+ */
+function cbib_features_update_7119(&$sandbox) {
+  if (!module_exists('cbib_dbc_license_feeds')) {
+    module_enable(array('cbib_dbc_license_feeds'));
+  }
+}
+
+/**
+ * Enable CBIB Spam Protection feature module.
+ */
+function cbib_features_update_7120(&$sandbox) {
+  if (!module_exists('cbib_spam_protection')) {
+    module_enable(array('cbib_spam_protection'));
+  }
+}
+
+/**
+ * Feature revert cbib_spam_protection variables.
+ */
+function cbib_features_update_7121(&$sandbox) {
+  features_revert(array('cbib_spam_protection' => array('variable')));
+}
+
+/**
+ * Enable Stage File Proxy module.
+ *
+ * Not needed on production but eases development process.
+ */
+function cbib_features_update_7122(&$sandbox) {
+  if (!module_exists('stage_file_proxy')) {
+    module_enable(array('stage_file_proxy'));
+  }
+}
+
+/**
+ * Enable Global Redirect module.
+ */
+function cbib_features_update_7123(&$sandbox) {
+  if (!module_exists('globalredirect')) {
+    module_enable(array('globalredirect'));
+  }
+}
+
+/**
+ * Disable Admin Menu module.
+ */
+function cbib_features_update_7124(&$sandbox) {
+  if (module_exists('admin_menu')) {
+    module_disable(array('admin_menu'), FALSE);
+  }
+}
+
+/**
+ * Enable CBIB Site Homepage feature module.
+ */
+function cbib_features_update_7125(&$sandbox) {
+  if (!module_exists('cbib_site_homepage')) {
+    module_enable(array('cbib_site_homepage'));
+  }
+}
+
+/**
+ * Enable jQuery Update module.
+ */
+function cbib_features_update_7126(&$sandbox) {
+  if (!module_exists('jquery_update')) {
+    module_enable(array('jquery_update'));
+  }
+}
+
+/**
+ * Enable AT Tools module.
+ */
+function cbib_features_update_7127(&$sandbox) {
+  if (!module_exists('at_tools')) {
+    module_enable(array('at_tools'));
+  }
+}
+
+/**
+ * Revert Reload Jira Update feature.
+ */
+function cbib_features_update_7128(&$sandbox) {
+  features_revert(array('reload_jira_update' => array('rules_config')));
+}
+
+/**
+ * Revert Reload Jira Update feature.
+ */
+function cbib_features_update_7129(&$sandbox) {
+  features_revert(array('reload_jira_update' => array('rules_config')));
+}
+
+/**
+ * Add extra indexes to tables.
+ */
+function _cbib_features_add_new_indexes() {
+  $schema = array();
+  cbib_features_schema_alter($schema);
+  foreach ($schema as $table => $table_def) {
+    if (db_table_exists($table) && !empty($table_def['indexes'])) {
+      foreach ($table_def['indexes'] as $index_name => $fields) {
+        if (!db_index_exists($table, $index_name)) {
+          db_add_index($table, $index_name, $fields);
+        }
+      }
+    }
+  }
+}

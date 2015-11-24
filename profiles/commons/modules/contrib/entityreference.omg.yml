@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/entityreference-autocomplete-widget-single-entity-1959624-6.patch'
+    home: 'https://www.drupal.org/node/1959624#comment-8451891'
+    reason: 'Autocomplete widgets cannot reference a single entity result.'
+  -
+    patch: 'https://www.drupal.org/files/explicity_include_module.1459540.patch'
+    home: 'https://www.drupal.org/node/1459540'
+    reason: 'People seems to be able to disable a Field module which still has fields, and core seems to call field hooks on disabled modules'

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB Spam Protection feature.
+ */
+
+include_once 'cbib_spam_protection.features.inc';

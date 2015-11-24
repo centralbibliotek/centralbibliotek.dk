@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the reload_jira_update module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function reload_jira_update_requirements($phase) {
+  $status = array();
+
+  if ($phase == 'runtime') {
+    $t = get_t();
+
+    // General status message.
+    $status = array(
+      'reload_jira_update' => array(
+        'title' => $t('Jira REST username/password'),
+        'description' => $t('Jira REST username/password should be configured on production servers only
+(preferably in <tt>settings.php</tt>) - not in other environments.'),
+      ),
+    );
+
+    // Determine whether requirements have been fulfilled.
+    $requirement = (!variable_get('jira_rest_username', FALSE) && !variable_get('jira_rest_password', FALSE));
+
+    // If Environment Indicator is in use and does not indicate a production
+    // environment reverse the requirement. This is a heuristic to give more
+    // accurate feedback when possible.
+    if (module_exists('environment_indicator')) {
+      $active_environment = environment_indicator_get_active();
+      if (!preg_match('/^prod/i', $active_environment['name'])) {
+        $requirement = !$requirement;
+      }
+    }
+
+    if ($requirement) {
+      $status['reload_jira_update']['value'] = $t('Error');
+      $status['reload_jira_update']['severity'] = REQUIREMENT_ERROR;
+    }
+    else {
+      $status['reload_jira_update']['value'] = $t('OK');
+      $status['reload_jira_update']['severity'] = REQUIREMENT_OK;
+    }
+  }
+
+  return $status;
+}

@@ -1,0 +1,21 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/*
+* Header
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000319}}
+#block-search-form {
+  width: 100%;
+  right: 0px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=responsive.smartphone.portrait.css.map */

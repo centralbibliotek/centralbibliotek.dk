@@ -1,0 +1,174 @@
+.node-type-license {
+
+  .node-license {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .panel-display {
+      margin-top: 20px;
+    }
+
+    .pane-node-field-address h2 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .panels-ipe-portlet-wrapper {
+    margin-bottom: 0.1em;
+  }
+
+  .pane-entity-field {
+    &.no-title {
+      margin: 0;
+    }
+
+    .field-label-inline {
+      margin: 0.5em 0;
+    }
+  }
+
+  .field-collection-view {
+    .field-label {
+      width: 100%;
+    }
+  }
+
+  .pane-user-field-name-first {
+    float: left;
+    margin-right: 0.35em;
+
+    h2.block-title {
+      display: none;
+    }
+  }
+
+  .field-name-field-name-last {
+    padding: 0.5em 0;
+  }
+
+  .user  {
+    margin-bottom: 1em;
+    .panel-pane {
+      margin: 0;
+      display: inline-block;
+      color: $gray;
+      &.pane-user-field-phone {
+        .block-inner {
+          display: inline-block;
+        }
+        &:before,
+        &:after {
+          content: ' | ';
+          color: $gray-light;
+          @include noselect;
+        }
+      }
+    }
+    h2.pane-title {
+      display: inline;
+      float: none;
+      font-size: 1em;
+      font-family: inherit;
+      margin-bottom: 0;
+      font-weight: normal;
+      border: 0;
+      &:after {
+        content: ":";
+      };
+    }
+    .block-content {
+      display: inline;
+    }
+  }
+
+  .pane-node-field-license-pr-file, .pane-node-field-license-education-file, .pane-node-field-document-file {
+    margin: 1em 0;
+  }
+}
+
+// License tabs.
+.pane-menu-menu-license-menu {
+  h3 {
+    display: none;
+  }
+
+  @include menu-primary("sub");
+}
+
+// License front page.
+.page-node-127 {
+  .region-two-66-33-second {
+    .view-centralbibliotek-news {
+      .views-row {
+        border: none;
+      }
+
+      .panel-col-first {
+        width: 100%;
+
+        .inside {
+          margin: 0 0 1em 0;
+        }
+      }
+
+      .panel-col-last {
+        width: 100%;
+        max-height: none;
+        min-height: 0;
+
+        .inside {
+          margin: 0;
+        }
+      }
+    }
+    .cb-teaser-list {
+      .node-teaser {
+        &:after {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Ambassador list.
+.view-biblioteker,
+.view-ambassad-rliste {
+  .view-grouping-header {
+    color: $gray-darker;
+    font-weight: normal;
+    font-size: 1.25em;
+    font-family: $alt-font;
+  }
+
+  h3 {
+    color: $gray-darker;
+    font-weight: normal;
+    font-size: 1.15em;
+  }
+
+  .views-row {
+    border: none;
+  }
+}
+
+// make some links in embassador-list grey instead of link-color
+.view-biblioteker,
+.view-ambassad-rliste {
+  .view-grouping-header a, .item-list h3 a{
+    color: $dark_gray;
+    font-size: 1.15em;
+    font-family: $alt-font;
+    &:hover{
+      color: $tab_active_text;
+    }
+  }
+
+  .item-list h3{
+    margin-top: 0;
+  }
+
+  .view-grouping{
+    margin-top: 1.5em;
+  }
+}

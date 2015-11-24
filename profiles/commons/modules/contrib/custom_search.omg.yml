@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/commons_search_js_encode.patch'
+    home: 'https://www.drupal.org/node/2012210'
+    reason: 'Avoid akward sanitization of user-entered search strings.'

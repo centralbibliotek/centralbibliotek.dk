@@ -1,9 +1,0 @@
-patches:
-  -
-    patch: 'https://www.drupal.org/files/issues/alternate-entityreference-does-not-validate-8784871-4.patch'
-    home: 'https://www.drupal.org/node/2249261#comment-8784997'
-    reason: 'Fix FieldValidationException: error when saving entity og reference fields.'
-  -
-    patch: 'https://www.drupal.org/files/issues/og-invalid_datetime_format-1491420-2.patch'
-    home: 'https://www.drupal.org/node/1491420'
-    reason: 'Working around a "Invalid datetime".'

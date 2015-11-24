@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/views_data_export-allow_carriage_return-1957114-8.patch'
+    home: 'https://www.drupal.org/node/1957114'
+    reason: 'Issue #1957114 by nemethf, smitty, arnested: Allow Carriage Return to be replaced'

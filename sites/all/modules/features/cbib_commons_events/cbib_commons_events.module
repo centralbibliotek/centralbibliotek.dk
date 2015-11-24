@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Centralbibliotek - Commons Events feature.
+ */
+
+include_once 'cbib_commons_events.features.inc';

@@ -1,0 +1,5 @@
+name = Feeds Entity Reference by field
+description = Provide mapping targets for fields in referenced entities.
+core = 7.x
+
+dependencies[] = feeds

@@ -1,0 +1,72 @@
+// "List of attendees" panel (as seen on an event)
+// & "List of employees" panel (as seen on centralbibliotek)
+.pane-library-employees-panel-pane-3, // employee-list of CB
+.pane-node-followers-panel-pane-1,
+.pane-commons-events-event-attendee-list-panel-pane-1, // Logged out
+#panels-ipe-paneid-4 { // Logged in
+
+  .block-content {
+    padding-top: .2em;
+  }
+
+  
+  .view-commons-events-event-attendee-list {
+    background-color: transparent;
+  }
+
+  .views-view-grid td {
+    padding: 0;
+  }
+
+  .views-field-picture {
+    @extend %user-avatar;
+    float: left;
+    width: 24px;
+    margin-right: .55em;
+
+    // do not show little arrow from user-profile-badge in this context
+    &:after{
+      display:none;
+    }
+  }
+
+  .views-field-name {
+    height: 24px;
+    line-height: 1.9;
+  }
+
+  .views-field-field-job-title{
+    // to make it fit next to user-picture even if there are several lines
+    padding-left: 2.3em;
+  }
+  
+  // Space out the list of attendees
+  .views-view-grid td {
+    padding-bottom: .5em;
+    display: block;
+    // in order to also work in IE
+    float: left;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  // style also the mini-pager
+  div.item-list-pager ul.pager{
+    padding-top: 10px;
+
+    .pager-current{
+      line-height: 40px;
+    }
+
+    .pager-previous a, .pager-next a{
+      @include transform(scale(0.8));
+      letter-spacing: normal;
+      top: 7px;
+
+      &:hover{
+        @include transform(scale(0.9));
+      }
+    }
+  }
+
+}//#panels-ipe-paneid-4

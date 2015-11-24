@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB Follow feature.
+ */
+
+include_once 'cbib_follow.features.inc';

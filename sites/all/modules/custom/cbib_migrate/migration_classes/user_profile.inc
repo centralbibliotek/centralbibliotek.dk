@@ -7,12 +7,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
     parent::__construct($arguments);
 
-    // To make sure that users are not created, we specify that we have already
-    // imported the regular user information, and that we should map to existing
-    // by uid field from user source migration.
-    $this->addFieldMapping('uid', 'uid')
-      ->sourceMigration('user');
-
     $this->mapNonMigratedDestinationFields();
     $this->mapNonMigratedSourceFields();
 
@@ -37,19 +31,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
       return FALSE;
     }
 
-    // We make sure that the destid1 is set. If not the migration will
-    // dedupe usernames (add _2 etc.).
-    if (!isset($row->migrate_map_destid1)) {
-      $db_row = db_select('migrate_map_user', 'map')
-        ->fields('map', array('destid1'))
-        ->condition('sourceid1', $row->uid)
-        ->execute()
-        ->fetch();
-      if ($db_row) {
-        $row->migrate_map_destid1 = $db_row->destid1;
-      }
-    }
-
     // Extract title and alt from image data.
     $img_data = unserialize($row->{'field_userimage:data'});
     $row->{'field_userimage:alt'} = isset($img_data['alt']) ? $img_data['alt'] : NULL;
@@ -63,6 +44,8 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
 
     // Split name.
     list($row->field_first_name, $row->field_last_name) = preg_split("/\s+(?=\S*+$)/", $row->title);
+
+    $row->field_ean_number = isset($row->field_ean_number) ? str_replace(' ', '', $row->field_ean_number) : '';
 
     return TRUE;
   }
@@ -142,7 +125,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
    */
   private function mapNonMigratedSourceFields() {
     $this->addUnmigratedSources(array(
-      'field_otherworkplace',
       'field_associated_library2',
       'nid',
     ));
@@ -155,6 +137,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     $this->addFieldMapping('field_ean', 'field_ean_number');
     $this->addFieldMapping('field_phone', 'field_phone1');
     $this->addFieldMapping('field_job_title', 'field_job');
+    $this->addFieldMapping('field_alternate_work', 'field_otherworkplace');
 
     $this->noLanguage(array(
       'field_ean',
@@ -185,7 +168,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
    * @see CbibMigrateDrupalNode6Migration::mapAddressField()
    */
   private function mapAddressField() {
-    CbibMigrateDrupalNode6Migration::mapAddressFieldFor($this, 'field_address', 'field_address_profile');
+    $this->addFieldMapping('field_alternate_address', 'field_address_profile');
   }
 
   /**
@@ -279,7 +262,7 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
   public function complete($user, $row) {
     // DrupalUserMigration expects a fid in the picture property?
     // Not sure why. But let's please it now and investigate later.
-    if ($user->picture) {
+    if ($user->picture && is_object($user->picture)) {
       $user->picture = $user->picture->fid;
     }
 
@@ -294,6 +277,43 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     if ($row->nid) {
       cbib_migrate_register_profile_mapping($row->nid, $user->uid);
     }
+
+    // Update file_managed with correct new user ids.
+    $org_fids = Database::getConnection('default', $this->sourceConnection)
+      ->select('files', 'f')
+      ->fields('f', array('fid'))
+      ->condition('f.uid', $row->uid)
+      ->execute()
+      ->fetchCol();
+
+    if ($org_fids) {
+      $fids = db_select('migrate_map_file', 'f')
+        ->fields('f', array('destid1'))
+        ->condition('f.sourceid1', $org_fids, 'IN')
+        ->execute()
+        ->fetchCol();
+
+      if ($fids) {
+        db_update('file_managed')
+          ->fields(array('uid' => $user->uid))
+          ->condition('fid', $fids, 'IN')
+          ->execute();
+      }
+    }
+
+    // Store user/isil relation for later use by the library feed importer.
+    if (!empty($row->field_associated_library2)) {
+      $isil = Database::getConnection('default', $this->sourceConnection)
+        ->select('content_type_library_regular', 'l')
+        ->fields('l', array('field_biblioteksnummer2_value'))
+        ->condition('l.nid', $row->field_associated_library2)
+        ->execute()
+        ->fetchColumn();
+      if ($isil) {
+        $isil = 'DK-' . $isil;
+        cbib_migrate_register_user_library_mapping($user->uid, $isil);
+      }
+    }
   }
 
   /**
@@ -303,5 +323,6 @@ class CbibUserProfileMigration extends DrupalUser6Migration {
     parent::postRollback();
 
     db_truncate('cbib_migrate_profile_map')->execute();
+    db_truncate('cbib_migrate_user_library_map')->execute();
   }
 }

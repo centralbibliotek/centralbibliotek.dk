@@ -1,0 +1,33 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/og-default-role-member-2005800-25.patch'
+    home: 'https://www.drupal.org/node/2005800#comment-7684873'
+    resaon: 'Auto-assign role to group manager broken on groups with overridden roles.'
+  -
+    patch: 'https://www.drupal.org/files/og_ui-group_node_add_theme-1800208-5.patch'
+    home: 'https://www.drupal.org/node/1800208'
+    resaon: 'og_ui should give users the theme, not admin ui when creating groups.'
+  -
+    patch: 'https://www.drupal.org/files/issues/og-missing-permission-roles-2301831-1.patch'
+    home: 'https://www.drupal.org/node/2301831'
+    resaon: 'Missing permissions when installing a new site.'
+  -
+    patch: 'https://www.drupal.org/files/og-Do_not_export_nonexisting_roles-2021673-1.patch'
+    home: 'https://www.drupal.org/node/2021673'
+    resaon: 'Missing permissions when reverting features.'
+  -
+    patch: 'https://www.drupal.org/files/issues/alternate-entityreference-does-not-validate-8784871-4.patch'
+    home: 'https://www.drupal.org/node/2249261#comment-8784997'
+    reason: 'Fix FieldValidationException: error when saving entity og reference fields.'
+  -
+    patch: 'https://www.drupal.org/files/issues/og-invalid_datetime_format-1491420-2.patch'
+    home: 'https://www.drupal.org/node/1491420'
+    reason: 'Working around a "Invalid datetime".'
+  -
+    patch: 'https://www.drupal.org/files/issues/og-incorrect_results-2358929-3.patch'
+    home: 'https://www.drupal.org/node/2358929'
+    reason: 'Incorrect results from og_get_group_audience_fields() if called twice using different $group_bundle parameter'
+  -
+    patch: 'https://www.drupal.org/files/issues/add-gid-to-relationship-field-1890370-34.patch'
+    home: 'https://www.drupal.org/node/1890370'
+    reason: 'SQLSTATE[42S22]: Column not found: 1054 Unknown column ''og_membership.field_og_ref_target_id'' in ''on clause'''

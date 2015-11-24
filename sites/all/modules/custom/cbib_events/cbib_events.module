@@ -1,0 +1,251 @@
+<?php
+/**
+ * @file
+ * Code for the Cbib Events feature.
+ */
+
+include_once 'cbib_events.features.inc';
+
+/**
+ * @file
+ * Centralbibliotek.dk event stuff.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ *
+ * Tells CTools (and thus Panels) where to look for plugin code.
+ */
+function cbib_events_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'ctools' || $module == 'panels') && ($plugin == 'content_types')) {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function cbib_events_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($router_item['path'] == 'node/%/registrations' || $router_item['tab_parent'] == 'node/%/registrations') {
+    $data['tabs'][1]['output'][] = array(
+      '#theme' => 'menu_local_task',
+      '#link' => array(
+        'title' => t('Download registrants'),
+        'href' => 'node/' . $router_item['original_map'][1] . '/registrations/deltagere.csv',
+        'localized_options' => array(
+          'attributes' => array(
+            'title' => t('Download'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for commons_events_attend_event_form().
+ *
+ * Expose field_note on event registration form.
+ */
+function cbib_events_form_commons_events_attend_event_form_alter(&$form, &$form_state, $form_id) {
+  // Attach fields from the registration entity.
+  field_attach_form('registration', $form_state['registration'], $form, $form_state);
+
+  // Put the note field in early (before submit is what we want).
+  if (!empty($form['field_note'])) {
+    $form['field_note']['#weight'] = -1;
+  }
+
+  // Add description as placeholder text to hint users of what to use the field
+  // for.
+  if (!empty($form['field_note'][LANGUAGE_NONE]['#description'])) {
+    $form['field_note'][LANGUAGE_NONE][0]['value']['#attributes']['placeholder'] = $form['field_note'][LANGUAGE_NONE]['#description'];
+  }
+
+  // Add our submit handler - must come before
+  // commons_events_attend_event_form_submit().
+  array_unshift($form['#submit'], 'cbib_events_commons_events_attend_event_form_submit');
+}
+
+/**
+ * Submit handler for adding field_note to registration object.
+ *
+ * Commons_events_attend_event_form_submit() will save the registration.
+ *
+ * @see commons_events_attend_event_form_submit()
+ */
+function cbib_events_commons_events_attend_event_form_submit($form, &$form_state) {
+  if (!empty($form_state['values']['field_note'][LANGUAGE_NONE][0]['value'])) {
+    $form_state['registration']->field_note = $form_state['values']['field_note'];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for event_node_form().
+ */
+function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_registration_date'][LANGUAGE_NONE][0]['#title'] = 'Tilmelding åbner';
+  $form['#attached']['css'] = array(
+    drupal_get_path('module', 'cbib_events') . '/css/node-edit.css',
+  );
+
+  // We exchange the submit handler in Commons Events
+  // (commons_events_node_form_submit()) with our own variant. We have removed
+  // the 'Automatically register the node creator for the event' part.
+  $delta = array_search('commons_events_node_form_submit', $form['#submit']);
+  if ($delta !== FALSE) {
+    $form['#submit'][$delta] = 'cbib_events_node_form_submit';
+  }
+
+  // Move registration settings to the top.
+  if (isset($form['event_registration_settings']['#weight'])) {
+    $form['event_registration_settings']['#weight'] = -100;
+  }
+
+  // Add our form validate function.
+  $form['#validate'][] = 'cbib_events_node_form_validate';
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * We ensure that our form_alter and views_post_excute is added after Commons
+ * Events' form_alter and views_post_execute by altering the hook order.
+ */
+function cbib_events_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
+    unset($implementations['cbib_events']);
+    $implementations['cbib_events'] = FALSE;
+  }
+
+  if ($hook == 'views_post_execute' && isset($implementations['cbib_events']) && isset($implementations['commons_events'])) {
+    unset($implementations['cbib_events']);
+    $implementations['cbib_events'] = FALSE;
+  }
+}
+
+/**
+ * Unset commons_groups modules "redirect to group" submit handler.
+ *
+ * We unset the submit handler in a form validate function because our
+ * form_alter hooks wil run before those of commons_groups' form_alter hooks. We
+ * cannot modify the hooks order in hook_module_implements_alter() because
+ * commons_groups also modify the hook order.
+ *
+ * Alternatives to implementing this in a form validate function would be to
+ * alter the system weight or the name of this module to be higher than the
+ * weight/name of commons_groups. That way our hook_module_implements_alter()
+ * would be called later than that of commons_groups and so we would be able to
+ * ensure that form_alter hooks was run after those of commons_groups. Downsides
+ * to that would be to consider side effects on all the other code in this
+ * module by being called later.
+ *
+ * @see commons_groups_node_in_group_submit()
+ */
+function cbib_events_node_form_validate($form, &$form_state) {
+  foreach ($form_state['submit_handlers'] as $delta => $submit_handler) {
+    if ($submit_handler == 'commons_groups_node_in_group_submit') {
+      unset($form_state['submit_handlers'][$delta]);
+    }
+  }
+}
+
+/**
+ * Custom node form submit handler.
+ *
+ * This is a variation of the submit handler in Commons Events
+ * (commons_events_node_form_submit()). We have removed the 'Automatically
+ * register the node creator for the event' part.
+ *
+ * The submit handler is added in cbib_events_form_event_node_form_alter().
+ *
+ * We ensure that the above form_alter is added before Commons Events'
+ * form_alter by altering the hook order in
+ * cbib_events_module_implements_alter().
+ *
+ * @see commons_events_node_form_submit()
+ * @see cbib_events_form_event_node_form_alter()
+ * @see cbib_events_module_implements_alter()
+ */
+function cbib_events_node_form_submit($form, $form_state) {
+  $node = $form_state['node'];
+  $language = (isset($form_state['language']) ? $form_state['language'] : LANGUAGE_NONE);
+
+  if (isset($node->nid)) {
+    $settings = registration_entity_settings('node', $node->nid);
+    $settings['status'] = (int) $form_state['values']['field_status'];
+
+    if ($form_state['values']['field_registration_type'][$language]['0']['value'] == 'external') {
+      $settings['status'] = 0;
+    }
+
+    if (!empty($form_state['values']['field_number_of_attendees'][$language]['0']['value']) && is_numeric($form_state['values']['field_number_of_attendees'][$language]['0']['value'])) {
+      $settings['capacity'] = (int) $form_state['values']['field_number_of_attendees'][$language]['0']['value'];
+    }
+
+    $settings['settings'] = serialize($settings['settings']);
+    registration_update_entity_settings('node', $node->nid, $settings);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for registration_entity_settings_form().
+ *
+ * We add another submit handler to ensure the max capacity of an event is also
+ * propagated back to the event node (the value is duplicated in the data model
+ * by Drupal Commons).
+ *
+ * @see cbib_events_registration_entity_settings_form_submit()
+ */
+function cbib_events_form_registration_entity_settings_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'cbib_events_registration_entity_settings_form_submit';
+}
+
+/**
+ * Ensure the max capacity of an event is propagated back to the event node.
+ *
+ * @see cbib_events_form_registration_entity_settings_form_alter()
+ */
+function cbib_events_registration_entity_settings_form_submit($form, $form_state) {
+  $node = entity_load_single($form_state['entity']['entity_type'], $form_state['entity']['entity_id']);
+  $node_wrapper = entity_metadata_wrapper($form_state['entity']['entity_type'], $node);
+  $node_wrapper->field_number_of_attendees->set($form['capacity']['#value']);
+  $node_wrapper->save();
+}
+
+/**
+ * Implements hook_views_post_execute().
+ *
+ * The @total count in the view does not count guest attendees.
+ *
+ * We need the more precise total count in the view header so we'll adjust it
+ * here.
+ *
+ * We also remove the "attachment_before" added by Commons Events on the
+ * "Upcomming Events" view.
+ *
+ * @see commons_events_get_raw_attendee_count()
+ * @see commons_events_views_post_execute()
+ */
+function cbib_events_views_post_execute(&$view) {
+  // Only do this on the content pane views display.
+  if ($view->name == 'commons_events_event_attendee_list' && $view->current_display == 'panel_pane_1' &&
+    !empty($view->args[0]) && is_numeric($view->args[0])) {
+    // Load the node from the views context.
+    $node = node_load($view->args[0]);
+
+    // Ask Commons Events for the real attendee count.
+    $count = commons_events_get_raw_attendee_count($node);
+
+    // Update the count in the header content (replace @total with the count).
+    $view->header['result']->options['content'] = strtr($view->header['result']->options['content'], array('@total' => $count));
+  }
+
+  if ($view->name == 'commons_events_upcoming' && $view->current_display == 'panel_pane_1') {
+    unset($view->attachment_after);
+  }
+
+  if ($view->name == 'commons_events_upcoming' && $view->current_display == 'panel_pane_2') {
+    unset($view->attachment_before);
+  }
+}

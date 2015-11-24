@@ -58,9 +58,6 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapNonMigratedDestinationFields() {
-    $this->addFieldMapping('og_user_group_ref')
-      ->defaultValue(array());
-
     $this->addUnmigratedDestinations(array('field_radioactivity'));
   }
 
@@ -104,10 +101,8 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
    * @return void.
    */
   private function mapEntityReferenceFields() {
-    // TODO Missing field right now.
-    /*$this->addFieldMapping('og_group_ref', 'field_group_relation3')
-      ->sourceMigration('group');*/
-    $this->addUnmigratedSources(array('field_group_relation3'));
+    $this->addFieldMapping('og_group_ref', 'field_group_relation3')
+      ->sourceMigration('group');
   }
 
   /**
@@ -117,7 +112,7 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
    */
   private function mapLinkFields() {
     // TODO Field missing.
-    /*$this->addFieldMapping('field_link', 'field_attached_link');
+    $this->addFieldMapping('field_link', 'field_attached_link');
 
     $this->addUnmigratedSources(array(
       'field_attached_link:title',
@@ -126,11 +121,6 @@ class CbibPostMigration extends CbibMigrateDrupalNode6Migration {
 
     $this->noLanguage(array(
       'field_link',
-    ));*/
-    $this->addUnmigratedSources(array(
-      'field_attached_link',
-      'field_attached_link:title',
-      'field_attached_link:attributes',
     ));
   }
 

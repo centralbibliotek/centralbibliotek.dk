@@ -1,0 +1,135 @@
+/**
+ * Node type event.
+ */
+.node-type-event {
+  // Event title
+  .field-name-title-field {
+    h1 {
+      margin: 1em 0 .75em;
+    }
+  }
+
+
+  // Event image
+  .field-name-field-image {
+    img {
+      width: 100%;
+    }
+  }
+
+
+  // Event date
+  .region.region-two-66-33-first .pane-node-field-date {
+    float: left;
+    margin-bottom: 0;
+
+    .field-item {
+      @extend %date;
+    }
+  }
+
+  .region.region-two-66-33-first .pane-node-field-date {
+    margin-right: .5em;
+  }
+
+
+  // Event type
+  .region.region-two-66-33-first .pane-node-field-event-type {
+
+    margin-bottom: 0;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      margin-right: 1em;
+    }
+
+    a {
+      @extend %tag-blue;
+    }
+
+    .field-type-taxonomy-term-reference {
+      margin-bottom: 0;
+    }
+
+  }
+
+  // Event location
+  .region.region-two-66-33-first .pane-node-field-address {
+    float: left;
+    //margin-bottom: 0;
+
+    .adr {
+      @extend %tag;
+    }
+  }
+
+  .region.region-two-66-33-first .pane-node-field-address {
+    margin: 0 0.5em 2em 0;
+  }
+
+  // prevent body to float up if topic-tag is missing
+  .region.region-two-66-33-first .pane-node-body {
+    clear:both;
+  }
+}
+
+// jQuery ui tabs override.
+.page-events .ui-tabs,
+.page-node-events .ui-tabs {
+  font-size: 1em;
+  line-height: 1.6;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  .ui-tabs-panel {
+    padding: 0;
+  }
+
+  ul {
+    background: none;
+    border: none;
+    line-height: inherit;
+
+    li {
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      @include border-radius(0);
+
+      &.ui-tabs-selected {
+        padding-bottom: 0.5rem;
+      }
+      a {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  // Style it.
+  @include menu-primary("sub");
+
+  ul {
+    margin-bottom: 2em;
+  }
+}
+
+.commons-events-form-float {
+  .field-name-field-note {
+    margin-bottom: 2ex;
+
+    .description, label {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+project:
+  type: git
+  origin: 'http://git.drupal.org/project/admin_icons.git'
+  revision: 60d9f28801533fecc92216a60d444d89d80e7611

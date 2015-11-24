@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cbib_spam_protection module.
+ */
+
+/**
+ * Enable and configure User Restrictions module.
+ */
+function cbib_spam_protection_update_7101(&$sandbox) {
+  if (!module_exists('user_restrictions')) {
+    module_enable(array('user_restrictions'));
+  }
+
+  if (!module_exists('user_restrictions_ui')) {
+    module_enable(array('user_restrictions_ui'));
+  }
+
+  // Blacklist %@drupaler.org mails.
+  db_insert('user_restrictions')
+    ->fields(array(
+        'mask' => '%@drupaler.org',
+        'type' => 'mail',
+        'subtype' => '',
+      ))
+    ->execute();
+
+  // Blacklist %@%.drupaler.org mails.
+  db_insert('user_restrictions')
+    ->fields(array(
+        'mask' => '%@%.drupaler.org',
+        'type' => 'mail',
+        'subtype' => '',
+      ))
+    ->execute();
+}
