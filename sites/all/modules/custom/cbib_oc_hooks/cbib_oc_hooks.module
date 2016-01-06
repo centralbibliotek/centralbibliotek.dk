@@ -1,0 +1,17 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
+{
+    if($form_id == "user_register_form")
+    {
+        hide($form['actions']['submit']);
+        $form['actions']['submit2']['#value'] = t("Send");
+        $form['actions']['submit2']['#type'] = "submit";
+    }
+}

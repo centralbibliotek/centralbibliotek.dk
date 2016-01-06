@@ -1,0 +1,7 @@
+name = Cbib oc hooks
+description = odense central library hooks and changes
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_oc_hooks
+configure = 
