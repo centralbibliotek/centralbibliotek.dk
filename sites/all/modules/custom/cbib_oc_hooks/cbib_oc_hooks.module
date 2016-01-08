@@ -28,7 +28,11 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
 }
 
 function cbib_oc_hooks_user_login_submit_handler($form, &$form_state) {
-  $current = $_SESSION['ref'];
-  drupal_goto(urldecode($current));
+  if(isset($_SESSION['ref'])) {
+      $current = $_SESSION['ref'];
+      unset($_SESSION['ref']);
+      drupal_goto(urldecode($current));
+  }
+  
 
 }
