@@ -23,12 +23,45 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         $_SESSION['ref'] = $parsed;
         }
         $form['#submit'][] = 'cbib_oc_hooks_user_login_submit_handler';
-
     }
 }
-
+function cbib_oc_hooks_form_commons_bw_partial_node_form_alter(&$form, &$form_state) {
+    /*
+     * Overwrite the commons settings for posts.
+     * Allow title field to be trigger.
+     */
+    if (empty($form['#entity']) || $form['#entity']->type != 'post') {
+        return;
+    }
+    $language = $form['body']['#language'];    
+    drupal_add_css(drupal_get_path('module', 'cbib_oc_hooks') . "/css/commons_posts_overwrites.css");
+    
+    // Set fields as hideable so the forms can be compacted.
+    $form['title_field']['#attributes']['class'][] = 'trigger-field';
+    foreach (array('body','field_media', 'field_image', 'og_group_ref', 'choice_wrapper', 'actions') as $field) {
+      if (isset($form[$field])) {
+        $form[$field]['#attributes']['class'][] = 'hideable-field';
+      }
+    }
+}
 function cbib_oc_hooks_user_login_submit_handler($form, &$form_state) {
   $current = $_SESSION['ref'];
   drupal_goto(urldecode($current));
 
 }
+/*
+function cbib_oc_hooks_mail_alter(&$message)
+{
+  // We don't want to send emails if the variable has not been set, or if it has been set and is TRUE.
+  // We can use variable_get() to get the $conf variable set in our settings.php file
+  // Note that by setting the default to TRUE, the default setting for the system is to be
+  // a development environment. Set this to FALSE to have the default be a live environment.
+  if(variable_get('development_environment', TRUE))
+  {
+    // First: Prevent the mail from being sent
+    $message['send'] = FALSE;
+ 
+    // Next: Log the mail so it can be debugged if necessary
+    watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
+  }
+}*/
