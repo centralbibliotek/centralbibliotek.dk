@@ -45,8 +45,12 @@ function cbib_oc_hooks_form_commons_bw_partial_node_form_alter(&$form, &$form_st
     }
 }
 function cbib_oc_hooks_user_login_submit_handler($form, &$form_state) {
-  $current = $_SESSION['ref'];
-  drupal_goto(urldecode($current));
+  if(isset($_SESSION['ref'])) {
+      $current = $_SESSION['ref'];
+      unset($_SESSION['ref']);
+      drupal_goto(urldecode($current));
+  }
+  
 
 }
 /*
