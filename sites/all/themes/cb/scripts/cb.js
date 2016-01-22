@@ -120,7 +120,9 @@
       container.append(replaceMenu);
 
       // Add a toggle link.
-      var href = selected[0].value.split('::')[1];
+      if (selected.length !== 0) {
+        var href = selected[0].value.split('::')[1];
+      }           
       if (typeof href === 'undefined') {
         href = '/';
       }

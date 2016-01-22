@@ -49,6 +49,10 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         }
         $form['#submit'][] = 'cbib_oc_hooks_user_login_submit_handler';
     }
+    if($form_id == "event_node_form")
+    {
+        drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/end-date.js',array('weight' => 999));
+    }
 }
 /*
  * Alter the posts form to allow titles in quick reply.
@@ -80,6 +84,8 @@ function cbib_oc_hooks_user_login_submit_handler($form, &$form_state) {
       unset($_SESSION['ref']);
       drupal_goto(urldecode($current));
   }
+  
+  
 }
 /*
  * Function that allow us to prevent sending emails
