@@ -191,9 +191,9 @@ function cbib_events_node_form_submit($form, $form_state) {
     /*
      * Set Register start date to now.
      * Set Register end date to event start datetime.
-     */
+     */ 
     $settings['open'] = date('Y-m-d H:i:s', time());
-    $settings['close'] = isset($form_state['values']['field_date']['und'][0]['value2']) ? $form_state['values']['field_date']['und'][0]['value2'] : null;
+    $settings['close'] = isset($form_state['values']['field_tilmeldings_frist']['und'][0]['value']) ? $form_state['values']['field_tilmeldings_frist']['und'][0]['value'] : null;
     
     $settings['settings'] = serialize($settings['settings']);
     registration_update_entity_settings('node', $node->nid, $settings);
