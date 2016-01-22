@@ -2,7 +2,7 @@
 /*
 * Contains configuration options for cbib oc hooks.
 */
-function oc_template_overwrites_admin()
+function cbib_oc_hooks_admin()
 {
     $form = array(
         

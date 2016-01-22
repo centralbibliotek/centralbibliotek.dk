@@ -1,20 +1,21 @@
 <?php
+include_once "cbib_oc_hooks.admin.inc";
 /*
  * Register any additonal routes required by the module.
  */
 function  cbib_oc_hooks_menu() {
   $items = array();
   $items['admin/settings/cbib_oc_hooks'] = array(
+    'type' => MENU_CALLBACK,
     'title' => 'Cbib OC_Hooks config',
     'description' => 'Config',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('oc_template_overwrites_admin'),
+    'page arguments' => array('cbib_oc_hooks_admin'),
     'access arguments' => array('administer cbib_hooks'),
-    'file' => 'cbib_oc_hooks.admin.inc',
-    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
    );
   
-  return system_settings_form($items);
+  return $items;
 }
 /**
  * Implements hook_permission().
