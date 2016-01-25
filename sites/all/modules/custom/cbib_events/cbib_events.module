@@ -110,6 +110,17 @@ function cbib_events_form_event_node_form_alter(&$form, &$form_state, $form_id) 
 
   // Add our form validate function.
   $form['#validate'][] = 'cbib_events_node_form_validate';
+  
+  //Ensure that event registration date is synced with the one set on OG settings.
+  $node = $form['#node'];
+  if(isset($node->nid))
+  {
+      $settings = registration_entity_settings('node', $node->nid);
+      if(isset($settings['close']) && $settings['close'] != null)
+      {
+        $form['field_tilmeldings_frist'][$node->language][0]['#default_value']['value'] = $settings['close'];
+      }
+  }
 }
 
 /**
