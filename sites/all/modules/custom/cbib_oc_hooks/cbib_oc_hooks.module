@@ -108,3 +108,15 @@ function cbib_oc_hooks_mail_alter(&$message)
     watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
   }
 }
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function cbib_oc_hooks_preprocess_node(&$vars){
+  //Supposing that your content type name is "event"
+  if($vars['type'] == 'event' && $vars['view_mode'] == 'print'){
+    $vars['content']['field_date']['#title'] = 'Tid og sted';
+    unset($vars['content']['attending']);
+
+  }
+}
