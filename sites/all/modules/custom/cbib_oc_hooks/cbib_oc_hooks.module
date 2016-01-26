@@ -114,9 +114,18 @@ function cbib_oc_hooks_mail_alter(&$message)
  */
 function cbib_oc_hooks_preprocess_node(&$vars){
   //Supposing that your content type name is "event"
-  if($vars['type'] == 'event' && $vars['view_mode'] == 'print'){
+  if($vars['type'] == 'event' && $vars['view_mode'] == 'print'){    
     $vars['content']['field_date']['#title'] = 'Tid og sted';
     unset($vars['content']['attending']);
 
+  }
+}
+
+function cbib_oc_hooks_js_alter(&$javascript) {
+    $path = $_SERVER['REDIRECT_URL'];
+    $check = substr($path, 0, 7);
+    if ($check  == '/print/') {
+        unset($javascript['misc/drupal.js']);
+        unset($javascript['sites/all/modules/contrib/jquery_update/replace/jquery/1.8/jquery.min.js']);
   }
 }
