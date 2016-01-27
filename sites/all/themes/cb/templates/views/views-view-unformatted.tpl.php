@@ -7,7 +7,7 @@
  * @ingroup views_templates
  */
 ?>
-<?php print render(print_insert_link()); ?>
+<div style="float:right;"> <?php print render(print_insert_link()); ?> </div>
 <?php if (!empty($title)): ?>
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
