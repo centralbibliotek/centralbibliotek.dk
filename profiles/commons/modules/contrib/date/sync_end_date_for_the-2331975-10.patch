@@ -1,0 +1,49 @@
+diff --git a/date_popup/date_popup.js b/date_popup/date_popup.js
+index bbf25e2..f38dcb5 100644
+--- a/date_popup/date_popup.js
++++ b/date_popup/date_popup.js
+@@ -14,6 +14,14 @@
+           $(this).click(function(){
+             $(this).focus();
+           });
++          if (datePopup.settings.syncEndDate) {
++            $('.start-date-wrapper').each(function(){
++              var start_date_wrapper = this;
++              $(this).find('input:eq(0)').change(function(){
++                $(start_date_wrapper).next('.end-date-wrapper').find('input:eq(0)').val($(this).val());
++              });
++            });
++          }
+           break;
+ 
+         case 'timeEntry':
+diff --git a/date_popup/date_popup.module b/date_popup/date_popup.module
+index e91cc8a..db95168 100644
+--- a/date_popup/date_popup.module
++++ b/date_popup/date_popup.module
+@@ -394,6 +394,10 @@ function date_popup_process_date_part(&$element) {
+     'fromTo' => isset($fromto),
+   );
+ 
++  if (!empty($element['#instance'])) {
++    $settings['syncEndDate'] = $element['#instance']['settings']['default_value2'] == 'sync';
++  }
++
+   // Create a unique id for each set of custom settings.
+   $id = date_popup_js_settings_id($element['#id'], 'datepicker', $settings);
+ 
+@@ -801,6 +805,14 @@ function theme_date_popup($vars) {
+ }
+ 
+ /**
++ * Implements hook_date_field_instance_settings_form_alter().
++ */
++function date_popup_date_field_instance_settings_form_alter(&$form, $context) {
++  // Add an extra option to sync the end date with the start date.
++  $form['default_value2']['#options']['sync'] = t('Sync with start date');
++}
++
++/**
+  * Implements hook_menu().
+  */
+ function date_popup_menu() {
