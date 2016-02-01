@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cb_licens_user_list feature.
+ */
+
+include_once 'cb_licens_user_list.features.inc';

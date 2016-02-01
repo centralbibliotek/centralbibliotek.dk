@@ -1,0 +1,13 @@
+name = cb_licens_user_list
+description = List users who's follows a licens or a centralbibliotek
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = cb_licens_user_list
+dependencies[] = views
+dependencies[] = views_data_export
+dependencies[] = views_load_more
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = cb_user_list
+features_exclude[dependencies][ctools] = ctools
