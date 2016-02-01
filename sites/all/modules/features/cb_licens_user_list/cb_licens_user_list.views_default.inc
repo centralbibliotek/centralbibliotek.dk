@@ -283,6 +283,7 @@ function cb_licens_user_list_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'group' => 'group',
     'license' => 'license',
   );
   $handler->display->display_options['path'] = 'lc-user-list';
@@ -320,6 +321,7 @@ function cb_licens_user_list_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'centralbibliotek' => 'centralbibliotek',
+    'group' => 'group',
     'license' => 'license',
   );
   $handler->display->display_options['path'] = 'cb-licens-user-list';
