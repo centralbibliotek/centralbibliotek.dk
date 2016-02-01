@@ -264,6 +264,8 @@ function cb_licens_user_list_views_default_views() {
 
   /* Display: Side */
   $handler = $view->new_display('page', 'Side', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Hvor mange der følger det enkelte centralbibliotek.dk/licenser';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterie: Indhold: Udgivet */
@@ -342,6 +344,7 @@ function cb_licens_user_list_views_default_views() {
     t('Page'),
     t('Hvor mange der følger det enkelte CB'),
     t('Side'),
+    t('Hvor mange der følger det enkelte centralbibliotek.dk/licenser'),
     t('Data export'),
   );
   $export['cb_user_list'] = $view;
