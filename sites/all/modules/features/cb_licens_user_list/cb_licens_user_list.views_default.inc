@@ -38,19 +38,8 @@ function cb_licens_user_list_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
-  $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
-  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
-  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'realname' => 'realname',
@@ -343,14 +332,6 @@ function cb_licens_user_list_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Antal elementer'),
-    t('- Alle -'),
-    t('Forskydning'),
-    t('«'),
-    t('‹'),
-    t('›'),
-    t('»'),
-    t('Load more'),
     t('Ialt @total'),
     t('flag'),
     t('Sæt flag på bruger'),
