@@ -1028,7 +1028,6 @@ function registration_update_entity_settings($entity_type, $entity_id, $settings
 
   drupal_set_message(t('Registration settings have been saved.'));
 }
-
 /**
  * Implements hook_cron().
  */
@@ -1650,7 +1649,7 @@ function registration_delete_multiple($registration_ids) {
  *
  * @param $registration
  *   The full registration object to save.
- *
+ *registration_save
  * @return
  *   If the record insert or update failed, returns FALSE. If it succeeded,
  *   returns SAVED_NEW or SAVED_UPDATED, depending on the operation performed.
