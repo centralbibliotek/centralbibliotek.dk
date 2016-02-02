@@ -15,6 +15,15 @@ function  cbib_oc_hooks_menu() {
     'access callback' => TRUE,
    );
   
+   $items['admin/settings/cbib_oc_hooks/js/summary'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'js_summary',
+    'description' => 'creates summary of text recived and returns',
+    'page callback' => 'cbib_oc_hooks_js_create_summary',
+    'access arguments' => array('administer cbib_hooks'),
+    'access callback' => TRUE,
+   );
+  
   return $items;
 }
 /**
@@ -31,7 +40,6 @@ function cbib_oc_hooks_permission() {
 /*
 * Alter various forms.
  */
-
 function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
 {
     if($form_id == "user_register_form")
@@ -53,6 +61,11 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
     if($form_id == "event_node_form")
     {
         drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/end-date.js',array('weight' => 999));
+        /*
+         * JS to create live preview of summary.
+         */
+        drupal_add_js(array('cbib_oc_hooks' => array('summary_length' => variable_get('teaser_length', 600))), 'setting');
+        drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/oc_summary_preview.js');
     }
 }
 /*
@@ -107,4 +120,29 @@ function cbib_oc_hooks_mail_alter(&$message)
     // Next: Log the mail so it can be debugged if necessary
     watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
   }
+}
+/*
+ * Custom callback function to create a live text summary.
+ */
+function cbib_oc_hooks_js_create_summary()
+{
+    echo text_summary($_GET['text'],'filtered_html');
+    drupal_exit();
+}
+/**
+ * Implements hook_wysiwyg_plugin().
+ *
+ * @see hook_wysiwyg_plugin()
+ */
+function cbib_oc_hooks_ckeditor_plugin() {
+  return array(
+    'confighelper' => array(
+      // Name of the plugin used to write it.
+      'name' => 'confighelper',
+      // Description of the plugin - it would be displayed in the plugins management section of profile settings.
+      'desc' => t('Simplify the task of changing some behaviors of CKEditor'),
+      // The full path to the CKEditor plugins directory, with the trailing slash.
+      'path' => drupal_get_path('module', 'cbib_oc_hooks') . '/js/ckeditor/confighelper/'
+    )
+  );
 }
