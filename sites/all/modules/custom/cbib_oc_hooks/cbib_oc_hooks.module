@@ -126,7 +126,7 @@ function cbib_oc_hooks_mail_alter(&$message)
  */
 function cbib_oc_hooks_js_create_summary()
 {
-    echo text_summary($_GET['text'],'filtered_html');
+    echo text_summary($_GET['text'],null,300);
     drupal_exit();
 }
 /**
