@@ -8,6 +8,7 @@
     
     $( document ).ready(function() {
         var editor = CKEDITOR.instances['edit-body-und-0-value'];
+        var summary_editor = CKEDITOR.instances['edit-body-und-0-summary'];
         $('textarea[id^=edit-body-und-0-summary]').attr('placeholder','Loading..');
         initSummary();
         
@@ -15,10 +16,11 @@
             var editable = editor.editable();
 
             editable.attachListener( editable, 'blur', function() {
-                 var data = editor.editable().getData()
+                 var data = editor.editable().getData();
+                 var old_resume_data = summary_editor.editable().getData();
                  //Call our custom ajax path for creating drupal summaries.
                  //And set the summary editor to the returned value.
-                 if(data.length > 0)
+                 if(data.length > 0 && old_resume_data.length == 0)
                  {
                     var throbber = $('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
                     var label = $('label[for^=edit-body-und-0-summary]');
