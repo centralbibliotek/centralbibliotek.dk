@@ -1,5 +1,40 @@
 <?php
 
+function cb_preprocess_html(&$vars) { 
+      drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(
+      'type' => 'external'
+  ));
+}
+
+function cb_menu_link(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  // Class attributes by menu_attributes
+  if (isset($element['#localized_options']['attributes']['class'])) {
+    $array_class = $element['#localized_options']['attributes']['class'];
+    foreach ($array_class as $i => $class) {
+      if (substr($class, 0, 5) == 'icon-') {
+        // Don't put the class on the <a> tag!
+        unset($element['#localized_options']['attributes']['class'][$i]);
+        // It should go on a <i> tag (FontAwesome)!
+        $icon = '<i class="' . $class . '"></i>';
+      }
+    }
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  if (!empty($icon)) {
+    // Insert the icons (<i> tags) into the <a> tag.
+    $output = substr_replace($output, $icon, -4, 0);
+  }
+
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
 /**
  * @file
  * Centralbibliotek.dk template.php.
