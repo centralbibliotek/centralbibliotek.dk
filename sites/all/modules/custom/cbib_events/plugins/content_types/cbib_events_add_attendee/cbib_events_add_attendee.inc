@@ -48,7 +48,7 @@ function cbib_events_add_attendee_form($form, &$form_state) {
   $form['user']['name'] = array(
     '#type' => 'textfield',
     '#title' => t('User name'),
-    '#autocomplete_path' => 'user/autocomplete',
+    '#autocomplete_path' => 'oc/user/autocomplete',
     '#required' => TRUE,
   );
 

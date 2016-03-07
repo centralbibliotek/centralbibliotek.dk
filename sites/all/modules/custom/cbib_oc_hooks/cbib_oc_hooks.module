@@ -23,7 +23,17 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('administer cbib_hooks'),
     'access callback' => TRUE,
    );
-  
+   
+  $items['oc/user/autocomplete'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'autocomplete with names + emails.',
+    'description' => 'modified user autocomplete',
+    'page callback' => 'cbib_oc_hooks_user_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+   );
+   
+   
   return $items;
 }
 /**
@@ -66,6 +76,10 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
          */
         drupal_add_js(array('cbib_oc_hooks' => array('summary_length' => variable_get('teaser_length', 600))), 'setting');
         drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/oc_summary_preview.js');
+    }
+    if($form_id == "og_ui_add_users" && isset($form['og_user']['name']['#autocomplete_path']))
+    {
+        $form['og_user']['name']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
 }
 /*
@@ -145,4 +159,17 @@ function cbib_oc_hooks_ckeditor_plugin() {
       'path' => drupal_get_path('module', 'cbib_oc_hooks') . '/js/ckeditor/confighelper/'
     )
   );
+}
+/*
+ * Overwriting user/autocomplete for commons autocompletion
+ */
+function cbib_oc_hooks_user_autocomplete($string = '') {
+  $matches = array();
+  if ($string) {
+    $result = db_select('users')->fields('users', array('name','mail'))->condition('name', db_like($string) . '%', 'LIKE')->range(0, 10)->execute();
+    foreach ($result as $user) {
+      $matches[$user->name] = check_plain($user->name) . " (" . check_plain($user->mail) . ")";
+    }
+  }
+  drupal_json_output($matches);
 }
