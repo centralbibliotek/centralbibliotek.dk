@@ -166,7 +166,11 @@ function cbib_oc_hooks_ckeditor_plugin() {
 function cbib_oc_hooks_user_autocomplete($string = '') {
   $matches = array();
   if ($string) {
-    $result = db_select('users')->fields('users', array('name','mail'))->condition('name', db_like($string) . '%', 'LIKE')->range(0, 10)->execute();
+    $or = db_or();
+    $or->condition('mail', db_like($string) . '%', 'LIKE');
+    $or->condition('name', db_like($string) . '%', 'LIKE');
+    $result = db_select('users')->fields('users', array('name','mail'))->condition($or)->range(0, 10)->execute();
+    
     foreach ($result as $user) {
       $matches[$user->name] = check_plain($user->name) . " (" . check_plain($user->mail) . ")";
     }
