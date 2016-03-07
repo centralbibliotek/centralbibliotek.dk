@@ -82,8 +82,8 @@ function commons_user_profile_pages_default_page_manager_handlers() {
         0 => 'argument_entity_id:user_1',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Groups %user:field_name_first contributes to',
-    );
+      'override_title_text' => 'Grupper som %user:field_name_first bidrager til',
+  );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
