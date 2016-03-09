@@ -33,6 +33,15 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('access user profiles'),
    );
    
+    $items['group/%/%/admin/oc/resend'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'Resend group notification.',
+    'description' => 'send group notification',
+    'page arguments' => array(1, 2),
+    'page callback' => 'cbib_oc_hooks_og_resend_notifcation',
+    'access callback' => 'og_ui_user_access_group',
+    'access arguments' => array('add user', 1, 2),
+   );
    
   return $items;
 }
@@ -176,4 +185,30 @@ function cbib_oc_hooks_user_autocomplete($string = '') {
     }
   }
   drupal_json_output($matches);
+}
+/*
+ * Modify OG group admin menu to allow resend of notifcations.
+ */
+function cbib_oc_hooks_og_ui_get_group_admin($group_type, $gid) {
+    $items = array();
+    if (og_user_access($group_type, $gid, 'manage members')) {
+    $items['resend_notifcation'] = array(
+      'title' => t('Resend notification'),
+      'description' => t('Resends original creation notifcation ( this will notify all users on the site!!)'),
+      'href' => "admin/oc/resend",
+    );
+  }
+  
+  return $items;
+}
+/*
+ * Callback that handles triggering the resend of the notification for
+ * node creation.
+ */
+function cbib_oc_hooks_og_resend_notifcation($entity_type,$node_id)
+{
+    $node = node_load($node_id);
+    commons_notify_send_message_on_shutdown($node);
+    drupal_set_message(t("Notification er blevet gensendt."));
+    drupal_goto(url('node/'. $node->nid));
 }
