@@ -5,6 +5,10 @@
  */
 
 include "radioactivity-bootstrap.inc";
+/**
+ * Initialize Drupal
+ */
+_radioactivity_require_bootstrapping();
 
 $incidents = isset($_POST['incidents']) ? $_POST['incidents'] : FALSE;
 
