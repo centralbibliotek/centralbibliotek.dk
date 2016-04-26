@@ -91,6 +91,24 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         $form['og_user']['name']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
 }
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter
+ */
+  function cbib_oc_hooks_form_node_form_alter(&$form, $form_state) {
+    
+  // if you are targeting a specific content type then 
+  // you can access the type:
+  $type = $form['#node']->type;
+
+ // Alter the posts form to allow titles in quick reply.
+ 
+  if ($type == 'document') {
+    unset($form['field_formidling_og_pr']);
+  }
+  
+}
+
 /*
  * Alter the posts form to allow titles in quick reply.
  */
