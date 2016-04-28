@@ -109,6 +109,16 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
   
 }
 
+/**
+ * Implements hook_user_insert
+ */
+function cbib_oc_hooks_user_insert(&$edit, $account, $category) {
+  $nid = $edit['field_f_lg_centralbibliotek']['und'];
+  foreach ($nid as $id) {
+    commons_follow_node_follow_node($id['target_id'], 'centralbibliotek', $account->uid);
+  }
+}
+
 /*
  * Alter the posts form to allow titles in quick reply.
  */
