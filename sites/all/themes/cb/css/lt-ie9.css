@@ -5,32 +5,26 @@
  * Assuming a mobile first approach with respond.js OFF, we must reset the font
  * size for lt IE9
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000313}}
 html {
   font-size: 81.3%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000318}}
 body.front.not-logged-in #content {
   background: url('../images/commons-drop.png') right top no-repeat;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000322}}
 body.front.not-logged-in .region-three-33-top {
   margin-bottom: 24px;
   min-height: 300px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000328}}
 body.front.not-logged-in #block-system-main .pane-1 {
   float: left;
   width: 56%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000332}}
 body.front.not-logged-in #block-system-main .pane-2 {
   float: right;
   width: 40%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000339}}
 .profile-search-result {
   width: 47%;
   margin-right: 1%;
@@ -39,13 +33,9 @@ body.front.not-logged-in #block-system-main .pane-2 {
 
 /* IE8 and lower do not support :before, So remove them and the margin so that
    the container touches the button. */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000347}}
 .sharethis-wrapper {
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lisafelder\/parrot\/sites\/cbib\.localhost\.tv\/sites\/all\/themes\/cb\/sass\/lt-ie9\.scss}line{font-family:\0000350}}
 .sharethis-wrapper:before, .sharethis-wrapper:after {
   border: none;
 }
-
-/*# sourceMappingURL=lt-ie9.css.map */
