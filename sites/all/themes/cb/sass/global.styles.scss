@@ -924,6 +924,7 @@ button,
 [class*="flag-commons-follow-"] {
   .flag-action {
     white-space: nowrap;
+    font-size: 1.2em!important;
     &:before {
       content: "";
       @include sprite_url_height_width($icons, follow-large);

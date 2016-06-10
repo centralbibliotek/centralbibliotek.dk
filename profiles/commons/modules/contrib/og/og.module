@@ -836,39 +836,6 @@ function og_form_group_manager_validate($form, &$form_state) {
   form_error($form, t("Can't save entity as group, because user @name can't be subscribed to group and become a manager.", array('@name' => format_username($account))));
 }
 
-
-/**
- * Find overridden role by role ID.
- *
- * @param $entity
- *   The entity from which to extract values.
- * @param $entity_type
- *   The entity type.
- * @param $rid
- *   The default OG role ID.
- *
- * @return
- *   The corresponding overridden OG role ID, or default.
- */
-function og_roles_get_overridden_role($entity, $entity_type, $rid) {
-  list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
-  // Get og overridden roles.
-  $og_overridden_roles = og_roles($entity_type, $bundle, $id);
-  // Get og default roles.
-  $og_default_roles = og_roles($entity_type, $bundle, 0, FALSE, FALSE);
-  if(isset($og_default_roles[$rid])) {
-    $role_name = $og_default_roles[$rid];
-    foreach ($og_overridden_roles as $overridden_rid => $overridden_role) {
-      if ($overridden_role == $role_name) {
-        $rid = $overridden_rid;
-        return $rid;
-      }
-    }
-  }
-  //Return the default $rid if no overridden one is found.
-  return $rid;
-}
-
 /**
  * Implements hook_entity_insert().
  */
@@ -878,21 +845,12 @@ function og_entity_insert($entity, $entity_type) {
   }
   list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
   if (!empty($entity->uid)) {
-    $og_overridden_roles = FALSE;
-    if (!og_is_group_default_access($entity_type, $entity)) {
-      // Override default roles.
-      og_roles_override($entity_type, $bundle, $id);
-      $og_overridden_roles = TRUE;
-    }
     // Subscribe the group manager.
     og_group($entity_type, $id, array('entity' => $entity->uid));
     // Assign roles to group manager.
     $name = 'og_group_manager_default_rids_' . $entity_type . '_' . $bundle;
     if ($rids = variable_get($name)) {
       foreach ($rids as $rid) {
-        if ($og_overridden_roles) {
-          $rid = og_roles_get_overridden_role($entity, $entity_type, $rid);
-        }
         og_role_grant($entity_type, $id, $entity->uid, $rid);
       }
     }
@@ -911,21 +869,14 @@ function og_entity_update($entity, $entity_type) {
     return;
   }
 
-  list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+  list($id, , $bundle) = entity_extract_ids($entity_type, $entity);
   if (!empty($entity->uid) && !og_is_member($entity_type, $entity, 'user', $entity->uid)) {
     // Subscribe the group manager, in case the owner changed.
     og_group($entity_type, $id, array('entity' => $entity->uid));
     // Assign roles to group manager.
     $name = 'og_group_manager_default_rids_' . $entity_type . '_' . $bundle;
     if ($rids = variable_get($name)) {
-      $og_overridden_roles = FALSE;
-      if (!og_is_group_default_access($entity_type, $entity)) {
-        $og_overridden_roles = TRUE;
-      }
       foreach ($rids as $rid) {
-        if ($og_overridden_roles) {
-          $rid = og_roles_get_overridden_role($entity, $entity_type, $rid);
-        }
         og_role_grant($entity_type, $id, $entity->uid, $rid);
       }
     }
@@ -984,7 +935,7 @@ function _og_update_entity_fields($entity_type, $entity) {
     else {
       $target_type = $field['settings']['target_type'];
       $gids = og_get_entity_groups($entity_type, $entity, array(), $field_name);
-      $gids = !empty($gids[$target_type]) ? $gids[$target_type] : array();
+      $gids = !empty($gids[$target_type]) ? array_values($gids[$target_type]) : array();
     }
     if ($gids) {
       $wrapper->{$field_name}->set($gids);
@@ -1508,8 +1459,16 @@ function og_query_og_membership_alter(QueryAlterableInterface $query) {
     $fields['bundle']['table'] = $base_table;
     $fields['bundle']['field'] = !empty($entity_info['entity keys']['bundle']) ? $entity_info['entity keys']['bundle'] : $id;
     $fields['entity_type']['table'] = 'ogm';
+    $fields['entity_type']['field'] = 'entity_type';
     $fields['entity_id']['table'] = 'ogm';
     $fields['entity_id']['field'] = 'etid';
+
+    // Populate the alias key, as it might be empty on COUNT queries.
+    foreach (array_keys($fields) as $key) {
+      if (empty($fields[$key]['alias'])) {
+        $fields[$key]['alias'] = $key;
+      }
+    }
 
     $ogm = array(
       'join type' => NULL,
@@ -2394,7 +2353,6 @@ function og_get_entity_groups($entity_type = 'user', $entity = NULL, $states = a
   return $cache[$identifier];
 }
 
-
 /**
  * Return TRUE if field is a group audience type.
  *
@@ -3211,10 +3169,10 @@ function og_role_grant_permissions($rid, array $permissions = array()) {
     if (!empty($modules[$name])) {
       db_merge('og_role_permission')
         ->key(array(
-            'rid' => (int) $rid,
-            'permission' => $name,
-            'module' => $modules[$name],
-          ))
+          'rid' => $rid,
+          'permission' => $name,
+          'module' => $modules[$name],
+        ))
         ->execute();
     }
   }
@@ -3598,7 +3556,9 @@ function og_get_groups_by_user($account = NULL, $group_type = NULL) {
   }
 
   foreach ($og_memberships as $og_membership) {
-    $gids[$og_membership->group_type][$og_membership->gid] = $og_membership->gid;
+    if (!empty($og_membership)) {
+      $gids[$og_membership->group_type][$og_membership->gid] = $og_membership->gid;
+    }
   }
 
   if (empty($group_type)) {

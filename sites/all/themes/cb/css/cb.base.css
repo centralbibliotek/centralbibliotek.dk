@@ -57,7 +57,6 @@ ul.nostyle li {
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
   font-family: 'gotham rounded medium';
   src: url("../fonts/GothamRnd-Medium.eot");
@@ -67,7 +66,6 @@ ul.nostyle li {
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
   font-family: 'solido condensed medium';
   src: url("../fonts/SolidoCondensed-Medium.eot");
@@ -77,13 +75,12 @@ ul.nostyle li {
   font-style: normal;
   font-weight: normal;
 }
-
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit),
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit), .more-link a:not(.field-add-more-submit), .pager-load-more a:not(.field-add-more-submit), input[type=submit]:not(.field-add-more-submit), .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit),
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit) {
   border: 0;
   background: #ff5479;
-  color: white !important;
+  color: #fff !important;
   display: inline-block;
   margin: 0 .75em .75em 0;
   padding: .7em 1.5em;
@@ -120,7 +117,7 @@ ul.nostyle li {
 
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
-  background: #dddddd;
+  background: #ddd;
   color: #565656;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
@@ -157,21 +154,21 @@ ul.nostyle li {
 .lead-link a,
 a.lead-link {
   padding: 5px 15px;
-  background-color: #dddddd;
+  background-color: #ddd;
   color: #565656;
   display: block;
   margin: 0 10px 0;
   text-decoration: none;
   border-left: 5px solid #565656;
-  -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   -moz-transition: color 200ms ease-in, background-color 200ms ease-in;
   -o-transition: color 200ms ease-in, background-color 200ms ease-in;
+  -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
   transition: color 200ms ease-in, background-color 200ms ease-in;
 }
 .lead-link a:hover,
 a.lead-link:hover {
   background-color: #565656;
-  color: #dddddd;
+  color: #ddd;
 }
 
 div.messages {
@@ -233,7 +230,7 @@ div.messages.error {
 .field-name-og-user-node .field-items .field-item,
 .pane-node-og-group-ref .field-items .field-item,
 .field-name-field-event-type .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr {
-  background: #dddddd;
+  background: #ddd;
   color: #565656;
 }
 
@@ -267,17 +264,17 @@ div.messages.error {
   text-transform: capitalize;
   margin: 0px 10px 10px 0px;
   position: relative;
-  -webkit-transition-property: background;
   -moz-transition-property: background;
   -o-transition-property: background;
+  -webkit-transition-property: background;
   transition-property: background;
-  -webkit-transition-duration: 200ms;
   -moz-transition-duration: 200ms;
   -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
   transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
 .field-name-field-topics .field-items .field-item a,
@@ -289,17 +286,17 @@ div.messages.error {
   padding: 1px 10px 1px 15px;
   color: #565656;
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
+  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 200ms;
   -moz-transition-duration: 200ms;
   -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
   transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
 .field-name-field-topics .field-items .field-item:before,
@@ -322,14 +319,14 @@ div.messages.error {
 .pane-node-og-group-ref .field-items .field-item:hover,
 .field-name-field-event-type .field-items .field-item:hover {
   background: #33debd;
-  color: white !important;
+  color: #fff !important;
 }
 .field-name-field-topics .field-items .field-item:hover a,
 .field-type-taxonomy-term-reference .field-items .field-item:hover a,
 .field-name-og-user-node .field-items .field-item:hover a,
 .pane-node-og-group-ref .field-items .field-item:hover a,
 .field-name-field-event-type .field-items .field-item:hover a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   box-shadow: none;
 }
@@ -374,7 +371,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 
 .cb-teaser-list .view-filters input[type="text"],
 .page-taxonomy-term .view-filters input[type="text"] {
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: transparent !important;
   border: 0px;
   height: 50px;
   border-bottom: 2px solid #424242;
@@ -440,7 +437,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .cb-teaser-list .node-teaser .panel-col-first .pane-node-created .field-item, .cb-teaser-list .node-teaser .panel-col-first .pane-node-field-date .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date .field-item {
-  color: white;
+  color: #fff;
 }
 .cb-teaser-list .node-teaser .panel-col-first .pane-node-created, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created,
@@ -453,7 +450,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .cb-teaser-list .node-teaser .panel-col-first .pane-node-created .field-item, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created .field-item,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-cbib-time-and-location .field-item {
-  color: white;
+  color: #fff;
 }
 .cb-teaser-list .node-teaser .panel-col-first img,
 .page-taxonomy-term .node-teaser .panel-col-first img {
@@ -612,7 +609,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 
 .panel-pane.pane-centralbibliotek-license-panel-pane-5 {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
 }
 .panel-pane.pane-centralbibliotek-license-panel-pane-5 .views-row .panel-col-bottom {
   display: none;
@@ -623,18 +620,16 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   padding-bottom: 0;
 }
 .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first, .page-node-127 .view-centralbibliotek-license .views-row .panel-col-first {
-  -webkit-transform: scale(0.7);
   -moz-transform: scale(0.7);
   -ms-transform: scale(0.7);
-  -o-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
   transform: scale(0.7);
   margin: -23px 0 0 -50px;
 }
 .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first .pane-node-created, .page-node-127 .view-centralbibliotek-license .views-row .panel-col-first .pane-node-created {
-  -webkit-transform: scale(1.4);
   -moz-transform: scale(1.4);
   -ms-transform: scale(1.4);
-  -o-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
   transform: scale(1.4);
   bottom: 5px;
   left: 17px;
@@ -864,10 +859,9 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager .pager-next a,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager .pager-previous a,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager .pager-next a {
-  -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
   -ms-transform: scale(0.8);
-  -o-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
   transform: scale(0.8);
   letter-spacing: normal;
   top: 7px;
@@ -879,15 +873,14 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .pane-commons-events-event-attendee-list-panel-pane-1 div.item-list-pager ul.pager .pager-next a:hover,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager .pager-previous a:hover,
 #panels-ipe-paneid-4 div.item-list-pager ul.pager .pager-next a:hover {
-  -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
   -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
+  -webkit-transform: scale(0.9);
   transform: scale(0.9);
 }
 
 .main-header {
-  background: #333333;
+  background: #333;
   position: relative;
   min-height: 73px;
 }
@@ -910,7 +903,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 
 #main-menu {
-  background: #dddddd;
+  background: #ddd;
   margin-bottom: 0;
   overflow: hidden;
   padding: 0.5em 0 0 0;
@@ -984,12 +977,12 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 #main-menu ul li a:hover, #main-menu ul li a:focus {
   text-decoration: none;
-  color: #333333;
+  color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
 }
 #main-menu ul li.ui-state-active a, #main-menu ul li.active-trail a {
-  box-shadow: inset 0 -3px 0 0 #333333;
-  color: #333333;
+  box-shadow: inset 0 -3px 0 0 #333;
+  color: #333;
   padding-bottom: .4em;
 }
 #main-menu ul {
@@ -1109,7 +1102,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 #block-views-centralbiblioteker-block ul.region-select {
   padding: 0;
-  background-color: #333333;
+  background-color: #333;
   font-size: 1.65rem;
   margin: 0;
 }
@@ -1304,10 +1297,8 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   background: none;
   padding: 0;
   margin: 0;
-  -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
+  -webkit-border-radius: 0;
   border-radius: 0;
 }
 .page-events .ui-tabs ul li.ui-tabs-selected,
@@ -1344,19 +1335,19 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .page-node-events .ui-tabs ul li a:hover,
 .page-node-events .ui-tabs ul li a:focus {
   text-decoration: none;
-  color: #333333;
+  color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
 }
 .page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.active-trail a,
 .page-node-events .ui-tabs ul li.ui-state-active a,
 .page-node-events .ui-tabs ul li.active-trail a {
-  box-shadow: inset 0 -3px 0 0 #333333;
-  color: #333333;
+  box-shadow: inset 0 -3px 0 0 #333;
+  color: #333;
   padding-bottom: .4em;
 }
 .page-events .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
-  background-color: #dddddd;
+  background-color: #ddd;
   padding: 0.5rem 0.5rem 0;
   font-size: 1em;
   margin-right: 1em;
@@ -1395,7 +1386,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .node-type-news .pane-node-created .block-content {
   background-color: #424242;
   display: inline-block;
-  color: white;
+  color: #fff;
   padding: .4em .5em;
 }
 
@@ -1472,7 +1463,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 .node-type-license .user .panel-pane.pane-user-field-phone:before, .node-type-license .user .panel-pane.pane-user-field-phone:after {
   content: ' | ';
-  color: #dddddd;
+  color: #ddd;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -1570,16 +1561,16 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 .pane-menu-menu-license-menu ul li a:hover, .pane-menu-menu-license-menu ul li a:focus {
   text-decoration: none;
-  color: #333333;
+  color: #333;
   box-shadow: inset 0 -3px 0 0 #aaaaaa;
 }
 .pane-menu-menu-license-menu ul li.ui-state-active a, .pane-menu-menu-license-menu ul li.active-trail a {
-  box-shadow: inset 0 -3px 0 0 #333333;
-  color: #333333;
+  box-shadow: inset 0 -3px 0 0 #333;
+  color: #333;
   padding-bottom: .4em;
 }
 .pane-menu-menu-license-menu ul li {
-  background-color: #dddddd;
+  background-color: #ddd;
   padding: 0.5rem 0.5rem 0;
   font-size: 1em;
   margin-right: 1em;
