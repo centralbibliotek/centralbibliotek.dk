@@ -90,6 +90,15 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
     {
         $form['og_user']['name']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
+    if($form_id == "news_node_form")
+    {
+      // Add checkbox option
+       $form['options']['gensend_notifcation'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Genudsend notifcation'),
+        '#default_value' => 0,
+      );
+    }
 }
 
 /**
@@ -229,4 +238,14 @@ function cbib_oc_hooks_og_resend_notifcation($entity_type,$node_id)
     commons_notify_send_message_on_shutdown($node);
     drupal_set_message(t("Notification er blevet gensendt."));
     drupal_goto(url('node/'. $node->nid));
+}
+/*
+ * Handle resending of news node notifications
+ */
+function cbib_oc_hooks_node_update($node)
+{
+    if($node->gensend_notifcation)
+    {
+       drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
+    }
 }
