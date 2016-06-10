@@ -246,6 +246,7 @@ function cbib_oc_hooks_node_update($node)
 {
     if($node->gensend_notifcation)
     {
+       drupal_set_message(t("Notification er blevet gensendt."));
        drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
     }
 }
