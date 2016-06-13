@@ -90,7 +90,10 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
     {
         $form['og_user']['name']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
-    if($form_id == "news_node_form")
+    if($form_id == "news_node_form" || $form_id == "event_node_form" || $form_id == "library_node_form"
+        || $form_id == "centralbibliotek_node_form" || $form_id == "group_node_form" || $form_id == "license_node_form"
+        || $form_id == "licenses_node_form" || $form_id == "page_node_form" || $form_id == "document_node_form"
+        || $form_id == "post_node_form")
     {
       // Add checkbox option
        $form['options']['gensend_notifcation'] = array(
