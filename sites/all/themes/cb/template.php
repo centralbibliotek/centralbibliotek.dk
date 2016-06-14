@@ -98,6 +98,13 @@ function cb_field__field_contact($variables) {
 }
 
 /**
+ * Render contact field as name and mail address.
+ */
+function cb_field__field_ansvarlig_for_dagen($variables) {
+  return _cb_field_render_double_field_as_mailto_link($variables);
+}
+
+/**
  * Overrides theme_field__field_number_of_attendees().
  *
  * Special rendering if value is zero.
@@ -116,7 +123,7 @@ function _cb_field_render_double_field_as_mailto_link($variables) {
   $items[] = array();
   foreach ($variables['items'] as $delta => $item) {
     if (!empty($item['#item']['second'])) {
-      $items[$delta] = '<a title="' . $item['#item']['second'] . '" href="mailto:' . $item['#item']['second'] . '">' . $item['#item']['first'] . '</a>';
+      $items[$delta] = '<a title="' . $item['#item']['second'] . '" href="mailto:' . $item['#item']['second'] . '">' . reset(explode(':',$item['#item']['first'])) . '</a>';
     }
     else {
       $items[$delta] = $item['#item']['first'];
