@@ -48,7 +48,31 @@ function cbib_events_cbib_time_and_location_content_type_edit_form_submit($form,
  */
 function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf, $args, $context) {
   $pane = new stdClass();
-
+  /*
+   * A fix to make multiple date fields work properly.
+   * requires the unique identifier to be enabled on the date field so the data
+   * is shown.
+   */
+  $delta = 0;
+  global $cbib_time_and_date_duplicate_processed;
+  if(isset($context->data->view) && $context->data->view->name == "commons_events_upcoming")
+  {
+      /*
+       * We are currently operating on the desired view..keep the tmp array going.
+       */
+      $processed_duplicates = isset($cbib_time_and_date_duplicate_processed) ? $cbib_time_and_date_duplicate_processed : array();
+      foreach($context->data->view->result as $fields)
+      {
+          if($fields->nid == $context->data->nid && !isset($processed_duplicates[$context->data->nid.':'.$fields->date_delta_field_date]))
+          {
+              $delta = $fields->date_delta_field_date;
+              $processed_duplicates[$context->data->nid.':'.$fields->date_delta_field_date] = 1;
+              break;
+          }
+      }
+     $cbib_time_and_date_duplicate_processed = $processed_duplicates;
+  }
+  
   // Add overwrite title if needed.
   if ($conf['override_title']) {
     $pane->title = $conf['override_title_text'];
@@ -69,11 +93,19 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
       $output[] = $context->data->field_address[LANGUAGE_NONE][0]['locality'];
     }
 
-    if (!empty($context->data->field_date[LANGUAGE_NONE][0])) {
-      $date = new DateObject($context->data->field_date[LANGUAGE_NONE][0]['value'], $context->data->field_date[LANGUAGE_NONE][0]['timezone_db'], date_type_format($context->data->field_date[LANGUAGE_NONE][0]['date_type']));
+    if (!empty($context->data->field_date[LANGUAGE_NONE][$delta])) {
+      $date = new DateObject($context->data->field_date[LANGUAGE_NONE][$delta]['value'], $context->data->field_date[LANGUAGE_NONE][$delta]['timezone_db'], date_type_format($context->data->field_date[LANGUAGE_NONE][$delta]['date_type']));
       $output[] = format_date($date->format('U'), $date_format);
     }
-
+    /*
+     * If delta != 0 then it is a follow up day on an event.
+     * and we add the day count to the event.
+     */
+    if($delta != 0)
+    {
+        array_unshift($output , "Dag " . ($delta+1) ." ");
+    }
+    
     $pane->content = implode(', ', $output);
   }
 
