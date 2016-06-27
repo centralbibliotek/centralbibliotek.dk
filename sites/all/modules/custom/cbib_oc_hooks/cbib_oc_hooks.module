@@ -276,7 +276,8 @@ function cbib_oc_hooks_views_pre_render(&$view)
         
         $header_options = array(
         'label' => t('Header text'), // Administrative label. Not really needed here.
-        'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
+        //'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
+            'content' => $links['flag-commons_follow_node']['title'], // Fix for live site.
         'format' => 'filtered_html', // Format of header text.
         'empty' => 1, // Show even when there are no results. Set to zero otherwise.
       );
