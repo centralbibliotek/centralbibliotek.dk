@@ -263,3 +263,24 @@ function cbib_oc_hooks_node_update($node)
        drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
     }
 }
+/*
+ * View hooks
+ */
+function cbib_oc_hooks_views_pre_render(&$view)
+{
+    if($view->name == "centralbibliotek_license" && $view->current_display == "panel_pane_6")
+    {
+        $content = array();
+        $target_group = node_load(127);
+        $links = flag_link('node', $target_group,'page_manager');
+        
+        $header_options = array(
+        'label' => t('Header text'), // Administrative label. Not really needed here.
+        'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
+        'format' => 'filtered_html', // Format of header text.
+        'empty' => 1, // Show even when there are no results. Set to zero otherwise.
+      );
+      $view->add_item('default', 'header', 'views', 'area', $header_options);
+    }
+ 
+}
