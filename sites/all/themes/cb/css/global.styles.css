@@ -1291,7 +1291,7 @@ button, #panels-ipe-control-container
 /* Follow buttons */
 [class*="flag-commons-follow-"] .flag-action {
   white-space: nowrap;
-  font-size: 1.2em !important;
+  //font-size: 1.2em !important;
 }
 [class*="flag-commons-follow-"] .flag-action:before {
   content: "";
