@@ -6965,3 +6965,7 @@ body.front.not-logged-in #content {
     background:none !important;
     border: none !important;
 }
+#extended-file-field-table-field-media tbody tr td , #extended-file-field-table-field-document-file tbody tr td
+{
+    padding: 0px !important;
+}
