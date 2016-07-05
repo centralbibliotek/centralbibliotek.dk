@@ -6950,6 +6950,7 @@ body.front.not-logged-in #content {
 #extended-file-field-table-field-media table , #extended-file-field-table-field-document-file table
 {
     border:none !important;
+    word-break: break-all;
 }
 #extended-file-field-table-field-media thead tr , #extended-file-field-table-field-document-file thead tr
 {
