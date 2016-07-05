@@ -6947,10 +6947,10 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 body.front.not-logged-in #content {
   background-image: none !important;
 }
-#extended-file-field-table-field-media table , #extended-file-field-table-field-document-file table
+#extended-file-field-table-field-media, #extended-file-field-table-field-document-file
 {
     border:none !important;
-    word-break: break-all;
+    word-break: break-all !important;
 }
 #extended-file-field-table-field-media thead tr , #extended-file-field-table-field-document-file thead tr
 {
