@@ -131,3 +131,15 @@ function _cb_field_render_double_field_as_mailto_link($variables) {
   }
   return implode(' / ', $items);
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function cb_form_alter(&$form, &$form_state, $form_id) {
+  switch($form_id) {
+    case "edit_profile_user_profile_form":
+      $form["group_group"]["#type"] = "hidden";
+      $form["group_group"]["#value"] = $form["group_group"]["#default_value"];
+      break;
+  }
+}
