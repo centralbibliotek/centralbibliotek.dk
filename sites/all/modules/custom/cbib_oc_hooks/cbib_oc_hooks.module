@@ -85,6 +85,8 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
          */
         drupal_add_js(array('cbib_oc_hooks' => array('summary_length' => variable_get('teaser_length', 600))), 'setting');
         drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/oc_summary_preview.js');
+        
+        array_unshift($form['#validate'], "validate_online_adresses_fix");
     }
     if($form_id == "og_ui_add_users" && isset($form['og_user']['name']['#autocomplete_path']))
     {
@@ -103,7 +105,34 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
       );
     }
 }
-
+function validate_online_adresses_fix(&$form,&$form_state)
+{
+    if($form_state['values']['field_location']['und'][0]['value'] == 'online')
+    {
+        // $form_state['values']['field_address']['und'][0]['country'] = "";
+        //$form_state['values']['field_address']['und'][0]['postal_code'] = "";
+        //$form_state['values']['field_address']['und'][0]['locality'] = "";
+        //$form_state['values']['field_address']['und'][0]['thoroughfare'] = "";
+    }
+    else
+    {
+        /*
+         * Adresse information is required
+         */
+        if(empty($form_state['values']['field_address']['und'][0]['thoroughfare']))
+        {
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0][thoroughfare', 'Adresse er påkrævet.');
+        }
+        if(empty($form_state['values']['field_address']['und'][0]['locality']))
+        {
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0][locality', 'By er påkrævet.');
+        }
+        if(empty($form_state['values']['field_address']['und'][0]['postal_code']))
+        {
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0][postal_code', 'Postnr er påkrævet.');
+        }
+    }
+}
 /**
  * Implements hook_form_BASE_FORM_ID_alter
  */
@@ -273,7 +302,6 @@ function cbib_oc_hooks_views_pre_render(&$view)
         $content = array();
         $target_group = node_load(127);
         $links = flag_link('node', $target_group,'page_manager');
-        
         $header_options = array(
         'label' => t('Header text'), // Administrative label. Not really needed here.
         //'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
@@ -283,5 +311,4 @@ function cbib_oc_hooks_views_pre_render(&$view)
       );
       $view->add_item('default', 'header', 'views', 'area', $header_options);
     }
- 
 }
