@@ -119,17 +119,17 @@ function validate_online_adresses_fix(&$form,&$form_state)
         /*
          * Adresse information is required
          */
-        if(empty($form_state['values']['field_address']['und'][0]['thoroughfare']))
+        if(empty($form_state['values']['field_address']['und'][0]['street_block']['thoroughfare']))
         {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0][thoroughfare', 'Adresse er påkrævet.');
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["street_block"][thoroughfare', 'Adresse er påkrævet.');
         }
-        if(empty($form_state['values']['field_address']['und'][0]['locality']))
+        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['locality']))
         {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0][locality', 'By er påkrævet.');
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][locality', 'By er påkrævet.');
         }
-        if(empty($form_state['values']['field_address']['und'][0]['postal_code']))
+        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['postal_code']))
         {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0][postal_code', 'Postnr er påkrævet.');
+            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][postal_code', 'Postnr er påkrævet.');
         }
     }
 }
