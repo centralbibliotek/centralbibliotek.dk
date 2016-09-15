@@ -159,7 +159,21 @@ function cbib_oc_hooks_user_insert(&$edit, $account, $category) {
     commons_follow_node_follow_node($id['target_id'], 'centralbibliotek', $account->uid);
   }
 }
-
+function cbib_oc_hooks_user_presave(&$edit, $account, $category)
+{
+   /*
+   * Asign user a cbib based on his library location
+   */
+  if($account->is_new && isset($edit['field_library']['und'][0]['target_id']))
+  {
+      $library = node_load($edit['field_library']['und'][0]['target_id']);
+      $cbib_ref_id = isset($library->field_centralbibliotek_ref['und'][0]['target_id']) ? $library->field_centralbibliotek_ref['und'][0]['target_id'] : null;
+      if($cbib_ref_id != null)
+      {
+        $edit['field_centralbibliotek_ref']['und'][0]['target_id'] = $cbib_ref_id;
+      }
+  }
+}
 /*
  * Alter the posts form to allow titles in quick reply.
  */
