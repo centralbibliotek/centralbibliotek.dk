@@ -326,3 +326,29 @@ function cbib_oc_hooks_views_pre_render(&$view)
       $view->add_item('default', 'header', 'views', 'area', $header_options);
     }
 }
+/**
+ * Remove tabs on article content type
+ */
+function cbib_oc_hooks_preprocess_page(&$variables, $hook)
+{
+
+    $to_be_removed = array('node/%/clone/%');
+    $path = drupal_get_path_alias();
+    $path_parts = explode('/', $path);
+
+    foreach ($variables['tabs'] as $group_key =>$tab_group)
+        {
+            if (is_array($tab_group))
+            {
+                foreach ($tab_group as $key =>$tab)
+                {
+                    if (isset($tab['#link']['path']) && in_array($tab['#link']['path'], $to_be_removed))
+                    {
+                       if ($path_parts[0] == 'node' && $path_parts[2] == 'edit') {
+                          unset($variables['tabs'][$group_key][$key]);
+                       }
+                    }
+                }
+            }
+        }
+    }

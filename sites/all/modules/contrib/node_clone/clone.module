@@ -53,7 +53,7 @@ function clone_menu() {
     'title arguments' => array(1),
     'weight' => 5,
     'file' => 'clone.pages.inc',
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_LOCAL_ACTION,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
   return $items;
