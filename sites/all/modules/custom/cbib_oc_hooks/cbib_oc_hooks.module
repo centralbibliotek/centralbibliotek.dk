@@ -76,6 +76,22 @@ function cbib_oc_hooks_registration_administer_registrations_access ($entity_typ
   }
   return FALSE;
 }
+
+
+function cbib_oc_hooks_entity_info_alter (&$entities) {
+   $entities['registration']['access callback'] = 'cbib_oc_hooks_registration_access';
+   return $entities;
+}
+
+function cbib_oc_hooks_registration_access($op, Registration $registration = NULL, $account = NULL) {
+  
+   if (og_user_access('node', $registration->entity_id, 'administrator members')) {
+      return TRUE;
+   }
+
+}
+
+
 /**
  * Implements hook_permission().
  */
