@@ -45,6 +45,39 @@ function  cbib_oc_hooks_menu() {
    
   return $items;
 }
+
+function cbib_oc_hooks_menu_alter(&$items) {
+         // entity local tasks
+foreach (registration_get_registration_instances() as $instance) {
+  $type = $instance['entity_type'];
+  if (!in_array($type, array('registration', 'registration_type'))) {
+      $items[$type . '/%entity_object/registrations']['access callback'] = 'cbib_oc_hooks_registration_administer_registrations_access';
+      $items[$type . '/%entity_object/registrations/list']['access callback'] = 'cbib_oc_hooks_registration_administer_registrations_access';
+      $items[$type . '/%entity_object/registrations/settings']['access callback'] = 'cbib_oc_hooks_registration_administer_registrations_access';
+      $items[$type . '/%entity_object/registrations/broadcast']['access callback'] = 'cbib_oc_hooks_registration_administer_registrations_access';
+    }
+  }
+ return $items;
+}
+
+function cbib_oc_hooks_registration_administer_registrations_access ($entity_type, $entity) {
+
+  $user_og_roles = og_get_user_roles('node', $entity->nid, $entity->uid);
+
+  if (og_user_access('node', $entity->nid, 'administrator members')) {
+    return TRUE;
+  }
+  $registration_type = registration_get_entity_registration_type($entity_type, $entity);
+   if ($registration_type) {
+  if (user_access("administer $registration_type registration")) { 
+    return TRUE;
+  }
+  elseif (user_access("administer own $registration_type registration") && entity_access('update', $entity_type, $entity)) {
+    return TRUE;
+    }
+  }
+  return FALSE;
+}
 /**
  * Implements hook_permission().
  */
