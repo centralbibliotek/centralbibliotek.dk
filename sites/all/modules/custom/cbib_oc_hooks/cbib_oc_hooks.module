@@ -62,8 +62,6 @@ foreach (registration_get_registration_instances() as $instance) {
 
 function cbib_oc_hooks_registration_administer_registrations_access ($entity_type, $entity) {
 
-  $user_og_roles = og_get_user_roles('node', $entity->nid, $entity->uid);
-
   if (og_user_access('node', $entity->nid, 'administrator members')) {
     return TRUE;
   }
