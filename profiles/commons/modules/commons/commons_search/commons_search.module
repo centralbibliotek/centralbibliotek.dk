@@ -69,6 +69,7 @@ function commons_search_form_alter(&$form, &$form_state, $form_id) {
         $group = ($node->type == 'group');
       }
     }
+    /** Removed to allow normal search instead of groups
     if ($group) {
       // Current page is a group node, so add group search option to the
       // dropdown menu and set the current group id.
@@ -76,6 +77,7 @@ function commons_search_form_alter(&$form, &$form_state, $form_id) {
       $form['custom_search_types']["#default_value"] = 'o-commons_search';
       $form_state['search_group_id'] = $node->nid;
     }
+     */
     if (arg(0) == 'search') {
       // If we've already searched, refill the search box with the current
       // search keywords.
