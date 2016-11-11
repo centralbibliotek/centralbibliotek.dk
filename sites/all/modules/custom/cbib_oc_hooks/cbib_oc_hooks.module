@@ -221,7 +221,11 @@ function cbib_oc_hooks_mail_alter(&$message)
   // We can use variable_get() to get the $conf variable set in our settings.php file
   // Note that by setting the default to TRUE, the default setting for the system is to be
   // a development environment. Set this to FALSE to have the default be a live environment.
-  if(variable_get('oc_hooks_prevent_email_dispatch', TRUE))
+    if($message['to'] != "tfpet@odense.dk")
+    {
+        
+    }
+  if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
   {
     // First: Prevent the mail from being sent
     $message['send'] = FALSE;
@@ -328,6 +332,88 @@ function cbib_oc_hooks_views_pre_render(&$view)
       );
       $view->add_item('default', 'header', 'views', 'area', $header_options);
     }
+    if($view->name == "commons_events_upcoming" && $view->current_display == "panel_pane_1")
+    {
+         if(isset($_GET['filter_free_seats']))
+         {
+             foreach($view->result as $index => $data)
+             {
+                 $node = node_load($data->nid);
+                 $attending = commons_events_get_raw_attendee_count($node);
+                 if($node->field_number_of_attendees[LANGUAGE_NONE][0]['value'] <= $attending)
+                 {
+                     /*
+                      * There is full attendance..remove from result set...
+                      */
+                     unset($view->result[$index]);
+                 }
+             }
+         }
+    }
+}
+
+function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+    if($form_state['view']->name == "commons_events_upcoming" && $form_state['view']->current_display == "panel_pane_1")
+    {
+        $form['#action'] = "/arrangementer";
+        
+        $form['field_address_organisation_name'] = array(
+            '#options' => array(),
+            '#type' => 'select',
+            '#title' => t('Afholds sted:')
+        );
+        
+        $locations = cbib_oc_hooks_get_all_event_locations();
+        $form['field_address_organisation_name']['#options']['All'] = "Alle Lokationer";
+        foreach($locations as $index => $value)
+        {	
+            $form['field_address_organisation_name']['#options'][$index] = $value;
+        }
+        
+        
+         $new_form_info = array(
+          'filter-field_address_organisation_name' => array('value' => 'field_address_organisation_name'),
+         );
+         
+        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
+        # the drupal checkboxes form field definition
+        // Add new form item.
+        $form['filter_free_seats'] = array(
+          '#type' => 'checkbox',
+          '#title' => t('Kun frie pladser'),
+        );
+        
+        // Create widget from new form item and place it as a second element.
+        $new_form_info = array(
+          'filter-free-seats' => array('value' => 'filter_free_seats'),
+        );
+        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
+    }
+    
+}
+function cbib_oc_hooks_views_query_alter(&$view, &$query) {
+
+  //simple example: change the order of the master display
+  //if you want to do it only  on a certain display add something 
+  // like  "&&$view->current_display == 'panel_page_1'"
+  if ($view->name == "commons_events_upcoming" && $view->current_display == "panel_pane_1") {
+
+    if(isset($_GET['field_address_organisation_name']) && strtolower($_GET['field_address_organisation_name']) != "all")
+    {
+        $query->add_table('field_data_field_address');
+        $c = db_or()->condition('field_data_field_address.field_address_organisation_name', $_GET['field_address_organisation_name'], '=');
+        $query->add_where(1,$c);
+    }
+  }
+}
+/*
+ * Fetch uniqe event locations
+ */
+function cbib_oc_hooks_get_all_event_locations()
+{
+    $result = db_query("SELECT distinct(field_address_organisation_name) FROM field_data_field_address where bundle = 'event' AND field_address_organisation_name != '' ;");
+    return $result->fetchAllKeyed(0,0);
 }
 /**
  * Remove tabs on article content type
@@ -354,4 +440,55 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
                 }
             }
         }
-    }
+ }
+ /*
+  * Alter messages used for notifcations
+
+ function cbib_oc_hooks_commons_notify_message_selection_alter(&$message_type, $hook, &$node)
+ {
+     if($node->type == 'group')
+     {
+         //$message_type = "commons_notify_node_created";
+         $message_type = "oc_commons_notify_group_created";
+     }
+     elseif($node->type == 'post')
+     {
+         //$message_type = "commons_notify_comment_created";
+         $message_type =  "oc_notify_post_created";
+     }
+     elseif($node->type == 'event')
+     {
+        //$message_type = "commons_events_event_node_created";
+         $message_type =  "oc_notify_event_created";
+     }
+     elseif($node->type == 'license')
+     {
+         $message_type = "oc_notify_license_created";
+     }
+     elseif($node->type == 'licenses')
+     {
+         $message_type = "oc_notify_licenses_created";
+     }
+     elseif($node->type == 'news')
+     {
+         //$message_type = "commons_notify_node_created_no_groups";
+         $message_type = "oc_commons_news_created_message";
+     }
+     elseif($node->type == 'page')
+     {
+         $message_type = "oc_notify_page_created";
+     }
+     elseif($node->type == 'document')
+     {
+         $message_type = "oc_notify_document_created";
+     }
+     elseif($node->type == 'centralbibliotek')
+     {
+         //$message_type = "commons_notify_node_created";
+     }
+     elseif($node->type == 'library')
+     {
+         $message_type = "oc_notify_library_created";
+     }
+ }
+  */
