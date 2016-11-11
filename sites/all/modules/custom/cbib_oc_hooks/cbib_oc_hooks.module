@@ -459,7 +459,7 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
  */
 function cbib_oc_hooks_get_all_event_locations()
 {
-    $result = db_query("SELECT distinct(field_address_organisation_name) FROM field_data_field_address where bundle = 'event' AND field_address_organisation_name != '' ;");
+    $result = db_query("SELECT distinct(field_address_organisation_name) FROM field_data_field_address where bundle = 'event' AND field_address_organisation_name != '' order by field_address_organisation_name;");
     return $result->fetchAllKeyed(0,0);
 }
 /**
