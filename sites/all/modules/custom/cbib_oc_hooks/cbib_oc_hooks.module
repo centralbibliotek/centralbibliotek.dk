@@ -412,7 +412,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         );
         
         $locations = cbib_oc_hooks_get_all_event_locations();
-        $form['field_address_organisation_name']['#options']['All'] = "Alle Lokationer";
+        $form['field_address_organisation_name']['#options']['All'] = "Alle lokationer";
         foreach($locations as $index => $value)
         {	
             $form['field_address_organisation_name']['#options'][$index] = $value;
