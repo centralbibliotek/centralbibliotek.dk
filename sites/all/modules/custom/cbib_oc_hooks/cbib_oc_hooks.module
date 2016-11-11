@@ -403,7 +403,10 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 
     if($form_state['view']->name == "commons_events_upcoming" && $form_state['view']->current_display == "panel_pane_1")
     {
-        $form['#action'] = "/arrangementer";
+        if($form_state['view']->current_display = "panel_pane_1")
+        {
+            $form['#action'] = "/arrangementer";
+        }        
         
         $form['field_address_organisation_name'] = array(
             '#options' => array(),
@@ -417,8 +420,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         {	
             $form['field_address_organisation_name']['#options'][$index] = $value;
         }
-        
-        
+                
          $new_form_info = array(
           'filter-field_address_organisation_name' => array('value' => 'field_address_organisation_name'),
          );
@@ -460,7 +462,7 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 function cbib_oc_hooks_get_all_event_locations()
 {
     $result = db_query("SELECT distinct(field_address_organisation_name) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
-AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by field_address_organisation_name;");
+AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by field_address_organisation_name desc;");
     return $result->fetchAllKeyed(0,0);
 }
 /**
