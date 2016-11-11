@@ -462,7 +462,7 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 function cbib_oc_hooks_get_all_event_locations()
 {
     $result = db_query("SELECT distinct(field_address_organisation_name) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
-AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by field_data_field_address.field_address_organisation_name;");
+AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_organisation_name, 1, 1);");
     return $result->fetchAllKeyed(0,0);
 }
 /**
