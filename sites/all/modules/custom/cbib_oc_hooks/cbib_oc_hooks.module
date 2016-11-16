@@ -400,7 +400,7 @@ function cbib_oc_hooks_views_pre_render(&$view)
     /*
      * Sort result by the newst comment.
      */
-     if($view->name == "commons_groups_directory" && ($view->current_display == "panel_pane_1" && $form_state['view']->current_display == "panel_pane_4") )
+     if($view->name == "commons_groups_directory" && ($view->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4") )
     {
          if(isset($_GET['sort_by']) && $_GET['sort_by'] == "last_commented")
          {
