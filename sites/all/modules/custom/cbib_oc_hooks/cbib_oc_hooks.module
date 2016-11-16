@@ -472,7 +472,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
         # the drupal checkboxes form field definition
         // Add new form item.
-        $form['filter_free_seats'] = array(
+       /* $form['filter_free_seats'] = array(
           '#type' => 'checkbox',
           '#title' => t('Kun frie pladser'),
         );
@@ -480,7 +480,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         // Create widget from new form item and place it as a second element.
         $new_form_info = array(
           'filter-free-seats' => array('value' => 'filter_free_seats'),
-        );
+        );*/
         //$form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
     }
     if($form_state['view']->name == "commons_groups_directory" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
