@@ -455,7 +455,8 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         $form['field_address_locality'] = array(
             '#options' => array(),
             '#type' => 'select',
-            '#title' => t('Afholds sted:')
+            '#title' => t('Afholds sted:'),
+            '#default_value' => 'All'
         );
         
         $locations = cbib_oc_hooks_get_all_event_locations();
