@@ -408,21 +408,21 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
             $form['#action'] = "/arrangementer";
         }        
         
-        $form['field_address_organisation_name'] = array(
+        $form['field_address_locality'] = array(
             '#options' => array(),
             '#type' => 'select',
             '#title' => t('Afholds sted:')
         );
         
         $locations = cbib_oc_hooks_get_all_event_locations();
-        $form['field_address_organisation_name']['#options']['All'] = "Alle lokationer";
+        $form['field_address_locality']['#options']['All'] = "Alle lokationer";
         foreach($locations as $index => $value)
         {	
-            $form['field_address_organisation_name']['#options'][$index] = $value;
+            $form['field_address_locality']['#options'][$index] = $value;
         }
                 
          $new_form_info = array(
-          'filter-field_address_organisation_name' => array('value' => 'field_address_organisation_name'),
+          'filter-field_address_locality' => array('value' => 'field_address_locality'),
          );
          
         $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
@@ -439,7 +439,11 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         );
         $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
     }
-    
+    if($form_state['view']->name == "commons_groups_directory" && $form_state['view']->current_display == "panel_pane_1")
+    {
+        $t = 0;
+        $form['sort_by']['#options']['last_commented'] = t("Senest kommenteret");
+    }
 }
 function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 
@@ -448,12 +452,17 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
   // like  "&&$view->current_display == 'panel_page_1'"
   if ($view->name == "commons_events_upcoming" && $view->current_display == "panel_pane_1") {
 
-    if(isset($_GET['field_address_organisation_name']) && strtolower($_GET['field_address_organisation_name']) != "all")
+    if(isset($_GET['field_address_locality']) && strtolower($_GET['field_address_locality']) != "all")
     {
         $query->add_table('field_data_field_address');
-        $c = db_or()->condition('field_data_field_address.field_address_organisation_name', $_GET['field_address_organisation_name'], '=');
+        $c = db_or()->condition('field_data_field_address.field_address_locality', $_GET['field_address_locality'], '=');
         $query->add_where(1,$c);
     }
+  }
+  
+  if ($view->name == "commons_groups_directory" && $view->current_display == "panel_pane_1") 
+  {
+      $test = 0;
   }
 }
 /*
@@ -461,8 +470,8 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
  */
 function cbib_oc_hooks_get_all_event_locations()
 {
-    $result = db_query("SELECT distinct(field_address_organisation_name) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
-AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_organisation_name, 1, 1);");
+    $result = db_query("SELECT distinct(field_address_locality) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
+AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_locality, 1, 1);");
     return $result->fetchAllKeyed(0,0);
 }
 /**
