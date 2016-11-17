@@ -549,17 +549,13 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
      /*
       * Update group node with comment date.
       */
-     if($node->type == "post" && $node->type == "document")
+     if($node->type == "post" || $node->type == "document" )
      {
          //Get node parent group and insert a new last post date.
          $group_node = node_load($node->og_group_ref['und'][0]['target_id']);
          $wrapper = entity_metadata_wrapper('node',$group_node);
-         if(isset($item_wrapper->field_last_comment_date))
-         {
-            $wrapper->field_last_comment_date->set($node->created);
-            $wrapper->save();
-         }
-
+         $wrapper->field_last_comment_date->set($node->created);
+         $wrapper->save();
      }
  }
  function update_all_groups_with_comments()
@@ -576,12 +572,9 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
        foreach($news_items as $index => $node)
        {
            $wrapper = entity_metadata_wrapper('node',$node);
-            if(isset($wrapper->field_last_comment_date))
-            {
-                $last_post_date = get_newst_post_date($node->nid);
-                $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
-                $wrapper->save();
-            }
+            $last_post_date = get_newst_post_date($node->nid);
+            $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
+            $wrapper->save();
        }
      } 
  }
