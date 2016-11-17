@@ -42,6 +42,16 @@ function  cbib_oc_hooks_menu() {
     'access callback' => 'og_ui_user_access_group',
     'access arguments' => array('add user', 1, 2),
    );
+    
+    $items['admin/rebuild/nodes/last/posts'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'rebuild',
+    'description' => 'rebuild',
+    'page callback' => 'update_all_groups_with_comments',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+        
+   );
    
   return $items;
 }
@@ -151,34 +161,13 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         '#default_value' => 0,
       );
     }
+    if($form_id == "group_node_form")
+    {
+        hide($form['field_last_comment_date']);
+    }
 }
 function validate_online_adresses_fix(&$form,&$form_state)
 {
-    if($form_state['values']['field_location']['und'][0]['value'] == 'online')
-    {
-        // $form_state['values']['field_address']['und'][0]['country'] = "";
-        //$form_state['values']['field_address']['und'][0]['postal_code'] = "";
-        //$form_state['values']['field_address']['und'][0]['locality'] = "";
-        //$form_state['values']['field_address']['und'][0]['thoroughfare'] = "";
-    }
-    else
-    {
-        /*
-         * Adresse information is required
-         */
-        /*if(empty($form_state['values']['field_address']['und'][0]['street_block']['thoroughfare']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["street_block"][thoroughfare', 'Adresse er påkrævet.');
-        }
-        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['locality']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][locality', 'By er påkrævet.');
-        }
-        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['postal_code']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][postal_code', 'Postnr er påkrævet.');
-        }*/
-    }
 }
 /**
  * Implements hook_form_BASE_FORM_ID_alter
@@ -268,7 +257,11 @@ function cbib_oc_hooks_mail_alter(&$message)
   // We can use variable_get() to get the $conf variable set in our settings.php file
   // Note that by setting the default to TRUE, the default setting for the system is to be
   // a development environment. Set this to FALSE to have the default be a live environment.
-  if(variable_get('oc_hooks_prevent_email_dispatch', TRUE))
+    if($message['to'] != "tfpet@odense.dk")
+    {
+        
+    }
+  if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
   {
     // First: Prevent the mail from being sent
     $message['send'] = FALSE;
@@ -375,6 +368,104 @@ function cbib_oc_hooks_views_pre_render(&$view)
       );
       $view->add_item('default', 'header', 'views', 'area', $header_options);
     }
+    if($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $view->current_display == "panel_pane_4"))
+    {
+         if(isset($_GET['filter_free_seats']))
+         {
+             foreach($view->result as $index => $data)
+             {
+                 $node = node_load($data->nid);
+                 $attending = commons_events_get_raw_attendee_count($node);
+                 if($node->field_number_of_attendees[LANGUAGE_NONE][0]['value'] <= $attending)
+                 {
+                     /*
+                      * There is full attendance..remove from result set...
+                      */
+                     unset($view->result[$index]);
+                 }
+             }
+         }
+    }
+    
+}
+/**
+ * Implements theme_preprocess_pager_link().
+ * needed to make filter_free_seats checkbox work with pagination.
+ 
+function cbib_oc_hooks_preprocess_pager_link(&$variables) {
+  if (isset($variables['parameters'])) {
+    foreach ($variables['parameters'] as $key => $value) {
+      // Remove all empty/false parameters from url.
+      if (empty($value)) {
+        unset($variables['parameters'][$key]);
+      }
+    }
+  }
+}*/
+function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+    if($form_state['view']->name == "commons_events_upcoming" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
+    {
+        $form['#action'] = request_uri();       
+        
+        $form['field_address_locality'] = array(
+            '#options' => array(),
+            '#type' => 'select',
+            '#title' => t('Afholds sted:'),
+            '#default_value' => 'All'
+        );
+        
+        $locations = cbib_oc_hooks_get_all_event_locations();
+        $form['field_address_locality']['#options']['All'] = "Alle lokationer";
+        foreach($locations as $index => $value)
+        {	
+            $form['field_address_locality']['#options'][$index] = $value;
+        }
+                
+         $new_form_info = array(
+          'filter-field_address_locality' => array('value' => 'field_address_locality'),
+         );
+         
+        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
+        # the drupal checkboxes form field definition
+        // Add new form item.
+        /*$form['filter_free_seats'] = array(
+          '#type' => 'checkbox',
+          '#title' => t('Kun frie pladser'),
+          '#default_value' => 0
+        );
+        
+        // Create widget from new form item and place it as a second element.
+        $new_form_info = array(
+          'filter-free-seats' => array('value' => 'filter_free_seats'),
+        );
+        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));*/
+        
+    }
+}
+function cbib_oc_hooks_views_query_alter(&$view, &$query) {
+
+  //simple example: change the order of the master display
+  //if you want to do it only  on a certain display add something 
+  // like  "&&$view->current_display == 'panel_page_1'"
+  if ($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4")) {
+
+    if(isset($_GET['field_address_locality']) && strtolower($_GET['field_address_locality']) != "all")
+    {
+        $query->add_table('field_data_field_address');
+        $c = db_or()->condition('field_data_field_address.field_address_locality', $_GET['field_address_locality'], '=');
+        $query->add_where(1,$c);
+    }
+  }
+}
+/*
+ * Fetch uniqe event locations
+ */
+function cbib_oc_hooks_get_all_event_locations()
+{
+    $result = db_query("SELECT distinct(field_address_locality) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
+                        AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_locality, 1, 1);");
+    return $result->fetchAllKeyed(0,0);
 }
 /**
  * Remove tabs on article content type
@@ -401,4 +492,94 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
                 }
             }
         }
-    }
+ }
+ /*
+  * Alter messages used for notifcations
+
+ function cbib_oc_hooks_commons_notify_message_selection_alter(&$message_type, $hook, &$node)
+ {
+     if($node->type == 'group')
+     {
+         //$message_type = "commons_notify_node_created";
+         $message_type = "oc_commons_notify_group_created";
+     }
+     elseif($node->type == 'post')
+     {
+         //$message_type = "commons_notify_comment_created";
+         $message_type =  "oc_notify_post_created";
+     }
+     elseif($node->type == 'event')
+     {
+        //$message_type = "commons_events_event_node_created";
+         $message_type =  "oc_notify_event_created";
+     }
+     elseif($node->type == 'license')
+     {
+         $message_type = "oc_notify_license_created";
+     }
+     elseif($node->type == 'licenses')
+     {
+         $message_type = "oc_notify_licenses_created";
+     }
+     elseif($node->type == 'news')
+     {
+         //$message_type = "commons_notify_node_created_no_groups";
+         $message_type = "oc_commons_news_created_message";
+     }
+     elseif($node->type == 'page')
+     {
+         $message_type = "oc_notify_page_created";
+     }
+     elseif($node->type == 'document')
+     {
+         $message_type = "oc_notify_document_created";
+     }
+     elseif($node->type == 'centralbibliotek')
+     {
+         //$message_type = "commons_notify_node_created";
+     }
+     elseif($node->type == 'library')
+     {
+         $message_type = "oc_notify_library_created";
+     }
+ }
+  */
+ function cbib_oc_hooks_node_insert($node)
+ {
+     /*
+      * Update group node with comment date.
+      */
+     if($node->type == "post" || $node->type == "document" )
+     {
+         //Get node parent group and insert a new last post date.
+         $group_node = node_load($node->og_group_ref['und'][0]['target_id']);
+         $wrapper = entity_metadata_wrapper('node',$group_node);
+         $wrapper->field_last_comment_date->set($node->created);
+         $wrapper->save();
+     }
+ }
+ function update_all_groups_with_comments()
+ {
+     $query = new EntityFieldQuery();
+     $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'group')
+      ->propertyCondition('status', NODE_PUBLISHED);
+     
+     $result = $query->execute();
+     if (isset($result['node'])) {
+       $news_items_nids = array_keys($result['node']);
+       $news_items = entity_load('node', $news_items_nids);
+       foreach($news_items as $index => $node)
+       {
+           $wrapper = entity_metadata_wrapper('node',$node);
+            $last_post_date = get_newst_post_date($node->nid);
+            $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
+            $wrapper->save();
+       }
+     } 
+ }
+ function get_newst_post_date($nid)
+  {		  
+     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");		 +    $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post' or node.type='document') order by created desc limit 1;");
+      return $result->fetchField();		      return $result->fetchField();
+  }		  
