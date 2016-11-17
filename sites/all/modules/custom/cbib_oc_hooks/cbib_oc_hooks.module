@@ -42,6 +42,16 @@ function  cbib_oc_hooks_menu() {
     'access callback' => 'og_ui_user_access_group',
     'access arguments' => array('add user', 1, 2),
    );
+    
+    $items['admin/rebuild/nodes/last/posts'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'rebuild',
+    'description' => 'rebuild',
+    'page callback' => 'update_all_groups_with_comments',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+        
+   );
    
   return $items;
 }
@@ -151,34 +161,13 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         '#default_value' => 0,
       );
     }
+    if($form_id == "group_node_form")
+    {
+        hide($form['field_last_comment_date']);
+    }
 }
 function validate_online_adresses_fix(&$form,&$form_state)
 {
-    if($form_state['values']['field_location']['und'][0]['value'] == 'online')
-    {
-        // $form_state['values']['field_address']['und'][0]['country'] = "";
-        //$form_state['values']['field_address']['und'][0]['postal_code'] = "";
-        //$form_state['values']['field_address']['und'][0]['locality'] = "";
-        //$form_state['values']['field_address']['und'][0]['thoroughfare'] = "";
-    }
-    else
-    {
-        /*
-         * Adresse information is required
-         */
-        /*if(empty($form_state['values']['field_address']['und'][0]['street_block']['thoroughfare']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["street_block"][thoroughfare', 'Adresse er påkrævet.');
-        }
-        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['locality']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][locality', 'By er påkrævet.');
-        }
-        if(empty($form_state['values']['field_address']['und'][0]["locality_block"]['postal_code']))
-        {
-            form_set_error('field_address][' . LANGUAGE_NONE . '][0]["locality_block"][postal_code', 'Postnr er påkrævet.');
-        }*/
-    }
 }
 /**
  * Implements hook_form_BASE_FORM_ID_alter
@@ -398,30 +387,6 @@ function cbib_oc_hooks_views_pre_render(&$view)
          }
     }
     
-    /*
-     * Sort result by the newst comment.
-     */
-     if($view->name == "commons_groups_directory" && ($view->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4") )
-    {
-         if(isset($_GET['sort_by']) && $_GET['sort_by'] == "last_commented")
-         {
-             /*
-              * Enrich with comment data
-              */             
-             foreach($view->result as $index => $obj)
-             {
-                 $value = get_newst_post_date($obj->nid);
-                 $obj->latest_post_date = $value == false ? 0 : $value;
-             }
-              
-             /*
-              * Sort it.
-              */
-             $test = usort ( $view->result ,  'sort_news_post_date');
-         }
-         
-    }
-    
 }
 /**
  * Implements theme_preprocess_pager_link().
@@ -437,30 +402,6 @@ function cbib_oc_hooks_preprocess_pager_link(&$variables) {
     }
   }
 }*/
-function sort_news_post_date($a,$b){
-    if ($a->latest_post_date == $b->latest_post_date) {
-        return 0;
-    }
-    if(isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC')
-    {
-        return ($a->latest_post_date < $b->latest_post_date) ? -1 : 1;
-    }
-    else
-    {
-        return ($a->latest_post_date > $b->latest_post_date) ? -1 : 1;
-    }
-    
-    
-
-}
-/*
- * Gets the newst post date based on the GID
- */
-function get_newst_post_date($nid)
-{
-    $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post' or node.type='document' ) order by created desc limit 1;");
-    return $result->fetchField();
-}
 function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
 
     if($form_state['view']->name == "commons_events_upcoming" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
@@ -501,11 +442,6 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
         $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));*/
         
     }
-    if($form_state['view']->name == "commons_groups_directory" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
-    {
-        $t = 0;
-        $form['sort_by']['#options']['last_commented'] = t("Senest kommenteret");
-    }
 }
 function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 
@@ -528,7 +464,7 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 function cbib_oc_hooks_get_all_event_locations()
 {
     $result = db_query("SELECT distinct(field_address_locality) FROM centralbibliotek.field_data_field_address WHERE  field_data_field_address.entity_id in (SELECT entity_id FROM centralbibliotek.field_data_field_date where field_data_field_date.field_date_value >= curdate())
-AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_locality, 1, 1);");
+                        AND field_data_field_address.entity_id in (SELECT nid FROM centralbibliotek.node where status = 1) order by SUBSTRING(field_address_locality, 1, 1);");
     return $result->fetchAllKeyed(0,0);
 }
 /**
@@ -608,3 +544,49 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
      }
  }
   */
+ function cbib_oc_hooks_node_insert($node)
+ {
+     /*
+      * Update group node with comment date.
+      */
+     if($node->type == "post" && $node->type == "document")
+     {
+         //Get node parent group and insert a new last post date.
+         $group_node = node_load($node->og_group_ref['und'][0]['target_id']);
+         $wrapper = entity_metadata_wrapper('node',$group_node);
+         if(isset($item_wrapper->field_last_comment_date))
+         {
+            $wrapper->field_last_comment_date->set($node->created);
+            $wrapper->save();
+         }
+
+     }
+ }
+ function update_all_groups_with_comments()
+ {
+     $query = new EntityFieldQuery();
+     $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'group')
+      ->propertyCondition('status', NODE_PUBLISHED);
+     
+     $result = $query->execute();
+     if (isset($result['node'])) {
+       $news_items_nids = array_keys($result['node']);
+       $news_items = entity_load('node', $news_items_nids);
+       foreach($news_items as $index => $node)
+       {
+           $wrapper = entity_metadata_wrapper('node',$node);
+            if(isset($wrapper->field_last_comment_date))
+            {
+                $last_post_date = get_newst_post_date($node->nid);
+                $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
+                $wrapper->save();
+            }
+       }
+     } 
+ }
+ function get_newst_post_date($nid)
+  {		  
+     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");		 +    $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post' or node.type='document') order by created desc limit 1;");
+      return $result->fetchField();		      return $result->fetchField();
+  }		  
