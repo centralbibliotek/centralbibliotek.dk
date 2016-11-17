@@ -14,6 +14,11 @@
 
   "use strict";
 
+    $(document).ready(function () {
+        $('.print_html a').attr("href", "");
+        $('.print_html a').attr("onclick", "window.print(); return false; ");
+    });
+
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
