@@ -48,3 +48,24 @@ body {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
 }
+.main-menu {
+    display: none!important;
+}
+.main-header {
+    display: none!important;
+}
+.pane-commons-events-event-attendee-list-panel-pane-1 {
+    display: none!important;
+}
+.pane-node-field-document-file {
+    display: none!important;
+}
+#footer {
+    display: none!important;
+}
+#main-content-header {
+    display: none!important;
+}
+#navbar-administration {
+    display: none!important;
+}
