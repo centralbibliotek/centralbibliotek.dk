@@ -571,8 +571,11 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
        {
            $wrapper = entity_metadata_wrapper('node',$node);
             $last_post_date = get_newst_post_date($node->nid);
-            $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
-            $wrapper->save();
+            if(isset($wrapper->field_last_comment_date))
+            {
+               $wrapper->field_last_comment_date->set($last_post_date != false ? $last_post_date : 0);
+               $wrapper->save();
+            }
        }
      } 
  }
