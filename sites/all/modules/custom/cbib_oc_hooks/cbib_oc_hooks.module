@@ -581,6 +581,6 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
  }
  function get_newst_post_date($nid)
   {		  
-     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");		 +    $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post' or node.type='document') order by created desc limit 1;");
-      return $result->fetchField();
+     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");	
+     return $result->fetchField();
   }		  
