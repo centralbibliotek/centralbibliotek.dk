@@ -442,7 +442,7 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
   //simple example: change the order of the master display
   //if you want to do it only  on a certain display add something 
   // like  "&&$view->current_display == 'panel_page_1'"
-  if ($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4")) {
+  if ($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $view->current_display == "panel_pane_4")) {
 
     if(isset($_GET['field_address_locality']) && strtolower($_GET['field_address_locality']) != "all")
     {
