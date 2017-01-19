@@ -134,6 +134,9 @@ hide($content['report_link']);
 
   <?php if (($links = render($content['links'])) || $content['report_link']): ?>
     <nav<?php print $links_attributes; ?>>
+      <?php if ($teaser && strlen($node->body['und'][0]['value']) > 300) : ?>
+         <?php print l(t('Read more'), 'node/' . $nid, array('attributes' => array('class' => t('node-readmore-link')))); ?>
+      <?php endif; ?>
       <?php print $links; ?>
       <?php print render($content['report_link']); ?>
     </nav>
