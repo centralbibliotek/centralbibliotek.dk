@@ -489,7 +489,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
  }
  /*
   * Alter messages used for notifcations
-
+ */
  function cbib_oc_hooks_commons_notify_message_selection_alter(&$message_type, $hook, &$node)
  {
      if($node->type == 'group')
@@ -537,7 +537,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
          $message_type = "oc_notify_library_created";
      }
  }
-  */
+ 
  function cbib_oc_hooks_node_insert($node)
  {
      /*
@@ -547,13 +547,15 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
      {
          //Get node parent group and insert a new last post date.
          $group_node = node_load($node->og_group_ref['und'][0]['target_id']);
-         $wrapper = entity_metadata_wrapper('node',$group_node);
-         if(isset($wrapper->field_last_comment_date))
+         if($group_node != FALSE )
          {
-            $wrapper->field_last_comment_date->set($node->created);
-            $wrapper->save();
+            $wrapper = entity_metadata_wrapper('node',$group_node);
+            if(isset($wrapper->field_last_comment_date))
+            {
+               $wrapper->field_last_comment_date->set($node->created);
+               $wrapper->save();
+            }
          }
-
      }
  }
  function update_all_groups_with_comments()

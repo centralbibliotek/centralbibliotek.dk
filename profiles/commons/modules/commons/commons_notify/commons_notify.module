@@ -57,14 +57,31 @@ function commons_notify_send_message_on_shutdown($node) {
   // We use a multiple value field in case we wish to use the same
   // field for grouping messages in the future
   // (eg http://drupal.org/node/1757060).
-  $wrapper->field_target_nodes[] = $node;
+  $node_str = "field_target_" . $node->type . "_nodes";
+  $render_str = 'field_msg_'.$node->type.'_rendered_body';
+  if(isset($wrapper->field_target_nodes))
+  {
+      $wrapper->field_target_nodes[] = $node;
+  }
+  elseif(isset($wrapper->$node_str))
+  {
+      $wrapper->{$node_str}[] = $node;
+      //$tmp[] = $node;
+      //$wrapper->$node_str = $tmp;
+  }
+  //$wrapper->field_target_nodes[] = $node;
   $wrapper->save();
-  $options = array(
-    'rendered fields' => array(
-      'message_notify_email_subject' => 'field_message_rendered_subject',
-      'message_notify_email_body' => 'field_message_rendered_body',
-    ),
-  );
+  $options = array();
+  if(isset($wrapper->field_message_rendered_body))
+  {
+       $options = array(
+        'rendered fields' => array(
+          'message_notify_email_subject' => 'field_message_rendered_subject',
+          'message_notify_email_body' => 'field_message_rendered_body',
+        ),
+      );
+  }
+
   message_subscribe_send_message('node', $node, $message, array('email' => $options));
 }
 
