@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CBIB Search feature.
+ */
+
+include_once 'cbib_search.features.inc';
