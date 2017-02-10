@@ -53,28 +53,16 @@ function cbib_search_views_default_views() {
     'user_field_name_first' => 'user_field_name_first',
     'user_field_name_last' => 'user_field_name_last',
   );
-  /* Felt: Global: Feltgruppe */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_2']['field'] = 'fieldset';
   $handler->display->display_options['fields']['fieldset_2']['label'] = 'Container';
-  $handler->display->display_options['fields']['fieldset_2']['children'] = array(
-    0 => 'fieldset_3',
-    1 => 'fieldset_5',
-    2 => 'fieldset_4',
-  );
-  $handler->display->display_options['fields']['fieldset_2']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset_2']['fieldset']['classes'] = 'search-container';
-  /* Felt: Global: Feltgruppe */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset_3']['id'] = 'fieldset_3';
   $handler->display->display_options['fields']['fieldset_3']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_3']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset_3']['label'] = 'Header';
-  $handler->display->display_options['fields']['fieldset_3']['children'] = array(
-    0 => 'node_type',
-  );
-  $handler->display->display_options['fields']['fieldset_3']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset_3']['fieldset']['classes'] = 'header';
+  $handler->display->display_options['fields']['fieldset_3']['label'] = 'Overskrift';
   /* Felt: Indholdselement: Indholdstype (indexed) */
   $handler->display->display_options['fields']['node_type']['id'] = 'node_type';
   $handler->display->display_options['fields']['node_type']['table'] = 'search_api_index_general_search';
@@ -84,28 +72,17 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['node_type']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['node_type']['format_name'] = 1;
-  /* Felt: Global: Feltgruppe */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset_5']['id'] = 'fieldset_5';
   $handler->display->display_options['fields']['fieldset_5']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_5']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset_5']['label'] = 'Center';
-  $handler->display->display_options['fields']['fieldset_5']['children'] = array(
-    0 => 'fieldset_1',
-    1 => 'fieldset',
-  );
-  $handler->display->display_options['fields']['fieldset_5']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset_5']['fieldset']['classes'] = 'center';
-  /* Felt: Global: Feltgruppe */
+  $handler->display->display_options['fields']['fieldset_5']['label'] = 'Centreret';
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset_1']['id'] = 'fieldset_1';
   $handler->display->display_options['fields']['fieldset_1']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_1']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset_1']['label'] = 'Left';
+  $handler->display->display_options['fields']['fieldset_1']['label'] = 'Venstre';
   $handler->display->display_options['fields']['fieldset_1']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['fieldset_1']['children'] = array(
-    0 => 'node_field_image_file',
-  );
-  $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset_1']['fieldset']['classes'] = 'left';
   /* Felt: Indholdselement » Billede: The image file. (indexed) */
   $handler->display->display_options['fields']['node_field_image_file']['id'] = 'node_field_image_file';
   $handler->display->display_options['fields']['node_field_image_file']['table'] = 'search_api_index_general_search';
@@ -118,26 +95,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_image_file']['display'] = 'view';
   $handler->display->display_options['fields']['node_field_image_file']['view_mode'] = 'search_index';
   $handler->display->display_options['fields']['node_field_image_file']['bypass_access'] = 0;
-  /* Felt: Global: Feltgruppe */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
   $handler->display->display_options['fields']['fieldset']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset']['label'] = 'Right';
-  $handler->display->display_options['fields']['fieldset']['children'] = array(
-    0 => 'node_created',
-    1 => 'user_url',
-    2 => 'user_field_name_first',
-    3 => 'user_field_name_last',
-    4 => 'nothing',
-    5 => 'user_field_library',
-    6 => 'user_og_user_node',
-    7 => 'user_field_job_title',
-    8 => 'node_title',
-    9 => 'node_author',
-    10 => 'node_body_value',
-  );
-  $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset']['fieldset']['classes'] = 'right';
+  $handler->display->display_options['fields']['fieldset']['label'] = 'Højre';
   /* Felt: Indholdselement: Dato oprettet (indexed) */
   $handler->display->display_options['fields']['node_created']['id'] = 'node_created';
   $handler->display->display_options['fields']['node_created']['table'] = 'search_api_index_general_search';
@@ -230,16 +192,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_body_value']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['node_body_value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['node_body_value']['link_to_entity'] = 0;
-  /* Felt: Global: Feltgruppe */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['fieldset_4']['id'] = 'fieldset_4';
   $handler->display->display_options['fields']['fieldset_4']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_4']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset_4']['label'] = 'Footer';
-  $handler->display->display_options['fields']['fieldset_4']['children'] = array(
-    0 => 'node_field_topics',
-  );
-  $handler->display->display_options['fields']['fieldset_4']['fieldset']['type'] = 'div';
-  $handler->display->display_options['fields']['fieldset_4']['fieldset']['classes'] = 'footer';
+  $handler->display->display_options['fields']['fieldset_4']['label'] = 'Sidefod';
   /* Felt: Indholdselement: Emner (indexed) */
   $handler->display->display_options['fields']['node_field_topics']['id'] = 'node_field_topics';
   $handler->display->display_options['fields']['node_field_topics']['table'] = 'search_api_index_general_search';
@@ -250,7 +207,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_topics']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['node_field_topics']['view_mode'] = 'full';
   $handler->display->display_options['fields']['node_field_topics']['bypass_access'] = 0;
-  /* Sorteringskriterie: Søg: Relevans */
+  /* Sorteringskriterie: Søg: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_general_search';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
@@ -286,6 +243,35 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['seach'] = array(
+    t('Master'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('«'),
+    t('‹'),
+    t('›'),
+    t('»'),
+    t('Container'),
+    t('Overskrift'),
+    t('Centreret'),
+    t('Venstre'),
+    t('Højre'),
+    t('<a href="[user_url]">[user_field_name_first] [user_field_name_last]</a>'),
+    t('Bibliotek'),
+    t('Gruppe medlemsskab'),
+    t('Stilling'),
+    t('Sidefod'),
+    t('Relevans'),
+    t('Dato oprettet (indexed)'),
+    t('Global'),
+  );
   $export['seach'] = $view;
 
   $view = new view();
@@ -301,6 +287,7 @@ function cbib_search_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Arrangementer';
+  $handler->display->display_options['css_class'] = 'cb-teaser-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
@@ -356,6 +343,24 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['search_api_arrangementer'] = array(
+    t('Master'),
+    t('Arrangementer'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('«'),
+    t('‹'),
+    t('›'),
+    t('»'),
+    t('Events'),
+  );
   $export['search_api_arrangementer'] = $view;
 
   return $export;

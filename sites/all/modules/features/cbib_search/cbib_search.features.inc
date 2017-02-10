@@ -32,7 +32,7 @@ function cbib_search_default_search_api_index() {
     "name" : "Arrangement Index",
     "machine_name" : "arrangement_index",
     "description" : null,
-    "server" : "solr",
+    "server" : "db_server",
     "item_type" : "node",
     "options" : {
       "datasource" : { "bundles" : [ "event" ] },
@@ -155,7 +155,7 @@ function cbib_search_default_search_api_index() {
     "name" : "Search Index",
     "machine_name" : "general_search",
     "description" : null,
-    "server" : "solr",
+    "server" : "db_server",
     "item_type" : "multiple",
     "options" : {
       "datasource" : { "types" : [ "node", "user" ] },
