@@ -15,7 +15,10 @@ include_once 'commons_notify.features.inc';
  *
  */
 function commons_notify_node_insert($node) {
-  drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
+    if($node->status)
+    {
+        drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
+    }
 }
 
 /**
