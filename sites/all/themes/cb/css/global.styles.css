@@ -4336,6 +4336,10 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   padding: 0;
 }
 
+.pane-title.ctools-collapsible-handle {
+  display: inline !important;
+}
+
 .search-result {
   border-bottom: 1px solid #e0e0e0;
   list-style-type: none;
