@@ -1,0 +1,79 @@
+diff --git a/service.inc b/service.inc
+index 3c54925..976cdcd 100644
+--- a/service.inc
++++ b/service.inc
+@@ -510,11 +510,19 @@ class SearchApiDbService extends SearchApiAbstractService {
+       $cleared = FALSE;
+       $change = FALSE;
+       $text_table = NULL;
++      $missing_text_tables = array();
+ 
+       foreach ($fields as $name => $field) {
+         if (!isset($text_table) && search_api_is_text_type($field['type'])) {
+-          // Stash the shared text table name for the index.
+-          $text_table = $field['table'];
++          // Stash the shared text table name for the index, if it exists.
++          // Otherwise, there was some error previously and we have to remember
++          // to later come back and set the correct table here.
++          if ($this->connection->schema()->tableExists($field['table'])) {
++            $text_table = $field['table'];
++          }
++          else {
++            $missing_text_tables[$name] = $name;
++          }
+         }
+ 
+         if (!isset($new_fields[$name])) {
+@@ -559,7 +567,7 @@ class SearchApiDbService extends SearchApiAbstractService {
+             $reindex = TRUE;
+           }
+         }
+-        elseif ($new_inner_type == 'text' && $field['boost'] != $new_fields[$name]['boost']) {
++        elseif ($text_table && $new_inner_type == 'text' && $field['boost'] != $new_fields[$name]['boost']) {
+           $change = TRUE;
+           if (!$reindex) {
+             $multiplier = $new_fields[$name]['boost'] / $field['boost'];
+@@ -579,6 +587,13 @@ class SearchApiDbService extends SearchApiAbstractService {
+             $this->createFieldTable($index, $new_fields[$name], $field);
+           }
+         }
++        // People have reported that sometimes a text field has a different
++        // table set than the combined fulltext table, so we try to fix that
++        // here as well.
++        elseif ($text_table && $fields[$name]['table'] != $text_table) {
++          $fields[$name]['table'] = $text_table;
++          $change = TRUE;
++        }
+         unset($new_fields[$name]);
+       }
+ 
+@@ -608,6 +623,17 @@ class SearchApiDbService extends SearchApiAbstractService {
+         $change = TRUE;
+       }
+ 
++      // If there were fulltext fields without valid table set, set it now.
++      if ($missing_text_tables) {
++        if (!isset($text_table)) {
++          // If we have not encountered a text table, assign a name for it.
++          $text_table = $this->findFreeTable($prefix . '_', 'text');
++        }
++        foreach ($missing_text_tables as $name) {
++          $fields[$name]['table'] = $text_table;
++        }
++      }
++
+       // If needed, make sure the text table exists.
+       if (isset($text_table) && !$this->connection->schema()->tableExists($text_table)) {
+         $table = array(
+@@ -718,6 +744,11 @@ class SearchApiDbService extends SearchApiAbstractService {
+    *   Server-internal information about the field.
+    */
+   protected function removeFieldStorage($name, $field) {
++    // This might, in some instances, be called when the necessary table hasn't
++    // even been created yet.
++    if (!$this->connection->schema()->tableExists($field['table'])) {
++      return;
++    }
+     if (search_api_is_text_type($field['type'])) {
+       $this->connection->delete($field['table'])
+         ->condition('field_name', self::getTextFieldName($name))

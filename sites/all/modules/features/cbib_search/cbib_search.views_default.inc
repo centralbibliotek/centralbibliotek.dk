@@ -207,7 +207,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_topics']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['node_field_topics']['view_mode'] = 'full';
   $handler->display->display_options['fields']['node_field_topics']['bypass_access'] = 0;
-  /* Sorteringskriterie: Søg: Relevance */
+  /* Sorteringskriterie: Søg: Relevans */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_general_search';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
@@ -286,12 +286,12 @@ function cbib_search_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Arrangementer';
+  $handler->display->display_options['title'] = 'Tidligere arrangementer';
   $handler->display->display_options['css_class'] = 'cb-teaser-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
-  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -301,7 +301,10 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
@@ -312,6 +315,15 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
   /* Felt: Indexed Indholdselement: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_arrangement_index';
@@ -319,10 +331,24 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Sorteringskriterie: Date: Startdato (indexed) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['arguments']['og_group_ref']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['operator'] = 'OR';
   $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
@@ -333,11 +359,75 @@ function cbib_search_views_default_views() {
     3 => 0,
     4 => 0,
   );
+  $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
+    'body:value' => 'body:value',
+    'title' => 'title',
+  );
+  /* Filterkriterie: Indexed Indholdselement: filter_arrangement_dato */
+  $handler->display->display_options['filters']['search_api_aggregation_1']['id'] = 'search_api_aggregation_1';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['field'] = 'search_api_aggregation_1';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '>=';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['year_range'] = '-10:+10';
 
-  /* Display: Events */
-  $handler = $view->new_display('page', 'Events', 'page');
+  /* Display: Events - all */
+  $handler = $view->new_display('page', 'Events - all', 'page');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
+  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
   $handler->display->display_options['path'] = 'search_api_events';
-  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Arrangementer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Events - previous */
+  $handler = $view->new_display('page', 'Events - previous', 'page_1');
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
+  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Søg: Fulltext search */
+  $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['operator'] = 'OR';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
+    'body:value' => 'body:value',
+    'title' => 'title',
+  );
+  /* Filterkriterie: Indexed Indholdselement: filter_arrangement_dato */
+  $handler->display->display_options['filters']['search_api_aggregation_1']['id'] = 'search_api_aggregation_1';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['field'] = 'search_api_aggregation_1';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '<';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
+  $handler->display->display_options['filters']['search_api_aggregation_1']['year_range'] = '-10:+10';
+  $handler->display->display_options['path'] = 'search_api_events';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -345,7 +435,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['search_api_arrangementer'] = array(
     t('Master'),
-    t('Arrangementer'),
+    t('Tidligere arrangementer'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -359,7 +449,11 @@ function cbib_search_views_default_views() {
     t('‹'),
     t('›'),
     t('»'),
-    t('Events'),
+    t('Displaying @start - @end of @total'),
+    t('Tilknytning'),
+    t('Alle'),
+    t('Events - all'),
+    t('Events - previous'),
   );
   $export['search_api_arrangementer'] = $view;
 
