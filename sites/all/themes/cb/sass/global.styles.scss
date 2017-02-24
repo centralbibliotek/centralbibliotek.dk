@@ -4206,7 +4206,9 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     }
   }
 }
-
+.pane-title.ctools-collapsible-handle {
+    display: inline !important;
+}
 .page-search-user {
   .user-results {
     @extend %pod;

@@ -32,19 +32,20 @@ function cbib_search_default_search_api_index() {
     "name" : "Arrangement Index",
     "machine_name" : "arrangement_index",
     "description" : null,
-    "server" : "db_server",
+    "server" : "database_server",
     "item_type" : "node",
     "options" : {
       "datasource" : { "bundles" : [ "event" ] },
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
+        "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
         "field_address:locality" : { "type" : "string" },
         "field_address:organisation_name" : { "type" : "string" },
         "field_centralbibliotek_ref" : { "type" : "integer", "entity_type" : "node" },
-        "field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
+        "field_date:value" : { "type" : "date" },
         "field_event_audience" : { "type" : "text" },
         "field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
@@ -155,7 +156,7 @@ function cbib_search_default_search_api_index() {
     "name" : "Search Index",
     "machine_name" : "general_search",
     "description" : null,
-    "server" : "db_server",
+    "server" : "database_server",
     "item_type" : "multiple",
     "options" : {
       "datasource" : { "types" : [ "node", "user" ] },
@@ -173,8 +174,6 @@ function cbib_search_default_search_api_index() {
         "node:title" : { "type" : "text" },
         "node:type" : { "type" : "string" },
         "search_api_aggregation_1" : { "type" : "list\\u003Cinteger\\u003E" },
-        "search_api_aggregation_1_asc" : { "type" : "integer" },
-        "search_api_aggregation_1_desc" : { "type" : "integer" },
         "search_api_combined_1" : { "type" : "string" },
         "search_api_language" : { "type" : "string" },
         "user:field_job_title" : { "type" : "text" },
@@ -308,28 +307,252 @@ function cbib_search_default_search_api_index() {
  */
 function cbib_search_default_search_api_server() {
   $items = array();
-  $items['solr'] = entity_import('search_api_server', '{
-    "name" : "Solr",
-    "machine_name" : "solr",
+  $items['database_server'] = entity_import('search_api_server', '{
+    "name" : "database server",
+    "machine_name" : "database_server",
     "description" : "",
-    "class" : "search_api_solr_service",
+    "class" : "search_api_db_service",
     "options" : {
-      "clean_ids" : true,
-      "site_hash" : true,
-      "scheme" : "http",
-      "host" : "localhost",
-      "port" : "8983",
-      "path" : "\\/solr\\/drupal",
-      "http_user" : "",
-      "http_pass" : "",
-      "excerpt" : 1,
-      "retrieve_data" : 0,
-      "highlight_data" : 0,
-      "skip_schema_check" : 0,
-      "solr_version" : "",
-      "http_method" : "AUTO",
-      "log_query" : 0,
-      "log_response" : 0
+      "database" : "default:default",
+      "min_chars" : "1",
+      "partial_matches" : 0,
+      "indexes" : {
+        "arrangement_index" : {
+          "title" : {
+            "table" : "search_api_db_arrangement_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "created" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "changed" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "changed",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "og_group_ref" : {
+            "table" : "search_api_db_arrangement_index_og_group_ref",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "field_location" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_location",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_number_of_attendees" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_number_of_attendees",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_registration_type" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_registration_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_event_type" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_event_type",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_event_audience" : {
+            "table" : "search_api_db_arrangement_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_price" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_price",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_tilmeldings_frist" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_tilmeldings_frist",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_centralbibliotek_ref" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_centralbibliotek_ref",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_library_ref" : {
+            "table" : "search_api_db_arrangement_index_field_library_ref",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_language" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "search_api_aggregation_1" : {
+            "table" : "search_api_db_arrangement_index_search_api_aggregation_1",
+            "column" : "value",
+            "type" : "list\\u003Cdate\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_combined_1" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "search_api_combined_1",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_address:organisation_name" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_address_organisation_name",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_address:locality" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_address_locality",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_date:value" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "field_date_value",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "body:value" : {
+            "table" : "search_api_db_arrangement_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          }
+        },
+        "general_search" : {
+          "search_api_language" : {
+            "table" : "search_api_db_general_search",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "search_api_aggregation_1" : {
+            "table" : "search_api_db_general_search_search_api_aggregation_1",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_combined_1" : {
+            "table" : "search_api_db_general_search",
+            "column" : "search_api_combined_1",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "node:type" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "node:title" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:status" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_status",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:created" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "node:changed" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_changed",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "node:author" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_author",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:field_topics" : {
+            "table" : "search_api_db_general_search_node_field_topics",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "node:field_event_type" : {
+            "table" : "search_api_db_general_search",
+            "column" : "node_field_event_type",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "user:name" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:url" : {
+            "table" : "search_api_db_general_search",
+            "column" : "user_url",
+            "type" : "uri",
+            "boost" : "1.0"
+          },
+          "user:og_user_node" : {
+            "table" : "search_api_db_general_search_user_og_user_node",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "user:field_name_first" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_name_last" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_job_title" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_library" : {
+            "table" : "search_api_db_general_search",
+            "column" : "user_field_library",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:body:value" : {
+            "table" : "search_api_db_general_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:field_image:file" : {
+            "table" : "search_api_db_general_search_node_field_image_file",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          }
+        }
+      }
     },
     "enabled" : "1",
     "rdf_mapping" : []

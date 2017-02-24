@@ -16,6 +16,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'node',
   );
@@ -26,6 +27,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'registration',
   );
@@ -36,6 +38,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'node',
   );
@@ -45,7 +48,7 @@ function commons_events_user_default_permissions() {
     'name' => 'delete own event registration',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'registration',
   );
@@ -56,6 +59,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'node',
   );
@@ -66,6 +70,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'registration',
   );
@@ -76,6 +81,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'registration',
   );
@@ -86,6 +92,7 @@ function commons_events_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'content moderator' => 'content moderator',
     ),
     'module' => 'registration',
   );

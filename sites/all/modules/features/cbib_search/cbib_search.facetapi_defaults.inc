@@ -19,7 +19,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_address:locality';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -129,7 +129,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_event_type';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -396,7 +396,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_select_dropdowns',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -417,8 +417,8 @@ function cbib_search_facetapi_default_facet_settings() {
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Show more',
-    'facet_fewer_text' => 'Show fewer',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -904,7 +904,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_select_dropdowns',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -925,8 +925,8 @@ function cbib_search_facetapi_default_facet_settings() {
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Show more',
-    'facet_fewer_text' => 'Show fewer',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -1294,7 +1294,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'search_api_ranges_ui_select',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -1315,8 +1315,8 @@ function cbib_search_facetapi_default_facet_settings() {
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Show more',
-    'facet_fewer_text' => 'Show fewer',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -1394,8 +1394,8 @@ function cbib_search_facetapi_default_facet_settings() {
 1001-1500
 1501-2000
 2001-*|Mere end 2000',
-    'default_option_label' => '',
-    'reset_option_label' => '',
+    'default_option_label' => '--Choose--',
+    'reset_option_label' => '--Reset--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
