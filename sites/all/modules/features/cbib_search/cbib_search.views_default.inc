@@ -207,7 +207,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_topics']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['node_field_topics']['view_mode'] = 'full';
   $handler->display->display_options['fields']['node_field_topics']['bypass_access'] = 0;
-  /* Sorteringskriterie: Søg: Relevans */
+  /* Sorteringskriterie: Søg: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_general_search';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
@@ -331,7 +331,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Sorteringskriterie: Date: Startdato (indexed) */
+  /* Sorteringskriterie: Handler mangler eller er i stykker */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -373,6 +373,8 @@ function cbib_search_views_default_views() {
 
   /* Display: Events - all */
   $handler = $view->new_display('page', 'Events - all', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Kommende arrangementer';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Overskrift: Global: Resumé af resultat */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -453,6 +455,7 @@ function cbib_search_views_default_views() {
     t('Tilknytning'),
     t('Alle'),
     t('Events - all'),
+    t('Kommende arrangementer'),
     t('Events - previous'),
   );
   $export['search_api_arrangementer'] = $view;

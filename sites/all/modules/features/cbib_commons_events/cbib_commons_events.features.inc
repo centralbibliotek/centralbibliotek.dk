@@ -605,7 +605,6 @@ function cbib_commons_events_strongarm_alter(&$data) {
     $data['field_bundle_settings_node__event']->value['view_modes']['print'] = array(
       'custom_settings' => TRUE,
     ); /* WAS: '' */
-    $data['field_bundle_settings_node__event']->value['view_modes']['search_index']['custom_settings'] = TRUE; /* WAS: FALSE */
   }
   if (isset($data['panelizer_defaults_node_event'])) {
     $data['panelizer_defaults_node_event']->value['view modes']['teaser']['default'] = 1; /* WAS: 0 */

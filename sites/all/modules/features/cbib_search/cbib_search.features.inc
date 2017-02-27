@@ -45,7 +45,7 @@ function cbib_search_default_search_api_index() {
         "field_address:locality" : { "type" : "string" },
         "field_address:organisation_name" : { "type" : "string" },
         "field_centralbibliotek_ref" : { "type" : "integer", "entity_type" : "node" },
-        "field_date:value" : { "type" : "date" },
+        "field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
         "field_event_audience" : { "type" : "text" },
         "field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
@@ -425,9 +425,9 @@ function cbib_search_default_search_api_server() {
             "boost" : "1.0"
           },
           "field_date:value" : {
-            "table" : "search_api_db_arrangement_index",
+            "table" : "search_api_db_arrangement_index_field_date_value",
             "column" : "field_date_value",
-            "type" : "date",
+            "type" : "list\\u003Cdate\\u003E",
             "boost" : "1.0"
           },
           "body:value" : {
