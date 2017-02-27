@@ -13,24 +13,7 @@ function cbib_groups_features_override_default_overrides() {
 
   // Exported overrides for: page_manager_pages
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-3db36521-fb53-58a4-c9e2-137a2dacee07"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b"] = (object) array(
-      'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-      'panel' => 'two_66_33_second',
-      'type' => 'views_panes',
-      'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(),
-      'cache' => array(),
-      'style' => array(
-        'settings' => NULL,
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 0,
-      'locks' => array(),
-      'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-    );
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|access|plugins"] = array();
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|panel"] = 'one_main';
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout"] = 'one';
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|one_main"] = NULL;
@@ -38,9 +21,6 @@ function cbib_groups_features_override_default_overrides() {
     0 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
   );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_first"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_second"] = array(
-    0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-  );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_top"]["DELETED"] = TRUE;
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|title"] = 'Grupper';
 
@@ -67,7 +47,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 7,
+      'position' => 8,
       'locks' => array(),
       'uuid' => '0bb1221d-a648-4332-a630-67359e011329',
     );
@@ -97,7 +77,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 0,
+      'position' => 1,
       'locks' => array(),
       'uuid' => '16bb1e2b-5444-464c-995a-923d2f0a31c6',
     );
@@ -121,7 +101,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 11,
+      'position' => 12,
       'locks' => array(),
       'uuid' => '1f218aab-81dc-4e02-8c86-79210bed4a0c',
     );
@@ -149,7 +129,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 10,
+      'position' => 11,
       'locks' => array(),
       'uuid' => '24f4b75a-80ea-447a-9f3b-a4e200746f48',
     );
@@ -175,7 +155,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 5,
+      'position' => 6,
       'locks' => array(),
       'uuid' => '2e7fc52a-d884-4fc9-9589-fa8f31e876d7',
     );
@@ -205,7 +185,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 4,
+      'position' => 5,
       'locks' => array(),
       'uuid' => '39374465-a69f-4fb2-a2d2-aaa4bfa7491a',
     );
@@ -233,7 +213,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 6,
+      'position' => 7,
       'locks' => array(),
       'uuid' => '40462470-5167-4125-9316-c8812de239f6',
     );
@@ -246,14 +226,29 @@ function cbib_groups_features_override_default_overrides() {
       'access' => array(),
       'configuration' => array(
         'label' => 'title',
-        'formatter' => 'file_default',
+        'formatter' => 'extended_file_field',
         'delta_limit' => 0,
         'delta_offset' => 0,
         'delta_reversed' => 0,
-        'formatter_settings' => array(),
+        'formatter_settings' => array(
+          'extensionfilter' => 'all',
+          'extensions' => '',
+          'extensionbehavior' => 'exclude',
+          'columns' => array(
+            'filename' => 'filename',
+          ),
+          'showhidden' => 'exclude',
+          'sortby' => 'reverse',
+          'sortorder' => 'asc',
+          'usedescriptionforfilename' => 1,
+          'restrictdisplay' => -1,
+          'restrictbehavior' => 'exclude',
+          'usefieldset' => 0,
+        ),
         'context' => 'panelizer',
         'override_title' => 0,
         'override_title_text' => '',
+        'override_title_heading' => 'h2',
       ),
       'cache' => array(),
       'style' => array(
@@ -261,7 +256,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 9,
+      'position' => 10,
       'locks' => array(),
       'uuid' => '4217fe9c-2561-438d-847c-4a289f5b4bf0',
     );
@@ -363,7 +358,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 1,
+      'position' => 2,
       'locks' => array(),
       'uuid' => '99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74',
     );
@@ -392,7 +387,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 8,
+      'position' => 9,
       'locks' => array(),
       'uuid' => 'aa495b28-e361-44b1-871d-74132433a821',
     );
@@ -448,7 +443,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 2,
+      'position' => 3,
       'locks' => array(),
       'uuid' => 'bcc18207-63ae-43c3-8bb4-77518e5bccd3',
     );
@@ -476,7 +471,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 3,
+      'position' => 4,
       'locks' => array(),
       'uuid' => 'd10871fa-ea33-40f2-b568-dda6955d2571',
     );
@@ -512,6 +507,28 @@ function cbib_groups_features_override_default_overrides() {
       'locks' => array(),
       'uuid' => 'e627add5-b6cb-4c15-8ff7-40caca347d88',
     );
+  $overrides["panelizer_defaults.node:group:default.display|content|new-fa81955d-e048-4ba5-9b21-4a69857ddcb9"] = (object) array(
+      'pid' => 'new-fa81955d-e048-4ba5-9b21-4a69857ddcb9',
+      'panel' => 'two_66_33_second',
+      'type' => 'block',
+      'subtype' => 'print_ui-print-links',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+        'override_title_heading' => 'h2',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => 'fa81955d-e048-4ba5-9b21-4a69857ddcb9',
+    );
   $overrides["panelizer_defaults.node:group:default.display|hide_title"] = 1;
   $overrides["panelizer_defaults.node:group:default.display|panel_settings|style_settings|bottom"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default.display|panel_settings|style_settings|left"]["DELETED"] = TRUE;
@@ -522,19 +539,21 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|2"] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|3"] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|4"] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|0"] = 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|1"] = 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|10"] = 'new-24f4b75a-80ea-447a-9f3b-a4e200746f48';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|11"] = 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|2"] = 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|3"] = 'new-d10871fa-ea33-40f2-b568-dda6955d2571';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|4"] = 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|5"] = 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|6"] = 'new-40462470-5167-4125-9316-c8812de239f6';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|7"] = 'new-0bb1221d-a648-4332-a630-67359e011329';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|8"] = 'new-aa495b28-e361-44b1-871d-74132433a821';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|9"] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|0"] = 'new-fa81955d-e048-4ba5-9b21-4a69857ddcb9';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|1"] = 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|10"] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|11"] = 'new-24f4b75a-80ea-447a-9f3b-a4e200746f48';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|12"] = 'new-1f218aab-81dc-4e02-8c86-79210bed4a0c';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|2"] = 'new-99cf40d4-9b5e-4f26-b6c5-e772f6cdfb74';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|3"] = 'new-bcc18207-63ae-43c3-8bb4-77518e5bccd3';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|4"] = 'new-d10871fa-ea33-40f2-b568-dda6955d2571';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|5"] = 'new-39374465-a69f-4fb2-a2d2-aaa4bfa7491a';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|6"] = 'new-2e7fc52a-d884-4fc9-9589-fa8f31e876d7';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|7"] = 'new-40462470-5167-4125-9316-c8812de239f6';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|8"] = 'new-0bb1221d-a648-4332-a630-67359e011329';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|9"] = 'new-aa495b28-e361-44b1-871d-74132433a821';
   $overrides["panelizer_defaults.node:group:default.display|title"] = '';
+  $overrides["panelizer_defaults.node:group:default.display|title_pane"] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
   $overrides["panelizer_defaults.node:group:default.display|uuid"] = 'c7b76f7e-3bdf-4853-9197-e495df4f36b9';
   $overrides["panelizer_defaults.node:group:default.pipeline"] = 'standard';
   $overrides["panelizer_defaults.node:group:default.title"] = 'Standard';
@@ -648,16 +667,16 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default:teaser.display|panel_settings|style_settings|right"] = NULL;
   $overrides["panelizer_defaults.node:group:default:teaser.display|panel_settings|style_settings|top"] = NULL;
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|bottom"] = array(
-    0 => 'new-5c57aa04-dee5-417a-bdb7-188f99645897',
-    1 => 'new-196054ef-3346-4b6e-8e02-74b161d22ff5',
+    0 => 'new-196054ef-3346-4b6e-8e02-74b161d22ff5',
+    1 => 'new-5c57aa04-dee5-417a-bdb7-188f99645897',
   );
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|left"] = array(
     0 => 'new-926a99b3-8e75-aa14-2542-16f2ab9e70b3',
   );
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|one_main"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|right"] = array(
-    0 => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
-    1 => 'new-c22911c5-3c21-75b4-c5f3-80efb733956b',
+    0 => 'new-c22911c5-3c21-75b4-c5f3-80efb733956b',
+    1 => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
   );
 
   // Exported overrides for: variable
@@ -674,26 +693,25 @@ function cbib_groups_features_override_default_overrides() {
     'weight' => 12,
   );
   $overrides["variable.field_bundle_settings_node__centralbibliotek.value|extra_fields|form|title"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|diff_standard"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|full"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|rss"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|search_index"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|search_result"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|teaser"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|token"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__centralbibliotek.value|view_modes|print"] = array(
+    'custom_settings' => TRUE,
+  );
   $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|metatags"] = array(
-    'weight' => 40,
+    'weight' => 9,
   );
   $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|path"] = array(
-    'weight' => 30,
+    'weight' => 7,
   );
   $overrides["variable.field_bundle_settings_node__document.value|extra_fields|form|redirect"] = array(
-    'weight' => 30,
+    'weight' => 8,
   );
   $overrides["variable.field_bundle_settings_node__document.value|view_modes|diff_standard"] = array(
     'custom_settings' => FALSE,
   );
   $overrides["variable.field_bundle_settings_node__document.value|view_modes|full"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__document.value|view_modes|print"] = array(
     'custom_settings' => FALSE,
   );
   $overrides["variable.field_bundle_settings_node__document.value|view_modes|rss"] = array(
@@ -721,13 +739,9 @@ function cbib_groups_features_override_default_overrides() {
     'weight' => 8,
   );
   $overrides["variable.field_bundle_settings_node__group.value|extra_fields|form|title"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|diff_standard"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|full"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|rss"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|search_index"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|search_result"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|teaser"]["DELETED"] = TRUE;
-  $overrides["variable.field_bundle_settings_node__group.value|view_modes|token"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__group.value|view_modes|print"] = array(
+    'custom_settings' => FALSE,
+  );
   $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|metatags"] = array(
     'weight' => 13,
   );
@@ -738,14 +752,41 @@ function cbib_groups_features_override_default_overrides() {
     'weight' => 10,
   );
   $overrides["variable.field_bundle_settings_node__license.value|extra_fields|form|title"]["DELETED"] = TRUE;
+  $overrides["variable.field_bundle_settings_node__license.value|view_modes|print"] = array(
+    'custom_settings' => TRUE,
+  );
   $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|metatags"] = array(
-    'weight' => 10,
+    'weight' => 6,
   );
   $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|path"] = array(
-    'weight' => 9,
+    'weight' => 5,
   );
   $overrides["variable.field_bundle_settings_node__post.value|extra_fields|form|redirect"] = array(
-    'weight' => 8,
+    'weight' => 4,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|diff_standard"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|full"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|print"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|rss"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|search_index"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|search_result"] = array(
+    'custom_settings' => FALSE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|teaser"] = array(
+    'custom_settings' => TRUE,
+  );
+  $overrides["variable.field_bundle_settings_node__post.value|view_modes|token"] = array(
+    'custom_settings' => FALSE,
   );
   $overrides["variable.node_options_group.value|0"] = 'status';
   $overrides["variable.node_submitted_group.value"] = 1;
@@ -756,6 +797,7 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["views_view.commons_bw_all.display|default|display_options|arguments|gid|exception"] = array(
     'title' => 'Alle',
   );
+  $overrides["views_view.commons_bw_all.display|default|display_options|empty|area|content"] = 'Ingen har postet indhold endnu.';
   $overrides["views_view.commons_bw_all.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',
@@ -763,8 +805,14 @@ function cbib_groups_features_override_default_overrides() {
     'sort_asc_label' => 'Stigende',
     'sort_desc_label' => 'Faldende',
   );
-  $overrides["views_view.commons_bw_all.display|default|display_options|fields|title_field|label"] = 'Titel';
   $overrides["views_view.commons_bw_all.display|default|display_options|filters|flagged|expose|label"] = 'Følger';
+  $overrides["views_view.commons_bw_all.display|default|display_options|filters|flagged|expose|remember_roles"] = array(
+    2 => 2,
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $overrides["views_view.commons_bw_all.display|default|display_options|filters|flagged|value"] = 'All';
   $overrides["views_view.commons_bw_all.display|default|display_options|filters|type|value|document"] = 'document';
   $overrides["views_view.commons_bw_all.display|default|display_options|pager|options|expose"] = array(
     'items_per_page_label' => 'Antal elementer',
@@ -777,12 +825,13 @@ function cbib_groups_features_override_default_overrides() {
     'next' => '›',
     'last' => '»',
   );
-  $overrides["views_view.commons_bw_all.display|default|display_options|sorts|created|expose|label"] = 'seneste';
+  $overrides["views_view.commons_bw_all.display|default|display_options|sorts|created|expose|label"] = 'Seneste';
   $overrides["views_view.commons_bw_all.display|default|display_options|sorts|field_radioactivity_radioactivity_energy|expose|label"] = 'mest aktive';
   $overrides["views_view.commons_bw_all.display|default|display_options|use_more_text"] = 'mere';
   $overrides["views_view.commons_bw_posts.display|default|display_options|arguments|gid|exception"] = array(
     'title' => 'Alle',
   );
+  $overrides["views_view.commons_bw_posts.display|default|display_options|empty|area|content"] = 'Der er ikke nogle indlæg i denne gruppe.';
   $overrides["views_view.commons_bw_posts.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',
@@ -825,7 +874,7 @@ function cbib_groups_features_override_default_overrides() {
     'required' => 0,
     'flag' => 'commons_follow_node',
   );
-  $overrides["views_view.commons_bw_posts.display|default|display_options|sorts|created|expose|label"] = 'seneste';
+  $overrides["views_view.commons_bw_posts.display|default|display_options|sorts|created|expose|label"] = 'Seneste';
   $overrides["views_view.commons_bw_posts.display|default|display_options|sorts|field_radioactivity_radioactivity_energy"] = array(
     'id' => 'field_radioactivity_radioactivity_energy',
     'table' => 'field_data_field_radioactivity',
@@ -844,6 +893,7 @@ function cbib_groups_features_override_default_overrides() {
     'exposed_sorts_label' => 'Sortér efter',
     'sort_asc_label' => 'Stigende',
     'sort_desc_label' => 'Faldende',
+    'autosubmit' => TRUE,
   );
   $overrides["views_view.commons_groups_directory.display|default|display_options|filters|keys"]["DELETED"] = TRUE;
   $overrides["views_view.commons_groups_directory.display|default|display_options|filters|type"] = array(
@@ -872,6 +922,7 @@ function cbib_groups_features_override_default_overrides() {
     'label' => 'Oprettelsesdato',
   );
   $overrides["views_view.commons_groups_directory.display|default|display_options|title"] = 'Grupper';
+  $overrides["views_view.commons_groups_directory.display|default|display_options|use_ajax"] = TRUE;
   $overrides["views_view.commons_groups_directory.display|default|display_options|use_more_text"] = 'Vis mere';
   $overrides["views_view.commons_groups_directory.display|feed|display_options|defaults|sorts"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|feed|display_options|sorts"] = array(
@@ -885,11 +936,75 @@ function cbib_groups_features_override_default_overrides() {
       ),
     ),
   );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|exposed_form"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|filter_groups"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|filters"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|pager"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|sorts"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|use_ajax"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|use_more"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|use_more_always"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|defaults|use_more_text"] = FALSE;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|exposed_form"] = array(
+    'type' => 'basic',
+    'options' => array(
+      'submit_button' => 'Udfør',
+      'reset_button_label' => 'Gendan',
+      'exposed_sorts_label' => 'Sortér efter',
+      'sort_asc_label' => 'Stigende',
+      'sort_desc_label' => 'Faldende',
+      'autosubmit' => TRUE,
+    ),
+  );
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|filters"] = array(
+    'status' => array(
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'value' => 1,
+      'group' => 1,
+      'expose' => array(
+        'operator' => FALSE,
+      ),
+    ),
+    'group_group_value' => array(
+      'id' => 'group_group_value',
+      'table' => 'field_data_group_group',
+      'field' => 'group_group_value',
+      'value' => array(
+        1 => 1,
+      ),
+      'group' => 1,
+    ),
+    'type' => array(
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'value' => array(
+        'group' => 'group',
+      ),
+      'group' => 1,
+    ),
+    'keys' => array(
+      'id' => 'keys',
+      'table' => 'search_index',
+      'field' => 'keys',
+      'group' => 1,
+      'exposed' => TRUE,
+      'expose' => array(
+        'operator_id' => 'keys_op',
+        'label' => 'Søg',
+        'operator' => 'keys_op',
+        'identifier' => 'keys',
+        'remember_roles' => array(
+          2 => 2,
+          1 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+    ),
+  );
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager"] = array(
     'type' => 'full',
     'options' => array(
@@ -911,6 +1026,16 @@ function cbib_groups_features_override_default_overrides() {
     ),
   );
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|sorts"] = array(
+    'field_radioactivity_radioactivity_energy' => array(
+      'id' => 'field_radioactivity_radioactivity_energy',
+      'table' => 'field_data_field_radioactivity',
+      'field' => 'field_radioactivity_radioactivity_energy',
+      'order' => 'DESC',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Aktivitet',
+      ),
+    ),
     'created' => array(
       'id' => 'created',
       'table' => 'node',
@@ -930,16 +1055,27 @@ function cbib_groups_features_override_default_overrides() {
         'label' => 'Titel',
       ),
     ),
+    'field_last_comment_date_value' => array(
+      'id' => 'field_last_comment_date_value',
+      'table' => 'field_data_field_last_comment_date',
+      'field' => 'field_last_comment_date_value',
+      'order' => 'DESC',
+      'exposed' => TRUE,
+      'expose' => array(
+        'label' => 'Nyeste indlæg',
+      ),
+    ),
   );
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|use_more_always"] = FALSE;
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|use_more_text"] = 'Vis mere';
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_title"] = 'Landing page all';
   $overrides["views_view.commons_groups_directory.display|panel_pane_2"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:9:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:5:{s:5:"title";b:0;s:16:"hide_admin_links";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;}s:5:"title";s:37:"<a href="/node/!1/groups">Grupper</a>";s:8:"link_url";s:14:"node/1!/groups";s:5:"pager";a:2:{s:4:"type";s:4:"some";s:7:"options";a:2:{s:14:"items_per_page";s:1:"3";s:6:"offset";s:1:"0";}}s:5:"sorts";a:2:{s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_2";s:13:"display_title";s:28:"Landing page group frontpage";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
   $overrides["views_view.commons_groups_directory.display|panel_pane_3"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:6:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:2:{s:5:"title";b:0;s:5:"pager";b:0;}s:5:"title";s:30:"<a href="/grupper">Grupper</a>";s:8:"link_url";s:6:"groups";s:5:"pager";a:2:{s:4:"type";s:4:"some";s:7:"options";a:2:{s:14:"items_per_page";s:1:"3";s:6:"offset";s:1:"0";}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_3";s:13:"display_title";s:9:"Frontpage";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
-  $overrides["views_view.commons_groups_directory.display|panel_pane_4"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:11:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:8:{s:16:"hide_admin_links";b:0;s:8:"use_more";b:0;s:15:"use_more_always";b:0;s:13:"use_more_text";b:0;s:12:"link_display";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;}s:15:"use_more_always";b:0;s:13:"use_more_text";s:8:"Vis mere";s:12:"link_display";s:10:"custom_url";s:8:"link_url";s:14:"node/!1/groups";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"10";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:5:"sorts";a:2:{s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_4";s:13:"display_title";s:22:"Landing page group all";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:12:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:11:{s:8:"use_ajax";b:0;s:16:"hide_admin_links";b:0;s:8:"use_more";b:0;s:15:"use_more_always";b:0;s:13:"use_more_text";b:0;s:12:"link_display";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;s:13:"filter_groups";b:0;s:7:"filters";b:0;}s:15:"use_more_always";b:0;s:13:"use_more_text";s:8:"Vis mere";s:12:"link_display";s:10:"custom_url";s:8:"link_url";s:14:"node/!1/groups";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"10";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:5:"sorts";a:4:{s:40:"field_radioactivity_radioactivity_energy";a:6:{s:2:"id";s:40:"field_radioactivity_radioactivity_energy";s:5:"table";s:30:"field_data_field_radioactivity";s:5:"field";s:40:"field_radioactivity_radioactivity_energy";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:9:"Aktivitet";}}s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}s:29:"field_last_comment_date_value";a:6:{s:2:"id";s:29:"field_last_comment_date_value";s:5:"table";s:34:"field_data_field_last_comment_date";s:5:"field";s:29:"field_last_comment_date_value";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:14:"Nyeste indlæg";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:7:"filters";a:4:{s:6:"status";a:6:{s:2:"id";s:6:"status";s:5:"table";s:4:"node";s:5:"field";s:6:"status";s:5:"value";i:1;s:5:"group";i:1;s:6:"expose";a:1:{s:8:"operator";b:0;}}s:17:"group_group_value";a:4:{s:2:"id";s:17:"group_group_value";s:5:"table";s:22:"field_data_group_group";s:5:"field";s:17:"group_group_value";s:5:"value";a:1:{i:1;s:1:"1";}}s:4:"type";a:4:{s:2:"id";s:4:"type";s:5:"table";s:4:"node";s:5:"field";s:4:"type";s:5:"value";a:1:{s:5:"group";s:5:"group";}}s:4:"keys";a:5:{s:2:"id";s:4:"keys";s:5:"table";s:12:"search_index";s:5:"field";s:4:"keys";s:7:"exposed";b:1;s:6:"expose";a:5:{s:11:"operator_id";s:7:"keys_op";s:5:"label";s:4:"Søg";s:8:"operator";s:7:"keys_op";s:10:"identifier";s:4:"keys";s:14:"remember_roles";a:4:{i:2;s:1:"2";i:1;i:0;i:3;i:0;i:4;i:0;}}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_4";s:13:"display_title";s:22:"Landing page group all";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
   $overrides["views_view.commons_groups_user_groups.display|default|display_options|arguments|etid|exception"] = array(
     'title' => 'Alle',
   );
+  $overrides["views_view.commons_groups_user_groups.display|default|display_options|empty|area|content"] = 'Har ikke været aktiv i nogle grupper endnu.';
   $overrides["views_view.commons_groups_user_groups.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',

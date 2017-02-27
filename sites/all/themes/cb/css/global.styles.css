@@ -4157,6 +4157,12 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   border-width: 1px;
 }
 
+#edit-keys {
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: 1px;
+}
+
 .search-form-page .form-type-textfield label {
   white-space: nowrap;
 }
