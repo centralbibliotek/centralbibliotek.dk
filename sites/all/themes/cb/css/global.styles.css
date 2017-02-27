@@ -1291,7 +1291,7 @@ button, #panels-ipe-control-container
 /* Follow buttons */
 [class*="flag-commons-follow-"] .flag-action {
   white-space: nowrap;
-  //font-size: 1.2em !important;
+  font-size: 1.2em !important;
 }
 [class*="flag-commons-follow-"] .flag-action:before {
   content: "";
@@ -4151,6 +4151,12 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Search
  */
+#edit-search-api-views-fulltext {
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: 1px;
+}
+
 .search-form-page .form-type-textfield label {
   white-space: nowrap;
 }
@@ -6950,26 +6956,4 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 
 body.front.not-logged-in #content {
   background-image: none !important;
-}
-#extended-file-field-table-field-media, #extended-file-field-table-field-document-file
-{
-    border:none !important;
-    word-break: break-all !important;
-}
-#extended-file-field-table-field-media thead tr , #extended-file-field-table-field-document-file thead tr
-{
-    display:none !important;
-}
-#extended-file-field-table-field-media tbody , #extended-file-field-table-field-document-file tbody
-{
-    border-style:hidden;
-}
-#extended-file-field-table-field-media tbody tr , #extended-file-field-table-field-document-file tbody tr
-{
-    background:none !important;
-    border: none !important;
-}
-#extended-file-field-table-field-media tbody tr td , #extended-file-field-table-field-document-file tbody tr td
-{
-    padding: 0px !important;
 }
