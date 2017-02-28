@@ -2819,7 +2819,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_select_dropdowns',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -2913,8 +2913,8 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => 10,
     'range_advanced' => '',
-    'default_option_label' => '',
-    'reset_option_label' => '',
+    'default_option_label' => '--Choose--',
+    'reset_option_label' => '--Reset--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -3006,10 +3006,10 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@general_search';
   $facet->realm = 'block';
   $facet->facet = 'node:type';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_select_dropdowns',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -3104,7 +3104,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'range_simple' => 10,
     'range_advanced' => '',
     'default_option_label' => 'Alle',
-    'reset_option_label' => '',
+    'reset_option_label' => '--Reset--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -3127,7 +3127,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'search_api_ranges_ui_links',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',

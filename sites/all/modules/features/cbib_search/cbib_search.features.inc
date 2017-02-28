@@ -152,98 +152,68 @@ function cbib_search_default_search_api_index() {
     "read_only" : "0",
     "rdf_mapping" : []
   }');
-  $items['general_search'] = entity_import('search_api_index', '{
-    "name" : "Search Index",
-    "machine_name" : "general_search",
+  $items['global_search'] = entity_import('search_api_index', '{
+    "name" : "global search",
+    "machine_name" : "global_search",
     "description" : null,
     "server" : "database_server",
     "item_type" : "multiple",
     "options" : {
-      "datasource" : { "types" : [ "node", "user" ] },
+      "datasource" : { "types" : [ "comment", "node", "user", "file" ] },
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
+        "file" : { "type" : "integer", "entity_type" : "file" },
+        "file:name" : { "type" : "text" },
+        "file:type" : { "type" : "string" },
+        "item_bundle" : { "type" : "string" },
+        "item_type" : { "type" : "string" },
         "node:author" : { "type" : "integer", "entity_type" : "user" },
         "node:body:value" : { "type" : "text" },
-        "node:changed" : { "type" : "date" },
         "node:created" : { "type" : "date" },
+        "node:field_e_mail" : { "type" : "text" },
+        "node:field_event_audience" : { "type" : "text" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "node:field_image:file" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "file" },
+        "node:field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "node:field_phone" : { "type" : "text" },
         "node:field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "node:status" : { "type" : "integer" },
-        "node:title" : { "type" : "text" },
+        "node:title_field" : { "type" : "text" },
         "node:type" : { "type" : "string" },
-        "search_api_aggregation_1" : { "type" : "list\\u003Cinteger\\u003E" },
-        "search_api_combined_1" : { "type" : "string" },
         "search_api_language" : { "type" : "string" },
         "user:field_job_title" : { "type" : "text" },
         "user:field_library" : { "type" : "integer", "entity_type" : "node" },
         "user:field_name_first" : { "type" : "text" },
         "user:field_name_last" : { "type" : "text" },
-        "user:name" : { "type" : "text" },
-        "user:og_user_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "user:url" : { "type" : "uri" }
+        "user:field_phone" : { "type" : "text" },
+        "user:mail" : { "type" : "text" },
+        "user:name" : { "type" : "text" }
       },
       "data_alter_callbacks" : {
-        "search_api_ranges_alter" : {
-          "status" : 1,
-          "weight" : "-50",
-          "settings" : { "fields" : { "search_api_aggregation_1" : "search_api_aggregation_1" } }
-        },
         "search_api_alter_bundle_filter" : {
-          "status" : 0,
+          "status" : 1,
           "weight" : "-10",
-          "settings" : { "default" : "0", "bundles" : [] }
-        },
-        "search_api_alter_add_combined" : {
-          "status" : 1,
-          "weight" : "0",
-          "settings" : { "fields" : { "search_api_combined_1" : {
-                "name" : "Fornavn_Efternavn",
-                "multivalue" : "0",
-                "type" : "string",
-                "imitate" : "user:name",
-                "fields" : [ "user:field_name_first", "user:field_name_last" ],
-                "description" : "A @type combined of the following fields: Bruger \\u00bb Fornavn, Bruger \\u00bb Efternavn."
-              }
+          "settings" : {
+            "default" : "1",
+            "bundles" : {
+              "comment:comment_node_document" : "comment:comment_node_document",
+              "comment:comment_node_post" : "comment:comment_node_post"
             }
           }
         },
+        "search_api_alter_add_combined" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_aggregation" : {
-          "status" : 1,
-          "weight" : "0",
-          "settings" : { "fields" : { "search_api_aggregation_1" : {
-                "name" : "Oprettet",
-                "type" : "list",
-                "fields" : [ "node:created" ],
-                "description" : "A Vis aggregation of the following fields: Indholdselement \\u00bb Dato oprettet."
-              }
-            }
-          }
-        },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
       },
       "processors" : {
-        "search_api_case_ignore" : {
-          "status" : 0,
-          "weight" : "0",
-          "settings" : { "fields" : {
-              "node:title" : true,
-              "user:name" : true,
-              "user:field_name_first" : true,
-              "user:field_name_last" : true,
-              "user:field_job_title" : true,
-              "node:body:value" : true
-            }
-          }
-        },
+        "search_api_case_ignore" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_html_filter" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "10",
           "settings" : {
-            "fields" : { "node:body:value" : true },
+            "fields" : [],
             "title" : 0,
             "alt" : 1,
             "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
@@ -252,37 +222,19 @@ function cbib_search_default_search_api_index() {
         "search_api_tokenizer" : {
           "status" : 0,
           "weight" : "20",
-          "settings" : {
-            "fields" : {
-              "node:title" : true,
-              "user:name" : true,
-              "user:field_name_first" : true,
-              "user:field_name_last" : true,
-              "user:field_job_title" : true,
-              "node:body:value" : true
-            },
-            "spaces" : "[^[:alnum:]]",
-            "ignorable" : "[\\u0027]"
-          }
+          "settings" : { "fields" : [], "spaces" : "[^[:alnum:]]", "ignorable" : "[\\u0027]" }
         },
         "search_api_stopwords" : {
           "status" : 0,
           "weight" : "30",
           "settings" : {
-            "fields" : {
-              "node:title" : true,
-              "user:name" : true,
-              "user:field_name_first" : true,
-              "user:field_name_last" : true,
-              "user:field_job_title" : true,
-              "node:body:value" : true
-            },
+            "fields" : [],
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
           }
         },
         "search_api_highlighting" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "35",
           "settings" : {
             "prefix" : "\\u003Cstrong\\u003E",
@@ -545,10 +497,162 @@ function cbib_search_default_search_api_server() {
             "type" : "text",
             "boost" : "1.0"
           },
-          "node:field_image:file" : {
-            "table" : "search_api_db_general_search_node_field_image_file",
+          "item_type" : {
+            "table" : "search_api_db_general_search",
+            "column" : "item_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "item_bundle" : {
+            "table" : "search_api_db_general_search",
+            "column" : "item_bundle",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "file" : {
+            "table" : "search_api_db_general_search",
+            "column" : "file",
+            "type" : "integer",
+            "boost" : "1.0"
+          }
+        },
+        "global_search" : {
+          "item_type" : {
+            "table" : "search_api_db_global_search",
+            "column" : "item_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "item_bundle" : {
+            "table" : "search_api_db_global_search",
+            "column" : "item_bundle",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "file" : {
+            "table" : "search_api_db_global_search",
+            "column" : "file",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "search_api_language" : {
+            "table" : "search_api_db_global_search",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "node:type" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "node:author" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_author",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:title_field" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:field_event_type" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_field_event_type",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:field_event_audience" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:field_e_mail" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:field_phone" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:field_library_ref" : {
+            "table" : "search_api_db_global_search_node_field_library_ref",
             "column" : "value",
             "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "file:name" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "file:type" : {
+            "table" : "search_api_db_global_search",
+            "column" : "file_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "user:name" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:mail" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_name_first" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_name_last" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_phone" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:body:value" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "node:created" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "node:status" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_status",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:field_topics" : {
+            "table" : "search_api_db_global_search_node_field_topics",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "user:field_job_title" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "user:field_library" : {
+            "table" : "search_api_db_global_search",
+            "column" : "user_field_library",
+            "type" : "integer",
             "boost" : "1.0"
           }
         }
@@ -588,7 +692,7 @@ function cbib_search_default_search_api_sort() {
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
     "default_order" : "desc",
-    "options" : { "field_name" : "Indholdselement \\u00bb Dato oprettet" },
+    "options" : { "field_name" : "node:created" },
     "rdf_mapping" : []
   }');
   $items['general_search__node:type'] = entity_import('search_api_sort', '{
@@ -601,7 +705,7 @@ function cbib_search_default_search_api_sort() {
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
     "default_order" : "desc",
-    "options" : { "field_name" : "Indholdselement \\u00bb Indholdstype" },
+    "options" : { "field_name" : "node:type" },
     "rdf_mapping" : []
   }');
   $items['general_search__search_api_relevance'] = entity_import('search_api_sort', '{
