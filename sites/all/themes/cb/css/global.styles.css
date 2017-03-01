@@ -4163,6 +4163,10 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   border-width: 1px;
 }
 
+.views-field.views-field-node-created {
+  float: right;
+}
+
 .search-form-page .form-type-textfield label {
   white-space: nowrap;
 }
