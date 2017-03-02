@@ -294,9 +294,12 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_body_value']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_body_value']['field'] = 'node_body_value';
   $handler->display->display_options['fields']['node_body_value']['label'] = '';
-  $handler->display->display_options['fields']['node_body_value']['alter']['max_length'] = '200';
+  $handler->display->display_options['fields']['node_body_value']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['node_body_value']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['node_body_value']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['node_body_value']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['node_body_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['node_body_value']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['node_body_value']['link_to_entity'] = 0;
   /* Felt: Indholdselement: Emner (indexed) */
   $handler->display->display_options['fields']['node_field_topics']['id'] = 'node_field_topics';
@@ -367,6 +370,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   $handler->display->display_options['sorts']['search_api_relevance']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['search_api_relevance']['expose']['label'] = 'Relevans';
   /* Sorteringskriterie: Indholdselement: Dato oprettet (indexed) */
