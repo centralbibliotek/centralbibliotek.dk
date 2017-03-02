@@ -209,6 +209,7 @@ function cbib_search_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'search api nodes';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'none';
@@ -236,16 +237,27 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end of @total';
+  /* Felt: Indholdselement: Dato oprettet (indexed) */
+  $handler->display->display_options['fields']['node_created']['id'] = 'node_created';
+  $handler->display->display_options['fields']['node_created']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['fields']['node_created']['field'] = 'node_created';
+  $handler->display->display_options['fields']['node_created']['label'] = '';
+  $handler->display->display_options['fields']['node_created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['node_created']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['node_created']['date_format'] = 'teaser_date';
+  $handler->display->display_options['fields']['node_created']['second_date_format'] = 'html5_tools_iso8601';
+  $handler->display->display_options['fields']['node_created']['link_to_entity'] = 0;
   /* Felt: Indexed Multiple types: Bundle */
   $handler->display->display_options['fields']['item_bundle']['id'] = 'item_bundle';
   $handler->display->display_options['fields']['item_bundle']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['item_bundle']['field'] = 'item_bundle';
   $handler->display->display_options['fields']['item_bundle']['label'] = '';
-  $handler->display->display_options['fields']['item_bundle']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['item_bundle']['element_type'] = 'strong';
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Titel (indexed) */
+  /* Felt: Indholdselement: Title (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';
@@ -258,16 +270,6 @@ function cbib_search_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Felt: Indholdselement: Dato oprettet (indexed) */
-  $handler->display->display_options['fields']['node_created']['id'] = 'node_created';
-  $handler->display->display_options['fields']['node_created']['table'] = 'search_api_index_global_search';
-  $handler->display->display_options['fields']['node_created']['field'] = 'node_created';
-  $handler->display->display_options['fields']['node_created']['label'] = '';
-  $handler->display->display_options['fields']['node_created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['node_created']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['node_created']['date_format'] = 'teaser_date';
-  $handler->display->display_options['fields']['node_created']['second_date_format'] = 'html5_tools_iso8601';
-  $handler->display->display_options['fields']['node_created']['link_to_entity'] = 0;
   /* Felt: Fil: Filnavn (indexed) */
   $handler->display->display_options['fields']['file_name']['id'] = 'file_name';
   $handler->display->display_options['fields']['file_name']['table'] = 'search_api_index_global_search';
@@ -275,15 +277,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['file_name']['label'] = 'Filnavn';
   $handler->display->display_options['fields']['file_name']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['file_name']['link_to_entity'] = 1;
-  /* Felt: Indholdselement: Forfatter (indexed) */
-  $handler->display->display_options['fields']['node_author']['id'] = 'node_author';
-  $handler->display->display_options['fields']['node_author']['table'] = 'search_api_index_global_search';
-  $handler->display->display_options['fields']['node_author']['field'] = 'node_author';
-  $handler->display->display_options['fields']['node_author']['label'] = 'Forfatter';
-  $handler->display->display_options['fields']['node_author']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['node_author']['link_to_entity'] = 1;
-  $handler->display->display_options['fields']['node_author']['view_mode'] = 'full';
-  $handler->display->display_options['fields']['node_author']['bypass_access'] = 0;
   /* Felt: Indholdselement: Målgruppe (indexed) */
   $handler->display->display_options['fields']['node_field_event_audience']['id'] = 'node_field_event_audience';
   $handler->display->display_options['fields']['node_field_event_audience']['table'] = 'search_api_index_global_search';
@@ -361,6 +354,15 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['user_field_library']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['user_field_library']['view_mode'] = 'full';
   $handler->display->display_options['fields']['user_field_library']['bypass_access'] = 0;
+  /* Felt: Indholdselement: Forfatter (indexed) */
+  $handler->display->display_options['fields']['node_author']['id'] = 'node_author';
+  $handler->display->display_options['fields']['node_author']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['fields']['node_author']['field'] = 'node_author';
+  $handler->display->display_options['fields']['node_author']['label'] = 'Forfatter';
+  $handler->display->display_options['fields']['node_author']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['node_author']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['node_author']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['node_author']['bypass_access'] = 0;
   /* Sorteringskriterie: Søg: Relevans */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_global_search';
@@ -371,15 +373,15 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['node_created']['id'] = 'node_created';
   $handler->display->display_options['sorts']['node_created']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['sorts']['node_created']['field'] = 'node_created';
+  $handler->display->display_options['sorts']['node_created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['node_created']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['node_created']['expose']['label'] = 'Dato oprettet (indexed)';
+  $handler->display->display_options['sorts']['node_created']['expose']['label'] = 'Dato oprettet';
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['label'] = 'Fulltext search';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
@@ -408,9 +410,8 @@ function cbib_search_views_default_views() {
     t('‹'),
     t('›'),
     t('»'),
-    t('Displaying @start - @end of @total'),
+    t('Viser @start - @end of @total'),
     t('Filnavn'),
-    t('Forfatter'),
     t('Målgruppe'),
     t('Telefon'),
     t('Emner'),
@@ -418,9 +419,9 @@ function cbib_search_views_default_views() {
     t('Stilling'),
     t('E-mail'),
     t('Bibliotek'),
+    t('Forfatter'),
     t('Relevans'),
-    t('Dato oprettet (indexed)'),
-    t('Fulltext search'),
+    t('Dato oprettet'),
     t('Page'),
   );
   $export['search_api_nodes'] = $view;

@@ -11,6 +11,9 @@ function cbib_search_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -164,30 +167,30 @@ function cbib_search_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "file" : { "type" : "integer", "entity_type" : "file" },
-        "file:name" : { "type" : "text" },
+        "file:name" : { "type" : "text", "boost" : "2.0" },
         "file:type" : { "type" : "string" },
         "item_bundle" : { "type" : "string" },
         "item_type" : { "type" : "string" },
         "node:author" : { "type" : "integer", "entity_type" : "user" },
-        "node:body:value" : { "type" : "text" },
+        "node:body:value" : { "type" : "text", "boost" : "8.0" },
         "node:created" : { "type" : "date" },
         "node:field_e_mail" : { "type" : "text" },
-        "node:field_event_audience" : { "type" : "text" },
+        "node:field_event_audience" : { "type" : "text", "boost" : "2.0" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "node:field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "node:field_phone" : { "type" : "text" },
+        "node:field_phone" : { "type" : "text", "boost" : "13.0" },
         "node:field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "node:status" : { "type" : "integer" },
-        "node:title_field" : { "type" : "text" },
+        "node:title_field" : { "type" : "text", "boost" : "21.0" },
         "node:type" : { "type" : "string" },
         "search_api_language" : { "type" : "string" },
         "user:field_job_title" : { "type" : "text" },
         "user:field_library" : { "type" : "integer", "entity_type" : "node" },
-        "user:field_name_first" : { "type" : "text" },
-        "user:field_name_last" : { "type" : "text" },
+        "user:field_name_first" : { "type" : "text", "boost" : "3.0" },
+        "user:field_name_last" : { "type" : "text", "boost" : "5.0" },
         "user:field_phone" : { "type" : "text" },
-        "user:mail" : { "type" : "text" },
-        "user:name" : { "type" : "text" }
+        "user:mail" : { "type" : "text", "boost" : "13.0" },
+        "user:name" : { "type" : "text", "boost" : "3.0" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -556,7 +559,7 @@ function cbib_search_default_search_api_server() {
           "node:title_field" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "21.0"
           },
           "node:field_event_type" : {
             "table" : "search_api_db_global_search",
@@ -567,7 +570,7 @@ function cbib_search_default_search_api_server() {
           "node:field_event_audience" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "2.0"
           },
           "node:field_e_mail" : {
             "table" : "search_api_db_global_search_text",
@@ -577,7 +580,7 @@ function cbib_search_default_search_api_server() {
           "node:field_phone" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "13.0"
           },
           "node:field_library_ref" : {
             "table" : "search_api_db_global_search_node_field_library_ref",
@@ -588,7 +591,7 @@ function cbib_search_default_search_api_server() {
           "file:name" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "2.0"
           },
           "file:type" : {
             "table" : "search_api_db_global_search",
@@ -599,22 +602,22 @@ function cbib_search_default_search_api_server() {
           "user:name" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "3.0"
           },
           "user:mail" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "13.0"
           },
           "user:field_name_first" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "3.0"
           },
           "user:field_name_last" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "5.0"
           },
           "user:field_phone" : {
             "table" : "search_api_db_global_search_text",
@@ -624,7 +627,7 @@ function cbib_search_default_search_api_server() {
           "node:body:value" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "1.0"
+            "boost" : "8.0"
           },
           "node:created" : {
             "table" : "search_api_db_global_search",
