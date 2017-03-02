@@ -1389,9 +1389,7 @@ h1.node-title {
   margin-bottom: 2em;
 
   .views-exposed-widget {
-    float: left;
-    padding: 0.5em 1em 0 0;
-    margin: 0 1.7em;
+    float: none;
     &:first-child {
       margin-top: 0;
     }
@@ -1402,6 +1400,12 @@ h1.node-title {
       margin-top: 0;
     }
   }
+}
+.views-exposed-widget.views-widget-sort-by{
+    float: left;
+}
+.views-widget-filter-search_api_views_fulltext {
+    width: 78%;
 }
 
 .keyword-filter {
@@ -4074,16 +4078,6 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 /**
  * Search
  */
-#edit-search-api-views-fulltext {
-    border-color: #DDDDDD;
-    border-style: solid;
-    border-width: 1px;
-}
-#edit-keys {
-    border-color: #DDDDDD;
-    border-style: solid;
-    border-width: 1px; 
-}
 .views-field.views-field-node-created {
     float: right;
 }

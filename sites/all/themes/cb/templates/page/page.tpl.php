@@ -121,11 +121,12 @@
 
     <div class="branch-selector">
       <?php print render($page['header_two']); ?>
+        <?php print $search; ?>
     </div>
-
+      
     <!-- region: Header -->
     <?php print render($page['header']); ?>
-
+    
 
   </div><?php //.container ?>
 </header>

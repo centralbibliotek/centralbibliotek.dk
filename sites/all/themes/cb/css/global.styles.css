@@ -1763,9 +1763,7 @@ h1.node-title a:hover {
   margin-bottom: 2em;
 }
 .views-exposed-form .views-exposed-widget {
-  float: left;
-  padding: 0.5em 1em 0 0;
-  margin: 0 1.7em;
+  float: none;
 }
 .views-exposed-form .views-exposed-widget:first-child {
   margin-top: 0;
@@ -1775,6 +1773,14 @@ h1.node-title a:hover {
 }
 .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 0;
+}
+
+.views-exposed-widget.views-widget-sort-by {
+  float: left;
+}
+
+.views-widget-filter-search_api_views_fulltext {
+  width: 78%;
 }
 
 .keyword-filter .views-widget-filter-keys,
@@ -4151,18 +4157,6 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 /**
  * Search
  */
-#edit-search-api-views-fulltext {
-  border-color: #DDDDDD;
-  border-style: solid;
-  border-width: 1px;
-}
-
-#edit-keys {
-  border-color: #DDDDDD;
-  border-style: solid;
-  border-width: 1px;
-}
-
 .views-field.views-field-node-created {
   float: right;
 }

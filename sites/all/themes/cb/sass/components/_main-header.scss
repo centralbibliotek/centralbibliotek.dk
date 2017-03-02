@@ -48,16 +48,16 @@
 
 
 // Search field
-#block-search-form {
-  width: 30%;
+.branch-selector form {
+  width: 35%;
   position: absolute;
   top: $headerTop;
-  right: 10px;
+  left: 73%;;
 
   .form-item-custom-search-types { display: none; } // Hide the site/users select box
 
   // Search field
-  input[type="search"] {
+  input[type="text"] {
     background: none;
     border: 0;
     border-bottom: 1px solid darken($gray-search-field, 25%);
@@ -78,7 +78,7 @@
   input[type="submit"] {
     position: absolute;
     top: 0;
-    right: .25em;
+    right: 5.5em;
     margin: 0;
     padding: 0;
 
@@ -90,7 +90,7 @@
     background-position: center right;
     border: 0;
     text-shadow: none;
-    height: 2.15em;
+    height: 3.5em;
     width: 2.5em;
     text-indent: -9999em;
     border-radius: 0;

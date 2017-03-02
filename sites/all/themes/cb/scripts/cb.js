@@ -22,7 +22,7 @@
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
-      $('#search-block-form input[type="search"]').attr('placeholder', 'Søg på sitet...');
+      $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
     }
   };
 
