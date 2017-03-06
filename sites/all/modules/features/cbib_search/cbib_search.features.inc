@@ -39,7 +39,7 @@ function cbib_search_default_search_api_index() {
     "item_type" : "node",
     "options" : {
       "datasource" : { "bundles" : [ "event" ] },
-      "index_directly" : 0,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "body:value" : { "type" : "text" },
@@ -163,7 +163,7 @@ function cbib_search_default_search_api_index() {
     "item_type" : "multiple",
     "options" : {
       "datasource" : { "types" : [ "comment", "node", "user", "file" ] },
-      "index_directly" : 0,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "file" : { "type" : "integer", "entity_type" : "file" },

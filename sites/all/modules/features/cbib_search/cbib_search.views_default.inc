@@ -56,6 +56,13 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
@@ -188,6 +195,7 @@ function cbib_search_views_default_views() {
     t('›'),
     t('»'),
     t('Displaying @start - @end of @total'),
+    t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
     t('Tilknytning'),
     t('Alle'),
     t('Events - all'),
@@ -238,6 +246,13 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end of @total';
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Felt: Indholdselement: Dato oprettet (indexed) */
   $handler->display->display_options['fields']['node_created']['id'] = 'node_created';
   $handler->display->display_options['fields']['node_created']['table'] = 'search_api_index_global_search';
@@ -257,7 +272,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Title (indexed) */
+  /* Felt: Indholdselement: Titel (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';
@@ -415,6 +430,7 @@ function cbib_search_views_default_views() {
     t('›'),
     t('»'),
     t('Viser @start - @end of @total'),
+    t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
     t('Filnavn'),
     t('Målgruppe'),
     t('Telefon'),
