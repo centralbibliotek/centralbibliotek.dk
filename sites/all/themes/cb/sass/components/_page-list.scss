@@ -3,9 +3,8 @@
   .view-filters {
     input[type="text"] {
       background-color: rgba(0,0,0,0) !important;
-      border: 0px;
       height: 50px;
-      border-bottom: 2px solid $gray-darker;
+      border-bottom: 1px solid $gray-light;
       font-family: $base-font;
       font-size: 20px;
       padding-left: 0px;
