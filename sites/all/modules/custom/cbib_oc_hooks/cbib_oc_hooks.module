@@ -130,7 +130,7 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
     }
     if($form_id == "event_node_form")
     {
-        drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/end-date.js',array('weight' => 999));
+        //drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/end-date.js',array('weight' => 999));
         /*
          * JS to create live preview of summary.
          */
@@ -503,7 +503,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
          $message_type =  "oc_notify_post_created";
      }
      elseif($node->type == 'event')
-     {
+     { 
         //$message_type = "commons_events_event_node_created";
          $message_type =  "oc_notify_event_created";
      }
