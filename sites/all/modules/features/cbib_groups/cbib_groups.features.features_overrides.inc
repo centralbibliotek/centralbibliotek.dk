@@ -12,66 +12,11 @@ function cbib_groups_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: page_manager_pages
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-1c95172e-d00e-4c7a-b2f9-9358d3977afd"] = (object) array(
-      'pid' => 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd',
-      'panel' => 'venstre',
-      'type' => 'block',
-      'subtype' => 'facetapi-tEZOOJBdRL8BWerUz8T2fIqLMS30JE9z',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(
-        'override_title' => 0,
-        'override_title_text' => '',
-        'override_title_heading' => 'h2',
-      ),
-      'cache' => array(),
-      'style' => array(
-        'settings' => array(
-          'pane_title' => 'Filtrere efter emner:',
-          'pane_collapsed' => 0,
-          'pane_empty_check' => 0,
-        ),
-        'style' => 'collapsible',
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 1,
-      'locks' => array(),
-      'uuid' => '1c95172e-d00e-4c7a-b2f9-9358d3977afd',
-    );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-3db36521-fb53-58a4-c9e2-137a2dacee07"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0"] = (object) array(
-      'pid' => 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
-      'panel' => 'venstre',
-      'type' => 'block',
-      'subtype' => 'facetapi-5tYhM2Z2ruvjtxqsDp8KgjiVmO05m39t',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(
-        'override_title' => 0,
-        'override_title_text' => '',
-        'override_title_heading' => 'h2',
-      ),
-      'cache' => array(),
-      'style' => array(
-        'settings' => array(
-          'pane_title' => 'Filtrere efter dato:',
-          'pane_collapsed' => 0,
-          'pane_empty_check' => 0,
-        ),
-        'style' => 'collapsible',
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 2,
-      'locks' => array(),
-      'uuid' => '43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
-    );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-86bb266a-0ecd-4fa5-838e-22e2c580a82a"] = (object) array(
-      'pid' => 'new-86bb266a-0ecd-4fa5-838e-22e2c580a82a',
-      'panel' => 'center',
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b"] = (object) array(
+      'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+      'panel' => 'two_66_33_second',
       'type' => 'views_panes',
-      'subtype' => 'search_api_group-panel_pane_1',
+      'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
       'shown' => TRUE,
       'access' => array(),
       'configuration' => array(),
@@ -83,113 +28,11 @@ function cbib_groups_features_override_default_overrides() {
       'extras' => array(),
       'position' => 0,
       'locks' => array(),
-      'uuid' => '86bb266a-0ecd-4fa5-838e-22e2c580a82a',
+      'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
     );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|access|plugins"] = array();
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|panel"] = 'center';
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|position"] = 1;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|shown"] = FALSE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086"] = (object) array(
-      'pid' => 'new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
-      'panel' => 'venstre',
-      'type' => 'block',
-      'subtype' => 'facetapi-bVMvZxfTOl8SgywzLgdochPxdfni4XFj',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(
-        'override_title' => 0,
-        'override_title_text' => '',
-        'override_title_heading' => 'h2',
-      ),
-      'cache' => array(),
-      'style' => array(
-        'settings' => array(
-          'pane_title' => 'Filtrere efter tilknytning:',
-          'pane_collapsed' => 0,
-          'pane_empty_check' => 0,
-        ),
-        'style' => 'collapsible',
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 0,
-      'locks' => array(),
-      'uuid' => 'd6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
-    );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|hide_title"] = 1;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout"] = 'flexible';
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout_settings|items"] = array(
-    'canvas' => array(
-      'type' => 'row',
-      'contains' => 'column',
-      'children' => array(
-        0 => 'main',
-      ),
-      'parent' => NULL,
-    ),
-    'main' => array(
-      'type' => 'column',
-      'width' => 100,
-      'width_type' => '%',
-      'children' => array(
-        0 => 'main-row',
-      ),
-      'parent' => 'canvas',
-    ),
-    'main-row' => array(
-      'type' => 'row',
-      'contains' => 'region',
-      'children' => array(
-        0 => 'venstre',
-        1 => 'center',
-      ),
-      'parent' => 'main',
-    ),
-    'center' => array(
-      'type' => 'region',
-      'title' => 'Centreret',
-      'width' => '74.98009462408966',
-      'width_type' => '%',
-      'parent' => 'main-row',
-    ),
-    'venstre' => array(
-      'type' => 'region',
-      'title' => 'Venstre',
-      'width' => '25.019905375910344',
-      'width_type' => '%',
-      'parent' => 'main-row',
-      'class' => '',
-    ),
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_second"] = array(
+    0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
   );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_bottom"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_first"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_second"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_third"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_top"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|center"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|one_main"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_bottom"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_first"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_second"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_third"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_top"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_bottom"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_first"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_second"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_top"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|venstre"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|center"] = array(
-    0 => 'new-86bb266a-0ecd-4fa5-838e-22e2c580a82a',
-    1 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
-  );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_first"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_top"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|venstre"] = array(
-    0 => 'new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
-    1 => 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd',
-    2 => 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
-  );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|title"] = 'Grupper';
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:group:default.display|content|new-0bb1221d-a648-4332-a630-67359e011329"] = (object) array(
@@ -1054,7 +897,6 @@ function cbib_groups_features_override_default_overrides() {
   );
   $overrides["views_view.commons_bw_posts.display|default|display_options|use_more_text"] = 'mere';
   $overrides["views_view.commons_groups_directory.display|default|display_options|css_class"] = 'cb-teaser-list';
-  $overrides["views_view.commons_groups_directory.display|default|display_options|empty|area|content"] = 'Din søgning gav desværre ingen resultater!';
   $overrides["views_view.commons_groups_directory.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',
