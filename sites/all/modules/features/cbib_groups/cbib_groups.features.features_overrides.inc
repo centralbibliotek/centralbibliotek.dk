@@ -12,16 +12,183 @@ function cbib_groups_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: page_manager_pages
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-1c95172e-d00e-4c7a-b2f9-9358d3977afd"] = (object) array(
+      'pid' => 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd',
+      'panel' => 'venstre',
+      'type' => 'block',
+      'subtype' => 'facetapi-tEZOOJBdRL8BWerUz8T2fIqLMS30JE9z',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+        'override_title_heading' => 'h2',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => array(
+          'pane_title' => 'Filtrere efter emner:',
+          'pane_collapsed' => 0,
+          'pane_empty_check' => 0,
+        ),
+        'style' => 'collapsible',
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 1,
+      'locks' => array(),
+      'uuid' => '1c95172e-d00e-4c7a-b2f9-9358d3977afd',
+    );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-3db36521-fb53-58a4-c9e2-137a2dacee07"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0"] = (object) array(
+      'pid' => 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
+      'panel' => 'venstre',
+      'type' => 'block',
+      'subtype' => 'facetapi-5tYhM2Z2ruvjtxqsDp8KgjiVmO05m39t',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+        'override_title_heading' => 'h2',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => array(
+          'pane_title' => 'Filtrere efter dato:',
+          'pane_collapsed' => 0,
+          'pane_empty_check' => 0,
+        ),
+        'style' => 'collapsible',
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 2,
+      'locks' => array(),
+      'uuid' => '43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
+    );
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-86bb266a-0ecd-4fa5-838e-22e2c580a82a"] = (object) array(
+      'pid' => 'new-86bb266a-0ecd-4fa5-838e-22e2c580a82a',
+      'panel' => 'center',
+      'type' => 'views_panes',
+      'subtype' => 'search_api_group-panel_pane_1',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => '86bb266a-0ecd-4fa5-838e-22e2c580a82a',
+    );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|access|plugins"] = array();
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|panel"] = 'one_main';
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout"] = 'one';
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|panel"] = 'center';
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|position"] = 1;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-bf6c6f1b-08a6-3874-7186-c955c763c092|shown"] = FALSE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086"] = (object) array(
+      'pid' => 'new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
+      'panel' => 'venstre',
+      'type' => 'block',
+      'subtype' => 'facetapi-bVMvZxfTOl8SgywzLgdochPxdfni4XFj',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+        'override_title_heading' => 'h2',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => array(
+          'pane_title' => 'Filtrere efter tilknytning:',
+          'pane_collapsed' => 0,
+          'pane_empty_check' => 0,
+        ),
+        'style' => 'collapsible',
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => 'd6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
+    );
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|hide_title"] = 1;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout"] = 'flexible';
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|layout_settings|items"] = array(
+    'canvas' => array(
+      'type' => 'row',
+      'contains' => 'column',
+      'children' => array(
+        0 => 'main',
+      ),
+      'parent' => NULL,
+    ),
+    'main' => array(
+      'type' => 'column',
+      'width' => 100,
+      'width_type' => '%',
+      'children' => array(
+        0 => 'main-row',
+      ),
+      'parent' => 'canvas',
+    ),
+    'main-row' => array(
+      'type' => 'row',
+      'contains' => 'region',
+      'children' => array(
+        0 => 'venstre',
+        1 => 'center',
+      ),
+      'parent' => 'main',
+    ),
+    'center' => array(
+      'type' => 'region',
+      'title' => 'Centreret',
+      'width' => '74.98009462408966',
+      'width_type' => '%',
+      'parent' => 'main-row',
+    ),
+    'venstre' => array(
+      'type' => 'region',
+      'title' => 'Venstre',
+      'width' => '25.019905375910344',
+      'width_type' => '%',
+      'parent' => 'main-row',
+      'class' => '',
+    ),
+  );
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_bottom"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_first"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_second"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_third"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|cb3_top"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|center"] = NULL;
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|one_main"] = NULL;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|one_main"] = array(
-    0 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_bottom"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_first"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_second"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_third"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|three_25_25_50_top"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_bottom"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_first"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_second"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|two_33_66_top"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panel_settings|style_settings|venstre"] = NULL;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|center"] = array(
+    0 => 'new-86bb266a-0ecd-4fa5-838e-22e2c580a82a',
+    1 => 'new-bf6c6f1b-08a6-3874-7186-c955c763c092',
   );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_first"]["DELETED"] = TRUE;
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_top"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|venstre"] = array(
+    0 => 'new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086',
+    1 => 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd',
+    2 => 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0',
+  );
   $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|title"] = 'Grupper';
 
   // Exported overrides for: panelizer_defaults
@@ -887,6 +1054,7 @@ function cbib_groups_features_override_default_overrides() {
   );
   $overrides["views_view.commons_bw_posts.display|default|display_options|use_more_text"] = 'mere';
   $overrides["views_view.commons_groups_directory.display|default|display_options|css_class"] = 'cb-teaser-list';
+  $overrides["views_view.commons_groups_directory.display|default|display_options|empty|area|content"] = 'Din søgning gav desværre ingen resultater!';
   $overrides["views_view.commons_groups_directory.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',
@@ -974,7 +1142,6 @@ function cbib_groups_features_override_default_overrides() {
       'value' => array(
         1 => 1,
       ),
-      'group' => 1,
     ),
     'type' => array(
       'id' => 'type',
@@ -982,26 +1149,6 @@ function cbib_groups_features_override_default_overrides() {
       'field' => 'type',
       'value' => array(
         'group' => 'group',
-      ),
-      'group' => 1,
-    ),
-    'keys' => array(
-      'id' => 'keys',
-      'table' => 'search_index',
-      'field' => 'keys',
-      'group' => 1,
-      'exposed' => TRUE,
-      'expose' => array(
-        'operator_id' => 'keys_op',
-        'label' => 'Søg',
-        'operator' => 'keys_op',
-        'identifier' => 'keys',
-        'remember_roles' => array(
-          2 => 2,
-          1 => 0,
-          3 => 0,
-          4 => 0,
-        ),
       ),
     ),
   );
@@ -1071,7 +1218,7 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_title"] = 'Landing page all';
   $overrides["views_view.commons_groups_directory.display|panel_pane_2"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:9:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:5:{s:5:"title";b:0;s:16:"hide_admin_links";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;}s:5:"title";s:37:"<a href="/node/!1/groups">Grupper</a>";s:8:"link_url";s:14:"node/1!/groups";s:5:"pager";a:2:{s:4:"type";s:4:"some";s:7:"options";a:2:{s:14:"items_per_page";s:1:"3";s:6:"offset";s:1:"0";}}s:5:"sorts";a:2:{s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_2";s:13:"display_title";s:28:"Landing page group frontpage";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
   $overrides["views_view.commons_groups_directory.display|panel_pane_3"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:6:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:2:{s:5:"title";b:0;s:5:"pager";b:0;}s:5:"title";s:30:"<a href="/grupper">Grupper</a>";s:8:"link_url";s:6:"groups";s:5:"pager";a:2:{s:4:"type";s:4:"some";s:7:"options";a:2:{s:14:"items_per_page";s:1:"3";s:6:"offset";s:1:"0";}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_3";s:13:"display_title";s:9:"Frontpage";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
-  $overrides["views_view.commons_groups_directory.display|panel_pane_4"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:12:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:11:{s:8:"use_ajax";b:0;s:16:"hide_admin_links";b:0;s:8:"use_more";b:0;s:15:"use_more_always";b:0;s:13:"use_more_text";b:0;s:12:"link_display";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;s:13:"filter_groups";b:0;s:7:"filters";b:0;}s:15:"use_more_always";b:0;s:13:"use_more_text";s:8:"Vis mere";s:12:"link_display";s:10:"custom_url";s:8:"link_url";s:14:"node/!1/groups";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"10";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:5:"sorts";a:4:{s:40:"field_radioactivity_radioactivity_energy";a:6:{s:2:"id";s:40:"field_radioactivity_radioactivity_energy";s:5:"table";s:30:"field_data_field_radioactivity";s:5:"field";s:40:"field_radioactivity_radioactivity_energy";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:9:"Aktivitet";}}s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}s:29:"field_last_comment_date_value";a:6:{s:2:"id";s:29:"field_last_comment_date_value";s:5:"table";s:34:"field_data_field_last_comment_date";s:5:"field";s:29:"field_last_comment_date_value";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:14:"Nyeste indlæg";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:7:"filters";a:4:{s:6:"status";a:6:{s:2:"id";s:6:"status";s:5:"table";s:4:"node";s:5:"field";s:6:"status";s:5:"value";i:1;s:5:"group";i:1;s:6:"expose";a:1:{s:8:"operator";b:0;}}s:17:"group_group_value";a:4:{s:2:"id";s:17:"group_group_value";s:5:"table";s:22:"field_data_group_group";s:5:"field";s:17:"group_group_value";s:5:"value";a:1:{i:1;s:1:"1";}}s:4:"type";a:4:{s:2:"id";s:4:"type";s:5:"table";s:4:"node";s:5:"field";s:4:"type";s:5:"value";a:1:{s:5:"group";s:5:"group";}}s:4:"keys";a:5:{s:2:"id";s:4:"keys";s:5:"table";s:12:"search_index";s:5:"field";s:4:"keys";s:7:"exposed";b:1;s:6:"expose";a:5:{s:11:"operator_id";s:7:"keys_op";s:5:"label";s:4:"Søg";s:8:"operator";s:7:"keys_op";s:10:"identifier";s:4:"keys";s:14:"remember_roles";a:4:{i:2;s:1:"2";i:1;i:0;i:3;i:0;i:4;i:0;}}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_4";s:13:"display_title";s:22:"Landing page group all";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
+  $overrides["views_view.commons_groups_directory.display|panel_pane_4"] = unserialize('O:13:"views_display":7:{s:15:"display_options";a:11:{s:5:"query";a:2:{s:4:"type";s:11:"views_query";s:7:"options";a:0:{}}s:8:"defaults";a:9:{s:8:"use_ajax";b:0;s:16:"hide_admin_links";b:0;s:8:"use_more";b:0;s:15:"use_more_always";b:0;s:13:"use_more_text";b:0;s:12:"link_display";b:0;s:5:"pager";b:0;s:5:"sorts";b:0;s:9:"arguments";b:0;}s:15:"use_more_always";b:0;s:13:"use_more_text";s:8:"Vis mere";s:12:"link_display";s:10:"custom_url";s:8:"link_url";s:14:"node/!1/groups";s:5:"pager";a:2:{s:4:"type";s:4:"full";s:7:"options";a:6:{s:14:"items_per_page";s:2:"10";s:6:"offset";s:1:"0";s:2:"id";s:1:"0";s:8:"quantity";s:1:"9";s:6:"expose";a:3:{s:20:"items_per_page_label";s:15:"Antal elementer";s:32:"items_per_page_options_all_label";s:8:"- Alle -";s:12:"offset_label";s:11:"Forskydning";}s:4:"tags";a:4:{s:5:"first";s:2:"«";s:8:"previous";s:3:"‹";s:4:"next";s:3:"›";s:4:"last";s:2:"»";}}}s:5:"sorts";a:4:{s:40:"field_radioactivity_radioactivity_energy";a:6:{s:2:"id";s:40:"field_radioactivity_radioactivity_energy";s:5:"table";s:30:"field_data_field_radioactivity";s:5:"field";s:40:"field_radioactivity_radioactivity_energy";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:9:"Aktivitet";}}s:7:"created";a:6:{s:2:"id";s:7:"created";s:5:"table";s:4:"node";s:5:"field";s:7:"created";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:15:"Oprettelsesdato";}}s:5:"title";a:5:{s:2:"id";s:5:"title";s:5:"table";s:4:"node";s:5:"field";s:5:"title";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:5:"Titel";}}s:29:"field_last_comment_date_value";a:6:{s:2:"id";s:29:"field_last_comment_date_value";s:5:"table";s:34:"field_data_field_last_comment_date";s:5:"field";s:29:"field_last_comment_date_value";s:5:"order";s:4:"DESC";s:7:"exposed";b:1;s:6:"expose";a:1:{s:5:"label";s:14:"Nyeste indlæg";}}}s:9:"arguments";a:1:{s:22:"og_user_node_target_id";a:8:{s:2:"id";s:22:"og_user_node_target_id";s:5:"table";s:13:"og_membership";s:5:"field";s:22:"og_user_node_target_id";s:14:"default_action";s:7:"default";s:9:"exception";a:1:{s:5:"title";s:4:"Alle";}s:21:"default_argument_type";s:4:"node";s:7:"summary";a:2:{s:17:"number_of_records";s:1:"0";s:6:"format";s:15:"default_summary";}s:15:"summary_options";a:1:{s:14:"items_per_page";s:2:"25";}}}s:13:"pane_category";a:2:{s:4:"name";s:7:"Commons";s:6:"weight";s:1:"0";}s:19:"inherit_panels_path";s:1:"1";}s:8:"db_table";s:13:"views_display";s:3:"vid";i:0;s:2:"id";s:12:"panel_pane_4";s:13:"display_title";s:22:"Landing page group all";s:14:"display_plugin";s:10:"panel_pane";s:8:"position";i:0;}');
   $overrides["views_view.commons_groups_user_groups.display|default|display_options|arguments|etid|exception"] = array(
     'title' => 'Alle',
   );
