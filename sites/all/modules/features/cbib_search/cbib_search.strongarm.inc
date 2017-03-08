@@ -78,6 +78,10 @@ function cbib_search_strongarm() {
       'search_api_views:search_api_nodes:page' => 'search_api_views:search_api_nodes:page',
       'search_api_views:search_api_nodes:panel_pane_1' => 'search_api_views:search_api_nodes:panel_pane_1',
     ),
+    'group_index' => array(
+      'search_api_views:search_api_group:page' => 'search_api_views:search_api_group:page',
+      'search_api_views:search_api_group:panel_pane_1' => 'search_api_views:search_api_group:panel_pane_1',
+    ),
   );
   $export['search_api_facets_search_ids'] = $strongarm;
 

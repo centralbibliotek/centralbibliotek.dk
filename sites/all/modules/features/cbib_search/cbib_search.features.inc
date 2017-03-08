@@ -273,6 +273,94 @@ function cbib_search_default_search_api_index() {
     "read_only" : "0",
     "rdf_mapping" : []
   }');
+  $items['group_index'] = entity_import('search_api_index', '{
+    "name" : "group index",
+    "machine_name" : "group_index",
+    "description" : null,
+    "server" : "database_server",
+    "item_type" : "node",
+    "options" : {
+      "datasource" : { "bundles" : [ "group" ] },
+      "index_directly" : 1,
+      "cron_limit" : "50",
+      "fields" : {
+        "body:value" : { "type" : "text" },
+        "changed" : { "type" : "date" },
+        "created" : { "type" : "date" },
+        "field_radioactivity" : { "type" : "decimal" },
+        "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "group_group" : { "type" : "boolean" },
+        "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "search_api_language" : { "type" : "string" },
+        "title" : { "type" : "text", "boost" : "2.0" }
+      },
+      "data_alter_callbacks" : {
+        "search_api_alter_bundle_filter" : {
+          "status" : 0,
+          "weight" : "-10",
+          "settings" : { "default" : "1", "bundles" : [] }
+        },
+        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_combined" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+      },
+      "processors" : {
+        "search_api_case_ignore" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "fields" : { "title" : true } }
+        },
+        "search_api_html_filter" : {
+          "status" : 0,
+          "weight" : "10",
+          "settings" : {
+            "fields" : { "title" : true },
+            "title" : 0,
+            "alt" : 1,
+            "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
+          }
+        },
+        "search_api_tokenizer" : {
+          "status" : 1,
+          "weight" : "20",
+          "settings" : {
+            "fields" : { "title" : true },
+            "spaces" : "[^[:alnum:]]",
+            "ignorable" : "[\\u0027-,\\u0026]"
+          }
+        },
+        "search_api_stopwords" : {
+          "status" : 1,
+          "weight" : "30",
+          "settings" : {
+            "fields" : { "title" : true },
+            "file" : "",
+            "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
+          }
+        },
+        "search_api_highlighting" : {
+          "status" : 0,
+          "weight" : "35",
+          "settings" : {
+            "prefix" : "\\u003Cstrong\\u003E",
+            "suffix" : "\\u003C\\/strong\\u003E",
+            "excerpt" : 1,
+            "excerpt_length" : "256",
+            "exclude_fields" : [],
+            "highlight" : "always"
+          }
+        }
+      }
+    },
+    "enabled" : "1",
+    "read_only" : "0",
+    "rdf_mapping" : []
+  }');
   return $items;
 }
 
@@ -677,6 +765,60 @@ function cbib_search_default_search_api_server() {
             "type" : "integer",
             "boost" : "1.0"
           }
+        },
+        "group_index" : {
+          "title" : {
+            "table" : "search_api_db_group_index_text",
+            "type" : "text",
+            "boost" : "2.0"
+          },
+          "search_api_language" : {
+            "table" : "search_api_db_group_index",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "created" : {
+            "table" : "search_api_db_group_index",
+            "column" : "created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "changed" : {
+            "table" : "search_api_db_group_index",
+            "column" : "changed",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_topics" : {
+            "table" : "search_api_db_group_index_field_topics",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "og_group_ref" : {
+            "table" : "search_api_db_group_index_og_group_ref",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "group_group" : {
+            "table" : "search_api_db_group_index",
+            "column" : "group_group",
+            "type" : "boolean",
+            "boost" : "1.0"
+          },
+          "body:value" : {
+            "table" : "search_api_db_group_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_radioactivity" : {
+            "table" : "search_api_db_group_index",
+            "column" : "field_radioactivity",
+            "type" : "decimal",
+            "boost" : "1.0"
+          }
         }
       }
     },
@@ -737,6 +879,32 @@ function cbib_search_default_search_api_sort() {
     "enabled" : "1",
     "weight" : "0",
     "identifier" : "general_search__search_api_relevance",
+    "default_sort" : "0",
+    "default_sort_no_terms" : "0",
+    "default_order" : "desc",
+    "options" : { "field_name" : "search_api_relevance" },
+    "rdf_mapping" : []
+  }');
+  $items['group_index__created'] = entity_import('search_api_sort', '{
+    "index_id" : "group_index",
+    "field" : "created",
+    "name" : "Dato oprettet",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "group_index__created",
+    "default_sort" : "0",
+    "default_sort_no_terms" : "0",
+    "default_order" : "desc",
+    "options" : { "field_name" : "Dato oprettet" },
+    "rdf_mapping" : []
+  }');
+  $items['group_index__search_api_relevance'] = entity_import('search_api_sort', '{
+    "index_id" : "group_index",
+    "field" : "search_api_relevance",
+    "name" : "Relevance",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "group_index__search_api_relevance",
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
     "default_order" : "desc",
