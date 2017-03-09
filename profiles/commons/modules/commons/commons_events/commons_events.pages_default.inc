@@ -145,10 +145,10 @@ function commons_events_default_page_manager_pages() {
     $display->content['new-10f82839-e41b-44bb-ba5c-1d2df624d75b'] = $pane;
     $display->panels['two_33_66_first'][1] = 'new-10f82839-e41b-44bb-ba5c-1d2df624d75b';
     $pane = new stdClass();
-    $pane->pid = 'new-9f3ac246-ea49-4293-8713-0bb6d64deee6';
+    $pane->pid = 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
     $pane->panel = 'two_33_66_first';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-nStXbzwvJkrh5OGgbz5zOHidQX0A1Ynt';
+    $pane->subtype = 'facetapi-XMu3Fw5YvJRJ8sDqHf1PjoXbrZpRq7br';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -159,7 +159,7 @@ function commons_events_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => array(
-        'pane_title' => 'Filtrere efter pris:',
+        'pane_title' => 'Filtrere efter dato:',
         'pane_collapsed' => 0,
         'pane_empty_check' => 0,
       ),
@@ -169,9 +169,9 @@ function commons_events_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '9f3ac246-ea49-4293-8713-0bb6d64deee6';
-    $display->content['new-9f3ac246-ea49-4293-8713-0bb6d64deee6'] = $pane;
-    $display->panels['two_33_66_first'][2] = 'new-9f3ac246-ea49-4293-8713-0bb6d64deee6';
+    $pane->uuid = 'b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
+    $display->content['new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab'] = $pane;
+    $display->panels['two_33_66_first'][2] = 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
     $pane = new stdClass();
     $pane->pid = 'new-3a5c106d-8821-47ba-937c-77b64d1480ee';
     $pane->panel = 'two_33_66_second';
