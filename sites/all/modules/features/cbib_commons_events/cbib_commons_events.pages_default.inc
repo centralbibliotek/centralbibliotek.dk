@@ -159,10 +159,10 @@ function cbib_commons_events_default_page_manager_pages() {
     $display->content['new-98f68b95-322d-47ec-95c8-d3c2a2849e14'] = $pane;
     $display->panels['two_33_66_first'][1] = 'new-98f68b95-322d-47ec-95c8-d3c2a2849e14';
     $pane = new stdClass();
-    $pane->pid = 'new-e3469634-2397-4670-85eb-be3f4d93e754';
+    $pane->pid = 'new-3068a22d-e741-4873-8136-e0bafaaa60cf';
     $pane->panel = 'two_33_66_first';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-nStXbzwvJkrh5OGgbz5zOHidQX0A1Ynt';
+    $pane->subtype = 'facetapi-XMu3Fw5YvJRJ8sDqHf1PjoXbrZpRq7br';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -172,15 +172,20 @@ function cbib_commons_events_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'pane_title' => 'Filtrere efter dato:',
+        'pane_collapsed' => 0,
+        'pane_empty_check' => 0,
+      ),
+      'style' => 'collapsible',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'e3469634-2397-4670-85eb-be3f4d93e754';
-    $display->content['new-e3469634-2397-4670-85eb-be3f4d93e754'] = $pane;
-    $display->panels['two_33_66_first'][2] = 'new-e3469634-2397-4670-85eb-be3f4d93e754';
+    $pane->uuid = '3068a22d-e741-4873-8136-e0bafaaa60cf';
+    $display->content['new-3068a22d-e741-4873-8136-e0bafaaa60cf'] = $pane;
+    $display->panels['two_33_66_first'][2] = 'new-3068a22d-e741-4873-8136-e0bafaaa60cf';
     $pane = new stdClass();
     $pane->pid = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
     $pane->panel = 'two_33_66_second';

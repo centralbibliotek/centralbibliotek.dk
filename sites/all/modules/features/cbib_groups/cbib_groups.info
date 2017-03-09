@@ -180,6 +180,7 @@ features[features_overrides][] = views_view.commons_bw_posts.display|default|dis
 features[features_overrides][] = views_view.commons_bw_posts.display|default|display_options|sorts|field_radioactivity_radioactivity_energy
 features[features_overrides][] = views_view.commons_bw_posts.display|default|display_options|use_more_text
 features[features_overrides][] = views_view.commons_groups_directory.display|default|display_options|css_class
+features[features_overrides][] = views_view.commons_groups_directory.display|default|display_options|empty|area|content
 features[features_overrides][] = views_view.commons_groups_directory.display|default|display_options|exposed_form|options
 features[features_overrides][] = views_view.commons_groups_directory.display|default|display_options|filters|keys
 features[features_overrides][] = views_view.commons_groups_directory.display|default|display_options|filters|type

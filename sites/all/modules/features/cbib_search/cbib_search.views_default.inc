@@ -36,6 +36,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -113,6 +114,35 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '>=';
   $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
   $handler->display->display_options['filters']['search_api_aggregation_1']['year_range'] = '-10:+10';
+  /* Filterkriterie: Indexed Indholdselement: Pris */
+  $handler->display->display_options['filters']['field_price']['id'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['field_price']['field'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_price']['expose']['operator_id'] = 'field_price_op';
+  $handler->display->display_options['filters']['field_price']['expose']['label'] = 'Pris';
+  $handler->display->display_options['filters']['field_price']['expose']['operator'] = 'field_price_op';
+  $handler->display->display_options['filters']['field_price']['expose']['identifier'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_price']['group_info']['label'] = 'Pris';
+  $handler->display->display_options['filters']['field_price']['group_info']['identifier'] = 'field_price_value';
+  $handler->display->display_options['filters']['field_price']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'Gratis',
+      'operator' => 'empty',
+      'value' => 'NULL',
+    ),
+    2 => array(
+      'title' => 'Med betaling',
+      'operator' => '>',
+      'value' => '1',
+    ),
+    3 => array(
+      'title' => '',
+      'operator' => '=',
+      'value' => '',
+    ),
+  );
 
   /* Display: Events - all */
   $handler = $view->new_display('page', 'Events - all', 'page');
@@ -172,6 +202,35 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '<';
   $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
   $handler->display->display_options['filters']['search_api_aggregation_1']['year_range'] = '-10:+10';
+  /* Filterkriterie: Indexed Indholdselement: Pris */
+  $handler->display->display_options['filters']['field_price']['id'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['field_price']['field'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_price']['expose']['operator_id'] = 'field_price_op';
+  $handler->display->display_options['filters']['field_price']['expose']['label'] = 'Pris';
+  $handler->display->display_options['filters']['field_price']['expose']['operator'] = 'field_price_op';
+  $handler->display->display_options['filters']['field_price']['expose']['identifier'] = 'field_price';
+  $handler->display->display_options['filters']['field_price']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_price']['group_info']['label'] = 'Pris';
+  $handler->display->display_options['filters']['field_price']['group_info']['identifier'] = 'field_price_value';
+  $handler->display->display_options['filters']['field_price']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'Gratis',
+      'operator' => 'empty',
+      'value' => 'NULL',
+    ),
+    2 => array(
+      'title' => 'Med betaling',
+      'operator' => '>',
+      'value' => '1',
+    ),
+    3 => array(
+      'title' => '',
+      'operator' => '=',
+      'value' => '',
+    ),
+  );
   $handler->display->display_options['path'] = 'search_api_events';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -198,6 +257,7 @@ function cbib_search_views_default_views() {
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
     t('Tilknytning'),
     t('Alle'),
+    t('Pris'),
     t('Events - all'),
     t('Kommende arrangementer'),
     t('Events - previous'),

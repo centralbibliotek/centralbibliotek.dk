@@ -12,27 +12,6 @@ function cbib_groups_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: page_manager_pages
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b"] = (object) array(
-      'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-      'panel' => 'two_66_33_second',
-      'type' => 'views_panes',
-      'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(),
-      'cache' => array(),
-      'style' => array(
-        'settings' => NULL,
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 0,
-      'locks' => array(),
-      'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-    );
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_second"] = array(
-    0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
-  );
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:group:default.display|content|new-0bb1221d-a648-4332-a630-67359e011329"] = (object) array(
@@ -897,6 +876,7 @@ function cbib_groups_features_override_default_overrides() {
   );
   $overrides["views_view.commons_bw_posts.display|default|display_options|use_more_text"] = 'mere';
   $overrides["views_view.commons_groups_directory.display|default|display_options|css_class"] = 'cb-teaser-list';
+  $overrides["views_view.commons_groups_directory.display|default|display_options|empty|area|content"] = 'Din søgning gav desværre ingen resultater!';
   $overrides["views_view.commons_groups_directory.display|default|display_options|exposed_form|options"] = array(
     'submit_button' => 'Udfør',
     'reset_button_label' => 'Gendan',
