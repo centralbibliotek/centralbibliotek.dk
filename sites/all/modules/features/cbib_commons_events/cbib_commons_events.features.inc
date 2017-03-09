@@ -26,43 +26,6 @@ function cbib_commons_events_field_default_field_instances_alter(&$data) {
 }
 
 /**
- * Implements hook_default_page_manager_pages_alter().
- */
-function cbib_commons_events_default_page_manager_pages_alter(&$data) {
-  if (isset($data['views_events_landing_page'])) {
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab'] = (object) array(
-          'pid' => 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab',
-          'panel' => 'two_33_66_first',
-          'type' => 'block',
-          'subtype' => 'facetapi-XMu3Fw5YvJRJ8sDqHf1PjoXbrZpRq7br',
-          'shown' => TRUE,
-          'access' => array(),
-          'configuration' => array(
-            'override_title' => 0,
-            'override_title_text' => '',
-            'override_title_heading' => 'h2',
-          ),
-          'cache' => array(),
-          'style' => array(
-            'settings' => array(
-              'pane_title' => 'Filtrere efter dato:',
-              'pane_collapsed' => 0,
-              'pane_empty_check' => 0,
-            ),
-            'style' => 'collapsible',
-          ),
-          'css' => array(),
-          'extras' => array(),
-          'position' => 2,
-          'locks' => array(),
-          'uuid' => 'b5a7c2b3-61cb-44ee-aa34-47918ae046ab',
-        ); /* WAS: '' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['two_33_66_first'][2] = 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab'; /* WAS: 'new-9f3ac246-ea49-4293-8713-0bb6d64deee6' */
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-9f3ac246-ea49-4293-8713-0bb6d64deee6']);
-  }
-}
-
-/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
