@@ -32,7 +32,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'individual_parent' => 0,
     'query_type' => 'term',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -74,7 +74,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_date:value';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -87,7 +87,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'individual_parent' => 0,
     'query_type' => 'date_range',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -142,7 +142,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'individual_parent' => '0',
     'query_type' => 'term',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -211,7 +211,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_price';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -219,12 +219,12 @@ function cbib_search_facetapi_default_facet_settings() {
       'roles' => array(),
     ),
     'facet_mincount' => '1',
-    'facet_missing' => '1',
+    'facet_missing' => '0',
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'limit_active_items' => 1,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -357,10 +357,10 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'created';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -448,7 +448,7 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--Choose--',
+    'default_option_label' => '--alle--',
     'reset_option_label' => '--Reset--',
     'submit_page' => '',
     'hide_facet_count' => 0,
@@ -469,10 +469,10 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'field_address:locality';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -741,7 +741,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'field_date:value';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'date_range',
@@ -765,8 +765,8 @@ function cbib_search_facetapi_default_facet_settings() {
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Show more',
-    'facet_fewer_text' => 'Show fewer',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -838,8 +838,8 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => '10',
     'range_advanced' => '',
-    'default_option_label' => '',
-    'reset_option_label' => '',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -977,10 +977,10 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'field_event_type';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -1370,12 +1370,12 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'search_api_ranges_ui_select',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
-      'count' => 'count',
-      'display' => 'display',
+      'count' => 0,
+      'display' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
@@ -1458,20 +1458,16 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'name' => '',
+    'name' => 'Pris',
     'prefix' => '',
     'suffix' => '',
     'auto-submit-delay' => '1500',
-    'range_simple' => '500',
-    'range_advanced' => '0-1000000|Alle
+    'range_simple' => '',
+    'range_advanced' => 'NULL-10000|Alle
 -0|Gratis
-1-500
-501-1000
-1001-1500
-1501-2000
-2001-*|Mere end 2000',
-    'default_option_label' => '--Choose--',
-    'reset_option_label' => '--Reset--',
+1-10000|Med betaling',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -1763,7 +1759,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'search_api_aggregation_1';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',

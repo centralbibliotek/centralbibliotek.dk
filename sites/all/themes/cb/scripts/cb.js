@@ -23,6 +23,7 @@
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
       $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
+      $('#views-exposed-form-search-api-arrangementer-page input[type="text"]').attr('placeholder', 'Søg i arrangementer');
     }
   };
 

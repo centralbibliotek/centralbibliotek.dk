@@ -593,7 +593,7 @@ optgroup {
 }
 
 .select-status {
-  display: inline-block;
+  display: none;
   white-space: nowrap;
   @include single-transition(opacity, 0.2s);
   &:after {
@@ -606,17 +606,6 @@ optgroup {
     margin-left: .2em;
     border: .4em solid transparent;
     border-top-color: $gray-dark;
-  }
-}
-
-.hidden-select {
-  position: absolute;
-  top: -.35em;
-  left: -.35em;
-  margin: 0;
-  @include opacity(0);
-  .select-inactive & {
-    width: 100%;
   }
 }
 
@@ -1383,13 +1372,25 @@ h1.node-title {
   }
 }
 
+#edit-search-api-combined-1-wrapper {
+    float: left;
+}
+#edit-field-address-locality-wrapper {
+    float: left;
+}
+#edit-search-api-combined-1-wrapper {
+    float: left;
+}
+#edit-field-price-wrapper {
+    float: left;
+}
 /* Views exposed form */
 .views-exposed-form {
 
   margin-bottom: 2em;
 
   .views-exposed-widget {
-    float: none;
+
     &:first-child {
       margin-top: 0;
     }
@@ -1851,6 +1852,14 @@ ul.node-action-links {
   margin: 4px 0 0 5px;
 }
 
+
+/**
+* Arrangement panel dropdown style
+*/
+    .panels-ipe-portlet-wrapper.panels-ipe-portlet-marker {
+        float: left;
+        margin-right: 2em;
+   }  
 /**
  * User profile
  */
@@ -1870,9 +1879,9 @@ ul.node-action-links {
         &:nth-last-child(-n+5) {
           display: inline-block;
         }
+        }
+        }
       }
-    }
-  }
   .pane-user-picture {
     float: left;
     margin-left: -(120px + $gutter_width * 2);

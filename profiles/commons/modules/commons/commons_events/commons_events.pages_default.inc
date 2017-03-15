@@ -57,8 +57,61 @@ function commons_events_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'two_33_66';
-  $display->layout_settings = array();
+  $display->layout = 'flexible';
+  $display->layout_settings = array(
+    'items' => array(
+      'canvas' => array(
+        'type' => 'row',
+        'contains' => 'column',
+        'children' => array(
+          0 => 'main',
+        ),
+        'parent' => NULL,
+      ),
+      'main' => array(
+        'type' => 'column',
+        'width' => 100,
+        'width_type' => '%',
+        'children' => array(
+          0 => 1,
+          1 => 'main-row',
+        ),
+        'parent' => 'canvas',
+      ),
+      'main-row' => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'center',
+        ),
+        'parent' => 'main',
+      ),
+      'center' => array(
+        'type' => 'region',
+        'title' => 'Centreret',
+        'width' => 100,
+        'width_type' => '%',
+        'parent' => 'main-row',
+      ),
+      1 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'top',
+        ),
+        'parent' => 'main',
+        'class' => 'Top',
+      ),
+      'top' => array(
+        'type' => 'region',
+        'title' => 'Top',
+        'width' => 100,
+        'width_type' => '%',
+        'parent' => '1',
+        'class' => '',
+      ),
+    ),
+  );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
@@ -72,6 +125,8 @@ function commons_events_default_page_manager_pages() {
       'two_33_66_first' => NULL,
       'two_33_66_second' => NULL,
       'two_33_66_bottom' => NULL,
+      'center' => NULL,
+      'top' => NULL,
     ),
     'one_main' => array(
       'style' => 'tabs',
@@ -89,92 +144,8 @@ function commons_events_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-5179066d-9ed3-4a7c-af0e-408f6deabd3e';
-    $pane->panel = 'two_33_66_first';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-rJ41iuaZ0tI1G1AP2gFnVQy6bjKDQf2J';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter arrangementstype:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '5179066d-9ed3-4a7c-af0e-408f6deabd3e';
-    $display->content['new-5179066d-9ed3-4a7c-af0e-408f6deabd3e'] = $pane;
-    $display->panels['two_33_66_first'][0] = 'new-5179066d-9ed3-4a7c-af0e-408f6deabd3e';
-    $pane = new stdClass();
-    $pane->pid = 'new-10f82839-e41b-44bb-ba5c-1d2df624d75b';
-    $pane->panel = 'two_33_66_first';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-7WTgHb2zdhyHCsRZtsXnU3eogApOW342';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter by:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '10f82839-e41b-44bb-ba5c-1d2df624d75b';
-    $display->content['new-10f82839-e41b-44bb-ba5c-1d2df624d75b'] = $pane;
-    $display->panels['two_33_66_first'][1] = 'new-10f82839-e41b-44bb-ba5c-1d2df624d75b';
-    $pane = new stdClass();
-    $pane->pid = 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
-    $pane->panel = 'two_33_66_first';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-XMu3Fw5YvJRJ8sDqHf1PjoXbrZpRq7br';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter dato:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
-    $display->content['new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab'] = $pane;
-    $display->panels['two_33_66_first'][2] = 'new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab';
-    $pane = new stdClass();
     $pane->pid = 'new-3a5c106d-8821-47ba-937c-77b64d1480ee';
-    $pane->panel = 'two_33_66_second';
+    $pane->panel = 'center';
     $pane->type = 'views';
     $pane->subtype = 'search_api_arrangementer';
     $pane->shown = TRUE;
@@ -206,13 +177,13 @@ function commons_events_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '3a5c106d-8821-47ba-937c-77b64d1480ee';
     $display->content['new-3a5c106d-8821-47ba-937c-77b64d1480ee'] = $pane;
-    $display->panels['two_33_66_second'][0] = 'new-3a5c106d-8821-47ba-937c-77b64d1480ee';
+    $display->panels['center'][0] = 'new-3a5c106d-8821-47ba-937c-77b64d1480ee';
     $pane = new stdClass();
     $pane->pid = 'new-0ec3a19a-2ae9-42a6-b039-df173f22e262';
-    $pane->panel = 'two_33_66_second';
+    $pane->panel = 'center';
     $pane->type = 'views';
     $pane->subtype = 'search_api_arrangementer';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_pager_settings' => 0,
@@ -241,7 +212,7 @@ function commons_events_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '0ec3a19a-2ae9-42a6-b039-df173f22e262';
     $display->content['new-0ec3a19a-2ae9-42a6-b039-df173f22e262'] = $pane;
-    $display->panels['two_33_66_second'][1] = 'new-0ec3a19a-2ae9-42a6-b039-df173f22e262';
+    $display->panels['center'][1] = 'new-0ec3a19a-2ae9-42a6-b039-df173f22e262';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
