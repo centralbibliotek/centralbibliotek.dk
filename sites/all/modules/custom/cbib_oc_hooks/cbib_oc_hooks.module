@@ -400,6 +400,9 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 
     if($form_state['view']->name == "search_api_arrangementer" && ($form_state['view']->current_display == "page" || $form_state['view']->current_display == "page_1"))
     {
+        if (isset($form['search_api_views_fulltext'])) {
+         $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
+        }
         $form['#action'] = request_uri();       
         
         $form['field_address_locality'] = array(
