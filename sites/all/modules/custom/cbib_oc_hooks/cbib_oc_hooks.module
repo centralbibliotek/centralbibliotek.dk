@@ -398,7 +398,7 @@ function cbib_oc_hooks_preprocess_pager_link(&$variables) {
 }*/
 function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
 
-    if($form_state['view']->name == "commons_events_upcoming" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
+    if($form_state['view']->name == "search_api_arrangementer" && ($form_state['view']->current_display == "page" || $form_state['view']->current_display == "page_1"))
     {
         $form['#action'] = request_uri();       
         
