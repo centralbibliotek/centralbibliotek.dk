@@ -17,13 +17,14 @@
     $(document).ready(function () {
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
-    });
+  }); 
 
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
       $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
       $('#views-exposed-form-search-api-arrangementer-page input[type="text"]').attr('placeholder', 'Søg i arrangementer');
+      $('#views-exposed-form-search-api-group-panel-pane-1 input[type="text"]').attr('placeholder', 'Søg i grupper');
     }
   };
 

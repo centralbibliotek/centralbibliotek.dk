@@ -1,12 +1,5 @@
 <?php
-/**
- * Implements hook_form_views_exposed_form_alter().
- */
-function cb_form_views_exposed_form_alter(&$form, &$form_state) {
-  if ($form['#id'] == 'views-exposed-form-search-api-nodes-default') { // Or: if ($form['#action'] === '/foo')
-    $form['#action'] = '/search';
-  }
-}
+
 function cb_preprocess_html(&$vars) {
   drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(
     'type' => 'external'

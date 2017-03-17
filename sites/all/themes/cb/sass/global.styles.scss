@@ -588,7 +588,6 @@ optgroup {
 /* Simulate a chosen select form value as inline text. */
 .hidden-select-wrapper {
   position: relative;
-  display: inline-block;
   @include single-transition(width, 0.2s);
 }
 
@@ -1384,13 +1383,22 @@ h1.node-title {
 #edit-field-price-wrapper {
     float: left;
 }
+/* reset button */
+.views-reset-button {
+    position: relative;
+    font-size: 180%;
+    opacity: 0.5;
+    right: 17%;
+    top: 14px;
+}
 /* Views exposed form */
 .views-exposed-form {
 
   margin-bottom: 2em;
 
   .views-exposed-widget {
-
+    float: none;
+    display: inline-block;
     &:first-child {
       margin-top: 0;
     }
@@ -1401,9 +1409,6 @@ h1.node-title {
       margin-top: 0;
     }
   }
-}
-.views-exposed-widget.views-widget-sort-by{
-    float: left;
 }
 .views-widget-filter-search_api_views_fulltext {
     width: 78%;

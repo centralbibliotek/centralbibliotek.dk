@@ -76,7 +76,7 @@ function cbib_groups_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'one';
   $display->layout_settings = array(
     'items' => array(
       'canvas' => array(
@@ -139,6 +139,7 @@ function cbib_groups_default_page_manager_pages() {
       'two_33_66_bottom' => NULL,
       'center' => NULL,
       'venstre' => NULL,
+      'one_main' => NULL,
     ),
   );
   $display->cache = array();
@@ -147,8 +148,80 @@ function cbib_groups_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-64ceea30-f6d3-405c-ae7c-d280af2fd032';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-bVMvZxfTOl8SgywzLgdochPxdfni4XFj';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Tilknytning',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '64ceea30-f6d3-405c-ae7c-d280af2fd032';
+    $display->content['new-64ceea30-f6d3-405c-ae7c-d280af2fd032'] = $pane;
+    $display->panels['one_main'][0] = 'new-64ceea30-f6d3-405c-ae7c-d280af2fd032';
+    $pane = new stdClass();
+    $pane->pid = 'new-09b769da-ba5c-4d6d-a2d9-3be790746feb';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-tEZOOJBdRL8BWerUz8T2fIqLMS30JE9z';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Emner',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '09b769da-ba5c-4d6d-a2d9-3be790746feb';
+    $display->content['new-09b769da-ba5c-4d6d-a2d9-3be790746feb'] = $pane;
+    $display->panels['one_main'][1] = 'new-09b769da-ba5c-4d6d-a2d9-3be790746feb';
+    $pane = new stdClass();
+    $pane->pid = 'new-df0b9592-ca90-4de1-b613-badf280328e1';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-5tYhM2Z2ruvjtxqsDp8KgjiVmO05m39t';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Oprettelsesdato',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'df0b9592-ca90-4de1-b613-badf280328e1';
+    $display->content['new-df0b9592-ca90-4de1-b613-badf280328e1'] = $pane;
+    $display->panels['one_main'][2] = 'new-df0b9592-ca90-4de1-b613-badf280328e1';
+    $pane = new stdClass();
     $pane->pid = 'new-8c9fb978-3a8d-4cfa-a12a-746a148b3f0c';
-    $pane->panel = 'center';
+    $pane->panel = 'one_main';
     $pane->type = 'views_panes';
     $pane->subtype = 'search_api_group-panel_pane_1';
     $pane->shown = TRUE;
@@ -160,96 +233,12 @@ function cbib_groups_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = '8c9fb978-3a8d-4cfa-a12a-746a148b3f0c';
     $display->content['new-8c9fb978-3a8d-4cfa-a12a-746a148b3f0c'] = $pane;
-    $display->panels['center'][0] = 'new-8c9fb978-3a8d-4cfa-a12a-746a148b3f0c';
-    $pane = new stdClass();
-    $pane->pid = 'new-64ceea30-f6d3-405c-ae7c-d280af2fd032';
-    $pane->panel = 'venstre';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-bVMvZxfTOl8SgywzLgdochPxdfni4XFj';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter tilknytning:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '64ceea30-f6d3-405c-ae7c-d280af2fd032';
-    $display->content['new-64ceea30-f6d3-405c-ae7c-d280af2fd032'] = $pane;
-    $display->panels['venstre'][0] = 'new-64ceea30-f6d3-405c-ae7c-d280af2fd032';
-    $pane = new stdClass();
-    $pane->pid = 'new-09b769da-ba5c-4d6d-a2d9-3be790746feb';
-    $pane->panel = 'venstre';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-tEZOOJBdRL8BWerUz8T2fIqLMS30JE9z';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter emner:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '09b769da-ba5c-4d6d-a2d9-3be790746feb';
-    $display->content['new-09b769da-ba5c-4d6d-a2d9-3be790746feb'] = $pane;
-    $display->panels['venstre'][1] = 'new-09b769da-ba5c-4d6d-a2d9-3be790746feb';
-    $pane = new stdClass();
-    $pane->pid = 'new-df0b9592-ca90-4de1-b613-badf280328e1';
-    $pane->panel = 'venstre';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-5tYhM2Z2ruvjtxqsDp8KgjiVmO05m39t';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Filtrere efter dato:',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'df0b9592-ca90-4de1-b613-badf280328e1';
-    $display->content['new-df0b9592-ca90-4de1-b613-badf280328e1'] = $pane;
-    $display->panels['venstre'][2] = 'new-df0b9592-ca90-4de1-b613-badf280328e1';
-  $display->hide_title = PANELS_TITLE_NONE;
+    $display->panels['one_main'][3] = 'new-8c9fb978-3a8d-4cfa-a12a-746a148b3f0c';
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

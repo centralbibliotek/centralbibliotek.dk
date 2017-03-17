@@ -30,73 +30,43 @@ function cbib_commons_events_field_default_field_instances_alter(&$data) {
  */
 function cbib_commons_events_default_page_manager_pages_alter(&$data) {
   if (isset($data['views_events_landing_page'])) {
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0ec3a19a-2ae9-42a6-b039-df173f22e262']->panel = 'center'; /* WAS: 'two_33_66_second' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0ec3a19a-2ae9-42a6-b039-df173f22e262']->shown = FALSE; /* WAS: TRUE */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-3a5c106d-8821-47ba-937c-77b64d1480ee']->panel = 'center'; /* WAS: 'two_33_66_second' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->layout = 'flexible'; /* WAS: 'two_33_66' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->layout_settings['items'] = array(
-      'canvas' => array(
-        'type' => 'row',
-        'contains' => 'column',
-        'children' => array(
-          0 => 'main',
-        ),
-        'parent' => NULL,
-      ),
-      'main' => array(
-        'type' => 'column',
-        'width' => 100,
-        'width_type' => '%',
-        'children' => array(
-          0 => 1,
-          1 => 'main-row',
-        ),
-        'parent' => 'canvas',
-      ),
-      'main-row' => array(
-        'type' => 'row',
-        'contains' => 'region',
-        'children' => array(
-          0 => 'center',
-        ),
-        'parent' => 'main',
-      ),
-      'center' => array(
-        'type' => 'region',
-        'title' => 'Centreret',
-        'width' => 100,
-        'width_type' => '%',
-        'parent' => 'main-row',
-      ),
-      1 => array(
-        'type' => 'row',
-        'contains' => 'region',
-        'children' => array(
-          0 => 'top',
-        ),
-        'parent' => 'main',
-        'class' => 'Top',
-      ),
-      'top' => array(
-        'type' => 'region',
-        'title' => 'Top',
-        'width' => 100,
-        'width_type' => '%',
-        'parent' => 1,
-        'class' => '',
-      ),
-    ); /* WAS: '' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panel_settings['style_settings']['center'] = NULL; /* WAS: '' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panel_settings['style_settings']['top'] = NULL; /* WAS: '' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['center'] = array(
-      0 => 'new-3a5c106d-8821-47ba-937c-77b64d1480ee',
-      1 => 'new-0ec3a19a-2ae9-42a6-b039-df173f22e262',
-    ); /* WAS: '' */
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-10f82839-e41b-44bb-ba5c-1d2df624d75b']);
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-5179066d-9ed3-4a7c-af0e-408f6deabd3e']);
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-b5a7c2b3-61cb-44ee-aa34-47918ae046ab']);
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['two_33_66_first']);
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['two_33_66_second']);
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503'] = (object) array(
+          'pid' => 'new-0293b915-d42a-46d2-9887-2f1ddf266503',
+          'panel' => 'center',
+          'type' => 'views',
+          'subtype' => 'search_api_arrangementer',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_pager_settings' => 0,
+            'use_pager' => 1,
+            'nodes_per_page' => 15,
+            'pager_id' => 0,
+            'offset' => 0,
+            'more_link' => 0,
+            'feed_icons' => 0,
+            'panel_args' => 0,
+            'link_to_view' => 0,
+            'args' => '',
+            'url' => '',
+            'display' => 'page',
+            'override_title' => 0,
+            'override_title_text' => '',
+            'override_title_heading' => 'h2',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => '0293b915-d42a-46d2-9887-2f1ddf266503',
+        ); /* WAS: '' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->hide_title = 0; /* WAS: 1 */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['center'][0] = 'new-0293b915-d42a-46d2-9887-2f1ddf266503'; /* WAS: 'new-3a5c106d-8821-47ba-937c-77b64d1480ee' */
+    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-3a5c106d-8821-47ba-937c-77b64d1480ee']);
   }
 }
 

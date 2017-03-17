@@ -30,9 +30,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['search_api_bypass_access'] = 0;
+  $handler->display->display_options['query']['options']['entity_access'] = 0;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Ryd';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
@@ -194,6 +196,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
   $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
@@ -283,7 +286,7 @@ function cbib_search_views_default_views() {
     t('Tidligere arrangementer'),
     t('mere'),
     t('Udfør'),
-    t('Gendan'),
+    t('Ryd'),
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
@@ -304,6 +307,7 @@ function cbib_search_views_default_views() {
     t('Arrangementtype'),
     t('Events - all'),
     t('Kommende arrangementer'),
+    t('Viser @start - @end af @total'),
     t('Events - previous'),
   );
   $export['search_api_arrangementer'] = $view;
@@ -348,6 +352,12 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -427,6 +437,7 @@ function cbib_search_views_default_views() {
     t('‹'),
     t('›'),
     t('»'),
+    t('Viser @start - @end af @total'),
     t('Din søgning gav desværre ingen resultater!'),
     t('Tilknytning'),
     t('Indholdselement ID'),
@@ -508,7 +519,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Title (indexed) */
+  /* Felt: Indholdselement: Titel (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';

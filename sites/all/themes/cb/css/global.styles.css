@@ -612,7 +612,6 @@ optgroup::-moz-focus-inner {
 /* Simulate a chosen select form value as inline text. */
 .hidden-select-wrapper {
   position: relative;
-  display: inline-block;
   -moz-transition: width 0.2s;
   -o-transition: width 0.2s;
   -webkit-transition: width 0.2s;
@@ -1762,9 +1761,22 @@ h1.node-title a:hover {
   float: left;
 }
 
+/* reset button */
+.views-reset-button {
+  position: relative;
+  font-size: 180%;
+  opacity: 0.5;
+  right: 17%;
+  top: 14px;
+}
+
 /* Views exposed form */
 .views-exposed-form {
   margin-bottom: 2em;
+}
+.views-exposed-form .views-exposed-widget {
+  float: none;
+  display: inline-block;
 }
 .views-exposed-form .views-exposed-widget:first-child {
   margin-top: 0;
@@ -1774,10 +1786,6 @@ h1.node-title a:hover {
 }
 .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 0;
-}
-
-.views-exposed-widget.views-widget-sort-by {
-  float: left;
 }
 
 .views-widget-filter-search_api_views_fulltext {
