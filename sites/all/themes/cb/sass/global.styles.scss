@@ -1391,6 +1391,17 @@ h1.node-title {
     right: 17%;
     top: 14px;
 }
+.view-display {
+    left: 81%;
+    position: relative;
+}
+.fa-th, .fa-bars {
+    background: #333333;   
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    font-size: 1.2em;
+}
 /* Views exposed form */
 .views-exposed-form {
 

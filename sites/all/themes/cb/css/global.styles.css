@@ -1770,6 +1770,19 @@ h1.node-title a:hover {
   top: 14px;
 }
 
+.view-display {
+  left: 81%;
+  position: relative;
+}
+
+.fa-th, .fa-bars {
+  background: #333333;
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+  font-size: 1.2em;
+}
+
 /* Views exposed form */
 .views-exposed-form {
   margin-bottom: 2em;
