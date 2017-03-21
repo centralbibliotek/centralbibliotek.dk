@@ -16,20 +16,25 @@
 
     $(document).ready(function () {
         $('.print_html a').attr("href", "");
-        $('.print_html a').attr("onclick", "window.print(); return false; ");
-        $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
-        $('.fa-th').click(function() {
-        $('.cb-teaser-list .node-teaser .panel-col-first').hide();
-        $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').hide();
-        $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').hide();
-         });
-        $('.fa-bars').click(function() {
-        $('.cb-teaser-list .node-teaser .panel-col-first').show();
-        $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').show();
-        $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').show();
-         });
+        $('.print_html a').attr("onclick", "window.print(); return false; ");     
   }); 
-
+  
+    // Add a Display icons for hiding elements in views.
+    Drupal.behaviors.viewDisplays = {
+        attach: function (context, settings) {
+            $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
+            $('.fa-th').click(function () {
+                $('.cb-teaser-list .node-teaser .panel-col-first').hide();
+                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').hide();
+                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').hide();
+            });
+            $('.fa-bars').click(function () {
+                $('.cb-teaser-list .node-teaser .panel-col-first').show();
+                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').show();
+                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').show();
+            });
+        }
+    };
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
