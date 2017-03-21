@@ -75,18 +75,14 @@ function cbib_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Indholdstype',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Indholdstype',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
+      'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -103,18 +99,14 @@ function cbib_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Forfatter',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Forfatter',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
+      'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -131,18 +123,14 @@ function cbib_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Emner',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Emner',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
+      'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -159,18 +147,14 @@ function cbib_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Oprettelsesdato',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'pane_title' => 'Oprettelsesdato',
-        'pane_collapsed' => 0,
-        'pane_empty_check' => 0,
-      ),
-      'style' => 'collapsible',
+      'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();

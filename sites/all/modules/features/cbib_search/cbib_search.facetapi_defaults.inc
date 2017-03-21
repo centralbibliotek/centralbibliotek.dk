@@ -1926,7 +1926,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -1952,7 +1952,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -2004,7 +2004,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'flatten' => '0',
     'individual_parent' => '0',
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -2021,7 +2021,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -2109,8 +2109,8 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--Choose--',
-    'reset_option_label' => '--Reset--',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2133,7 +2133,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -2221,8 +2221,8 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--Choose--',
-    'reset_option_label' => '--Reset--',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2245,7 +2245,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'display' => 'display',
@@ -2254,16 +2254,16 @@ function cbib_search_facetapi_default_facet_settings() {
       'count' => 0,
     ),
     'sort_weight' => array(
-      'indexed' => '-48',
-      'active' => '-49',
-      'count' => '-47',
       'display' => '-50',
+      'active' => '-49',
+      'indexed' => '-48',
+      'count' => '-47',
     ),
     'sort_order' => array(
-      'indexed' => '3',
-      'active' => '3',
-      'count' => '3',
       'display' => '3',
+      'active' => '3',
+      'indexed' => '3',
+      'count' => '3',
     ),
     'empty_behavior' => 'none',
     'facet_more_text' => 'Vis flere',
@@ -2333,8 +2333,8 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--Choose--',
-    'reset_option_label' => '--Reset--',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2357,7 +2357,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'facetapi_select_dropdowns',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -2445,8 +2445,8 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--Choose--',
-    'reset_option_label' => '--Reset--',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
