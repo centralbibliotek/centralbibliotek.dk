@@ -20,6 +20,7 @@ function cb_preprocess_page(&$vars) {
     $form = drupal_build_form('views_exposed_form', $form_state);
     unset($form['sort_by']);
     unset($form['sort_order']);
+    unset($form['resets']);
     $vars['search'] = drupal_render($form);
 }
 function cb_menu_link(array $variables) {

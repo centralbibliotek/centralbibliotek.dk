@@ -1762,6 +1762,13 @@ h1.node-title a:hover {
 }
 
 /* reset button */
+#resets {
+  position: relative;
+  right: 39%;
+  font-size: 1.5em;
+  opacity: 0.5;
+}
+
 .views-reset-button {
   position: relative;
   font-size: 180%;
