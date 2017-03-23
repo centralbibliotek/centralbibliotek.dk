@@ -1384,11 +1384,12 @@ h1.node-title {
     float: left;
 }
 /* reset button */
-#resets {
+#resets.fa-times {
     position: relative;
-    right: 39%;
+    right: 37%;
     font-size: 1.5em;
     opacity: 0.5;
+    top: 5px;
 }
 .views-reset-button {
     position: relative;
@@ -4175,7 +4176,9 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     margin-bottom: 0em;
     border-bottom: none;
 }
-
+#edit-facets--4 {
+    width: 82%;
+}
 .block-facetapi {
   margin-bottom: .7em;
   padding-bottom: .7em;

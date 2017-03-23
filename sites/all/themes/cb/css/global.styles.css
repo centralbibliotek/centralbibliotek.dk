@@ -172,7 +172,7 @@ var {
  * Footer wrapper
  */
 #footer {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid darkgray;
   -moz-box-shadow: inset 0 1px 0 #fff;
   -webkit-box-shadow: inset 0 1px 0 #fff;
   box-shadow: inset 0 1px 0 #fff;
@@ -490,7 +490,7 @@ input[type="week"] {
   border-radius: 2px;
   -webkit-appearance: none;
   background-color: white;
-  border: 1px solid #e0e0e0;
+  border: 1px solid darkgray;
   color: black;
   outline: 0;
   margin: 0;
@@ -657,8 +657,8 @@ html.js input.form-autocomplete.throbbing {
 .fieldset-outer-wrapper {
   margin: 1.7em 0;
   padding: 1.7em 0;
-  border-top: 1px solid #e0e0e0;
-  border-color: #e0e0e0;
+  border-top: 1px solid darkgray;
+  border-color: darkgray;
   border-style: solid;
   border-width: 1px 0;
   /* Some form items have nested fieldsets that mess with the sibling
@@ -1199,7 +1199,7 @@ button, #panels-ipe-control-container
 .action-item-large-append:active,
 .action-item-large-append:focus,
 .action-item-large-append:hover {
-  background: #e0e0e0;
+  background: darkgray;
   border-color: #858585;
   color: #333333;
   cursor: default;
@@ -1231,7 +1231,7 @@ button, #panels-ipe-control-container
   left: -8px;
   margin-top: -4px;
   border-width: 4px;
-  border-right-color: #e0e0e0;
+  border-right-color: darkgray;
 }
 
 /* Reset some styles for the admin toolbar. */
@@ -1491,7 +1491,7 @@ button, #panels-ipe-control-container
   top: 0;
   left: -39px;
   width: 40px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid darkgray;
   border-right: none;
   -moz-border-radius: 3px 0 0 3px;
   -webkit-border-radius: 3px;
@@ -1525,7 +1525,7 @@ button, #panels-ipe-control-container
 
 .filters-processed.expanded .region-inner {
   position: relative;
-  border: 1px solid #e0e0e0;
+  border: 1px solid darkgray;
   border-right: none;
   z-index: 0;
   -moz-box-shadow: rgba(51, 51, 51, 0.4) -1px 1px 2px;
@@ -1762,11 +1762,12 @@ h1.node-title a:hover {
 }
 
 /* reset button */
-#resets {
+#resets.fa-times {
   position: relative;
-  right: 39%;
+  right: 37%;
   font-size: 1.5em;
   opacity: 0.5;
+  top: 5px;
 }
 
 .views-reset-button {
@@ -1844,7 +1845,7 @@ h1.node-title a:hover {
 
 /* Generic row styles */
 .views-row {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
   padding-bottom: .7em;
   margin-bottom: .7em;
   position: relative;
@@ -2914,7 +2915,7 @@ html body div div div .item-list-pager ul.pager-load-more-empty li.pager-next:ho
 }
 
 ul.primary {
-  border-bottom-color: #e0e0e0;
+  border-bottom-color: darkgray;
   margin: 2em 0;
 }
 ul.primary li {
@@ -2924,7 +2925,7 @@ ul.primary li {
 }
 ul.primary li a {
   background-color: #f5f5f5;
-  border-color: #e0e0e0;
+  border-color: darkgray;
   margin-right: 1px;
   padding: 0 10px;
   display: block;
@@ -2934,7 +2935,7 @@ ul.primary li a {
 }
 ul.primary li a:hover, ul.primary li a:focus {
   background-color: #eee;
-  border-color: #e0e0e0;
+  border-color: darkgray;
 }
 ul.primary li.active a,
 ul.primary li.active a:hover,
@@ -2944,7 +2945,7 @@ ul.primary li.active a:focus {
 }
 
 ul.secondary {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
   margin: 1em 0 0;
   padding: 0 .3em 1em;
 }
@@ -3546,7 +3547,7 @@ body.node-type-license .cb3 .region-cb3-third {
   margin-top: 1.7em;
   margin-bottom: 1.7em;
   padding-top: 1.7em;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid darkgray;
 }
 
 .partial-node-form-title {
@@ -3830,7 +3831,7 @@ tbody,
 tr,
 th,
 td {
-  border-color: #e0e0e0;
+  border-color: darkgray;
 }
 
 table,
@@ -3858,7 +3859,7 @@ th {
 }
 
 tbody tr {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid darkgray;
 }
 
 tr {
@@ -3904,10 +3905,10 @@ tr.even td.active {
   background-color: transparent;
 }
 .page-node #commons-bw-partial-node-form-document table tbody {
-  border-color: #e0e0e0;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
+  border-color: darkgray;
+  border-left: 1px solid darkgray;
+  border-right: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
 }
 .page-node #commons-bw-partial-node-form-document table tbody tr {
   background-color: transparent;
@@ -4294,10 +4295,14 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   border-bottom: none;
 }
 
+#edit-facets--4 {
+  width: 82%;
+}
+
 .block-facetapi {
   margin-bottom: .7em;
   padding-bottom: .7em;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
 }
 .block-facetapi:last-child {
   margin-bottom: 0;
@@ -4395,7 +4400,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 }
 
 .search-result {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
   list-style-type: none;
 }
 .search-result, .block-content .search-result {
@@ -4475,7 +4480,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   box-sizing: border-box;
   margin-right: 0;
   margin-left: 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid darkgray;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -4577,7 +4582,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   margin-right: -10px;
   padding: 5px 10px;
   background: #f5f5f5;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid darkgray;
   -moz-border-radius-bottomright: 0.4em;
   -webkit-border-bottom-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -4654,7 +4659,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 .privatemsg-message-participants {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
 }
 
 .privatemsg-message {
@@ -4665,7 +4670,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   margin-bottom: 10px;
   padding-bottom: 10px;
   padding-left: 72px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid darkgray;
 }
 .privatemsg-message .user-picture {
   position: relative;
