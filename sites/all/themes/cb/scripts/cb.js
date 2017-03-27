@@ -23,16 +23,19 @@
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
-            $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
+             $('section .views-exposed-form').once('myslider', function() {
+                 $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
+             });
+            
             $('.fa-th').click(function () {
-                $('.cb-teaser-list .node-teaser .panel-col-first').hide();
-                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').hide();
-                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').hide();
-            });
-            $('.fa-bars').click(function () {
                 $('.cb-teaser-list .node-teaser .panel-col-first').show();
                 $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').show();
                 $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').show();
+            });
+            $('.fa-bars').click(function () {
+                $('.cb-teaser-list .node-teaser .panel-col-first').hide();
+                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').hide();
+                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').hide();
             });
         }
     };
