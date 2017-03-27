@@ -19,7 +19,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_address:locality';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'or',
+    'operator' => 'and',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -31,7 +31,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -469,7 +469,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'field_address:locality';
-  $facet->enabled = FALSE;
+  $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
@@ -566,8 +566,8 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => 10,
     'range_advanced' => '',
-    'default_option_label' => 'Alle',
-    'reset_option_label' => 'Fjern filter',
+    'default_option_label' => '--alle--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(

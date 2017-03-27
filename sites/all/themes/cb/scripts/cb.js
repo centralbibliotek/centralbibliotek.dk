@@ -16,12 +16,13 @@
 
     $(document).ready(function () {
         $('.print_html a').attr("href", "");
-        $('.print_html a').attr("onclick", "window.print(); return false; ");     
+        $('.print_html a').attr("onclick", "window.print(); return false; ");        
   }); 
   
     // Add a Display icons for hiding elements in views.
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {
+            $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
             $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
             $('.fa-th').click(function () {
                 $('.cb-teaser-list .node-teaser .panel-col-first').hide();
