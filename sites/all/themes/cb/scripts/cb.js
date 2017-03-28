@@ -23,9 +23,8 @@
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {           
            
-            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value="/search?u=/search&search_api_views_fulltext=test&f[0]=item_bundle%3Afile%3Adocument"]').text(function (html) {
-                    return $(this).text().replace(/Dokument/g, "Filer");
-                
+            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value$="item_bundle%3Afile%3Adocument"]').text(function (text) {
+                    return $(this).text().replace(/Dokument/g, "Filer");                
             });
             
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
