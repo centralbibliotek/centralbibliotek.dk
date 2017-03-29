@@ -251,18 +251,19 @@ function cbib_oc_hooks_mail_alter(&$message)
   // We can use variable_get() to get the $conf variable set in our settings.php file
   // Note that by setting the default to TRUE, the default setting for the system is to be
   // a development environment. Set this to FALSE to have the default be a live environment.
-    if($message['to'] != "tfpet@odense.dk")
+    if($message['to'] != "tobsf@hotmail.com")
     {
         
+        if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
+        {
+          // First: Prevent the mail from being sent
+          $message['send'] = FALSE;
+
+          // Next: Log the mail so it can be debugged if necessary
+          watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
+        }
+      
     }
-  if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
-  {
-    // First: Prevent the mail from being sent
-    $message['send'] = FALSE;
- 
-    // Next: Log the mail so it can be debugged if necessary
-    watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
-  }
 }
 /*
  * Custom callback function to create a live text summary.
@@ -585,4 +586,46 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
   {		  
      $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");	
      return $result->fetchField();
-  }		  
+  }	
+  /*
+   * Register a url encoding for url to nodes.
+   * Issue related to ie securtiy policy: send urls as non utf8.
+   */
+  function cbib_oc_hooks_token_info() {
+    $info['tokens']['target-node']['encoded-url'] = array(
+        'name' => t('Encoded URL'),
+        'description' => t('Encoded URL of the current page.'),
+    );
+    
+    return $info;
+}
+/*
+ * Token hack to make urls with utf8 working.
+ * Some munincipalities have disable the setting: send urls as utf8 i explorer.
+ * This requires links containing special chars to be url encoded.
+ */
+function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $options = array()) {
+    $replacements = array();
+    if($type == 'list<node>')
+    {
+         foreach ($tokens as $name => $original) {
+             switch($name)
+             {
+                 case (strpos($name, ':url:encode') !== false):
+                     $url_options = array('absolute' => TRUE);
+                     $node = reset($data['list<node>']);
+                     if($node != null)
+                     {
+                         $link = url('node/'. $node->nid, $url_options);
+                         $link = explode('://',$link);
+                         $link = rawurlencode($link[1]);
+                         $replacements[$original] = $link;
+                     }
+                     
+                     break;
+             }
+         }
+    }
+
+    return $replacements;
+}
