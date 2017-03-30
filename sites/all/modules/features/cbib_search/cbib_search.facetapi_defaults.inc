@@ -1916,7 +1916,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'item_bundle';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'or',
+    'operator' => 'and',
     'hard_limit' => '50',
     'dependencies' => array(
       'roles' => array(),

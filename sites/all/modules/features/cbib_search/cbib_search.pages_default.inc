@@ -51,7 +51,7 @@ function cbib_search_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'two_33_66';
+  $display->layout = 'one';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -60,16 +60,17 @@ function cbib_search_default_page_manager_pages() {
       'two_33_66_first' => NULL,
       'two_33_66_second' => NULL,
       'two_33_66_bottom' => NULL,
+      'one_main' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Søgeresultater';
   $display->uuid = 'd9bd1bf9-96cd-4b78-a69a-05b9052ad130';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-b792f757-d4a8-4e73-b7e8-f67f7223c305';
-    $pane->panel = 'two_33_66_first';
+    $pane->panel = 'one_main';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-GnTHplNqH3eGbf5J1c8INcrHEyPiAhcB';
     $pane->shown = TRUE;
@@ -90,10 +91,10 @@ function cbib_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'b792f757-d4a8-4e73-b7e8-f67f7223c305';
     $display->content['new-b792f757-d4a8-4e73-b7e8-f67f7223c305'] = $pane;
-    $display->panels['two_33_66_first'][0] = 'new-b792f757-d4a8-4e73-b7e8-f67f7223c305';
+    $display->panels['one_main'][0] = 'new-b792f757-d4a8-4e73-b7e8-f67f7223c305';
     $pane = new stdClass();
     $pane->pid = 'new-213bfff8-b584-4c48-b664-6718a587f258';
-    $pane->panel = 'two_33_66_first';
+    $pane->panel = 'one_main';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-Ow6C0INvBHRMKgnyvPHyJ39hkuF4yBUU';
     $pane->shown = TRUE;
@@ -114,10 +115,10 @@ function cbib_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '213bfff8-b584-4c48-b664-6718a587f258';
     $display->content['new-213bfff8-b584-4c48-b664-6718a587f258'] = $pane;
-    $display->panels['two_33_66_first'][1] = 'new-213bfff8-b584-4c48-b664-6718a587f258';
+    $display->panels['one_main'][1] = 'new-213bfff8-b584-4c48-b664-6718a587f258';
     $pane = new stdClass();
     $pane->pid = 'new-019b4c20-372f-454c-9471-e2f44abfc3ec';
-    $pane->panel = 'two_33_66_first';
+    $pane->panel = 'one_main';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-68jj4061HtrNoYLXVaaaBKLFFE2vB59I';
     $pane->shown = TRUE;
@@ -138,10 +139,10 @@ function cbib_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '019b4c20-372f-454c-9471-e2f44abfc3ec';
     $display->content['new-019b4c20-372f-454c-9471-e2f44abfc3ec'] = $pane;
-    $display->panels['two_33_66_first'][2] = 'new-019b4c20-372f-454c-9471-e2f44abfc3ec';
+    $display->panels['one_main'][2] = 'new-019b4c20-372f-454c-9471-e2f44abfc3ec';
     $pane = new stdClass();
     $pane->pid = 'new-ddf854aa-9f42-434a-b2d2-323461942372';
-    $pane->panel = 'two_33_66_first';
+    $pane->panel = 'one_main';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-0NzDy66Cm5YtA0b0L2Gr0YwBRtMFeRYb';
     $pane->shown = TRUE;
@@ -162,10 +163,10 @@ function cbib_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'ddf854aa-9f42-434a-b2d2-323461942372';
     $display->content['new-ddf854aa-9f42-434a-b2d2-323461942372'] = $pane;
-    $display->panels['two_33_66_first'][3] = 'new-ddf854aa-9f42-434a-b2d2-323461942372';
+    $display->panels['one_main'][3] = 'new-ddf854aa-9f42-434a-b2d2-323461942372';
     $pane = new stdClass();
     $pane->pid = 'new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
-    $pane->panel = 'two_33_66_second';
+    $pane->panel = 'one_main';
     $pane->type = 'views';
     $pane->subtype = 'search_api_nodes';
     $pane->shown = TRUE;
@@ -184,7 +185,7 @@ function cbib_search_default_page_manager_pages() {
       'url' => '',
       'display' => 'default',
       'override_title' => 1,
-      'override_title_text' => 'Søgeresultater',
+      'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -193,12 +194,12 @@ function cbib_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
     $display->content['new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151'] = $pane;
-    $display->panels['two_33_66_second'][0] = 'new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
-  $display->hide_title = PANELS_TITLE_NONE;
+    $display->panels['one_main'][4] = 'new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
