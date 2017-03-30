@@ -582,18 +582,6 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
      $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");	
      return $result->fetchField();
   }	
-  /*
-   * Register a url encoding for url to nodes.
-   * Issue related to ie securtiy policy: send urls as non utf8.
-   */
-  function cbib_oc_hooks_token_info() {
-    $info['tokens']['target-node']['encoded-url'] = array(
-        'name' => t('Encoded URL'),
-        'description' => t('Encoded URL of the current page.'),
-    );
-    
-    return $info;
-}
 /*
  * Token hack to make urls with utf8 working.
  * Some munincipalities have disable the setting: send urls as utf8 i explorer.
