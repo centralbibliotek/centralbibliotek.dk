@@ -251,9 +251,6 @@ function cbib_oc_hooks_mail_alter(&$message)
   // We can use variable_get() to get the $conf variable set in our settings.php file
   // Note that by setting the default to TRUE, the default setting for the system is to be
   // a development environment. Set this to FALSE to have the default be a live environment.
-    if($message['to'] != "tobsf@hotmail.com")
-    {
-        
         if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
         {
           // First: Prevent the mail from being sent
@@ -262,8 +259,6 @@ function cbib_oc_hooks_mail_alter(&$message)
           // Next: Log the mail so it can be debugged if necessary
           watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
         }
-      
-    }
 }
 /*
  * Custom callback function to create a live text summary.
@@ -621,7 +616,6 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
                          $link = rawurlencode($link[1]);
                          $replacements[$original] = $link;
                      }
-                     
                      break;
              }
          }
