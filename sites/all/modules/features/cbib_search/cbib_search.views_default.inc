@@ -66,10 +66,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Tilknytning */
+  /* Forbindelse: Indexed Indholdselement: Groups */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['relationships']['og_group_ref']['label'] = 'Grupper';
   /* Felt: Indexed Indholdselement: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_arrangement_index';
@@ -81,7 +82,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
+  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -299,7 +300,7 @@ function cbib_search_views_default_views() {
     t('»'),
     t('Displaying @start - @end of @total'),
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
-    t('Tilknytning'),
+    t('Grupper'),
     t('Alle'),
     t('COMBINE_DATO'),
     t('Aktualitet'),
@@ -365,10 +366,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Din søgning gav desværre ingen resultater!';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Tilknytning */
+  /* Forbindelse: Indexed Indholdselement: Groups */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['relationships']['og_group_ref']['label'] = 'Grupper';
   /* Felt: Indexed Indholdselement: Indholdselement ID */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_group_index';
@@ -387,7 +389,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Oprettelsesdato';
-  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
+  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -439,7 +441,7 @@ function cbib_search_views_default_views() {
     t('»'),
     t('Viser @start - @end af @total'),
     t('Din søgning gav desværre ingen resultater!'),
-    t('Tilknytning'),
+    t('Grupper'),
     t('Indholdselement ID'),
     t('.'),
     t(','),
@@ -621,7 +623,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['node_created']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['sorts']['node_created']['field'] = 'node_created';
   $handler->display->display_options['sorts']['node_created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['node_created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['node_created']['expose']['label'] = 'Dato oprettet';
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';

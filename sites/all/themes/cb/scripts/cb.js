@@ -29,8 +29,9 @@
             
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
              $('section .views-exposed-form').once('myslider', function() {
-                 $('section .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
-             });
+                $('#views-exposed-form-search-api-group-panel-pane-1 .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
+                $('#views-exposed-form-search-api-arrangementer-page .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
+            });
             
             $('.fa-th').click(function () {
                 $('.cb-teaser-list .node-teaser .panel-col-first').show();
@@ -48,8 +49,8 @@
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
       $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
-      $('#views-exposed-form-search-api-arrangementer-page input[type="text"]').attr('placeholder', 'Søg i arrangementer');
-      $('#views-exposed-form-search-api-group-panel-pane-1 input[type="text"]').attr('placeholder', 'Søg i grupper');
+      $('#views-exposed-form-search-api-arrangementer-page input[type="text"]').attr('placeholder', ' Søg i arrangementer');
+      $('#views-exposed-form-search-api-group-panel-pane-1 input[type="text"]').attr('placeholder', ' Søg i grupper');
     }
   };
 

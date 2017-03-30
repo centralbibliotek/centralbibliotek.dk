@@ -229,7 +229,7 @@ function commons_groups_directory_default_page_manager_pages() {
     $pane->uuid = '86bb266a-0ecd-4fa5-838e-22e2c580a82a';
     $display->content['new-86bb266a-0ecd-4fa5-838e-22e2c580a82a'] = $pane;
     $display->panels['one_main'][3] = 'new-86bb266a-0ecd-4fa5-838e-22e2c580a82a';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

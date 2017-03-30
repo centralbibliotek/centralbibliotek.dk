@@ -11,19 +11,23 @@
     }
 
     input:-moz-placeholder {
-      color: lighten($light_gray,20%);
+      color: black;
+      margin-left: 5px;
     }
 
     input:-ms-input-placeholder {
-      color: lighten($light_gray,20%);
+      color: black;
+      margin-left: 5px;
     }
 
     input::-moz-placeholder {
-      color: lighten($light_gray,20%);
+      color: black;
+      margin-left: 5px;
     }
 
     input::-webkit-input-placeholder {
-      color: lighten($light_gray,20%);
+      color: black;
+      margin-left: 5px;
     }
   }
 

@@ -380,19 +380,23 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 .cb-teaser-list .view-filters input:-moz-placeholder,
 .page-taxonomy-term .view-filters input:-moz-placeholder {
-  color: #b8b8b8;
+  color: black;
+  margin-left: 5px;
 }
 .cb-teaser-list .view-filters input:-ms-input-placeholder,
 .page-taxonomy-term .view-filters input:-ms-input-placeholder {
-  color: #b8b8b8;
+  color: black;
+  margin-left: 5px;
 }
 .cb-teaser-list .view-filters input::-moz-placeholder,
 .page-taxonomy-term .view-filters input::-moz-placeholder {
-  color: #b8b8b8;
+  color: black;
+  margin-left: 5px;
 }
 .cb-teaser-list .view-filters input::-webkit-input-placeholder,
 .page-taxonomy-term .view-filters input::-webkit-input-placeholder {
-  color: #b8b8b8;
+  color: black;
+  margin-left: 5px;
 }
 .cb-teaser-list .row-type-event:before, .cb-teaser-list .node-content-type-event:before,
 .page-taxonomy-term .row-type-event:before,
