@@ -139,7 +139,9 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
-
+.branch-selector form {
+    left: 0;
+}
 //commented out, because we decided to not have icons at all
 
   // Commons quicktab pills are distilled to only icons.
