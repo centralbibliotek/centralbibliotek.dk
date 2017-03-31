@@ -13,11 +13,47 @@
 (function ($, Drupal, window, document) {
 
   "use strict";
-
+  
+    function trigger_loginSpinner() {
+        $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Søger vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
+    }
+    
     $(document).ready(function () {
+        //If user wants to cancel his search.
+        $('.search-overlay--wrapper .cancel').live('click', function (e) {
+            try {
+                window.stop();
+            } catch (e)
+            {
+                document.execCommand('Stop');
+            }
+            $('.search-overlay--wrapper').remove();
+        });
         $('.print_html a').attr("href", "");
-        $('.print_html a').attr("onclick", "window.print(); return false; ");        
+        $('.print_html a').attr("onclick", "window.print(); return false; ");
+    
+                // Node search overlay
+        $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
+            trigger_loginSpinner();
+        });
+        
+        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"]', function (e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                trigger_loginSpinner();
+            }
+        });
   }); 
+  
+    $(document).ajaxComplete(function (e, xhr, settings) {
+
+        if (settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax") {
+            // enable selectBox jQuery plugin for all <select> elements
+            $('.search-overlay--wrapper').remove();
+            //Drupal.attachbehaviours();   
+
+        }
+    }); 
   
     // Add a Display icons for hiding elements in views.
     Drupal.behaviors.viewDisplays = {
