@@ -43,6 +43,10 @@
                 trigger_loginSpinner();
             }
         });
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"]', function () {
+            trigger_loginSpinner();
+        });
+
   }); 
   
     $(document).ajaxComplete(function (e, xhr, settings) {
