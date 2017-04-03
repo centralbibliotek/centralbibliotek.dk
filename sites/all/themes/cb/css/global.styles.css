@@ -2393,14 +2393,6 @@ ul.node-action-links a {
 }
 
 /**
-* Arrangement panel dropdown style
-*/
-.panels-ipe-portlet-wrapper.panels-ipe-portlet-marker {
-  float: left;
-  margin-right: 2em;
-}
-
-/**
  * User profile
  */
 .page-user .panel-display .region-three-33-top {
@@ -4288,21 +4280,13 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   }
 }
 
-.pane-facetapi-gnthplnqh3egbf5j1c8incrheypiahcb, .pane-facetapi-ow6c0invbhrmkgnyvphyj39hkuf4ybuu, .pane-facetapi-68jj4061htrnoylxvaaabklffe2vb59i {
+.block-facetapi, .panels-ipe-portlet-wrapper {
   display: inline-block;
-  margin-right: 0.5em;
-  margin-bottom: 0em;
-  border-bottom: none;
-  max-width: 300px;
+  margin-right: 1em;
 }
 
-.panel-pane.pane-block.pane-facetapi-0nzdy66cm5yta0b0l2gr0ywbrtmferyb.block.block-facetapi {
-  display: inline-block;
-  max-width: 300px;
-}
-
-#edit-facets--4 {
-  max-width: 100%;
+#edit-field-topics {
+  width: 90%;
 }
 
 .block-facetapi {

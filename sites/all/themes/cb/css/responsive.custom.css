@@ -117,6 +117,10 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .branch-selector form {
+    left: 0;
+  }
+
   .main-header {
     min-height: 140px;
   }

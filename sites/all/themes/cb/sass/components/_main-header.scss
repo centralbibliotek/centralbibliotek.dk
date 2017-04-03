@@ -98,6 +98,15 @@
     &:hover,
     &:focus {
       box-shadow: none;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center right;
+      border: 0;
+      text-shadow: none;
+      height: 3.5em;
+      width: 2.5em;
+      text-indent: -9999em;
+      border-radius: 0;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMZJREFUeNqkUgENwyAQhCrAQTsFQwISKmkOJqESioPOAZkDqmB18LsmT0IID1v6yeUDzz3H8UpdDN0qEtGE5IAzR+CltY7driAaYKF6bGddVMDFDbDAAXhgB0ZgBgzv36DmqN2ebg78hFJZSEok6SmmxvM+6cxQ1C1nL5nFsj0v50Hw8d3xeedspAb3ToORc2x5YKXZyD2oHXhmv2Ar5PQLq+RwKAZnBR6cKWtuWuSQKSlj+YVssn3HCpw0G6pG/iuukL8CDAAYNj5C3me2yQAAAABJRU5ErkJggg==);
     }
   }

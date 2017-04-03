@@ -57,6 +57,7 @@ function cbib_search_default_search_api_index() {
         "field_price" : { "type" : "integer" },
         "field_registration_type" : { "type" : "string" },
         "field_tilmeldings_frist" : { "type" : "date" },
+        "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "search_api_aggregation_1" : { "type" : "list\\u003Cdate\\u003E" },
         "search_api_combined_1" : { "type" : "date" },
@@ -495,6 +496,12 @@ function cbib_search_default_search_api_server() {
           "body:value" : {
             "table" : "search_api_db_arrangement_index_text",
             "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_topics" : {
+            "table" : "search_api_db_arrangement_index_field_topics",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           }
         },

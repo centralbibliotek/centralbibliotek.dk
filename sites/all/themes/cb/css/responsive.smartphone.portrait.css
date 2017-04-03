@@ -16,3 +16,7 @@
   padding: 0 10px;
   box-sizing: border-box;
 }
+
+.branch-selector form {
+  left: 0 !important;
+}

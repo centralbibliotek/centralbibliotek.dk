@@ -15,43 +15,6 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["field_instance.user-user-field_linkedin_url.settings|title_label_use_field_label"] = FALSE;
 
   // Exported overrides for: page_manager_pages
-  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-0293b915-d42a-46d2-9887-2f1ddf266503"] = (object) array(
-      'pid' => 'new-0293b915-d42a-46d2-9887-2f1ddf266503',
-      'panel' => 'center',
-      'type' => 'views',
-      'subtype' => 'search_api_arrangementer',
-      'shown' => TRUE,
-      'access' => array(),
-      'configuration' => array(
-        'override_pager_settings' => 0,
-        'use_pager' => 1,
-        'nodes_per_page' => 15,
-        'pager_id' => 0,
-        'offset' => 0,
-        'more_link' => 0,
-        'feed_icons' => 0,
-        'panel_args' => 0,
-        'link_to_view' => 0,
-        'args' => '',
-        'url' => '',
-        'display' => 'page',
-        'override_title' => 0,
-        'override_title_text' => '',
-        'override_title_heading' => 'h2',
-      ),
-      'cache' => array(),
-      'style' => array(
-        'settings' => NULL,
-      ),
-      'css' => array(),
-      'extras' => array(),
-      'position' => 0,
-      'locks' => array(),
-      'uuid' => '0293b915-d42a-46d2-9887-2f1ddf266503',
-    );
-  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-3a5c106d-8821-47ba-937c-77b64d1480ee"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|hide_title"] = 0;
-  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|panels|center|0"] = 'new-0293b915-d42a-46d2-9887-2f1ddf266503';
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:event:default.display|content|new-0b838ec5-ab01-496e-ada7-c0320534dd42"] = (object) array(
@@ -607,20 +570,6 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:event:default.display|panels|two_66_33_second|9"] = 'new-aef85835-68a5-2494-b107-136f1cb92749';
 
   // Exported overrides for: variable
-  $overrides["variable.comment_event.value"] = 2;
-  $overrides["variable.field_bundle_settings_node__event.value|extra_fields|form|metatags"] = array(
-    'weight' => 19,
-  );
-  $overrides["variable.field_bundle_settings_node__event.value|extra_fields|form|path"] = array(
-    'weight' => 15,
-  );
-  $overrides["variable.field_bundle_settings_node__event.value|extra_fields|form|redirect"] = array(
-    'weight' => 14,
-  );
-  $overrides["variable.field_bundle_settings_node__event.value|extra_fields|form|title|weight"] = 0;
-  $overrides["variable.field_bundle_settings_node__event.value|view_modes|print"] = array(
-    'custom_settings' => TRUE,
-  );
   $overrides["variable.panelizer_defaults_node_event.value|view modes|teaser|default"] = 1;
   $overrides["variable.panelizer_defaults_node_event.value|view modes|teaser|status"] = 1;
 

@@ -15,7 +15,7 @@
   "use strict";
   
     function trigger_loginSpinner() {
-        $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Søger vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
+        $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
     
     $(document).ready(function () {
@@ -37,13 +37,13 @@
             trigger_loginSpinner();
         });
         
-        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"]', function (e) {
+        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], option', function (e) {
             e.preventDefault();
             if (e.keyCode === 13) {
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"]', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], option', function () {
             trigger_loginSpinner();
         });
 

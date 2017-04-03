@@ -26,51 +26,6 @@ function cbib_commons_events_field_default_field_instances_alter(&$data) {
 }
 
 /**
- * Implements hook_default_page_manager_pages_alter().
- */
-function cbib_commons_events_default_page_manager_pages_alter(&$data) {
-  if (isset($data['views_events_landing_page'])) {
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503'] = (object) array(
-          'pid' => 'new-0293b915-d42a-46d2-9887-2f1ddf266503',
-          'panel' => 'center',
-          'type' => 'views',
-          'subtype' => 'search_api_arrangementer',
-          'shown' => TRUE,
-          'access' => array(),
-          'configuration' => array(
-            'override_pager_settings' => 0,
-            'use_pager' => 1,
-            'nodes_per_page' => 15,
-            'pager_id' => 0,
-            'offset' => 0,
-            'more_link' => 0,
-            'feed_icons' => 0,
-            'panel_args' => 0,
-            'link_to_view' => 0,
-            'args' => '',
-            'url' => '',
-            'display' => 'page',
-            'override_title' => 0,
-            'override_title_text' => '',
-            'override_title_heading' => 'h2',
-          ),
-          'cache' => array(),
-          'style' => array(
-            'settings' => NULL,
-          ),
-          'css' => array(),
-          'extras' => array(),
-          'position' => 0,
-          'locks' => array(),
-          'uuid' => '0293b915-d42a-46d2-9887-2f1ddf266503',
-        ); /* WAS: '' */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->hide_title = 0; /* WAS: 1 */
-    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['center'][0] = 'new-0293b915-d42a-46d2-9887-2f1ddf266503'; /* WAS: 'new-3a5c106d-8821-47ba-937c-77b64d1480ee' */
-    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-3a5c106d-8821-47ba-937c-77b64d1480ee']);
-  }
-}
-
-/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
@@ -633,24 +588,6 @@ function cbib_commons_events_panelizer_defaults_override_alter(&$data) {
  * Implements hook_strongarm_alter().
  */
 function cbib_commons_events_strongarm_alter(&$data) {
-  if (isset($data['comment_event'])) {
-    $data['comment_event']->value = 2; /* WAS: 0 */
-  }
-  if (isset($data['field_bundle_settings_node__event'])) {
-    $data['field_bundle_settings_node__event']->value['extra_fields']['form']['metatags'] = array(
-      'weight' => 19,
-    ); /* WAS: '' */
-    $data['field_bundle_settings_node__event']->value['extra_fields']['form']['path'] = array(
-      'weight' => 15,
-    ); /* WAS: '' */
-    $data['field_bundle_settings_node__event']->value['extra_fields']['form']['redirect'] = array(
-      'weight' => 14,
-    ); /* WAS: '' */
-    $data['field_bundle_settings_node__event']->value['extra_fields']['form']['title']['weight'] = 0; /* WAS: -5 */
-    $data['field_bundle_settings_node__event']->value['view_modes']['print'] = array(
-      'custom_settings' => TRUE,
-    ); /* WAS: '' */
-  }
   if (isset($data['panelizer_defaults_node_event'])) {
     $data['panelizer_defaults_node_event']->value['view modes']['teaser']['default'] = 1; /* WAS: 0 */
     $data['panelizer_defaults_node_event']->value['view modes']['teaser']['status'] = 1; /* WAS: 0 */

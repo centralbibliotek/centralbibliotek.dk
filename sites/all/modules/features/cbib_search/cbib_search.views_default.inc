@@ -118,36 +118,6 @@ function cbib_search_views_default_views() {
     ),
   );
   $handler->display->display_options['filters']['search_api_combined_1']['year_range'] = '-10:+10';
-  /* Filterkriterie: Indexed Indholdselement: Pris */
-  $handler->display->display_options['filters']['field_price']['id'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['field_price']['field'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['group'] = 1;
-  $handler->display->display_options['filters']['field_price']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_price']['expose']['operator_id'] = 'field_price_op';
-  $handler->display->display_options['filters']['field_price']['expose']['label'] = 'Pris';
-  $handler->display->display_options['filters']['field_price']['expose']['operator'] = 'field_price_op';
-  $handler->display->display_options['filters']['field_price']['expose']['identifier'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_price']['group_info']['label'] = 'Pris';
-  $handler->display->display_options['filters']['field_price']['group_info']['identifier'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Gratis',
-      'operator' => '=',
-      'value' => 'NULL',
-    ),
-    2 => array(
-      'title' => 'Med betaling',
-      'operator' => '>=',
-      'value' => '1',
-    ),
-    3 => array(
-      'title' => '',
-      'operator' => '=',
-      'value' => '',
-    ),
-  );
   /* Filterkriterie: Indexed Indholdselement: Arrangement type */
   $handler->display->display_options['filters']['field_event_type']['id'] = 'field_event_type';
   $handler->display->display_options['filters']['field_event_type']['table'] = 'search_api_index_arrangement_index';
@@ -166,6 +136,26 @@ function cbib_search_views_default_views() {
     4 => 0,
   );
   $handler->display->display_options['filters']['field_event_type']['expose']['reduce'] = 0;
+  /* Filterkriterie: Indexed Indholdselement: Emner */
+  $handler->display->display_options['filters']['field_topics']['id'] = 'field_topics';
+  $handler->display->display_options['filters']['field_topics']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['filters']['field_topics']['field'] = 'field_topics';
+  $handler->display->display_options['filters']['field_topics']['value'] = array();
+  $handler->display->display_options['filters']['field_topics']['group'] = 1;
+  $handler->display->display_options['filters']['field_topics']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_topics']['expose']['operator_id'] = 'field_topics_op';
+  $handler->display->display_options['filters']['field_topics']['expose']['label'] = 'Emner';
+  $handler->display->display_options['filters']['field_topics']['expose']['operator'] = 'field_topics_op';
+  $handler->display->display_options['filters']['field_topics']['expose']['identifier'] = 'field_topics';
+  $handler->display->display_options['filters']['field_topics']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_topics']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['field_topics']['type'] = 'select';
+  $handler->display->display_options['filters']['field_topics']['hierarchy'] = 1;
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
@@ -304,12 +294,13 @@ function cbib_search_views_default_views() {
     t('Alle'),
     t('COMBINE_DATO'),
     t('Aktualitet'),
-    t('Pris'),
     t('Arrangementtype'),
+    t('Emner'),
     t('Events - all'),
     t('Kommende arrangementer'),
     t('Viser @start - @end af @total'),
     t('Events - previous'),
+    t('Pris'),
   );
   $export['search_api_arrangementer'] = $view;
 
@@ -511,7 +502,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Titel (indexed) */
+  /* Felt: Indholdselement: Title (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';
