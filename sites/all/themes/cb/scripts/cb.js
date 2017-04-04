@@ -43,7 +43,7 @@
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], option', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], option, #reset', function () {
             trigger_loginSpinner();
         });
 
