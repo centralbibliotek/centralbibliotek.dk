@@ -37,13 +37,13 @@
             trigger_loginSpinner();
         });
         
-        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], option', function (e) {
+        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
             e.preventDefault();
             if (e.keyCode === 13) {
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], option, #reset', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .block-facetapi option, .views-exposed-widgets option, #reset', function () {
             trigger_loginSpinner();
         });
 
