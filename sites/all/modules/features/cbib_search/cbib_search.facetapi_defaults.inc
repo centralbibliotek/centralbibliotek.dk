@@ -2714,7 +2714,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
-    'show_expanded' => 0,
+    'show_expanded' => 1,
     'ranges' => array(
       'past_hour' => array(
         'label' => 'Seneste time',
