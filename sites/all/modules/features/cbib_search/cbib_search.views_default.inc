@@ -91,71 +91,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
-  /* Filterkriterie: Indexed Indholdselement: COMBINE_DATO */
-  $handler->display->display_options['filters']['search_api_combined_1']['id'] = 'search_api_combined_1';
-  $handler->display->display_options['filters']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['filters']['search_api_combined_1']['group'] = 1;
-  $handler->display->display_options['filters']['search_api_combined_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['search_api_combined_1']['expose']['operator_id'] = 'search_api_combined_1_op';
-  $handler->display->display_options['filters']['search_api_combined_1']['expose']['label'] = 'COMBINE_DATO';
-  $handler->display->display_options['filters']['search_api_combined_1']['expose']['operator'] = 'search_api_combined_1_op';
-  $handler->display->display_options['filters']['search_api_combined_1']['expose']['identifier'] = 'search_api_combined_1';
-  $handler->display->display_options['filters']['search_api_combined_1']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['search_api_combined_1']['group_info']['label'] = 'Aktualitet';
-  $handler->display->display_options['filters']['search_api_combined_1']['group_info']['identifier'] = 'search_api_combined_1';
-  $handler->display->display_options['filters']['search_api_combined_1']['group_info']['default_group'] = '1';
-  $handler->display->display_options['filters']['search_api_combined_1']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Kommende',
-      'operator' => '>',
-      'value' => 'now',
-    ),
-    2 => array(
-      'title' => 'Tidligere',
-      'operator' => '<',
-      'value' => 'now',
-    ),
-  );
-  $handler->display->display_options['filters']['search_api_combined_1']['year_range'] = '-10:+10';
-  /* Filterkriterie: Indexed Indholdselement: Arrangement type */
-  $handler->display->display_options['filters']['field_event_type']['id'] = 'field_event_type';
-  $handler->display->display_options['filters']['field_event_type']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['field_event_type']['field'] = 'field_event_type';
-  $handler->display->display_options['filters']['field_event_type']['value'] = array();
-  $handler->display->display_options['filters']['field_event_type']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_type']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_event_type']['expose']['operator_id'] = 'field_event_type_op';
-  $handler->display->display_options['filters']['field_event_type']['expose']['label'] = 'Arrangementtype';
-  $handler->display->display_options['filters']['field_event_type']['expose']['operator'] = 'field_event_type_op';
-  $handler->display->display_options['filters']['field_event_type']['expose']['identifier'] = 'field_event_type';
-  $handler->display->display_options['filters']['field_event_type']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['field_event_type']['expose']['reduce'] = 0;
-  /* Filterkriterie: Indexed Indholdselement: Emner */
-  $handler->display->display_options['filters']['field_topics']['id'] = 'field_topics';
-  $handler->display->display_options['filters']['field_topics']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['field_topics']['field'] = 'field_topics';
-  $handler->display->display_options['filters']['field_topics']['value'] = array();
-  $handler->display->display_options['filters']['field_topics']['group'] = 1;
-  $handler->display->display_options['filters']['field_topics']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_topics']['expose']['operator_id'] = 'field_topics_op';
-  $handler->display->display_options['filters']['field_topics']['expose']['label'] = 'Emner';
-  $handler->display->display_options['filters']['field_topics']['expose']['operator'] = 'field_topics_op';
-  $handler->display->display_options['filters']['field_topics']['expose']['identifier'] = 'field_topics';
-  $handler->display->display_options['filters']['field_topics']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['field_topics']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_topics']['type'] = 'select';
-  $handler->display->display_options['filters']['field_topics']['hierarchy'] = 1;
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
@@ -292,13 +227,10 @@ function cbib_search_views_default_views() {
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
     t('Grupper'),
     t('Alle'),
-    t('COMBINE_DATO'),
-    t('Aktualitet'),
-    t('Arrangementtype'),
-    t('Emner'),
     t('Events - all'),
     t('Kommende arrangementer'),
     t('Viser @start - @end af @total'),
+    t('Aktualitet'),
     t('Events - previous'),
     t('Pris'),
   );

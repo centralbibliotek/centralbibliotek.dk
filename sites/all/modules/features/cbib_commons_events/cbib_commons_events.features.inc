@@ -26,6 +26,115 @@ function cbib_commons_events_field_default_field_instances_alter(&$data) {
 }
 
 /**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function cbib_commons_events_default_page_manager_pages_alter(&$data) {
+  if (isset($data['views_events_landing_page'])) {
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503']->panel = 'one_main'; /* WAS: 'center' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503']->position = 4; /* WAS: 0 */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-19f21cdd-4cfc-4c87-97bc-00d36ed76417'] = (object) array(
+          'pid' => 'new-19f21cdd-4cfc-4c87-97bc-00d36ed76417',
+          'panel' => 'one_main',
+          'type' => 'block',
+          'subtype' => 'facetapi-rJ41iuaZ0tI1G1AP2gFnVQy6bjKDQf2J',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => 1,
+            'override_title_text' => 'Arrangementtype',
+            'override_title_heading' => 'h2',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 2,
+          'locks' => array(),
+          'uuid' => '19f21cdd-4cfc-4c87-97bc-00d36ed76417',
+        ); /* WAS: '' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-4b99861e-b3e4-4bc9-b7b9-22019bb27e7f'] = (object) array(
+          'pid' => 'new-4b99861e-b3e4-4bc9-b7b9-22019bb27e7f',
+          'panel' => 'one_main',
+          'type' => 'block',
+          'subtype' => 'facetapi-DDx431pOxyXaTR32dMcTOJUVRZV3JVzs',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => 1,
+            'override_title_text' => 'Oprettelsesdato',
+            'override_title_heading' => 'h2',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 1,
+          'locks' => array(),
+          'uuid' => '4b99861e-b3e4-4bc9-b7b9-22019bb27e7f',
+        ); /* WAS: '' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-aad306bd-199c-404d-901a-1edc43b313fd'] = (object) array(
+          'pid' => 'new-aad306bd-199c-404d-901a-1edc43b313fd',
+          'panel' => 'one_main',
+          'type' => 'block',
+          'subtype' => 'facetapi-uqTZOD0puq87yt8wqB376UrLCGM9FHvM',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => 1,
+            'override_title_text' => 'Emner',
+            'override_title_heading' => 'h2',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 3,
+          'locks' => array(),
+          'uuid' => 'aad306bd-199c-404d-901a-1edc43b313fd',
+        ); /* WAS: '' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-fad1dfe5-951c-4d79-9de3-d3723388c55d'] = (object) array(
+          'pid' => 'new-fad1dfe5-951c-4d79-9de3-d3723388c55d',
+          'panel' => 'one_main',
+          'type' => 'block',
+          'subtype' => 'facetapi-7WTgHb2zdhyHCsRZtsXnU3eogApOW342',
+          'shown' => TRUE,
+          'access' => array(),
+          'configuration' => array(
+            'override_title' => 1,
+            'override_title_text' => 'Afholdelsessted',
+            'override_title_heading' => 'h2',
+          ),
+          'cache' => array(),
+          'style' => array(
+            'settings' => NULL,
+          ),
+          'css' => array(),
+          'extras' => array(),
+          'position' => 0,
+          'locks' => array(),
+          'uuid' => 'fad1dfe5-951c-4d79-9de3-d3723388c55d',
+        ); /* WAS: '' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->layout = 'one'; /* WAS: 'flexible' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panel_settings['one_main']['style'] = 'default'; /* WAS: 'tabs' */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['one_main'] = array(
+      0 => 'new-fad1dfe5-951c-4d79-9de3-d3723388c55d',
+      1 => 'new-4b99861e-b3e4-4bc9-b7b9-22019bb27e7f',
+      2 => 'new-19f21cdd-4cfc-4c87-97bc-00d36ed76417',
+      3 => 'new-aad306bd-199c-404d-901a-1edc43b313fd',
+      4 => 'new-0293b915-d42a-46d2-9887-2f1ddf266503',
+    ); /* WAS: '' */
+    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0ec3a19a-2ae9-42a6-b039-df173f22e262']);
+    unset($data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->panels['center']);
+  }
+}
+
+/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_commons_events_panelizer_defaults_override_alter(&$data) {

@@ -19,19 +19,23 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_address:locality';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
       'bundle_selected' => array(),
       'roles' => array(),
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 1,
+    'limit_active_items' => 0,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -129,7 +133,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_event_type';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'or',
+    'operator' => 'and',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -138,10 +142,10 @@ function cbib_search_facetapi_default_facet_settings() {
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
-    'flatten' => '0',
+    'flatten' => '1',
     'individual_parent' => '0',
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -473,23 +477,51 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
       'display' => 'display',
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -566,17 +598,22 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => 10,
     'range_advanced' => '',
-    'default_option_label' => '--alle--',
+    'default_option_label' => '--Vælg--',
     'reset_option_label' => '--Gendan--',
     'submit_page' => '',
-    'hide_facet_count' => 0,
+    'hide_facet_count' => 1,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
     'empty_text' => array(
-      'value' => '',
+      'value' => '<p>--Vælg--</p>
+',
       'format' => 'filtered_html',
     ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@arrangement_index:block:field_address:locality'] = $facet;
 
@@ -977,7 +1014,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'field_event_type';
-  $facet->enabled = FALSE;
+  $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
@@ -1074,8 +1111,8 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => 10,
     'range_advanced' => '',
-    'default_option_label' => 'Alle',
-    'reset_option_label' => 'Vis alle',
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2710,7 +2747,7 @@ function cbib_search_facetapi_default_facet_settings() {
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Vis mere',
+    'facet_more_text' => 'Vis flere',
     'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
@@ -2777,7 +2814,7 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--alle--',
+    'default_option_label' => '--Vælg--',
     'reset_option_label' => '--Gendan--',
     'submit_page' => '',
     'hide_facet_count' => 0,

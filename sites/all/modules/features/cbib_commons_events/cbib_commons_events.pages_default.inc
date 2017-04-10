@@ -107,12 +107,107 @@ function cbib_commons_events_default_page_manager_pages() {
     'two_33_66_second' => array(
       'style' => 'tabs',
     ),
+    'one_main' => array(
+      'style' => 'default',
+    ),
   );
   $display->cache = array();
   $display->title = 'Arrangementer';
   $display->uuid = 'f084cd6c-0d66-7ca4-c971-3c5cf182d2ec';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-7WTgHb2zdhyHCsRZtsXnU3eogApOW342';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Afholdelsessted',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $display->content['new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7'] = $pane;
+    $display->panels['one_main'][0] = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $pane = new stdClass();
+    $pane->pid = 'new-6ce77767-9aa6-47c3-af88-c688d6f33c9c';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-DDx431pOxyXaTR32dMcTOJUVRZV3JVzs';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Oprettelsesdato',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '6ce77767-9aa6-47c3-af88-c688d6f33c9c';
+    $display->content['new-6ce77767-9aa6-47c3-af88-c688d6f33c9c'] = $pane;
+    $display->panels['one_main'][1] = 'new-6ce77767-9aa6-47c3-af88-c688d6f33c9c';
+    $pane = new stdClass();
+    $pane->pid = 'new-52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-rJ41iuaZ0tI1G1AP2gFnVQy6bjKDQf2J';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Arrangementtype',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $display->content['new-52163c9b-2121-470d-b21c-482b1d8b0b16'] = $pane;
+    $display->panels['one_main'][2] = 'new-52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $pane = new stdClass();
+    $pane->pid = 'new-be36b750-653a-4562-82ef-fe283051c064';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-uqTZOD0puq87yt8wqB376UrLCGM9FHvM';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Emner',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'be36b750-653a-4562-82ef-fe283051c064';
+    $display->content['new-be36b750-653a-4562-82ef-fe283051c064'] = $pane;
+    $display->panels['one_main'][3] = 'new-be36b750-653a-4562-82ef-fe283051c064';
     $pane = new stdClass();
     $pane->pid = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
     $pane->panel = 'one_main';
@@ -146,12 +241,12 @@ function cbib_commons_events_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '51ca6526-15e9-4e76-bf08-d5ca9eda5863';
     $display->content['new-51ca6526-15e9-4e76-bf08-d5ca9eda5863'] = $pane;
-    $display->panels['one_main'][0] = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
-  $display->hide_title = PANELS_TITLE_NONE;
+    $display->panels['one_main'][4] = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

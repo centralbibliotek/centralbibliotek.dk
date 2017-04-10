@@ -190,7 +190,7 @@ function cbib_search_default_search_api_index() {
         "user:field_name_last" : { "type" : "text", "boost" : "5.0" },
         "user:field_phone" : { "type" : "text" },
         "user:mail" : { "type" : "text", "boost" : "13.0" },
-        "user:name" : { "type" : "text", "boost" : "3.0" }
+        "user:name" : { "type" : "text", "boost" : "13.0" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -588,7 +588,7 @@ function cbib_search_default_search_api_server() {
           "user:name" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "3.0"
+            "boost" : "13.0"
           },
           "user:mail" : {
             "table" : "search_api_db_global_search_text",

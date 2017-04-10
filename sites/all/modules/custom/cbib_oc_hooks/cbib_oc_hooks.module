@@ -107,6 +107,32 @@ function cbib_oc_hooks_permission() {
     )
   );
 }
+
+/**
+ * By enabling this filter, items of this facet can be rewritten prior to rendering by implementing the hook: 
+ */
+function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
+  $locations = cbib_oc_hooks_get_all_event_locations();
+  $loca = array();
+  foreach($locations as $id => $loc) {
+    if ($build[$id]["#markup"] == $loc) {
+      $loca[$id]['#active'] = $build[$id]['#active'];                              
+    }
+    $loca[$id]["#markup"] = $loc;
+    $loca[$id]["#path"] = 'events';
+    $loca[$id]["#query"]['f'] = array() ;
+    if ($loca[$id]['#active'] != '1') {
+    $loca[$id]["#query"]['field_address_locality'] = $loc;
+    }
+    $loca[$id]["#query"]['u'] = '';
+    if ($loc == '') {
+      unset($loca[$id]);
+    }
+
+  }
+
+      $build = $loca;
+}
 /*
 * Alter various forms.
  */
@@ -431,26 +457,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          );
         }
         
-        $form['#action'] = request_uri();
-
-        $form['field_address_locality'] = array(
-            '#options' => array(),
-            '#type' => 'select',
-            '#title' => t('Afholds sted:'),
-        );
-
-        $locations = cbib_oc_hooks_get_all_event_locations();
-
-        foreach($locations as $index => $value)
-        {
-            $form['field_address_locality']['#options'][$index] = $value;
-        }
-
-         $new_form_info = array(
-          'filter-field_address_locality' => array('value' => 'field_address_locality'),
-         );
-
-        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
+      
         # the drupal checkboxes form field definition
         // Add new form item.
         /*$form['filter_free_seats'] = array(
