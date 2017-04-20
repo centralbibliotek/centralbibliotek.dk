@@ -41,7 +41,7 @@
 
         });
 
-            $('option:contains((-))').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li').text());
+            $('.item-list-facetapi-date-range option:contains((-))').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li').text());
 
         //If user wants to cancel his search.
         $('.search-overlay--wrapper .cancel').live('click', function (e) {
