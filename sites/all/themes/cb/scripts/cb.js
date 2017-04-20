@@ -23,9 +23,11 @@
 
         $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue').each(function () {
             var select = $(document.createElement('select')).insertBefore($(this).hide());
-            
-            $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
 
+            $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
+            select.change(function () {
+                window.location = $(this).find("option:selected").val();
+            });
             $('>li a', this).each(function () {
                 var a = $(this).click(function () {
                     window.location.href = this.href;
@@ -40,7 +42,7 @@
             });
 
         });
-
+        
             $('.item-list-facetapi-date-range option:contains((-))').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li').text());
 
         //If user wants to cancel his search.

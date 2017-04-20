@@ -115,7 +115,6 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   if ($settings->facet == "field_date:value") {
     foreach($build as $key => $item) {
       unset($build[$key]['#count']);
-      $build[$key]["#markup"] = drupal_strtoupper($item["#markup"]);
     }
   }
 
@@ -124,8 +123,8 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   $loca = array();
   foreach($locations as $id => $loc) {
     if ($build[$id]["#markup"] == $loc) {
-      $loca[$id]['#active'] = $build[$id]['#active'];                              
-    }
+      $loca[$id]['#active'] = $build[$id]['#active'];  
+      }
     $loca[$id]["#markup"] = $loc;
     $loca[$id]["#path"] = 'events';
     $loca[$id]["#query"]['f'] = array() ;

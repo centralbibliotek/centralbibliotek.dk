@@ -66,7 +66,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Groups */
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
@@ -82,7 +82,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -282,7 +282,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Din søgning gav desværre ingen resultater!';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Groups */
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
@@ -305,7 +305,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Oprettelsesdato';
-  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -427,7 +427,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Title (indexed) */
+  /* Felt: Indholdselement: Titel (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';
