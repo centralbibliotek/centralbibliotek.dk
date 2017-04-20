@@ -13,12 +13,36 @@
 (function ($, Drupal, window, document) {
 
   "use strict";
-  
+
     function trigger_loginSpinner() {
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
-    
+
     $(document).ready(function () {
+        $('.element-invisible').remove();
+
+        $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue').each(function () {
+            var select = $(document.createElement('select')).insertBefore($(this).hide());
+            
+            $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
+
+            $('>li a', this).each(function () {
+                var a = $(this).click(function () {
+                    window.location.href = this.href;
+
+                }),
+                        option = $(document.createElement('option')).appendTo(select).val(this.href).html($(this).html()).click(function () {
+
+                    a.click();
+                    
+                });
+
+            });
+
+        });
+
+            $('option:contains((-))').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li').text());
+
         //If user wants to cancel his search.
         $('.search-overlay--wrapper .cancel').live('click', function (e) {
             try {
@@ -31,12 +55,12 @@
         });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
-    
+
                 // Node search overlay
         $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
             trigger_loginSpinner();
         });
-        
+
         $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
             e.preventDefault();
             if (e.keyCode === 13) {
@@ -47,35 +71,35 @@
             trigger_loginSpinner();
         });
 
-  }); 
-  
+  });
+
     $(document).ajaxComplete(function (e, xhr, settings) {
 
         if (settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
-            //Drupal.attachbehaviours();   
+            //Drupal.attachbehaviours();
 
         }
-    }); 
-  
+    });
+
     // Add a Display icons for hiding elements in views.
     Drupal.behaviors.viewDisplays = {
-        attach: function (context, settings) {           
-           
+        attach: function (context, settings) {
+
             $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value$="item_bundle%3Afile%3Adocument"]').text(function (text) {
-                    return $(this).text().replace(/Dokument/g, "Filer");                
+                    return $(this).text().replace(/Dokument/g, "Filer");
             });
             $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value$="44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value$="44459"').text(function (text) {
-                    return $(this).remove();                
+                    return $(this).remove();
             });
-            
+
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
              $('section .views-exposed-form').once('myslider', function() {
                 $('#views-exposed-form-search-api-group-panel-pane-1 .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
                 $('#views-exposed-form-search-api-arrangementer-page .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
             });
-            
+
             $('.fa-th').click(function () {
                 $('.cb-teaser-list .node-teaser .panel-col-first').show();
                 $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').show();
@@ -198,7 +222,7 @@
       // Add a toggle link.
       if (selected.length !== 0) {
         var href = selected[0].value.split('::')[1];
-      }           
+      }
       if (typeof href === 'undefined') {
         href = '/';
       }

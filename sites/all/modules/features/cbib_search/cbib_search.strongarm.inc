@@ -14,7 +14,7 @@ function cbib_search_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_search_api_facetapi_DAY';
-  $strongarm->value = 'F j, Y';
+  $strongarm->value = 'j. F Y';
   $export['date_format_search_api_facetapi_DAY'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -42,7 +42,7 @@ function cbib_search_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_search_api_facetapi_SECOND';
-  $strongarm->value = 'H:i:S';
+  $strongarm->value = 'H:i:s';
   $export['date_format_search_api_facetapi_SECOND'] = $strongarm;
 
   $strongarm = new stdClass();

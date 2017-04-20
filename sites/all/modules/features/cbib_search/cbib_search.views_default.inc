@@ -124,11 +124,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
-  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
-  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['sorts']['search_api_combined_1']['expose']['label'] = 'Aktualitet';
   $handler->display->display_options['path'] = 'search_api_events';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -165,13 +160,12 @@ function cbib_search_views_default_views() {
     'body:value' => 'body:value',
     'title' => 'title',
   );
-  /* Filterkriterie: Indexed Indholdselement: filter_arrangement_dato */
+  /* Filterkriterie: Handler mangler eller er i stykker */
   $handler->display->display_options['filters']['search_api_aggregation_1']['id'] = 'search_api_aggregation_1';
   $handler->display->display_options['filters']['search_api_aggregation_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['filters']['search_api_aggregation_1']['field'] = 'search_api_aggregation_1';
   $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '<';
   $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
-  $handler->display->display_options['filters']['search_api_aggregation_1']['year_range'] = '-10:+10';
   /* Filterkriterie: Indexed Indholdselement: Pris */
   $handler->display->display_options['filters']['field_price']['id'] = 'field_price';
   $handler->display->display_options['filters']['field_price']['table'] = 'search_api_index_arrangement_index';
@@ -230,7 +224,6 @@ function cbib_search_views_default_views() {
     t('Events - all'),
     t('Kommende arrangementer'),
     t('Viser @start - @end af @total'),
-    t('Aktualitet'),
     t('Events - previous'),
     t('Pris'),
   );

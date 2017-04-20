@@ -112,6 +112,13 @@ function cbib_oc_hooks_permission() {
  * By enabling this filter, items of this facet can be rewritten prior to rendering by implementing the hook: 
  */
 function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
+  if ($settings->facet == "field_date:value") {
+    foreach($build as $key => $item) {
+      unset($build[$key]['#count']);
+      $build[$key]["#markup"] = drupal_strtoupper($item["#markup"]);
+    }
+  }
+
   if ($settings->facet == "field_address:locality") {
   $locations = cbib_oc_hooks_get_all_event_locations();
   $loca = array();

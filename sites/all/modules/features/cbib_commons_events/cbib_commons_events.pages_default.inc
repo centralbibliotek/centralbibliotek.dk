@@ -117,6 +117,29 @@ function cbib_commons_events_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-40eb4078-1813-4e5a-b543-571b428ad128';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-k9aJWJ4JDEw6hhSBq3IrGlonhn6ry6sY';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Aktualitet',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '40eb4078-1813-4e5a-b543-571b428ad128';
+    $display->content['new-40eb4078-1813-4e5a-b543-571b428ad128'] = $pane;
+    $display->panels['one_main'][0] = 'new-40eb4078-1813-4e5a-b543-571b428ad128';
+    $pane = new stdClass();
     $pane->pid = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
     $pane->panel = 'one_main';
     $pane->type = 'block';
@@ -134,34 +157,11 @@ function cbib_commons_events_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
     $display->content['new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7'] = $pane;
-    $display->panels['one_main'][0] = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
-    $pane = new stdClass();
-    $pane->pid = 'new-6ce77767-9aa6-47c3-af88-c688d6f33c9c';
-    $pane->panel = 'one_main';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-DDx431pOxyXaTR32dMcTOJUVRZV3JVzs';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Oprettelsesdato',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '6ce77767-9aa6-47c3-af88-c688d6f33c9c';
-    $display->content['new-6ce77767-9aa6-47c3-af88-c688d6f33c9c'] = $pane;
-    $display->panels['one_main'][1] = 'new-6ce77767-9aa6-47c3-af88-c688d6f33c9c';
+    $display->panels['one_main'][1] = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
     $pane = new stdClass();
     $pane->pid = 'new-52163c9b-2121-470d-b21c-482b1d8b0b16';
     $pane->panel = 'one_main';

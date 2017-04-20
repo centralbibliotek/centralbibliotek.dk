@@ -59,7 +59,6 @@ function cbib_search_default_search_api_index() {
         "field_tilmeldings_frist" : { "type" : "date" },
         "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "search_api_aggregation_1" : { "type" : "list\\u003Cdate\\u003E" },
         "search_api_combined_1" : { "type" : "date" },
         "search_api_language" : { "type" : "string" },
         "title" : { "type" : "text" }
@@ -90,7 +89,7 @@ function cbib_search_default_search_api_index() {
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_aggregation" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "0",
           "settings" : { "fields" : { "search_api_aggregation_1" : {
                 "name" : "filter_arrangement_dato",
@@ -101,7 +100,17 @@ function cbib_search_default_search_api_index() {
             }
           }
         },
-        "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_multi_aggregation" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_multi_aggregation_1" : {
+                "name" : "Startdato",
+                "fields" : [ "field_date:value" ],
+                "description" : "A text aggregation of the following fields: Arrangementsdato \\u00bb Startdato."
+              }
+            }
+          }
+        }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -463,18 +472,6 @@ function cbib_search_default_search_api_server() {
             "type" : "string",
             "boost" : "1.0"
           },
-          "search_api_aggregation_1" : {
-            "table" : "search_api_db_arrangement_index_search_api_aggregation_1",
-            "column" : "value",
-            "type" : "list\\u003Cdate\\u003E",
-            "boost" : "1.0"
-          },
-          "search_api_combined_1" : {
-            "table" : "search_api_db_arrangement_index",
-            "column" : "search_api_combined_1",
-            "type" : "date",
-            "boost" : "1.0"
-          },
           "field_address:organisation_name" : {
             "table" : "search_api_db_arrangement_index",
             "column" : "field_address_organisation_name",
@@ -502,6 +499,12 @@ function cbib_search_default_search_api_server() {
             "table" : "search_api_db_arrangement_index_field_topics",
             "column" : "value",
             "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_combined_1" : {
+            "table" : "search_api_db_arrangement_index",
+            "column" : "search_api_combined_1",
+            "type" : "date",
             "boost" : "1.0"
           }
         },
@@ -719,9 +722,9 @@ function cbib_search_default_search_api_sort() {
     "enabled" : "1",
     "weight" : "0",
     "identifier" : "arrangement_index__search_api_combined_1",
-    "default_sort" : "0",
-    "default_sort_no_terms" : "0",
-    "default_order" : "desc",
+    "default_sort" : "1",
+    "default_sort_no_terms" : "1",
+    "default_order" : "asc",
     "options" : { "field_name" : "COMBINE_DATO" },
     "rdf_mapping" : []
   }');

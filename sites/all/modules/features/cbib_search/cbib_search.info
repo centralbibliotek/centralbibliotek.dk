@@ -7,6 +7,7 @@ dependencies[] = cbib_features
 dependencies[] = date_facets
 dependencies[] = entity
 dependencies[] = facetapi
+dependencies[] = facetapi_bonus
 dependencies[] = facetapi_select
 dependencies[] = facetapi_views
 dependencies[] = page_manager

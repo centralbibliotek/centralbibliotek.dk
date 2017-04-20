@@ -14,7 +14,7 @@ class Drupal_Search_Facetapi_QueryType_DateRangeQueryType extends FacetapiQueryT
    * Implements FacetapiQueryTypeInterface::getType().
    */
   static public function getType() {
-    return 'date_range';
+    return DATE_FACETS_DATE_RANGE_QUERY_TYPE;
   }
 
   /**
