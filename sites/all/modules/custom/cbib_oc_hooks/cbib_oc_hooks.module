@@ -1,5 +1,38 @@
 <?php
 include_once "cbib_oc_hooks.admin.inc";
+
+/**
+ * Implements hook_init().
+ */
+function cbib_oc_hooks_init() {
+  if (!drupal_is_cli()) {
+    // Path of your page with search results.
+     
+      $path_parts = explode('?', request_uri());
+      /* @var $path_parts type */
+      if (!isset($path_parts[1]) && $path_parts[0] == '/arrangementer') {
+      // Name of your searcher.
+      // In this case "search_api" is service
+      // and "solr_index" is machine name of the index.
+      $searcher = 'search_api@arrangement_index';
+      $adapter = facetapi_adapter_load($searcher);
+      $url_processor = $adapter->getUrlProcessor();
+
+      // Check if the filter is already active.
+      $filter = "field_date%3Avalue:future";
+
+      $active_items = $adapter->getAllActiveItems();
+      if (!isset($active_items[$filter])) {
+
+        // If not, get and tamper with your parameters here.
+        $filter_key = $url_processor->getFilterKey();
+        $params = $url_processor->fetchParams();
+        $params[$filter_key][] = $filter;
+        $adapter->setParams($params, $filter_key);
+      }
+    }
+  }
+}
 /*
  * Register any additonal routes required by the module.
  */
