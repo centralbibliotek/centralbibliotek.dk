@@ -35,7 +35,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
+    'limit_active_items' => 1,
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
@@ -78,7 +78,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->facet = 'field_date:value';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',

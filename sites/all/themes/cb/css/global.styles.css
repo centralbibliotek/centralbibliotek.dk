@@ -4282,7 +4282,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 
 .block-facetapi, .panels-ipe-portlet-wrapper {
   display: inline-block;
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 #edit-field-topics {

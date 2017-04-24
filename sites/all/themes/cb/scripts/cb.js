@@ -43,7 +43,7 @@
 
         });
         
-            $('.item-list-facetapi-date-range option:contains((-))').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li').text());
+ $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
 
         //If user wants to cancel his search.
         $('.search-overlay--wrapper .cancel').live('click', function (e) {
@@ -69,7 +69,7 @@
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .block-facetapi option, .views-exposed-widgets option, #reset', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], select.facetapi-select, .item-list.item-list-facetapi-date-range, .block-facetapi option, .views-exposed-widgets option, #reset', function () {
             trigger_loginSpinner();
         });
 
