@@ -69,7 +69,7 @@
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], select.facetapi-select, .item-list.item-list-facetapi-date-range, .block-facetapi option, .views-exposed-widgets option, #reset', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], select.facetapi-select option, .item-list.item-list-facetapi-date-range option, .block-facetapi option, .views-exposed-widgets option, #reset', function () {
             trigger_loginSpinner();
         });
 
