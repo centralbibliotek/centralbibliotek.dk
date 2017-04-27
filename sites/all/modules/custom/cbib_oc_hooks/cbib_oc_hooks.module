@@ -156,15 +156,8 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   $loca = array();
   foreach($locations as $id => $loc) {
     if ($build[$id]["#markup"] == $loc) {
-      $loca[$id]['#active'] = $build[$id]['#active'];  
+      $loca[$id] = $build[$id];  
       }
-    $loca[$id]["#markup"] = $loc;
-    $loca[$id]["#path"] = 'events';
-    $loca[$id]["#query"]['f'] = array() ;
-    if ($loca[$id]['#active'] != '1') {
-    $loca[$id]["#query"]['field_address_locality'] = $loc;
-    }
-    $loca[$id]["#query"]['u'] = '';
     if ($loc == '') {
       unset($loca[$id]);
     }
@@ -472,7 +465,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
       }
          $form['resets'] = array(
          '#markup' => '<a href="/search"><i value='.t('reset').' id="resets" class="fa fa-times"></i></a>',
-         '#weight' => -1,
+         '#weight' => 1000,
          );
     }
 
@@ -483,7 +476,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 
          $form['reset'] = array(
          '#markup' => '<a href="/grupper"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
-         '#weight' => -1,
+         '#weight' => 1000,
          );
       }
     }   
@@ -493,8 +486,8 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
          
          $form['reset'] = array(
-         '#markup' => '<a href=""><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
-         '#weight' => -1,
+         '#markup' => '<a href="/arrangementer"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
+         '#weight' => 1000,
          );
         }
         

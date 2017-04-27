@@ -80,7 +80,7 @@
 
     $(document).ajaxComplete(function (e, xhr, settings) {
 
-        if (settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax") {
+        if (settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
             //Drupal.attachbehaviours();

@@ -1774,8 +1774,8 @@ h1.node-title a:hover {
   position: relative;
   font-size: 180%;
   opacity: 0.5;
-  right: 17%;
-  top: 14px;
+  right: 13%;
+  top: 15px;
 }
 
 .view-display {
@@ -1798,6 +1798,7 @@ h1.node-title a:hover {
 .views-exposed-form .views-exposed-widget {
   float: none;
   display: inline-block;
+  padding: 0;
 }
 .views-exposed-form .views-exposed-widget:first-child {
   margin-top: 0;
@@ -3017,6 +3018,10 @@ ul.action-links {
 /* =============================================================================
  *   Panels Styling
  * ========================================================================== */
+#panels-ipe-paneid-1004 {
+  width: 100%;
+}
+
 .node-title,
 .pane-title {
   font-weight: normal;
