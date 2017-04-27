@@ -183,6 +183,7 @@ function cbib_search_default_search_api_index() {
         "node:author" : { "type" : "integer", "entity_type" : "user" },
         "node:body:value" : { "type" : "text", "boost" : "8.0" },
         "node:created" : { "type" : "date" },
+        "node:field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
         "node:field_e_mail" : { "type" : "text" },
         "node:field_event_audience" : { "type" : "text", "boost" : "2.0" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -645,6 +646,12 @@ function cbib_search_default_search_api_server() {
             "table" : "search_api_db_global_search",
             "column" : "user_field_library",
             "type" : "integer",
+            "boost" : "1.0"
+          },
+          "node:field_date:value" : {
+            "table" : "search_api_db_global_search_node_field_date_value",
+            "column" : "value",
+            "type" : "list\\u003Cdate\\u003E",
             "boost" : "1.0"
           }
         },

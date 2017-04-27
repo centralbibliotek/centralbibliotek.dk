@@ -440,6 +440,15 @@ function cbib_search_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
+  /* Felt: Indholdselement » Arrangementsdato: Startdato (indexed) */
+  $handler->display->display_options['fields']['node_field_date_value']['id'] = 'node_field_date_value';
+  $handler->display->display_options['fields']['node_field_date_value']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['fields']['node_field_date_value']['field'] = 'node_field_date_value';
+  $handler->display->display_options['fields']['node_field_date_value']['label'] = 'Startdato:';
+  $handler->display->display_options['fields']['node_field_date_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['node_field_date_value']['date_format'] = 'search_api_facetapi_DAY';
+  $handler->display->display_options['fields']['node_field_date_value']['second_date_format'] = 'html5_tools_iso8601';
+  $handler->display->display_options['fields']['node_field_date_value']['link_to_entity'] = 0;
   /* Felt: Fil: Filnavn (indexed) */
   $handler->display->display_options['fields']['file_name']['id'] = 'file_name';
   $handler->display->display_options['fields']['file_name']['table'] = 'search_api_index_global_search';
@@ -576,6 +585,7 @@ function cbib_search_views_default_views() {
     t('»'),
     t('Viser @start - @end of @total'),
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
+    t('Startdato:'),
     t('Filnavn'),
     t('Målgruppe'),
     t('Telefon'),
