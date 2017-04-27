@@ -427,7 +427,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['item_bundle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_bundle']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['item_bundle']['format_name'] = 1;
-  /* Felt: Indholdselement: Title (indexed) */
+  /* Felt: Indholdselement: Titel (indexed) */
   $handler->display->display_options['fields']['node_title_field']['id'] = 'node_title_field';
   $handler->display->display_options['fields']['node_title_field']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_title_field']['field'] = 'node_title_field';
@@ -444,9 +444,10 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_date_value']['id'] = 'node_field_date_value';
   $handler->display->display_options['fields']['node_field_date_value']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_field_date_value']['field'] = 'node_field_date_value';
-  $handler->display->display_options['fields']['node_field_date_value']['label'] = 'Startdato:';
-  $handler->display->display_options['fields']['node_field_date_value']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['node_field_date_value']['date_format'] = 'search_api_facetapi_DAY';
+  $handler->display->display_options['fields']['node_field_date_value']['label'] = 'Tidspunkt';
+  $handler->display->display_options['fields']['node_field_date_value']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['node_field_date_value']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['node_field_date_value']['custom_date_format'] = 'D. d. M. Y \\k\\l. H:i';
   $handler->display->display_options['fields']['node_field_date_value']['second_date_format'] = 'html5_tools_iso8601';
   $handler->display->display_options['fields']['node_field_date_value']['link_to_entity'] = 0;
   /* Felt: Fil: Filnavn (indexed) */
@@ -585,7 +586,7 @@ function cbib_search_views_default_views() {
     t('»'),
     t('Viser @start - @end of @total'),
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
-    t('Startdato:'),
+    t('Tidspunkt'),
     t('Filnavn'),
     t('Målgruppe'),
     t('Telefon'),
