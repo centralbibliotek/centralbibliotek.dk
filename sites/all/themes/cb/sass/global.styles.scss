@@ -4171,7 +4171,11 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     display: inline-block;
     margin-right: 0.5em;
 }
-
+.form-type-select.form-item-facets select option {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
 #edit-field-topics {
     width: 90%;
 }
