@@ -181,9 +181,9 @@ function cbib_search_default_search_api_index() {
         "item_bundle" : { "type" : "string" },
         "item_type" : { "type" : "string" },
         "node:author" : { "type" : "integer", "entity_type" : "user" },
-        "node:body:value" : { "type" : "text", "boost" : "8.0" },
+        "node:body:value" : { "type" : "text", "boost" : "5.0" },
         "node:created" : { "type" : "date" },
-        "node:field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
+        "node:field_date:value" : { "type" : "list\\u003Cstring\\u003E" },
         "node:field_e_mail" : { "type" : "text" },
         "node:field_event_audience" : { "type" : "text", "boost" : "2.0" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -193,13 +193,14 @@ function cbib_search_default_search_api_index() {
         "node:status" : { "type" : "integer" },
         "node:title_field" : { "type" : "text", "boost" : "21.0" },
         "node:type" : { "type" : "string" },
+        "search_api_combined_1" : { "type" : "date" },
         "search_api_language" : { "type" : "string" },
         "user:field_job_title" : { "type" : "text" },
         "user:field_library" : { "type" : "integer", "entity_type" : "node" },
         "user:field_name_first" : { "type" : "text", "boost" : "3.0" },
         "user:field_name_last" : { "type" : "text", "boost" : "5.0" },
         "user:field_phone" : { "type" : "text" },
-        "user:mail" : { "type" : "text", "boost" : "13.0" },
+        "user:mail" : { "type" : "text", "boost" : "21.0" },
         "user:name" : { "type" : "text", "boost" : "13.0" }
       },
       "data_alter_callbacks" : {
@@ -214,7 +215,20 @@ function cbib_search_default_search_api_index() {
             }
           }
         },
-        "search_api_alter_add_combined" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_combined" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_combined_1" : {
+                "name" : "Combo startdato",
+                "multivalue" : "0",
+                "type" : "string",
+                "imitate" : "",
+                "fields" : [ "node:field_date:value" ],
+                "description" : "A @type combined of the following fields: Indholdselement \\u00bb Arrangementsdato \\u00bb Startdato."
+              }
+            }
+          }
+        },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
@@ -248,8 +262,8 @@ function cbib_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "node:title_field" : true,
-              "node:field_phone" : true,
               "node:field_e_mail" : true,
+              "node:field_phone" : true,
               "node:field_event_audience" : true,
               "user:name" : true
             },
@@ -597,7 +611,7 @@ function cbib_search_default_search_api_server() {
           "user:mail" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "13.0"
+            "boost" : "21.0"
           },
           "user:field_name_first" : {
             "table" : "search_api_db_global_search_text",
@@ -617,7 +631,7 @@ function cbib_search_default_search_api_server() {
           "node:body:value" : {
             "table" : "search_api_db_global_search_text",
             "type" : "text",
-            "boost" : "8.0"
+            "boost" : "5.0"
           },
           "node:created" : {
             "table" : "search_api_db_global_search",
@@ -651,7 +665,13 @@ function cbib_search_default_search_api_server() {
           "node:field_date:value" : {
             "table" : "search_api_db_global_search_node_field_date_value",
             "column" : "value",
-            "type" : "list\\u003Cdate\\u003E",
+            "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_combined_1" : {
+            "table" : "search_api_db_global_search",
+            "column" : "search_api_combined_1",
+            "type" : "date",
             "boost" : "1.0"
           }
         },
