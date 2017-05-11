@@ -1762,12 +1762,14 @@ h1.node-title a:hover {
 }
 
 /* reset button */
-#resets.fa-times {
+#resets {
   position: relative;
-  right: 37%;
-  font-size: 1.5em;
   opacity: 0.5;
-  top: 5px;
+  top: -7px;
+}
+
+header #resets {
+  visibility: hidden;
 }
 
 .views-reset-button {

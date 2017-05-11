@@ -463,7 +463,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
       if (isset($form['search_api_views_fulltext'])) {
          $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
       }
-         $form['resets'] = array(
+         $form['reset'] = array(
          '#markup' => '<a href="/search"><i value='.t('reset').' id="resets" class="fa fa-times"></i></a>',
          '#weight' => 1000,
          );
