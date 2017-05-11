@@ -14,6 +14,11 @@
 
   "use strict";
 
+// fix ie reset button styling    
+if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
+{
+  $('.views-reset-button').css('top','0');
+}
     function trigger_loginSpinner() {
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
