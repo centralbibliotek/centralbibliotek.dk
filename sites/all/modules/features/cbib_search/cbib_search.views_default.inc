@@ -240,6 +240,7 @@ function cbib_search_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'search api group';
   $handler->display->display_options['css_class'] = 'cb-teaser-list';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -251,6 +252,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -302,6 +304,18 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Oprettelsesdato';
+  /* Sorteringskriterie: Indexed Indholdselement: Title */
+  $handler->display->display_options['sorts']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['sorts']['title_field']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['sorts']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['sorts']['title_field']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['title_field']['expose']['label'] = 'Titel';
+  /* Sorteringskriterie: Indexed Indholdselement: last comment date */
+  $handler->display->display_options['sorts']['field_last_comment_date']['id'] = 'field_last_comment_date';
+  $handler->display->display_options['sorts']['field_last_comment_date']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['sorts']['field_last_comment_date']['field'] = 'field_last_comment_date';
+  $handler->display->display_options['sorts']['field_last_comment_date']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_last_comment_date']['expose']['label'] = 'Nyeste indlæg';
   /* Kontekstuelt filter: Indexed Indholdselement: Groups */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
@@ -333,7 +347,7 @@ function cbib_search_views_default_views() {
 
   /* Display: search api group */
   $handler = $view->new_display('page', 'search api group', 'page_1');
-  $handler->display->display_options['path'] = 'search_api_group';
+  $handler->display->display_options['path'] = 'grupper';
 
   /* Display: search api group mini */
   $handler = $view->new_display('page', 'search api group mini', 'page_2');
@@ -403,6 +417,8 @@ function cbib_search_views_default_views() {
     t(','),
     t('Aktivitet'),
     t('Oprettelsesdato'),
+    t('Titel'),
+    t('Nyeste indlæg'),
     t('Alle'),
     t('search api group mini'),
   );

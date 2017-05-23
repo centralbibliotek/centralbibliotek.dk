@@ -315,12 +315,14 @@ function cbib_search_default_search_api_index() {
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
+        "field_last_comment_date" : { "type" : "integer" },
         "field_radioactivity" : { "type" : "decimal" },
         "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "group_group" : { "type" : "boolean" },
         "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "search_api_language" : { "type" : "string" },
-        "title" : { "type" : "text", "boost" : "2.0" }
+        "title" : { "type" : "text", "boost" : "2.0" },
+        "title_field" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -730,6 +732,18 @@ function cbib_search_default_search_api_server() {
             "column" : "field_radioactivity",
             "type" : "decimal",
             "boost" : "1.0"
+          },
+          "title_field" : {
+            "table" : "search_api_db_group_index",
+            "column" : "title_field",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_last_comment_date" : {
+            "table" : "search_api_db_group_index",
+            "column" : "field_last_comment_date",
+            "type" : "integer",
+            "boost" : "1.0"
           }
         }
       }
@@ -763,7 +777,7 @@ function cbib_search_default_search_api_sort() {
     "field" : "created",
     "name" : "Dato oprettet",
     "enabled" : "1",
-    "weight" : "0",
+    "weight" : "-100",
     "identifier" : "group_index__created",
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
@@ -776,7 +790,7 @@ function cbib_search_default_search_api_sort() {
     "field" : "search_api_relevance",
     "name" : "Relevance",
     "enabled" : "1",
-    "weight" : "0",
+    "weight" : "-99",
     "identifier" : "group_index__search_api_relevance",
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
