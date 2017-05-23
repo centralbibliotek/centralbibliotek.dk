@@ -1474,6 +1474,72 @@ function commons_groups_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-group-og_group_ref'
+  $field_instances['node-group-og_group_ref'] = array(
+    'bundle' => 'group',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => 'Angiv hvilke centralbiblioteker gruppen er tilknyttet.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'og_ui',
+        'settings' => array(),
+        'type' => 'og_list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_in_partial_form' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'og_group_ref',
+    'label' => 'Tilknytning',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Fuld',
+        'type' => 'og_list_default',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Smagsprøve',
+        'type' => 'og_list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-group-og_roles_permissions'
   $field_instances['node-group-og_roles_permissions'] = array(
     'bundle' => 'group',
@@ -2065,6 +2131,7 @@ function commons_groups_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Angiv hvilke centralbiblioteker gruppen er tilknyttet.');
   t('Description');
   t('Determine if this is an OG group.');
   t('Disse privatlivsindstillinger vil ikke ændre synligheden af indhold, der allerede er indsendt i denne gruppe. Det slår kun igennem for indhold oprettet efter gruppen er gemt med nye privatlivsindstillinger.');
@@ -2080,6 +2147,7 @@ function commons_groups_field_default_field_instances() {
   t('Request message');
   t('Separate group names with commas');
   t('This is the text a user may send to the group administrators.');
+  t('Tilknytning');
   t('Vedhæftninger');
   t('last comment date');
 

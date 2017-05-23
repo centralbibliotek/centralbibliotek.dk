@@ -489,6 +489,10 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          '#markup' => '<a href="/arrangementer"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
          '#weight' => 1000,
          );
+         $field_date_value = $form_state['input']['field_date_value'];
+         if ($field_date_value == 'past' || $field_date_value == 'past_year' || $field_date_value == 'past_3_month') {
+           $form['sort_order']['#default_value'] = 'DESC';
+         }
         }
         
       

@@ -81,7 +81,10 @@ function cbib_search_strongarm() {
     ),
     'group_index' => array(
       'search_api_views:search_api_group:page' => 'search_api_views:search_api_group:page',
+      'search_api_views:search_api_group:page_1' => 'search_api_views:search_api_group:page_1',
+      'search_api_views:search_api_group:page_2' => 'search_api_views:search_api_group:page_2',
       'search_api_views:search_api_group:panel_pane_1' => 'search_api_views:search_api_group:panel_pane_1',
+      'search_api_views:search_api_group:panel_pane_2' => 'search_api_views:search_api_group:panel_pane_2',
     ),
   );
   $export['search_api_facets_search_ids'] = $strongarm;

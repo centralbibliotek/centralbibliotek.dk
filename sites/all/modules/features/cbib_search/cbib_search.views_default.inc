@@ -40,7 +40,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -124,6 +124,12 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
+  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['search_api_combined_1']['expose']['label'] = 'COMBINE_DATO';
   $handler->display->display_options['path'] = 'search_api_events';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -131,70 +137,60 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Events - previous */
-  $handler = $view->new_display('page', 'Events - previous', 'page_1');
+  /* Display: Events - mini */
+  $handler = $view->new_display('page', 'Events - mini', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Arrangementer mini visning';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Arrangementsdato: Startdato (indexed) */
+  $handler->display->display_options['fields']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['label'] = '';
+  $handler->display->display_options['fields']['field_date_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date_value']['date_format'] = 'event_datetime';
+  $handler->display->display_options['fields']['field_date_value']['second_date_format'] = 'html5_tools_iso8601';
+  $handler->display->display_options['fields']['field_date_value']['link_to_entity'] = 0;
+  /* Felt: Indexed Indholdselement: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Felt: Indexed Indholdselement: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '250';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_type'] = 'p';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '250',
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
   $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Søg: Fulltext search */
-  $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['operator'] = 'OR';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
-    'body:value' => 'body:value',
-    'title' => 'title',
-  );
-  /* Filterkriterie: Handler mangler eller er i stykker */
-  $handler->display->display_options['filters']['search_api_aggregation_1']['id'] = 'search_api_aggregation_1';
-  $handler->display->display_options['filters']['search_api_aggregation_1']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['search_api_aggregation_1']['field'] = 'search_api_aggregation_1';
-  $handler->display->display_options['filters']['search_api_aggregation_1']['operator'] = '<';
-  $handler->display->display_options['filters']['search_api_aggregation_1']['value'] = 'now';
-  /* Filterkriterie: Indexed Indholdselement: Pris */
-  $handler->display->display_options['filters']['field_price']['id'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['filters']['field_price']['field'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_price']['expose']['operator_id'] = 'field_price_op';
-  $handler->display->display_options['filters']['field_price']['expose']['label'] = 'Pris';
-  $handler->display->display_options['filters']['field_price']['expose']['operator'] = 'field_price_op';
-  $handler->display->display_options['filters']['field_price']['expose']['identifier'] = 'field_price';
-  $handler->display->display_options['filters']['field_price']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_price']['group_info']['label'] = 'Pris';
-  $handler->display->display_options['filters']['field_price']['group_info']['identifier'] = 'field_price_value';
-  $handler->display->display_options['filters']['field_price']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Gratis',
-      'operator' => 'empty',
-      'value' => 'NULL',
-    ),
-    2 => array(
-      'title' => 'Med betaling',
-      'operator' => '>',
-      'value' => '1',
-    ),
-    3 => array(
-      'title' => '',
-      'operator' => '=',
-      'value' => '',
-    ),
-  );
   $handler->display->display_options['path'] = 'search_api_events';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -224,8 +220,9 @@ function cbib_search_views_default_views() {
     t('Events - all'),
     t('Kommende arrangementer'),
     t('Viser @start - @end af @total'),
-    t('Events - previous'),
-    t('Pris'),
+    t('COMBINE_DATO'),
+    t('Events - mini'),
+    t('Arrangementer mini visning'),
   );
   $export['search_api_arrangementer'] = $view;
 
@@ -334,11 +331,54 @@ function cbib_search_views_default_views() {
     'title' => 'title',
   );
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['pane_category']['name'] = 'commons';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-  $handler->display->display_options['inherit_panels_path'] = '1';
+  /* Display: search api group */
+  $handler = $view->new_display('page', 'search api group', 'page_1');
+  $handler->display->display_options['path'] = 'search_api_group';
+
+  /* Display: search api group mini */
+  $handler = $view->new_display('page', 'search api group mini', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'search api group mini';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
+  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indexed Indholdselement: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Felt: Indholdselement: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'og_group_ref';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '250',
+  );
+  $handler->display->display_options['path'] = 'search_api_group';
   $translatables['search_api_group'] = array(
     t('Master'),
     t('search api group'),
@@ -364,8 +404,7 @@ function cbib_search_views_default_views() {
     t('Aktivitet'),
     t('Oprettelsesdato'),
     t('Alle'),
-    t('Content pane'),
-    t('commons'),
+    t('search api group mini'),
   );
   $export['search_api_group'] = $view;
 
@@ -537,16 +576,16 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['user_field_library']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['user_field_library']['view_mode'] = 'full';
   $handler->display->display_options['fields']['user_field_library']['bypass_access'] = 0;
-  /* Sorteringskriterie: Indholdselement: Dato oprettet (indexed) */
-  $handler->display->display_options['sorts']['node_created']['id'] = 'node_created';
-  $handler->display->display_options['sorts']['node_created']['table'] = 'search_api_index_global_search';
-  $handler->display->display_options['sorts']['node_created']['field'] = 'node_created';
-  $handler->display->display_options['sorts']['node_created']['order'] = 'DESC';
   /* Sorteringskriterie: Søg: Relevans */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
+  /* Sorteringskriterie: Indholdselement: Dato oprettet (indexed) */
+  $handler->display->display_options['sorts']['node_created']['id'] = 'node_created';
+  $handler->display->display_options['sorts']['node_created']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['sorts']['node_created']['field'] = 'node_created';
+  $handler->display->display_options['sorts']['node_created']['order'] = 'DESC';
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_global_search';

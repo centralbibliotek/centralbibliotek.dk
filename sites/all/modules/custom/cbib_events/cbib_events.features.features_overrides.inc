@@ -12,8 +12,6 @@ function cbib_events_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: views_view
-  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|pager|options|id"]["DELETED"] = TRUE;
-  $overrides["views_view.commons_events_event_attendee_list.display|panel_pane_1|display_options|pager|options|offset"]["DELETED"] = TRUE;
 
  return $overrides;
 }

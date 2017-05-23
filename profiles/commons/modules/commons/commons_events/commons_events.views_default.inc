@@ -72,6 +72,16 @@ function commons_events_views_default_views() {
   $handler->display->display_options['fields']['realname']['relationship'] = 'user_uid';
   $handler->display->display_options['fields']['realname']['label'] = '';
   $handler->display->display_options['fields']['realname']['element_label_colon'] = FALSE;
+  /* Felt: Bruger: Bibliotek */
+  $handler->display->display_options['fields']['field_library']['id'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['table'] = 'field_data_field_library';
+  $handler->display->display_options['fields']['field_library']['field'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['relationship'] = 'user_uid';
+  $handler->display->display_options['fields']['field_library']['label'] = '';
+  $handler->display->display_options['fields']['field_library']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_library']['settings'] = array(
+    'link' => 0,
+  );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';

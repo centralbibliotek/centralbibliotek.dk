@@ -108,29 +108,18 @@
             });
 
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
-             $('section .views-exposed-form').once('myslider', function() {
-                $('#views-exposed-form-search-api-group-panel-pane-1 .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
-                $('#views-exposed-form-search-api-arrangementer-page .views-exposed-form').after('<div class="view-display"> <i id="fa-th" class="fa fa-th"></i> <i id="bars" class="fa fa-bars"></i></div>');
-            });
-
-            $('.fa-th').click(function () {
-                $('.cb-teaser-list .node-teaser .panel-col-first').show();
-                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').show();
-                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').show();
-            });
-            $('.fa-bars').click(function () {
-                $('.cb-teaser-list .node-teaser .panel-col-first').hide();
-                $('.field.field-name-og-group-ref.field-type-entityreference.field-label-hidden.view-mode-_custom_display').hide();
-                $('.field.field-name-field-topics.field-type-taxonomy-term-reference.field-label-hidden.view-mode-_custom_display').hide();
-            });
+            
+                $('#ui-id-1').html('<i id="fa-th" class="fa fa-th"></i>');
+                $('#ui-id-2').html('<i id="fa-th" class="fa fa-bars"></i>');              
+                $('.ui-state-default.ui-corner-top').css("background-color", "transparent");
         }
     };
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
       $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
-      $('#views-exposed-form-search-api-arrangementer-page input[type="text"]').attr('placeholder', ' Søg i arrangementer');
-      $('#views-exposed-form-search-api-group-panel-pane-1 input[type="text"]').attr('placeholder', ' Søg i grupper');
+      $('#views-exposed-form-search-api-arrangementer-page input[type="text"], #views-exposed-form-search-api-arrangementer-page-1 input[type="text"]').attr('placeholder', ' Søg i arrangementer');
+      $('#views-exposed-form-search-api-group-page-1 input[type="text"], #views-exposed-form-search-api-group-page-2 input[type="text"]').attr('placeholder', ' Søg i grupper');
     }
   };
 
