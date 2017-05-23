@@ -1658,12 +1658,14 @@ ul.primary.tabs li.active a span {
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
   position: relative;
   left: 87%;
-  top: 135px;
+  top: 100px;
   width: 10%;
 }
 
 #tabs-0-center .item-list {
-  height: 12px;
+  height: 0px;
+  width: 100%;
+  display: inline-block;
 }
 
 .page-events .ui-tabs ul li, .page-node-events .ui-tabs ul li, .page-groups .ui-tabs ul li, .page-node-groups .ui-tabs ul li {
@@ -4326,7 +4328,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 }
 
 .block-facetapi {
-  margin-bottom: .7em;
+  margin-bottom: 0px !important;
   padding-bottom: .7em;
 }
 .block-facetapi:last-child {

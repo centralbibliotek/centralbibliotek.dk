@@ -1270,11 +1270,13 @@ ul.primary.tabs {
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
     position: relative;
     left: 87%;
-    top: 135px;
+    top: 100px;
     width: 10%;
 }
 #tabs-0-center .item-list {
-    height: 12px;
+    height: 0px;
+    width: 100%;
+    display: inline-block;
 }
 .page-events .ui-tabs ul li, .page-node-events .ui-tabs ul li, .page-groups .ui-tabs ul li, .page-node-groups .ui-tabs ul li {
     padding: 0.5rem 0 0!important;
@@ -4199,7 +4201,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
     width: 90%;
 }
 .block-facetapi {
-  margin-bottom: .7em;
+  margin-bottom: 0px!important;
   padding-bottom: .7em;
   &:last-child {
     margin-bottom: 0;
