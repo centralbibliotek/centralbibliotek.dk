@@ -262,3 +262,86 @@
     }
   }
 }
+
+// Library branch selector
+.views-exposed-widgets .centralbiblioteker-block {
+  position: absolute;
+  top: 70px;
+  left: 538px;
+  z-index: 100;
+
+  .toggle-link {
+    @extend %toggle-link;
+
+    font-size: 1rem;
+    padding: 0 1em;
+    background-image: url(../images/branch-select-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right 4rem center;
+  }
+
+  a {
+    width: 12rem;
+  }
+
+  ul.region-select {
+    padding: 0;
+    background-color: $gray-darkest;
+    font-size: 1rem;
+    margin: 0;
+
+    &.closed {
+      display: none;
+    }
+
+    &.open {
+      display: block;
+    }
+
+    li {
+      list-style: none none;
+      margin: 0;
+
+      a {
+        @extend %toggle-link;
+        padding: 0.5em 1em;
+        background: none;
+
+        &:hover {
+          color: $brand-primary-light;
+          background-color: $gray-darker;
+        }
+      }
+    }
+  }
+
+  .ctools-jump-menu-button {
+    display: none;
+  }
+
+  select {
+    font-family: $base-font;
+    font-size: 20px;
+    width: 165px;
+    height: 60px;
+    color: $brand-primary;
+    border: 0px;
+    background: transparent;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url(../images/branch-select-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right center;
+
+    &:hover {
+      color: $brand-primary-light;
+    }
+
+    &:active {
+      color: green;
+      font-size: 14px;
+    }
+  }
+}

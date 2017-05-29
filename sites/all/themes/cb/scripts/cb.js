@@ -19,6 +19,9 @@
     }
 
     $(document).ready(function () {
+        
+        $('#block-views-centralbiblioteker-block').clone(true).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
+        $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr( "id" ).addClass('centralbiblioteker-block');
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
         {
