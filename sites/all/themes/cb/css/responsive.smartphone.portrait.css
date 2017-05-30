@@ -20,3 +20,7 @@
 .branch-selector form {
   left: 0 !important;
 }
+
+.views-exposed-form .views-exposed-widget {
+  display: unset;
+}
