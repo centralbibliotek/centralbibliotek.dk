@@ -100,13 +100,13 @@
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {
 
-            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value$="item_bundle%3Afile%3Adocument"]').text(function (text) {
+            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Adocument"]').text(function (text) {
                     return $(this).text().replace(/Dokument/g, "Filer");
             });
-            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value$="item_bundle%3Afile%3Aundefined"]').text(function (text) {
+            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Aundefined"]').text(function (text) {
                 return $(this).text().replace(/file:undefined/g, "Medie filer");
             });
-            $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value$="44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value$="44459"').text(function (text) {
+            $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44459"]').text(function (text) {
                     return $(this).remove();
             });
 
