@@ -14,6 +14,20 @@ function cbib_groups_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function cbib_groups_default_page_manager_pages_alter(&$data) {
+  if (isset($data['groups_directory'])) {
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-1c95172e-d00e-4c7a-b2f9-9358d3977afd']->position = 0; /* WAS: 1 */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0']->position = 1; /* WAS: 2 */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['top'][0] = 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd'; /* WAS: 'new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086' */
+    $data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['top'][1] = 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0'; /* WAS: 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd' */
+    unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->content['new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086']);
+    unset($data['groups_directory']->default_handlers['page_groups_directory_panel_context']->conf['display']->panels['top'][2]);
+  }
+}
+
+/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_groups_panelizer_defaults_override_alter(&$data) {

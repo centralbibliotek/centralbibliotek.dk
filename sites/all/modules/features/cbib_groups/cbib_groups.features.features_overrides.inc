@@ -12,6 +12,12 @@ function cbib_groups_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: page_manager_pages
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-1c95172e-d00e-4c7a-b2f9-9358d3977afd|position"] = 0;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0|position"] = 1;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|0"] = 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd';
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|1"] = 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0';
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|2"]["DELETED"] = TRUE;
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:group:default.display|content|new-0bb1221d-a648-4332-a630-67359e011329"] = (object) array(

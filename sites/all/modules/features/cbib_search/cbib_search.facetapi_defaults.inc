@@ -2945,7 +2945,7 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@group_index';
   $facet->realm = 'block';
   $facet->facet = 'og_group_ref';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
