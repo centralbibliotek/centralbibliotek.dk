@@ -155,11 +155,23 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Adresse: Locality (i.e. City) (indexed) */
+  $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['label'] = '';
+  $handler->display->display_options['fields']['field_address_locality']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['text'] = '[field_address_locality],';
+  $handler->display->display_options['fields']['field_address_locality']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address_locality']['link_to_entity'] = 0;
   /* Felt: Arrangementsdato: Startdato (indexed) */
   $handler->display->display_options['fields']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['fields']['field_date_value']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['fields']['field_date_value']['label'] = '';
+  $handler->display->display_options['fields']['field_date_value']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_date_value']['alter']['text'] = '[field_address_locality] [field_date_value]';
   $handler->display->display_options['fields']['field_date_value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_date_value']['date_format'] = 'event_datetime';
   $handler->display->display_options['fields']['field_date_value']['second_date_format'] = 'html5_tools_iso8601';
@@ -186,6 +198,15 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '250',
   );
+  /* Felt: Indexed Indholdselement: Groups */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
   $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
@@ -223,6 +244,8 @@ function cbib_search_views_default_views() {
     t('COMBINE_DATO'),
     t('Events - mini'),
     t('Arrangementer mini visning'),
+    t('[field_address_locality],'),
+    t('[field_address_locality] [field_date_value]'),
   );
   $export['search_api_arrangementer'] = $view;
 
@@ -381,17 +404,25 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Felt: Indholdselement: The main body text */
+  /* Felt: Indexed Indholdselement: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['relationship'] = 'og_group_ref';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '250',
+    'trim_length' => '300',
   );
+  /* Felt: Indexed Indholdselement: Groups */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
   $handler->display->display_options['path'] = 'search_api_group';
   $translatables['search_api_group'] = array(
     t('Master'),
@@ -473,6 +504,11 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  /* Forbindelse: Indholdselement: Groups (indexed) */
+  $handler->display->display_options['relationships']['node_og_group_ref']['id'] = 'node_og_group_ref';
+  $handler->display->display_options['relationships']['node_og_group_ref']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['relationships']['node_og_group_ref']['field'] = 'node_og_group_ref';
+  $handler->display->display_options['relationships']['node_og_group_ref']['label'] = 'Grupper';
   /* Felt: Indexed Multiple types: Bundle */
   $handler->display->display_options['fields']['item_bundle']['id'] = 'item_bundle';
   $handler->display->display_options['fields']['item_bundle']['table'] = 'search_api_index_global_search';
@@ -495,11 +531,24 @@ function cbib_search_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
+  /* Felt: Indholdselement » Adresse: Locality (i.e. City) (indexed) */
+  $handler->display->display_options['fields']['node_field_address_locality']['id'] = 'node_field_address_locality';
+  $handler->display->display_options['fields']['node_field_address_locality']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['fields']['node_field_address_locality']['field'] = 'node_field_address_locality';
+  $handler->display->display_options['fields']['node_field_address_locality']['label'] = '';
+  $handler->display->display_options['fields']['node_field_address_locality']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['node_field_address_locality']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['node_field_address_locality']['alter']['text'] = '[node_field_address_locality],';
+  $handler->display->display_options['fields']['node_field_address_locality']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['node_field_address_locality']['link_to_entity'] = 0;
   /* Felt: Indholdselement » Arrangementsdato: Startdato (indexed) */
   $handler->display->display_options['fields']['node_field_date_value']['id'] = 'node_field_date_value';
   $handler->display->display_options['fields']['node_field_date_value']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_field_date_value']['field'] = 'node_field_date_value';
-  $handler->display->display_options['fields']['node_field_date_value']['label'] = 'Tidspunkt';
+  $handler->display->display_options['fields']['node_field_date_value']['label'] = '';
+  $handler->display->display_options['fields']['node_field_date_value']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['node_field_date_value']['alter']['text'] = '[node_field_address_locality] [node_field_date_value]';
+  $handler->display->display_options['fields']['node_field_date_value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['node_field_date_value']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['node_field_date_value']['date_format'] = 'custom';
   $handler->display->display_options['fields']['node_field_date_value']['custom_date_format'] = 'D. d. M. Y \\k\\l. H:i';
@@ -512,12 +561,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['file_name']['label'] = 'Filnavn';
   $handler->display->display_options['fields']['file_name']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['file_name']['link_to_entity'] = 1;
-  /* Felt: Indholdselement: Målgruppe (indexed) */
-  $handler->display->display_options['fields']['node_field_event_audience']['id'] = 'node_field_event_audience';
-  $handler->display->display_options['fields']['node_field_event_audience']['table'] = 'search_api_index_global_search';
-  $handler->display->display_options['fields']['node_field_event_audience']['field'] = 'node_field_event_audience';
-  $handler->display->display_options['fields']['node_field_event_audience']['label'] = 'Målgruppe';
-  $handler->display->display_options['fields']['node_field_event_audience']['hide_empty'] = TRUE;
   /* Felt: Indholdselement: Telefon (indexed) */
   $handler->display->display_options['fields']['node_field_phone']['id'] = 'node_field_phone';
   $handler->display->display_options['fields']['node_field_phone']['table'] = 'search_api_index_global_search';
@@ -545,6 +588,15 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_topics']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['node_field_topics']['view_mode'] = 'full';
   $handler->display->display_options['fields']['node_field_topics']['bypass_access'] = 0;
+  /* Felt: Indholdselement: Groups (indexed) */
+  $handler->display->display_options['fields']['node_og_group_ref']['id'] = 'node_og_group_ref';
+  $handler->display->display_options['fields']['node_og_group_ref']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['fields']['node_og_group_ref']['field'] = 'node_og_group_ref';
+  $handler->display->display_options['fields']['node_og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['node_og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['node_og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['node_og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['node_og_group_ref']['bypass_access'] = 0;
   /* Felt: Indexed Multiple types: Bruger */
   $handler->display->display_options['fields']['user']['id'] = 'user';
   $handler->display->display_options['fields']['user']['table'] = 'search_api_index_global_search';
@@ -638,9 +690,10 @@ function cbib_search_views_default_views() {
     t('»'),
     t('Viser @start - @end of @total'),
     t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
-    t('Tidspunkt'),
+    t('Grupper'),
+    t('[node_field_address_locality],'),
+    t('[node_field_address_locality] [node_field_date_value]'),
     t('Filnavn'),
-    t('Målgruppe'),
     t('Telefon'),
     t('Emner'),
     t('Bruger'),

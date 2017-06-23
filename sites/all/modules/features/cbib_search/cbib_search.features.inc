@@ -186,13 +186,16 @@ function cbib_search_default_search_api_index() {
         "node:author" : { "type" : "integer", "entity_type" : "user" },
         "node:body:value" : { "type" : "text", "boost" : "5.0" },
         "node:created" : { "type" : "date" },
+        "node:field_address:locality" : { "type" : "string" },
         "node:field_date:value" : { "type" : "list\\u003Cstring\\u003E" },
         "node:field_e_mail" : { "type" : "text" },
         "node:field_event_audience" : { "type" : "text", "boost" : "2.0" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "node:field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "node:field_location" : { "type" : "string" },
         "node:field_phone" : { "type" : "text", "boost" : "13.0" },
         "node:field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "node:og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "node:status" : { "type" : "integer" },
         "node:title_field" : { "type" : "text", "boost" : "21.0" },
         "node:type" : { "type" : "string" },
@@ -677,6 +680,24 @@ function cbib_search_default_search_api_server() {
             "table" : "search_api_db_global_search",
             "column" : "search_api_combined_1",
             "type" : "date",
+            "boost" : "1.0"
+          },
+          "node:field_location" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_field_location",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "node:og_group_ref" : {
+            "table" : "search_api_db_global_search_node_og_group_ref",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "node:field_address:locality" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_field_address_locality",
+            "type" : "string",
             "boost" : "1.0"
           }
         },
