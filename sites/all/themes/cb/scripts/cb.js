@@ -67,13 +67,10 @@
             });
 
         });
-    /*
+        /*
          * Add preloader to everything ?
          */
-        $('.main-menu').find('a').click(function(){
-            trigger_loginSpinner();
-        });
-        $('.page[class!="toggle-link"]').find('a').click(function(){
+        $('html').find('a[class!="toggle-link"]').click(function(){
             trigger_loginSpinner();
         });    
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
