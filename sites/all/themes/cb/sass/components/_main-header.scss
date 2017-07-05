@@ -262,17 +262,16 @@
     }
   }
 }
-
+.edit-search-api-views-fulltext-wrapper .views-reset-button
+{
+    z-index:101; 
+}
 // Library branch selector
 .views-exposed-widgets .centralbiblioteker-block {
   position: absolute;
   top: 70px;
   left: 538px;
   z-index: 100;
-  .views-reset-button
-  { 
-      z-index:101; 
-  }
   .toggle-link {
     @extend %toggle-link;
 
