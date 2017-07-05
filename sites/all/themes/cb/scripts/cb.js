@@ -73,7 +73,7 @@
         $('.main-menu').find('a').click(function(){
             trigger_loginSpinner();
         });
-        $('.page').find('a').click(function(){
+        $('.page[class!="toggle-link"]').find('a').click(function(){
             trigger_loginSpinner();
         });    
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
