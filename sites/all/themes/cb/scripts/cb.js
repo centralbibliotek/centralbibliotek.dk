@@ -19,15 +19,7 @@
     }
 
     $(document).ready(function () {
-        /*
-         * Add preloader to everything ?
-         */
-        $('.main-menu').find('a').click(function(){
-            trigger_loginSpinner();
-        });
-        $('.page').find('a').click(function(){
-            trigger_loginSpinner();
-        });
+        
         
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
@@ -75,7 +67,15 @@
             });
 
         });
-        
+    /*
+         * Add preloader to everything ?
+         */
+        $('.main-menu').find('a').click(function(){
+            trigger_loginSpinner();
+        });
+        $('.page').find('a').click(function(){
+            trigger_loginSpinner();
+        });    
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
 
         //If user wants to cancel his search.
