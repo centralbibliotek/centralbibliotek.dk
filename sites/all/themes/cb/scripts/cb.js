@@ -70,7 +70,8 @@
         /*
          * Add preloader to everything ?
          */
-        $('html').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"]').click(function(){
+        $('html').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"]\n\
+[id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]').click(function(){
             trigger_loginSpinner();
         });    
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
