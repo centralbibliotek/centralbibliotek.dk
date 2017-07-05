@@ -104,7 +104,7 @@
   
     $(document).ajaxComplete(function (e, xhr, settings) {
         debugger;
-        if (settings.url.indexOf("?q=views/ajax") !== -1 ||settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
+        if (settings.url.indexOf("/views/ajax?") !== -1 ||settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
             $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
