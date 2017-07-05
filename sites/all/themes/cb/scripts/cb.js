@@ -30,11 +30,11 @@
             debugger;
             if(window.location.href.indexOf("arrangementer") !== -1)
             {
-                $('.region-select.closed li:first-child').html('<a href="/arrangementer">Vælg alle</a>');
+                $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
             }
             if(window.location.href.indexOf("grupper") !== -1)
             {
-                $('.region-select.closed li:first-child').html('<a href="/grupper">Vælg alle</a>');
+                $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
             }
             
         });
@@ -116,11 +116,11 @@
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
                 if(window.location.href.indexOf("arrangementer") !== -1)
                 {
-                    $('.region-select.closed li:first-child').html('<a href="/arrangementer">Vælg alle</a>');
+                    $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
                 }
                 if(window.location.href.indexOf("grupper") !== -1)
                 {
-                    $('.region-select.closed li:first-child').html('<a href="/grupper">Vælg alle</a>');
+                    $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
                 }
 
             });
