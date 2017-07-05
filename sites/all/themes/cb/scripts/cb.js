@@ -27,7 +27,7 @@
             event.preventDefault();
             $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
             $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-            debugger;
+            
             if(window.location.href.indexOf("arrangementer") !== -1)
             {
                 $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
@@ -103,7 +103,7 @@
   });
   
     $(document).ajaxComplete(function (e, xhr, settings) {
-
+        debugger;
         if (settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
