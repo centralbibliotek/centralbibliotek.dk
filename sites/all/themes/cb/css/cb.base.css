@@ -1162,7 +1162,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   font-size: 14px;
 }
 
-#edit-search-api-views-fulltext-wrapper .views-reset-button {
+.views-exposed-widgets .views-reset-button {
   z-index: 101;
 }
 
