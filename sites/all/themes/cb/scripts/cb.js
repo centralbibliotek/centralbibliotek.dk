@@ -27,7 +27,16 @@
             event.preventDefault();
             $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
             $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-            $('.region-select.closed li:first-child').html('<a href="'+window.location.href +'">Vælg alle</a>');
+            debugger;
+            if(window.location.href.indexOf("arrangementer") !== -1)
+            {
+                $('.region-select.closed li:first-child').html('<a href="/arrangementer">Vælg alle</a>');
+            }
+            if(window.location.href.indexOf("grupper") !== -1)
+            {
+                $('.region-select.closed li:first-child').html('<a href="/arrangementer">Vælg alle</a>');
+            }
+            
         });
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
