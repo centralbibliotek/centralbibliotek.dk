@@ -73,7 +73,7 @@
         $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').click(function(){
             trigger_loginSpinner();
         });    
-        (".feed-icon").find("a").unbind('click');
+        $(".feed-icon").find("a").unbind('click');
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
 
         //If user wants to cancel his search.
