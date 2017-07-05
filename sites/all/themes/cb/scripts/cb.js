@@ -19,6 +19,12 @@
     }
 
     $(document).ready(function () {
+        /*
+         * Add preloader to everything ?
+         */
+        $('body').find('a').click(function(){
+            trigger_loginSpinner();
+        });
         
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
@@ -99,6 +105,7 @@
         $('select').change(function () {
             trigger_loginSpinner();
         });
+
 
   });
   
