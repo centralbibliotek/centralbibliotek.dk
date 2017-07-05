@@ -22,7 +22,10 @@
         /*
          * Add preloader to everything ?
          */
-        $('body').find('a').click(function(){
+        $('.main-menu').find('a').click(function(){
+            trigger_loginSpinner();
+        });
+        $('.page').find('a').click(function(){
             trigger_loginSpinner();
         });
         
