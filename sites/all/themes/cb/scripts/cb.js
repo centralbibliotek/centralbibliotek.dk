@@ -27,7 +27,7 @@
             event.preventDefault();
             $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
             $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-            $('.region-select.closed li:first-child').html('<a href="/">Vælg alle</a>');
+            $('.region-select.closed li:first-child').html('<a href="'+window.location.href +'">Vælg alle</a>');
         });
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
@@ -105,7 +105,7 @@
                 event.preventDefault();
                 $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-                $('.region-select.closed li:first-child').html('<a href="/">Vælg alle</a>');
+                $('.region-select.closed li:first-child').html('<a href="'+window.location.href +'">Vælg alle</a>');
             });
             //Drupal.attachbehaviours();
 
