@@ -1168,6 +1168,9 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   left: 538px;
   z-index: 100;
 }
+.views-exposed-widgets .centralbiblioteker-block .views-reset-button {
+  z-index: 101;
+}
 .views-exposed-widgets .centralbiblioteker-block .toggle-link {
   font-size: 1rem;
   padding: 0 1em;
