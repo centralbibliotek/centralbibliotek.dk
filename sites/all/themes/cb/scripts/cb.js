@@ -70,7 +70,7 @@
         /*
          * Add preloader to everything ?
          */
-        $('html').find('a[class!="toggle-link"][class!="ui-tabs-anchor"]').click(function(){
+        $('html').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"]').click(function(){
             trigger_loginSpinner();
         });    
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
