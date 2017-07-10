@@ -28,12 +28,12 @@
             event.preventDefault();
             if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
             {
-                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
             }
             else
             {
-                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
             }
             
@@ -130,12 +130,12 @@
                 event.preventDefault();
             if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
             {
-                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
             }
             else
             {
-                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
             }
                 
