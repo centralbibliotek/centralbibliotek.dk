@@ -26,8 +26,16 @@
         $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr( "id" ).addClass('centralbiblioteker-block');
         $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
             event.preventDefault();
-            $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
-            $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
+            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
+            {
+                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
+            }
+            else
+            {
+                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
+            }
             
             if(window.location.href.indexOf("arrangementer") !== -1)
             {
@@ -120,8 +128,17 @@
             $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr("id").addClass('centralbiblioteker-block');
             $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
                 event.preventDefault();
-                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
+            {
+                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
+            }
+            else
+            {
+                //$('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
                 $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
+            }
+                
                 if(window.location.href.indexOf("arrangementer") !== -1)
                 {
                     $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
