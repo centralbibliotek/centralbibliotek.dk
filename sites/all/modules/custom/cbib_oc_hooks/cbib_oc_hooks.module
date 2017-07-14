@@ -52,6 +52,14 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('access user profiles'),
         
    );
+   $items['flag/flag/follow/all/library'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'test',
+    'description' => 'test',
+    'page callback' => 'user_follow_all_library_licenes',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+   );
    
   return $items;
 }
@@ -349,10 +357,11 @@ function cbib_oc_hooks_views_pre_render(&$view)
         $content = array();
         $target_group = node_load(127);
         $links = flag_link('node', $target_group,'page_manager');
+        $follow_all_link = get_follow_all_license_link();
         $header_options = array(
         'label' => t('Header text'), // Administrative label. Not really needed here.
         //'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
-            'content' => $links['flag-commons_follow_node']['title'], // Fix for live site.
+            'content' => $links['flag-commons_follow_node']['title'] . $follow_all_link, // Fix for live site.
         'format' => 'filtered_html', // Format of header text.
         'empty' => 1, // Show even when there are no results. Set to zero otherwise.
       );
@@ -611,3 +620,53 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
 
     return $replacements;
 }
+/*
+   * Allow users to follow all the licenses that the users cb/library subscribes too.
+   * 
+   */
+  function user_follow_all_library_licenes()
+  {
+      global $user; //get the curent user
+      $user_data = user_load($user->uid);
+      $user_library_id = $user_data->field_library['und'][0]['target_id']; //get the current user library
+      /*
+       * Query all licenes that the library is subsribed too
+       */
+      $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'license')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->fieldCondition('field_library_ref', 'target_id', $user_library_id , '=')
+        // Run the query as user 1.
+        ->addMetaData('account', user_load(1));
+        $result = $query->execute();
+      /*
+       * Subscribe the user to these if not already subscribed.
+       */
+      if (isset($result['node'])) {
+        $license_nids = array_keys($result['node']);
+        foreach($license_nids as $lid)
+        {
+            commons_follow_node_follow_node($lid, 'license', $user->uid);
+            break;
+        }
+      }
+      /*
+       * Show pretty success message.
+       */
+      drupal_set_message(t("Du følger nu alle licenser som dit bibliotek har adgang til."));
+      $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+      drupal_goto($referer);
+  }
+  function get_follow_all_license_link()
+  {
+      if(user_is_logged_in())
+      {
+          return "<div><a title='Som dit bibliotek abonere på.' href='/flag/flag/follow/all/library' class='action-item-small'>Følg alle licenser (som dit bibliotek abbonere på)</a></div>";
+      }
+      else
+      {
+          return '';
+      }
+      
+  }
