@@ -661,7 +661,7 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
   {
       if(user_is_logged_in())
       {
-          return "<div><a title='Som dit bibliotek abonere på.' href='/flag/flag/follow/all/library' class='action-item-small'>Følg alle licenser (som dit bibliotek abbonere på)</a></div>";
+          return "<div><a title='Som dit bibliotek abonere på.' href='/flag/flag/follow/all/library' class='action-item-small'>Følg alle licenser som dit bibliotek abonnere på</a></div>";
       }
       else
       {
