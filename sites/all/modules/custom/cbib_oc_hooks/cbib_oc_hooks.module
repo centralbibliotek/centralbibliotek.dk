@@ -648,7 +648,6 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
         foreach($license_nids as $lid)
         {
             commons_follow_node_follow_node($lid, 'license', $user->uid);
-            break;
         }
       }
       /*
