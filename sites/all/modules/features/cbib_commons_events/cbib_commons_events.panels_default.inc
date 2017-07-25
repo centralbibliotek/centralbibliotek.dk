@@ -121,6 +121,50 @@ function cbib_commons_events_default_panels_mini() {
     $display->content['new-364ec86c-9905-4678-b228-7b9733acd0b4'] = $pane;
     $display->panels['one_main'][1] = 'new-364ec86c-9905-4678-b228-7b9733acd0b4';
     $pane = new stdClass();
+    $pane->pid = 'new-eeecb895-33ad-44c9-8f4c-13fe1adf0f1d';
+    $pane->panel = 'one_main';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_ansvarlig_for_dagen';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'double_field_unformatted_list',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'first' => array(
+          'hidden' => 0,
+          'format' => '_none',
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'second' => array(
+          'hidden' => 0,
+          'format' => '_none',
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'style' => 'inline',
+      ),
+      'context' => 'requiredcontext_entity:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Ansvarlig',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'eeecb895-33ad-44c9-8f4c-13fe1adf0f1d';
+    $display->content['new-eeecb895-33ad-44c9-8f4c-13fe1adf0f1d'] = $pane;
+    $display->panels['one_main'][2] = 'new-eeecb895-33ad-44c9-8f4c-13fe1adf0f1d';
+    $pane = new stdClass();
     $pane->pid = 'new-2fcfb378-35ca-4de2-811f-4b7a4c39ee0e';
     $pane->panel = 'one_main';
     $pane->type = 'entity_field';
@@ -158,18 +202,38 @@ function cbib_commons_events_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = '2fcfb378-35ca-4de2-811f-4b7a4c39ee0e';
     $display->content['new-2fcfb378-35ca-4de2-811f-4b7a4c39ee0e'] = $pane;
-    $display->panels['one_main'][2] = 'new-2fcfb378-35ca-4de2-811f-4b7a4c39ee0e';
+    $display->panels['one_main'][3] = 'new-2fcfb378-35ca-4de2-811f-4b7a4c39ee0e';
     $pane = new stdClass();
     $pane->pid = 'new-87137eb0-4ada-400f-ad12-cc984d6fe78b';
     $pane->panel = 'one_main';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_address';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_field_value:node:event:field_location',
+          'settings' => array(
+            'field_location' => array(
+              'und' => array(
+                0 => array(
+                  'value' => 'online',
+                ),
+              ),
+            ),
+            'field_location_value' => array(
+              0 => 'online',
+            ),
+          ),
+          'context' => 'requiredcontext_entity:node_1',
+          'not' => TRUE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'label' => 'title',
       'formatter' => 'addressfield_default',
@@ -196,11 +260,11 @@ function cbib_commons_events_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '87137eb0-4ada-400f-ad12-cc984d6fe78b';
     $display->content['new-87137eb0-4ada-400f-ad12-cc984d6fe78b'] = $pane;
-    $display->panels['one_main'][3] = 'new-87137eb0-4ada-400f-ad12-cc984d6fe78b';
+    $display->panels['one_main'][4] = 'new-87137eb0-4ada-400f-ad12-cc984d6fe78b';
     $pane = new stdClass();
     $pane->pid = 'new-4097c32d-b11e-4942-9f34-8fba531958a6';
     $pane->panel = 'one_main';
@@ -225,11 +289,11 @@ function cbib_commons_events_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '4097c32d-b11e-4942-9f34-8fba531958a6';
     $display->content['new-4097c32d-b11e-4942-9f34-8fba531958a6'] = $pane;
-    $display->panels['one_main'][4] = 'new-4097c32d-b11e-4942-9f34-8fba531958a6';
+    $display->panels['one_main'][5] = 'new-4097c32d-b11e-4942-9f34-8fba531958a6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
@@ -307,7 +371,27 @@ function cbib_commons_events_default_panels_mini() {
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_number_of_attendees';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_field_value:node:event:field_registration',
+          'settings' => array(
+            'field_registration' => array(
+              'und' => array(
+                0 => array(
+                  'registration_type' => 'event',
+                ),
+              ),
+            ),
+            'field_registration_registration_type' => array(
+              0 => 'event',
+            ),
+          ),
+          'context' => 'requiredcontext_entity:node_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'label' => 'title',
       'formatter' => 'number_integer',
@@ -339,7 +423,27 @@ function cbib_commons_events_default_panels_mini() {
     $pane->type = 'cbib_events_seats_available';
     $pane->subtype = 'cbib_events_seats_available';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_field_value:node:event:field_registration',
+          'settings' => array(
+            'field_registration' => array(
+              'und' => array(
+                0 => array(
+                  'registration_type' => 'event',
+                ),
+              ),
+            ),
+            'field_registration_registration_type' => array(
+              0 => 'event',
+            ),
+          ),
+          'context' => 'requiredcontext_entity:node_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'cbib_events_no_seats_available_text' => 'Alt optaget, desværre',
       'context' => 'requiredcontext_entity:node_1',

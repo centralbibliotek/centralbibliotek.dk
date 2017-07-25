@@ -26,8 +26,19 @@ function cbib_events_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+      1 => array(
+        'name' => 'og_perm',
+        'settings' => array(
+          'perm' => 'manage members',
+        ),
+        'context' => array(
+          0 => 'logged-in-user',
+          1 => 'argument_entity_id:node_1',
+        ),
+        'not' => FALSE,
+      ),
     ),
-    'logic' => 'and',
+    'logic' => 'or',
     'type' => 'none',
     'settings' => NULL,
   );

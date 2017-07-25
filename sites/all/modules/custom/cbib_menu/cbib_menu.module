@@ -75,7 +75,8 @@ function cbib_menu_translated_menu_link_alter(&$item, $map) {
  * 3) Centralbibliotek front pages must enforce it to themselves.
  */
 function cbib_menu_init() {
-  if (drupal_is_front_page()) {
+  $params = drupal_get_query_parameters();
+  if (drupal_is_front_page() || isset($params['reset_cb'])) {
     drupal_session_start();
     $_SESSION['cbib_centralbibliotek'] = FALSE;
   }

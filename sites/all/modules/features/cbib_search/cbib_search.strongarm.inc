@@ -14,7 +14,7 @@ function cbib_search_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_search_api_facetapi_DAY';
-  $strongarm->value = 'F j, Y';
+  $strongarm->value = 'j. F Y';
   $export['date_format_search_api_facetapi_DAY'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -42,7 +42,7 @@ function cbib_search_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_search_api_facetapi_SECOND';
-  $strongarm->value = 'H:i:S';
+  $strongarm->value = 'H:i:s';
   $export['date_format_search_api_facetapi_SECOND'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -68,7 +68,23 @@ function cbib_search_strongarm() {
       'search_api_views:seach:panel_pane_1' => 'search_api_views:seach:panel_pane_1',
     ),
     'arrangement_index' => array(
+      'search_api_views:search_api_arrangementer:default' => 'search_api_views:search_api_arrangementer:default',
       'search_api_views:search_api_arrangementer:page' => 'search_api_views:search_api_arrangementer:page',
+      'search_api_views:search_api_arrangementer:page_1' => 'search_api_views:search_api_arrangementer:page_1',
+      'search_api_views:search_api_arrangementer:panel_pane_1' => 'search_api_views:search_api_arrangementer:panel_pane_1',
+    ),
+    'global_search' => array(
+      'search_api_views:search_api_nodes:block_1' => 'search_api_views:search_api_nodes:block_1',
+      'search_api_views:search_api_nodes:default' => 'search_api_views:search_api_nodes:default',
+      'search_api_views:search_api_nodes:page' => 'search_api_views:search_api_nodes:page',
+      'search_api_views:search_api_nodes:panel_pane_1' => 'search_api_views:search_api_nodes:panel_pane_1',
+    ),
+    'group_index' => array(
+      'search_api_views:search_api_group:page' => 'search_api_views:search_api_group:page',
+      'search_api_views:search_api_group:page_1' => 'search_api_views:search_api_group:page_1',
+      'search_api_views:search_api_group:page_2' => 'search_api_views:search_api_group:page_2',
+      'search_api_views:search_api_group:panel_pane_1' => 'search_api_views:search_api_group:panel_pane_1',
+      'search_api_views:search_api_group:panel_pane_2' => 'search_api_views:search_api_group:panel_pane_2',
     ),
   );
   $export['search_api_facets_search_ids'] = $strongarm;

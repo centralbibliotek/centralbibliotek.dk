@@ -1,0 +1,28 @@
+diff --git a/search_api.info b/search_api.info
+index f5885cb..61673fd 100644
+--- a/search_api.info
++++ b/search_api.info
+@@ -10,6 +10,7 @@ files[] = includes/callback.inc
+ files[] = includes/callback_add_aggregation.inc
+ files[] = includes/callback_add_hierarchy.inc
+ files[] = includes/callback_add_url.inc
++files[] = includes/callback_add_fulltext.inc
+ files[] = includes/callback_add_viewed_entity.inc
+ files[] = includes/callback_bundle_filter.inc
+ files[] = includes/callback_language_control.inc
+diff --git a/search_api.module b/search_api.module
+index 9c435d1..a582b4f 100644
+--- a/search_api.module
++++ b/search_api.module
+@@ -716,6 +716,11 @@ function search_api_search_api_alter_callback_info() {
+     'description' => t("Adds the item's URL to the indexed data."),
+     'class' => 'SearchApiAlterAddUrl',
+   );
++  $callbacks['search_api_alter_add_fulltext'] = array(
++    'name' => t('Bundle filter'),
++    'description' => t("Adds the item's full text to the indexed data."),
++    'class' => 'SearchApiAlterAddFulltext',
++  );
+   $callbacks['search_api_alter_add_aggregation'] = array(
+     'name' => t('Aggregated fields'),
+     'description' => t('Gives you the ability to define additional fields, containing data from one or more other fields.'),

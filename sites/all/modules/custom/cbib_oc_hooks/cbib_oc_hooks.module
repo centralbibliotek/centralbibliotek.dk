@@ -1,5 +1,38 @@
 <?php
 include_once "cbib_oc_hooks.admin.inc";
+
+/**
+ * Implements hook_init().
+ */
+function cbib_oc_hooks_init() {
+  if (!drupal_is_cli()) {
+    // Path of your page with search results.
+     
+      $path_parts = explode('?', request_uri());
+      /* @var $path_parts type */
+      if (!isset($path_parts[1]) && $path_parts[0] == '/arrangementer') {
+      // Name of your searcher.
+      // In this case "search_api" is service
+      // and "solr_index" is machine name of the index.
+      $searcher = 'search_api@arrangement_index';
+      $adapter = facetapi_adapter_load($searcher);
+      $url_processor = $adapter->getUrlProcessor();
+
+      // Check if the filter is already active.
+      $filter = "field_date%3Avalue:future";
+
+      $active_items = $adapter->getAllActiveItems();
+      if (!isset($active_items[$filter])) {
+
+        // If not, get and tamper with your parameters here.
+        $filter_key = $url_processor->getFilterKey();
+        $params = $url_processor->fetchParams();
+        $params[$filter_key][] = $filter;
+        $adapter->setParams($params, $filter_key);
+      }
+    }
+  }
+}
 /*
  * Register any additonal routes required by the module.
  */
@@ -14,7 +47,7 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('administer cbib_hooks'),
     'access callback' => TRUE,
    );
-  
+
    $items['admin/settings/cbib_oc_hooks/js/summary'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'js_summary',
@@ -23,7 +56,7 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('administer cbib_hooks'),
     'access callback' => TRUE,
    );
-   
+
   $items['oc/user/autocomplete'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'autocomplete with names + emails.',
@@ -32,7 +65,7 @@ function  cbib_oc_hooks_menu() {
     'access callback' => 'user_access',
     'access arguments' => array('access user profiles'),
    );
-   
+
     $items['group/%/%/admin/oc/resend'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'Resend group notification.',
@@ -42,7 +75,7 @@ function  cbib_oc_hooks_menu() {
     'access callback' => 'og_ui_user_access_group',
     'access arguments' => array('add user', 1, 2),
    );
-    
+
     $items['admin/rebuild/nodes/last/posts'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'rebuild',
@@ -50,7 +83,7 @@ function  cbib_oc_hooks_menu() {
     'page callback' => 'update_all_groups_with_comments',
     'access callback' => 'user_access',
     'access arguments' => array('access user profiles'),
-        
+
    );
    $items['flag/flag/follow/all/library'] = array(
     'type' => MENU_CALLBACK,
@@ -85,7 +118,7 @@ function cbib_oc_hooks_registration_administer_registrations_access ($entity_typ
   }
   $registration_type = registration_get_entity_registration_type($entity_type, $entity);
    if ($registration_type) {
-  if (user_access("administer $registration_type registration")) { 
+  if (user_access("administer $registration_type registration")) {
     return TRUE;
   }
   elseif (user_access("administer own $registration_type registration") && entity_access('update', $entity_type, $entity)) {
@@ -96,7 +129,7 @@ function cbib_oc_hooks_registration_administer_registrations_access ($entity_typ
 }
 
 function cbib_oc_hooks_registration_access($op, Registration $registration = NULL, $account = NULL) {
-  
+
    if (og_user_access('node', $registration->entity_id, 'administrator members')) {
       return TRUE;
    }
@@ -114,6 +147,33 @@ function cbib_oc_hooks_permission() {
       'description' => t('Giver adgang til configuere digitalpost'),
     )
   );
+}
+
+/**
+ * By enabling this filter, items of this facet can be rewritten prior to rendering by implementing the hook: 
+ */
+function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
+  if ($settings->facet == "field_date:value") {
+    foreach($build as $key => $item) {
+      unset($build[$key]['#count']);
+    }
+  }
+
+  if ($settings->facet == "field_address:locality") {
+  $locations = cbib_oc_hooks_get_all_event_locations();
+  $loca = array();
+  foreach($locations as $id => $loc) {
+    if ($build[$id]["#markup"] == $loc) {
+      $loca[$id] = $build[$id];  
+      }
+    if ($loc == '') {
+      unset($loca[$id]);
+    }
+
+  }
+
+      $build = $loca;
+  }
 }
 /*
 * Alter various forms.
@@ -144,7 +204,7 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
          */
         drupal_add_js(array('cbib_oc_hooks' => array('summary_length' => variable_get('teaser_length', 600))), 'setting');
         drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/oc_summary_preview.js');
-        
+
         array_unshift($form['#validate'], "validate_online_adresses_fix");
     }
     if($form_id == "og_ui_add_users" && isset($form['og_user']['name']['#autocomplete_path']))
@@ -175,17 +235,17 @@ function validate_online_adresses_fix(&$form,&$form_state)
  * Implements hook_form_BASE_FORM_ID_alter
  */
   function cbib_oc_hooks_form_node_form_alter(&$form, $form_state) {
-    
-  // if you are targeting a specific content type then 
+
+  // if you are targeting a specific content type then
   // you can access the type:
   $type = $form['#node']->type;
 
  // Alter the posts form to allow titles in quick reply.
- 
+
   if ($type == 'document') {
     unset($form['field_formidling_og_pr']);
   }
-  
+
 }
 
 /**
@@ -225,9 +285,9 @@ function cbib_oc_hooks_form_commons_bw_partial_node_form_alter(&$form, &$form_st
      */
     if (empty($form['#entity']) || $form['#entity']->type != 'post') {
         return;
-    }    
+    }
     drupal_add_css(drupal_get_path('module', 'cbib_oc_hooks') . "/css/commons_posts_overwrites.css");
-    
+
     // Set fields as hideable so the forms can be compacted.
     $form['title_field']['#attributes']['class'][] = 'trigger-field';
     foreach (array('body','field_media', 'field_image', 'og_group_ref', 'choice_wrapper', 'actions') as $field) {
@@ -245,8 +305,8 @@ function cbib_oc_hooks_user_login_submit_handler($form, &$form_state) {
       unset($_SESSION['ref']);
       drupal_goto(urldecode($current));
   }
-  
-  
+
+
 }
 /*
  * Function that allow us to prevent sending emails
@@ -303,7 +363,7 @@ function cbib_oc_hooks_user_autocomplete($string = '') {
     $or->condition('mail', db_like($string) . '%', 'LIKE');
     $or->condition('name', db_like($string) . '%', 'LIKE');
     $result = db_select('users')->fields('users', array('name','mail'))->condition($or)->range(0, 10)->execute();
-    
+
     foreach ($result as $user) {
       $matches[$user->name] = check_plain($user->name) . " (" . check_plain($user->mail) . ")";
     }
@@ -322,7 +382,7 @@ function cbib_oc_hooks_og_ui_get_group_admin($group_type, $gid) {
       'href' => "admin/oc/resend",
     );
   }
-  
+
   return $items;
 }
 /*
@@ -367,7 +427,7 @@ function cbib_oc_hooks_views_pre_render(&$view)
       );
       $view->add_item('default', 'header', 'views', 'area', $header_options);
     }
-    if($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $view->current_display == "panel_pane_4"))
+    if($view->name == "search_api_arrangementer")
     {
          if(isset($_GET['filter_free_seats']))
          {
@@ -385,12 +445,12 @@ function cbib_oc_hooks_views_pre_render(&$view)
              }
          }
     }
-    
+
 }
 /**
  * Implements theme_preprocess_pager_link().
  * needed to make filter_free_seats checkbox work with pagination.
- 
+
 function cbib_oc_hooks_preprocess_pager_link(&$variables) {
   if (isset($variables['parameters'])) {
     foreach ($variables['parameters'] as $key => $value) {
@@ -402,30 +462,45 @@ function cbib_oc_hooks_preprocess_pager_link(&$variables) {
   }
 }*/
 function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
-
-    if($form_state['view']->name == "commons_events_upcoming" && ($form_state['view']->current_display == "panel_pane_1" || $form_state['view']->current_display == "panel_pane_4"))
-    {
-        $form['#action'] = request_uri();       
-        
-        $form['field_address_locality'] = array(
-            '#options' => array(),
-            '#type' => 'select',
-            '#title' => t('Afholds sted:'),
-            '#default_value' => 'All'
-        );
-        
-        $locations = cbib_oc_hooks_get_all_event_locations();
-        $form['field_address_locality']['#options']['All'] = "Alle lokationer";
-        foreach($locations as $index => $value)
-        {	
-            $form['field_address_locality']['#options'][$index] = $value;
-        }
-                
-         $new_form_info = array(
-          'filter-field_address_locality' => array('value' => 'field_address_locality'),
+  
+    if ($form['#id'] == 'views-exposed-form-search-api-nodes-default') { // Or: if ($form['#action'] === '/foo')
+      $form['#action'] = '/search';
+      if (isset($form['search_api_views_fulltext'])) {
+         $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
+      }
+         $form['reset'] = array(
+         '#markup' => '<a href="/search"><i value='.t('reset').' id="resets" class="fa fa-times"></i></a>',
+         '#weight' => 1000,
          );
+    }
+
+    if($form_state['view']->name == "search_api_group")
+    {
+        if (isset($form['search_api_views_fulltext'])) {
+         $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
+
+         $form['reset'] = array(
+         '#markup' => '<a href="/grupper"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
+         '#weight' => 1000,
+         );
+      }
+    }   
+    if($form_state['view']->name == "search_api_arrangementer")
+    {
+        if (isset($form['search_api_views_fulltext'])) {
+         $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
          
-        $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));
+         $form['reset'] = array(
+         '#markup' => '<a href="/arrangementer"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
+         '#weight' => 1000,
+         );
+         $field_date_value = $form_state['input']['field_date_value'];
+         if ($field_date_value == 'past' || $field_date_value == 'past_year' || $field_date_value == 'past_3_month') {
+           $form['sort_order']['#default_value'] = 'DESC';
+         }
+        }
+        
+      
         # the drupal checkboxes form field definition
         // Add new form item.
         /*$form['filter_free_seats'] = array(
@@ -433,21 +508,21 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
           '#title' => t('Kun frie pladser'),
           '#default_value' => 0
         );
-        
+
         // Create widget from new form item and place it as a second element.
         $new_form_info = array(
           'filter-free-seats' => array('value' => 'filter_free_seats'),
         );
         $form['#info'] = array_merge($new_form_info, array_diff_assoc($form['#info'], $new_form_info));*/
-        
+
     }
 }
 function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 
   //simple example: change the order of the master display
-  //if you want to do it only  on a certain display add something 
+  //if you want to do it only  on a certain display add something
   // like  "&&$view->current_display == 'panel_page_1'"
-  if ($view->name == "commons_events_upcoming" && ($view->current_display == "panel_pane_1" || $view->current_display == "panel_pane_4")) {
+  if ($view->name == "search_api_arrangementer") {
 
     if(isset($_GET['field_address_locality']) && strtolower($_GET['field_address_locality']) != "all")
     {
@@ -542,7 +617,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
          $message_type = "oc_notify_library_created";
      }
  }
- 
+
  function cbib_oc_hooks_node_insert($node)
  {
      /*
@@ -569,7 +644,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
      $query->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', 'group')
       ->propertyCondition('status', NODE_PUBLISHED);
-     
+
      $result = $query->execute();
      if (isset($result['node'])) {
        $news_items_nids = array_keys($result['node']);
@@ -584,11 +659,11 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
                $wrapper->save();
             }
        }
-     } 
+     }
  }
  function get_newst_post_date($nid)
-  {		  
-     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");	
+  {
+     $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");
      return $result->fetchField();
   }	
 /*

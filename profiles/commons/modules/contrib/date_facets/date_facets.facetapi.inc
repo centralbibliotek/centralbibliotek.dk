@@ -14,7 +14,14 @@ function date_facets_facetapi_widgets() {
       'handler' => array(
         'label' => t('Date range'),
         'class' => 'Drupal_Apachesolr_Facetapi_Widget_DateRangeWidget',
-        'query types' => array('date_range'),
+        'query types' => array(DATE_FACETS_DATE_RANGE_QUERY_TYPE),
+      ),
+    ),
+    'date_range_checkboxes' => array(
+      'handler' => array(
+        'label' => t('Date range with checkboxes'),
+        'class' => 'Drupal_Apachesolr_Facetapi_Widget_DateRangeCheckBoxesWidget',
+        'query types' => array(DATE_FACETS_DATE_RANGE_QUERY_TYPE),
       ),
     ),
   );

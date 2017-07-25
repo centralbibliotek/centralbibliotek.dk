@@ -1,0 +1,26 @@
+diff --git a/views/query.inc b/views/query.inc
+index 1b8e7d7..5df2f3e 100644
+--- a/views/query.inc
++++ b/views/query.inc
+@@ -88,7 +88,7 @@ class SearchApiMultiViewsQuery extends SearchApiViewsQuery {
+         'description' => t('Results from the @index index.', array('@index' => $index->name)),
+       );
+       if (!$entity_type) {
+-        $info['property info'][$index_id] += $index->datasource()->getMetadataWrapper()->info();
++        $info['property info'][$index_id] += $index->entityWrapper()->info();
+       }
+     }
+ 
+diff --git a/views/search_api_multi.views.inc b/views/search_api_multi.views.inc
+index 699c981..11caa67 100644
+--- a/views/search_api_multi.views.inc
++++ b/views/search_api_multi.views.inc
+@@ -37,7 +37,7 @@ function search_api_multi_views_data() {
+           'description' => t('Results from the @index index.', array('@index' => $index->name)),
+         );
+         if (empty($entity_types[$index->item_type])) {
+-          $info += $index->datasource()->getMetadataWrapper()->info();
++          $info += $index->entityWrapper()->info();
+         }
+         entity_views_field_definition($index_id, $info, $table);
+ 

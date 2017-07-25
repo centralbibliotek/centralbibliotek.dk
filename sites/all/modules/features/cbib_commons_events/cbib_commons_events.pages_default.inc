@@ -78,7 +78,7 @@ function cbib_commons_events_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'two_66_33';
+  $display->layout = 'flexible:events_builders';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -87,8 +87,32 @@ function cbib_commons_events_default_page_manager_pages() {
       'two_66_33_first' => NULL,
       'two_66_33_second' => NULL,
       'two_66_33_bottom' => NULL,
+      'cb3_top' => NULL,
+      'cb3_first' => NULL,
+      'cb3_second' => NULL,
+      'cb3_third' => NULL,
+      'cb3_bottom' => NULL,
+      'two_33_66_second' => NULL,
+      'two_33_66_top' => NULL,
+      'two_33_66_first' => NULL,
+      'two_33_66_bottom' => NULL,
+      'one_main' => NULL,
+      'center' => NULL,
+      'top' => NULL,
     ),
     'two_66_33_top' => array(
+      'style' => 'default',
+    ),
+    'two_66_33_second' => array(
+      'style' => 'tabs',
+    ),
+    'two_33_66_second' => array(
+      'style' => 'tabs',
+    ),
+    'one_main' => array(
+      'style' => 'default',
+    ),
+    'center' => array(
       'style' => 'tabs',
     ),
   );
@@ -98,16 +122,31 @@ function cbib_commons_events_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
-    $pane->panel = 'two_66_33_top';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'commons_events_upcoming-panel_pane_4';
+    $pane->pid = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
+    $pane->panel = 'center';
+    $pane->type = 'views';
+    $pane->subtype = 'search_api_arrangementer';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '15',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'page',
       'context' => array(
-        0 => 'argument_entity_id:node_1',
+        0 => 'argument_entity_id:node_1.nid',
       ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -117,20 +156,35 @@ function cbib_commons_events_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
-    $display->content['new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c'] = $pane;
-    $display->panels['two_66_33_top'][0] = 'new-e7e1c46e-e086-447b-9c7c-1d3f880fd84c';
+    $pane->uuid = '51ca6526-15e9-4e76-bf08-d5ca9eda5863';
+    $display->content['new-51ca6526-15e9-4e76-bf08-d5ca9eda5863'] = $pane;
+    $display->panels['center'][0] = 'new-51ca6526-15e9-4e76-bf08-d5ca9eda5863';
     $pane = new stdClass();
-    $pane->pid = 'new-a2ee2613-1dbe-45bd-85eb-a8ba632aab84';
-    $pane->panel = 'two_66_33_top';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'commons_events_upcoming-panel_pane_6';
+    $pane->pid = 'new-08ea7683-15a4-417e-b0b2-0b4952bd52b4';
+    $pane->panel = 'center';
+    $pane->type = 'views';
+    $pane->subtype = 'search_api_arrangementer';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '20',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'page_1',
       'context' => array(
-        0 => 'argument_entity_id:node_1',
+        0 => '',
       ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -140,9 +194,101 @@ function cbib_commons_events_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'a2ee2613-1dbe-45bd-85eb-a8ba632aab84';
-    $display->content['new-a2ee2613-1dbe-45bd-85eb-a8ba632aab84'] = $pane;
-    $display->panels['two_66_33_top'][1] = 'new-a2ee2613-1dbe-45bd-85eb-a8ba632aab84';
+    $pane->uuid = '08ea7683-15a4-417e-b0b2-0b4952bd52b4';
+    $display->content['new-08ea7683-15a4-417e-b0b2-0b4952bd52b4'] = $pane;
+    $display->panels['center'][1] = 'new-08ea7683-15a4-417e-b0b2-0b4952bd52b4';
+    $pane = new stdClass();
+    $pane->pid = 'new-40eb4078-1813-4e5a-b543-571b428ad128';
+    $pane->panel = 'top';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-k9aJWJ4JDEw6hhSBq3IrGlonhn6ry6sY';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Aktualitet',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '40eb4078-1813-4e5a-b543-571b428ad128';
+    $display->content['new-40eb4078-1813-4e5a-b543-571b428ad128'] = $pane;
+    $display->panels['top'][0] = 'new-40eb4078-1813-4e5a-b543-571b428ad128';
+    $pane = new stdClass();
+    $pane->pid = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $pane->panel = 'top';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-7WTgHb2zdhyHCsRZtsXnU3eogApOW342';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Afholdelsessted',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $display->content['new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7'] = $pane;
+    $display->panels['top'][1] = 'new-7c7c42be-6a3c-4b21-b685-86f4f3db6db7';
+    $pane = new stdClass();
+    $pane->pid = 'new-52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $pane->panel = 'top';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-rJ41iuaZ0tI1G1AP2gFnVQy6bjKDQf2J';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Arrangementtype',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $display->content['new-52163c9b-2121-470d-b21c-482b1d8b0b16'] = $pane;
+    $display->panels['top'][2] = 'new-52163c9b-2121-470d-b21c-482b1d8b0b16';
+    $pane = new stdClass();
+    $pane->pid = 'new-be36b750-653a-4562-82ef-fe283051c064';
+    $pane->panel = 'top';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-uqTZOD0puq87yt8wqB376UrLCGM9FHvM';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Emner',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'be36b750-653a-4562-82ef-fe283051c064';
+    $display->content['new-be36b750-653a-4562-82ef-fe283051c064'] = $pane;
+    $display->panels['top'][3] = 'new-be36b750-653a-4562-82ef-fe283051c064';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

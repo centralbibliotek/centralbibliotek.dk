@@ -588,12 +588,11 @@ optgroup {
 /* Simulate a chosen select form value as inline text. */
 .hidden-select-wrapper {
   position: relative;
-  display: inline-block;
   @include single-transition(width, 0.2s);
 }
 
 .select-status {
-  display: inline-block;
+  display: none;
   white-space: nowrap;
   @include single-transition(opacity, 0.2s);
   &:after {
@@ -606,17 +605,6 @@ optgroup {
     margin-left: .2em;
     border: .4em solid transparent;
     border-top-color: $gray-dark;
-  }
-}
-
-.hidden-select {
-  position: absolute;
-  top: -.35em;
-  left: -.35em;
-  margin: 0;
-  @include opacity(0);
-  .select-inactive & {
-    width: 100%;
   }
 }
 
@@ -1273,6 +1261,26 @@ ul.primary.tabs {
   }
 }
 
+#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-widget-sort-by {
+    display: none;
+}
+#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-widget-sort-order {
+    display: none;
+}
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    position: relative;
+    left: 87%;
+    top: 100px;
+    width: 10%;
+}
+#tabs-0-center .item-list {
+    height: 0px;
+    width: 100%;
+    display: inline-block;
+}
+.page-events .ui-tabs ul li, .page-node-events .ui-tabs ul li, .page-groups .ui-tabs ul li, .page-node-groups .ui-tabs ul li {
+    padding: 0.5rem 0 0!important;
+}
 // style pills same way as sub-menu
 .quicktabs-style-commons-pills ul.quicktabs-tabs{
   border-bottom-color: $gray-light;
@@ -1383,15 +1391,54 @@ h1.node-title {
   }
 }
 
+#edit-search-api-combined-1-wrapper {
+    float: left;
+}
+#edit-field-address-locality-wrapper {
+    float: left;
+}
+#edit-search-api-combined-1-wrapper {
+    float: left;
+}
+#edit-field-price-wrapper {
+    float: left;
+}
+/* reset button */
+#resets {
+    position: relative;
+    opacity: 0.5;
+    top: -7px;
+}
+header #resets {
+    visibility: hidden;
+}
+.views-reset-button {
+    position: relative;
+    font-size: 180%;
+    opacity: 0.5;
+    right: 13%;
+    top: 15px;
+}
+.view-display {
+    left: 81%;
+    position: relative;
+}
+.fa-th, .fa-bars {
+    background: #333333;   
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    font-size: 1.2em;
+}
 /* Views exposed form */
 .views-exposed-form {
 
   margin-bottom: 2em;
 
   .views-exposed-widget {
-    float: left;
-    padding: 0.5em 1em 0 0;
-    margin: 0 1.7em;
+    float: none;
+    display: inline-block;
+    padding: 0;
     &:first-child {
       margin-top: 0;
     }
@@ -1402,6 +1449,9 @@ h1.node-title {
       margin-top: 0;
     }
   }
+}
+.views-widget-filter-search_api_views_fulltext {
+    width: 78%;
 }
 
 .keyword-filter {
@@ -1847,6 +1897,7 @@ ul.node-action-links {
   margin: 4px 0 0 5px;
 }
 
+
 /**
  * User profile
  */
@@ -1866,9 +1917,9 @@ ul.node-action-links {
         &:nth-last-child(-n+5) {
           display: inline-block;
         }
+        }
+        }
       }
-    }
-  }
   .pane-user-picture {
     float: left;
     margin-left: -(120px + $gutter_width * 2);
@@ -2756,6 +2807,9 @@ ul.action-links {
 /* =============================================================================
  *   Panels Styling
  * ========================================================================== */
+#panels-ipe-paneid-1004 {
+    width: 100%;
+}
 .node-title,
 .pane-title {
   font-weight: normal;
@@ -4074,7 +4128,9 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 /**
  * Search
  */
-
+.views-field.views-field-node-created {
+    float: right;
+}
 .search-form-page {
   .form-type-textfield {
     label {
@@ -4132,10 +4188,21 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   }
 }
 
+.block-facetapi, .panels-ipe-portlet-wrapper {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.form-type-select.form-item-facets select option {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
+#edit-field-topics {
+    width: 90%;
+}
 .block-facetapi {
-  margin-bottom: .7em;
+  margin-bottom: 0px!important;
   padding-bottom: .7em;
-  border-bottom: 1px solid $border;
   &:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -4195,6 +4262,77 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   }
 }
 
+/* New Search loading wrapper.... */
+.search-overlay--wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    position: fixed;
+    z-index: 999 !important;
+    color: #fff;
+    text-align: center;
+}
+.search-overlay--inner {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    max-width: 300px;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 // This is not optimal. Preferably, a class would be placed in the markup, but
 // ctools has hardcoded the output without the chance of override. The other
 // option is to use regex to force in wrappers.

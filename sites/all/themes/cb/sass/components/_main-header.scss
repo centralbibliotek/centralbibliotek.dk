@@ -48,16 +48,16 @@
 
 
 // Search field
-#block-search-form {
-  width: 30%;
+.branch-selector form {
+  width: 35%;
   position: absolute;
   top: $headerTop;
-  right: 10px;
+  left: 73%;
 
   .form-item-custom-search-types { display: none; } // Hide the site/users select box
 
   // Search field
-  input[type="search"] {
+  input[type="text"] {
     background: none;
     border: 0;
     border-bottom: 1px solid darken($gray-search-field, 25%);
@@ -78,7 +78,7 @@
   input[type="submit"] {
     position: absolute;
     top: 0;
-    right: .25em;
+    right: 5.5em;
     margin: 0;
     padding: 0;
 
@@ -90,7 +90,7 @@
     background-position: center right;
     border: 0;
     text-shadow: none;
-    height: 2.15em;
+    height: 3.5em;
     width: 2.5em;
     text-indent: -9999em;
     border-radius: 0;
@@ -98,6 +98,15 @@
     &:hover,
     &:focus {
       box-shadow: none;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center right;
+      border: 0;
+      text-shadow: none;
+      height: 3.5em;
+      width: 2.5em;
+      text-indent: -9999em;
+      border-radius: 0;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMZJREFUeNqkUgENwyAQhCrAQTsFQwISKmkOJqESioPOAZkDqmB18LsmT0IID1v6yeUDzz3H8UpdDN0qEtGE5IAzR+CltY7driAaYKF6bGddVMDFDbDAAXhgB0ZgBgzv36DmqN2ebg78hFJZSEok6SmmxvM+6cxQ1C1nL5nFsj0v50Hw8d3xeedspAb3ToORc2x5YKXZyD2oHXhmv2Ar5PQLq+RwKAZnBR6cKWtuWuSQKSlj+YVssn3HCpw0G6pG/iuukL8CDAAYNj5C3me2yQAAAABJRU5ErkJggg==);
     }
   }
@@ -197,6 +206,90 @@
     padding: 0;
     background-color: $gray-darkest;
     font-size: $h1Size;
+    margin: 0;
+
+    &.closed {
+      display: none;
+    }
+
+    &.open {
+      display: block;
+    }
+
+    li {
+      list-style: none none;
+      margin: 0;
+
+      a {
+        @extend %toggle-link;
+        padding: 0.5em 1em;
+        background: none;
+
+        &:hover {
+          color: $brand-primary-light;
+          background-color: $gray-darker;
+        }
+      }
+    }
+  }
+
+  .ctools-jump-menu-button {
+    display: none;
+  }
+
+  select {
+    font-family: $base-font;
+    font-size: 20px;
+    width: 165px;
+    height: 60px;
+    color: $brand-primary;
+    border: 0px;
+    background: transparent;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url(../images/branch-select-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right center;
+
+    &:hover {
+      color: $brand-primary-light;
+    }
+
+    &:active {
+      color: green;
+      font-size: 14px;
+    }
+  }
+}
+.views-exposed-widgets .views-reset-button
+{
+    z-index:101; 
+}
+// Library branch selector
+.views-exposed-widgets .centralbiblioteker-block {
+  position: absolute;
+  top: 70px;
+  left: 538px;
+  z-index: 100;
+  .toggle-link {
+    @extend %toggle-link;
+
+    font-size: 1rem;
+    padding: 0 1em;
+    background-image: url(../images/branch-select-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right 4rem center;
+  }
+
+  a {
+    width: 12rem;
+  }
+
+  ul.region-select {
+    padding: 0;
+    font-size: 1rem;
     margin: 0;
 
     &.closed {

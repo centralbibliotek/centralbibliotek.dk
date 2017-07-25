@@ -24,7 +24,7 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   height: 20px;
 }
 
-#block-search-form {
+#views-exposed-form-search-api-nodes-default {
   width: 100%;
   right: 0px;
   top: 75px;
@@ -36,4 +36,23 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   left: auto;
   right: 10px;
   top: 10px;
+}
+
+.views-reset-button {
+  position: relative;
+  font-size: 180%;
+  opacity: 0.5;
+  left: 47%;
+  top: -44px;
+}
+
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+  position: relative;
+  left: 64%;
+  top: 100px;
+  width: 55%;
+}
+
+.views-exposed-form .views-exposed-widget {
+  display: unset;
 }

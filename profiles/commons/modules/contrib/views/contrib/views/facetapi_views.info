@@ -1,0 +1,12 @@
+name = Facet API Views
+description = "Views integration for Fact API."
+package = Search Toolkit
+core = "7.x"
+
+dependencies[] = facetapi
+dependencies[] = views
+
+configure = admin/config/search/facetapi/views
+
+files[] = plugins/facetapi/url_processor_exposed_facets.inc
+files[] = views/facetapi_views_handler_filter_keep_facet_values.inc

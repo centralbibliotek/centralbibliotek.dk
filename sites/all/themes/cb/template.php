@@ -1,11 +1,28 @@
 <?php
 
-function cb_preprocess_html(&$vars) { 
-      drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(
-      'type' => 'external'
+function cb_preprocess_html(&$vars) {
+  drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(
+    'type' => 'external'
   ));
 }
-
+function cb_preprocess_page(&$vars) {
+    $view = views_get_view('search_api_nodes');
+    $display_id = 'search-api-nodes-default';
+    $view->set_display($display_id);
+    $view->init_handlers();
+    $form_state = array(
+      'view' => $view,
+      'display' => $view->display_handler->display,
+      'exposed_form_plugin' => $view->display_handler->get_plugin('exposed_form'),
+      'method' => 'get',
+      'rerender' => TRUE,
+    );
+    $form = drupal_build_form('views_exposed_form', $form_state);
+    unset($form['sort_by']);
+    unset($form['sort_order']);
+    unset($form['resets']);
+    $vars['search'] = drupal_render($form);
+}
 function cb_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';

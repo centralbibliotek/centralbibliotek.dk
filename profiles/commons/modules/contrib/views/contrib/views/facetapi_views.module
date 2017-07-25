@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Facet API views integration.
+ */
+
+/**
+ * Implements hook_facetapi_url_processors().
+ */
+function facetapi_views_facetapi_url_processors() {
+  return array(
+    'exposed_facets' => array(
+      'handler' => array(
+        'label' => t('Views exposed filter format'),
+        'class' => 'FacetapiUrlProcessorExposedFacets',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_facetapi_searcher_info().
+ *
+ * Allows for alterations to the searcher definitions.
+ */
+function facetapi_views_facetapi_searcher_info_alter(array &$searcher_info) {
+  $enabled_searcher = array_filter(variable_get('facetapi_views_url_processor_searchers', array()));
+  $use_for_all_searchers = variable_get('facetapi_views_url_processor_for_all_searchers', TRUE);
+  foreach ($searcher_info as $name => &$info) {
+    if ($use_for_all_searchers || isset($enabled_searcher[$name])) {
+      // Activate custom URL processor.
+      $id = 'exposed_facets_searcher_' . $info['name'];
+      $info['url processor'] = 'exposed_facets';
+    }
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function facetapi_views_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'facetapi_views') . '/views',
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function facetapi_views_menu() {
+  $items['admin/config/search/facetapi/views'] = array(
+    'title' => 'Facet API Views Settings',
+    'description' => 'Configure the Facet API Views integration.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('facetapi_views_settings_form'),
+    'access arguments' => array('administer facets'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function facetapi_views_menu_alter(&$items) {
+  // Set parent menu item if none is set yet.
+  if (!isset($items['admin/config/search/facetapi'])) {
+    $items['admin/config/search/facetapi'] = array(
+      'title' => 'Facet API Settings',
+      'description' => 'Configure Facet API.',
+      'access arguments' => array('administer facets'),
+    ) + $items['admin/config/search/facetapi/views'];
+    unset($items['admin/config/search/facetapi']['type']);
+  }
+}
+
+/**
+ * Facet API Views settings form.
+ */
+function facetapi_views_settings_form($form, &$form_state) {
+  $form['facetapi_views_url_processor_for_all_searchers'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use Views style filter URL formatting for all searchers'),
+    '#default_value' => variable_get('facetapi_views_url_processor_for_all_searchers', TRUE),
+    '#description' => t('If enabled, all searchers will use the views exposed filter URL formatting for facets which makes them work together.'),
+  );
+  $searchers = array();
+  foreach (facetapi_get_searcher_info() as $name => $settings) {
+    $searchers[$name] = $name;
+  }
+  $form['facetapi_views_url_processor_searchers'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Enable Views style filter URL formatting only for the following searchers'),
+    '#default_value' => variable_get('facetapi_views_url_processor_searchers', array()),
+    '#options' => $searchers,
+    '#description' => t("Define which of the available searchers will use the URL formatting for facets which is compatible with the Views exposed filters. This might be useful if another module wants to change the facet URL formatting, then Views style filter URL formatting shouldn't be enabled for those searchers."),
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="facetapi_views_url_processor_for_all_searchers"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form = system_settings_form($form);
+  return $form;
+}

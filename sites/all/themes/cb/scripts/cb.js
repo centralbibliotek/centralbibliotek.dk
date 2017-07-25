@@ -14,15 +14,176 @@
 
   "use strict";
 
+    function trigger_loginSpinner() {
+        $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
+    }
+
     $(document).ready(function () {
+        
+        
+        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
+        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button');
+        
+        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
+        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-2 .views-exposed-widget.views-reset-button');
+        $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr( "id" ).addClass('centralbiblioteker-block');
+        $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
+            event.preventDefault();
+            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
+            {
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'block');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
+            }
+            else
+            {
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
+            }
+            
+            if(window.location.href.indexOf("arrangementer") !== -1)
+            {
+                $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
+            }
+            if(window.location.href.indexOf("grupper") !== -1)
+            {
+                $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
+            }
+            
+        });
+        // fix ie reset button styling    
+        if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
+        {
+            $('.views-reset-button').css('top', '0');
+        }
+        $('.element-invisible').remove();
+
+        $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue').each(function () {
+            var select = $(document.createElement('select')).insertBefore($(this).hide());
+
+            $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
+            select.change(function () {
+                window.location = $(this).find("option:selected").val();
+            });
+            $('>li a', this).each(function () {
+                var a = $(this).click(function () {
+                    window.location.href = this.href;
+
+                }),
+                        option = $(document.createElement('option')).appendTo(select).val(this.href).html($(this).html()).click(function () {
+
+                    a.click();
+                    
+                });
+
+            });
+
+        });
+        /*
+         * Add preloader to everything ?
+         */
+        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').click(function(){
+            trigger_loginSpinner();
+        });    
+        $(".feed-icon").find("a").unbind('click');
+ $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
+
+        //If user wants to cancel his search.
+        $('.search-overlay--wrapper .cancel').live('click', function (e) {
+            try {
+                window.stop();
+            } catch (e)
+            {
+                document.execCommand('Stop');
+            }
+            $('.search-overlay--wrapper').remove();
+        });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
+
+                // Node search overlay
+        $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
+            trigger_loginSpinner();
+        });
+
+        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                trigger_loginSpinner();
+            }
+        });
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, .views-exposed-widgets option, #reset', function () {
+            trigger_loginSpinner();
+        });
+        $('select').change(function () {
+            trigger_loginSpinner();
+        });
+
+
+  });
+  
+    $(document).ajaxComplete(function (e, xhr, settings) {
+        debugger;
+        if (settings.url.indexOf("/views/ajax?") !== -1 ||settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
+            // enable selectBox jQuery plugin for all <select> elements
+            $('.search-overlay--wrapper').remove();
+            $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
+            $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
+            $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr("id").addClass('centralbiblioteker-block');
+            $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
+                event.preventDefault();
+            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
+            {
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'block');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
+            }
+            else
+            {
+                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
+                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
+            }
+                
+                if(window.location.href.indexOf("arrangementer") !== -1)
+                {
+                    $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
+                }
+                if(window.location.href.indexOf("grupper") !== -1)
+                {
+                    $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
+                }
+
+            });
+            //Drupal.attachbehaviours();
+
+        }
     });
 
+    // Add a Display icons for hiding elements in views.
+    Drupal.behaviors.viewDisplays = {
+        attach: function (context, settings) {
+
+            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Adocument"]').text(function (text) {
+                    return $(this).text().replace(/Dokument/g, "Filer");
+            });
+            $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Aundefined"]').text(function (text) {
+                return $(this).text().replace(/file:undefined/g, "Medie filer");
+            });
+            $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44459"]').text(function (text) {
+                    return $(this).remove();
+            });
+
+            $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
+            
+                $('#ui-id-1').html('<i id="fa-th" class="fa fa-th"></i>');
+                $('#ui-id-2').html('<i id="fa-th" class="fa fa-bars"></i>');              
+                $('.ui-state-default.ui-corner-top').css("background-color", "transparent");
+        }
+    };
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
-      $('#search-block-form input[type="search"]').attr('placeholder', 'Søg på sitet...');
+      $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
+      $('#views-exposed-form-search-api-arrangementer-page input[type="text"], #views-exposed-form-search-api-arrangementer-page-1 input[type="text"]').attr('placeholder', ' Søg i arrangementer');
+      $('#views-exposed-form-search-api-group-page-1 input[type="text"], #views-exposed-form-search-api-group-page-2 input[type="text"]').attr('placeholder', ' Søg i grupper');
     }
   };
 
@@ -127,7 +288,7 @@
       // Add a toggle link.
       if (selected.length !== 0) {
         var href = selected[0].value.split('::')[1];
-      }           
+      }
       if (typeof href === 'undefined') {
         href = '/';
       }

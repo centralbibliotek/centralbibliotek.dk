@@ -16,9 +16,15 @@
  * Header
  */
 
-#block-search-form {
+#views-exposed-form-search-api-nodes-default {
 	width: 100%;
 	right: 0px;
 	padding: 0 10px;
 	box-sizing: border-box;
+}
+.branch-selector form {
+    left: 0!important;
+}
+.views-exposed-form .views-exposed-widget {
+    display: unset;
 }
