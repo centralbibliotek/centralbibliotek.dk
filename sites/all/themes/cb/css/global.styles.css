@@ -3049,7 +3049,7 @@ ul.action-links {
   width: 100%;
 }
 
-#tabs-0-center-2 div[id^="panels-ipe-paneid-new-"] {
+#tabs-0-center-1 div[id^="panels-ipe-paneid-"], #tabs-0-center-2 div[id^="panels-ipe-paneid-"] {
   width: 100%;
 }
 
