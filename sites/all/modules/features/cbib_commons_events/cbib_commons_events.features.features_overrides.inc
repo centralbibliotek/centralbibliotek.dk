@@ -15,6 +15,10 @@ function cbib_commons_events_features_override_default_overrides() {
   $overrides["field_instance.user-user-field_linkedin_url.settings|title_label_use_field_label"] = FALSE;
 
   // Exported overrides for: page_manager_pages
+  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-0293b915-d42a-46d2-9887-2f1ddf266503|configuration|nodes_per_page"] = 20;
+  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-0293b915-d42a-46d2-9887-2f1ddf266503|configuration|panel_args"] = 1;
+  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-caa143ab-7888-4a10-96e4-421be4706bb7|configuration|nodes_per_page"] = 20;
+  $overrides["page_manager_pages.views_events_landing_page.default_handlers|page_views_events_landing_page_panel_context|conf|display|content|new-caa143ab-7888-4a10-96e4-421be4706bb7|configuration|panel_args"] = 1;
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:event:default.display|content|new-0b838ec5-ab01-496e-ada7-c0320534dd42"] = (object) array(

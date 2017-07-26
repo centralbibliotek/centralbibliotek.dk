@@ -26,6 +26,18 @@ function cbib_commons_events_field_default_field_instances_alter(&$data) {
 }
 
 /**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function cbib_commons_events_default_page_manager_pages_alter(&$data) {
+  if (isset($data['views_events_landing_page'])) {
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503']->configuration['nodes_per_page'] = 20; /* WAS: 15 */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-0293b915-d42a-46d2-9887-2f1ddf266503']->configuration['panel_args'] = 1; /* WAS: 0 */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-caa143ab-7888-4a10-96e4-421be4706bb7']->configuration['nodes_per_page'] = 20; /* WAS: 15 */
+    $data['views_events_landing_page']->default_handlers['page_views_events_landing_page_panel_context']->conf['display']->content['new-caa143ab-7888-4a10-96e4-421be4706bb7']->configuration['panel_args'] = 1; /* WAS: 0 */
+  }
+}
+
+/**
  * Implements hook_panelizer_defaults_override_alter().
  */
 function cbib_commons_events_panelizer_defaults_override_alter(&$data) {

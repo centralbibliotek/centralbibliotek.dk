@@ -80,6 +80,7 @@ function cbib_search_strongarm() {
       'search_api_views:search_api_nodes:panel_pane_1' => 'search_api_views:search_api_nodes:panel_pane_1',
     ),
     'group_index' => array(
+      'search_api_views:search_api_group:attachment_1' => 'search_api_views:search_api_group:attachment_1',
       'search_api_views:search_api_group:page' => 'search_api_views:search_api_group:page',
       'search_api_views:search_api_group:page_1' => 'search_api_views:search_api_group:page_1',
       'search_api_views:search_api_group:page_2' => 'search_api_views:search_api_group:page_2',

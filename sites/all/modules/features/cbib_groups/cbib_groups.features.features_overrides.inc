@@ -12,12 +12,27 @@ function cbib_groups_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: page_manager_pages
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-1c95172e-d00e-4c7a-b2f9-9358d3977afd|position"] = 0;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0|position"] = 1;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-d6ca890e-c78a-4dc3-ae8d-22eec1bc6086"]["DELETED"] = TRUE;
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|0"] = 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd';
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|1"] = 'new-43d91cd9-49b1-46e1-b76a-072d34bb4cb0';
-  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|top|2"]["DELETED"] = TRUE;
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|content|new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b"] = (object) array(
+      'pid' => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+      'panel' => 'two_66_33_second',
+      'type' => 'views_panes',
+      'subtype' => 'commons_radioactivity_groups_most_active-panel_pane_1',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => 'ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+    );
+  $overrides["page_manager_pages.groups_directory.default_handlers|page_groups_directory_panel_context|conf|display|panels|two_66_33_second"] = array(
+    0 => 'new-ab237aa5-5ae7-8fb4-e1ce-20c776a6950b',
+  );
 
   // Exported overrides for: panelizer_defaults
   $overrides["panelizer_defaults.node:group:default.display|content|new-0bb1221d-a648-4332-a630-67359e011329"] = (object) array(
@@ -278,9 +293,35 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 2,
+      'position' => 3,
       'locks' => array(),
       'uuid' => '55cd68c0-3a53-4a0d-af36-35da29489356',
+    );
+  $overrides["panelizer_defaults.node:group:default.display|content|new-577bdfcb-8fac-49ae-a533-e7fece3d6f78"] = (object) array(
+      'pid' => 'new-577bdfcb-8fac-49ae-a533-e7fece3d6f78',
+      'panel' => 'two_66_33_first',
+      'type' => 'node_links',
+      'subtype' => 'node_links',
+      'shown' => TRUE,
+      'access' => array(),
+      'configuration' => array(
+        'override_title' => 0,
+        'override_title_text' => '',
+        'build_mode' => 'full',
+        'identifier' => '',
+        'link' => 0,
+        'context' => 'panelizer',
+        'override_title_heading' => 'h2',
+      ),
+      'cache' => array(),
+      'style' => array(
+        'settings' => NULL,
+      ),
+      'css' => array(),
+      'extras' => array(),
+      'position' => 0,
+      'locks' => array(),
+      'uuid' => '577bdfcb-8fac-49ae-a533-e7fece3d6f78',
     );
   $overrides["panelizer_defaults.node:group:default.display|content|new-6437b227-b02b-4d81-8547-46a1ee7e9ab8"] = (object) array(
       'pid' => 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8',
@@ -299,7 +340,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 4,
+      'position' => 5,
       'locks' => array(),
       'uuid' => '6437b227-b02b-4d81-8547-46a1ee7e9ab8',
     );
@@ -331,7 +372,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 0,
+      'position' => 1,
       'locks' => array(),
       'uuid' => '8567ca5b-9641-4b81-b9f4-079402a9464a',
     );
@@ -392,15 +433,16 @@ function cbib_groups_features_override_default_overrides() {
       'panel' => 'two_66_33_first',
       'type' => 'node_links',
       'subtype' => 'node_links',
-      'shown' => TRUE,
+      'shown' => FALSE,
       'access' => array(),
       'configuration' => array(
-        'override_title' => FALSE,
+        'override_title' => 0,
         'override_title_text' => '',
-        'build_mode' => 'page_manager',
-        'identifier' => '',
-        'link' => TRUE,
+        'build_mode' => 'token',
+        'identifier' => '%node:flag-email-node-link',
+        'link' => 0,
         'context' => 'panelizer',
+        'override_title_heading' => 'h2',
       ),
       'cache' => array(),
       'style' => array(
@@ -410,7 +452,7 @@ function cbib_groups_features_override_default_overrides() {
         'css_class' => 'link-wrapper',
       ),
       'extras' => array(),
-      'position' => 3,
+      'position' => 4,
       'locks' => array(),
       'uuid' => 'bb5618ef-915c-4faa-ba77-bbb198184e22',
     );
@@ -498,7 +540,7 @@ function cbib_groups_features_override_default_overrides() {
       ),
       'css' => array(),
       'extras' => array(),
-      'position' => 1,
+      'position' => 2,
       'locks' => array(),
       'uuid' => 'e627add5-b6cb-4c15-8ff7-40caca347d88',
     );
@@ -529,11 +571,12 @@ function cbib_groups_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:group:default.display|panel_settings|style_settings|left"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default.display|panel_settings|style_settings|right"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default.display|panel_settings|style_settings|top"]["DELETED"] = TRUE;
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|0"] = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|1"] = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|2"] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|3"] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
-  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|4"] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|0"] = 'new-577bdfcb-8fac-49ae-a533-e7fece3d6f78';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|1"] = 'new-8567ca5b-9641-4b81-b9f4-079402a9464a';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|2"] = 'new-e627add5-b6cb-4c15-8ff7-40caca347d88';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|3"] = 'new-55cd68c0-3a53-4a0d-af36-35da29489356';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|4"] = 'new-bb5618ef-915c-4faa-ba77-bbb198184e22';
+  $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_first|5"] = 'new-6437b227-b02b-4d81-8547-46a1ee7e9ab8';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|0"] = 'new-fa81955d-e048-4ba5-9b21-4a69857ddcb9';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|1"] = 'new-16bb1e2b-5444-464c-995a-923d2f0a31c6';
   $overrides["panelizer_defaults.node:group:default.display|panels|two_66_33_second|10"] = 'new-4217fe9c-2561-438d-847c-4a289f5b4bf0';
@@ -670,8 +713,8 @@ function cbib_groups_features_override_default_overrides() {
   );
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|one_main"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:group:default:teaser.display|panels|right"] = array(
-    0 => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
-    1 => 'new-c22911c5-3c21-75b4-c5f3-80efb733956b',
+    0 => 'new-c22911c5-3c21-75b4-c5f3-80efb733956b',
+    1 => 'new-3c20711f-fa69-4dbe-b5ab-1650ea8b092b',
   );
 
   // Exported overrides for: variable
@@ -743,6 +786,7 @@ function cbib_groups_features_override_default_overrides() {
   );
 
   // Exported overrides for: views_view
+  $overrides["views_view.commons_bw_all.display|default|display_options|filters|flagged|value"] = 'All';
   $overrides["views_view.commons_bw_posts.display|default|display_options|arguments|gid|exception"] = array(
     'title' => 'Alle',
   );
@@ -801,6 +845,12 @@ function cbib_groups_features_override_default_overrides() {
     ),
   );
   $overrides["views_view.commons_bw_posts.display|default|display_options|use_more_text"] = 'mere';
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|id"] = 0;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|offset"] = 0;
+  $overrides["views_view.commons_groups_directory.display|panel_pane_1|display_options|pager|options|quantity"] = 9;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|pager|options|id"] = 0;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|pager|options|offset"] = 0;
+  $overrides["views_view.commons_groups_user_groups.display|panel_pane_1|display_options|pager|options|quantity"] = 9;
 
  return $overrides;
 }

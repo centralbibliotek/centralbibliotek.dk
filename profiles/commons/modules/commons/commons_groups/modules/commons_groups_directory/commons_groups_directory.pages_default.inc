@@ -147,7 +147,7 @@ function commons_groups_directory_default_page_manager_pages() {
       'offset' => '0',
       'more_link' => 0,
       'feed_icons' => 0,
-      'panel_args' => 0,
+      'panel_args' => 1,
       'link_to_view' => 0,
       'args' => '',
       'url' => '',
@@ -168,7 +168,7 @@ function commons_groups_directory_default_page_manager_pages() {
     $display->content['new-129a1ed1-9d61-48e8-8351-0b18f2fb32c8'] = $pane;
     $display->panels['center'][0] = 'new-129a1ed1-9d61-48e8-8351-0b18f2fb32c8';
     $pane = new stdClass();
-    $pane->pid = 'new-498dec4e-2e07-466d-927e-06c3c42d848e';
+    $pane->pid = 'new-fce3e7c1-224a-4b53-8f31-93ce19d62366';
     $pane->panel = 'center';
     $pane->type = 'views';
     $pane->subtype = 'search_api_group';
@@ -177,12 +177,12 @@ function commons_groups_directory_default_page_manager_pages() {
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 1,
-      'nodes_per_page' => '15',
+      'nodes_per_page' => '20',
       'pager_id' => '0',
       'offset' => '0',
       'more_link' => 0,
       'feed_icons' => 0,
-      'panel_args' => 0,
+      'panel_args' => 1,
       'link_to_view' => 0,
       'args' => '',
       'url' => '',
@@ -199,9 +199,9 @@ function commons_groups_directory_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '498dec4e-2e07-466d-927e-06c3c42d848e';
-    $display->content['new-498dec4e-2e07-466d-927e-06c3c42d848e'] = $pane;
-    $display->panels['center'][1] = 'new-498dec4e-2e07-466d-927e-06c3c42d848e';
+    $pane->uuid = 'fce3e7c1-224a-4b53-8f31-93ce19d62366';
+    $display->content['new-fce3e7c1-224a-4b53-8f31-93ce19d62366'] = $pane;
+    $display->panels['center'][1] = 'new-fce3e7c1-224a-4b53-8f31-93ce19d62366';
     $pane = new stdClass();
     $pane->pid = 'new-1c95172e-d00e-4c7a-b2f9-9358d3977afd';
     $pane->panel = 'top';

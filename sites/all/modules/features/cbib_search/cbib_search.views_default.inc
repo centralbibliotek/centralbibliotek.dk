@@ -24,7 +24,6 @@ function cbib_search_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tidligere arrangementer';
   $handler->display->display_options['css_class'] = 'cb-teaser-list';
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -66,7 +65,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Groups */
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
@@ -82,7 +81,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -130,7 +129,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['search_api_combined_1']['expose']['label'] = 'COMBINE_DATO';
-  $handler->display->display_options['path'] = 'search_api_events';
+  $handler->display->display_options['path'] = 'arrangementer';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -141,6 +140,7 @@ function cbib_search_views_default_views() {
   $handler = $view->new_display('page', 'Events - mini', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Arrangementer mini visning';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -198,7 +198,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '250',
   );
-  /* Felt: Indexed Indholdselement: Groups */
+  /* Felt: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
@@ -212,7 +212,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['path'] = 'search_api_events';
+  $handler->display->display_options['path'] = 'arrangementer';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -261,9 +261,8 @@ function cbib_search_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'search api group';
+  $handler->display->display_options['title'] = 'search api group mini';
   $handler->display->display_options['css_class'] = 'cb-teaser-list';
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -304,7 +303,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Din søgning gav desværre ingen resultater!';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indexed Indholdselement: Groups */
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
@@ -339,7 +338,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['field_last_comment_date']['field'] = 'field_last_comment_date';
   $handler->display->display_options['sorts']['field_last_comment_date']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_last_comment_date']['expose']['label'] = 'Nyeste indlæg';
-  /* Kontekstuelt filter: Indexed Indholdselement: Groups */
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
@@ -370,6 +369,15 @@ function cbib_search_views_default_views() {
 
   /* Display: search api group */
   $handler = $view->new_display('page', 'search api group', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'search api group';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['path'] = 'grupper';
 
   /* Display: search api group mini */
@@ -414,7 +422,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Felt: Indexed Indholdselement: Groups */
+  /* Felt: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
@@ -423,10 +431,10 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
   $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
-  $handler->display->display_options['path'] = 'search_api_group';
+  $handler->display->display_options['path'] = 'grupper';
   $translatables['search_api_group'] = array(
     t('Master'),
-    t('search api group'),
+    t('search api group mini'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -451,7 +459,7 @@ function cbib_search_views_default_views() {
     t('Titel'),
     t('Nyeste indlæg'),
     t('Alle'),
-    t('search api group mini'),
+    t('search api group'),
   );
   $export['search_api_group'] = $view;
 
@@ -504,7 +512,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Forbindelse: Indholdselement: Groups (indexed) */
+  /* Forbindelse: Indholdselement: Tilknytning (indexed) */
   $handler->display->display_options['relationships']['node_og_group_ref']['id'] = 'node_og_group_ref';
   $handler->display->display_options['relationships']['node_og_group_ref']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['relationships']['node_og_group_ref']['field'] = 'node_og_group_ref';
@@ -588,7 +596,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['node_field_topics']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['node_field_topics']['view_mode'] = 'full';
   $handler->display->display_options['fields']['node_field_topics']['bypass_access'] = 0;
-  /* Felt: Indholdselement: Groups (indexed) */
+  /* Felt: Indholdselement: Tilknytning (indexed) */
   $handler->display->display_options['fields']['node_og_group_ref']['id'] = 'node_og_group_ref';
   $handler->display->display_options['fields']['node_og_group_ref']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_og_group_ref']['field'] = 'node_og_group_ref';
