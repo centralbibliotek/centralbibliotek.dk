@@ -10,8 +10,10 @@ function cbib_oc_hooks_init() {
      
       $path_parts = explode('?', request_uri());
       /* @var $path_parts type */
-      if (!isset($path_parts[1]) && $path_parts[0] == '/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/odense/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/gentofte/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/herning/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/roskilde/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/vejle/arrangementer' || !isset($path_parts[1]) && $path_parts[0] == '/aalborg/arrangementer') {
-      // Name of your searcher.
+      if (strpos($path_parts[1], 'field_date%253Avalue%3Apast') !== false ) {
+
+      }else {
+            // Name of your searcher.
       // In this case "search_api" is service
       // and "solr_index" is machine name of the index.
       $searcher = 'search_api@arrangement_index';
