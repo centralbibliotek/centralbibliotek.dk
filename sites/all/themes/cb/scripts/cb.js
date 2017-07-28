@@ -57,7 +57,7 @@
         }
         $('.element-invisible').remove();
 
-        $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue').each(function () {
+        $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue, #facetapi-facet-search-apiglobal-search-block-nodefield-datevalue').each(function () {
             var select = $(document.createElement('select')).insertBefore($(this).hide());
 
             $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
