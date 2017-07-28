@@ -10,7 +10,7 @@ function cbib_oc_hooks_init() {
      
       $path_parts = explode('?', request_uri());
       /* @var $path_parts type */
-      if (strpos($path_parts[1], 'field_date%253Avalue%3Apast') !== false ) {
+      if (strpos($path_parts[1], 'field_date_value=past') !== false ) {
 
       }else {
             // Name of your searcher.
