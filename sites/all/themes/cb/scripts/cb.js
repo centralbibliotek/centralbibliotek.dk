@@ -40,11 +40,13 @@
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
+                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
          $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
          var Selects_to_fix = $('.fix_me_select');
@@ -73,7 +75,6 @@
                  }
                  else
                  {
-                     debugger;
                     var query = getQueryParams(test); //hack to make valid url.
                     test = query['og_group_ref'];
                     if(test != undefined)
