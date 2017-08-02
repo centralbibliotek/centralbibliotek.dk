@@ -39,6 +39,7 @@ function cbib_oc_hooks_init() {
       $selected_cbib = $_SESSION['cbib_centralbibliotek'];
       if($selected_cbib != false && !isset($_GET['og_group_ref']))
       {
+          drupal_add_js(array('oc_cbib' => array('centralbib' => $selected_cbib)), 'setting');
           $is_active_selection = false;
           foreach($active_items as $key => $value)
           {
@@ -201,6 +202,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
       $build = $loca;
   }
   if ($settings->facet == "og_group_ref") {
+      
       //$CentralLibraries = null;
       $CentralLibraries_nids = null;
       $query = new EntityFieldQuery();

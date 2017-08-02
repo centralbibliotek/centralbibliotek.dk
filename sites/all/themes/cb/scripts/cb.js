@@ -71,7 +71,15 @@
                     }
                     else
                     {
-                       c.value = "";
+                        if(Drupal.settings.oc_cbib.centralbib != undefined)
+                        {
+                            c.value = Drupal.settings.oc_cbib.centralbib;
+                        }
+                        else
+                        {
+                           c.value = ""; 
+                        }
+                       
                     }
                  }
                  else
