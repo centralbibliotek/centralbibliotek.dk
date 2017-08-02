@@ -40,7 +40,7 @@
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf("MSIE ");
         var topx = null;
-        if (msie > 0) // If Internet Explorer, return version number
+        if (ua.indexOf("MSIE ") != -1 && ua.indexOf("Trident ") != -1) // If Internet Explorer, return version number
         {
             topx = '50px';
         }
