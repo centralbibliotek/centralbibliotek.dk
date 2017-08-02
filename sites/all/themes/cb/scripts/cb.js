@@ -57,12 +57,13 @@
          function Fix_og_group_ref_ids(children)
          {
              $.each(children,function(i,c){
-             var test = c.value.split('?');
+             var test = c.value.replace('&&','&').split('?');
              test = test[test.length-1];
              if(test != null || $(c).attr('selected') != undefined)
              {
                  if($(c).attr('selected') != undefined)
                  {
+                     debugger;
                     var query = getQueryParams(document.location.search.replace('&&','&'));
                     if(query['og_group_ref'] != undefined)
                     {
