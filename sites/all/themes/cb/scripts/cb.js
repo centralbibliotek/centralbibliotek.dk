@@ -19,10 +19,110 @@
     }
 
     $(document).ready(function () {
+        /*
+         * Add preloader to everything ?
+         */
+        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').click(function(){
+            
+            trigger_loginSpinner();
+        });
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
+            trigger_loginSpinner();
+        });
+        $('select').change(function () {
+            trigger_loginSpinner();
+        });
         
-        
-        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
-        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button');
+        /*
+         * Create better search experiance with some js.
+         */
+        //$('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().parent().parent().parent().hide();
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                     return false;
+         });
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                     return false;
+         });
+         var Selects_to_fix = $('.fix_me_select');
+         $.each(Selects_to_fix,function(i,e){
+             Fix_og_group_ref_ids($(e).children());
+         })
+         
+         function Fix_og_group_ref_ids(children)
+         {
+             $.each(children,function(i,c){
+             var test = c.value.split('?');
+             test = test[test.length-1];
+             if(test != null || $(c).attr('selected') != undefined)
+             {
+                 if($(c).attr('selected') != undefined)
+                 {
+                    var query = getQueryParams(document.location.search.replace('&&','&'));
+                    if(query['og_group_ref'] != undefined)
+                    {
+                    c.value= query['og_group_ref'];
+                    }
+                    else
+                    {
+                       c.value = "";
+                    }
+                 }
+                 else
+                 {
+                     debugger;
+                    var query = getQueryParams(test); //hack to make valid url.
+                    test = query['og_group_ref'];
+                    if(test != undefined)
+                    {
+                        c.value= test;
+                    }
+                    else
+                    {
+                        c.value = "";
+                    }
+                 }
+
+            }
+         });
+         }
+         /*
+          * Bind facet api and search field together for events.
+          */
+              var Forms = $('#views-exposed-form-search-api-arrangementer-page,#views-exposed-form-search-api-arrangementer-page-1');
+              $.each(Forms,function(i,e){
+                    var query = getQueryParams(document.location.search.replace('&&','&').replace('?&','?'));
+                    var count = 0;
+                    $.each(query,function(i,q){
+                       if(i != "og_group_ref" && i != "search_api_views_fulltext")
+                       {
+                           var new_elem = $('<input />');
+                           new_elem.attr('name',i);
+                           new_elem.val(q);
+                           new_elem.attr('type','hidden');
+                           $(e).append(new_elem);
+                       }
+                    });
+              });
+
+          function getQueryParams(qs) {
+            qs = qs.split('+').join(' ');
+
+            var params = {},
+                tokens,
+                re = /[?&]?([^=]+)=([^&]*)/g;
+
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+
+            return params;
+        }
+        /* $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
+         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button');
         
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-2 .views-exposed-widget.views-reset-button');
@@ -49,7 +149,7 @@
                 $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
             }
             
-        });
+        });*/
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
         {
@@ -78,12 +178,7 @@
             });
 
         });
-        /*
-         * Add preloader to everything ?
-         */
-        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').click(function(){
-            trigger_loginSpinner();
-        });    
+           
         $(".feed-icon").find("a").unbind('click');
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
 
@@ -111,12 +206,7 @@
                 trigger_loginSpinner();
             }
         });
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, .views-exposed-widgets option, #reset', function () {
-            trigger_loginSpinner();
-        });
-        $('select').change(function () {
-            trigger_loginSpinner();
-        });
+
 
 
   });

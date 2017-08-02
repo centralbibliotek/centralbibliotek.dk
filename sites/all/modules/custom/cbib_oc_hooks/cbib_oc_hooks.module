@@ -32,6 +32,30 @@ function cbib_oc_hooks_init() {
         $params[$filter_key][] = $filter;
         $adapter->setParams($params, $filter_key);
       }
+      /*
+       * Have we selected cb ? 
+       * And Is the og_reg_filter_active ?
+       */
+      $selected_cbib = $_SESSION['cbib_centralbibliotek'];
+      if($selected_cbib != false && !isset($_GET['og_group_ref']))
+      {
+          $is_active_selection = false;
+          foreach($active_items as $key => $value)
+          {
+              if($value['field alias'] == "og_group_ref" && $value['value'] != $selected_cbib)
+              {
+                  $is_active_selection = true;
+              }
+          }
+          if(!$is_active_selection)
+          {
+              // If not, get and tamper with your parameters here.
+              $filter_key = $url_processor->getFilterKey();
+              $params = $url_processor->fetchParams();
+              $params[$filter_key][] = "og_group_ref:" . $selected_cbib;
+              $adapter->setParams($params, $filter_key);
+          }
+      }
     }
   }
 }
@@ -176,6 +200,29 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
 
       $build = $loca;
   }
+  if ($settings->facet == "og_group_ref") {
+      //$CentralLibraries = null;
+      $CentralLibraries_nids = null;
+      $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'centralbibliotek')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          // Run the query as user 1.
+          ->addMetaData('account', user_load(1));
+
+        $result = $query->execute();
+        if (isset($result['node'])) {
+          $CentralLibraries_nids = array_keys($result['node']);
+          //$CentralLibraries = entity_load('node', $CentralLibraries_nids);
+        } 
+      foreach($build as $key => $item) {
+        if(!in_array($key, $CentralLibraries_nids))
+        {
+            //remove non cbib nodes from tilknytning result.
+            unset($build[$key]);
+        }
+      }
+    }
 }
 /*
 * Alter various forms.
@@ -746,3 +793,6 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
       }
       
   }
+/*
+ * Facet data rewrite
+ */
