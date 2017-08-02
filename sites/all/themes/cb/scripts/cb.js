@@ -37,26 +37,37 @@
         /*
          * Create better search experiance with some js.
          */
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        var topx = null;
+        if (msie > 0) // If Internet Explorer, return version number
+        {
+            topx = '50px';
+        }
+        else  // If another browser, return 0
+        {
+            topx = '62px';
+        }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
