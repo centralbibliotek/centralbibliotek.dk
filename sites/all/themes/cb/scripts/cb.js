@@ -39,8 +39,10 @@
          */
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf("MSIE ");
+        var msie_trident = ua.indexOf("Trident");
+        var msie_edge = ua.indexOf('Edge');
         var topx = null;
-        if (ua.indexOf("MSIE ") != -1 || ua.indexOf("Trident ") != -1) // If Internet Explorer, return version number
+        if ((msie != -1 || msie_trident != -1) && msie_edge == -1) // If Internet Explorer, return version number
         {
             topx = '50px';
         }
