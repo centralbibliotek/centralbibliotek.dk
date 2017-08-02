@@ -71,7 +71,7 @@
                     }
                     else
                     {
-                        if(Drupal.settings.oc_cbib.centralbib != undefined)
+                        if(Drupal.settings.oc_cbib != undefined && Drupal.settings.oc_cbib.centralbib != undefined)
                         {
                             c.value = Drupal.settings.oc_cbib.centralbib;
                         }
