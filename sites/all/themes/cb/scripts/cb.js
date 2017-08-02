@@ -19,6 +19,7 @@
     }
 
     $(document).ready(function () {
+       
         /*
          * Add preloader to everything ?
          */
@@ -36,7 +37,7 @@
         /*
          * Create better search experiance with some js.
          */
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().parent().parent().parent().hide();
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
@@ -75,7 +76,6 @@
              {
                  if($(c).attr('selected') != undefined)
                  {
-                     debugger;
                     var query = getQueryParams(document.location.search.replace('&&','&'));
                     if(query['og_group_ref'] != undefined)
                     {
@@ -234,7 +234,7 @@
   });
   
     $(document).ajaxComplete(function (e, xhr, settings) {
-        debugger;
+      
         if (settings.url.indexOf("/views/ajax?") !== -1 ||settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
