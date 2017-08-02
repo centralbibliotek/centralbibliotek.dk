@@ -49,6 +49,18 @@
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
+                     return false;
+         });
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top','62px')
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
+                     return false;
+         });
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
              Fix_og_group_ref_ids($(e).children());
@@ -102,7 +114,7 @@
          /*
           * Bind facet api and search field together for events.
           */
-              var Forms = $('#views-exposed-form-search-api-arrangementer-page,#views-exposed-form-search-api-arrangementer-page-1');
+              var Forms = $('#views-exposed-form-search-api-arrangementer-page,#views-exposed-form-search-api-arrangementer-page-1,#views-exposed-form-search-api-arrangementer-page-2,#views-exposed-form-search-api-arrangementer-page-3');
               $.each(Forms,function(i,e){
                     var query = getQueryParams(document.location.search.replace('&&','&').replace('?&','?'));
                     var count = 0;
