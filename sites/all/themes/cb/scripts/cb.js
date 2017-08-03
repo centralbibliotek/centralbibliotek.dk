@@ -15,26 +15,11 @@
   "use strict";
 
     function trigger_loginSpinner() {
-        debugger;
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
 
     $(document).ready(function () {
-       /*
-        * convert facet elements to selects as first thing.
-        */
-       $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
-
-        //If user wants to cancel his search.
-        $('.search-overlay--wrapper .cancel').live('click', function (e) {
-            try {
-                window.stop();
-            } catch (e)
-            {
-                document.execCommand('Stop');
-            }
-            $('.search-overlay--wrapper').remove();
-        });
+       
         /*
          * Add preloader to everything ?
          */
@@ -43,10 +28,7 @@
             trigger_loginSpinner();
         });
 
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
-            debugger;
-            trigger_loginSpinner();
-        });
+
         $('select[id!=edit-following]').change(function () {
             trigger_loginSpinner();
         });
@@ -254,8 +236,23 @@
         });
            
         $(".feed-icon").find("a").unbind('click');
+ $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
+
+        //If user wants to cancel his search.
+        $('.search-overlay--wrapper .cancel').live('click', function (e) {
+            try {
+                window.stop();
+            } catch (e)
+            {
+                document.execCommand('Stop');
+            }
+            $('.search-overlay--wrapper').remove();
+        });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
+            trigger_loginSpinner();
+        });
   });
   
     $(document).ajaxComplete(function (e, xhr, settings) {
