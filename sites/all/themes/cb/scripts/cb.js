@@ -218,6 +218,7 @@
 
             $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
             select.change(function () {
+                trigger_loginSpinner();
                 window.location = $(this).find("option:selected").val();
             });
             $('>li a', this).each(function () {
@@ -251,9 +252,6 @@
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range select option, .block-facetapi option, #reset', function () {
-            trigger_loginSpinner();
-        });
-        $('.item-list.item-list-facetapi-date-range select option').unbind('keyup').keyup(function(){
             trigger_loginSpinner();
         });
   });
