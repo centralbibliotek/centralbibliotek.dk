@@ -250,7 +250,7 @@
         });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
-        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
+        $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range select option, .block-facetapi option, #reset', function () {
             trigger_loginSpinner();
         });
         $('.item-list.item-list-facetapi-date-range option').mouseup(function()
