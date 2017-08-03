@@ -51,7 +51,7 @@
          * unbind login_spinner;
          */
         $('.file').find('a').unbind('click');
-        $('#edit-following').undbind('click').unbind('mouseup');
+        $('#edit-following').unbind('click').unbind('mouseup');
         /*
          * Create better search experiance with some js.
          */
