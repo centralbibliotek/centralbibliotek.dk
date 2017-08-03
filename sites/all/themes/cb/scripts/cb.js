@@ -20,7 +20,21 @@
     }
 
     $(document).ready(function () {
-       
+       /*
+        * convert facet elements to selects as first thing.
+        */
+       $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
+
+        //If user wants to cancel his search.
+        $('.search-overlay--wrapper .cancel').live('click', function (e) {
+            try {
+                window.stop();
+            } catch (e)
+            {
+                document.execCommand('Stop');
+            }
+            $('.search-overlay--wrapper').remove();
+        });
         /*
          * Add preloader to everything ?
          */
@@ -30,6 +44,7 @@
         });
 
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
+            debugger;
             trigger_loginSpinner();
         });
         $('select[id!=edit-following]').change(function () {
@@ -239,18 +254,6 @@
         });
            
         $(".feed-icon").find("a").unbind('click');
- $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
-
-        //If user wants to cancel his search.
-        $('.search-overlay--wrapper .cancel').live('click', function (e) {
-            try {
-                window.stop();
-            } catch (e)
-            {
-                document.execCommand('Stop');
-            }
-            $('.search-overlay--wrapper').remove();
-        });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
   });
