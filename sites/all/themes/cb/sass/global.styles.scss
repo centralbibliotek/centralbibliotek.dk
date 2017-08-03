@@ -38,6 +38,7 @@
  * element. If you need to set default font properties of any kind use the BODY
  * element as these can be overridden using font theme settings.
  */
+::-ms-clear { display: none; }
 
 html {
   background: $page;
