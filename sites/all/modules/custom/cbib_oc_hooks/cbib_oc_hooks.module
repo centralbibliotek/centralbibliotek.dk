@@ -24,13 +24,14 @@ function cbib_oc_hooks_init() {
       $filter = "field_date%3Avalue:future";
 
       $active_items = $adapter->getAllActiveItems();
+      $filter_key = $url_processor->getFilterKey();
+      $params = $url_processor->fetchParams();
       if (!isset($active_items[$filter])) {
 
         // If not, get and tamper with your parameters here.
-        $filter_key = $url_processor->getFilterKey();
-        $params = $url_processor->fetchParams();
+        
         $params[$filter_key][] = $filter;
-        $adapter->setParams($params, $filter_key);
+        
       }
       /*
        * Have we selected cb ? 
@@ -51,12 +52,12 @@ function cbib_oc_hooks_init() {
           if(!$is_active_selection)
           {
               // If not, get and tamper with your parameters here.
-              $filter_key = $url_processor->getFilterKey();
-              $params = $url_processor->fetchParams();
+             
               $params[$filter_key][] = "og_group_ref:" . $selected_cbib;
-              $adapter->setParams($params, $filter_key);
+              //$adapter->setParams($params, $filter_key);
           }
       }
+      $adapter->setParams($params, $filter_key);
     }
   }
 }
