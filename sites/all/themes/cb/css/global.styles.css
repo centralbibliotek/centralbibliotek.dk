@@ -1662,6 +1662,38 @@ ul.primary.tabs li.active a span {
   display: none;
 }
 
+#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-widget-sort-by {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-widget-sort-order {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-widget-sort-by {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-widget-sort-order {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-widget-sort-by {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-widget-sort-order {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-4 .views-exposed-widget.views-widget-sort-by {
+  display: none;
+}
+
+#views-exposed-form-search-api-arrangementer-page-4 .views-exposed-widget.views-widget-sort-order {
+  display: none;
+}
+
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
   position: relative;
   left: 87%;
