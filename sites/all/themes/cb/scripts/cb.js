@@ -53,7 +53,7 @@
         }
         else  // If another browser, return 0
         {
-            topx = '62px';
+            topx = '52px';
         }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
