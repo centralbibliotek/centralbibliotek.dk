@@ -41,35 +41,40 @@
         var msie = ua.indexOf("MSIE ");
         var msie_trident = ua.indexOf("Trident");
         var msie_edge = ua.indexOf('Edge');
+        var is_firefox = ua.indexOf('Firefox');
         var topx = null;
         if ((msie != -1 || msie_trident != -1) && msie_edge == -1) // If Internet Explorer, return version number
         {
             topx = '50px';
+        }
+        else if(is_firefox != -1)
+        {
+            topx = '52px';
         }
         else  // If another browser, return 0
         {
             topx = '62px';
         }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','234px').css('top',topx)
+         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
