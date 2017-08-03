@@ -15,6 +15,7 @@
   "use strict";
 
     function trigger_loginSpinner() {
+        debugger;
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
 
@@ -31,7 +32,7 @@
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
             trigger_loginSpinner();
         });
-        $('select').change(function () {
+        $('select[id!=edit-following]').change(function () {
             trigger_loginSpinner();
         });
         // Node search overlay
@@ -51,7 +52,7 @@
          * unbind login_spinner;
          */
         $('.file').find('a').unbind('click');
-        $('#edit-following').unbind('click').unbind('mouseup');
+        $('.feed-icon').find('a').unbind('click');
         /*
          * Create better search experiance with some js.
          */
