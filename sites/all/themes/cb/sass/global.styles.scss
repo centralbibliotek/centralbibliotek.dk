@@ -1443,6 +1443,10 @@ h1.node-title {
 header #resets {
     visibility: hidden;
 }
+#views-exposed-form-search-api-nodes-default .views-exposed-widgets .views-reset-button
+{
+    position: relative !important;
+}
 .views-reset-button {
     position: absolute;
     font-size: 180%;
