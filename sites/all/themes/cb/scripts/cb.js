@@ -23,17 +23,35 @@
         /*
          * Add preloader to everything ?
          */
-        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').click(function(){
+        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="flag"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").click(function(){
             
             trigger_loginSpinner();
         });
+
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range option, .block-facetapi option, #reset', function () {
             trigger_loginSpinner();
         });
         $('select').change(function () {
             trigger_loginSpinner();
         });
+        // Node search overlay
+        $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
+            trigger_loginSpinner();
+        });
+
+        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                trigger_loginSpinner();
+            }
+        });
+
         
+        /*
+         * unbind login_spinner;
+         */
+        $('.file').find('a').unbind('click');
+        $('#edit-following').undbind('click').unbind('mouseup');
         /*
          * Create better search experiance with some js.
          */
@@ -137,7 +155,7 @@
                     var query = getQueryParams(document.location.search.replace('&&','&').replace('?&','?'));
                     var count = 0;
                     $.each(query,function(i,q){
-                       if(i != "og_group_ref" && i != "search_api_views_fulltext")
+                       if(i != "og_group_ref" && i != "search_api_views_fulltext" && i != "page")
                        {
                            var new_elem = $('<input />');
                            new_elem.attr('name',i);
@@ -234,21 +252,6 @@
         });
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
-
-                // Node search overlay
-        $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
-            trigger_loginSpinner();
-        });
-
-        $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
-            e.preventDefault();
-            if (e.keyCode === 13) {
-                trigger_loginSpinner();
-            }
-        });
-
-
-
   });
   
     $(document).ajaxComplete(function (e, xhr, settings) {
