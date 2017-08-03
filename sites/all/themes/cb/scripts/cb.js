@@ -253,6 +253,9 @@
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range select option, .block-facetapi option, #reset', function () {
             trigger_loginSpinner();
         });
+        $('.item-list.item-list-facetapi-date-range select option').unbind('keyup').keyup(function(){
+            trigger_loginSpinner();
+        });
   });
   
     $(document).ajaxComplete(function (e, xhr, settings) {
