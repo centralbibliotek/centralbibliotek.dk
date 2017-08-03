@@ -1845,7 +1845,7 @@ header #resets {
   font-size: 180%;
   opacity: 0.5;
   right: 24%;
-  top: 47px;
+  top: 47px !important;
 }
 
 .view-display {

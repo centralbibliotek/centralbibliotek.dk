@@ -47,7 +47,7 @@
         {
             topx = '50px';
         }
-        else if(is_firefox != -1)
+        else if(is_firefox != -1 || msie_edge != -1)
         {
             topx = '52px';
         }
