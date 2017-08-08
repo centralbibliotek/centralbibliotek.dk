@@ -182,7 +182,7 @@
                     var query = getQueryParams(document.location.search.replace('&&','&').replace('?&','?'));
                     var count = 0;
                     $.each(query,function(i,q){
-                       if(i != "og_group_ref" && i != "search_api_views_fulltext" && i != "page")
+                       if(i !== "og_group_ref" && i !== "search_api_views_fulltext" && i !== "page")
                        {
                            var new_elem = $('<input />');
                            new_elem.attr('name',i);
