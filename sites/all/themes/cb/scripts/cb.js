@@ -59,11 +59,11 @@
         var msie_edge = ua.indexOf('Edge');
         var is_firefox = ua.indexOf('Firefox');
         var topx = null;
-        if ((msie != -1 || msie_trident != -1) && msie_edge == -1) // If Internet Explorer, return version number
+        if ((msie !== -1 || msie_trident !== -1) && msie_edge == -1) // If Internet Explorer, return version number
         {
             topx = '50px';
         }
-        else if(is_firefox != -1 || msie_edge != -1)
+        else if(is_firefox !== -1 || msie_edge !== -1)
         {
             topx = '52px';
         }
@@ -134,12 +134,12 @@
              $.each(children,function(i,c){
              var test = c.value.replace('&&','&').split('?');
              test = test[test.length-1];
-             if(test != null || $(c).attr('selected') != undefined)
+             if(test !== null || $(c).attr('selected') !== undefined)
              {
-                 if($(c).attr('selected') != undefined)
+                 if($(c).attr('selected') !== undefined)
                  {
                     var query = getQueryParams(document.location.search.replace('&&','&'));
-                    if(query['og_group_ref'] != undefined)
+                    if(query['og_group_ref'] !== undefined)
                     {
                     c.value= query['og_group_ref'];
                     }
@@ -160,7 +160,7 @@
                  {
                     var query = getQueryParams(test); //hack to make valid url.
                     test = query['og_group_ref'];
-                    if(test != undefined)
+                    if(test !== undefined)
                     {
                         c.value= test;
                     }
