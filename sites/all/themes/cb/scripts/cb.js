@@ -176,8 +176,7 @@
          /*
           * Bind facet api and search field together for events.
           */
-              var Forms = $('#views-exposed-form-search-api-arrangementer-page,#views-exposed-form-search-api-arrangementer-page-1,#views-exposed-form-search-api-arrangementer-page-2,#views-exposed-form-search-api-arrangementer-page-3,\n\
-      #views-exposed-form-search-api-group-page-1,#views-exposed-form-search-api-group-page-2');
+              var Forms = $('#views-exposed-form-search-api-arrangementer-page,#views-exposed-form-search-api-arrangementer-page-1,#views-exposed-form-search-api-arrangementer-page-2,#views-exposed-form-search-api-arrangementer-page-3,#views-exposed-form-search-api-group-page-1,#views-exposed-form-search-api-group-page-2,#views-exposed-form-search-api-group-page-3,#views-exposed-form-search-api-group-page-4');
               
               $.each(Forms,function(i,e){
                     var query = getQueryParams(document.location.search.replace('&&','&').replace('?&','?'));
