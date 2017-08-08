@@ -290,32 +290,6 @@
         if (settings.url.indexOf("/views/ajax?") !== -1 ||settings.url == Drupal.settings.basePath + "?q=views/ajax" || settings.url == Drupal.settings.basePath + "views/ajax" || settings.url == Drupal.settings.basePath + "?q=system/ajax" || settings.url == Drupal.settings.basePath + "system/ajax" || settings.url == Drupal.settings.basePath + "ajax?") {
             // enable selectBox jQuery plugin for all <select> elements
             $('.search-overlay--wrapper').remove();
-            $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
-            $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
-            $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr("id").addClass('centralbiblioteker-block');
-            $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
-                event.preventDefault();
-            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
-            {
-                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'block');
-                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
-            }
-            else
-            {
-                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
-                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-            }
-                
-                if(window.location.href.indexOf("arrangementer") !== -1)
-                {
-                    $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
-                }
-                if(window.location.href.indexOf("grupper") !== -1)
-                {
-                    $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
-                }
-
-            });
             //Drupal.attachbehaviours();
 
         }
