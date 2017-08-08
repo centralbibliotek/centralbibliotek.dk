@@ -101,13 +101,25 @@
           */
           $('#facetapi-facet-search-apigroup-index-block-og-group-ref').parent().parent().hide();
           $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
              $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
+                     return false;
+         });
+         $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
+                     return false;
+         });
+         $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-4 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-4').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
