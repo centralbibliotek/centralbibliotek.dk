@@ -4392,6 +4392,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 }
 
 .block-facetapi {
+  display: inline-block;
   margin-bottom: 0px !important;
   padding-bottom: .7em;
 }
