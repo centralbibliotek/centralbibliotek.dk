@@ -71,6 +71,12 @@
         {
             topx = '52px';
         }
+        $('strong').each(function () {
+        if ($(this).text() === 'Søgning gav desværre ingen resultater!') {
+                $('div.views-exposed-widget.views-reset-button').css("top", "30px");
+                topx = '30px';
+            }
+        });
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
@@ -88,13 +94,6 @@
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-
-
-        $('strong').each(function () {
-            if ($(this).text() === 'Søgning gav desværre ingen resultater!') {
-                $('div.views-exposed-widget.views-reset-button').css("top", "30px");
-            }
-        });
         
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
