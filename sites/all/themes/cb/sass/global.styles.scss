@@ -4237,9 +4237,10 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   }
 }
 
-.block-facetapi, .panels-ipe-portlet-wrapper {
+.panels-ipe-portlet-wrapper section[class*="pane-facetapi-"] {
     display: inline-block;
     margin-right: 0.5em;
+    float: left;
 }
 .form-type-select.form-item-facets select option {
     overflow: hidden;
