@@ -16,7 +16,12 @@ function cbib_oc_hooks_init() {
             // Name of your searcher.
       // In this case "search_api" is service
       // and "solr_index" is machine name of the index.
-      $searcher = 'search_api@arrangement_index';
+      $part = explode('/', $path_parts[0]);
+      if($part[2] == 'grupper') {
+        $searcher = 'search_api@group_index';
+      }else {
+        $searcher = 'search_api@arrangement_index';
+      }
       $adapter = facetapi_adapter_load($searcher);
       $url_processor = $adapter->getUrlProcessor();
 
