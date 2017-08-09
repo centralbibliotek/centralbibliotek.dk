@@ -72,58 +72,30 @@
             topx = '52px';
         }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
-         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
          /*
           * Group tilknytning styling fix.
           */
           $('#facetapi-facet-search-apigroup-index-block-og-group-ref').parent().parent().hide();
-          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-group-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
-             $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-2 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-2').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
-         $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-3 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-3').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
-         $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('#views-exposed-form-search-api-group-page-4 .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
-                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-4').addClass('fix_me_select').change(function(e){
-                     e.preventDefault();
-                    $('.fix_me_select').val(e.currentTarget.value);
-                     return false;
-         });
+
+
+        $('strong').each(function () {
+            if ($(this).text() === 'Søgning gav desværre ingen resultater!') {
+                $('div.views-exposed-widget.views-reset-button').css("top", "30px");
+            }
+        });
+        
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
              Fix_og_group_ref_ids($(e).children());
@@ -298,7 +270,7 @@
     // Add a Display icons for hiding elements in views.
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {
-
+         
             $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Adocument"]').text(function (text) {
                     return $(this).text().replace(/Dokument/g, "Filer");
             });
