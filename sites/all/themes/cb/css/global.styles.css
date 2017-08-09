@@ -2092,6 +2092,14 @@ header #resets {
   width: 40px;
 }
 
+/*
+* image kilde
+*/
+.field_kilde {
+  margin-bottom: 23px;
+  font-size: 11px;
+}
+
 .page-node .field-name-field-topics,
 .page-node .field-name-og-group-ref {
   margin: 0;
