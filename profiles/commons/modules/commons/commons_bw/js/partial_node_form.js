@@ -47,10 +47,13 @@ Drupal.behaviors.commonsBwExpandableForm = {
       if (!errors.length) {
         // Forms with errors are shown expanded, so only add the toggle link to
         // the top of forms which are error free.
-        form.prepend(toggle).addClass('expandable-form compact-form');
+        /**
+         * Removed by impara because of an error showing the widget fields & submit button for posting
+         */
+       // form.prepend(toggle).addClass('expandable-form compact-form'); */
 
         // Hide the hidden fields on load.
-        hideables.addClass('element-invisible');
+       // hideables.addClass('element-invisible');
       }
       else {
         // The full form link is only shown on collapsed forms so it is hidden
