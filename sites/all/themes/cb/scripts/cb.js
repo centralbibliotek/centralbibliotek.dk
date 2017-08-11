@@ -72,7 +72,7 @@
             topx = '52px';
         }
         $('strong').each(function () {
-        if ($(this).text() === 'Søgning gav desværre ingen resultater. Prøv evt. samme søgning og vælg "Tidligere" i "Aktualitet".') {
+        if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
                 $('div.views-exposed-widget.views-reset-button').css("top", "30px");
                 topx = '30px';
             }
