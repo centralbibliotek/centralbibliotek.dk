@@ -26,7 +26,9 @@ function cbib_oc_hooks_init() {
       $url_processor = $adapter->getUrlProcessor();
 
       // Check if the filter is already active.
-      $filter = "field_date%3Avalue:future";
+        if ($part[3] != 'events') {
+        $filter = "field_date%3Avalue:future";
+        }
 
       $active_items = $adapter->getAllActiveItems();
       $filter_key = $url_processor->getFilterKey();
@@ -64,7 +66,7 @@ function cbib_oc_hooks_init() {
       }
       $adapter->setParams($params, $filter_key);
     }
-  }
+}
 }
 /*
  * Register any additonal routes required by the module.
