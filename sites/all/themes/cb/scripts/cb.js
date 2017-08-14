@@ -50,27 +50,9 @@
          */
         $('.file').find('a').unbind('click');
         $('.feed-icon').find('a').unbind('click');
-        /*
-         * Create better search experiance with some js.
-         */
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE ");
-        var msie_trident = ua.indexOf("Trident");
-        var msie_edge = ua.indexOf('Edge');
-        var is_firefox = ua.indexOf('Firefox');
-        var topx = null;
-        if ((msie !== -1 || msie_trident !== -1) && msie_edge == -1) // If Internet Explorer, return version number
-        {
-            topx = '50px';
-        }
-        else if(is_firefox !== -1 || msie_edge !== -1)
-        {
-            topx = '52px';
-        }
-        else  // If another browser, return 0
-        {
-            topx = '52px';
-        }
+
+        var topx = '52px';       
+ 
         $('strong').each(function () {
         if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
                 $('div.views-exposed-widget.views-reset-button').css("top", "30px");
@@ -270,6 +252,19 @@
     Drupal.behaviors.viewDisplays = {
         attach: function (context, settings) {
          
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+            var msie_trident = ua.indexOf("Trident");
+
+            if (msie !== -1 || msie_trident !== -1) // If Internet Explorer, return version number
+            {
+                $('div.views-exposed-widget.views-reset-button').css('cssText', 'top:46px !important');
+                $('strong').each(function () {
+                    if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
+                        $('div.views-exposed-widget.views-reset-button').css("cssText", "top:24px !important");
+                    }
+                });                
+            }
             $('#facetapi-facet-search-apiglobal-search-block-item-bundle select option[value*="item_bundle%3Afile%3Adocument"]').text(function (text) {
                     return $(this).text().replace(/Dokument/g, "Filer");
             });
