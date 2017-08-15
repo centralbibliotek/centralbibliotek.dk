@@ -389,6 +389,10 @@ var {
   padding: 0px;
 }
 
+.node-teaser.node .field_kilde {
+  display: none;
+}
+
 article.user-picture-available {
   padding: 10px 10px 10px 70px !important;
 }
