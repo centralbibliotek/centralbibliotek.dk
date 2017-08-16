@@ -1719,10 +1719,6 @@ ul.primary.tabs li.active a span {
   display: inline-block;
 }
 
-.page-events .ui-tabs ul li, .page-node-events .ui-tabs ul li, .page-groups .ui-tabs ul li, .page-node-groups .ui-tabs ul li {
-  padding: 0.5rem 0 0 !important;
-}
-
 .quicktabs-style-commons-pills ul.quicktabs-tabs {
   border-bottom-color: #ddd;
   padding: 0;

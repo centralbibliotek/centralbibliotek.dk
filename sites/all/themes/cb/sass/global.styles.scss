@@ -1315,9 +1315,7 @@ ul.primary.tabs {
     width: 100%;
     display: inline-block;
 }
-.page-events .ui-tabs ul li, .page-node-events .ui-tabs ul li, .page-groups .ui-tabs ul li, .page-node-groups .ui-tabs ul li {
-    padding: 0.5rem 0 0!important;
-}
+
 // style pills same way as sub-menu
 .quicktabs-style-commons-pills ul.quicktabs-tabs{
   border-bottom-color: $gray-light;
