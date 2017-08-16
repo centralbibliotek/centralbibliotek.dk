@@ -551,6 +551,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          $path_parts = explode('/', request_uri());
          if($path_parts[3] == 'events') {
            $path = '/';
+           $form['sort_order']['#default_value'] = 'ASC';
          }else {
            $path = '/arrangementer';
          }
