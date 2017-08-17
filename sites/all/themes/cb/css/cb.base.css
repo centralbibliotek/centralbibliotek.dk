@@ -425,7 +425,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   background-image: url(../images/no-image.jpg);
   background-size: 100%;
   background-position: center;
-  max-height: 170px;
+  height: 170px;
   position: relative;
   max-width: 330px;
 }
