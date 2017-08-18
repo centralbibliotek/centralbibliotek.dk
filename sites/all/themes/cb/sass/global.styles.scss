@@ -1447,9 +1447,15 @@ h1.node-title {
 header #resets {
     visibility: hidden;
 }
-#views-exposed-form-search-api-nodes-default .views-exposed-widgets .views-reset-button
+.view-search-api-nodes .views-exposed-widgets .views-reset-button
 {
     position: relative !important;
+    opacity: 0.5;
+    right: 13%;
+    top: 14px;
+}
+.view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
+    color: #222;
 }
 .views-reset-button {
     position: absolute;
