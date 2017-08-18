@@ -39,7 +39,13 @@
       padding-top: 0 !important;
     }
   }
-
+.views-reset-button {
+    position: relative;
+    font-size: 180%;
+    opacity: 0.5;
+    left: 66%;
+    top: -44px;
+}
   /*
    * Float Region blocks example:
    * In smaller screen sizes we can remove the float and widths so all blocks
