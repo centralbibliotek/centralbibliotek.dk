@@ -68,8 +68,8 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
 
     $result = db_query('SELECT delta FROM field_data_field_date WHERE entity_id = :entity_id', array(':entity_id' => $context->data->nid))->fetchAll();
 
-    foreach ($result as $record) {
-      if ($context->data->view->result == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
+    foreach ($result as $key => $record) {
+      if ($context->data->view->result[$key]->entity == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
         $delta = $record->delta;
         $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
         break;
