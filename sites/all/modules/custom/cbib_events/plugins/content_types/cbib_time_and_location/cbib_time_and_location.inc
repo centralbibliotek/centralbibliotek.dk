@@ -55,24 +55,29 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
    */
   $delta = 0;
   global $cbib_time_and_date_duplicate_processed;
-  if(isset($context->data->view) && $context->data->view->name == "commons_events_upcoming")
-  {
-      /*
-       * We are currently operating on the desired view..keep the tmp array going.
-       */
-      $processed_duplicates = isset($cbib_time_and_date_duplicate_processed) ? $cbib_time_and_date_duplicate_processed : array();
-      foreach($context->data->view->result as $fields)
-      {
-          if($fields->nid == $context->data->nid && !isset($processed_duplicates[$context->data->nid.':'.$fields->date_delta_field_date]))
-          {
-              $delta = $fields->date_delta_field_date;
-              $processed_duplicates[$context->data->nid.':'.$fields->date_delta_field_date] = 1;
-              break;
-          }
+  $context->data->view = views_get_view('search_api_arrangementer');
+  $context->data->view->set_display('page');
+  $context->data->view->preview = TRUE;
+  $context->data->view->execute($display_name);
+
+  if (isset($context->data->view) && $context->data->view->name == "search_api_arrangementer") {
+    /*
+     * We are currently operating on the desired view..keep the tmp array going.
+     */
+    $processed_duplicates = isset($cbib_time_and_date_duplicate_processed) ? $cbib_time_and_date_duplicate_processed : array();
+
+    $result = db_query('SELECT delta FROM field_data_field_date WHERE entity_id = :entity_id', array(':entity_id' => $context->data->nid))->fetchAll();
+
+    foreach ($result as $record) {
+      if ($context->data->view->result == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
+        $delta = $record->delta;
+        $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
+        break;
       }
-     $cbib_time_and_date_duplicate_processed = $processed_duplicates;
+    }
+    $cbib_time_and_date_duplicate_processed = $processed_duplicates;
   }
-  
+
   // Add overwrite title if needed.
   if ($conf['override_title']) {
     $pane->title = $conf['override_title_text'];
