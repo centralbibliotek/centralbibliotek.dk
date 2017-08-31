@@ -71,10 +71,12 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
     foreach ($result as $record) {
       foreach ($context->data->view->result as $entity) {
         if ($entity->entity == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
-          $delta = $record->delta;
-        $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
-        break;
-      }
+          if (strtotime($context->data->field_date[LANGUAGE_NONE][0]['value']) < time()) {
+            $delta = $record->delta;
+            $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
+            break;
+          }
+          }
       }
     }
     $cbib_time_and_date_duplicate_processed = $processed_duplicates;
