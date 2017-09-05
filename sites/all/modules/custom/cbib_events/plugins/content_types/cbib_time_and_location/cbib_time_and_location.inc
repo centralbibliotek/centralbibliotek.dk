@@ -71,12 +71,12 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
     foreach ($result as $record) {
       foreach ($context->data->view->result as $entity) {
         if ($entity->entity == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
-          if (strtotime($context->data->field_date[LANGUAGE_NONE][0]['value']) < time()) {
-            $delta = $record->delta;
+          $delta = $record->delta;
+          if (strtotime($context->data->field_date[LANGUAGE_NONE][$delta]['value']) >= time()) {
             $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
-            break;
+            break 2;
           }
-          }
+        }
       }
     }
     $cbib_time_and_date_duplicate_processed = $processed_duplicates;
@@ -103,9 +103,9 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
     }
 
     if (!empty($context->data->field_date[LANGUAGE_NONE][$delta])) {
-      $date = new DateObject($context->data->field_date[LANGUAGE_NONE][$delta]['value'], $context->data->field_date[LANGUAGE_NONE][$delta]['timezone_db'], date_type_format($context->data->field_date[LANGUAGE_NONE][$delta]['date_type']));
-      $output[] = format_date($date->format('U'), $date_format);
-    }
+        $date = new DateObject($context->data->field_date[LANGUAGE_NONE][$delta]['value'], $context->data->field_date[LANGUAGE_NONE][$delta]['timezone_db'], date_type_format($context->data->field_date[LANGUAGE_NONE][$delta]['date_type']));
+        $output[] = format_date($date->format('U'), $date_format);
+      }
     /*
      * If delta != 0 then it is a follow up day on an event.
      * and we add the day count to the event.
