@@ -809,6 +809,20 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
       }
       
   }
-/*
- * Facet data rewrite
- */
+  /*
+   * 
+   */
+function cbib_oc_hooks_flag_access($flag, $entity_id, $action, $account)
+{
+    $entity = node_load($entity_id);
+    if($entity->type == "group")
+    {
+        if($entity->field_og_subscribe_settings['und'][0]['value'] == 'approval' && $entity->field_og_access_default_value['und'][0]['value'] == 1)
+        {
+            if(!og_is_member('node',$entity->nid , 'user',$account))
+            {
+                return false;
+            }
+        }
+    }
+}
