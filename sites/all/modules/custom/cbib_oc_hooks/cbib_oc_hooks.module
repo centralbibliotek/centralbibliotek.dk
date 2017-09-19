@@ -821,7 +821,7 @@ function cbib_oc_hooks_flag_access($flag, $entity_id, $action, $account)
         {
             if(!og_is_member('node',$entity->nid , 'user',$account))
             {
-                return false;
+                drupal_add_css('.flag-wrapper {display:none;}', 'inline');
             }
         }
     }

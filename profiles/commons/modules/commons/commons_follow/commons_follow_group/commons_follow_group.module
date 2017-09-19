@@ -128,26 +128,24 @@ function commons_follow_group_og_membership_update(OgMembership $og_membership) 
  */
 function commons_follow_group_og_membership_delete(OgMembership $og_membership) {
   // The user should unfollow the group when her membership is deleted.
-  if ($og_membership->entity_type == 'user') {
-    $account = user_load($og_membership->etid);
-    flag('unflag', 'commons_follow_node', $og_membership->gid, $account);
-  }
+  //the state has not been changed yet , so we are force unflag in sync func.
+  commons_follow_group_sync_flag_to_group_membership($og_membership,true);
 }
 
 // function flag($action, $flag_name, $content_id, $account = NULL) {
 /*
  * Add the field og_user_node1
  */
-function commons_follow_group_sync_flag_to_group_membership($og_membership) {
+function commons_follow_group_sync_flag_to_group_membership($og_membership,$is_delete = false) {
   if ($og_membership->entity_type == 'user' && strpos($og_membership->field_name, 'og_user_node') !== FALSE ) {
     $account = user_load($og_membership->etid);
     // The membership is approved. The user should follow the group.
-    if ($og_membership->state == 1) {
-      flag('flag', 'commons_follow_node', $og_membership->gid, $account);
+    if ($og_membership->state == 1 && $is_delete == false) {
+      flag('flag', 'commons_follow_node', $og_membership->gid, $account,true);
     }
     // The membership is not approved. The user should not follow the group.
     else {
-      flag('unflag', 'commons_follow_node', $og_membership->gid, $account);
+        flag('unflag', 'commons_follow_node', $og_membership->gid, $account,true);
     }
   }
 }
