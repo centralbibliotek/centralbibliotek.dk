@@ -3,6 +3,19 @@
  * Print Styles
  * This probably needs work, but it's a good starting point.
  */
+.at-panel .region {
+  display: inline;
+  float: left;
+}
+
+#main-menu {
+  display: none;
+}
+
+.region.region-page-top {
+  display: none;
+}
+
 /*
  * Body
  */
