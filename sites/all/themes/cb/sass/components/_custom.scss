@@ -53,3 +53,10 @@ ul.nostyle {
 .no-top {
   margin-top: 0;
 }
+/*
+* Add extra spacing to license list view
+*/
+.view-centralbibliotek-license div ul li
+{
+    padding-top:10px;
+}
