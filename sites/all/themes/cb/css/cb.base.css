@@ -50,11 +50,11 @@ ul.nostyle li {
 
 /*
 * Add extra spacing to license list view
-*/
-.view-centralbibliotek-license div ul li {
-  padding-top: 10px;
-}
 
+.view-centralbibliotek-license div ul li
+{
+    padding-top:10px;
+}*/
 @font-face {
   font-family: 'gotham rounded book';
   src: url("../fonts/GothamRnd-Book.eot");
