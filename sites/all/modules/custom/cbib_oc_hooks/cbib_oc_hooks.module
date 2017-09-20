@@ -826,3 +826,26 @@ function cbib_oc_hooks_flag_access($flag, $entity_id, $action, $account)
         }
     }
 }
+/*
+ * There is a problem with some groups loosing their approval required
+ * setting for users.
+ */
+function cbib_oc_hooks_og_user_access_alter(&$perm, $context) {
+  $account = $context['account'];
+  $group_type = $context['group_type'];
+  $group = $context['group'];
+  if($group_type == "node" && $group->type = "group")
+  {
+      if(isset($group->field_og_subscribe_settings['und'][0]['value']) && $group->field_og_subscribe_settings['und'][0]['value'] == "approval")
+      {
+         if(!in_array('administrator', $account->roles) && !in_array('content moderator', $account->roles))
+         {
+            if(isset($perm['subscribe without approval']))
+            {
+                unset($perm['subscribe without approval']);
+                $perm['subscribe'] = true;
+            }
+         }
+      }
+  }
+}
