@@ -834,7 +834,7 @@ function cbib_oc_hooks_og_user_access_alter(&$perm, $context) {
   $account = $context['account'];
   $group_type = $context['group_type'];
   $group = $context['group'];
-  if($group_type == "node" && $group->type = "group")
+  if($group_type == "node" && $group->type == "group")
   {
       if(isset($group->field_og_subscribe_settings['und'][0]['value']) && $group->field_og_subscribe_settings['und'][0]['value'] == "approval")
       {
