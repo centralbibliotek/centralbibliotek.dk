@@ -23,7 +23,7 @@
         /*
          * Add preloader to everything ?
          */
-        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="flag"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").click(function(){
+        $('body').find('a[class!="button-yes"][class!="flag-action"][class!="toggle-link"][class!="ui-tabs-anchor"][class!="flag"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").click(function(){
             
             trigger_loginSpinner();
         });
