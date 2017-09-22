@@ -23,8 +23,8 @@
         /*
          * Add preloader to everything ?
          */
-        $('body').find('a[class!="button-yes"][class!="flag-action"][class!="toggle-link"][class!="ui-tabs-anchor"][class!="flag"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").click(function(){
-            
+        $('body').find('a[class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").not('.flag').not('.button-yes').not(".browse").click(function(){
+            debugger;
             trigger_loginSpinner();
         });
 
@@ -34,12 +34,14 @@
         });
         // Node search overlay
         $('body').on('submit', '#views-exposed-form-search-api-nodes-default', function () {
+            debugger;
             trigger_loginSpinner();
         });
 
         $('body').on('keyup', '.cb-teaser-list .view-filters input[type="text"], .block-facetapi option,  .views-exposed-widgets option', function (e) {
             e.preventDefault();
             if (e.keyCode === 13) {
+                debugger;
                 trigger_loginSpinner();
             }
         });
@@ -234,6 +236,7 @@
         $('.print_html a').attr("href", "");
         $('.print_html a').attr("onclick", "window.print(); return false; ");
         $('body').on('mouseup', '.cb-teaser-list .view-filters input[type="submit"], .item-list.item-list-facetapi-date-range select option, .block-facetapi option, #reset', function () {
+            debugger;
             trigger_loginSpinner();
         });
   });
