@@ -46,7 +46,9 @@
   }
 }//.main-menu
 
-
+.branch-selector form .views-exposed-widget.views-reset-button {
+    display: none;
+}
 // Search field
 .branch-selector form {
   width: 35%;
