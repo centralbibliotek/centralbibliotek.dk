@@ -72,13 +72,19 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
       foreach ($context->data->view->result as $entity) {
         if ($entity->entity == $context->data->nid && !isset($processed_duplicates[$context->data->nid . ':' . $record->delta])) {
           $delta = $record->delta;
+          $path_parts = explode('?', request_uri());
+          /* Removed delta from past events */
+          if (strpos($path_parts[1], 'field_date_value=past') !== false) {
+            $processed_duplicates[$context->data->nid . ':' . $delta] = 0;
+            break 2;
+          }
           if (strtotime($context->data->field_date[LANGUAGE_NONE][$delta]['value']) >= strtotime("-1 day")) {
             $processed_duplicates[$context->data->nid . ':' . $delta] = 1;
             break 2;
         }
-          }
+        }
+      }
 }
-    }
     $cbib_time_and_date_duplicate_processed = $processed_duplicates;
   }
 
