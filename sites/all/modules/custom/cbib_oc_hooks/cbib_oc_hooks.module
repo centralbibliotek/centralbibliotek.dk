@@ -406,6 +406,8 @@ function cbib_oc_hooks_mail_alter(&$message)
         $domain = "centralbibliotek.dk";
         $description = $message['body'];
         $location = "";
+        //Create unique identifier
+    $cal_uid = date('Ymd').'T'.date('His')."-".rand()."@centralbibliotek.dk";
         if($node->field_location['und'][0] != "online")
         {
             if(!empty($node->field_address[und][0]["organisation_name"]))
@@ -456,7 +458,7 @@ PRIORITY:5
 SEQUENCE:1
 SUMMARY;LANGUAGE=da:".$subject."
 TRANSP:OPAQUE
-UID:20171018T50000877802XXX@centralbibliotek.dk
+UID:".$cal_uid."
 X-MICROSOFT-CDO-BUSYSTATUS:BUSY
 X-MICROSOFT-CDO-IMPORTANCE:1
 X-MS-OLK-AUTOFILLLOCATION:TRUE
