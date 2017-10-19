@@ -659,13 +659,16 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          '#markup' => '<a href=' . $path .'><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
          '#weight' => 1000,
          );
+         /* change exposed filter
          $field_date_value = $form_state['input']['field_date_value'];
          if ($field_date_value == 'past' || $field_date_value == 'past_year' || $field_date_value == 'past_3_month') {
            $form['sort_order']['#default_value'] = 'DESC';
          }
+          * 
+          */
         }
         
-      
+
         # the drupal checkboxes form field definition
         // Add new form item.
         /*$form['filter_free_seats'] = array(
@@ -682,6 +685,21 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 
     }
 }
+
+ function cbib_oc_hooks_search_api_sorts_default_sort_alter(&$default_sort, array $search_sorts, $keys) {
+  // Example which alters the default sort to use title instead. This is
+  // example does not make a difference between default and a search page with
+  // search queries provided.
+      $path_parts = explode('?', request_uri());
+      /* @var $path_parts type */
+      if (strpos($path_parts[1], 'field_date_value=past') !== false ) {
+        $default_sort->default_order = 'desc';
+      }else {
+        $default_sort = $search_sort;
+        unset($default_sort);
+      }
+}
+
 function cbib_oc_hooks_views_query_alter(&$view, &$query) {
 
   //simple example: change the order of the master display
