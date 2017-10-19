@@ -378,14 +378,114 @@ function cbib_oc_hooks_mail_alter(&$message)
   // We can use variable_get() to get the $conf variable set in our settings.php file
   // Note that by setting the default to TRUE, the default setting for the system is to be
   // a development environment. Set this to FALSE to have the default be a live environment.
-        if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
-        {
-          // First: Prevent the mail from being sent
-          $message['send'] = FALSE;
+    if(variable_get('oc_hooks_prevent_email_dispatch', TRUE) && $message['to'] != "tfpet@odense.dk")
+    {
+      // First: Prevent the mail from being sent
+      $message['send'] = FALSE;
 
-          // Next: Log the mail so it can be debugged if necessary
-          watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
+      // Next: Log the mail so it can be debugged if necessary
+      watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
+    }
+    if($message['id'] == "mimemail_rules_rules_action_mail_rules_notify_attendee_by_mail_4")
+    {
+        /*
+         * We take over this email , and make it a event invite instead.
+         * Investigate how todo with drupal mail.
+         */
+        $message['send'] = FALSE;
+        $node = menu_get_object();
+        $user = user_load($node->uid);
+        $from_address = $user->mail;
+        $from_mail = $user->mail;
+        $to_address = $message['to'];
+        $Organizer_name = $user->field_name_first['und'][0]['value'] . " " . $user->field_name_last['und'][0]['value'];
+        $subject = $node->title;
+        $location = "";
+        $startTime = $node->field_date['und'][0]['value'];
+        $endtime = $node->field_date['und'][0]['value2'];
+        $domain = "centralbibliotek.dk";
+        $description = $message['body'];
+        $location = "";
+        if($node->field_location['und'][0] != "online")
+        {
+            if(!empty($node->field_address[und][0]["organisation_name"]))
+            {
+                $location = $node->field_address[und][0]["organisation_name"];
+            }
+            else
+            {
+                $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
+            }
+            
         }
+/*
+ * The indention of this string is importent!
+ * adding spaces will make it not work!
+ */
+$ical = "BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:".date("Ymd\THis", strtotime($startTime))."
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:".date("Ymd\THis", strtotime($startTime))."
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:".date("Ymd\THis")."
+DESCRIPTION:".$description[0]."
+DTEND;TZID=Europe/Berlin:".date("Ymd\THis", strtotime($endtime))."
+DTSTAMP:".date("Ymd\THis",strtotime("now"))."
+DTSTART;TZID=Europe/Berlin:".date("Ymd\THis", strtotime($startTime))."
+LAST-MODIFIED:".date("Ymd\THis",strtotime("now"))."
+ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk
+LOCATION:".$location."
+PRIORITY:5
+SEQUENCE:1
+SUMMARY;LANGUAGE=da:".$subject."
+TRANSP:OPAQUE
+UID:20171018T50000877802XXX@centralbibliotek.dk
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MS-OLK-AUTOFILLLOCATION:TRUE
+END:VEVENT
+END:VCALENDAR";
+
+    //Create Email Headers
+    $mime_boundary = "----Meeting Booking----".MD5(TIME());
+
+    $headers = "From: Centralbibliotek.dk <no-reply@centralbibliotek.dk>\r\n";
+    $headers .= "MIME-Version: 1.0\n";
+    $headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
+    $headers .= "Content-class: urn:content-classes:calendarmessage\n";
+    
+    //Create Email Body (HTML)
+    $msg = "--$mime_boundary\r\n";
+    $msg .= "Content-Type: text/html; charset=UTF-8\n";
+    $msg .= "Content-Transfer-Encoding: 8bit\n\n";
+    $msg .= theme("mimemail_message",array("body" => $description[0]));
+    $msg .= "--$mime_boundary\r\n";
+    
+    $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
+    $msg .= "Content-Transfer-Encoding: 8bit\n\n";
+    
+    $msg .= $ical;
+    mail($message['to'], $subject, $msg, $headers);  
+        
+    }
+    
 }
 /*
  * Custom callback function to create a live text summary.
