@@ -407,7 +407,7 @@ function cbib_oc_hooks_mail_alter(&$message)
         $description = $message['body'];
         $location = "";
         //Create unique identifier
-    $cal_uid = date('Ymd').'T'.date('His')."-".rand()."@centralbibliotek.dk";
+        $cal_uid = date('Ymd').'T'.date('His')."-".rand()."@centralbibliotek.dk";
         if($node->field_location['und'][0] != "online")
         {
             if(!empty($node->field_address[und][0]["organisation_name"]))
@@ -453,7 +453,7 @@ DTSTAMP:".date("Ymd\THis",strtotime("now"))."
 DTSTART;TZID=Europe/Berlin:".date("Ymd\THis", strtotime($startTime))."
 LAST-MODIFIED:".date("Ymd\THis",strtotime("now"))."
 ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk
-LOCATION:".$location."
+LOCATION:\"".$location."\"
 PRIORITY:5
 SEQUENCE:1
 SUMMARY;LANGUAGE=da:".$subject."
@@ -462,6 +462,11 @@ UID:".$cal_uid."
 X-MICROSOFT-CDO-BUSYSTATUS:BUSY
 X-MICROSOFT-CDO-IMPORTANCE:1
 X-MS-OLK-AUTOFILLLOCATION:TRUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:".$subject."
+TRIGGER:-P1D
+END:VALARM
 END:VEVENT
 END:VCALENDAR";
 
@@ -484,8 +489,7 @@ END:VCALENDAR";
     $msg .= "Content-Transfer-Encoding: 8bit\n\n";
     
     $msg .= $ical;
-    mail($message['to'], $subject, $msg, $headers);  
-        
+    mail($message['to'], $subject, $msg, $headers);    
     }
     
 }
