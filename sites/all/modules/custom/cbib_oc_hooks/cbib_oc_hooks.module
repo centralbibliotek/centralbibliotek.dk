@@ -581,13 +581,22 @@ function cbib_oc_hooks_views_pre_render(&$view)
     {
         $content = array();
         $target_group = node_load(127);
-        $links = flag_link('node', $target_group,'page_manager');
+        $links = null;
+        if(!user_is_logged_in())
+        {
+          $links = flag_anon_link('node', $target_group,'page_manager');  
+        }
+        else
+        {
+            $links = flag_link('node', $target_group,'page_manager');
+        }
+        
         $follow_all_link = get_follow_all_license_link();
         $header_options = array(
         'label' => t('Header text'), // Administrative label. Not really needed here.
         //'content' => $links['flag-commons_follow_group']['title'], // Content of header text.
-            'content' => $links['flag-commons_follow_node']['title'] . $follow_all_link, // Fix for live site.
-        'format' => 'filtered_html', // Format of header text.
+            'content' => (isset($links['flag-commons_follow_node']['title']) ? $links['flag-commons_follow_node']['title'] : $links['flag-anon-commons_follow_node']['title']) . $follow_all_link, // Fix for live site.
+        'format' => 'full_html', // Format of header text.
         'empty' => 1, // Show even when there are no results. Set to zero otherwise.
       );
       $view->add_item('default', 'header', 'views', 'area', $header_options);
