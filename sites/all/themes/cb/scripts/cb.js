@@ -15,6 +15,7 @@
   "use strict";
 
     function trigger_loginSpinner() {
+        debugger;
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
 
@@ -28,7 +29,7 @@
         });
 
 
-        $('select[id!=edit-following]').change(function () {
+        $('select[id!=edit-following][id!=edit-field-library-und]').change(function () {
             trigger_loginSpinner();
         });
         // Node search overlay
