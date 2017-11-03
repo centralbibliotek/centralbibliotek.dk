@@ -37,6 +37,26 @@ function pfff_user_login(&$edit, $account) {
 	if (empty($fields)) {
 	  return;
 	}
+	elseif(sizeof($fields) == 1 && in_array("group_access", $fields))
+        {
+            return;
+        }
+
+  $ongoing_pass_reset = FALSE;
+  // Check if this is an ongoing password reset.
+  // user/reset is the password reset page.
+  if (arg(0) == 'user' && arg(1) == 'reset') {
+    $ongoing_pass_reset = TRUE;
+  }
+  // A more involved case happens when the password reset is delayed (pfff is used together with legal module).
+  // There is an existing reset token in session, it should correspond with token in URL to be valid.
+  // Ref. user.module:user_account_form().
+  else if (isset($_SESSION['pass_reset_' . $uid]) && is_int(preg_match("/^[\w-_]{43}$/", $_SESSION['pass_reset_' . $uid]))) {
+    $regex = "/pass-reset-token=" . $_SESSION['pass_reset_' . $uid] . "/";
+    if (isset($_GET['destination']) && is_int(preg_match($regex, $_GET['destination']))) {
+      $ongoing_pass_reset = TRUE;
+    }
+  }
 
 	// Destroy the current session.
 	module_invoke_all('user_logout', $user);
@@ -48,12 +68,16 @@ function pfff_user_login(&$edit, $account) {
 
   //TODO: check this!!
   $query = NULL;
-  // Deal with destination from password reset one time login link.
-  if (arg(0) == 'user' && arg(1) == 'reset') {
-    $query = array('destination' => "user/$uid/edit");
-  }
-  
-  if (!empty($_REQUEST['destination'])) {
+
+  // Deal with destination from password reset one time login link,
+  // by creating a new one time login link and setting it as the destination
+  // after the fields have been saved.
+  if ($ongoing_pass_reset) {
+    $token = drupal_hash_base64(drupal_random_bytes(55));
+    // This is a new, anonymous-user session.
+    $_SESSION['pass_reset_' . $uid] = $token;
+    $query = array('destination' => "user/$uid/edit?pass-reset-token=$token");
+  } else if (!empty($_REQUEST['destination'])) {
     $query = array('destination' => $_REQUEST['destination']);
   }
 
