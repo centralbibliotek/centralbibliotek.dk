@@ -37,6 +37,10 @@ function pfff_user_login(&$edit, $account) {
 	if (empty($fields)) {
 	  return;
 	}
+        elseif(sizeof($fields) == 1 && in_array("group_access", $fields))
+        {
+            return;
+        }
 
 	// Destroy the current session.
 	module_invoke_all('user_logout', $user);
