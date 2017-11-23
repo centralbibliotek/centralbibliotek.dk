@@ -481,15 +481,13 @@ END:VCALENDAR";
     //Create Email Headers
     $mime_boundary = "meeting booking";
     $headers  = "MIME-Version: 1.0\n";
-    $headers .= "Content-Type: multipart/mixed;charset=UTF-8;boundary=\"$mime_boundary\"\n";
-    $headers .= "Content-Transfer-Encoding: 8bit\n";
+    $headers .= "Content-Type: multipart/alternative;charset=UTF-8;boundary=\"$mime_boundary\"\n";
     //$headers .= "Content-class: urn:content-classes:calendarmessage\n";
     $headers .= "From: \"Centralbibliotek.dk\" <no-reply@centralbibliotek.dk>\r\n";
     
     //Create Email Body (HTML)
     $msg = "--$mime_boundary\r\n";
-    $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n";
-    $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n\n";
     $msg .= theme("mimemail_message",array("body" => $description[0]));
     $msg .= "--$mime_boundary\r\n";
     $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
