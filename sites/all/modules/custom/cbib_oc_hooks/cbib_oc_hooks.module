@@ -479,23 +479,24 @@ END:VEVENT
 END:VCALENDAR";
 
     //Create Email Headers
-    $mime_boundary = "----Meeting Booking----".MD5(TIME());
-    $headers  = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: multipart/mixed;charset=UTF-8;boundary=\"$mime_boundary\"\r\n";
+    $mime_boundary = "meeting booking";
+    $headers  = "MIME-Version: 1.0\n";
+    $headers .= "Content-Type: multipart/mixed;charset=UTF-8;boundary=\"$mime_boundary\"\n";
+    $headers .= "Content-Transfer-Encoding: 8bit\n";
     //$headers .= "Content-class: urn:content-classes:calendarmessage\n";
     $headers .= "From: \"Centralbibliotek.dk\" <no-reply@centralbibliotek.dk>\r\n";
     
     //Create Email Body (HTML)
     $msg = "--$mime_boundary\r\n";
-    $msg .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $msg .= "Content-Transfer-Encoding: binary \r\n";
-    $msg .= theme("mimemail_message",array("body" => $description[0]));
-    $msg .= "\r\n--$mime_boundary\r\n";
-    $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\r\n";
+    $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n";
     $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-    
+    $msg .= theme("mimemail_message",array("body" => $description[0]));
+    $msg .= "--$mime_boundary\r\n";
+    $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
+    $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
     $msg .= $ical;
-    mail($message['to'], $subject, $msg, $headers);    
+    mail($message['to'], $subject, $msg, $headers);
+    $msg .= "\n--" .$mime_boundary . "--\r\n";
     }
     
 }
