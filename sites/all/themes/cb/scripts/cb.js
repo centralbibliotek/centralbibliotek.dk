@@ -20,6 +20,12 @@
     }
 
     $(document).ready(function () {
+        
+        if (document.location.pathname.indexOf("/arrangement") === 0) {
+
+            $('.views-row').not(':has(.pane-node-og-group-ref)').remove();
+
+        }
        
         /*
          * Add preloader to everything ?
