@@ -64,6 +64,26 @@ function cbib_oc_hooks_init() {
               //$adapter->setParams($params, $filter_key);
           }
       }
+      $selected_cbib = $_SESSION['cbib_centralbibliotek'];
+      if($selected_cbib != false && !isset($_GET['node_og_group_ref']))
+      {
+          drupal_add_js(array('oc_cbib' => array('centralbib' => $selected_cbib)), 'setting');
+          $is_active_selection = false;
+          foreach($active_items as $key => $value)
+          {
+              if($value['field alias'] == "node_og_group_ref" && $value['value'] != $selected_cbib)
+              {
+                  $is_active_selection = true;
+              }
+          }
+          if(!$is_active_selection)
+          {
+              // If not, get and tamper with your parameters here.
+             
+              $params[$filter_key][] = "node_og_group_ref:" . $selected_cbib;
+              //$adapter->setParams($params, $filter_key);
+          }
+      }
       $adapter->setParams($params, $filter_key);
     }
 }
@@ -209,7 +229,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
 
       $build = $loca;
   }
-  if ($settings->facet == "og_group_ref") {
+  if ($settings->facet == "og_group_ref" || $settings->facet == "node:og_group_ref") {
       
       //$CentralLibraries = null;
       $CentralLibraries_nids = null;
@@ -440,16 +460,16 @@ X-MS-OLK-FORCEINSPECTOROPEN:TRUE
 BEGIN:VTIMEZONE
 TZID:Europe/Berlin
 BEGIN:STANDARD
-DTSTART:".date("Ymd\THis", strtotime($startTime))."
+DTSTART:16011028T030000
 RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
-TZOFFSETFROM:+0100
+TZOFFSETFROM:+0200
 TZOFFSETTO:+0100
 END:STANDARD
 BEGIN:DAYLIGHT
-DTSTART:".date("Ymd\THis", strtotime($startTime))."
+DTSTART:16010325T093835
 RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
 TZOFFSETFROM:+0100
-TZOFFSETTO:+0100
+TZOFFSETTO:+0200
 END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
