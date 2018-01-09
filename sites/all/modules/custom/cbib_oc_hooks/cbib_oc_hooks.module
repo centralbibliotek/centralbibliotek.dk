@@ -602,6 +602,14 @@ function cbib_oc_hooks_node_update($node)
  */
 function cbib_oc_hooks_views_pre_render(&$view)
 {
+if($view->name == "search_api_group" || $view->name == "search_api_nodes")  {
+    foreach($view->result as $index => $data) {
+    $group = node_load($data->entity);
+    if ($group->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $data->entity, 'user')) {
+    unset($view->result[$index]);
+    }
+  }
+}
     if($view->name == "centralbibliotek_license" && $view->current_display == "panel_pane_6")
     {
         $content = array();
@@ -1006,5 +1014,5 @@ function cbib_oc_hooks_og_user_access_alter(&$perm, $context) {
             }
          }
       }
+      }
   }
-}

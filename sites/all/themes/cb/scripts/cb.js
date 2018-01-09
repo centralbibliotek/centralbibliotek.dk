@@ -20,6 +20,14 @@
     }
 
     $(document).ready(function () {
+        
+        if (document.location.pathname.indexOf("/arrangement") === 0) {
+
+            $('#tabs-0-center-1 .views-row').not(':has(.pane-node-og-group-ref)').remove();
+
+            $('#tabs-0-center-2 .views-row').not(":has(.views-field-og-group-ref span a)").remove();
+
+        }
        
         /*
          * Add preloader to everything ?
