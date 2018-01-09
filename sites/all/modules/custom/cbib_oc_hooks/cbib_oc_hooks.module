@@ -458,7 +458,7 @@ VERSION:2.0
 METHOD:REQUEST
 X-MS-OLK-FORCEINSPECTOROPEN:TRUE
 BEGIN:VTIMEZONE
-TZID:Europe/Berlin
+TZID:Romance Standard Time
 BEGIN:STANDARD
 DTSTART:16011028T030000
 RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
@@ -476,9 +476,9 @@ BEGIN:VEVENT
 CLASS:PUBLIC
 CREATED:".date("Ymd\THis")."
 DESCRIPTION:".$description[0]."
-DTEND;TZID=Europe/Berlin:".date("Ymd\THis", strtotime($endtime))."
+DTEND;TZID=Romance Standard Time:".date("Ymd\THis", strtotime($endtime))."
 DTSTAMP:".date("Ymd\THis",strtotime("now"))."
-DTSTART;TZID=Europe/Berlin:".date("Ymd\THis", strtotime($startTime))."
+DTSTART;TZID=Romance Standard Time:".date("Ymd\THis", strtotime($startTime))."
 LAST-MODIFIED:".date("Ymd\THis",strtotime("now"))."
 ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk
 LOCATION:\"".$location."\"
