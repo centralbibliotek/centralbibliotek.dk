@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cbib_oc_license_pr_bw_feature feature.
+ */
+
+include_once 'cbib_oc_license_pr_bw_feature.features.inc';

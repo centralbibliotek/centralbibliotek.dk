@@ -1,0 +1,16 @@
+name = cbib_oc_license_pr_bw_feature
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = cbib_oc_license_pr_bw_feature
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = panelizer
+dependencies[] = taxonomy
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[taxonomy][] = formidling_og_pr
+features[views_view][] = commons_browsing_widget_license_og_pr
+features[views_view][] = commons_browsing_widget_license_og_pr_single
+features_exclude[dependencies][ctools] = ctools

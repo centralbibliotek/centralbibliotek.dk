@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function cbib_oc_license_pr_bw_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/' . $plugin;
+  }
+}
+function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == "views_exposed_form" && $form['#id'] == "views-exposed-form-commons-browsing-widget-license-og-pr-default") {
+    
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'license')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          // Run the query as user 1.
+          ->addMetaData('account', user_load(1));
+        $result = $query->execute();
+        $form['og_group_ref_target_id']['#type'] = "select";
+        $form['og_group_ref_target_id']['#size'] = null;
+        $form['og_group_ref_target_id']['#default_value'] = $form['og_group_ref_target_id']['#options'][''];
+        $form['og_group_ref_target_id']['#options'] = array('' => 'All');
+
+        if (isset($result['node'])) {
+              $licens_items_nids = array_keys($result['node']);
+              $license_items = entity_load('node', $licens_items_nids);
+
+              foreach($license_items as $item)
+              {
+                   $form['og_group_ref_target_id']['#options'][$item->nid] = $item->title;
+              }
+        }
+
+  }
+}
+/**
+ * Generate a renderable group widget.
+ *
+ * @param $group
+ *   An optional group node to be used as a tab and views argument.
+ *
+ * @return array
+ *   An array in the format expected by drupal_render().
+ */
+function cbib_oc_license_pr_bw_generate_group_widget($group = NULL,$tabs = array()) {
+  // Prepare an array of default quicktabs settings.
+  $settings = array(
+    'style' => 'Commons Pills',
+    'ajax' => FALSE,
+    'html' => TRUE,
+  );
+
+  // Load the browsing widget tab definitions.
+  //$tabs = commons_bw_get_tab_definitions('group');
+  //$tabs = array_merge($tabs,cbib_oc_license_pr_bw_commons_bw_group_dont_hook_widget());
+  foreach ($tabs as $machine_name => $tab_settings) {
+    // Populate the group argument.
+    $tabs[$machine_name]['args'] = $group ? $group->nid : 0;
+
+    // Add the result count to the title for 'view' tabs.
+    if ($tab_settings['type'] == 'view') {
+      // Get the view specified by the tab settings.
+      $view = views_get_view($tab_settings['vid']);
+
+      // If the tab specified a view display use it, otherwise the view will be
+      // rendered using the default display.
+      if (isset($tab_settings['display'])) {
+        $view->set_display($tab_settings['display']);
+      }
+
+      // If the tab references a group, set it as a tab argument.
+      if ($group) {
+        $view->set_arguments(array($group->nid));
+      }
+
+      $view->display_handler->options['filters']['flagged']['value'] = 'All';
+      $view->get_total_rows = TRUE;
+      $view->execute();
+
+      // Append the result count to the tab title.
+      $tabs[$machine_name]['title'] = $tabs[$machine_name]['title'] . ' <span class="commons-bw-result-count">'. $view->total_rows . '</span>';
+    }
+
+    // Use the current tab as the quicktabs default if the tab settings specify.
+    if (!empty($tabs[$machine_name]['default'])) {
+      $settings['default_tab'] = $machine_name;
+    }
+  }
+  
+  return quicktabs_build_quicktabs('cbib_oc_license_pr_bw', $settings, $tabs);
+}

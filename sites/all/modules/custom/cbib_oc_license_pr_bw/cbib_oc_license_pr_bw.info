@@ -1,0 +1,12 @@
+name = OC commons license Browsing Widget
+description = Provides a single content area with multiple panels for adding and browsing content by content type.
+package = Commons - Building blocks
+core = 7.x
+
+dependencies[] = commons_groups
+dependencies[] = features
+dependencies[] = og
+dependencies[] = quicktabs
+dependencies[] = quicktabs_tabstyles
+dependencies[] = title
+dependencies[] = better_exposed_filters
