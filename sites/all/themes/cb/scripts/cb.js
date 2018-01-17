@@ -85,11 +85,19 @@
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
+         
+          $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().hide();
+          $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').find('select').clone(false).insertBefore('#page form[id^="views-exposed-form-search-api-nodes-default"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','41%').css('top','419px')
+                .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
+                     e.preventDefault();
+                    $('.fix_me_select').val(e.currentTarget.value);
+                     return false;
+         }); 
         
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
              Fix_og_group_ref_ids($(e).children());
-         })
+         });
          
          function Fix_og_group_ref_ids(children)
          {

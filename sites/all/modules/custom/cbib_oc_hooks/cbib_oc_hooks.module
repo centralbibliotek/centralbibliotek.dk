@@ -17,6 +17,9 @@ function cbib_oc_hooks_init() {
       // In this case "search_api" is service
       // and "solr_index" is machine name of the index.
       $part = explode('/', $path_parts[0]);
+      if($part[1] == 'search') {
+        $searcher = 'search_api@global_search';
+      }
       if($part[2] == 'grupper') {
         $searcher = 'search_api@group_index';
       }else {
