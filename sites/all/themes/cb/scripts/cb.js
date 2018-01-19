@@ -23,9 +23,19 @@
         
         if (document.location.pathname.indexOf("/arrangement") === 0) {
 
-            $('#tabs-0-center-1 .views-row').not(':has(.pane-node-og-group-ref)').remove();
+            $('#tabs-0-center-1 .views-row').not(':has(.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/herning"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/aalborg"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/vejle"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/odense"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/roskilde"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/gentofte"])').remove();
 
-            $('#tabs-0-center-2 .views-row').not(":has(.views-field-og-group-ref span a)").remove();
+            $('#tabs-0-center-2 .views-row').not(':has(.views-field-og-group-ref span a[href="/herning"],\n\
+.views-field-og-group-ref span a[href="/aalborg"],\n\
+.views-field-og-group-ref span a[href="/vejle"],\n\
+.views-field-og-group-ref span a[href="/odense"],\n\
+.views-field-og-group-ref span a[href="/roskilde"],\n\
+.views-field-og-group-ref span a[href="/gentofte"])').remove();
 
         }
        
