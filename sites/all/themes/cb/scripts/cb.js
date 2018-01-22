@@ -23,9 +23,19 @@
         
         if (document.location.pathname.indexOf("/arrangement") === 0) {
 
-            $('#tabs-0-center-1 .views-row').not(':has(.pane-node-og-group-ref)').remove();
+            $('#tabs-0-center-1 .views-row').not(':has(.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/herning"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/aalborg"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/vejle"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/odense"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/roskilde"],\n\
+.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/gentofte"])').remove();
 
-            $('#tabs-0-center-2 .views-row').not(":has(.views-field-og-group-ref span a)").remove();
+            $('#tabs-0-center-2 .views-row').not(':has(.views-field-og-group-ref span a[href="/herning"],\n\
+.views-field-og-group-ref span a[href="/aalborg"],\n\
+.views-field-og-group-ref span a[href="/vejle"],\n\
+.views-field-og-group-ref span a[href="/odense"],\n\
+.views-field-og-group-ref span a[href="/roskilde"],\n\
+.views-field-og-group-ref span a[href="/gentofte"])').remove();
 
         }
        
@@ -84,12 +94,16 @@
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
-         });
-        
+         });         
+
+    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','88px');
+
+    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref #edit-facets--4 > option').css('width','95px');         
+               
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
              Fix_og_group_ref_ids($(e).children());
-         })
+         });
          
          function Fix_og_group_ref_ids(children)
          {
