@@ -20,7 +20,7 @@ function cbib_oc_hooks_init() {
       if($part[1] == 'search') {
         $searcher = 'search_api@global_search';
       }
-      if($part[2] == 'grupper') {
+      elseif($part[2] == 'grupper') {
         $searcher = 'search_api@group_index';
       }else {
         $searcher = 'search_api@arrangement_index';
@@ -48,7 +48,7 @@ function cbib_oc_hooks_init() {
        * And Is the og_reg_filter_active ?
        */
       $selected_cbib = $_SESSION['cbib_centralbibliotek'];
-      if($selected_cbib != false && !isset($_GET['og_group_ref']))
+      if($selected_cbib != false && !isset($_GET['og_group_ref']) && $part[1] != 'search')
       {
           drupal_add_js(array('oc_cbib' => array('centralbib' => $selected_cbib)), 'setting');
           $is_active_selection = false;
@@ -83,7 +83,7 @@ function cbib_oc_hooks_init() {
           {
               // If not, get and tamper with your parameters here.
              
-              $params[$filter_key][] = "node_og_group_ref:" . $selected_cbib;
+              $params[$filter_key][] = "node%3Aog_group_ref:" . $selected_cbib;
               //$adapter->setParams($params, $filter_key);
           }
       }
