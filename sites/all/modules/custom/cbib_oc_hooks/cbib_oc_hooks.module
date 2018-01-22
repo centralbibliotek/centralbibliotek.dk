@@ -444,59 +444,42 @@ function cbib_oc_hooks_mail_alter(&$message)
             }
             else
             {
-                $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
+                if(!empty($node->field_address[und][0]["thoroughfare"]) || !empty($node->field_address[und][0]["postal_code"]) || !empty($node->field_address[und][0]["locality"]))
+                {
+                    $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
+                }
             }
             
         }
-/*
- * The indention of this string is importent!
- * adding spaces will make it not work!
- */
-$ical = "BEGIN:VCALENDAR
-PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
-VERSION:2.0
-METHOD:REQUEST
-X-MS-OLK-FORCEINSPECTOROPEN:TRUE
-BEGIN:VTIMEZONE
-TZID:Romance Standard Time
-BEGIN:STANDARD
-DTSTART:16011028T030000
-RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
-TZOFFSETFROM:+0200
-TZOFFSETTO:+0100
-END:STANDARD
-BEGIN:DAYLIGHT
-DTSTART:16010325T093835
-RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
-TZOFFSETFROM:+0100
-TZOFFSETTO:+0200
-END:DAYLIGHT
-END:VTIMEZONE
-BEGIN:VEVENT
-CLASS:PUBLIC
-CREATED:".date("Ymd\THis")."
-DESCRIPTION:".$description[0]."
-DTEND;TZID=Romance Standard Time:".date("Ymd\THis", strtotime($endtime))."
-DTSTAMP:".date("Ymd\THis",strtotime("now"))."
-DTSTART;TZID=Romance Standard Time:".date("Ymd\THis", strtotime($startTime))."
-LAST-MODIFIED:".date("Ymd\THis",strtotime("now"))."
-ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk
-LOCATION:\"".$location."\"
-PRIORITY:5
-SEQUENCE:1
-SUMMARY;LANGUAGE=da:".$subject."
-TRANSP:OPAQUE
-UID:".$cal_uid."
-X-MICROSOFT-CDO-BUSYSTATUS:BUSY
-X-MICROSOFT-CDO-IMPORTANCE:1
-X-MS-OLK-AUTOFILLLOCATION:TRUE
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:".$subject."
-TRIGGER:-P1D
-END:VALARM
-END:VEVENT
-END:VCALENDAR";
+        
+    $ical = "";
+    $ical .="BEGIN:VCALENDAR\r\n";
+    $ical .="PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN";
+    $ical .="VERSION:2.0\r\n";
+    $ical .="METHOD:REQUEST\r\n";
+    $ical .="TZID:Romance Standard Time\r\n";
+    $ical .="BEGIN:VEVENT\r\n";
+    $ical .="DTSTART;TZID=\"Romance Standard Time\":".gmdate("Ymd\THis\Z", strtotime($startTime))."\r\n";
+    $ical .="DTEND;TZID=\"Romance Standard Time\":".gmdate("Ymd\THis\Z", strtotime($endtime))."\r\n";
+    $ical .="TRANSP:OPAQUE\r\n";
+    $ical .="CLASS:PUBLIC\r\n";
+    $ical .="CREATED:".date("Ymd\THis")."\r\n";
+    $ical .="DESCRIPTION:".$description[0]."\r\n";
+    $ical .="DTSTAMP:".gmdate("Ymd\THis\Z")."\r\n";
+    $ical .="ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk\r\n";
+    if(!empty($location))
+    {
+        $ical .="LOCATION:\"".$location."\"\r\n";
+    }
+    $ical .="UID:".$cal_uid."\r\n";
+    $ical .="SUMMARY:".$subject. "\r\n";
+    $ical .="BEGIN:VALARM\r\n";
+    $ical .="ACTION:DISPLAY\r\n";
+    $ical .="DESCRIPTION:".$subject . "\r\n";
+    $ical .="TRIGGER:-P1D\r\n";
+    $ical .="END:VALARM\r\n";
+    $ical .="END:VEVENT\r\n";
+    $ical .="END:VCALENDAR\r\n";
 
     //Create Email Headers
     $mime_boundary = "meeting booking";
