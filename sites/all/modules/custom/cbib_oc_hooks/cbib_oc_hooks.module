@@ -27,21 +27,26 @@ function cbib_oc_hooks_init() {
       }
       $adapter = facetapi_adapter_load($searcher);
       $url_processor = $adapter->getUrlProcessor();
+      $active_items = $adapter->getAllActiveItems();
 
       // Check if the filter is already active.
-        if ($part[3] != 'events') {
+        if ($part[3] != 'events' && !isset($active_items['field_event_type:632'])) {
         $filter = "field_date%3Avalue:future";
         }
-
-      $active_items = $adapter->getAllActiveItems();
+           
       $filter_key = $url_processor->getFilterKey();
       $params = $url_processor->fetchParams();
-      if (!isset($active_items[$filter])) {
+      if (!isset($active_items[$filter]) && !isset($active_items['field_event_type:632'])) {
 
         // If not, get and tamper with your parameters here.
         
         $params[$filter_key][] = $filter;
         
+      }
+      foreach ($active_items as $index => $element) {
+        if($element['value'] == '632'){
+          unset($params[$filter_key][0]);
+        }
       }
       /*
        * Have we selected cb ? 
