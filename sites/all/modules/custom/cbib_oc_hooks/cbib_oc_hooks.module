@@ -460,10 +460,10 @@ function cbib_oc_hooks_mail_alter(&$message)
     $ical .="PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN";
     $ical .="VERSION:2.0\r\n";
     $ical .="METHOD:REQUEST\r\n";
-    $ical .="TZID:Romance Standard Time\r\n";
+    $ical .="TZID:W. Europe Standard Time\r\n";
     $ical .="BEGIN:VEVENT\r\n";
-    $ical .="DTSTART;TZID=\"Romance Standard Time\":".gmdate("Ymd\THis\Z", strtotime($startTime))."\r\n";
-    $ical .="DTEND;TZID=\"Romance Standard Time\":".gmdate("Ymd\THis\Z", strtotime($endtime))."\r\n";
+    $ical .="DTSTART;TZID=\"W. Europe Standard Time\":".gmdate("Ymd\THis\Z", strtotime($startTime))."\r\n";
+    $ical .="DTEND;TZID=\"W. Europe Standard Time\":".gmdate("Ymd\THis\Z", strtotime($endtime))."\r\n";
     $ical .="TRANSP:OPAQUE\r\n";
     $ical .="CLASS:PUBLIC\r\n";
     $ical .="CREATED:".date("Ymd\THis")."\r\n";
