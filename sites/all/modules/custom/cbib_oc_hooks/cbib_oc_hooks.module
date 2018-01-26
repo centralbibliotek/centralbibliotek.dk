@@ -435,7 +435,7 @@ function cbib_oc_hooks_mail_alter(&$message)
         $from_mail = $user->mail;
         $to_address = $message['to'];
         $Organizer_name = $user->field_name_first['und'][0]['value'] . " " . $user->field_name_last['und'][0]['value'];
-        $subject = $node->title;
+        $subject = check_plain($node->title);
         $location = "";
         $startTime = $node->field_date['und'][0]['value'];
         $endtime = $node->field_date['und'][0]['value2'];
