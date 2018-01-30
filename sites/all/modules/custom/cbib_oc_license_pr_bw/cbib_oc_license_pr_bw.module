@@ -104,7 +104,10 @@ function cbib_oc_license_pr_bw_generate_group_widget($group = NULL,$tabs = array
       }
       if($tab_settings['vid'] == "commons_browsing_widget_license_og_pr_single")
       {
-          $view->display_handler->options['filters']['og_group_ref_target_id']['value']['value'] = $group->nid;
+          if($view->display_handler->options['filters']['og_group_ref_target_id']['value']['value'] == "")
+          {
+              $view->display_handler->options['filters']['og_group_ref_target_id']['value']['value'] = $group->nid;
+          }
       }
       else
       {
