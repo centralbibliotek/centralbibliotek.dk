@@ -38,7 +38,7 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
   if($form['#form_id'] == "commons_bw_partial_node_form__post")
    {
         $main_node = menu_get_object();
-        if($main_node->type != "license")
+        if($main_node->type != "license" && isset($form['field_formidling_og_pr_tags'])
         {
             hide($form['field_formidling_og_pr_tags']);
         }
@@ -48,7 +48,7 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
        if(isset($_GET['og_group_ref']))
        {
            $node = node_load($_GET['og_group_ref']);
-           if($node->type != "license")
+           if($node->type != "license"  && isset($form['field_formidling_og_pr_tags']))
            {
                hide($form['field_formidling_og_pr_tags']);
            }
