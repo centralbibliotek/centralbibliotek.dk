@@ -43,11 +43,6 @@ function cbib_oc_hooks_init() {
         $params[$filter_key][] = $filter;
         
       }
-      foreach ($active_items as $index => $element) {
-        if($element['value'] == '632'){
-          unset($params[$filter_key][0]);
-        }
-      }
       /*
        * Have we selected cb ? 
        * And Is the og_reg_filter_active ?
@@ -221,7 +216,15 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
       unset($build[$key]['#count']);
     }
   }
-
+  if ($settings->facet == "field_event_type") {
+    if(isset($build[50]) && $build[50]['#active'] == False){
+      $build[632] = $build[50];
+      unset($build[632]['#count']);
+      unset($build[632]['#query']['field_date_value']);
+      $build[632]['#query']['field_event_type'][1] = '632';
+      $build[632]['#markup'] = 'E-læring u/tilmelding';
+    }
+  }
   if ($settings->facet == "field_address:locality") {
   $locations = cbib_oc_hooks_get_all_event_locations();
   $loca = array();
