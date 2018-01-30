@@ -21,7 +21,15 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
         $result = $query->execute();
         $form['og_group_ref_target_id']['#type'] = "select";
         $form['og_group_ref_target_id']['#size'] = null;
-        $form['og_group_ref_target_id']['#default_value'] = $form['og_group_ref_target_id']['#options'][''];
+        if($form['#id'] == "views-exposed-form-commons-browsing-widget-license-og-pr-single-default")
+        {
+            $main_node = menu_get_object();
+            $form['og_group_ref_target_id']['#default_value'] = $main_node->nid;
+        }
+        else
+        {
+            $form['og_group_ref_target_id']['#default_value'] = $form['og_group_ref_target_id']['#options'][''];
+        }
         $form['og_group_ref_target_id']['#options'] = array('' => 'All');
 
         if (isset($result['node'])) {
