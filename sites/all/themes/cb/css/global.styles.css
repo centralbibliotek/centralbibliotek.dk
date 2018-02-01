@@ -7183,3 +7183,11 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 body.front.not-logged-in #content {
   background-image: none !important;
 }
+.edit-tid-1-wrapper .description
+{
+    display:none;
+}
+.js-hide
+{
+    display:none !important;
+}
