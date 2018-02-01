@@ -242,14 +242,6 @@
         });
         
         $(".feed-icon").find("a").unbind('click');
-
-$('#event_type2 #edit-facets--2').attr("id","edit-facets--fix");
- //Remove event_type if event_type2 is selected
- $('#event_type2 #edit-facets > option').each(function() {
-    if(this.selected) {
-      $('#event_type').remove();
-    }
- });
  
  $('.item-list-facetapi-date-range option:contains((-))').attr('selected', 'selected').html($('#facetapi-facet-search-apiarrangement-index-block-field-datevalue > li:contains((-))').text());
 
@@ -306,11 +298,18 @@ $('#event_type2 #edit-facets--2').attr("id","edit-facets--fix");
             $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44459"]').text(function (text) {
                     return $(this).remove();
             });
+            $('#event_type2 #edit-facets--2').attr("id","edit-facets--fix");
+            //Remove event_type if event_type2 is selected
+            $('#event_type2 #edit-facets > option').each(function () {
+                if (this.selected) {
+                    $('#event_type').remove();
+                }
+            });
             $('#event_type2 select > option, #event_type2 select > option').not('[value*="field_event_type[1]=50"], \n\
 [value*="field_event_type[1]=632"], [value=""], \n\
 [value="/arrangementer?u=/arrangementer&&field_date_value=future"]\n\
 [value="/arrangementer?u=/arrangementer&"]').text(function (text) {
-                    return $(this).remove();
+                return $(this).remove();
             });
 
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
