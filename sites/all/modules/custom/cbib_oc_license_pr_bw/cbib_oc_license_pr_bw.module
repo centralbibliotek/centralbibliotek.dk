@@ -30,7 +30,7 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
         {
             $form['og_group_ref_target_id']['#default_value'] = $form['og_group_ref_target_id']['#options'][''];
         }
-        $form['og_group_ref_target_id']['#options'] = array('' => 'All');
+        $form['og_group_ref_target_id']['#options'] = array('' => '- alle -');
 
         if (isset($result['node'])) {
               $licens_items_nids = array_keys($result['node']);
