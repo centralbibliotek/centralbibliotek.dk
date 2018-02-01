@@ -300,17 +300,16 @@
             });
             $('#event_type2 #edit-facets--2').attr("id","edit-facets--fix");
             //Remove event_type if event_type2 is selected
-            $('#event_type2 #edit-facets > option').each(function () {
+            $('#event_type2 select > option').not(':first-child').each(function () {
                 if (this.selected) {
                     $('#event_type').remove();
                 }
             });
-            $('#event_type2 select > option, #event_type2 select > option').not('[value*="field_event_type[1]=50"], \n\
-[value*="field_event_type[1]=632"], [value=""], \n\
-[value="/arrangementer?u=/arrangementer&&field_date_value=future"]\n\
-[value="/arrangementer?u=/arrangementer&"]').text(function (text) {
+            $('#event_type2 select > option, #event_type2 select > option').not(':first-child, [value*="field_event_type[1]=50"], \n\
+[value*="field_event_type[1]=632"], [value=""]').text(function (text) {
                 return $(this).remove();
             });
+
 
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
             
