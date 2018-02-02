@@ -310,7 +310,23 @@
                 return $(this).remove();
             });
 
+            var optionExists = ($('#event_type2 select > option[value*="field_event_type[1]=50"]').length > 0);
+            var optionExists2 = ($('#event_type2 select > option[value*="field_event_type[1]=632"]').length > 0);
 
+            if (!optionExists)
+            {
+                    if ($('#event_type2 select > option[selected]').html() !== " E-læring m/tilmelding") {
+                        $('#event_type2 select').append('<option value="/arrangementer?u=/arrangementer&amp;&amp;field_date_value=future&amp;field_event_type[1]=50"> E-læring m/tilmelding</option>');
+                    }
+            }
+            if (!optionExists2)
+            {
+                if ($('#event_type2 select > option[selected]').html() !== " E-læring u/tilmelding") {
+
+                        $('#event_type2 select').append('<option value="/arrangementer?u=/arrangementer&amp;&amp;field_event_type[1]=632"> E-læring u/tilmelding</option>');
+                    }
+            }    
+            
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
             
                 $('#ui-id-1').html('<i id="fa-th" class="fa fa-th"></i>');
