@@ -338,7 +338,7 @@
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
       $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
-      $('#views-exposed-form-search-api-arrangementer-page input[type="text"], #views-exposed-form-search-api-arrangementer-page-1 input[type="text"],  #views-exposed-form-search-api-arrangementer-page-3 input[type="text"]').attr('placeholder', ' Søg i arrangementer');
+      $('form[id^="views-exposed-form-search-api-arrangementer-page"] input[type="text"]').attr('placeholder', ' Søg');
       $('#views-exposed-form-search-api-group-page-1 input[type="text"], #views-exposed-form-search-api-group-page-2 input[type="text"], #views-exposed-form-search-api-group-page-3 input[type="text"], #views-exposed-form-search-api-group-page-4 input[type="text"]').attr('placeholder', ' Søg i grupper');
     }
   };
