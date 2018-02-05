@@ -182,35 +182,6 @@
 
             return params;
         }
-        /* $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-reset-button');
-         $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-reset-button');
-        
-        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-1 .views-exposed-widget.views-reset-button');
-        $('#block-views-centralbiblioteker-block').clone(false).insertBefore('#views-exposed-form-search-api-group-page-2 .views-exposed-widget.views-reset-button');
-        $('.views-exposed-widgets #block-views-centralbiblioteker-block').removeAttr( "id" ).addClass('centralbiblioteker-block');
-        $(".views-exposed-widgets .centralbiblioteker-block .toggle-link").on('click', function (event) {
-            event.preventDefault();
-            if($('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').is(':visible'))
-            {
-                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'block');
-                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'none');
-            }
-            else
-            {
-                $('#block-views-centralbiblioteker-block ul.region-select.open').css('display', 'none');
-                $('.views-exposed-widgets .centralbiblioteker-block ul.region-select.closed').css('display', 'block');
-            }
-            
-            if(window.location.href.indexOf("arrangementer") !== -1)
-            {
-                $('.region-select.closed li:first-child').html('<a href="/arrangementer?reset_cb">Vælg alle</a>');
-            }
-            if(window.location.href.indexOf("grupper") !== -1)
-            {
-                $('.region-select.closed li:first-child').html('<a href="/grupper?reset_cb">Vælg alle</a>');
-            }
-            
-        });*/
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
         {
@@ -298,32 +269,32 @@
             $('#facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44443"], #facetapi-facet-search-apigroup-index-block-og-group-ref select option[value*="og_group_ref=44459"]').text(function (text) {
                     return $(this).remove();
             });
-            $('#event_type2 #edit-facets--2').attr("id","edit-facets--fix");
+            $('#event_type2 select').attr("id","edit-facets--fix");
             //Remove event_type if event_type2 is selected
             $('#event_type2 select > option').not(':first-child').each(function () {
                 if (this.selected) {
                     $('#event_type').remove();
                 }
             });
-            $('#event_type2 select > option, #event_type2 select > option').not(':first-child, [value*="field_event_type[1]=50"], \n\
-[value*="field_event_type[1]=632"], [value=""]').text(function (text) {
+            $('#event_type2 select > option').not(':first-child, [value*="]=50"], \n\
+                [value*="]=632"], [value=""]').text(function (text) {
                 return $(this).remove();
             });
 
-            var optionExists = ($('#event_type2 select > option[value*="field_event_type[1]=50"]').length > 0);
-            var optionExists2 = ($('#event_type2 select > option[value*="field_event_type[1]=632"]').length > 0);
-
+            var optionExists = ($('#event_type2 select > option[value*="]=50"]').length > 0);
+            var optionExists2 = ($('#event_type2 select > option[value*="]=632"]').length > 0);
+            var url = window.location.href;
             if (!optionExists)
             {
                     if ($('#event_type2 select > option[selected]').html() !== " E-læring m/tilmelding") {
-                        $('#event_type2 select').append('<option value="/arrangementer?u=/arrangementer&amp;&amp;field_date_value=future&amp;field_event_type[1]=50"> E-læring m/tilmelding</option>');
+                        $('#event_type2 select').append("<option value=" + url + "&field_event_type[1]=50'> E-læring m/tilmelding</option>'");
                     }
             }
             if (!optionExists2)
             {
                 if ($('#event_type2 select > option[selected]').html() !== " E-læring u/tilmelding") {
 
-                        $('#event_type2 select').append('<option value="/arrangementer?u=/arrangementer&amp;&amp;field_event_type[1]=632"> E-læring u/tilmelding</option>');
+                        $('#event_type2 select').append("<option value=" + url + "&field_event_type[1]=632'> E-læring u/tilmelding</option>'");
                     }
             }    
             
