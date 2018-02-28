@@ -30,13 +30,13 @@ function cbib_oc_hooks_init() {
       $active_items = $adapter->getAllActiveItems();
 
       // Check if the filter is already active.
-        if ($part[3] != 'events' && !isset($active_items['field_event_type:632'])) {
+        if ($part[3] != 'events' && !isset($active_items['field_event_type:640'])) {
         $filter = "field_date%3Avalue:future";
         }
            
       $filter_key = $url_processor->getFilterKey();
       $params = $url_processor->fetchParams();
-      if (!isset($active_items[$filter]) && !isset($active_items['field_event_type:632'])) {
+      if (!isset($active_items[$filter]) && !isset($active_items['field_event_type:640'])) {
 
         // If not, get and tamper with your parameters here.
         
@@ -98,7 +98,7 @@ function cbib_oc_hooks_field_group_build_pre_render_alter(&$element) {
   $element['event_registration_settings'] += array(
     '#states' => array(
     'invisible' => array(
-    'select[name="field_event_type[und]"]' => array('value' => 632),
+    'select[name="field_event_type[und]"]' => array('value' => 640),
       ),
     )
   );
@@ -231,11 +231,11 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   }
   if ($settings->facet == "field_event_type") {
     if(isset($build[50]) && $build[50]['#active'] == False){
-      $build[632] = $build[50];
-      unset($build[632]['#count']);
-      unset($build[632]['#query']['field_date_value']);
-      $build[632]['#query']['field_event_type'][1] = '632';
-      $build[632]['#markup'] = 'E-læring u/tilmelding';
+      $build[640] = $build[50];
+      unset($build[640]['#count']);
+      unset($build[640]['#query']['field_date_value']);
+      $build[640]['#query']['field_event_type'][1] = '640';
+      $build[640]['#markup'] = 'E-læring u/tilmelding';
     }
   }
   if ($settings->facet == "field_address:locality") {
@@ -723,7 +723,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
            $path = '/';
            $form['sort_order']['#default_value'] = 'DESC';
          }else {
-           $path = '/arrangementer';
+           $path = '/kompetenceudvikling';
          }
          $form['reset'] = array(
          '#markup' => '<a href=' . $path .'><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
