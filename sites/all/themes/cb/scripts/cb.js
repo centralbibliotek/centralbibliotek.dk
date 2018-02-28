@@ -277,24 +277,24 @@
                 }
             });
             $('#event_type2 select > option').not(':first-child, [value*="]=50"], \n\
-                [value*="]=632"], [value=""]').text(function (text) {
+                [value*="]=640"], [value=""]').text(function (text) {
                 return $(this).remove();
             });
 
             var optionExists = ($('#event_type2 select > option[value*="]=50"]').length > 0);
-            var optionExists2 = ($('#event_type2 select > option[value*="]=632"]').length > 0);
+            var optionExists2 = ($('#event_type2 select > option[value*="]=640"]').length > 0);
             var url = window.location.href;
             if (!optionExists)
             {
                     if ($('#event_type2 select > option[selected]').html() !== " E-læring m/tilmelding") {
-                        $('#event_type2 select').append("<option value=" + url.replace('&field_event_type[1]=632','') + "&field_event_type[1]=50> E-læring m/tilmelding</option>'");
+                        $('#event_type2 select').append("<option value=" + url.replace('&field_event_type[1]=640','') + "&field_event_type[1]=50> E-læring m/tilmelding</option>'");
                     }
             }
             if (!optionExists2)
             {
                 if ($('#event_type2 select > option[selected]').html() !== " E-læring u/tilmelding") {
 
-                        $('#event_type2 select').append("<option value=" + url.replace('&field_event_type[1]=50','') + "&field_event_type[1]=632> E-læring u/tilmelding</option>'");
+                        $('#event_type2 select').append("<option value=" + url.replace('&field_event_type[1]=50','') + "&field_event_type[1]=640> E-læring u/tilmelding</option>'");
                     }
             }    
             
