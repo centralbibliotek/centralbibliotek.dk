@@ -21,7 +21,7 @@
 
     $(document).ready(function () {
         
-        if (document.location.pathname.indexOf("/arrangement") === 0) {
+        if (document.location.pathname.indexOf("/kompetenceudvikling") === 0) {
 
             $('#tabs-0-center-1 .views-row').not(':has(.field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/herning"],\n\
 .field.field-name-og-group-ref.field-type-entityreference .field-item a[href="/aalborg"],\n\
