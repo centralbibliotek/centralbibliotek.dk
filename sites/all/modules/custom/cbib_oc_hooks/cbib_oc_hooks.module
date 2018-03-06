@@ -100,6 +100,9 @@ function cbib_oc_hooks_field_group_build_pre_render_alter(&$element) {
     'invisible' => array(
     'select[name="field_event_type[und]"]' => array('value' => 640),
       ),
+    'disabled' => array(
+    'select[name="field_event_type[und]"]' => array('value' => 640),
+      ),
     )
   );
 
