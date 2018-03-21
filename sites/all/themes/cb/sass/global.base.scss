@@ -613,3 +613,10 @@ header[role=banner],
   box-shadow: none;
   background: white none no-repeat right top;
 }
+/*
+* Fix group search layout.
+*/
+
+.view-search-api-group .views-exposed-widget.views-widget-sort-by {
+    width: 21%;
+}
