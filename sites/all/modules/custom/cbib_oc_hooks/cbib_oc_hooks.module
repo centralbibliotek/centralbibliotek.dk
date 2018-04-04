@@ -234,7 +234,8 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
       $build[640] = $build[50];
       unset($build[640]['#count']);
       unset($build[640]['#query']['field_date_value']);
-      $build[640]['#query']['field_event_type'][1] = '640';
+      $count = key($build[50]['#query']['field_event_type']);
+      $build[640]['#query']['field_event_type'][$count] = '640';
       $build[640]['#markup'] = 'E-læring u/tilmelding';
     }
   }
