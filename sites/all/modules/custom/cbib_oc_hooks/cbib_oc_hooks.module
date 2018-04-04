@@ -532,13 +532,11 @@ function cbib_oc_hooks_mail_alter(&$message)
         $msg = "--$mime_boundary\r\n";
         $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n\n";
         $msg .= theme("mimemail_message",array("body" => $description[0]));
-    if(strtolower($message['to']) != "dennisbhansen@me.com" && strtolower($message['to']) != "tfpet@odense.dk")
-    {
         $msg .= "--$mime_boundary\r\n";
         $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
         $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
         $msg .= $ical;
-    }
+    
     //$msg .= "\n--" .$mime_boundary . "--\r\n";
     mail($message['to'], $subject, $msg, $headers);
     
