@@ -126,17 +126,6 @@ function pdfpreview_field_formatter_settings_summary($field, $instance, $view_mo
   return $summary;
 }
 
-function lists_session($key, $value = NULL) {
-  static $storage;
-  if ($value) {
-    $storage[$key] = $value ;
-    $_SESSION['lists'][$key] = $value ;   // I use 'lists' in case some other module uses 'type' in $_SESSION
-  }
-  else if (empty($storage[$key]) && isset($_SESSION['lists'][$key])) {
-    $storage[$key] = $_SESSION['lists'][$key];
-  }
-  return $storage[$key];
-}
 /**
  * Implements hook_field_formatter_view()
  *
@@ -333,7 +322,6 @@ function pdfpreview_admin() {
  * @param $source URI to the PDF file
  * @param $dest URI where the preview file will be saved
  * @param $args Optional arguments for the convert executable
- * @see _imagemagick_convert()
  * @see _pdfpreview_create_preview()
  */
 function _pdfpreview_convert_first_page($source, $destination) {
