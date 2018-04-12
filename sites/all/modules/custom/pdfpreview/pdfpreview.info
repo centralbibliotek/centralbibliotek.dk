@@ -3,7 +3,7 @@ description = Show a snapshot of the first page of pdf files attached to nodes.
 package = Media
 core = 7.x
 dependencies[] = image
-
+scripts[] = pdfpreview.js
 
 ; Information added by Drupal.org packaging script on 2016-02-18
 version = "7.x-2.1+20-dev"

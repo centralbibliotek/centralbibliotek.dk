@@ -164,11 +164,6 @@ function pdfpreview_field_formatter_view($entity_type, $entity, $field, $instanc
             'entity' => $entity,
           ),
         );
-
-        drupal_add_js(array('pdfpreview' => array('filename' => array($item['filename']))), 'setting');
-        drupal_add_js(array('pdfpreview' => array('path' => array($uri[$delta]['path']))), 'setting');
-        drupal_add_js(array('pdfpreview' => array('fid' => array($item['fid']))), 'setting');
-        drupal_add_js(drupal_get_path('module', 'pdfpreview') . '/pdfpreview.js');
       }
     }
     else {
@@ -194,6 +189,7 @@ function pdfpreview_field_formatter_view($entity_type, $entity, $field, $instanc
     $element[$delta]['#theme_wrappers'][] = 'pdfpreview_formatter';
     $element[$delta]['#settings'] = $settings;
     $element[$delta]['#fid'] = $items[$delta]['fid'];
+    $element[$delta]['filename'] = $items[$delta]['filename'];
 
     if(($element[$delta]['#settings']['image_link'] === 'pdf_file') && isset($uri)) {
       $element[$delta]['#path'] = $uri[$delta];
@@ -451,14 +447,19 @@ function theme_pdfpreview_formatter($variables) {
   $element = $variables['element'];
   $item = $element['#item'];
   $wrapper_tag = $element['#settings']['tag'];
+  $filename = $element['filename'];
+ 
+
   $description = ($element['#settings']['show_description'] && isset($item['description'])) ? '<' . $wrapper_tag . ' class="pdfpreview-description">' . $item['description'] . '</' . $wrapper_tag . '>' : '' ;
-  return sprintf(
+  $img = '<span id="file-' . $item['fid'] . '"><img class="file-icon" alt="" title="application/pdf" src="/modules/file/icons/application-pdf.png"></img><a href="' . $element['#path']['path'] . '" type="application/pdf;"> ' . $filename . '</a></span>';
+  
+  return $img . sprintf(
     '<div class="pdfpreview" id="pdfpreview-%s">'
     . ' <%s class="pdfpreview-image-wrapper">%s</%s>'
     . ' %s'
     . '</div>',
     $item['fid'],
     $wrapper_tag, $element['#children'], $wrapper_tag,
-    $description
+    $description      
   );
 }
