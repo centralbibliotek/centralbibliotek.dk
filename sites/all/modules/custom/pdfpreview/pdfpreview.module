@@ -402,7 +402,7 @@ function _pdfpreview_create_preview($file, $image_style) {
 function _pdfpreview_output_filename($file) {
   if (!is_object($file)) $file = (object) $file;
   $output_dir = file_default_scheme() . '://' . variable_get('pdfpreview_pathtoimages', 'pdfpreview');
-  if (variable_get('pdfpreview_filenames', PDFPREVIEW_FILENAMES_MACHINE) == PDFPREVIEW_FILENAMES_HUMAN) {
+  if (variable_get('pdfpreview_filenames', PDFPREVIEW_FILENAMES_HUMAN)) {
     $filename = basename($file->filename, '.pdf');
     if (module_exists('transliteration')) {
       $filename = transliteration_clean_filename($filename);
