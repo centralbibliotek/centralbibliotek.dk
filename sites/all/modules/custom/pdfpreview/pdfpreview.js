@@ -11,7 +11,12 @@
                 $('div[id^=pdfpreview-').hide();
                 $('[id^=file-').mouseover(function () {
                 var numeric_part = $( this ).attr( 'id' ).substr( 5 );
-                 $('#pdfpreview-'+ numeric_part).show();
+                var styles = {
+                   position: "absolute",
+                   transform: "translate(135%, -30%)",
+                   zIndex: "10"
+                };
+                $('#pdfpreview-'+ numeric_part).css(styles).show();
                 }).mouseout(function () {
                     var numeric_part = $( this ).attr( 'id' ).substr( 5 );
                    $('#pdfpreview-'+ numeric_part).hide();
