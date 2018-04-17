@@ -41,7 +41,7 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
                    $form['og_group_ref_target_id']['#options'][$item->nid] = $item->title;
               }
         }
-
+        asort($form['og_group_ref_target_id']['#options']);
   }
   if($form['#form_id'] == "commons_bw_partial_node_form__post")
    {
