@@ -102,6 +102,11 @@ function cbib_oc_hooks_field_group_build_pre_render_alter(&$element) {
     'select[name="field_event_type[und]"]' => array('value' => 640),
       ),
     );
+  $element['scheduler_settings']['unpublish_on']['#states'] = array(
+    'visible' => array(
+    'select[name="field_event_type[und]"]' => array('value' => 640),
+      ),
+    );
   }
 }
 /*
