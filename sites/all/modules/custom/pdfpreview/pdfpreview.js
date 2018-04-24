@@ -24,13 +24,15 @@
                 
                 $('a[type^=image]').one('mouseover', function () {
                 var image = $( this ).attr( 'href' );
-                $( this ).append('<img id="theImg" src="' + image + '" />');               
+                $( this ).append('<img class="theImg" src="' + image + '" />');               
                 });
                 
                 $('a[type^=image]').mouseover(function () {
-                    var styles = {
+                   var styles = {
                    position: "absolute",
-                   transform: "translate(135%, -30%)",
+                   transform: "translate(100%, -30%)",
+                   maxWidth: "420px",
+                   maxHeight: "420px",
                    zIndex: "10"
                 };
                 $(this).find('img').css(styles).show();
