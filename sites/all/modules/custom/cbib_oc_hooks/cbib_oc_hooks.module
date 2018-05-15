@@ -768,13 +768,19 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
   // Example which alters the default sort to use title instead. This is
   // example does not make a difference between default and a search page with
   // search queries provided.
+      $sort = $default_sort->field;
       $path_parts = explode('?', request_uri());
       /* @var $path_parts type */
       if (strpos($path_parts[1], 'field_date_value=past') !== false ) {
         $default_sort->default_order = 'desc';
+      }elseif(strpos($path_parts[1], 'field_event_type[1]=640') !== false) {
+        unset($search_sorts[0]);
       }else {
         $default_sort = $search_sort;
         unset($default_sort);
+        if($sort == 'created') {
+          unset($search_sorts[1]);
+        }
       }
 }
 
