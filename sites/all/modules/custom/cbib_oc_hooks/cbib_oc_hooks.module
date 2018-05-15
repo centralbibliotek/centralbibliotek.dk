@@ -764,24 +764,83 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
     }
 }
 
- function cbib_oc_hooks_search_api_sorts_default_sort_alter(&$default_sort, array $search_sorts, $keys) {
-  // Example which alters the default sort to use title instead. This is
-  // example does not make a difference between default and a search page with
-  // search queries provided.
-      $sort = $default_sort->field;
-      $path_parts = explode('?', request_uri());
-      /* @var $path_parts type */
-      if (strpos($path_parts[1], 'field_date_value=past') !== false ) {
-        $default_sort->default_order = 'desc';
-      }elseif(strpos($path_parts[1], 'field_event_type[1]=640') !== false) {
-        unset($search_sorts[0]);
-      }else {
-        $default_sort = $search_sort;
-        unset($default_sort);
-        if($sort == 'created') {
-          unset($search_sorts[1]);
+/**
+ * Implements hook_search_api_query_alter().
+ */
+function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
+
+    if (!user_access('use search_api_sorts')) {
+        return;
+    }
+
+    $view = views_get_current_view();
+    if (empty($view) || $view->name != 'search_api_arrangementer') {
+        return;
+    }
+
+    if (!empty($_GET['sort'])) {
+        return;
+    }
+
+    // There's already an existing sort, so abort!
+    $existing = $query->getSort();
+    if (!empty($existing)) {
+        return;
+    }
+
+    $search_sorts = search_api_sorts_search_sorts($query->getIndex()->machine_name);
+    $path_parts = explode('?', request_uri());
+
+    foreach ($search_sorts as $key => $sort) {
+        if ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], '&field_event_type[1]=50') !== false) {
+            $search_sorts[$key]->default_sort = 1;
+            $search_sorts[$key]->default_sort_no_terms = 1;
+            $search_sorts[$key]->active = TRUE;
+            $search_sorts[$key]->default_order = 'ASC';
+            unset($search_sorts[1]);
         }
-      }
+        elseif ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], 'field_date_value=past') !== false) {
+            $search_sorts[$key]->default_sort = 1;
+            $search_sorts[$key]->default_sort_no_terms = 1;
+            $search_sorts[$key]->active = TRUE;
+            $search_sorts[$key]->default_order = 'DESC';
+            unset($search_sorts[1]);
+        }
+        elseif ($sort->field == 'created' && strpos($path_parts[1], '&field_event_type[1]=640') !== false) {
+            unset($search_sorts[0]);
+        }
+        else {
+            unset($search_sorts[1]);
+        }
+    }
+
+    if (empty($search_sorts)) {
+        return;
+    }
+    $default_sort = _search_api_sorts_get_default_sort($search_sorts, $query->getKeys());
+
+    // alter sort field and sort order
+    $sort = $default_sort->field;
+    $params = drupal_get_query_parameters($_GET, array(
+      'q',
+      'page'
+    ));
+    if (isset($params['sort']) && !empty($params['sort'])) {
+        $sort = $params['sort'];
+    }
+
+    $order = $default_sort->default_order;
+    if (isset($params['order']) && !empty($params['order'])) {
+        $order = $params['order'];
+    }
+
+    if (!empty($order) && !empty($sort)) {
+        $query->sort($sort, $order);
+    }
+
+    // Static save current search query
+    $_query = &drupal_static('search_api_sorts_search_api_query_alter', array());
+    $_query = $query;
 }
 
 function cbib_oc_hooks_views_query_alter(&$view, &$query) {
