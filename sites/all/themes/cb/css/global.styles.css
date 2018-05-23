@@ -67,7 +67,7 @@ html .cke_editable {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   color: #565656;
   min-width: 18em;
 }
@@ -81,11 +81,11 @@ body {
  *   HTML Elements
  * ========================================================================== */
 h1 {
-  font-size: 1.65rem;
+  font-size: 1.35rem;
   line-height: 1.4;
   font-weight: normal;
   color: #424242;
-  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Regular";
 }
 h1 a {
   color: #ff5479;
@@ -106,7 +106,7 @@ h2 {
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
-  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Regular";
 }
 
 h3 {
@@ -229,8 +229,6 @@ var {
   display: block;
   float: left;
   position: relative;
-  margin-bottom: -3em;
-  margin-left: -4.1875em;
   z-index: 3;
 }
 
@@ -1631,7 +1629,7 @@ ul.links li.first {
 }
 
 ul.primary.tabs {
-  border-bottom-color: #ddd;
+  border-bottom-color: #c8c8c8;
   padding: 0;
 }
 ul.primary.tabs li {
@@ -1704,30 +1702,30 @@ ul.primary.tabs li.active a span {
 }
 
 .quicktabs-style-commons-pills ul.quicktabs-tabs {
-  border-bottom-color: #ddd;
+  border-bottom-color: #c8c8c8;
   padding: 0;
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li {
   margin-right: 1em;
   padding: 0.5rem 0.5rem 0;
   font-size: 1em;
-  background-color: #ddd;
+  background-color: #c8c8c8;
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a {
   padding: 0 1px 8px;
   text-decoration: none;
   display: inline-block;
   border: none;
-  background-color: #ddd;
+  background-color: #c8c8c8;
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a,
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a span {
-  color: #333;
+  color: RGB(5, 35, 65);
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a:hover {
-  background-color: #ddd;
+  background-color: #c8c8c8;
   color: #424242;
-  box-shadow: inset 0 -3px 0 0 #aaaaaa;
+  box-shadow: inset 0 -3px 0 0 #959595;
   border-radius: 0px;
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li a:before {
@@ -1736,7 +1734,7 @@ ul.primary.tabs li.active a span {
 }
 .quicktabs-style-commons-pills ul.quicktabs-tabs li.active a {
   background-color: transparent;
-  box-shadow: inset 0 -3px 0 0 #333;
+  box-shadow: inset 0 -3px 0 0 RGB(5, 35, 65);
   border-radius: 0px;
   color: #000000 !important;
 }
@@ -2854,7 +2852,7 @@ ul.pager li.pager-current {
 }
 
 html body div div .item-list-pager ul.pager {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #c8c8c8;
   padding-top: 50px;
 }
 html body div div .item-list-pager ul.pager li {
@@ -2873,7 +2871,7 @@ html body div div .item-list-pager ul.pager li.pager-current a {
 }
 html body div div .item-list-pager ul.pager li.pager-next a, html body div div .item-list-pager ul.pager li.pager-previous a, html body div div .item-list-pager ul.pager li.pager-first a, html body div div .item-list-pager ul.pager li.pager-last a {
   padding: 0px;
-  background-color: #ddd;
+  background-color: #c8c8c8;
   position: relative;
   top: 7px;
   font-size: 3em;
@@ -3108,7 +3106,7 @@ ul.action-links {
   font-weight: normal;
   font-size: 1.25em;
   color: #424242;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #c8c8c8;
   padding-bottom: .35em;
   margin-bottom: .5em;
   letter-spacing: -.025em;
@@ -3633,7 +3631,7 @@ body.node-type-license .cb3 .region-cb3-third {
   margin-bottom: .2em;
   margin-left: -68px;
   color: #424242;
-  font-family: "gotham rounded medium", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Regular";
 }
 @media only screen and (max-width: 480px) {
   .partial-node-form-title {

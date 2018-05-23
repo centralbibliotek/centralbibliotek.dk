@@ -25,10 +25,10 @@
     <style type="text/css">
         <!--
       a:visited {
-        color: #ff5479; /* Or whatever white you're using */
+        color: #fa587b; /* Or whatever white you're using */
       }
       a:hover{
-          color: #ff5479 !important;
+          color: #fa587b !important;
       }
       -->
     </style>
@@ -36,10 +36,10 @@
   <body id="mimemail-body" <?php if ($module && $key): print 'class="'. $module .'-'. $key .'"'; endif; ?>>
     <div id="center">
       <div id="main">
-        <div style="width:100%;background-color:#333333;">
-            <table style="width:100%;background-color:#333333;font-weight:700;font-size:22px;">
+        <div style="width:100%;background-color:RGB(5, 35, 65);">
+            <table style="width:100%;background-color:RGB(5, 35, 65);font-weight:700;font-size:22px;">
                 <tbody>
-                <td style="width:100%;padding:10px;"><span class="mail-site-logo" style="color:#ff5479;font-size:22px;">Centralbibliotek.dk</span></td>
+                <td style="width:100%;padding:10px;"><span class="mail-site-logo" style="color:#fa587b;font-size:22px;">Centralbibliotek.dk</span></td>
                 </tbody>
             </table>
         </div>

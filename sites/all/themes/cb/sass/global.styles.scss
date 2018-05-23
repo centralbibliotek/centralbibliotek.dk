@@ -51,9 +51,9 @@ html {
     min-height: 200px;
   }
 }
-
+ 
 body {
-  font-family: $sans-serif-arial-helvetica;
+  font-family: $robotto-regular ; //$sans-serif-arial-helvetica;
   // Set from _custom.scss font variables
   color: $gray-dark;
   min-width: 18em;
@@ -220,8 +220,8 @@ var {
   display: block;
   float: left;
   position: relative;
-  margin-bottom: -3em;
-  margin-left: -#{px-to-em(57px + $gutter_width)};
+  //margin-bottom: -3em;
+  //margin-left: -#{px-to-em(57px + $gutter_width)};
   z-index: 3;
 }
 

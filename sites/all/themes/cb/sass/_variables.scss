@@ -37,11 +37,11 @@ $brand-blue-light: #3ed2ff;
 
 
 // Grays
-$gray-darkest:  #333;
+$gray-darkest:  RGB(5, 35, 65);
 $gray-darker:   #424242;
 $gray-dark:     #565656;
 $gray:          #828282;
-$gray-light:    #ddd;
+$gray-light:    #c8c8c8;
 $gray-lightest: #fafcf8;
 
 $gray-search-field:  #929292;
@@ -182,10 +182,11 @@ $modern-myriad:               'Segoe UI', 'Myriad Pro', Myriad, Arial, Helvetica
 $lucida:                      'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', Verdana, Geneva, sans-serif;
 $impact:                      Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans-serif;
 $mono:                        Consolas, Monaco, 'Courier New', Courier, monospace, sans-serif;
+$robotto-regular:              'Roboto';
 
-$base-font: 'gotham rounded book', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$alt-font: 'gotham rounded medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$condensed-font: 'solido condensed medium', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$base-font: 'Roboto Regular';
+$alt-font: 'Roboto Regular';
+$condensed-font: 'Roboto Regular';
 
 //
 // Gutters
@@ -197,9 +198,9 @@ $condensed-font: 'solido condensed medium', 'Helvetica Neue', Arial, Helvetica, 
 //
 $gutter-width: 10px;
 
-$headerTop: 20px;
+$headerTop: 28px;
 
-$h1Size: 1.65rem;
+$h1Size: 1.35rem;
 
 // global chunk of code for importing
 
