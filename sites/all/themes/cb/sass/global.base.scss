@@ -35,7 +35,15 @@ summary {
   display: block;
 }
 
+.js-hide {
+    display: none!important;
+}
 
+.view-id-commons_browsing_widget_license_og_pr .description, .view-commons-browsing-widget-license-og-pr-single .description {
+
+     display: none;
+
+}
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  */
