@@ -96,9 +96,9 @@
                      return false;
          });         
 
-    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','88px');
+    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','98px');
 
-    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref #edit-facets--4 > option').css('width','95px');         
+    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').find('select').css('width','125px');         
                
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){

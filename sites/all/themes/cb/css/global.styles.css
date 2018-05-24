@@ -231,6 +231,11 @@ var {
   position: relative;
   z-index: 3;
 }
+@media only screen and (max-width: 480px) {
+  #logo {
+    display: none;
+  }
+}
 
 /**
  * Wrapper for the site name and slogan (hgroup)
@@ -1830,7 +1835,7 @@ header #resets {
   position: relative !important;
   opacity: 0.5;
   right: 13%;
-  top: 14px;
+  top: 23px;
 }
 
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {

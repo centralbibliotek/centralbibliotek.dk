@@ -39,7 +39,7 @@
         <div style="width:100%;background-color:RGB(5, 35, 65);">
             <table style="width:100%;background-color:RGB(5, 35, 65);font-weight:700;font-size:22px;">
                 <tbody>
-                <td style="width:100%;padding:10px;"><span class="mail-site-logo" style="color:#fa587b;font-size:22px;">Centralbibliotek.dk</span></td>
+                <td style="width:100%;padding:10px;"><span class="mail-site-logo" style="color:#fa587b;font-size:22px;"><img src="http://centralbibliotek.dk/sites/default/files/rsz_central-bibliotekerne-logo-pink-standard.png"></span></td>
                 </tbody>
             </table>
         </div>

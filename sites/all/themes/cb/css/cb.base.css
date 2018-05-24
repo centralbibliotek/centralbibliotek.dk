@@ -382,6 +382,56 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   color: whitesmoke;
 }
 
+#edit-search-api-views-fulltext {
+  background-color: transparent !important;
+  height: 50px;
+  border-bottom: 1px solid #c8c8c8;
+  font-family: "Roboto Regular";
+  font-size: 20px;
+  padding-left: 10px;
+  color: black;
+}
+
+.branch-selector form #edit-search-api-views-fulltext:-moz-placeholder {
+  color: white !important;
+  margin-left: 5px;
+}
+
+.branch-selector #edit-search-api-views-fulltext:-ms-input-placeholder {
+  color: white !important;
+  margin-left: 5px;
+}
+
+.branch-selector #edit-search-api-views-fulltext::-moz-placeholder {
+  color: white !important;
+  margin-left: 5px;
+}
+
+.branch-selector #edit-search-api-views-fulltext::-webkit-input-placeholder {
+  color: white !important;
+  margin-left: 5px;
+}
+
+#edit-search-api-views-fulltext:-moz-placeholder {
+  color: black;
+  margin-left: 5px;
+}
+
+#edit-search-api-views-fulltext:-ms-input-placeholder {
+  color: black;
+  margin-left: 5px;
+}
+
+#edit-search-api-views-fulltext::-moz-placeholder {
+  color: black;
+  margin-left: 5px;
+}
+
+#edit-search-api-views-fulltext::-webkit-input-placeholder {
+  color: black;
+  margin-left: 5px;
+}
+
 .cb-teaser-list .view-filters input[type="text"],
 .page-taxonomy-term .view-filters input[type="text"] {
   background-color: transparent !important;
@@ -1024,9 +1074,11 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   border-bottom: 1px solid #525252;
   box-shadow: none;
   border-radius: 0;
-  color: #fff;
+  color: #fff !important;
   padding-right: .25em;
   padding-left: .25em;
+  top: 8px !important;
+  height: 32px !important;
 }
 .branch-selector form input[type="text"]:focus {
   border-bottom-color: #fff;
