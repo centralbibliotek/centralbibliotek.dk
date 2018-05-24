@@ -25,7 +25,7 @@ function cbib_oc_license_pr_bw_commons_bw_promote_pr_block_content_type_render($
     $block = new stdClass();
     $block->title = '';
     $onclick = "jQuery('#quicktabs-tab-cbib_oc_license_pr_bw-commons_browsing_widget_single_license_og_pr').click();jQuery('html, body').animate({ scrollTop: jQuery('#quicktabs-tab-cbib_oc_license_pr_bw-commons_browsing_widget_single_license_og_pr').offset().top-100}, 2000);";
-    $block->content = '<div style="text-align:center;"><button style="background-color:WhiteSmoke;cursor:hand" onclick="'.$onclick.'"><i class="fa fa-2x fa-download" aria-hidden="true"></i><b><br/>Hent formidlingsmaterialer</b> <br/></button></div>';
+    $block->content = '<div style="text-align:center;"><button style="background-color:WhiteSmoke;cursor:hand" onclick="'.$onclick.'"><i class="fa fa-2x fa-download" aria-hidden="true"></i><b><br/>Se formidlingsmaterialer</b> <br/></button></div>';
     return $block;
 }
  
