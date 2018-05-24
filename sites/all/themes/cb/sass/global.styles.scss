@@ -223,6 +223,9 @@ var {
   //margin-bottom: -3em;
   //margin-left: -#{px-to-em(57px + $gutter_width)};
   z-index: 3;
+  @include respond(only-small) {
+    display: none;
+  }
 }
 
 /**
@@ -1445,7 +1448,7 @@ header #resets {
     position: relative !important;
     opacity: 0.5;
     right: 13%;
-    top: 14px;
+    top: 23px;
 }
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
     color: #222;

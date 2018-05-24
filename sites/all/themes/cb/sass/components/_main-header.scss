@@ -65,10 +65,11 @@
     border-bottom: 1px solid darken($gray-search-field, 25%);
     box-shadow: none;
     border-radius: 0;
-    color: #fff;
+    color: #fff !important;
     padding-right: .25em;
     padding-left: .25em;
-
+    top: 8px !important;
+    height: 32px !important;
     &:focus {
       border-bottom-color: #fff;
       box-shadow: none;
