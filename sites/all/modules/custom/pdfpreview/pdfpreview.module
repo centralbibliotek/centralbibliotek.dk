@@ -213,7 +213,7 @@ function pdfpreview_field_formatter_view($entity_type, $entity, $field, $instanc
        }
     }
   }
-  ksort($newKey);
+  krsort($newKey);
   return $newKey;
 }
 
