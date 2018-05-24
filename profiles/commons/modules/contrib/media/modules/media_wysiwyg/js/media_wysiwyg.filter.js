@@ -3,7 +3,7 @@
  *  File with utilities to handle media in html editing.
  */
 (function ($) {
-
+  debugger;
   Drupal.media = Drupal.media || {};
   /**
    * Utility to deal with media tokens / placeholders.
