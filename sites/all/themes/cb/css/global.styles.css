@@ -1294,6 +1294,10 @@ button, #panels-ipe-control-container
   margin-bottom: -2px;
 }
 
+.flag-anon-commons_follow_node {
+  display: block !important;
+}
+
 /* Follow buttons */
 [class*="flag-commons-follow-"] .flag-action {
   white-space: nowrap;
