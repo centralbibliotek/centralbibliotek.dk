@@ -436,7 +436,7 @@ function cbib_oc_hooks_mail_alter(&$message)
       // Next: Log the mail so it can be debugged if necessary
       watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
     }
-    if($message['id'] == "mimemail_rules_rules_action_mail_rules_notify_attendee_by_mail_4")
+    if($message['id'] == "mimemail_rules_rules_action_mail_rules_notify_attendee_by_mail_4" && $message['send'] != false)
     {
         /*
          * We take over this email , and make it a event invite instead.
@@ -546,7 +546,10 @@ function cbib_oc_hooks_mail_alter(&$message)
     mail($message['to'], $subject, $msg, $headers);
     
     }
-    
+    if($message['send'] == TRUE)
+    {
+        $bp = 0;
+    }
 }
 /*
  * Custom callback function to create a live text summary.
