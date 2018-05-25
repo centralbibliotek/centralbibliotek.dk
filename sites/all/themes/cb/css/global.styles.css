@@ -678,7 +678,6 @@ html.js input.form-autocomplete.throbbing {
   padding: 1.7em 0;
   border-top: 1px solid darkgray;
   border-color: darkgray;
-  border-style: solid;
   border-width: 1px 0;
   /* Some form items have nested fieldsets that mess with the sibling
      selectors and need some extra love. */
