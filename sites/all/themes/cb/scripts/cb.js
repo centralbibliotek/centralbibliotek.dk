@@ -15,7 +15,7 @@
   "use strict";
 
     function trigger_loginSpinner() {
-        debugger;
+        
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
 
@@ -43,11 +43,15 @@
          * Add preloader to everything ?
          */
         $('body').find('a[target!="_blank"][class!="fieldset-title"][class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").not('.flag').not('.button-yes').not(".browse").click(function(){
-            debugger;
+            
             trigger_loginSpinner();
         });
-
-
+        $('#commons-bw-partial-node-form-post').submit(function(){
+            trigger_loginSpinner();
+        });
+        $('#comment-form').submit(function(){
+            trigger_loginSpinner();
+        });
         $('select[id!=edit-following][id!=edit-field-library-und][id!=edit-og-group-ref-target-id]').not(".form-select").change(function () {
             trigger_loginSpinner();
         });
