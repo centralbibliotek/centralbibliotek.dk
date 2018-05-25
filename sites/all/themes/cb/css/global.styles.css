@@ -67,7 +67,7 @@ html .cke_editable {
 }
 
 body {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   color: #565656;
   min-width: 18em;
 }
@@ -85,7 +85,7 @@ h1 {
   line-height: 1.4;
   font-weight: normal;
   color: #424242;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 h1 a {
   color: #ff5479;
@@ -106,7 +106,7 @@ h2 {
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 
 h3 {
@@ -3640,7 +3640,7 @@ body.node-type-license .cb3 .region-cb3-third {
   margin-bottom: .2em;
   margin-left: -68px;
   color: #424242;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 @media only screen and (max-width: 480px) {
   .partial-node-form-title {

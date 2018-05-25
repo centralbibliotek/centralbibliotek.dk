@@ -104,7 +104,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 
 /* =============================================================================
@@ -558,4 +558,8 @@ header[role=banner],
 */
 .view-search-api-group .views-exposed-widget.views-widget-sort-by {
   width: 21%;
+}
+
+.ui-widget {
+  font-family: "Roboto", sans-serif;
 }

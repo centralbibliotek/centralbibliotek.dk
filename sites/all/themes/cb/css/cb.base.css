@@ -83,7 +83,7 @@ ul.nostyle li {
   font-weight: normal;
 }
 @font-face {
-  font-family: 'Roboto Regular';
+  font-family: 'Roboto', sans-serif;
   src: url("../fonts/Roboto-Regular.tff");
   font-style: normal;
   font-weight: normal;
@@ -192,7 +192,7 @@ div.messages {
   padding: 1em 1.65em;
   border-color: #565656;
   color: #565656;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 div.messages.status {
   border-color: #32d2b3;
@@ -228,7 +228,7 @@ div.messages.error {
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-created,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-node-field-date, .cb-teaser-list .node-teaser .panel-col-first .pane-cbib-time-and-location,
 .page-taxonomy-term .node-teaser .panel-col-first .pane-cbib-time-and-location, .node-type-event .region.region-two-66-33-first .pane-node-field-date .field-item, .node-type-news .pane-node-created .block-content {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   background: #424242;
   letter-spacing: 1px;
   color: #fff;
@@ -386,7 +386,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   background-color: transparent !important;
   height: 50px;
   border-bottom: 1px solid #c8c8c8;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   padding-left: 10px;
   color: black;
@@ -437,7 +437,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   background-color: transparent !important;
   height: 50px;
   border-bottom: 1px solid #c8c8c8;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   padding-left: 0px;
 }
@@ -545,7 +545,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 .cb-teaser-list .node-teaser .links a,
 .page-taxonomy-term .node-teaser .links a {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 .cb-teaser-list .node-teaser .panel-pane.pane-node-og-group-ref,
 .page-taxonomy-term .node-teaser .panel-pane.pane-node-og-group-ref {
@@ -736,7 +736,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 .block.pane-event-information .pane-entity-field h2,
 #panels-ipe-paneid-24 .pane-entity-field h2 {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   margin-bottom: 0;
   padding-bottom: 0;
   border: 0;
@@ -775,7 +775,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 #panels-ipe-paneid-26 .pane-cbib-events-registration-dates h2,
 #panels-ipe-paneid-26 .pane-cbib-events-seats-available h2,
 #panels-ipe-paneid-26 .pane-entity-field h2 {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   margin-bottom: 0;
   padding-bottom: 0;
   border: 0;
@@ -1160,7 +1160,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   line-height: 1.2;
   text-decoration: none;
   display: block;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   color: #ff5479;
 }
 
@@ -1209,7 +1209,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   display: none;
 }
 #block-views-centralbiblioteker-block select {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   width: 165px;
   height: 60px;
@@ -1279,7 +1279,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   display: none;
 }
 .views-exposed-widgets .centralbiblioteker-block select {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   width: 165px;
   height: 60px;
@@ -1532,7 +1532,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   margin: 1em 0 .75em;
 }
 .node-type-news .field-label {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 .node-type-news .pane-node-created .block-content {
   background-color: #424242;
@@ -1542,7 +1542,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 
 .node-type-group .field-label {
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 
 .page-groups .ui-tabs,
@@ -1897,7 +1897,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   color: #424242;
   font-weight: normal;
   font-size: 1.25em;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 .view-biblioteker h3,
 .view-ambassad-rliste h3 {
@@ -1915,7 +1915,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .view-ambassad-rliste .item-list h3 a {
   color: #333333;
   font-size: 1.15em;
-  font-family: "Roboto Regular";
+  font-family: "Roboto", sans-serif;
 }
 .view-biblioteker .view-grouping-header a:hover, .view-biblioteker .item-list h3 a:hover,
 .view-ambassad-rliste .view-grouping-header a:hover,

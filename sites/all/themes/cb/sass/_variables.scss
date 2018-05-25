@@ -182,11 +182,11 @@ $modern-myriad:               'Segoe UI', 'Myriad Pro', Myriad, Arial, Helvetica
 $lucida:                      'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', Verdana, Geneva, sans-serif;
 $impact:                      Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans-serif;
 $mono:                        Consolas, Monaco, 'Courier New', Courier, monospace, sans-serif;
-$robotto-regular:              'Roboto';
+$robotto-regular:              'Roboto', sans-serif;
 
-$base-font: 'Roboto Regular';
-$alt-font: 'Roboto Regular';
-$condensed-font: 'Roboto Regular';
+$base-font: 'Roboto', sans-serif;
+$alt-font: 'Roboto', sans-serif;
+$condensed-font: 'Roboto', sans-serif;
 
 //
 // Gutters
