@@ -49,6 +49,11 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
         if($main_node->type != "license" && isset($form['field_formidling_og_pr_tags']))
         {
             hide($form['field_formidling_og_pr_tags']);
+            hide($form['#fieldgroups']['group_pr_type']);
+        }
+        if(isset($form['field_formidling_og_pr_tags']))
+        {
+            $form['field_formidling_og_pr_tags']['und']['#title_display'] = 'invisible';
         }
    }
    if($form['#form_id'] == "post_node_form")
@@ -59,6 +64,11 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
            if($node->type != "license"  && isset($form['field_formidling_og_pr_tags']))
            {
                hide($form['field_formidling_og_pr_tags']);
+               hide($form['#fieldgroups']['group_pr_type']);
+           }
+           if(isset($form['field_formidling_og_pr_tags']))
+           {
+               $form['field_formidling_og_pr_tags']['und']['#title_display'] = 'invisible';
            }
        }
    }
