@@ -67,6 +67,7 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
         {
             $form['field_formidling_og_pr_tags']['und']['#title_display'] = 'invisible';
         }
+        $form['field_media']['und']['#title_display'] = 'invisible';
    }
    if($form['#form_id'] == "post_node_form")
    {
