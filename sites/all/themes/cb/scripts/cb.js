@@ -42,7 +42,7 @@
         /*
          * Add preloader to everything ?
          */
-        $('body').find('a[target!="_blank"][class!="fieldset-title"][class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").not('.flag').not('.button-yes').not(".browse").click(function(){
+        $('body').find('a[target!="_blank"][class!="fieldset-title"][class!="toggle-link"][class!="ui-tabs-anchor"][class!="print-page"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_all"][id!="quicktabs-tab-commons_bw-commons_posts"][id!="quicktabs-tab-commons_bw-commons_documents"]:not([href^="mailto:"])').not("[id*=quicktabs]").not('.flag').not('.button-yes').not(".browse").not(".field-group-format-title").click(function(){
             
             trigger_loginSpinner();
         });
@@ -73,7 +73,6 @@
          */
         $('.file').find('a').unbind('click');
         $('.feed-icon').find('a').unbind('click');
-
         var topx = '52px';       
  
         $('strong').each(function () {
