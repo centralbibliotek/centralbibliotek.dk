@@ -43,13 +43,31 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
         }
         asort($form['og_group_ref_target_id']['#options']);
   }
-  if($form['#form_id'] == "commons_bw_partial_node_form__post")
+  if($form['#form_id'] == "commons_bw_partial_node_form__post" || $form['#form_id'] == "commons_bw_partial_node_form__document")
    {
         $main_node = menu_get_object();
         if($main_node->type != "license" && isset($form['field_formidling_og_pr_tags']))
         {
             hide($form['field_formidling_og_pr_tags']);
+            if(isset($form['#fieldgroups']['group_pr_type']))
+            {
+                if(is_object($form['#fieldgroups']['group_pr_type']))
+                {
+                    $form['#fieldgroups']['group_pr_type']->format_type = 'hidden';
+                }
+                else
+                {
+                     hide($form['#fieldgroups']['group_pr_type']);
+                }
+                
+               
+            }
         }
+        if(isset($form['field_formidling_og_pr_tags']))
+        {
+            $form['field_formidling_og_pr_tags']['und']['#title_display'] = 'invisible';
+        }
+        $form['field_media']['und']['#title'] = '';
    }
    if($form['#form_id'] == "post_node_form")
    {
@@ -59,6 +77,23 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
            if($node->type != "license"  && isset($form['field_formidling_og_pr_tags']))
            {
                hide($form['field_formidling_og_pr_tags']);
+                if(isset($form['#fieldgroups']['group_pr_type']))
+                {
+                    if(is_object($form['#fieldgroups']['group_pr_type']))
+                    {
+                        $form['#fieldgroups']['group_pr_type']->format_type = 'hidden';
+                    }
+                    else
+                    {
+                         hide($form['#fieldgroups']['group_pr_type']);
+                    }
+
+
+                }
+           }
+           if(isset($form['field_formidling_og_pr_tags']))
+           {
+               $form['field_formidling_og_pr_tags']['und']['#title_display'] = 'invisible';
            }
        }
    }

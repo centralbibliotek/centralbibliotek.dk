@@ -22,10 +22,11 @@ function cbib_oc_license_pr_bw_commons_bw_promote_pr_block_content_type_render($
    * Dont output the commons bw widget if the group is admin approval
    * with hidden content from non members.
    */
+    $nid = $context['panelizer']->data->nid;
     $block = new stdClass();
     $block->title = '';
-    $onclick = "var groupid = jQuery('#edit-og-group-ref-target-id').val();windows.href = '/licens/formidling-og-pr?og_group_ref_target_id=' +groupid";
-    $block->content = '<div style="text-align:center;"><button style="background-color:WhiteSmoke;cursor:hand" onclick="'.$onclick.'"><i class="fa fa-2x fa-download" aria-hidden="true"></i><b><br/>Se formidlingsmaterialer</b> <br/></button></div>';
+    $onclick = "window.location.href = '/licens/formidling-og-pr?og_group_ref_target_id=".$nid."'";
+    $block->content = '<div style="text-align:center;"><button style="background-color:WhiteSmoke;cursor:hand" onclick="'.$onclick.'"><i class="fa fa-2x fa-download" style="color:#ff5479" aria-hidden="true"></i><b><br/>Se formidlingsmaterialer</b> <br/></button></div>';
     return $block;
 }
  
