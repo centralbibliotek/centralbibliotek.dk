@@ -195,7 +195,7 @@ div.messages {
   font-family: "Roboto", sans-serif;
 }
 div.messages.status {
-  border-color: #32d2b3;
+  border-color: #FF8BAE;
   color: #2bbfa3;
 }
 div.messages.error {
@@ -248,11 +248,11 @@ div.messages.error {
 }
 
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a {
-  background: #2bc2ff;
+  background: #9EBCDA;
   color: #fff;
 }
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:hover, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:focus {
-  background: #3ed2ff;
+  background: #9EBCDA;
   text-decoration: none;
 }
 
@@ -324,14 +324,14 @@ div.messages.error {
   top: 0px;
   left: 0px;
   background-image: none;
-  background: #32d2b3;
+  background: #FF8BAE;
 }
 .field-name-field-topics .field-items .field-item:hover,
 .field-type-taxonomy-term-reference .field-items .field-item:hover,
 .field-name-og-user-node .field-items .field-item:hover,
 .pane-node-og-group-ref .field-items .field-item:hover,
 .field-name-field-event-type .field-items .field-item:hover {
-  background: #33debd;
+  background: #FF8BAE;
   color: #fff !important;
 }
 .field-name-field-topics .field-items .field-item:hover a,
@@ -348,20 +348,20 @@ div.messages.error {
 .field-name-og-user-node .field-items .field-item:hover:before,
 .pane-node-og-group-ref .field-items .field-item:hover:before,
 .field-name-field-event-type .field-items .field-item:hover:before {
-  background: #33debd;
+  background: #FF8BAE;
 }
 
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:before,
 html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:before {
-  background: #2bc2ff;
+  background: #9EBCDA;
 }
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover,
 html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover {
-  background: #3ed2ff;
+  background: #9EBCDA;
 }
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover:before,
 html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover:before {
-  background: #3ed2ff;
+  background: #9EBCDA;
 }
 
 ::-webkit-input-placeholder {
@@ -387,7 +387,6 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   height: 50px;
   border-bottom: 1px solid #c8c8c8;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
   padding-left: 10px;
   color: black;
 }
@@ -1062,7 +1061,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .branch-selector form {
   width: 35%;
   position: absolute;
-  top: 28px;
+  top: 24px;
   left: 73%;
 }
 .branch-selector form .form-item-custom-search-types {
@@ -1167,7 +1166,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 #block-views-centralbiblioteker-block {
   position: absolute;
   top: 28px;
-  left: 255px;
+  left: 333px;
   z-index: 100;
 }
 #block-views-centralbiblioteker-block .toggle-link {
@@ -1944,7 +1943,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   display: inline-block;
   margin: 0px;
   border-radius: 0px;
-  background: #32d2b3;
+  background: #FF8BAE;
   padding: 15px 0px;
 }
 .page-search .search-form-page input.form-submit:hover {
