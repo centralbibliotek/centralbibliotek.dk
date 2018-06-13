@@ -392,22 +392,17 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 }
 
 .branch-selector form #edit-search-api-views-fulltext:-moz-placeholder {
-  color: #565656 !important;
+  color: #9F9F9F !important;
   margin-left: 5px;
 }
 
 .branch-selector #edit-search-api-views-fulltext:-ms-input-placeholder {
-  color: #565656 !important;
-  margin-left: 5px;
-}
-
-.branch-selector #edit-search-api-views-fulltext::-moz-placeholder {
-  color: #565656 !important;
+  color: #9F9F9F !important;
   margin-left: 5px;
 }
 
 .branch-selector #edit-search-api-views-fulltext::-webkit-input-placeholder {
-  color: #565656 !important;
+  color: #9F9F9F !important;
   margin-left: 5px;
 }
 
