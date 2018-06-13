@@ -406,23 +406,18 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   margin-left: 5px;
 }
 
-#edit-search-api-views-fulltext:-moz-placeholder {
-  color: black;
-  margin-left: 5px;
-}
-
 #edit-search-api-views-fulltext:-ms-input-placeholder {
-  color: black;
+  color: #9F9F9F;
   margin-left: 5px;
 }
 
 #edit-search-api-views-fulltext::-moz-placeholder {
-  color: black;
+  color: #9F9F9F;
   margin-left: 5px;
 }
 
 #edit-search-api-views-fulltext::-webkit-input-placeholder {
-  color: black;
+  color: #9F9F9F;
   margin-left: 5px;
 }
 
