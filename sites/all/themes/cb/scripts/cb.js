@@ -289,7 +289,7 @@ if(!detectIE()) {
 
             if (msie !== -1 || msie_trident !== -1) // If Internet Explorer, return version number
             {
-                $('div.views-exposed-widget.views-reset-button').css('cssText', 'top:46px !important');
+                $('div.views-exposed-widget.views-reset-button').css('cssText', 'top:10px !important');
                 $('strong').each(function () {
                     if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
                         $('div.views-exposed-widget.views-reset-button').css("cssText", "top:24px !important");
