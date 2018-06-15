@@ -102,7 +102,7 @@
         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','62%').css('bottom','68px');
 
 
-    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref #edit-facets--4 > option').css('width','95px');         
+    $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref #edit-facets--5 > option').css('width','95px');         
                
          var Selects_to_fix = $('.fix_me_select');
          $.each(Selects_to_fix,function(i,e){
