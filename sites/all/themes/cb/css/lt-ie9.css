@@ -31,6 +31,10 @@ body.front.not-logged-in #block-system-main .pane-2 {
   margin-left: 1%;
 }
 
+#resets {
+  top: -44px !important;
+}
+
 /* IE8 and lower do not support :before, So remove them and the margin so that
    the container touches the button. */
 .sharethis-wrapper {
