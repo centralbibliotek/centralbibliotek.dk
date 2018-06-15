@@ -99,7 +99,7 @@
                      return false;
          });         
 
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','61%').css('bottom','68px');
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','60%').css('bottom','65px');
 
 
     $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref #edit-facets--5 > option').css('width','95px');         
