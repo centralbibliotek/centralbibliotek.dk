@@ -1315,6 +1315,7 @@ ul.primary.tabs {
     height: 0px;
     width: 100%;
     display: inline-block;
+    float:left;
 }
 
 // style pills same way as sub-menu
@@ -1463,7 +1464,7 @@ header #resets {
     font-size: 180%;
     opacity: 0.5;
     right: 24%;
-    top: 47px;
+    top: 26px;
 }
 .view-display {
     left: 81%;

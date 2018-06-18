@@ -1706,6 +1706,7 @@ ul.primary.tabs li.active a span {
   height: 0px;
   width: 100%;
   display: inline-block;
+  float: left;
 }
 
 .quicktabs-style-commons-pills ul.quicktabs-tabs {
@@ -1849,7 +1850,7 @@ header #resets {
   font-size: 180%;
   opacity: 0.5;
   right: 24%;
-  top: 47px;
+  top: 26px;
 }
 
 .view-display {
