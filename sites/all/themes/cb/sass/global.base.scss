@@ -632,3 +632,9 @@ header[role=banner],
 {
     font-family: $robotto-regular;
 }
+/*
+* license menu styling
+*/
+.pane-menu-menu-license-menu .menu li {
+    padding: 5px;
+}
