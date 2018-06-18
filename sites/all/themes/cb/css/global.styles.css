@@ -4390,6 +4390,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   display: inline-block;
   margin-bottom: 0px !important;
   padding-bottom: .7em;
+  padding-right: 10px;
 }
 .block-facetapi:last-child {
   margin-bottom: 0;
