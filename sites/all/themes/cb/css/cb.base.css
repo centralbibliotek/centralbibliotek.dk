@@ -395,33 +395,33 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   color: black;
 }
 
-.branch-selector form #edit-search-api-views-fulltext:-moz-placeholder {
+.branch-selector form input::-moz-placeholder {
   color: #9F9F9F !important;
   margin-left: 5px;
 }
 
-.branch-selector #edit-search-api-views-fulltext:-ms-input-placeholder {
+.branch-selector form input::-ms-input-placeholder {
   color: #9F9F9F !important;
   margin-left: 5px;
 }
 
-.branch-selector #edit-search-api-views-fulltext::-webkit-input-placeholder {
+.branch-selector form input::-webkit-input-placeholder {
   color: #9F9F9F !important;
   margin-left: 5px;
 }
 
-#edit-search-api-views-fulltext:-ms-input-placeholder {
-  color: #9F9F9F;
+.view-filters #edit-search-api-views-fulltext:-ms-input-placeholder {
+  color: black;
   margin-left: 5px;
 }
 
-#edit-search-api-views-fulltext::-moz-placeholder {
-  color: #9F9F9F;
+.view-filters #edit-search-api-views-fulltext::-moz-placeholder {
+  color: black;
   margin-left: 5px;
 }
 
-#edit-search-api-views-fulltext::-webkit-input-placeholder {
-  color: #9F9F9F;
+.view-filters #edit-search-api-views-fulltext::-webkit-input-placeholder {
+  color: black;
   margin-left: 5px;
 }
 
