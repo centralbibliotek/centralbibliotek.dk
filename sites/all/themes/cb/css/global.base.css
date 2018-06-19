@@ -571,6 +571,11 @@ header[role=banner],
   width: 135px;
 }
 
+#views-exposed-form-search-api-arrangementer-page div .views-exposed-form,
+#views-exposed-form-search-api-arrangementer-page-1 div .views-exposed-form {
+  margin-bottom: 3.4em;
+}
+
 /*
 * license menu styling
 */
