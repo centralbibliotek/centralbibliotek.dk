@@ -402,7 +402,7 @@ article.user-picture-available {
 
 #edit-search-api-views-fulltext {
   padding-left: 10px;
-  height: 45px;
+  height: 35px;
 }
 
 .user-picture,
@@ -1838,7 +1838,7 @@ header #resets {
   position: relative !important;
   opacity: 0.5;
   right: 13%;
-  top: 23px;
+  top: 17px;
 }
 
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
@@ -1850,7 +1850,7 @@ header #resets {
   font-size: 180%;
   opacity: 0.5;
   right: 24%;
-  top: 28px;
+  top: 20px;
 }
 
 .view-display {
@@ -1882,7 +1882,7 @@ header #resets {
   margin-bottom: 0;
 }
 .views-exposed-form .views-exposed-widget .form-submit {
-  margin-top: 8px;
+  margin-top: 1px;
 }
 
 .views-widget-filter-search_api_views_fulltext {

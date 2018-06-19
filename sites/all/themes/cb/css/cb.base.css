@@ -388,7 +388,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 
 #edit-search-api-views-fulltext {
   background-color: transparent !important;
-  height: 50px;
+  height: 35px;
   border-bottom: 1px solid #c8c8c8;
   font-family: "Roboto", sans-serif;
   padding-left: 10px;
@@ -432,7 +432,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 .cb-teaser-list .view-filters input[type="text"],
 .page-taxonomy-term .view-filters input[type="text"] {
   background-color: transparent !important;
-  height: 50px;
+  height: 35px;
   border-bottom: 1px solid #c8c8c8;
   font-family: "Roboto", sans-serif;
   padding-left: 0px;
