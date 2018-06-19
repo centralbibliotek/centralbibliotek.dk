@@ -103,7 +103,7 @@ function detectIE() {
          */
         $('.file').find('a').unbind('click');
         $('.feed-icon').find('a').unbind('click');
-        var topx = '32px';       
+        var topx = '22px';       
  
         $('strong').each(function () {
         if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
@@ -129,9 +129,9 @@ function detectIE() {
                      return false;
          });         
 if(!detectIE()) {
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','70px');
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','71.5px');
         }else {
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','70px');
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','71.5px');
         }
 
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','98px');
