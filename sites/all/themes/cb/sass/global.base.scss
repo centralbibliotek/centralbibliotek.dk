@@ -633,6 +633,12 @@ header[role=banner],
     font-family: $robotto-regular;
 }
 /*
+* set max with for facet selects
+*/
+.block-facetapi select{
+    width: 135px;
+}
+/*
 * license menu styling
 */
 .pane-menu-menu-license-menu .menu li {

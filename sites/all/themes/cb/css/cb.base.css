@@ -431,7 +431,6 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   height: 50px;
   border-bottom: 1px solid #c8c8c8;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
   padding-left: 0px;
 }
 .cb-teaser-list .view-filters input:-moz-placeholder,
@@ -444,8 +443,8 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   color: black;
   margin-left: 5px;
 }
-.cb-teaser-list .view-filters input::-moz-placeholder,
-.page-taxonomy-term .view-filters input::-moz-placeholder {
+.cb-teaser-list .view-filters input::-moz-,
+.page-taxonomy-term .view-filters input::-moz- {
   color: black;
   margin-left: 5px;
 }
