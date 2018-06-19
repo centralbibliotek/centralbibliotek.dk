@@ -395,6 +395,10 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   color: black;
 }
 
+.branch-selector form .form-submit {
+  margin: 0px !important;
+}
+
 .branch-selector form input::-moz-placeholder {
   color: #9F9F9F !important;
   margin-left: 5px;
