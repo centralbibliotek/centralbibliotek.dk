@@ -4405,10 +4405,6 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   font-size: 1.2em;
 }
 
-#event_type2 .pane-title.block-title {
-  font-weight: bold;
-}
-
 .facetapi-facetapi-links,
 .facetapi-date-range {
   margin: 0;
