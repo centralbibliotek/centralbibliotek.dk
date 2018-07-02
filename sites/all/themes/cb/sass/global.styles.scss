@@ -3061,6 +3061,14 @@ body.node-type-license .cb3 {
   }
 }
 
+.pane-cbib-pane-node-field-event-type {
+    float: left;
+}
+
+.pane-cbib-pane-node-field-event-type .field-items li.field-item::before {
+    background: #000!important;
+}
+
 .views-view-grid {
   border: none;
   margin: 0;
