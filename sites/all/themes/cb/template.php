@@ -8,9 +8,9 @@ function cb_field__body($variables) {
     if (drupal_match_path($path, $match)) {
         foreach ($variables['items'] as $delta => $item) {
                 $output .= '<p class="' . $variables['field_name_css'] . '">';
-                $output .= strip_tags($item['#markup']);
-                $output .= '</p>';
-            }
+                $output .= strip_tags($item['#markup'], '<p>');
+            $output .= '</p>';
+        }
         }
         else {
             // Render the label, if it's not hidden.
