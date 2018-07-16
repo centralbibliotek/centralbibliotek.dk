@@ -107,7 +107,7 @@ function oc_add_folder_to_form($ajax = true,$parents = array('oc_folders','und',
        
         $delta  = $widget['#'];
         $output = '<div class="file-widget form-managed-file clearfix"><span class="file">';
-        $output .= '<img class="file-icon" alt="" title="text/plain" src="/modules/file/icons/text-plain.png">'.$widget['name'].'</span>';
+        $output .= '<img style="margin-right:3px" class="file-icon" alt="" title="text/plain" src="/'.drupal_get_path('module', 'cbib_oc_file_folders_org') . "/images/folder.png".'">'.$widget['name'].'</span>';
         $output .= '<input name="oc_folders[und]['.$delta.'][fid]" value="'.$widget['#file']['fid'].'" type="hidden">';
         $output .= '<input name="oc_folders[und]['.$delta.'][name]" value="'.$widget['name'].'" type="hidden">';
         if($_POST['oc_folder_include_description'])

@@ -7,7 +7,7 @@ foreach($items as $key => $item)
     {
         $class = 'oc-is-folder file';
         $folder_name = isset($item['data']['#file']['description']) ? $item['data']['#file']['description'] : $item['data']['name'];
-        echo "<div class='".$class."'><a class='' id='".$item['data']['mlid']['#value']."' >" .$folder_name ."</a></div>";
+        echo "<div class='".$class."'><img style='margin-right:3px' src='/".drupal_get_path('module', 'cbib_oc_file_folders_org') . "/images/folder.png"."'><a class='' id='".$item['data']['mlid']['#value']."' >" .$folder_name ."</a></div>";
     }
     else
     {

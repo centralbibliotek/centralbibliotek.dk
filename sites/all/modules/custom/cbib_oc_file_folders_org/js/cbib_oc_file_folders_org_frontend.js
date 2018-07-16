@@ -21,7 +21,8 @@
             old.find('.oc_file_folder_navigate').remove();
             if(target != 0)
             {
-                var previous_folder_link = $('<div class="file oc_file_folder_navigate"><a id="oc_folder_to_previous">..</a></div>');
+                var img_path = "/sites/all/modules/custom/cbib_oc_file_folders_org/images/back.png";
+                var previous_folder_link = $('<div class="file oc_file_folder_navigate"><a id="oc_folder_to_previous"><img style="margin-right:3px" src="'+img_path+'">Tilbage..</a></div>');
                 previous_folder_link.find('a').click(function(e){
                     var elem =  $(e.currentTarget);
                    
@@ -31,7 +32,7 @@
                     switch_folder(current,target)
                     e.preventDefault();
                 });
-                var to_top_folder_link = $('<div class="file oc_file_folder_navigate"><a id="oc_folder_to_top" href="0">.</a></div>');
+                var to_top_folder_link = $('<div class="file oc_file_folder_navigate"><a id="oc_folder_to_top" href="0">Til Rod</a></div>');
                 to_top_folder_link.find('a').click(function(e){
                     var elem =  $(e.currentTarget);
                     var target = elem.attr('href');
@@ -41,7 +42,7 @@
                     e.preventDefault();
                 });
                 new_folder.prepend(previous_folder_link);
-                new_folder.prepend(to_top_folder_link);
+                //new_folder.prepend(to_top_folder_link);
             }
         }
         function switch_folder(current,target)
