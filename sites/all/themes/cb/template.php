@@ -1,5 +1,38 @@
 <?php
 
+function cb_field__body($variables) {
+    $output = '';
+
+    $path = drupal_get_path_alias();
+    $match = "*kompetenceudvikling*";
+    if (drupal_match_path($path, $match)) {
+        foreach ($variables['items'] as $delta => $item) {
+                $output .= '<p class="' . $variables['field_name_css'] . '">';
+                $output .= strip_tags($item['#markup'], '<p>');
+            $output .= '</p>';
+        }
+        }
+        else {
+            // Render the label, if it's not hidden.
+            if (!$variables['label_hidden']) {
+                $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+            }
+
+            // Render the items.
+            $output .= '<div class="field-items"' . $variables['content_attributes'] . '>';
+            foreach ($variables['items'] as $delta => $item) {
+                $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+                $output .= '<div class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
+            }
+            $output .= '</div>';
+
+            // Render the top-level DIV.
+            $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
+        }
+ 
+    return $output;
+}
+
 function cb_preprocess_html(&$vars) {
   drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(
     'type' => 'external'

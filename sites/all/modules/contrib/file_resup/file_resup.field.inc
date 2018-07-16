@@ -70,7 +70,7 @@ function file_resup_field_widget_form_alter(&$element, &$form_state, $context) {
   $instance = $context['instance'];
   if (!empty($instance['settings']['resup']) && file_resup_field_widget_support($instance['widget']['type']) && user_access('upload via file_resup') && file_upload_max_size() >= file_resup_chunksize()) {
     $keys = element_children($element);
-    $delta = end($keys);
+    $delta = end($keys)-1;
 
     $cardinality = $context['field']['cardinality'];
     $element[$delta]['#file_resup_max_files'] = $cardinality != FIELD_CARDINALITY_UNLIMITED ? $cardinality - $delta : -1;

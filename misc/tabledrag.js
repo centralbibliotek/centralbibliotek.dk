@@ -486,6 +486,7 @@ Drupal.tableDrag.prototype.dragRow = function (event, self) {
       // If we have a valid target, perform the swap and restripe the table.
       var currentRow = self.findDropTargetRow(x, y);
       if (currentRow) {
+          debugger;
         if (self.rowObject.direction == 'down') {
           self.rowObject.swap('after', currentRow, self);
         }
@@ -498,11 +499,13 @@ Drupal.tableDrag.prototype.dragRow = function (event, self) {
 
     // Similar to row swapping, handle indentations.
     if (self.indentEnabled) {
+        
       var xDiff = self.currentMouseCoords.x - self.dragObject.indentMousePos.x;
       // Set the number of indentations the mouse has been moved left or right.
       var indentDiff = Math.round(xDiff / self.indentAmount);
       // Indent the row with our estimated diff, which may be further
       // restricted according to the rows around this row.
+    
       var indentChange = self.rowObject.indent(indentDiff);
       // Update table and mouse indentations.
       self.dragObject.indentMousePos.x += self.indentAmount * indentChange * self.rtl;

@@ -13,6 +13,7 @@ files[] = media_wysiwyg.test
 files[] = tests/media_wysiwyg.file_usage.test
 files[] = tests/media_wysiwyg.macro.test
 
+
 configure = admin/config/media/browser
 
 ; Information added by Drupal.org packaging script on 2014-10-04
