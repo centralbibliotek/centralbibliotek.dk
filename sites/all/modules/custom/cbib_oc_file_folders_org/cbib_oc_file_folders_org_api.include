@@ -1,0 +1,227 @@
+<?php
+/*
+ * Creating the needed tree stucture functions
+ */
+function build_render_file_tree($rows)
+{
+    $parents = array();
+    foreach($rows as $i => $value)
+    {
+        if(isset($value['widget']['plid']['#value']) && $value['widget']['plid']['#value'] == 0)
+        {
+            $parents[$value['widget']['mlid']['#value']] = array();
+            $parents[$value['widget']['mlid']['#value']]['data'] = $value['data'];
+            $parents[$value['widget']['mlid']['#value']]['class'] = $value['class'];
+            $parents[$value['widget']['mlid']['#value']]['children'] = find_render_file_children($rows,$value['widget']['mlid']['#value']);
+        }
+    }
+    return $parents;
+    
+}
+function validate_all_plids(&$rows)
+{
+    foreach($rows as $i => $value)
+    {
+        if(isset($value['widget']['plid']['#value']) && $value['widget']['plid']['#value'] != 0)
+        {
+            $found = false;
+            foreach($rows as $check)
+            {
+                if($check['widget']['mlid']['#value'] == $value['widget']['plid']['#value'])
+                {
+                    $found = true;
+                    break;
+                }
+            }
+            if($found == false)
+            {
+                $rows[$i]['widget']['plid']['#value'] = 0;
+            }
+        }
+    }
+}
+function find_render_file_children($rows,$plid,$dept = 1)
+{
+    $children = array();
+    if($dept > 3)
+    {
+        return;
+    }
+    foreach($rows as $i => $value)
+    {
+        $child_plid = $value['widget']['plid']['#value'];
+        $child_mlid = $value['widget']['mlid']['#value'];
+        if((string)$child_plid == $plid && $child_mlid != $plid)
+        {
+            $child = array();
+            $child['data'] = $value['data'];
+            $child['class'] = $value['class'];
+            $child['children'] = 
+            $child['children'] = find_render_file_children($rows,$child_mlid,$dept+1);
+            $children[$value['widget']['mlid']['#value']] = $child;
+        }
+    }
+    return $children;
+}
+function get_file_pid($fid,$nid,$field_name)
+{
+    $data = oc_file_folders_get_data($nid,$field_name);
+    foreach($data as $elem)
+    {
+        $value = isset($elem['mlid']['#value']) ? $elem['mlid']['#value'] : $elem['#default_value']['mlid'];
+        $is_equal = strcmp($value,$fid);
+        if($is_equal == 0)
+        {
+            return isset($elem['plid']['#value']) ? $elem['plid']['#value'] : $elem['#default_value']['plid'];
+        }
+    }
+    return 0;
+}
+function get_folders($nid,$field_id)
+{
+    $folders = array();
+    $data = oc_file_folders_get_data($nid,$field_id);
+    foreach($data as $elem)
+    {
+        $obj = $elem['#default_value'];
+        if($obj['is_folder'])
+        {
+            //$folder = array('#weight' => $obj['_weight'],'#default_value' => array('is_folder' => true,'mlid' => $obj['mlid']['#value'],'plid' => $obj['plid']['#value']));
+            $folders[] = $elem;
+        }
+    }
+    return $folders;
+}
+function build_elements_from_postback($data)
+{
+    $folders = array();
+    foreach($data as $index => $folder)
+    {
+            $folders[] = array('#weight' => $folder['_weight'],'#default_value' => array('is_folder' => isset($folder['is_folder']) ? true : false,'mlid' => $folder['mlid'],'plid' => $folder['plid'])
+                  ,'name' => isset($folder['name']) ? $folder['name'] : 'tom navn','#file' => array('fid' => $folder['mlid'],'description' => $folder['description']),
+                   'mlid' => array('#value' => $folder['mlid']),'plid' => array('#value' => $folder['plid']));
+    }
+    return $folders;
+}
+function create_new_folder($name)
+{
+    $id = get_unique_folder_id();
+    return array('_weight' => 0,'mlid' => $id,'plid' => 0,'name' => $name , 'description' => '');
+}
+function get_unique_folder_id()
+{
+    return uniqid('000');
+}
+function oc_file_folders_get_data($nid,$field_name)
+{
+   $result = db_select('oc_file_folder_org', 'c')
+    ->fields('c')
+    ->condition('nid', $nid)
+    ->condition('field_name', $field_name)
+    ->execute()
+    ->fetchAssoc();
+   return json_decode($result['widgets'],true);
+}
+function oc_file_folders_save_data($nid,$field_name,$widgets)
+{
+    db_delete('oc_file_folder_org')
+    ->condition('nid', $nid)
+    ->condition('field_name', $field_name)
+    ->execute();
+    $data = json_encode($widgets);
+    $nid = db_insert('oc_file_folder_org')
+    ->fields(array(
+      'nid' => $nid,
+      'field_name' => $field_name,
+      'widgets' => $data,
+    ))
+    ->execute();
+    
+}
+function oc_file_folders_render_children($children, $header, $ts,&$class,$dept = 1 )
+{
+    if($dept > 3)
+    {
+        return array();
+    }
+    $output = "";
+    $flip = array('even' => 'odd', 'odd' => 'even');
+       foreach($children as $number => $row)
+          {
+              if (isset($row['data'])) {
+                $cells = $row['data'];
+                $cells[0] = theme('indentation', array('size' => $dept)) . $cells[0];
+                $no_striping = isset($row['no_striping']) ? $row['no_striping'] : FALSE;
+
+                // Set the attributes array and exclude 'data' and 'no_striping'.
+                $attributes = $row;
+                unset($attributes['data']);
+                unset($attributes['no_striping']);
+                unset($attributes['widget']);
+              }
+              else {
+                $cells = $row;
+                $attributes = array();
+                $no_striping = FALSE;
+              }
+              if (count($cells)) {
+                // Add odd/even class
+                if (!$no_striping) {
+                  $class = $flip[$class];
+                  $attributes['class'][] = $class;
+                }
+
+                // Build row
+                $output .= ' <tr' . drupal_attributes($attributes) . '>';
+                $i = 0;
+                foreach ($cells as $cell) {
+                  $cell = tablesort_cell($cell, $header, $ts, $i++);
+                  $output .=  _theme_table_cell($cell);
+                }
+                $output .= " </tr>\n";
+              }
+              if(isset($row['children']) && sizeof($row['children']) > 0)
+              {
+                  $output .= oc_file_folders_render_children($row['children'], $header, $ts,$class,$dept+1 );
+              }
+          }
+          
+          return $output;
+}
+function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
+{
+    if($depth > 3)
+    {
+        return array();
+    }
+    $output = "";
+    $output .= "<div id='".$pid."' class='oc_file_folder_child hide_folder'>";
+    foreach($children as $number => $row)
+    {
+        
+        if(!$row['data']['#default_value']['is_folder'])
+        {
+            $file = file_load($row['data']['#file']['fid']);
+            if(!empty($row['data']['#file']['description']))
+            {
+                $file->description = $row['data']['#file']['description'];
+            }
+            $output .= "<div>" .  theme_file_link(array('file' => $file)) . "</div>";
+        }
+        else
+        {
+            $class = 'oc-is-folder file';
+            $folder_name = isset($row['data']['#file']['description']) ? $row['data']['#file']['description'] : $row['data']['name'];
+            $output .= "<div class='".$class."'><a class='' id='".$row['data']['mlid']['#value']."' >" . $folder_name."</a></div>";
+        }
+    }
+    $output .= "</div>";
+    foreach($children as $number => $row)
+    {
+        if(isset($row['children']) && sizeof($row['children']) > 0)
+        {
+            $output .= oc_file_folders_render_children_frontend($row['children'],$row['data']['mlid']['#value'],$depth+1 );
+        }
+    }
+    return $output;
+}

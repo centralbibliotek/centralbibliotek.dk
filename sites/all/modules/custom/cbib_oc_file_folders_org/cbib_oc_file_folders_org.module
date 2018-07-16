@@ -1,0 +1,226 @@
+<?php
+require_once 'cbib_oc_file_folders_org_api.include';
+require_once 'cbib_oc_file_folders_og_widget.include';
+/**
+ * Implements hook_menu().
+ */
+function cbib_oc_file_folders_org_menu() {
+  $items = array();
+
+  $items['file/folder/ajax/add'] = array(
+    'page callback' => 'oc_folder_form_ajax_handler',
+    'delivery callback' => 'ajax_deliver',
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+function oc_folder_form_ajax_handler()
+{ 
+    list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
+      if (!$form) {
+        // Invalid form_build_id.
+        drupal_set_message(t('An unrecoverable error occurred. Use of this form has expired. Try reloading the page and submitting again.'), 'error');
+        $commands = array();
+        $commands[] = ajax_command_replace(NULL, theme('status_messages'));
+        return array('#type' => 'ajax', '#commands' => $commands);
+      }
+  
+    if(strpos($_POST['_triggering_element_name'], 'remove_folder') !== false)
+    {
+        //remove a folder..
+        $remove_folder_id = explode('_',$_POST['_triggering_element_name'])[2];
+        foreach($_POST['oc_folders']['und'] as $index => $folder)
+        {
+            if($folder['mlid'] == $remove_folder_id)
+            {
+                unset($_POST['oc_folders']['und'][$index]);
+                break;
+            }
+        }
+        $form_state['submitted'] = 0;
+        
+        handle_remove_rebuild($form['#form_id'], $form, $form_state);
+        //drupal_process_form($form['#form_id'], $form, $form_state);
+        //$_POST['oc_ remove_folder'] = $remove_folder_id[2];
+    }
+    if($_POST['_triggering_element_name'] == "op" && $_POST['_triggering_element_value'] == "tilføj mappe")
+    {
+        //add a folder to the top of the folder list.
+        $folder_name = $_POST['oc_folder_new_folder_name'];
+        if($folder_name != "")
+        {
+            if(!isset($_POST['oc_folders']['und']))
+            {
+                $_POST['oc_folders'] = array();
+                $_POST['oc_folders']['und'] = array();
+            }
+            $_POST['oc_folders']['und'][] = create_new_folder($folder_name);
+            
+        }
+        
+        handle_remove_rebuild($form['#form_id'], $form, $form_state);
+    }
+   // Process user input. $form and $form_state are modified in the process.
+ 
+
+  // Retrieve the element to be rendered.
+   $form = $form[$_POST['oc_folder_field_name']]['und'];
+
+  // Add the special Ajax class if a new file was added.
+  $form['#suffix'] .= '<span class="ajax-new-content"></span>';
+  
+
+  $output = theme('status_messages') . drupal_render($form);
+  $js = drupal_add_js();
+  $settings = call_user_func_array('array_merge_recursive', $js['settings']['data']);
+
+  $commands[] = ajax_command_replace('div[id*=-ajax-wrapper]', $output, $settings);
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+function handle_remove_rebuild($form_id,&$form,&$form_state)
+{
+    $form_state['values'] = array();
+
+    // With $_GET, these forms are always submitted if requested.
+    if ($form_state['method'] == 'get' && !empty($form_state['always_process'])) {
+      if (!isset($form_state['input']['form_build_id'])) {
+        $form_state['input']['form_build_id'] = $form['#build_id'];
+      }
+      if (!isset($form_state['input']['form_id'])) {
+        $form_state['input']['form_id'] = $form_id;
+      }
+      if (!isset($form_state['input']['form_token']) && isset($form['#token'])) {
+        $form_state['input']['form_token'] = drupal_get_token($form['#token']);
+      }
+    }
+        $unprocessed_form = $form;
+        $form = form_builder($form_id, $form, $form_state);
+        $form_state['rebuild'] = TRUE;
+        $form = drupal_rebuild_form($form['#form_id'], $form_state, $form);
+}
+function oc_add_folder_to_form($ajax = true,$parents = array('oc_folders','und','0'),$widget = array())
+{
+    
+       
+        $delta  = $widget['#'];
+        $output = '<div class="file-widget form-managed-file clearfix"><span class="file">';
+        $output .= '<img class="file-icon" alt="" title="text/plain" src="/modules/file/icons/text-plain.png">'.$widget['name'].'</span>';
+        $output .= '<input name="oc_folders[und]['.$delta.'][fid]" value="'.$widget['#file']['fid'].'" type="hidden">';
+        $output .= '<input name="oc_folders[und]['.$delta.'][name]" value="'.$widget['name'].'" type="hidden">';
+        if($_POST['oc_folder_include_description'])
+        {
+            $element['description'] = array(
+            '#name' => 'oc_folders[und]['.$delta.'][description]',
+            '#type' => variable_get('file_description_type', 'textfield'),
+            '#title' => t('Description'),
+            '#value' => isset($widget['#file']['description']) ? $widget['#file']['description'] : '',
+            '#maxlength' => variable_get('file_description_length', 128),
+            '#description' => t('The description may be used as the label of the link to the file.'),
+          );
+            $output .= drupal_render($element);
+        }
+        $output .= '<input id="is_folder" name="oc_folders[und]['.$delta.'][is_folder]" value="1" type="hidden">';
+        $output .= '</div>';
+        return $output;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cbib_oc_file_folders_org_theme() {
+  return array(
+
+    // file.field.inc.
+    'cbib_oc_file_folders_org_widget' => array(
+      'render element' => 'element',
+    ),
+    'cbib_oc_file_folders_org_widget_multiple' => array(
+      'render element' => 'element',
+    ),
+    'cbib_oc_file_folders_org_table' => array(
+        'template' => 'oc_file_folders',
+        'variables' => array('headers' => NULL,'rows' => NULL,'table_attributes' => NULL),
+        'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
+       ),
+    'file_oc_file_folder_frontend_table' => array(
+      'template' => 'oc_file_folders_frontend',
+      'variables' => array('items' => NULL,'entity' => NULL,'field_name' => NULL),
+      'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
+     ),
+  );
+}
+function cbib_oc_file_folders_org_field_formatter_info() {
+ return array(
+    'file_oc_folder_default' => array(
+      'label' => t('oc filer og mapper'),
+      'field types' => array('file'),
+    )
+  );
+}
+function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
+  $element = array();
+      
+  switch ($display['type']) {
+      case 'file_oc_folder_default':
+      drupal_add_css(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/css/cbib_oc_file_folders_frontend.css");
+      drupal_add_js(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/js/cbib_oc_file_folders_org_frontend.js");
+      $items = oc_file_folders_get_data($entity->nid,$field['field_name']);
+      if (!empty($items)) {
+          $convert = array();
+          foreach($items as $item)
+          {
+              $convert[] = array('widget' => $item,'data' => $item);
+          }
+        $render_tree = build_render_file_tree($convert);
+        // Display all values in a single element..
+          
+        $element[0] = array(
+          '#theme' => 'file_oc_file_folder_frontend_table',
+          '#items' => $render_tree,
+          '#field_name' => $field['field_name'],
+          '#entity' => $entity,
+          
+        );
+      }
+      else
+      {
+          //fake element to trigger rendering , usefull when only folders in 
+          // the field.
+          $items[0] = array('placeholder' => 'test'); 
+          $element[0] = array(
+          '#theme' => 'file_oc_file_folder_frontend_table',
+          '#items' => $items,
+          '#field_name' => $field['field_name'],
+          '#entity' => $entity,
+          
+           );
+      }
+  }
+  return $element;
+}
+
+function cbib_oc_file_folders_org_node_insert($node) {
+    if($_POST['oc_folders']['und'])
+    {
+        $field_name = $_POST['oc_folder_field_name'];
+        $folders = build_elements_from_postback($_POST['oc_folders']['und']);
+        $files = build_elements_from_postback($node->{$field_name}['und']);
+        $folders = array_merge ( $folders,$files);
+        $nid = $node->nid;
+        oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
+    }
+}
+function cbib_oc_file_folders_org_node_update($node) {
+  if($_POST['oc_folders']['und'])
+  {
+      $field_name = $_POST['oc_folder_field_name'];
+      $folders = build_elements_from_postback($_POST['oc_folders']['und']);
+      $files = build_elements_from_postback($node->{$field_name}['und']);
+      $folders = array_merge ( $folders,$files);
+      $nid = $node->nid;
+      oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
+   }
+}
