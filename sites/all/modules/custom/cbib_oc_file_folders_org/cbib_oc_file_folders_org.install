@@ -1,6 +1,29 @@
 <?php
-
-/* 
-* Creates stuff we need to build a virtual file tree for uploads.
- */
-
+function cbib_oc_file_folders_org_schema() {
+  $schema['oc_file_folder_org'] = array(
+      'description' => 'Holds virtual folder data for attachments',
+       'id' => array(
+        'description' => 'The primary identifier for a node.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'nid' => array(
+        'description' => 'The primary identifier for a node.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'field_name' => array(
+        'description' => 'The fieldname we are attached too.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => ''),
+      'field_name' => array(
+        'description' => 'The fieldname we are attached too.',
+        'type' => 'longtext',
+        'default' => ''),
+     // specification for mytable1
+  );
+ 
+  return $schema;
+}

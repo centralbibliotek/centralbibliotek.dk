@@ -2,4 +2,8 @@
 {
     display:none;
 }
+.oc-is-folder a:hover, .oc_file_folder_navigate a:hover
+{
+    cursor: pointer;
+}
 
