@@ -93,7 +93,7 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
     $elements['#file_upload_delta'] = $delta;
     $elements['#theme'] = 'cbib_oc_file_folders_org_widget_multiple';
     $elements['#theme_wrappers'] = array('fieldset');
-    $elements['#process'] = array('file_field_widget_process_multiple');
+    $elements['#process'] = array('cbib_oc_file_folders_org_field_widget_process_multiple');
     $elements['#title'] = $element['#title'];
     $elements['#description'] = $element['#description'];
     $elements['#field_name'] = $element['#field_name'];
@@ -462,6 +462,65 @@ function cbib_oc_file_folders_org_field_widget_process($element, &$form_state, $
     $element[$key]['#submit'][] = 'file_field_widget_submit';
     $element[$key]['#limit_validation_errors'] = array(array_slice($element['#parents'], 0, -1));
   }
+
+  return $element;
+}
+/**
+ * An element #process callback for a group of file_generic fields.
+ *
+ * Adds the weight field to each row so it can be ordered and adds a new Ajax
+ * wrapper around the entire group so it can be replaced all at once.
+ */
+function cbib_oc_file_folders_org_field_widget_process_multiple($element, &$form_state, $form) {
+  $element_children = element_children($element, TRUE);
+ 
+  $count = count($element_children);
+  /*
+   * make the wiegth fields like up
+   */
+   if(isset($_POST['oc_folders']))
+  {      
+      //make folder array
+      foreach($_POST['oc_folders']['und'] as $index => $folder)
+      {
+          $count++;
+      }
+      $count--;
+  }
+  else
+  {
+      if(isset($form['#node'])) //only use this if the node is already created.
+      {
+        $folders = get_folders($form['#node']->nid,$element['#field_name']);
+        $count += sizeof($folders)-1;
+      }
+  }
+  
+  foreach ($element_children as $delta => $key) {
+    if ($key != $element['#file_upload_delta']) {
+      $description = _file_field_get_description_from_element($element[$key]);
+      $element[$key]['_weight'] = array(
+        '#type' => 'weight',
+        '#title' => $description ? t('Weight for @title', array('@title' => $description)) : t('Weight for new file'),
+        '#title_display' => 'invisible',
+        '#delta' => $count,
+        '#default_value' => $delta,
+      );
+    }
+    else {
+      // The title needs to be assigned to the upload field so that validation
+      // errors include the correct widget label.
+      $element[$key]['#title'] = $element['#title'];
+      $element[$key]['_weight'] = array(
+        '#type' => 'hidden',
+        '#default_value' => $delta,
+      );
+    }
+  }
+
+  // Add a new wrapper around all the elements for Ajax replacement.
+  $element['#prefix'] = '<div id="' . $element['#id'] . '-ajax-wrapper">';
+  $element['#suffix'] = '</div>';
 
   return $element;
 }
