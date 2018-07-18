@@ -16,7 +16,7 @@
     }
     echo "</div>";
     foreach ($items as $key => $item) {
-        echo oc_file_folders_render_children_frontend($item['children'], $item['data']['mlid']['#value']);
+        echo oc_file_folders_render_children_frontend($item['children'], $item['data']['mlid']['#value'],$pdf_previews);
     }
     ?>
 </div>

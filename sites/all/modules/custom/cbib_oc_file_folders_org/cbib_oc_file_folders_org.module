@@ -216,7 +216,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
 }
 function cbib_oc_file_folders_org_pdf_preview_data($items, $display)
 {
-      $display['type'] = "pdfpreview";
+        $display['type'] = "pdfpreview";
         $element = array();
         $settings = $display['settings'];
         $image_items = array();
@@ -227,9 +227,9 @@ function cbib_oc_file_folders_org_pdf_preview_data($items, $display)
 
         foreach ($items as $delta => $item) {
           if (isset($item['display']) && !$item['display']) continue; //don't show hidden files
-           if (($item['filemime'] == 'application/pdf') && ($preview_uri = _pdfpreview_create_preview($item, $image_style))) {
+            if (($item['filemime'] == 'application/pdf') && ($preview_uri = _pdfpreview_create_preview($item, $image_style))) {
           //if (($item['filemime'] == 'application/pdf')){//_pdfpreview_create_preview($item, $image_style))) {
-            //  $preview_uri = "/sites/default/files/styles/50x50/public/legacy/Susannecb.jpg";
+          //    $preview_uri = "/sites/default/files/styles/50x50/public/legacy/Susannecb.jpg";
 
             $image_items[$delta] = array(
               'fid' => $item['fid'],

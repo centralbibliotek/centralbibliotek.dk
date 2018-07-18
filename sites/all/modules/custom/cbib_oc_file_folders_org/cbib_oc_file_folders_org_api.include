@@ -216,7 +216,7 @@ function oc_file_folders_render_children($children, $header, $ts,&$class,$dept =
           
           return $output;
 }
-function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
+function oc_file_folders_render_children_frontend($children,$pid,$pdf_previews,$depth = 1)
 {
     if($depth > 3)
     {
@@ -235,7 +235,8 @@ function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
             {
                 $file->description = isset($row['data']['#file']['description']) ? $row['data']['#file']['description'] : $row['data']['description']['#value'];
             }
-            $output .= "<div>" .  theme_file_link(array('file' => $file)) . "</div>";
+            $output .= "<div id='file-".$row['data']['#file']['fid']."'>" .  theme_file_link(array('file' => $file)) . "</div>";
+            $output .= cbib_oc_file_folders_org_pdfpreview_render_help($row['data']['#file']['fid'],$pdf_previews);
         }
         else
         {
@@ -247,10 +248,11 @@ function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
     {
         if(isset($row['children']) && sizeof($row['children']) > 0)
         {
-            $output .= oc_file_folders_render_children_frontend($row['children'],$row['data']['mlid']['#value'],$depth+1 );
+            $output .= oc_file_folders_render_children_frontend($row['children'],$row['data']['mlid']['#value'],$pdf_previews,$depth+1 );
         }
         else
         {
+            //add empty folder
             if($row['data']['#default_value']['is_folder'])
             {
                 $output .= "<div id='".$row['data']['mlid']['#value']."' class='oc_file_folder_child hide_folder'></div>";
