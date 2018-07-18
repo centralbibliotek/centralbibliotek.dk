@@ -1,28 +1,29 @@
 <?php
 function cbib_oc_file_folders_org_schema() {
   $schema['oc_file_folder_org'] = array(
-      'description' => 'Holds virtual folder data for attachments',
+      'fields' => array(
        'id' => array(
-        'description' => 'The primary identifier for a node.',
         'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE),
       'nid' => array(
-        'description' => 'The primary identifier for a node.',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE),
       'field_name' => array(
-        'description' => 'The fieldname we are attached too.',
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => ''),
-      'field_name' => array(
-        'description' => 'The fieldname we are attached too.',
-        'type' => 'longtext',
-        'default' => ''),
+        ),
+      'widgets' => array(
+        'type' => 'text',
+        'size' => 'big')
+      ),
+      'unique keys' => array(
+      'nid_field_name' => array('nid', 'field_name'),
+      ),
      // specification for mytable1
+     'primary key' => array('id'),
   );
  
   return $schema;
