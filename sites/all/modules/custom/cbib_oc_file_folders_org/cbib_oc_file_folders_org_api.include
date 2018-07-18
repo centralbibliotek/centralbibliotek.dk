@@ -14,6 +14,10 @@ function build_render_file_tree($rows)
             $parents[$value['widget']['mlid']['#value']]['data'] = $value['data'];
             $parents[$value['widget']['mlid']['#value']]['class'] = $value['class'];
             $parents[$value['widget']['mlid']['#value']]['children'] = find_render_file_children($rows,$value['widget']['mlid']['#value']);
+            if(sizeof($parents[$value['widget']['mlid']['#value']]['children']) != 0)
+            {
+                uasort($parents[$value['widget']['mlid']['#value']]['children'], '_field_sort_items_value_helper');
+            }
             $parents[$value['widget']['mlid']['#value']]['_weight']['#value'] = $value['widget']['#weight'];
         }
     }
@@ -59,8 +63,12 @@ function find_render_file_children($rows,$plid,$dept = 1)
             $child = array();
             $child['data'] = $value['data'];
             $child['class'] = $value['class'];
-            $child['_weight']['#value'] = $value['widget']['_weight']['#value'];
+            $child['_weight']['#value'] = isset($value['widget']['#weight']) ? $value['widget']['#weight'] : 0;
             $child['children'] = find_render_file_children($rows,$child_mlid,$dept+1);
+            if(sizeof($child['children']) != 0)
+            {
+                uasort($child['children'], '_field_sort_items_value_helper');
+            }
             $children[$value['widget']['mlid']['#value']] = $child;
         }
     }
