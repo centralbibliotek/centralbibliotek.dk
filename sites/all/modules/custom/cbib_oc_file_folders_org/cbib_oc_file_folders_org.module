@@ -142,7 +142,7 @@ function cbib_oc_file_folders_org_theme() {
        ),
     'file_oc_file_folder_frontend_table' => array(
       'template' => 'oc_file_folders_frontend',
-      'variables' => array('items' => NULL,'entity' => NULL,'field_name' => NULL),
+      'variables' => array('items' => NULL,'pdf_previews' => null,'entity' => NULL,'field_name' => NULL),
       'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
      ),
     'file_oc_file_folder' => array(
@@ -150,6 +150,10 @@ function cbib_oc_file_folders_org_theme() {
       'variables' => array('row' => NULL),
       'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
      ),
+    'cbib_oc_folde_folders_pdfpreview_formatter' => array(
+        'function' => 'theme_cbib_oc_file_folders_org_formatter',
+        'render element' => 'element',
+      ),
   );
 }
 function cbib_oc_file_folders_org_field_formatter_info() {
@@ -162,7 +166,7 @@ function cbib_oc_file_folders_org_field_formatter_info() {
 }
 function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
   $element = array();
-      
+  $pdf_previews = cbib_oc_file_folders_org_pdf_preview_data($items, $display);
   switch ($display['type']) {
       case 'file_oc_folder_default':
       drupal_add_css(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/css/cbib_oc_file_folders_frontend.css");
@@ -176,11 +180,11 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
               $convert[] = array('widget' => $item,'data' => $item);
           }
         $render_tree = build_render_file_tree($convert);
-        // Display all values in a single element..
           
         $element[0] = array(
           '#theme' => 'file_oc_file_folder_frontend_table',
           '#items' => $render_tree,
+          '#pdf_previews' => $pdf_previews,
           '#field_name' => $field['field_name'],
           '#entity' => $entity,
         );
@@ -210,7 +214,86 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
   }
   return $element;
 }
+function cbib_oc_file_folders_org_pdf_preview_data($items, $display)
+{
+      $display['type'] = "pdfpreview";
+        $element = array();
+        $settings = $display['settings'];
+        $image_items = array();
+        $non_pdfs = array();
+        list($preview_width, $preview_height) = explode('x', variable_get('pdfpreview_previewsize', PDFPREVIEW_DEFAULT_SIZE));
+        // save image_style session
+        $image_style = $settings['image_style'];
 
+        foreach ($items as $delta => $item) {
+          if (isset($item['display']) && !$item['display']) continue; //don't show hidden files
+           if (($item['filemime'] == 'application/pdf') && ($preview_uri = _pdfpreview_create_preview($item, $image_style))) {
+          //if (($item['filemime'] == 'application/pdf')){//_pdfpreview_create_preview($item, $image_style))) {
+            //  $preview_uri = "/sites/default/files/styles/50x50/public/legacy/Susannecb.jpg";
+
+            $image_items[$delta] = array(
+              'fid' => $item['fid'],
+              'uri' => $preview_uri,
+              'alt' => isset($item['description']) ? $item['description'] : '',
+              'width' => $preview_width,
+              'height' => $preview_height,
+              'title' => isset($item['description']) ? $item['description'] : '',
+              'attributes' => array(
+                'class' => array('pdfpreview-file'),
+                //'onmouseover' => $preview_uri,
+              )
+            );
+            if ($settings['image_link'] == 'pdf_file') {
+              $uri[$delta] = array(
+                'path' => file_create_url($item['uri']),
+                'options' => array(
+                  'entity' => $entity,
+                ),
+              );
+            }
+          }
+          else {
+            //For non pdf files, we defer processing.
+            //$non_pdfs[$delta] = $item;
+          }
+        }
+    // Render PDF preview files using the image or picture formatter.
+    switch ($display['type']) {
+      case 'pdfpreview':
+        $element += image_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $image_items, $display);
+        break;
+
+      case 'pdfpreview_picture':
+        $picture_display = array_merge(array(), $display);
+        $picture_display['type'] = 'picture';
+        $element += picture_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $image_items, $picture_display);
+        break;
+    }
+    foreach (element_children($element) as $delta) {
+      $element[$delta]['#theme_wrappers'][] = 'cbib_oc_folde_folders_pdfpreview_formatter';
+      $element[$delta]['#settings'] = $settings;
+      $element[$delta]['#fid'] = $items[$delta]['fid'];
+      $element[$delta]['filename'] = $items[$delta]['filename'];
+
+      if(($element[$delta]['#settings']['image_link'] === 'pdf_file') && isset($uri)) {
+        $element[$delta]['#path'] = $uri[$delta];
+      }
+    }
+    
+    $newKey = array();
+    foreach($element as $key => $ele) {
+          if (($ele['filename'] === $items[$key]['filename']) || ($ele['#file']->filename === $items[$key]['filename'])) {
+         $newKey[$key] = $ele;
+    }
+        foreach($items as $k => $i) {
+    if (($ele['filename'] === $i['filename']) || ($ele['#file']->filename === $i['filename'])) {
+         $newKey[$k] = $ele;
+         }
+      }
+    }
+    krsort($newKey);
+    return $newKey;
+}
 function cbib_oc_file_folders_org_node_insert($node) {
     if($_POST['oc_folders']['und'])
     {
@@ -232,4 +315,37 @@ function cbib_oc_file_folders_org_node_update($node) {
       $nid = $node->nid;
       oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
    }
+}
+function cbib_oc_file_folders_org_pdfpreview_render_help($fid,$previews)
+{
+    foreach($previews as $id => $preview)
+    {
+        if($preview['#fid'] == $fid)
+        {
+            return drupal_render($previews[$id]);
+        }
+    }
+    return "";
+}
+function theme_cbib_oc_file_folders_org_formatter($variables) {
+    $element = $variables['element'];
+  $item = $element['#item'];
+  $wrapper_tag = $element['#settings']['tag'];
+
+  if(!empty($item['title'])) {
+     $filename = $item['title'];
+  }else {
+     $filename = $element['filename'];
+  }
+
+  $description = ($element['#settings']['show_description'] && isset($item['description'])) ? '<' . $wrapper_tag . ' class="pdfpreview-description">' . $item['description'] . '</' . $wrapper_tag . '>' : '' ;
+  return sprintf(
+    '<div class="pdfpreview" id="pdfpreview-%s">'
+    . ' <%s class="pdfpreview-image-wrapper">%s</%s>'
+    . ' %s'
+    . '</div>',
+    $item['fid'],
+    $wrapper_tag, $element['#children'], $wrapper_tag,
+    $description
+  );
 }

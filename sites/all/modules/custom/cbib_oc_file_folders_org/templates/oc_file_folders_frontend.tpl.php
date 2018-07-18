@@ -10,7 +10,8 @@
             if (!empty($item['data']['#file']['description']) || !empty($item['data']['description']['#value'])) {
                 $file->description = !empty($item['data']['#file']['description']) ? $item['data']['#file']['description'] : $item['data']['description']['#value'];
             }
-            echo "<div>" . theme_file_link(array('file' => $file)) . "</div>";
+            echo "<div id='file-".$item['data']['#file']['fid']."'>" . theme_file_link(array('file' => $file)) . "</div>";
+            echo cbib_oc_file_folders_org_pdfpreview_render_help($item['data']['#file']['fid'],$pdf_previews);
         }
     }
     echo "</div>";

@@ -7,3 +7,4 @@ project = cbib_oc_file_folders_org
 
 dependencies[] = file
 dependencies[] = file_resup
+dependencies[] = pdfpreview
