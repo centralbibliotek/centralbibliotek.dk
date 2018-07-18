@@ -167,8 +167,9 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
       case 'file_oc_folder_default':
       drupal_add_css(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/css/cbib_oc_file_folders_frontend.css");
       drupal_add_js(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/js/cbib_oc_file_folders_org_frontend.js");
-      $items = oc_file_folders_get_data($entity->nid,$field['field_name']);
-      if (!empty($items)) {
+      $tmp_items = oc_file_folders_get_data($entity->nid,$field['field_name']);
+      if (!empty($tmp_items)) {
+          $items = $tmp_items;
           $convert = array();
           foreach($items as $item)
           {
@@ -183,6 +184,16 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           '#field_name' => $field['field_name'],
           '#entity' => $entity,
         );
+      }
+      elseif(!empty($items))
+      {
+          //fallback to default foreach ($items as $delta => $item) {
+          foreach ($items as $delta => $item) {
+                $element[$delta] = array(
+                  '#theme' => 'file_link',
+                  '#file' => (object) $item,
+                );
+              }
       }
       else
       {
