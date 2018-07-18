@@ -1,4 +1,5 @@
 <?php
+
 require_once 'cbib_oc_file_folders_org_api.include';
 /**
  * Implements hook_field_widget_info().
@@ -62,10 +63,17 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
   else {   
     
       foreach ($items as $item) {
+      if(!isset($item['_weight']))
+      {
+        $weigth = get_file_weigth($item['fid'],$element['#entity']->nid,$instance['field_name']);
+      }
+      else {
+          $weigth = $item['_weight'];
+      }
       $elements[$delta] = $element;
       $elements[$delta]['#default_value'] = $item;
-      //$elements[$delta]['#weight'] = isset($item['_weight']) ? $item['_weight'] : $delta;
-      $elements[$delta]['#weight'] = $delta;
+      $elements[$delta]['#weight'] = $weigth != null ? $weigth : $delta;
+      //$elements[$delta]['#weight'] = $delta;
       $elements[$delta]['#'] = $delta;
       // Add special classes to be used for tabledrag.js.
 
@@ -74,6 +82,7 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
     // And then add one more empty row for new uploads except when this is a
     // programmed form as it is not necessary.
     if (($field['cardinality'] == FIELD_CARDINALITY_UNLIMITED || $delta < $field['cardinality']) && empty($form_state['programmed'])) {
+     
       $elements[$delta] = $element;
       $elements[$delta]['#default_value'] = $defaults;
       $elements[$delta]['#weight'] = $delta;
@@ -97,10 +106,22 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
     $elements['#file_upload_title'] = t('Add a new file');
     $elements['#file_upload_description'] = theme('file_upload_help', array('description' => '', 'upload_validators' => $elements[0]['#upload_validators']));
   }
-  
+  /*
+   * Extend the drupal tabledrag.js with our own code.
+   */
   drupal_add_js(drupal_get_path('module', 'cbib_oc_file_folders_org') ."/js/cbib_oc_file_folders_org.js");
-
-     $keys = element_children($elements);
+  if(isset($instance['settings']['description_field']) && $instance['settings']['description_field'])
+  {
+      //if descrition field is active , the .indend class should have a larger
+      //heigth
+      drupal_add_css('.indentation {height:6.7em !important;}', 'inline');
+  }
+  /*
+   * Resumeable upload integration
+   */
+  if(isset($instance['settings']['resup']) && $instance['settings']['resup'])
+  {
+    $keys = element_children($elements);
     $delta = end($keys);
 
     $cardinality = $field['cardinality'];
@@ -112,13 +133,17 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
 
     $elements[$delta]['#process'][] = 'file_resup_field_widget_process';
     $elements[$delta]['#file_value_callbacks'][] = 'file_resup_field_widget_value';
-    
+  }
+
+    /*
+     * Add some needed elements to make it all work.
+     */
     $elements['oc_folder_field_group'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Tilføj mappe'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,  
-  );
+        '#type' => 'fieldset',
+        '#title' => t('Tilføj mappe'),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,  
+      );
     $elements['oc_folder_field_group']['oc_folder_new folder_name'] = array(
               '#type' => 'textfield',
               '#name' => 'oc_folder_new folder_name',
@@ -135,8 +160,8 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
               '#name' => 'oc_folder_field_name',
               '#value' => $field['field_name'],
              );
-  $_POST['oc_folder_field_name'] = $field['field_name'];
-  $_POST['oc_folder_include_description'] = $instance['settings']['description_field'];
+    $_POST['oc_folder_field_name'] = $field['field_name'];
+    $_POST['oc_folder_include_description'] = $instance['settings']['description_field'];
    return $elements;
 }
 function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
@@ -152,8 +177,6 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
         if($node != null)
         {
             $oc_folders = get_folders($node->nid,$_POST['oc_folder_field_name']);
-            //$_POST['oc_folders']['und'][] = array('fid' => get_unique_folder_id(),'is_folder' => 1,'_weight' => 0,'mlid' => get_unique_folder_id() , 'plid' => 0);
-            //$oc_folders = build_elements_from_postback($_POST['oc_folders']['und']);
             $_POST['oc_folders']['und'] = $oc_folders;
         }
 
@@ -210,7 +233,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       }
       //usort($widgets, '_field_sort_items_value_helper');
   }
-  usort($widgets, '_field_sort_items_value_helper');
+  //usort($widgets, '_field_sort_items_value_helper');
 
   $rows = array();
   $field_set_key = null;
@@ -227,10 +250,17 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
             '#delta' => sizeof($widgets)-1, 
             '#title_display' => 'invisible',
           );
+           /*
+            * Create a weight element ourself as we are not processed like
+            * the other elements.
+            */
            $widget['_weight'] =  form_process_weight( $tmp['weight']);
       }
     // Save the uploading row for last.
     if ($widget['#file'] == FALSE && !isset($widget['#default_value']['is_folder'])) {
+        /*
+         * Allow for fieldset type , so it not rendered same as upload button.
+         */
         if($widget['#type'] != 'fieldset')
         {
             $widget['#title'] = $element['#file_upload_title'];
@@ -289,6 +319,9 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
         'class' => array('checkbox'),
       );
     }
+    /*
+     * Add tabledrag elements for ordering.
+     */
     $widget['plid'] = array();
     $widget['mlid'] = array();
     $widget['_weight']['#attributes']['class'] = array($weight_class,'menu-weight');
@@ -313,6 +346,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       
       $widget['plid']['#type'] = 'hidden';
       $widget['mlid']['#type'] = 'hidden';
+ 
       $weight = render($widget['_weight']) . drupal_render($widget['plid']) . drupal_render($widget['mlid']);
     // Arrange the row with all of the rendered columns.
     $row = array();
@@ -327,24 +361,19 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       'class' => isset($widget['#attributes']['class']) ? array_merge($widget['#attributes']['class'], array('draggable')) : array('draggable'), 
       'widget' => $widget,
     );
-    
   }
   $node = $widgets[sizeof($widgets)-1]['#entity']->nid;
   unset($widgets[$field_set_key]); // json encode does not like fieldsets.
   if($node != null)
   {
-  oc_file_folders_save_data($node,$_POST['oc_folder_field_name'],$widgets); // save the data
-  validate_all_plids($rows); //incase the parent is deleted and content remains.
+    oc_file_folders_save_data($node,$_POST['oc_folder_field_name'],$widgets); // save the data
+    validate_all_plids($rows); //incase the parent is deleted and content remains.
   }
   $theme_me = build_render_file_tree($rows);
   drupal_add_tabledrag($table_id, 'match', 'parent', 'menu-plid', 'menu-plid', 'menu-mlid', TRUE, 3);
   drupal_add_tabledrag($table_id, 'order', 'sibling', 'menu-weight');
 
-  
-  
   $output = empty($rows) ? '' : theme('cbib_oc_file_folders_org_table', array('header' => $headers, 'rows' => $theme_me, 'table_attributes' => array('id' => $table_id)));
-  //$output = empty($rows) ? '' : theme('table', array('header' => $headers, 'rows' => $rows, 'attributes' => array('id' => $table_id)));
-
   $output .= drupal_render_children($element);
 
   return $output;

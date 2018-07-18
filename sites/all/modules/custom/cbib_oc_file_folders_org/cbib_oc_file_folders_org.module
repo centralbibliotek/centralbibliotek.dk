@@ -1,4 +1,5 @@
 <?php
+
 require_once 'cbib_oc_file_folders_org_api.include';
 require_once 'cbib_oc_file_folders_og_widget.include';
 /**
@@ -43,8 +44,6 @@ function oc_folder_form_ajax_handler()
         $form_state['submitted'] = 0;
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
-        //drupal_process_form($form['#form_id'], $form, $form_state);
-        //$_POST['oc_ remove_folder'] = $remove_folder_id[2];
     }
     if($_POST['_triggering_element_name'] == "op" && $_POST['_triggering_element_value'] == "tilføj mappe")
     {
@@ -58,7 +57,6 @@ function oc_folder_form_ajax_handler()
                 $_POST['oc_folders']['und'] = array();
             }
             $_POST['oc_folders']['und'][] = create_new_folder($folder_name);
-            
         }
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
@@ -83,7 +81,6 @@ function oc_folder_form_ajax_handler()
 function handle_remove_rebuild($form_id,&$form,&$form_state)
 {
     $form_state['values'] = array();
-
     // With $_GET, these forms are always submitted if requested.
     if ($form_state['method'] == 'get' && !empty($form_state['always_process'])) {
       if (!isset($form_state['input']['form_build_id'])) {
@@ -103,8 +100,6 @@ function handle_remove_rebuild($form_id,&$form,&$form_state)
 }
 function oc_add_folder_to_form($ajax = true,$parents = array('oc_folders','und','0'),$widget = array())
 {
-    
-       
         $delta  = $widget['#'];
         $output = '<div class="file-widget form-managed-file clearfix"><span class="file">';
         $output .= '<img style="margin-right:3px" class="file-icon" alt="" title="text/plain" src="/'.drupal_get_path('module', 'cbib_oc_file_folders_org') . "/images/folder.png".'">'.$widget['name'].'</span>';
@@ -150,6 +145,11 @@ function cbib_oc_file_folders_org_theme() {
       'variables' => array('items' => NULL,'entity' => NULL,'field_name' => NULL),
       'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
      ),
+    'file_oc_file_folder' => array(
+      'template' => 'oc_file_folders_folder',
+      'variables' => array('row' => NULL),
+      'path' => drupal_get_path('module', 'cbib_oc_file_folders_org') . '/templates',
+     ),
   );
 }
 function cbib_oc_file_folders_org_field_formatter_info() {
@@ -182,7 +182,6 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           '#items' => $render_tree,
           '#field_name' => $field['field_name'],
           '#entity' => $entity,
-          
         );
       }
       else
@@ -195,7 +194,6 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           '#items' => $items,
           '#field_name' => $field['field_name'],
           '#entity' => $entity,
-          
            );
       }
   }
@@ -207,7 +205,7 @@ function cbib_oc_file_folders_org_node_insert($node) {
     {
         $field_name = $_POST['oc_folder_field_name'];
         $folders = build_elements_from_postback($_POST['oc_folders']['und']);
-        $files = build_elements_from_postback($node->{$field_name}['und']);
+        $files = build_elements_from_postback($_POST[$field_name]['und']);
         $folders = array_merge ( $folders,$files);
         $nid = $node->nid;
         oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
@@ -218,7 +216,7 @@ function cbib_oc_file_folders_org_node_update($node) {
   {
       $field_name = $_POST['oc_folder_field_name'];
       $folders = build_elements_from_postback($_POST['oc_folders']['und']);
-      $files = build_elements_from_postback($node->{$field_name}['und']);
+      $files = build_elements_from_postback($_POST[$field_name]['und']);
       $folders = array_merge ( $folders,$files);
       $nid = $node->nid;
       oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);

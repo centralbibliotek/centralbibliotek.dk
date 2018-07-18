@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Creating the needed tree stucture functions
  */
@@ -13,8 +14,10 @@ function build_render_file_tree($rows)
             $parents[$value['widget']['mlid']['#value']]['data'] = $value['data'];
             $parents[$value['widget']['mlid']['#value']]['class'] = $value['class'];
             $parents[$value['widget']['mlid']['#value']]['children'] = find_render_file_children($rows,$value['widget']['mlid']['#value']);
+            $parents[$value['widget']['mlid']['#value']]['_weight']['#value'] = $value['widget']['#weight'];
         }
     }
+    uasort($parents, '_field_sort_items_value_helper');
     return $parents;
     
 }
@@ -56,7 +59,7 @@ function find_render_file_children($rows,$plid,$dept = 1)
             $child = array();
             $child['data'] = $value['data'];
             $child['class'] = $value['class'];
-            $child['children'] = 
+            $child['_weight']['#value'] = $value['widget']['_weight']['#value'];
             $child['children'] = find_render_file_children($rows,$child_mlid,$dept+1);
             $children[$value['widget']['mlid']['#value']] = $child;
         }
@@ -76,6 +79,20 @@ function get_file_pid($fid,$nid,$field_name)
         }
     }
     return 0;
+}
+function get_file_weigth($fid,$nid,$field_name)
+{
+    $data = oc_file_folders_get_data($nid,$field_name);
+    foreach($data as $elem)
+    {
+        $value = isset($elem['mlid']['#value']) ? $elem['mlid']['#value'] : $elem['#default_value']['mlid'];
+        $is_equal = strcmp($value,$fid);
+        if($is_equal == 0)
+        {
+            return isset($elem['_weight']['#value']) ? $elem['_weight']['#value'] : $elem['#weight'];
+        }
+    }
+    return null;
 }
 function get_folders($nid,$field_id)
 {
@@ -97,16 +114,19 @@ function build_elements_from_postback($data)
     $folders = array();
     foreach($data as $index => $folder)
     {
+        if(isset($folder['mlid']))
+        {
             $folders[] = array('#weight' => $folder['_weight'],'#default_value' => array('is_folder' => isset($folder['is_folder']) ? true : false,'mlid' => $folder['mlid'],'plid' => $folder['plid'])
                   ,'name' => isset($folder['name']) ? $folder['name'] : 'tom navn','#file' => array('fid' => $folder['mlid'],'description' => $folder['description']),
                    'mlid' => array('#value' => $folder['mlid']),'plid' => array('#value' => $folder['plid']));
+        }
     }
     return $folders;
 }
 function create_new_folder($name)
 {
     $id = get_unique_folder_id();
-    return array('_weight' => 0,'mlid' => $id,'plid' => 0,'name' => $name , 'description' => '');
+    return array('_weight' => 0,'mlid' => $id,'plid' => 0,'name' => $name , 'description' => '','is_folder' => true);
 }
 function get_unique_folder_id()
 {
@@ -202,17 +222,16 @@ function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
         if(!$row['data']['#default_value']['is_folder'])
         {
             $file = file_load($row['data']['#file']['fid']);
-            if(!empty($row['data']['#file']['description']))
+            //the data is sometimes diff...perhaps try to fix.
+            if(!empty($row['data']['#file']['description']) || !empty( $row['data']['description']['#value']))
             {
-                $file->description = $row['data']['#file']['description'];
+                $file->description = isset($row['data']['#file']['description']) ? $row['data']['#file']['description'] : $row['data']['description']['#value'];
             }
             $output .= "<div>" .  theme_file_link(array('file' => $file)) . "</div>";
         }
         else
         {
-            $class = 'oc-is-folder file';
-            $folder_name = isset($row['data']['#file']['description']) ? $row['data']['#file']['description'] : $row['data']['name'];
-            $output .= "<div class='".$class."'><a class='' id='".$row['data']['mlid']['#value']."' >" . $folder_name."</a></div>";
+            $output .= theme("file_oc_file_folder", array('row' => $row));
         }
     }
     $output .= "</div>";
@@ -221,6 +240,13 @@ function oc_file_folders_render_children_frontend($children,$pid,$depth = 1)
         if(isset($row['children']) && sizeof($row['children']) > 0)
         {
             $output .= oc_file_folders_render_children_frontend($row['children'],$row['data']['mlid']['#value'],$depth+1 );
+        }
+        else
+        {
+            if($row['data']['#default_value']['is_folder'])
+            {
+                $output .= "<div id='".$row['data']['mlid']['#value']."' class='oc_file_folder_child hide_folder'></div>";
+            }
         }
     }
     return $output;
