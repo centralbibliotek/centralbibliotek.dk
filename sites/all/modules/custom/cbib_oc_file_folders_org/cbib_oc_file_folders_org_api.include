@@ -97,7 +97,7 @@ function get_file_weigth($fid,$nid,$field_name)
         $is_equal = strcmp($value,$fid);
         if($is_equal == 0)
         {
-            return isset($elem['_weight']['#value']) ? $elem['_weight']['#value'] : $elem['#weight'];
+            return  $elem['#weight'];
         }
     }
     return null;
