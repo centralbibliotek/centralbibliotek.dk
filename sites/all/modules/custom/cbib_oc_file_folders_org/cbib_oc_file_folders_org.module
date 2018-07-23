@@ -179,6 +179,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           {
               $convert[] = array('widget' => $item,'data' => $item);
           }
+           validate_all_plids($convert);
         $render_tree = build_render_file_tree($convert);
           
         $element[0] = array(

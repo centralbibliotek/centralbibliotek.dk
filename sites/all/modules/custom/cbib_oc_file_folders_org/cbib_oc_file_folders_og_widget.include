@@ -237,7 +237,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       }
       //usort($widgets, '_field_sort_items_value_helper');
   }
-  usort($widgets, '_field_sort_items_value_helper');
+  //usort($widgets, '_field_sort_items_value_helper');
 
   $rows = array();
   $field_set_key = null;
