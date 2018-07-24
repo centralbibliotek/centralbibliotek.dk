@@ -1,0 +1,6 @@
+name = cbib oc custom rules
+description = tilføjer rules til systemet
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_oc_custom_rules
