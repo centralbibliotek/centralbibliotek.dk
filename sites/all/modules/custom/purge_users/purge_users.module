@@ -165,7 +165,11 @@ function purge_users_not_loggedin_user_ids(array $param, array $user_roles = arr
   $logindate = '';
 
   if (!empty($param['login_value'])) {
-    $logindate = strtotime('-' . $param['login_value'] . ' ' . $param['login_period']);
+      if (variable_get('purge_users_send_email_notification', '') == 1) {
+        $logindate = strtotime('-' . $param['login_value'] . ' ' . $param['login_period'] . ' - 1 month');
+      }else{
+        $logindate = strtotime('-' . $param['login_value'] . ' ' . $param['login_period']);
+    }
   }
   // Query through db table to get users ids.
   $query = db_select('users', 'u');

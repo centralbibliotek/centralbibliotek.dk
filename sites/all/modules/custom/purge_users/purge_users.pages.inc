@@ -33,7 +33,7 @@ function purge_users_config_form($form, &$form_state) {
 
   $notification_text = t("Hej [user:name], \n\nDin brugerprofil på centralbibliotek.dk har ikke været aktiv i 3 år og står derfor til at blive slettet. Du har bl.a. brug for din profil, hvis du vil have mulighed for at tilmelde dig kurser fremadrettet, eller hvis du abonnerer på nyheder fra centralbibliotek.dk.\n\n"
         . "Hvis du fortsat vil have din brugerprofil, skal du hurtigst muligt logge ind på centralbibliotek.dk med din mailadresse og adgangskode. Så snart du har været logget ind, vil din brugerprofil ikke blive slettet. Du kan komme direkte til login-siden via dette link: https://centralbibliotek.dk/user/login. Hvis du har glemt din adgangskode, kan du også bestille en ny på login-siden.\n\n"
-        . "Hvis det ikke længere er aktuelt for dig at have en profil på centralbibliotek.dk behøver du ikke at gøre noget. Din profil vil i så fald blive slettet automatisk ”dato” (hvis muligt – ellers så ”om én måned” eller hvor lang tid, der nu giver mening) uden yderligere varsel. Du er dog til enhver tid velkommen til at oprette dig som bruger igen.");
+        . "Hvis det ikke længere er aktuelt for dig at have en profil på centralbibliotek.dk behøver du ikke at gøre noget. Din profil vil i så fald blive slettet automatisk en måned efter [current-date:teaser_date] uden yderligere varsel. Du er dog til enhver tid velkommen til at oprette dig som bruger igen.");
     $form['not_loggedin_user'] = array(
     '#type' => 'fieldset',
     '#title' => t('Purge users who have not logged in for'),
