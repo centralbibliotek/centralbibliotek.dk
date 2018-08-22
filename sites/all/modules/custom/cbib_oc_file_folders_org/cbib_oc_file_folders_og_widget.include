@@ -142,7 +142,7 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
         '#type' => 'fieldset',
         '#title' => t('Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)'),
         '#collapsible' => TRUE,
-        '#collapsed' => FALSE,
+        '#collapsed' => TRUE,
         
       );
     $elements['oc_folder_field_group']['oc_folder_new folder_name'] = array(
