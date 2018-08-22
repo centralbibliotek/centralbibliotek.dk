@@ -140,19 +140,22 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
      */
     $elements['oc_folder_field_group'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Tilføj mappe'),
+        '#title' => t('Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)'),
         '#collapsible' => TRUE,
-        '#collapsed' => FALSE,  
+        '#collapsed' => FALSE,
+        '#weight' => 10,
       );
     $elements['oc_folder_field_group']['oc_folder_new folder_name'] = array(
               '#type' => 'textfield',
               '#name' => 'oc_folder_new folder_name',
+              '#attributes' => array('placeholder' => 'Skriv navnet på din nye mappe her.'),
               '#value' => '',
+              '#description' => '<b><br/>- Når din mappe er tilføjet kan du trække filer ind under mappen. <br/>- Du kan indrykke mapper under andre mapper indtil det 3. niveau<br/> - Du kan omsortere rækkefølgen af mapper og filer ved at trække i + tegnet ud for fil/mappe navnet</b>'
              );
     $elements['oc_folder_field_group']['add_folder'] = array(
               '#type' => 'button',
               '#id' => '_add_oc_file_folder',
-              '#value' => t('tilføj mappe'),
+              '#value' => t('Tilføj mappe'),
               '#ajax' => array('callback' => 'oc_folder_form_ajax_handler'),
              );
     $elements['oc_folder_field_group']['oc_folder_field_name'] = array(
@@ -237,7 +240,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       }
       //usort($widgets, '_field_sort_items_value_helper');
   }
-  //usort($widgets, '_field_sort_items_value_helper');
+  usort($widgets, '_field_sort_items_value_helper');
 
   $rows = array();
   $field_set_key = null;
@@ -385,6 +388,8 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
   }
   else
   {
+    $top_out = drupal_render($element['oc_folder_field_group']);
+    $output = $top_out . $output;
     $output .= drupal_render_children($element);
   }
 
