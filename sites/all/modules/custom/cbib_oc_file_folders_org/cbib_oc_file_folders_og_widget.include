@@ -143,7 +143,7 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
         '#title' => t('Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)'),
         '#collapsible' => TRUE,
         '#collapsed' => FALSE,
-        '#weight' => 10,
+        
       );
     $elements['oc_folder_field_group']['oc_folder_new folder_name'] = array(
               '#type' => 'textfield',
@@ -240,7 +240,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       }
       //usort($widgets, '_field_sort_items_value_helper');
   }
-  usort($widgets, '_field_sort_items_value_helper');
+  //usort($widgets, '_field_sort_items_value_helper');
 
   $rows = array();
   $field_set_key = null;
