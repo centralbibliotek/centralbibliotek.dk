@@ -41,7 +41,7 @@ function oc_folder_form_ajax_handler()
                 break;
             }
         }
-        $form_state['submitted'] = 0;
+        //$form_state['submitted'] = 0;
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
     }

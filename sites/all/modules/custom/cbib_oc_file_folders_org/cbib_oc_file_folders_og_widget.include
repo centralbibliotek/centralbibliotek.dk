@@ -253,7 +253,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
             '#title' => t('Weight'), 
             '#default_value' => 0, 
             '#value' => isset($widget['#weight']) ? $widget['#weight'] : 0,
-            '#delta' => sizeof($widgets)-1, 
+            '#delta' => sizeof($widgets), 
             '#title_display' => 'invisible',
           );
            /*
@@ -501,14 +501,14 @@ function cbib_oc_file_folders_org_field_widget_process_multiple($element, &$form
       {
           $count++;
       }
-      $count--;
+      //$count--;
   }
   else
   {
       if(isset($form['#node'])) //only use this if the node is already created.
       {
         $folders = get_folders($form['#node']->nid,$element['#field_name']);
-        $count += sizeof($folders)-1;
+        $count += sizeof($folders);
       }
   }
   
