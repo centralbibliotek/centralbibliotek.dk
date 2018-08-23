@@ -142,8 +142,7 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
         '#type' => 'fieldset',
         '#title' => t('Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)'),
         '#collapsible' => TRUE,
-        '#collapsed' => TRUE,
-        
+        '#collapsed' => FALSE,        
       );
     $elements['oc_folder_field_group']['oc_folder_new folder_name'] = array(
               '#type' => 'textfield',
@@ -536,8 +535,7 @@ function cbib_oc_file_folders_org_field_widget_process_multiple($element, &$form
   }
 
   // Add a new wrapper around all the elements for Ajax replacement.
-  $element['#prefix'] = '<div id="' . $element['#id'] . '-ajax-wrapper">';
+  $element['#prefix'] = '<div id="' . $element['#id'] . '-ajax-wrapper" class="'.$_POST['oc_folder_field_name'] . "-folder-ajax" .'">';
   $element['#suffix'] = '</div>';
-
   return $element;
 }

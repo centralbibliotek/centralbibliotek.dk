@@ -131,10 +131,10 @@ function build_elements_from_postback($data)
     }
     return $folders;
 }
-function create_new_folder($name)
+function create_new_folder($name,$weight = 0)
 {
     $id = get_unique_folder_id();
-    return array('_weight' => 0,'mlid' => $id,'plid' => 0,'name' => $name , 'description' => '','is_folder' => true);
+    return array('_weight' => $weight,'mlid' => $id,'plid' => 0,'name' => $name , 'description' => '','is_folder' => true);
 }
 function get_unique_folder_id()
 {

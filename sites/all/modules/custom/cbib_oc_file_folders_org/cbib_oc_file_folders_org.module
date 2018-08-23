@@ -45,7 +45,7 @@ function oc_folder_form_ajax_handler()
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
     }
-    if($_POST['_triggering_element_name'] == "op" && $_POST['_triggering_element_value'] == "tilføj mappe")
+    if($_POST['_triggering_element_name'] == "op" && $_POST['_triggering_element_value'] == "Tilføj mappe")
     {
         //add a folder to the top of the folder list.
         $folder_name = $_POST['oc_folder_new_folder_name'];
@@ -56,7 +56,8 @@ function oc_folder_form_ajax_handler()
                 $_POST['oc_folders'] = array();
                 $_POST['oc_folders']['und'] = array();
             }
-            $_POST['oc_folders']['und'][] = create_new_folder($folder_name);
+            $new_weigth = find_new_folder_weigth();
+            $_POST['oc_folders']['und'][] = create_new_folder($folder_name,$new_weigth);
         }
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
@@ -74,9 +75,35 @@ function oc_folder_form_ajax_handler()
   $output = theme('status_messages') . drupal_render($form);
   $js = drupal_add_js();
   $settings = call_user_func_array('array_merge_recursive', $js['settings']['data']);
-
-  $commands[] = ajax_command_replace('div[id*=-ajax-wrapper]', $output, $settings);
+  $selector = $_POST['oc_folder_field_name'] . "-folder-ajax";
+  $commands[] = ajax_command_replace('div[class='.$selector.']', $output, $settings);
   return array('#type' => 'ajax', '#commands' => $commands);
+}
+function find_new_folder_weigth()
+{
+    $field_name = isset($_POST['oc_folder_field_name']) ? $_POST['oc_folder_field_name'] : '';
+    $weigth = 0;
+    if(isset($_POST['oc_folders']['und']))
+    {
+        foreach($_POST['oc_folders']['und'] as $folder)
+        {
+            if($weigth > $folder['_weight'])
+            {
+                $weigth = $folder['_weight'];
+            }
+        }
+    }
+    if(isset($_POST[$field_name]['und']))
+    {
+        foreach($_POST[$field_name]['und'] as $file)
+        {
+            if($weigth > $file['_weight'])
+            {
+                $weigth = $file['_weight'];
+            }
+        }
+    }
+    return $weigth-1;
 }
 function handle_remove_rebuild($form_id,&$form,&$form_state)
 {
