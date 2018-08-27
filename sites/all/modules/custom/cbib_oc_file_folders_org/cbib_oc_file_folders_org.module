@@ -221,7 +221,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
       elseif(!empty($items))
       {
           //fallback to default foreach ($items as $delta => $item) {
-          $items = array_reverse($items,TRUE);
+          $items = array_reverse($items);
           foreach ($items as $delta => $item) {
                 $element[$delta] = array(
                   '#theme' => 'file_link',
