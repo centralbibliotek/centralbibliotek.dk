@@ -227,6 +227,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
                   '#file' => (object) $item,
                 );
               }
+          $element = array_reverse($element);
       }
       else
       {
