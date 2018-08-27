@@ -323,26 +323,37 @@ function cbib_oc_file_folders_org_pdf_preview_data($items, $display)
     return $newKey;
 }
 function cbib_oc_file_folders_org_node_insert($node) {
-    if($_POST['oc_folders']['und'])
+    
+    if(isset($_POST['oc_folder_field_name']) && $_POST['oc_folder_field_name'] != null)
     {
         $field_name = $_POST['oc_folder_field_name'];
-        $folders = build_elements_from_postback($_POST['oc_folders']['und']);
-        $files = build_elements_from_postback($_POST[$field_name]['und']);
-        $folders = array_merge ( $folders,$files);
-        $nid = $node->nid;
-        oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
+        $folders = array();
+        if($_POST['oc_folders']['und'])
+        {
+
+            $folders = build_elements_from_postback($_POST['oc_folders']['und']);
+        }
+         $files = build_elements_from_postback($_POST[$field_name]['und']);
+         $folders = array_merge ( $folders,$files);
+         $nid = $node->nid;
+         oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
     }
 }
 function cbib_oc_file_folders_org_node_update($node) {
-  if($_POST['oc_folders']['und'])
-  {
-      $field_name = $_POST['oc_folder_field_name'];
-      $folders = build_elements_from_postback($_POST['oc_folders']['und']);
-      $files = build_elements_from_postback($_POST[$field_name]['und']);
-      $folders = array_merge ( $folders,$files);
-      $nid = $node->nid;
-      oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
-   }
+     if(isset($_POST['oc_folder_field_name']) && $_POST['oc_folder_field_name'] != null)
+    {
+        $field_name = $_POST['oc_folder_field_name'];
+        $folders = array();
+        if($_POST['oc_folders']['und'])
+        {
+
+            $folders = build_elements_from_postback($_POST['oc_folders']['und']);
+         }
+         $files = build_elements_from_postback($_POST[$field_name]['und']);
+         $folders = array_merge ( $folders,$files);
+         $nid = $node->nid;
+         oc_file_folders_save_data($nid,$_POST['oc_folder_field_name'],$folders);
+    }
 }
 function cbib_oc_file_folders_org_pdfpreview_render_help($fid,$previews)
 {
