@@ -42,7 +42,6 @@ function oc_folder_form_ajax_handler()
             }
         }
         //$form_state['submitted'] = 0;
-        
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
     }
     if($_POST['_triggering_element_name'] == "op" && $_POST['_triggering_element_value'] == "Tilføj mappe")
@@ -194,6 +193,7 @@ function cbib_oc_file_folders_org_field_formatter_info() {
 function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
   $element = array();
   $pdf_previews = cbib_oc_file_folders_org_pdf_preview_data($items, $display);
+  //$page = page_manager_get_current_page();
   switch ($display['type']) {
       case 'file_oc_folder_default':
       drupal_add_css(drupal_get_path('module', 'cbib_oc_file_folders_org') . "/css/cbib_oc_file_folders_frontend.css");
@@ -206,9 +206,10 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           {
               $convert[] = array('widget' => $item,'data' => $item);
           }
-           validate_all_plids($convert);
+        validate_all_plids($convert);
         $render_tree = build_render_file_tree($convert);
-          
+        uasort($render_tree, 'cbib_oc_file_folders_org_sort_render_frontend');
+        
         $element[0] = array(
           '#theme' => 'file_oc_file_folder_frontend_table',
           '#items' => $render_tree,
@@ -241,6 +242,14 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
       }
   }
   return $element;
+}
+function cbib_oc_file_folders_org_sort_render_frontend($a, $b) {
+  $a_weight = is_array($a) && isset($a['weight']) ? $a['weight'] : 0;
+  $b_weight = is_array($b) && isset($b['weight']) ? $b['weight'] : 0;
+  if ($a_weight == $b_weight) {
+    return 0;
+  }
+  return $a_weight < $b_weight ? -1 : 1;
 }
 function cbib_oc_file_folders_org_pdf_preview_data($items, $display)
 {
@@ -340,7 +349,7 @@ function cbib_oc_file_folders_org_node_insert($node) {
     }
 }
 function cbib_oc_file_folders_org_node_update($node) {
-     if(isset($_POST['oc_folder_field_name']) && $_POST['oc_folder_field_name'] != null)
+    if(isset($_POST['oc_folder_field_name']) && $_POST['oc_folder_field_name'] != null)
     {
         $field_name = $_POST['oc_folder_field_name'];
         $folders = array();
