@@ -209,7 +209,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
         validate_all_plids($convert);
         $render_tree = build_render_file_tree($convert);
         
-        $items = array_reverse($render_tree,TRUE);
+        $render_tree = array_reverse($render_tree,TRUE);
         $element[0] = array(
           '#theme' => 'file_oc_file_folder_frontend_table',
           '#items' => $render_tree,

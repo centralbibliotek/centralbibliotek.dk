@@ -372,7 +372,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
   unset($widgets[$field_set_key]); // json encode does not like fieldsets.
   if($node != null)
   {
-    oc_file_folders_save_data($node,$_POST['oc_folder_field_name'],$widgets); // save the data
+    //oc_file_folders_save_data($node,$_POST['oc_folder_field_name'],$widgets); // save the data
     validate_all_plids($rows); //incase the parent is deleted and content remains.
   }
   $theme_me = build_render_file_tree($rows);
