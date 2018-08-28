@@ -192,7 +192,7 @@ function cbib_oc_file_folders_org_field_formatter_info() {
 }
 function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
   $element = array();
-  $pdf_previews = cbib_oc_file_folders_org_pdf_preview_data($items, $display);
+  
   //$page = page_manager_get_current_page();
   switch ($display['type']) {
       case 'file_oc_folder_default':
@@ -208,7 +208,7 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
           }
         validate_all_plids($convert);
         $render_tree = build_render_file_tree($convert);
-        
+        $pdf_previews = cbib_oc_file_folders_org_pdf_preview_data($items, $display);
         //$render_tree = array_reverse($render_tree,TRUE);
         $element[0] = array(
           '#theme' => 'file_oc_file_folder_frontend_table',
@@ -221,13 +221,15 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
       elseif(!empty($items))
       {
           //fallback to default foreach ($items as $delta => $item) {
-          $items = array_reverse($items);
+          /*$items = array_reverse($items);
           foreach ($items as $delta => $item) {
                 $element[$delta] = array(
                   '#theme' => 'file_link',
                   '#file' => (object) $item,
                 );
-              }
+              }*/
+          $return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display);
+              return $return_data;
       }
       else
       {
