@@ -63,10 +63,16 @@ function cbib_oc_file_folders_org_field_widget_form(&$form, &$form_state, $field
   else {   
             if($_POST['_triggering_element_value'] == "Upload")
             {
-                if(isset($items[sizeof($items)-1]['resup']))
+                foreach($items as $index => $up_item)
                 {
-                    //make last element first.
-                    $items[sizeof($items)-1]['_weight'] = find_new_folder_weigth();
+                    if(isset($up_item['resup']))
+                    {
+                        $weigth = get_file_weigth($up_item['fid'],$element['#entity']->nid,$instance['field_name']);
+                        if($weigth == null)
+                        {
+                            $items[$index]['_weight'] = find_new_folder_weigth();
+                        }                        
+                    }
                 }
             }
            
