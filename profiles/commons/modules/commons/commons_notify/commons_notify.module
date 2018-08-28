@@ -43,6 +43,13 @@ function commons_notify_send_message_on_shutdown($node) {
   // the realm to the user, since if no realms are provided then the message
   // is automatically assigned to the user passed in the function, or if no
   // user object is provided, then to the acting user.
+    if(isset($node->field_og_subscribe_settings))
+    {
+        if($node->field_og_subscribe_settings['und'][0]['value'] == 'invitation')
+        {
+            return;
+        }
+    }
   $message_type = 'commons_notify_node_created';
   // We need to clear the static loading cache so that the node body will be
   // ready in time for token replacement for the  message.
