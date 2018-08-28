@@ -346,7 +346,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
       $widget['mlid']['#attributes']['class'] = array(
         'menu-mlid',
       );
-      $widget['plid']['#value'] = isset($widget['#default_value']['plid']) ? $widget['#default_value']['plid'] : get_file_pid($widget['#file']->fid,
+      $widget['plid']['#value'] = isset($widget['#default_value']['plid']) &&  $widget['#default_value']['is_folder'] ? $widget['#default_value']['plid'] : get_file_pid($widget['#file']->fid,
               $widgets[sizeof($widgets)-1]['#entity']->nid,$_POST['oc_folder_field_name']) ;
       $widget['mlid']['#value'] = $widget['#file']->fid;
       if(isset($widget['#default_value']['is_folder']))
