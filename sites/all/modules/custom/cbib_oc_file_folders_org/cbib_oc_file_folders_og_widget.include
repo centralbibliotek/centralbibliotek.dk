@@ -402,7 +402,7 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
     $top_out = drupal_render($element['oc_folder_field_group']);
     
     // -2 works.. because oc_folder_field_group is outside index count.
-    //$element[sizeof(element_children($element))-2]['resup']['#attributes']['data-description'] .= "<br/><strong>Note: Filerne ligger sig i toppen af tabellen</strong>";
+    $element[sizeof(element_children($element))-2]['resup']['#attributes']['data-description'] .= "<br/>Nyeste Filer placere sig i toppen af tabellen</strong>";
     $top_out .= drupal_render_children($element);
     $output = $top_out . $output;
   }
