@@ -228,8 +228,8 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
                   '#file' => (object) $item,
                 );
               }
-          //$return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display);
-            //  return $return_data;
+          $return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, array('type' => 'pdfpreview'));
+             return $return_data;
       }
       else
       {
