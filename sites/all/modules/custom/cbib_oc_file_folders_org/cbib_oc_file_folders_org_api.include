@@ -76,6 +76,24 @@ function find_render_file_children($rows,$plid,$dept = 1)
 }
 function get_file_pid($fid,$nid,$field_name)
 {
+    /*
+     * First check if there is a submit
+     */
+    foreach($_POST[$field_name]['und'] as $files)
+    {
+        if($files['fid'] == $fid)
+        {
+            if($files['plid'] != "0")
+            {
+                return $files['plid'];
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    
     $data = oc_file_folders_get_data($nid,$field_name);
     foreach($data as $elem)
     {
