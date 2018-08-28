@@ -222,14 +222,14 @@ function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $f
       {
           //fallback to default foreach ($items as $delta => $item) {
           $items = array_reverse($items);
-          /*foreach ($items as $delta => $item) {
+          foreach ($items as $delta => $item) {
                 $element[$delta] = array(
                   '#theme' => 'file_link',
                   '#file' => (object) $item,
                 );
-              }*/
-          $return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display);
-              return $return_data;
+              }
+          //$return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display);
+            //  return $return_data;
       }
       else
       {
