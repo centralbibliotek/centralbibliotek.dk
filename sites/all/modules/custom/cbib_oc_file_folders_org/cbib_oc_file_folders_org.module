@@ -192,7 +192,7 @@ function cbib_oc_file_folders_org_field_formatter_info() {
 }
 function cbib_oc_file_folders_org_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
   $element = array();
-  $return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, array('type' => 'pdfpreview','settings' => array('tag' => 'div')));
+  $return_data = pdfpreview_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, array('type' => 'pdfpreview','settings' => array('tag' => 'span')));
   $pdf_previews = cbib_oc_file_folders_org_pdf_preview_data($items, $display);
   //$page = page_manager_get_current_page();
   switch ($display['type']) {
