@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Drupal Commons Events feature.
@@ -321,17 +322,19 @@ function commons_events_form_node_form_alter(&$form, &$form_state, $form_id) {
     // Copy all of the registration settings into the custom fieldset.
     $form['event_registration_settings']['field_organizers'] = $form['field_organizers'];
     $form['event_registration_settings']['field_registration_type'] = $form['field_registration_type'];
+    $form['event_registration_settings']['field_hide_no_attendees'] = $form['field_hide_no_attendees'];
     $form['event_registration_settings']['field_status'] = $form['field_status'];
     $form['event_registration_settings']['field_number_of_attendees'] = $form['field_number_of_attendees'];
     $form['event_registration_settings']['field_registration'] = $form['field_registration'];
-    
-    
+
+
     // Unset all of the original registration settings.
     hide($form['field_organizers']);
     hide($form['field_registration_type']);
     hide($form['field_status']);
     hide($form['field_number_of_attendees']);
     hide($form['field_registration']);
+    hide($form['field_hide_no_attendees']);
 
     // Add additional submission and validation handlers.
     $form['#validate'][] = 'commons_events_node_form_validate';
