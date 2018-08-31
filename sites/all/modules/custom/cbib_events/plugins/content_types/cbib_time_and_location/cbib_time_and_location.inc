@@ -59,7 +59,7 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
   $context->data->view->set_display('page');
   $context->data->view->preview = TRUE;
   $context->data->view->execute($display_name);
-
+  $result = array(); // need this to handle day 1 later.
   if (isset($context->data->view) && $context->data->view->name == "search_api_arrangementer") {
     /*
      * We are currently operating on the desired view..keep the tmp array going.
@@ -117,6 +117,10 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
      * and we add the day count to the event.
      */
     if($delta != 0)
+    {
+        array_unshift($output , "Dag " . ($delta+1) ." ");
+    }
+    elseif($delta == 0 && sizeof($result) > 1)
     {
         array_unshift($output , "Dag " . ($delta+1) ." ");
     }
