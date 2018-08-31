@@ -24,12 +24,22 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   height: 20px;
 }
 
+.branch-selector #views-exposed-form-search-api-nodes-default {
+  width: 95%;
+  padding: 0 10px;
+}
+
 #views-exposed-form-search-api-nodes-default {
   width: 100%;
   right: 0px;
   top: 75px;
-  padding: 0 10px;
+  padding: 0 0px;
   box-sizing: border-box;
+  height: 56px;
+}
+
+.branch-selector #views-exposed-form-search-api-nodes-default {
+  margin-left: 11px;
 }
 
 #block-views-centralbiblioteker-block {
@@ -42,17 +52,27 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   position: relative;
   font-size: 180%;
   opacity: 0.5;
-  left: 66%;
-  top: -44px;
-}
-
-.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-  position: relative;
-  left: 64%;
-  top: 100px;
-  width: 55%;
+  left: 93%;
+  top: -39px;
 }
 
 .views-exposed-form .views-exposed-widget {
   display: unset;
+}
+
+.view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+  display: none !important;
+}
+
+.panel-2col-stacked .panel-col-last {
+  width: 100%;
+  overflow: visible !important;
+}
+
+.page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+  margin-left: 0px;
+}
+
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+  margin: -23px 0 0 -52px !important;
 }

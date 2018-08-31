@@ -28,12 +28,32 @@
     padding-top: 0 !important;
   }
 
+  .comment-comments a {
+    max-height: 23px;
+  }
+
   .views-reset-button {
     position: relative;
     font-size: 180%;
     opacity: 0.5;
-    left: 66%;
-    top: -44px;
+    left: 92%;
+    top: -39px;
+  }
+
+  .view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+    display: none !important;
+  }
+
+  .block-content div div #views-exposed-form-search-api-nodes-default {
+    padding: 0 0px !important;
+  }
+
+  input[type="submit"]:not(.field-add-more-submit):hover {
+    background-color: unset !important;
+  }
+
+  .branch-selector .views-submit-button {
+    display: inline-block !important;
   }
 
   /*
@@ -120,25 +140,52 @@
     width: auto;
     padding: 0;
   }
+
+  .panel-2col-stacked .panel-col-last {
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  .page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+    margin-left: 0px;
+  }
 }
 /*
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+    margin-left: 0px;
+  }
+
+  .panel-2col-stacked .panel-col-last {
+    width: 100%;
+    overflow: visible !important;
+  }
+
   .branch-selector form {
     left: 0;
+  }
+
+  .view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+    display: none !important;
   }
 
   .main-header {
     min-height: 140px;
   }
 
+  .branch-selector #views-exposed-form-search-api-nodes-default {
+    margin-left: 11px;
+  }
+
   #views-exposed-form-search-api-nodes-default {
-    width: 100%;
+    width: 95%;
     box-sizing: border-box;
     top: 75px;
     right: 0px;
-    padding: 10px;
+    padding: 0px;
+    height: 56px;
   }
 
   .pane-menu-menu-license-menu ul li {
@@ -170,5 +217,15 @@
   body.front.not-logged-in #block-system-main .pane-2 {
     float: right;
     width: 40%;
+  }
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+    margin: -23px 0 0 -50px;
+  }
+}
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+    margin: -23px 0 0 -68px;
   }
 }

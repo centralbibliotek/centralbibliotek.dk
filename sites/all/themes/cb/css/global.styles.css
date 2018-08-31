@@ -231,9 +231,14 @@ var {
   position: relative;
   z-index: 3;
 }
-@media only screen and (max-width: 480px) {
-  #logo {
-    display: none;
+@media only screen and (max-width: 576px) {
+  #logo .site-logo {
+    max-width: 80%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  #logo .site-logo {
+    max-width: 100%;
   }
 }
 
@@ -249,17 +254,17 @@ var {
   vertical-align: top;
   padding-right: 36.5em;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   #name-and-slogan {
     padding-right: 11.5em;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 577px) and (max-width: 768px) {
   #name-and-slogan {
     padding-right: 19.5em;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   #name-and-slogan {
     display: none;
   }
@@ -267,7 +272,7 @@ var {
 .people-search-active #name-and-slogan {
   padding-right: 42em;
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 577px) and (max-width: 768px) {
   .people-search-active #name-and-slogan {
     padding-right: 24em;
   }
@@ -380,12 +385,9 @@ var {
 .node-teaser.node-promoted.user-picture-available .user-picture img {
   width: 50px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .node-teaser.node-promoted.user-picture-available {
     padding-left: 10px;
-  }
-  .node-teaser.node-promoted.user-picture-available .user-picture {
-    display: none;
   }
 }
 .node-teaser .region {
@@ -1172,7 +1174,7 @@ button,
 [class*="action-item"] {
   max-width: 100%;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .button:not(.action-item-inline, .action-item-merge),
   button:not(.action-item-inline, .action-item-merge),
   [type="reset"]:not(.action-item-inline, .action-item-merge),
@@ -1492,12 +1494,9 @@ button, #panels-ipe-control-container
 .user-picture-available .user-picture img {
   width: 50px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .user-picture-available {
     padding-left: 0;
-  }
-  .user-picture-available .user-picture {
-    display: none;
   }
 }
 
@@ -1702,6 +1701,33 @@ ul.primary.tabs li.active a span {
   width: 10%;
   z-index: 100;
 }
+@media only screen and (max-width: 576px) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    left: 79%;
+    top: 77px;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    left: 79%;
+    top: 100px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    top: 65px;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    top: 65px;
+    width: 100%;
+    left: 81%;
+  }
+}
 
 #tabs-0-center .item-list {
   height: 0px;
@@ -1835,11 +1861,36 @@ header #resets {
   visibility: hidden;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  .fix_me_select {
+    right: 15% !important;
+  }
+}
 .view-search-api-nodes .views-exposed-widgets .views-reset-button {
   position: relative !important;
   opacity: 0.5;
   right: 13%;
   top: 17px;
+}
+@media only screen and (max-width: 576px) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 5%;
+    top: -32px;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
 }
 
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
@@ -1852,6 +1903,29 @@ header #resets {
   opacity: 0.5;
   right: 24%;
   top: 20px;
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .views-reset-button {
+    right: 5%;
+    top: 19px;
+  }
+  .views-reset-button #edit-submit-search-api-arrangementer {
+    display: inline-block !important;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .views-reset-button {
+    right: 5%;
+    top: 19px;
+  }
+  .views-reset-button #edit-submit-search-api-arrangementer {
+    display: inline-block !important;
+  }
+}
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  .views-reset-button {
+    right: 12%;
+  }
 }
 
 .view-display {
@@ -1888,6 +1962,22 @@ header #resets {
 
 .views-widget-filter-search_api_views_fulltext {
   width: 78%;
+  /* Portrait */
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 97%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 97%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 91%;
+  }
 }
 
 .keyword-filter .views-widget-filter-keys,
@@ -2035,7 +2125,7 @@ header #resets {
 .view-commons-activity-streams-user-activity .views-field-nothing .user-picture img {
   width: 40px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .view-commons-homepage-content .content,
   .view-commons-homepage-content .message,
   .view-commons-homepage-content .views-field-timestamp,
@@ -2053,24 +2143,6 @@ header #resets {
   .view-commons-activity-streams-user-activity .views-field-timestamp,
   .view-commons-activity-streams-user-activity .views-field-nothing {
     padding-left: 0;
-  }
-  .view-commons-homepage-content .content .user-picture,
-  .view-commons-homepage-content .message .user-picture,
-  .view-commons-homepage-content .views-field-timestamp .user-picture,
-  .view-commons-homepage-content .views-field-nothing .user-picture,
-  .view-commons-activity-streams-activity .content .user-picture,
-  .view-commons-activity-streams-activity .message .user-picture,
-  .view-commons-activity-streams-activity .views-field-timestamp .user-picture,
-  .view-commons-activity-streams-activity .views-field-nothing .user-picture,
-  .view-activity-group .content .user-picture,
-  .view-activity-group .message .user-picture,
-  .view-activity-group .views-field-timestamp .user-picture,
-  .view-activity-group .views-field-nothing .user-picture,
-  .view-commons-activity-streams-user-activity .content .user-picture,
-  .view-commons-activity-streams-user-activity .message .user-picture,
-  .view-commons-activity-streams-user-activity .views-field-timestamp .user-picture,
-  .view-commons-activity-streams-user-activity .views-field-nothing .user-picture {
-    display: none;
   }
 }
 
@@ -2135,7 +2207,7 @@ header #resets {
 .page-node .field-name-og-group-ref.view-mode-full .field-items .field-item:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-node .field-name-field-topics.view-mode-full,
   .page-node .field-name-og-group-ref.view-mode-full {
     float: none;
@@ -2225,12 +2297,9 @@ header #resets {
 .comment .user-picture img {
   width: 50px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .comment {
     padding-left: 0;
-  }
-  .comment .user-picture {
-    display: none;
   }
 }
 .comment .author-datetime {
@@ -2371,7 +2440,7 @@ ul.comment-links li {
 .logo-available .field-name-field-offsite-url {
   margin-left: 65px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .logo-available .field-name-field-date,
   .logo-available .field-name-field-address,
   .logo-available .field-name-field-offsite-url {
@@ -2401,7 +2470,7 @@ ul.comment-links li {
   box-shadow: #858585 1px 1px 4px;
   background: #fff;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .field-name-field-logo {
     display: none;
   }
@@ -2486,7 +2555,7 @@ ul.node-action-links a {
      page. It is still not ideal as it is inflexible and only works with the
      current core functionality of commons. */
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .panel-display .region-three-33-top {
     padding-left: 10px;
   }
@@ -2513,7 +2582,7 @@ ul.node-action-links a {
 .page-user .pane-user-picture .user-picture img {
   display: block;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .pane-user-picture {
     float: none;
     margin-left: 0;
@@ -2544,7 +2613,7 @@ ul.node-action-links a {
   display: inline-block;
   vertical-align: middle;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .pane-user-field-facebook-url a,
   .page-user .pane-user-field-linkedin-url a,
   .page-user .pane-user-field-twitter-url a {
@@ -2558,7 +2627,7 @@ ul.node-action-links a {
     content: normal;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 577px) and (max-width: 768px) {
   .page-user .pane-user-field-facebook-url,
   .page-user .pane-user-field-linkedin-url,
   .page-user .pane-user-field-twitter-url {
@@ -2574,7 +2643,7 @@ ul.node-action-links a {
   position: relative;
   top: 1px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .pane-user-field-facebook-url a {
     background: url('../images/icons-sd0cd9e4276.png') 0 -203px no-repeat;
     width: 26px;
@@ -2594,7 +2663,7 @@ ul.node-action-links a {
   position: relative;
   top: 1px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .pane-user-field-linkedin-url a {
     background: url('../images/icons-sd0cd9e4276.png') 0 -1010px no-repeat;
     width: 26px;
@@ -2614,7 +2683,7 @@ ul.node-action-links a {
   position: relative;
   top: 1px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-user .pane-user-field-twitter-url a {
     background: url('../images/icons-sd0cd9e4276.png') 0 -1461px no-repeat;
     width: 26px;
@@ -3194,7 +3263,7 @@ ul.action-links {
   right: 10px;
   text-align: right;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .pane-commons-groups-commons-groups-create-group {
     position: static;
     top: auto;
@@ -3215,7 +3284,7 @@ ul.action-links {
   content: "";
   top: 3px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .pane-commons-groups-commons-groups-create-group a {
     float: none;
     display: block;
@@ -3238,6 +3307,17 @@ body.node-type-license .cb3 .region-cb3-second {
 }
 body.node-type-license .cb3 .region-cb3-third {
   width: 33.333333%;
+}
+@media only screen and (max-width: 576px) {
+  body.node-type-license .cb3 .region-cb3-first {
+    width: 100%;
+  }
+  body.node-type-license .cb3 .region-cb3-second {
+    width: 100%;
+  }
+  body.node-type-license .cb3 .region-cb3-third {
+    width: 100%;
+  }
 }
 
 /* =============================================================================
@@ -3632,12 +3712,9 @@ body.node-type-license .cb3 .region-cb3-third {
 .commons-bw-partial-node-form .user-picture {
   margin-top: 2.6em;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .commons-bw-partial-node-form {
     padding-left: 0;
-  }
-  .commons-bw-partial-node-form .user-picture {
-    display: none;
   }
 }
 .commons-bw-partial-node-form .field-type-image {
@@ -3657,7 +3734,7 @@ body.node-type-license .cb3 .region-cb3-third {
   color: #424242;
   font-family: "Roboto", sans-serif;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .partial-node-form-title {
     margin-left: 0;
   }
@@ -4305,14 +4382,14 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 .search-form-page .form-type-textfield input {
   width: auto;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .search-form-page .form-type-textfield,
   .search-form-page .form-type-textfield input {
     display: block;
     width: 100%;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 577px) {
   .search-form-page .form-item {
     margin-bottom: 0;
   }
@@ -4375,14 +4452,14 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 .action-item-search, .action-item-search[type="submit"] {
   padding-left: 3em;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .action-item-search {
     float: none;
     clear: both;
     display: block;
   }
 }
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 577px) {
   .action-item-search {
     margin-top: 0;
   }
@@ -4433,7 +4510,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
   list-style-image: none;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-search .two-33-66 > .filters-processed {
     clear: none;
     position: absolute;
@@ -4474,7 +4551,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
     display: block;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .page-search .filter-overlay.expanded {
     display: block;
   }
@@ -4633,7 +4710,7 @@ body.front.logged-in .view-commons-homepage-content .article.node.node-page .lin
 .profile-search-result:nth-child(even) {
   margin-right: 0;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
   .profile-search-result {
     width: 100%;
     margin-right: 0;

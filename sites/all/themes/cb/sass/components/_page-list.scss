@@ -238,7 +238,9 @@
     max-width: 302px;
     vertical-align: top;
     border-bottom: none;
-
+     @include respond(small-medium) {
+        width: 100%;
+    }
     .panel-col-bottom {
       display: none;
     }

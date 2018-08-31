@@ -630,6 +630,14 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   vertical-align: top;
   border-bottom: none;
 }
+@media only screen and (max-width: 768px) {
+  .node-type-centralbibliotek:not(.node-license) .panel-col-first,
+  .node-type-centralbibliotek:not(.node-license) .views-row,
+  .front .panel-col-first,
+  .front .views-row {
+    width: 100%;
+  }
+}
 .node-type-centralbibliotek:not(.node-license) .panel-col-first .panel-col-bottom,
 .node-type-centralbibliotek:not(.node-license) .views-row .panel-col-bottom,
 .front .panel-col-first .panel-col-bottom,
@@ -1097,6 +1105,21 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   text-indent: -9999em;
   border-radius: 0;
 }
+@media only screen and (max-width: 576px) {
+  .branch-selector form input[type="submit"] {
+    right: 1.5em !important;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .branch-selector form input[type="submit"] {
+    right: 2.5em;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .branch-selector form input[type="submit"] {
+    right: 2.5em;
+  }
+}
 .branch-selector form input[type="submit"]:hover, .branch-selector form input[type="submit"]:focus {
   box-shadow: none;
   background-color: transparent;
@@ -1110,12 +1133,12 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   border-radius: 0;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMZJREFUeNqkUgENwyAQhCrAQTsFQwISKmkOJqESioPOAZkDqmB18LsmT0IID1v6yeUDzz3H8UpdDN0qEtGE5IAzR+CltY7driAaYKF6bGddVMDFDbDAAXhgB0ZgBgzv36DmqN2ebg78hFJZSEok6SmmxvM+6cxQ1C1nL5nFsj0v50Hw8d3xeedspAb3ToORc2x5YKXZyD2oHXhmv2Ar5PQLq+RwKAZnBR6cKWtuWuSQKSlj+YVssn3HCpw0G6pG/iuukL8CDAAYNj5C3me2yQAAAABJRU5ErkJggg==);
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .branch-selector form input[type="submit"] {
+@media only screen and (min-width: 767px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 767px) and (max-width: 768px) and (min-resolution: 192dpi) {
+  .branch-selector form input[type="submit"] input[type="submit"] {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAzlJREFUeNrsmctx4kAQhjXy3pcMrAxWjsBw5GSIwFYCYEcARLBAAsa3vVk+cUSOYLURGGfAZrDdVe0qFdY81SOxY/6qKVwWzMw3Pf3PQ1F01llBSXTR6Hq9HsFHCuUaSo/+ruoApaTyB0oxmUz2/xUwQPbh4xbKnWMVCL+CkgP84WSBCXQGpc9UJcKuAHp+UsAAilP1EcrIUxM4xTMAL2x+FHuM6ptHWFQCZQdtzTuNMHTgjiLbpnKK9qFVYAfYDzd+Pfr/JTl3amlqAx30tw5gsUMbKE/QuVJTZ0JpMaUprFJK7Y+9Rxg6ho39NvjqAsrSZVmhAZ0ZgC9UDi4YYHsEm2gcdayLKKPzD2TuzeHSulFHyKumsCicGVDGNFNUkqbWRcMRR9BfTY3EVtvtthgOh0Kxmenhc/wed4RnGnNih61Ee07LkUxTSgEeYKpMtS8e+4KtKCN/qI1yXa43ibAKtrDd8rnmtCafp5zAN4pnD21tsQB6o4hySj7DAiwzjJLDkS21Mu1n7Ji/qqPeUwd3Cirz+sERYdUet2iblm5DSpO+ugL3FI2XUTfyCnxp2WgbejcJjitwothsnLTi6Isp9pkvIQH/tTWzFnRtEhxX4L3jGu1TqYmvcE9p3ZbTi+jGRTa7XhsD01orc+RRB9G9NQ1OE5eWbecSun9qK7qqYyrekORcwC+OFwPculdM55xtHaaR2yuiPG8pd2c2B5mmGw/VyWhGr0V9TuVn20uIpsBL1RIFeqQo+IDdRerb0gX71pKuWB40p6od59pcgVUNZO7tXppyOTeAnjPA4sC9aWAxCJnsoWAyjp3hthKn/4LuoVzMycQTBqoLRNEi7DE4zooXWeeo7j5tKkx9INMNpugAVjYNy0oKuBhdZjJzxAnAcigzTZPYE+xBY2RcwtS4svGE2BPsgN7yjTXrdBMtIoe3ksITbHm0bt6T+SQMoBtyeqeBFD5ha+oZ0Xl5ZJn/BR1WNk1f0Im2YCX1phT17xVnxsi9fzg390s50QVslxJfCVYKHCpsLXDIsJ+AQ4et23j8DBm2DrgfMmwd8CFk2DrgTciwn4ABCu+nlpVIFyHBnnVWgPonwABFzWpMITRnTgAAAABJRU5ErkJggg==);
     background-size: 16px 16px;
   }
-  .branch-selector form input[type="submit"]:hover, .branch-selector form input[type="submit"]:focus {
+  .branch-selector form input[type="submit"] input[type="submit"]:hover, .branch-selector form input[type="submit"] input[type="submit"]:focus {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAnlJREFUeNrsmoFVgzAQhqELmA3KBmaD0gnsBuIGHYENGAGdADegnaB1AuoE1Aniodf3sL6GJFwSKPzv3cNnn7l+XO6SXAyCWbPuSqEPp0KIDTw42AqM4c9tncGOaB9guzAMT6N6swAZg+XCXAewBIyNAbQUdKrB0iGCMrBC2FPVvMwhRbUWbpT6hk2EexWquR1Sw8Ij1/iTSzXeX/1+iZWba4zVjLOGan4eWmSbqZ6BcYUxI7At5qtSpF3BctV8M11W8IVW3nMaq3GlUFG5w8of2wTOFDYMjNhn2vWCbcFGrmE1oFMbTvOO4sQsp1PhzD/mk588Uq8fCaWzrcRROZCNzoHSkexAwAOH6ohyROXE/lulmW1/pvXC9HAg+fjNwxb+XfLZY2/gjj3uznnb5rcbclT5rqbATOL86OmgZhV4qenUhT5VgmMKHEmOe4PWIpiYFjbz5Z6Av3SLmQOtVIJjCnwyXKNtiqvUFeop3ejJw06LS2bXvjcwrrW3KvLGQ3SfDYNDdhZOHEaXSXrgNaWjjfMWi37nI6d2Vvm8EVDolsYu367Aa1Ff3Y7Sh9PaRjMA/R68tJg6cvkCHTuGLWznUuHiRkDxVtJutxQLh+rVaGWyZKEP1bvmeCiw1+CZ7Mvh2FuF6au1/od9YOFREh0Yzq0dETM8db3ADvB1aJG1pcT3NK4t/38H6a0kBSxvLVmVJdh0CNX430YD182UEDwnu02ghr2xSckN8r/Eit07oiFRNW6q7FqnJ43jcuyAPrQq8wlbrj+VG8bcOe0kUER2FJphZ9gZdpTA5WRgEXg6sAhcTwYWgbPJwF5B160t3f3Czpo1fn0LMAB5Yda86s2oUQAAAABJRU5ErkJggg==);
   }
 }
@@ -1165,6 +1188,35 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   top: 28px;
   left: 333px;
   z-index: 100;
+}
+@media only screen and (max-width: 576px) {
+  #block-views-centralbiblioteker-block {
+    left: 67% !important;
+    top: 10px !important;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  #block-views-centralbiblioteker-block {
+    left: 70% !important;
+    top: 10px !important;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  #block-views-centralbiblioteker-block {
+    left: 80% !important;
+    top: 10px !important;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  #block-views-centralbiblioteker-block {
+    left: 70% !important;
+    top: 10px !important;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  #block-views-centralbiblioteker-block {
+    top: 10px !important;
+  }
 }
 #block-views-centralbiblioteker-block .toggle-link {
   font-size: 1.35rem;
@@ -1218,6 +1270,12 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: right center;
+}
+@media only screen and (max-width: 576px) {
+  #block-views-centralbiblioteker-block select {
+    width: 100px !important;
+    font-size: 12px;
+  }
 }
 #block-views-centralbiblioteker-block select:hover {
   color: #ff6990;
