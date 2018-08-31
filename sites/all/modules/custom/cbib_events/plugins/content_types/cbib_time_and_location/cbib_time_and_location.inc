@@ -120,10 +120,10 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
     {
         array_unshift($output , "Dag " . ($delta+1). " af " . sizeof($result));
     }
-    elseif($delta == 0 && sizeof($result) > 1)
+    /*elseif($delta == 0 && sizeof($result) > 1)
     {
         array_unshift($output , "Dag " . ($delta+1) . " af " . sizeof($result));
-    }
+    }*/
     
     $pane->content = implode(', ', $output);
   }
