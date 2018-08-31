@@ -118,11 +118,11 @@ function cbib_events_cbib_time_and_location_content_type_render($subtype, $conf,
      */
     if($delta != 0)
     {
-        array_unshift($output , "Dag " . ($delta+1) ." ");
+        array_unshift($output , "Dag " . ($delta+1));
     }
     elseif($delta == 0 && sizeof($result) > 1)
     {
-        array_unshift($output , "Dag " . ($delta+1) ." ");
+        array_unshift($output , "Dag " . ($delta+1));
     }
     
     $pane->content = implode(', ', $output);
