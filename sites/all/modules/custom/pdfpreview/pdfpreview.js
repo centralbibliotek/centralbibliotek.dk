@@ -8,8 +8,8 @@
     Drupal.behaviors.pdfpreview = {
         attach: function (context, settings) {
 
-                $('div[id^=pdfpreview-').hide();
-                $('[id^=file-').mouseover(function () {
+                $('div[id^=pdfpreview-]').hide();
+                $('[id^=file-]').mouseover(function () {
                 var numeric_part = $( this ).attr( 'id' ).substr( 5 );
                 var styles = {
                    position: "absolute",
