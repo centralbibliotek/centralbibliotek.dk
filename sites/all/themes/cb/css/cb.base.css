@@ -1147,7 +1147,7 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
 #main-menu .utility-links {
   float: right;
 }
-@media only screen and (max-width: 576px) and (orientation: landscape) {
+@media only screen and (max-width: 576px) {
   #main-menu .utility-links {
     float: left;
   }
