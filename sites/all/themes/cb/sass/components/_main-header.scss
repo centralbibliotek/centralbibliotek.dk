@@ -155,6 +155,9 @@
 #main-menu {
   .utility-links {
     float: right;
+    @include respond(only-small-landscape) {
+        float: left;
+    }
 
     ul li {
       margin-right: 0;
