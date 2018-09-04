@@ -224,8 +224,18 @@ var {
   //margin-left: -#{px-to-em(57px + $gutter_width)};
   z-index: 3;
   @include respond(only-small) {
-    display: none;
+    //display: none;
+    .site-logo{
+        max-width: 80%;
+    }
   }
+   @include respond(only-medium) {
+    //display: none;
+    .site-logo{
+        max-width: 100%;
+    }
+  }
+  
 }
 
 /**
@@ -1500,6 +1510,12 @@ header #resets {
 }
 .views-widget-filter-search_api_views_fulltext {
     width: 78%;
+    @include respond(only-small-landscape) {
+        width: 97%;
+    }
+    @include respond(only-medium-landscape) {
+        width: 97%;
+    }
 }
 
 .keyword-filter {
