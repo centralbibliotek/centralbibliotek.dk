@@ -630,6 +630,14 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
   vertical-align: top;
   border-bottom: none;
 }
+@media only screen and (max-width: 768px) {
+  .node-type-centralbibliotek:not(.node-license) .panel-col-first,
+  .node-type-centralbibliotek:not(.node-license) .views-row,
+  .front .panel-col-first,
+  .front .views-row {
+    width: 100%;
+  }
+}
 .node-type-centralbibliotek:not(.node-license) .panel-col-first .panel-col-bottom,
 .node-type-centralbibliotek:not(.node-license) .views-row .panel-col-bottom,
 .front .panel-col-first .panel-col-bottom,
