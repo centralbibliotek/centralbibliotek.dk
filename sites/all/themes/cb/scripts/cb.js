@@ -510,7 +510,7 @@ if(!detectIE()) {
     switch(window.orientation) {  
       case -90:
       case 90:
-         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','69%').css('bottom',"106px");
+         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom',"103px");
         break; 
       default:
          jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
