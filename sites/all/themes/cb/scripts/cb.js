@@ -525,7 +525,7 @@ function isMobile()
 
               if(window.innerWidth < 321)
               {
-                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"47%").css('bottom',bottom_placement_value);
+                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
               }
               else
               {
