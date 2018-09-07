@@ -530,7 +530,7 @@ function isMobile()
               }
               else
               {
-                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','52%').css('bottom',bottom_placement_value);
               }
             break; 
         }
