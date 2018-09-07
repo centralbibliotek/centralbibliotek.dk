@@ -36,6 +36,10 @@
     top: -39px;
   }
 
+  #views-exposed-form-search-api-nodes-default .views-submit-button {
+    display: none;
+  }
+
   /*
    * Float Region blocks example:
    * In smaller screen sizes we can remove the float and widths so all blocks
@@ -139,6 +143,7 @@
     top: 75px;
     right: 0px;
     padding: 10px;
+    height: 56px;
   }
 
   .pane-menu-menu-license-menu ul li {

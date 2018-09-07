@@ -19,8 +19,9 @@
 #views-exposed-form-search-api-nodes-default {
 	width: 100%;
 	right: 0px;
-	padding: 0 10px;
+	padding: 0 0px;
 	box-sizing: border-box;
+        height: 56px;
 }
 .branch-selector form {
     left: 0!important;
@@ -35,4 +36,6 @@
     left: 93%;
     top: -39px;
 }
-
+#views-exposed-form-search-api-nodes-default .views-submit-button{
+    display:none;
+}

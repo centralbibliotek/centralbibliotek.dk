@@ -33,8 +33,9 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 	width: 100%;
 	right: 0px;
 	top: 75px;
-	padding: 0 10px;
+	padding: 0 0px;
 	box-sizing: border-box;
+        height: 56px;
 }
 
 
@@ -52,4 +53,7 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 }
 .views-exposed-form .views-exposed-widget {
     display: unset;
+}
+#views-exposed-form-search-api-nodes-default .views-submit-button{
+    display:none;
 }
