@@ -49,6 +49,10 @@
 .view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2){ 
     display:none !important;
 }
+.block-content div div #views-exposed-form-search-api-nodes-default
+{
+    padding: 0 0px !important;
+}
 input[type="submit"]:not(.field-add-more-submit):hover{
     background-color: unset !important;
 }

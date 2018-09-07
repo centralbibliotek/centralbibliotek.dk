@@ -18,6 +18,10 @@
   height: 56px;
 }
 
+.block-content div div #views-exposed-form-search-api-nodes-default {
+  padding: 0 0px !important;
+}
+
 .branch-selector form {
   left: 0 !important;
 }
