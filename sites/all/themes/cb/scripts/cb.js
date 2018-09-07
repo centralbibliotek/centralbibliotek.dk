@@ -514,11 +514,11 @@ function isMobile()
           case 90:
               if(window.innerWidth < 580)
               {
-                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','66%').css('bottom',"103px");
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','66%').css('bottom',bottom_placement_value);
               }
               else
               {
-                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','70%').css('bottom',"103px");
+                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','70%').css('bottom',bottom_placement_value);
               }
             break; 
           default:
