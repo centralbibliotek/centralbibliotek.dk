@@ -504,18 +504,35 @@ if(!detectIE()) {
   
 })(jQuery, Drupal, this, this.document);
    function doOnOrientationChange() {
-    debugger;
-    var left_placement_value = "48%"
-    var bottom_placement_value = "98px";
-    switch(window.orientation) {  
-      case -90:
-      case 90:
-         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom',"103px");
-        break; 
-      default:
-         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
-        break; 
-    }
+       if(isMobile())
+       {
+        var left_placement_value = "48%"
+        var bottom_placement_value = "98px";
+        switch(window.orientation) {  
+          case -90:
+          case 90:
+              if(window.innerWidth < 580)
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','72%').css('bottom',"103px");
+              }
+              else
+              {
+                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom',"103px");
+              }
+            break; 
+          default:
+
+              if(window.innerWidth < 580)
+              {
+                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"57%").css('bottom',bottom_placement_value);
+              }
+              else
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
+              }
+            break; 
+        }
+       }
 }
   
 window.addEventListener('orientationchange', doOnOrientationChange);
