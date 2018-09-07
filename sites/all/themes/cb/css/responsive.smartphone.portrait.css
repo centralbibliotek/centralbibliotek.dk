@@ -29,10 +29,6 @@
   position: relative;
   font-size: 180%;
   opacity: 0.5;
-  left: 63%;
+  left: 60%;
   top: -39px;
-}
-
-#edit-submit-search-api-arrangementer {
-  display: inline-block !important;
 }
