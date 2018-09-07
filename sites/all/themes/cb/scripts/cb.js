@@ -524,7 +524,7 @@ function isMobile()
             break; 
           default:
 
-              if(window.innerWidth < 580)
+              if(window.innerWidth < 321)
               {
                 jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"47%").css('bottom',bottom_placement_value);
               }
