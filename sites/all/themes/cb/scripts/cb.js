@@ -134,7 +134,7 @@ function detectIE() {
          });    
          
 if(!detectIE()) {
-        var left_placement_value = "59%";
+        var left_placement_value = "52%";
         var bottom_placement_value = "68px";
         if(isMobile())
         {
