@@ -153,6 +153,10 @@
     min-height: 140px;
   }
 
+  .branch-selector #views-exposed-form-search-api-nodes-default {
+    margin-left: 11px;
+  }
+
   #views-exposed-form-search-api-nodes-default {
     width: 95%;
     box-sizing: border-box;
