@@ -505,7 +505,7 @@ if(!detectIE()) {
 })(jQuery, Drupal, this, this.document);
    function doOnOrientationChange() {
     debugger;
-    var left_placement_value = "52%"
+    var left_placement_value = "48%"
     var bottom_placement_value = "98px";
     switch(window.orientation) {  
       case -90:
