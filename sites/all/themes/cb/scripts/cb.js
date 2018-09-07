@@ -501,4 +501,21 @@ if(!detectIE()) {
         }
         return false;
     }
+ 
 })(jQuery, Drupal, this, this.document);
+   function doOnOrientationChange() {
+    debugger;
+    var left_placement_value = "52%"
+    var bottom_placement_value = "98px";
+    switch(window.orientation) {  
+      case -90 || 90:
+         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','69%').css('bottom',"106px");
+        break; 
+      default:
+         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
+        break; 
+    }
+}
+  
+window.addEventListener('orientationchange', doOnOrientationChange);
+doOnOrientationChange();
