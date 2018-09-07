@@ -519,7 +519,7 @@ function isMobile()
               }
               else
               {
-                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','72%').css('bottom',"103px");
+                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','70%').css('bottom',"103px");
               }
             break; 
           default:
