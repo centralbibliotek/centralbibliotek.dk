@@ -145,7 +145,7 @@ if(!detectIE()) {
         }else {
         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',bottom_placement_value);
         }
-
+        doOnOrientationChange();
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','98px');
 
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').find('select').css('width','125px');         
@@ -501,7 +501,7 @@ if(!detectIE()) {
         }
         return false;
     }
- 
+  
 })(jQuery, Drupal, this, this.document);
    function doOnOrientationChange() {
     debugger;
@@ -519,4 +519,3 @@ if(!detectIE()) {
 }
   
 window.addEventListener('orientationchange', doOnOrientationChange);
-doOnOrientationChange();
