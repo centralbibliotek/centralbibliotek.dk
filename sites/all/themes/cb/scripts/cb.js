@@ -518,14 +518,14 @@ function isMobile()
               }
               else
               {
-                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','70%').css('bottom',bottom_placement_value);
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom',bottom_placement_value);
               }
             break; 
           default:
 
               if(window.innerWidth < 321)
               {
-                jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
               }
               else
               {
