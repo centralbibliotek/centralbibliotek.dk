@@ -48,7 +48,6 @@ function detectIE() {
         
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
-
     $(document).ready(function () {
         
         if (document.location.pathname.indexOf("/kompetenceudvikling") === 0) {
@@ -111,8 +110,13 @@ function detectIE() {
                 topx = '30px';
             }
         });
+        var bib_group_selector_rigth_value = "27%";
+        if(isMobile())
+        {
+            bib_group_selector_rigth_value = "10%";
+        }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right',bib_group_selector_rigth_value).css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
@@ -122,12 +126,13 @@ function detectIE() {
           * Group tilknytning styling fix.
           */
           $('#facetapi-facet-search-apigroup-index-block-og-group-ref').parent().parent().hide();
-          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-group-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-group-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right',bib_group_selector_rigth_value).css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
-         });         
+         });    
+         
 if(!detectIE()) {
         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','68px');
         }else {
@@ -470,4 +475,23 @@ if(!detectIE()) {
       });
     }
   };
+   /*
+    * Functions to detect if mobile and the orientation
+   */
+    function isPortrait() {
+        return window.innerHeight > window.innerWidth;
+    }
+    function isLandscape() {
+        return (window.orientation === 90 || window.orientation === -90);
+    }
+    function isMobile()
+    {
+        if(
+        navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/iPhone/i))
+        {
+            return true;
+        }
+        return false;
+    }
 })(jQuery, Drupal, this, this.document);
