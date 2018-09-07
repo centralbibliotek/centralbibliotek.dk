@@ -508,7 +508,8 @@ if(!detectIE()) {
     var left_placement_value = "52%"
     var bottom_placement_value = "98px";
     switch(window.orientation) {  
-      case -90 || 90:
+      case -90:
+      case 90:
          jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','69%').css('bottom',"106px");
         break; 
       default:
