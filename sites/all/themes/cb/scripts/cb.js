@@ -505,7 +505,6 @@ function isMobile()
         return false;
     }
   function doOnOrientationChange() {
-      debugger;
        if(isMobile())
        {
         var left_placement_value = "48%"

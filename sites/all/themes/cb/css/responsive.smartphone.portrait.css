@@ -11,9 +11,9 @@
 * Header
 */
 #views-exposed-form-search-api-nodes-default {
-  width: 100%;
+  width: 95%;
   right: 0px;
-  padding: 0 0px;
+  padding: 0 10px;
   box-sizing: border-box;
   height: 56px;
 }
@@ -36,4 +36,12 @@
 
 #views-exposed-form-search-api-nodes-default .views-submit-button {
   display: none;
+}
+
+.branch-selector .views-submit-button {
+  display: inline-block !important;
+}
+
+input[type="submit"]:not(.field-add-more-submit):hover {
+  background-color: unset;
 }

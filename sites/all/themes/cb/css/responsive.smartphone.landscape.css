@@ -24,6 +24,11 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   height: 20px;
 }
 
+.branch-selector #views-exposed-form-search-api-nodes-default {
+  width: 95%;
+  padding: 0 10px;
+}
+
 #views-exposed-form-search-api-nodes-default {
   width: 100%;
   right: 0px;
@@ -51,6 +56,6 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   display: unset;
 }
 
-#views-exposed-form-search-api-nodes-default .views-submit-button {
-  display: none;
+.view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+  display: none !important;
 }
