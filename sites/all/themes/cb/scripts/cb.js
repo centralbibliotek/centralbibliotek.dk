@@ -491,7 +491,10 @@ if(!detectIE()) {
     function isLandscape() {
         return (window.orientation === 90 || window.orientation === -90);
     }
-    function isMobile()
+    
+})(jQuery, Drupal, this, this.document);
+   
+function isMobile()
     {
         if(
         navigator.userAgent.match(/Android/i) ||
@@ -501,9 +504,8 @@ if(!detectIE()) {
         }
         return false;
     }
-  
-})(jQuery, Drupal, this, this.document);
-   function doOnOrientationChange() {
+  function doOnOrientationChange() {
+      debugger;
        if(isMobile())
        {
         var left_placement_value = "48%"
