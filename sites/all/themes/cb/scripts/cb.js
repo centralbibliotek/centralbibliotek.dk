@@ -509,10 +509,10 @@ if(!detectIE()) {
     var bottom_placement_value = "98px";
     switch(window.orientation) {  
       case -90 || 90:
-         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','69%').css('bottom',"106px");
+         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','69%').css('bottom',"106px");
         break; 
       default:
-         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
+         jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',left_placement_value).css('bottom',bottom_placement_value);
         break; 
     }
 }
