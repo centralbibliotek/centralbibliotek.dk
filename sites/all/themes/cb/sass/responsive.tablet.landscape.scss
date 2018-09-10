@@ -11,3 +11,12 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
+.branch-selector #views-exposed-form-search-api-nodes-default
+{
+    width: 95%;
+    padding: 0 10px;
+}
+#views-exposed-form-search-api-nodes-default div:nth-child(2)
+{
+    bottom: 71px !important;
+} 

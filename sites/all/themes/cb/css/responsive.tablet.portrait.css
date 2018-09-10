@@ -7,3 +7,24 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
+.branch-selector #views-exposed-form-search-api-nodes-default {
+  width: 95%;
+  padding: 0 10px;
+}
+
+.views-widget-filter-search_api_views_fulltext {
+  width: 90%;
+}
+
+.fix_me_select {
+  right: 15% !important;
+}
+
+.views-reset-button {
+  right: 4% !important;
+}
+
+#views-exposed-form-search-api-nodes-default div:nth-child(2) {
+  left: 66% !important;
+  bottom: 64px !important;
+}
