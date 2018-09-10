@@ -518,7 +518,7 @@ function isMobile()
               }
               else if(window.innerWidth < 737 && window.innerWidth > 735)
               {
-                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','left:72% !important;bottom:63px !important;');
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72% !important;bottom:63px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;right:11% !important;');
               }
               else
