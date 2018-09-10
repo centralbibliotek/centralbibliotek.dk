@@ -519,7 +519,7 @@ function isMobile()
               else if(window.innerWidth < 737 && window.innerWidth > 735)
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','72%').css('bottom',"63px");
-                  jQuery('.view-search-api-nodes .views-exposed-widgets .views-reset-button').css('top','5px');
+                  jQuery('.view-search-api-nodes .views-exposed-widgets .views-reset-button').css('top','5px').css('right','11% !important');
               }
               else
               {
