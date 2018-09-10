@@ -1907,7 +1907,7 @@ header #resets {
 }
 @media only screen and (max-width: 576px) and (orientation: landscape) {
   .views-reset-button {
-    right: 11%;
+    right: 5%;
     top: 19px;
   }
   .views-reset-button #edit-submit-search-api-arrangementer {
