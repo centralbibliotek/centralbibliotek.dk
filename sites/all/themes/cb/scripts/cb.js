@@ -527,7 +527,7 @@ function isMobile()
               }
             break; 
           default:
-
+              jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','');
               if(window.innerWidth < 321)
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
