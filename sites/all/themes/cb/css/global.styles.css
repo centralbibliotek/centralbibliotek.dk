@@ -1867,6 +1867,12 @@ header #resets {
   visibility: hidden;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  #views-exposed-form-search-api-nodes-default div:nth-child(2) {
+    left: 66% !important;
+    bottom: 60px !important;
+  }
+}
 .view-search-api-nodes .views-exposed-widgets .views-reset-button {
   position: relative !important;
   opacity: 0.5;
@@ -1921,6 +1927,11 @@ header #resets {
   }
   .views-reset-button #edit-submit-search-api-arrangementer {
     display: inline-block !important;
+  }
+}
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  .views-reset-button {
+    right: 15%;
   }
 }
 
