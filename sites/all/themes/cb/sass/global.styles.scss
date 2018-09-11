@@ -1482,10 +1482,8 @@ header #resets {
     visibility: hidden;
 }
  @include respond(only-large) {
-    #views-exposed-form-search-api-nodes-default div:nth-child(2)
-    {
-       left: 66% !important;
-       bottom: 60px !important;
+    .fix_me_select{
+        right: 15% !important;
     }
  }
 .view-search-api-nodes .views-exposed-widgets .views-reset-button
@@ -1535,7 +1533,7 @@ header #resets {
         }
     }
     @include respond(only-large) {
-        right: 15%;
+        right: 12%;
     }
      
 }
