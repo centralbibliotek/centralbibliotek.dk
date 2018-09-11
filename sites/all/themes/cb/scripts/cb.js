@@ -512,7 +512,7 @@ function isMobile()
         switch(window.orientation) {  
           case -90:
           case 90:
-              if(window.innerWidth == 414)
+              if(window.innerWidth == 414) // iphone 7 plus landscape hack
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
