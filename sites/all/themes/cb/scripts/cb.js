@@ -512,6 +512,11 @@ function isMobile()
         switch(window.orientation) {  
           case -90:
           case 90:
+              if(window.innerWidth == 414)
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
+              }
               if(window.innerWidth < 580)
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','66%').css('bottom',bottom_placement_value);
