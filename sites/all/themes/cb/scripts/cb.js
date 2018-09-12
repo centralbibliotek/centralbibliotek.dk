@@ -236,7 +236,7 @@ if(!detectIE()) {
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
         {
-            //$('.views-reset-button').css('top', '0');
+            $('.view-search-api-nodes .views-exposed-widgets .views-reset-button').css('top', '0');
         }
         $('.element-invisible').remove();
 
