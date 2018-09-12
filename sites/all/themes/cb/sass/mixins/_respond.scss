@@ -32,4 +32,13 @@ $screen-large: 768px !default;
   @else if $media == large {
     @media only screen and (min-width: $screen-large + 1) { @content; }
   }
+  /* src: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+  @else if $media == laptop
+  {
+      @media screen 
+        and (min-device-width: 1200px) 
+        and (max-device-width: 1600px) 
+        and (-webkit-min-device-pixel-ratio: 1) { @content; }
+  }
+
 }
