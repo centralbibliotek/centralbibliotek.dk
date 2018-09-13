@@ -1982,7 +1982,7 @@ header #resets {
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
   .views-widget-filter-search_api_views_fulltext {
-    width: 97%;
+    width: 91%;
   }
 }
 
