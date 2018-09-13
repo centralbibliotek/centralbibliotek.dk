@@ -217,6 +217,9 @@
     left: 70% !important;
     top: 10px !important;
   }
+  @include respond(ipad) {
+    top: 10px !important;
+  }
   .toggle-link {
     @extend %toggle-link;
 

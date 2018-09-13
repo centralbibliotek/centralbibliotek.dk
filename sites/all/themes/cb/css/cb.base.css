@@ -1213,6 +1213,11 @@ html body div .pane-node-field-event-type .field-name-field-event-type .field-it
     top: 10px !important;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  #block-views-centralbiblioteker-block {
+    top: 10px !important;
+  }
+}
 #block-views-centralbiblioteker-block .toggle-link {
   font-size: 1.35rem;
   padding: 0 1em;
