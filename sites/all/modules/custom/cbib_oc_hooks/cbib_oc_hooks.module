@@ -7,7 +7,7 @@ include_once "cbib_oc_hooks.admin.inc";
 function cbib_oc_hooks_init() {
   if (!drupal_is_cli()) {
     // Path of your page with search results.
-     
+
       $path_parts = explode('?', request_uri());
       /* @var $path_parts type */
       if (strpos($path_parts[1], 'field_date_value=past') !== false ) {
@@ -31,18 +31,18 @@ function cbib_oc_hooks_init() {
         if ($part[3] != 'events' && !isset($active_items['field_event_type:640'])) {
         $filter = "field_date%3Avalue:future";
         }
-           
+
       $filter_key = $url_processor->getFilterKey();
       $params = $url_processor->fetchParams();
       if (!isset($active_items[$filter]) && !isset($active_items['field_event_type:640'])) {
 
         // If not, get and tamper with your parameters here.
-        
+
         $params[$filter_key][] = $filter;
-        
+
       }
       /*
-       * Have we selected cb ? 
+       * Have we selected cb ?
        * And Is the og_reg_filter_active ?
        */
       $selected_cbib = $_SESSION['cbib_centralbibliotek'];
@@ -60,7 +60,7 @@ function cbib_oc_hooks_init() {
           if(!$is_active_selection)
           {
               // If not, get and tamper with your parameters here.
-             
+
               $params[$filter_key][] = "og_group_ref:" . $selected_cbib;
               //$adapter->setParams($params, $filter_key);
           }
@@ -80,7 +80,7 @@ function cbib_oc_hooks_init() {
           if(!$is_active_selection)
           {
               // If not, get and tamper with your parameters here.
-             
+
               $params[$filter_key][] = "node%3Aog_group_ref:" . $selected_cbib;
               //$adapter->setParams($params, $filter_key);
           }
@@ -169,7 +169,7 @@ function  cbib_oc_hooks_menu() {
     'access callback' => 'user_access',
     'access arguments' => array('access user profiles'),
    );
-   
+
   return $items;
 }
 
@@ -226,7 +226,7 @@ function cbib_oc_hooks_permission() {
 }
 
 /**
- * By enabling this filter, items of this facet can be rewritten prior to rendering by implementing the hook: 
+ * By enabling this filter, items of this facet can be rewritten prior to rendering by implementing the hook:
  */
 function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   if ($settings->facet == "field_date:value") {
@@ -249,7 +249,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
   $loca = array();
   foreach($locations as $id => $loc) {
     if ($build[$id]["#markup"] == $loc) {
-      $loca[$id] = $build[$id];  
+      $loca[$id] = $build[$id];
       }
     if ($loc == '') {
       unset($loca[$id]);
@@ -260,7 +260,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
       $build = $loca;
   }
   if ($settings->facet == "og_group_ref" || $settings->facet == "node:og_group_ref") {
-      
+
       //$CentralLibraries = null;
       $CentralLibraries_nids = null;
       $query = new EntityFieldQuery();
@@ -274,7 +274,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
         if (isset($result['node'])) {
           $CentralLibraries_nids = array_keys($result['node']);
           //$CentralLibraries = entity_load('node', $CentralLibraries_nids);
-        } 
+        }
       foreach($build as $key => $item) {
         if(!in_array($key, $CentralLibraries_nids))
         {
@@ -479,7 +479,7 @@ function cbib_oc_hooks_mail_alter(&$message)
                     $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
                 }
             }
-            
+
         }
         
         foreach($node->field_date['und'] as $index => $date)
@@ -576,6 +576,35 @@ function cbib_oc_hooks_mail_alter(&$message)
             
             mail($message['to'], $subject, $msg, $headers);
         }
+        $ical .="UID:".$cal_uid."\r\n";
+        $ical .="SUMMARY:".$subject. "\r\n";
+        $ical .="BEGIN:VALARM\r\n";
+        $ical .="ACTION:DISPLAY\r\n";
+        $ical .="DESCRIPTION:".$subject . "\r\n";
+        $ical .="TRIGGER:-P1D\r\n";
+        $ical .="END:VALARM\r\n";
+        $ical .="END:VEVENT\r\n";
+        $ical .="END:VCALENDAR\r\n";
+
+        //Create Email Headers
+        $mime_boundary = "meeting booking";
+        $headers  = "MIME-Version: 1.0\n";
+        $headers .= "Content-Type: multipart/alternative;charset=UTF-8;boundary=\"$mime_boundary\"\n";
+        //$headers .= "Content-class: urn:content-classes:calendarmessage\n";
+        $headers .= "From: \"Centralbibliotek.dk\" <no-reply@centralbibliotek.dk>\r\n";
+
+        //Create Email Body (HTML)
+        $msg = "--$mime_boundary\r\n";
+        $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n\n";
+        $msg .= theme("mimemail_message",array("body" => $description[0]));
+        $msg .= "--$mime_boundary\r\n";
+        $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
+        $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+        $msg .= $ical;
+
+    //$msg .= "\n--" .$mime_boundary . "--\r\n";
+    mail($message['to'], $subject, $msg, $headers);
+
 
     
     }
@@ -664,6 +693,17 @@ function cbib_oc_hooks_node_update($node)
  */
 function cbib_oc_hooks_views_pre_render(&$view)
 {
+    if($view->name == "commons_events_upcoming" && $view->current_display == "panel_pane_7") {
+        $output = array();
+         foreach($view->result as $index => $data) {
+             $delta = $data->date_delta_field_date;
+             if ($delta != 0) {
+             $view->result[0]->field_data_field_date_delta = array_unshift($output , "Dag " . ($delta+1));
+             $view->result[$index]->field_data_field_date_delta = array_unshift($output , "Dag " . ($delta+1));
+             }
+         }
+    }
+
 if($view->name == "search_api_group" || $view->name == "search_api_nodes")  {
     foreach($view->result as $index => $data) {
     $group = node_load($data->entity);
@@ -679,13 +719,13 @@ if($view->name == "search_api_group" || $view->name == "search_api_nodes")  {
         $links = null;
         if(!user_is_logged_in())
         {
-          $links = flag_anon_link('node', $target_group,'page_manager');  
+          $links = flag_anon_link('node', $target_group,'page_manager');
         }
         else
         {
             $links = flag_link('node', $target_group,'page_manager');
         }
-        
+
         $follow_all_link = get_follow_all_license_link();
         $header_options = array(
         'label' => t('Header text'), // Administrative label. Not really needed here.
@@ -731,7 +771,7 @@ function cbib_oc_hooks_preprocess_pager_link(&$variables) {
   }
 }*/
 function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
-  
+
     if ($form['#id'] == 'views-exposed-form-search-api-nodes-default') { // Or: if ($form['#action'] === '/foo')
       $form['#action'] = '/search';
       if (isset($form['search_api_views_fulltext'])) {
@@ -753,7 +793,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          '#weight' => 1000,
          );
       }
-    }   
+    }
     if($form_state['view']->name == "search_api_arrangementer")
     {
         if (isset($form['search_api_views_fulltext'])) {
@@ -774,10 +814,10 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          if ($field_date_value == 'past' || $field_date_value == 'past_year' || $field_date_value == 'past_3_month') {
            $form['sort_order']['#default_value'] = 'DESC';
          }
-          * 
+          *
           */
         }
-        
+
 
         # the drupal checkboxes form field definition
         // Add new form item.
@@ -941,7 +981,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
          $message_type =  "oc_notify_post_created";
      }
      elseif($node->type == 'event')
-     { 
+     {
         //$message_type = "commons_events_event_node_created";
          $message_type =  "oc_notify_event_created";
      }
@@ -1023,7 +1063,7 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
   {
      $result = db_query("SELECT created FROM og_membership where gid='{$nid}' and entity_type = 'node' AND og_membership.etid in (SELECT nid FROM centralbibliotek.node where node.status = 1 and node.type ='post') order by created desc limit 1;");
      return $result->fetchField();
-  }	
+  }
 /*
  * Token hack to make urls with utf8 working.
  * Some munincipalities have disable the setting: send urls as utf8 i explorer.
@@ -1055,7 +1095,7 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
 }
 /*
    * Allow users to follow all the licenses that the users cb/library subscribes too.
-   * 
+   *
    */
   function user_follow_all_library_licenes()
   {
@@ -1100,10 +1140,10 @@ function cbib_oc_hooks_tokens($type, $tokens, array $data = array(), array $opti
       {
           return '';
       }
-      
+
   }
   /*
-   * 
+   *
    */
 function cbib_oc_hooks_flag_access($flag, $entity_id, $action, $account)
 {
