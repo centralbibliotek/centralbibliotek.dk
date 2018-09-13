@@ -527,7 +527,7 @@ function cbib_oc_hooks_mail_alter(&$message)
             $ical .="TRANSP:OPAQUE\r\n";
             $ical .="CLASS:PUBLIC\r\n";
             $ical .="CREATED:".date("Ymd\THis")."\r\n";
-            //$ical .="DESCRIPTION:".$description[0]."\r\n";
+            $ical .="DESCRIPTION:".$description[0]."\r\n";
             $ical .="DTSTAMP:".date("Ymd\THis\Z")."\r\n";
             $ical .="ORGANIZER;CN=\"Centralbibliotek.dk\":mailto:no-reply@centralbibliotek.dk\r\n";
             if(!empty($location))
