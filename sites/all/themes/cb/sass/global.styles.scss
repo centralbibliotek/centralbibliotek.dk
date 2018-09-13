@@ -1576,6 +1576,9 @@ header #resets {
     @include respond(only-medium-landscape) {
         width: 97%;
     }
+    @include respond(ipad-portrait) {
+        width: 97%;
+    }
 }
 
 .keyword-filter {
