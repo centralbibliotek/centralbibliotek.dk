@@ -527,9 +527,13 @@ function isMobile()
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
               }
+              else if(window.innerWidth == 1024) // ipad tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
+              }
               else // default
               {
-                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
+                  //cjQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
               }
             break; 
           default:
