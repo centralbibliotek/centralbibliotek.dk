@@ -536,7 +536,7 @@ function isMobile()
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
-              else if(window.innerWidth == 1024 || window.innerHeigtht == 1366) //ipad pro tablet size.
+              else if(window.innerWidth == 1024 || window.innerHeight == 1366) //ipad pro tablet size.
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
