@@ -536,7 +536,10 @@ function isMobile()
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
-              
+              else if(window.innerWidth == 1024 || window.innerHeigth == 1366) //ipad pro tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
+              }
               else // default
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
