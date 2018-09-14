@@ -517,27 +517,31 @@ function isMobile()
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
               }
-              else if(window.innerWidth < 580)
+              else if(window.innerWidth < 580) // small phones
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','66%').css('bottom',bottom_placement_value);
               }
-              else if(window.innerWidth < 737 && window.innerWidth > 735)
+              else if(window.innerWidth < 737 && window.innerWidth > 735) // ihpone 7 plus
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
               }
-              else
+              else // default
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
               }
             break; 
           default:
               jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','');
-              if(window.innerWidth < 321)
+              if(window.innerWidth < 321) // phones
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
               }
-              else if(window.innerWidth < 1200)
+              else if(window.innerWidth == 768) // ipad tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom','60px');
+              }
+              else if(window.innerWidth < 1200) // laptops .
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','52%').css('bottom',bottom_placement_value);
               }
@@ -547,3 +551,7 @@ function isMobile()
 }
   
 window.addEventListener('orientationchange', doOnOrientationChange);
+/*
+ * left: 67%;
+    bottom: 60px;
+ */
