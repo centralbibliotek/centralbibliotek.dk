@@ -536,11 +536,7 @@ function isMobile()
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
-              else if(window.innerWidth == 1024 || window.innerHeigth == 1366) //ipad pro tablet size.
-              {
-                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','71%').css('bottom','115px');
-                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:-79%;top: -31px;');    
-              }
+              
               else // default
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
@@ -559,6 +555,11 @@ function isMobile()
               else if(window.innerWidth < 1200) // laptops .
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','52%').css('bottom',bottom_placement_value);
+              }
+              else if(window.innerWidth == 1024 || window.innerHeigth == 1366) //ipad pro tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','71%').css('bottom','115px');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:-79%;top: -31px;');    
               }
             break; 
         }
