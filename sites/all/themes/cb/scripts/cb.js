@@ -132,10 +132,10 @@ function detectIE() {
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });    
-         
+var left_placement_value = "59%";
+var bottom_placement_value = "68px"; 
 if(!detectIE()) {
-        var left_placement_value = "59%";
-        var bottom_placement_value = "68px";
+ 
         if(isMobile())
         {
             left_placement_value = "52%"
