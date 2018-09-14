@@ -143,7 +143,7 @@ if(!detectIE()) {
         }
         $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',bottom_placement_value);
         }else {
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',bottom_placement_value);
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',"71%");
         }
         doOnOrientationChange();
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','98px');
