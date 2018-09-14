@@ -530,7 +530,7 @@ function isMobile()
               else if(window.innerWidth < 813 && window.innerWidth > 811) // ihpone x
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:58%;bottom:68px !important;');
-                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:4%;');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:14%;');
               }
               else if(window.innerWidth == 1024) // ipad tablet size.
               {
