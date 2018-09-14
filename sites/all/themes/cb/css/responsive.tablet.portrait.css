@@ -12,6 +12,10 @@
   padding: 0 10px;
 }
 
+.view-search-api-nodes .views-exposed-widgets .views-reset-button {
+  right: 4%;
+}
+
 /*.fix_me_select{
     right: 15% !important;
 }
