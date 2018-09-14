@@ -532,11 +532,11 @@ function isMobile()
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:58%;bottom:68px !important;');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:14%;');
               }
-              else if(window.innerWidth == 1024 || window.innerHeigth == 768) // ipad tablet size.
+              else if(window.innerWidth == 1024 || window.innerHeight == 768) // ipad tablet size.
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
-              else if(window.innerWidth == 1024 || window.innerHeigth == 1366) //ipad pro tablet size.
+              else if(window.innerWidth == 1024 || window.innerHeigtht == 1366) //ipad pro tablet size.
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
               }
@@ -555,7 +555,7 @@ function isMobile()
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom','60px');
               }
-              else if(window.innerWidth == 1024 || window.innerHeigth == 1366) //ipad pro tablet size.
+              else if(window.innerWidth == 1024 || window.innerHeight == 1366) //ipad pro tablet size.
               {
                   jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','71%').css('bottom','115px');
                   jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:-79%;top: -31px;');    
