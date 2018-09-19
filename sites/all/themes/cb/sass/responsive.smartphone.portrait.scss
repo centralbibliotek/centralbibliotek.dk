@@ -50,3 +50,6 @@
 input[type="submit"]:not(.field-add-more-submit):hover{
     background-color: unset;
 }
+.panel-2col-stacked .panel-col-last{
+    width: 100%;
+}

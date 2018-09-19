@@ -136,6 +136,10 @@
     width: auto;
     padding: 0;
   }
+
+  .panel-2col-stacked .panel-col-last {
+    width: 100%;
+  }
 }
 /*
  * Tablet sizes and down

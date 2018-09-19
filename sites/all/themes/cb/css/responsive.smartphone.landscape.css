@@ -63,3 +63,7 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 .view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
   display: none !important;
 }
+
+.panel-2col-stacked .panel-col-last {
+  width: 100%;
+}
