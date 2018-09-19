@@ -111,7 +111,7 @@ function detectIE() {
             }
         });
         var bib_group_selector_rigth_value = "27%";
-        if(isMobile())
+        if(isMobile(true))
         {
             bib_group_selector_rigth_value = "10%";
         }
@@ -494,15 +494,28 @@ if(!detectIE()) {
     
 })(jQuery, Drupal, this, this.document);
    
-function isMobile()
+function isMobile(excludeTablet)
     {
-        if(
-        navigator.userAgent.match(/Android/i) ||
-        navigator.userAgent.match(/iPhone/i) ||
-        navigator.userAgent.match(/ipad/i))
+        if(excludeTablet)
         {
-            return true;
+                       if(
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPhone/i))
+            {
+                return true;
+            }
         }
+        else
+        {
+            if(
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/ipad/i))
+            {
+                return true;
+            }
+        }
+        
         return false;
     }
   function doOnOrientationChange() {
