@@ -220,3 +220,8 @@
     margin: -23px 0 0 -50px;
   }
 }
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+    margin: -23px 0 0 -68px;
+  }
+}
