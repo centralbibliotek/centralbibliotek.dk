@@ -16,6 +16,11 @@
   right: 4%;
 }
 
+.panel-2col-stacked .panel-col-last {
+  width: 100%;
+  overflow: visible;
+}
+
 /*.fix_me_select{
     right: 15% !important;
 }

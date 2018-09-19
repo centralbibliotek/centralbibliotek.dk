@@ -146,6 +146,11 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .panel-2col-stacked .panel-col-last {
+    width: 100%;
+    overflow: visible;
+  }
+
   .branch-selector form {
     left: 0;
   }
