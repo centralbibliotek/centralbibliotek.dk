@@ -244,9 +244,7 @@ input[type="submit"]:not(.field-add-more-submit):hover{
  * Tablet sizes and up
  */
 @media only screen and (min-width: 768px) {
-  .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first{
-    margin: -23px 0 0 -67px;
-}
+  
   body.front.not-logged-in {
     #content {
       background: image-url('commons-drop.png') right top no-repeat;
@@ -268,4 +266,9 @@ input[type="submit"]:not(.field-add-more-submit):hover{
       }
     }
   }
+}
+@media only screen and (min-width: 768px) and (orientation: landscape)  {
+    .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first{
+        margin: -23px 0 0 -50px;
+    }
 }
