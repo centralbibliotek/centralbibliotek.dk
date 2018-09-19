@@ -52,5 +52,5 @@ input[type="submit"]:not(.field-add-more-submit):hover{
 }
 .panel-2col-stacked .panel-col-last{
     width: 100%;
-    overflow: visible;
+    overflow: visible !important;
 }

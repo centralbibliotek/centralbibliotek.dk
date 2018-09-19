@@ -66,5 +66,5 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
 
 .panel-2col-stacked .panel-col-last {
   width: 100%;
-  overflow: visible;
+  overflow: visible !important;
 }
