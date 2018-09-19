@@ -141,11 +141,19 @@
     width: 100%;
     overflow: visible !important;
   }
+
+  .page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+    margin-left: 0px;
+  }
 }
 /*
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+    margin-left: 0px;
+  }
+
   .panel-2col-stacked .panel-col-last {
     width: 100%;
     overflow: visible !important;
