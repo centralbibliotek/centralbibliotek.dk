@@ -21,6 +21,10 @@
   overflow: visible !important;
 }
 
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+  margin: -23px 0 0 -68px;
+}
+
 /*.fix_me_select{
     right: 15% !important;
 }
