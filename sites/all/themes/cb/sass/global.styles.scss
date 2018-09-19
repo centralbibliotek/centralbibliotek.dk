@@ -1322,9 +1322,9 @@ ul.primary.tabs {
     width: 10%;
     z-index:100;
     @include respond(only-small) {
-        left: 0%;
-        top: 100px;
-        width: 50%;
+        left: 79%;
+        top: 77px;
+        width: 100%;
     }
     @include respond(only-medium) {
         left: 79%;
