@@ -244,6 +244,9 @@ input[type="submit"]:not(.field-add-more-submit):hover{
  * Tablet sizes and up
  */
 @media only screen and (min-width: 768px) {
+  .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first{
+    margin: -23px 0 0 -52px;
+}
   body.front.not-logged-in {
     #content {
       background: image-url('commons-drop.png') right top no-repeat;
