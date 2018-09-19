@@ -24,3 +24,7 @@
 .page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
   margin-left: 0px;
 }
+
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+  margin: -23px 0 0 -49px;
+}
