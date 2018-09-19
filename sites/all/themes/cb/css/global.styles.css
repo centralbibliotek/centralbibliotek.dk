@@ -1709,7 +1709,7 @@ ul.primary.tabs li.active a span {
 }
 @media only screen and (max-width: 576px) {
   .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-    left: 79%;
+    left: 0%;
     top: 100px;
     width: 100%;
   }
