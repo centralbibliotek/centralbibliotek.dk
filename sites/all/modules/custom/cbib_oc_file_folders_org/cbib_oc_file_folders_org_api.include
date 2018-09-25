@@ -124,13 +124,16 @@ function get_folders($nid,$field_id)
 {
     $folders = array();
     $data = oc_file_folders_get_data($nid,$field_id);
-    foreach($data as $elem)
+    if($data != null)
     {
-        $obj = $elem['#default_value'];
-        if($obj['is_folder'])
+        foreach($data as $elem)
         {
-            //$folder = array('#weight' => $obj['_weight'],'#default_value' => array('is_folder' => true,'mlid' => $obj['mlid']['#value'],'plid' => $obj['plid']['#value']));
-            $folders[] = $elem;
+            $obj = $elem['#default_value'];
+            if($obj['is_folder'])
+            {
+                //$folder = array('#weight' => $obj['_weight'],'#default_value' => array('is_folder' => true,'mlid' => $obj['mlid']['#value'],'plid' => $obj['plid']['#value']));
+                $folders[] = $elem;
+            }
         }
     }
     return $folders;

@@ -397,14 +397,20 @@ function theme_cbib_oc_file_folders_org_widget_multiple($variables) {
   drupal_add_tabledrag($table_id, 'match', 'parent', 'menu-plid', 'menu-plid', 'menu-mlid', TRUE, 3);
   drupal_add_tabledrag($table_id, 'order', 'sibling', 'menu-weight');
 
-  $output = empty($rows) ? '' : theme('cbib_oc_file_folders_org_table', array('header' => $headers, 'rows' => $theme_me, 'table_attributes' => array('id' => $table_id)));
+  $output = theme('cbib_oc_file_folders_org_table', array('header' => $headers, 'rows' => $theme_me, 'table_attributes' => array('id' => $table_id)));
   if(empty($rows))
   {
-    $children = element_children($element);
-    $output .= drupal_render_children($element,array_reverse($children)); 
+     $element['oc_folder_field_group']['#title'] = "Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)";
+     $top_out = drupal_render($element['oc_folder_field_group']);
+    
+    // -2 works.. because oc_folder_field_group is outside index count.
+    $element[sizeof(element_children($element))-2]['resup']['#attributes']['data-description'] .= "<br/>Nyeste Filer placere sig i toppen af tabellen</strong>";
+    $top_out .= drupal_render_children($element);
+    $output = $top_out . $output; 
   }
   else
   {
+    $element['oc_folder_field_group']['#title'] = "Tilføj mappe (Brug denne funktion, når du har brug for at sortere vedhæftede filer i mapper.)";
     $top_out = drupal_render($element['oc_folder_field_group']);
     
     // -2 works.. because oc_folder_field_group is outside index count.

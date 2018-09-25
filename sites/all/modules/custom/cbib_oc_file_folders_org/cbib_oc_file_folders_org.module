@@ -20,6 +20,7 @@ function cbib_oc_file_folders_org_menu() {
 }
 function oc_folder_form_ajax_handler()
 { 
+    $supress_error = false;
     list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
       if (!$form) {
         // Invalid form_build_id.
@@ -60,6 +61,7 @@ function oc_folder_form_ajax_handler()
         }
         
         handle_remove_rebuild($form['#form_id'], $form, $form_state);
+        $supress_error = true;
     }
    // Process user input. $form and $form_state are modified in the process.
  
@@ -71,7 +73,7 @@ function oc_folder_form_ajax_handler()
   $form['#suffix'] .= '<span class="ajax-new-content"></span>';
   
 
-  $output = theme('status_messages') . drupal_render($form);
+  $output = (!$supress_error ? theme('status_messages') : "") . drupal_render($form);
   $js = drupal_add_js();
   $settings = call_user_func_array('array_merge_recursive', $js['settings']['data']);
   $selector = $_POST['oc_folder_field_name'] . "-folder-ajax";
