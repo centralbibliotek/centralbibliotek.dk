@@ -33,7 +33,7 @@ regions[page_bottom]       = Page bottom
 stylesheets[all][] = css/global.base.css
 stylesheets[all][] = css/global.styles.css
 stylesheets[all][] = css/cb.base.css
-
+stylesheets[all][] = css/responsive.laptop.css
 ; Print - uncomment to load basic print styles.
 stylesheets[print][] = css/print.css
 

@@ -48,7 +48,6 @@ function detectIE() {
         
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
-
     $(document).ready(function () {
         
         if (document.location.pathname.indexOf("/kompetenceudvikling") === 0) {
@@ -102,6 +101,7 @@ function detectIE() {
          * unbind login_spinner;
          */
         $('.file').find('a').unbind('click');
+        $('#navbar-administration').find('a').unbind('click');
         $('.feed-icon').find('a').unbind('click');
         var topx = '22px';       
  
@@ -111,8 +111,13 @@ function detectIE() {
                 topx = '30px';
             }
         });
+        var bib_group_selector_rigth_value = "27%";
+        if(isMobile(true))
+        {
+            bib_group_selector_rigth_value = "10%";
+        }
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right',bib_group_selector_rigth_value).css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
@@ -122,18 +127,26 @@ function detectIE() {
           * Group tilknytning styling fix.
           */
           $('#facetapi-facet-search-apigroup-index-block-og-group-ref').parent().parent().hide();
-          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-group-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right','27%').css('top',topx)
+          $('#facetapi-facet-search-apigroup-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-group-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right',bib_group_selector_rigth_value).css('top',topx)
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref-1').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                     $('.fix_me_select').val(e.currentTarget.value);
                      return false;
-         });         
+         });    
+var left_placement_value = "59%";
+var bottom_placement_value = "68px"; 
 if(!detectIE()) {
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','68px');
-        }else {
-        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left','59%').css('bottom','68px');
+ 
+        if(isMobile())
+        {
+            left_placement_value = "52%"
+            bottom_placement_value = "98px";
         }
-
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',bottom_placement_value);
+        }else {
+        $('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().appendTo(".view-filters #views-exposed-form-search-api-nodes-default").css('position','relative').css('left',left_placement_value).css('bottom',"71px");
+        }
+        doOnOrientationChange();
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('position','relative').css('left','60%').css('top','98px');
 
     //$('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').find('select').css('width','125px');         
@@ -224,7 +237,7 @@ if(!detectIE()) {
         // fix ie reset button styling    
         if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
         {
-            $('.views-reset-button').css('top', '0');
+            $('.view-search-api-nodes .views-exposed-widgets .views-reset-button').css('top', '10px');
         }
         $('.element-invisible').remove();
 
@@ -292,7 +305,7 @@ if(!detectIE()) {
 
             if (msie !== -1 || msie_trident !== -1) // If Internet Explorer, return version number
             {
-                $('div.views-exposed-widget.views-reset-button').css('cssText', 'top:10px !important');
+                //$('div.views-exposed-widget.views-reset-button').css('cssText', 'top:10px !important');
                 $('strong').each(function () {
                     if ($(this).text() === 'Søgning gav desværre ingen resultater.') {
                         $('div.views-exposed-widget.views-reset-button').css("cssText", "top:24px !important");
@@ -470,4 +483,109 @@ if(!detectIE()) {
       });
     }
   };
+   /*
+    * Functions to detect if mobile and the orientation
+   */
+    function isPortrait() {
+        return window.innerHeight > window.innerWidth;
+    }
+    function isLandscape() {
+        return (window.orientation === 90 || window.orientation === -90);
+    }
+    
 })(jQuery, Drupal, this, this.document);
+   
+function isMobile(excludeTablet)
+    {
+        if(excludeTablet)
+        {
+                       if(
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPhone/i))
+            {
+                return true;
+            }
+        }
+        else
+        {
+            if(
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/ipad/i))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+  function doOnOrientationChange() {
+       if(isMobile())
+       {
+        var left_placement_value = "48%"
+        var bottom_placement_value = "98px";
+        switch(window.orientation) {  
+          case -90:
+          case 90:
+              if(window.innerWidth == 414) // iphone 7 plus landscape hack
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
+              }
+              else if(window.innerWidth < 580) // small phones
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','66%').css('bottom',bottom_placement_value);
+              }
+              else if(window.innerWidth < 737 && window.innerWidth > 735) // ihpone 7 plus
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:72%;bottom:63px !important;');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','top:5px;');
+              }
+              else if(window.innerWidth < 813 && window.innerWidth > 811) // ihpone x
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().attr('style','position: relative;left:58%;bottom:68px !important;');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:14%;');
+              }
+              else if(window.innerWidth == 1024 || window.innerHeight == 768) // ipad tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
+              }
+              else if(window.innerWidth == 1366  || window.innerHeight == 1024) //ipad pro tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','59%').css('bottom','68px');
+              }
+              else // default
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','68%').css('bottom',bottom_placement_value);
+              }
+            break; 
+          default:
+              jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','');
+              if(window.innerWidth < 321) // phones
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left',"45%").css('bottom',bottom_placement_value);
+              }
+              else if(window.innerWidth == 768) // ipad tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','67%').css('bottom','60px');
+              }
+              else if(window.innerWidth == 1024 || window.innerHeight == 1366) //ipad pro tablet size.
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','71%').css('bottom','115px');
+                  jQuery('.view-search-api-nodes').find('.views-reset-button').attr('style','right:-79%;top: -31px;');    
+              }
+              else if(window.innerWidth < 1200) // laptops .
+              {
+                  jQuery('#facetapi-facet-search-apiglobal-search-block-nodeog-group-ref').parent().parent().parent().css('left','52%').css('bottom',bottom_placement_value);
+              }
+              
+            break; 
+        }
+       }
+}
+  
+window.addEventListener('orientationchange', doOnOrientationChange);
+/*
+ * left: 67%;
+    bottom: 60px;
+ */

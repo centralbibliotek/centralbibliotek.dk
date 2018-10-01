@@ -389,9 +389,6 @@ var {
   .node-teaser.node-promoted.user-picture-available {
     padding-left: 10px;
   }
-  .node-teaser.node-promoted.user-picture-available .user-picture {
-    display: none;
-  }
 }
 .node-teaser .region {
   padding: 0px;
@@ -1501,9 +1498,6 @@ button, #panels-ipe-control-container
   .user-picture-available {
     padding-left: 0;
   }
-  .user-picture-available .user-picture {
-    display: none;
-  }
 }
 
 /**
@@ -1707,6 +1701,33 @@ ul.primary.tabs li.active a span {
   width: 10%;
   z-index: 100;
 }
+@media only screen and (max-width: 576px) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    left: 79%;
+    top: 77px;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    left: 79%;
+    top: 100px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    top: 65px;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    top: 65px;
+    width: 100%;
+    left: 81%;
+  }
+}
 
 #tabs-0-center .item-list {
   height: 0px;
@@ -1840,11 +1861,36 @@ header #resets {
   visibility: hidden;
 }
 
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  .fix_me_select {
+    right: 15% !important;
+  }
+}
 .view-search-api-nodes .views-exposed-widgets .views-reset-button {
   position: relative !important;
   opacity: 0.5;
   right: 13%;
   top: 17px;
+}
+@media only screen and (max-width: 576px) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 5%;
+    top: -32px;
+  }
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .view-search-api-nodes .views-exposed-widgets .views-reset-button {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
 }
 
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
@@ -1857,6 +1903,29 @@ header #resets {
   opacity: 0.5;
   right: 24%;
   top: 20px;
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .views-reset-button {
+    right: 5%;
+    top: 19px;
+  }
+  .views-reset-button #edit-submit-search-api-arrangementer {
+    display: inline-block !important;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .views-reset-button {
+    right: 5%;
+    top: 19px;
+  }
+  .views-reset-button #edit-submit-search-api-arrangementer {
+    display: inline-block !important;
+  }
+}
+@media only screen and (min-width: 767px) and (max-width: 768px) {
+  .views-reset-button {
+    right: 12%;
+  }
 }
 
 .view-display {
@@ -1893,6 +1962,22 @@ header #resets {
 
 .views-widget-filter-search_api_views_fulltext {
   width: 78%;
+  /* Portrait */
+}
+@media only screen and (max-width: 576px) and (orientation: landscape) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 97%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 97%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .views-widget-filter-search_api_views_fulltext {
+    width: 91%;
+  }
 }
 @media only screen and (max-width: 576px) and (orientation: landscape) {
   .views-widget-filter-search_api_views_fulltext {
@@ -2069,24 +2154,6 @@ header #resets {
   .view-commons-activity-streams-user-activity .views-field-nothing {
     padding-left: 0;
   }
-  .view-commons-homepage-content .content .user-picture,
-  .view-commons-homepage-content .message .user-picture,
-  .view-commons-homepage-content .views-field-timestamp .user-picture,
-  .view-commons-homepage-content .views-field-nothing .user-picture,
-  .view-commons-activity-streams-activity .content .user-picture,
-  .view-commons-activity-streams-activity .message .user-picture,
-  .view-commons-activity-streams-activity .views-field-timestamp .user-picture,
-  .view-commons-activity-streams-activity .views-field-nothing .user-picture,
-  .view-activity-group .content .user-picture,
-  .view-activity-group .message .user-picture,
-  .view-activity-group .views-field-timestamp .user-picture,
-  .view-activity-group .views-field-nothing .user-picture,
-  .view-commons-activity-streams-user-activity .content .user-picture,
-  .view-commons-activity-streams-user-activity .message .user-picture,
-  .view-commons-activity-streams-user-activity .views-field-timestamp .user-picture,
-  .view-commons-activity-streams-user-activity .views-field-nothing .user-picture {
-    display: none;
-  }
 }
 
 .view-activity-group .views-row h2,
@@ -2243,9 +2310,6 @@ header #resets {
 @media only screen and (max-width: 576px) {
   .comment {
     padding-left: 0;
-  }
-  .comment .user-picture {
-    display: none;
   }
 }
 .comment .author-datetime {
@@ -3254,6 +3318,17 @@ body.node-type-license .cb3 .region-cb3-second {
 body.node-type-license .cb3 .region-cb3-third {
   width: 33.333333%;
 }
+@media only screen and (max-width: 576px) {
+  body.node-type-license .cb3 .region-cb3-first {
+    width: 100%;
+  }
+  body.node-type-license .cb3 .region-cb3-second {
+    width: 100%;
+  }
+  body.node-type-license .cb3 .region-cb3-third {
+    width: 100%;
+  }
+}
 
 /* =============================================================================
  *   Views Styling
@@ -3650,9 +3725,6 @@ body.node-type-license .cb3 .region-cb3-third {
 @media only screen and (max-width: 576px) {
   .commons-bw-partial-node-form {
     padding-left: 0;
-  }
-  .commons-bw-partial-node-form .user-picture {
-    display: none;
   }
 }
 .commons-bw-partial-node-form .field-type-image {

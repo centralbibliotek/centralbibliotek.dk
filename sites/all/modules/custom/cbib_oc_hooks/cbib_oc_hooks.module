@@ -479,7 +479,7 @@ function cbib_oc_hooks_mail_alter(&$message)
                     $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
                 }
             }
-
+            
         }
         
         foreach($node->field_date['und'] as $index => $date)
@@ -576,35 +576,6 @@ function cbib_oc_hooks_mail_alter(&$message)
             
             mail($message['to'], $subject, $msg, $headers);
         }
-        $ical .="UID:".$cal_uid."\r\n";
-        $ical .="SUMMARY:".$subject. "\r\n";
-        $ical .="BEGIN:VALARM\r\n";
-        $ical .="ACTION:DISPLAY\r\n";
-        $ical .="DESCRIPTION:".$subject . "\r\n";
-        $ical .="TRIGGER:-P1D\r\n";
-        $ical .="END:VALARM\r\n";
-        $ical .="END:VEVENT\r\n";
-        $ical .="END:VCALENDAR\r\n";
-
-        //Create Email Headers
-        $mime_boundary = "meeting booking";
-        $headers  = "MIME-Version: 1.0\n";
-        $headers .= "Content-Type: multipart/alternative;charset=UTF-8;boundary=\"$mime_boundary\"\n";
-        //$headers .= "Content-class: urn:content-classes:calendarmessage\n";
-        $headers .= "From: \"Centralbibliotek.dk\" <no-reply@centralbibliotek.dk>\r\n";
-
-        //Create Email Body (HTML)
-        $msg = "--$mime_boundary\r\n";
-        $msg .= "Content-Type: text/html; charset=\"UTF-8\"\n\n";
-        $msg .= theme("mimemail_message",array("body" => $description[0]));
-        $msg .= "--$mime_boundary\r\n";
-        $msg .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
-        $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-        $msg .= $ical;
-
-    //$msg .= "\n--" .$mime_boundary . "--\r\n";
-    mail($message['to'], $subject, $msg, $headers);
-
 
     
     }

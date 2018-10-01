@@ -11,10 +11,15 @@
 * Header
 */
 #views-exposed-form-search-api-nodes-default {
-  width: 100%;
+  width: 95%;
   right: 0px;
   padding: 0 10px;
   box-sizing: border-box;
+  height: 56px;
+}
+
+.block-content div div #views-exposed-form-search-api-nodes-default {
+  padding: 0 0px !important;
 }
 
 .branch-selector form {
@@ -29,6 +34,31 @@
   position: relative;
   font-size: 180%;
   opacity: 0.5;
-  left: 66%;
-  top: -44px;
+  left: 93%;
+  top: -39px;
+}
+
+#views-exposed-form-search-api-nodes-default .views-submit-button {
+  display: none;
+}
+
+.branch-selector .views-submit-button {
+  display: inline-block !important;
+}
+
+input[type="submit"]:not(.field-add-more-submit):hover {
+  background-color: unset;
+}
+
+.panel-2col-stacked .panel-col-last {
+  width: 100%;
+  overflow: visible !important;
+}
+
+.page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+  margin-left: 0px;
+}
+
+.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+  margin: -23px 0 0 -46px !important;
 }

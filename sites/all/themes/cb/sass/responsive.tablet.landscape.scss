@@ -11,3 +11,22 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
+.branch-selector #views-exposed-form-search-api-nodes-default
+{
+    width: 95%;
+    padding: 0 10px;
+}
+#views-exposed-form-search-api-nodes-default div:nth-child(2)
+{
+    bottom: 71px !important;
+} 
+.panel-2col-stacked .panel-col-last{
+    width: 100%;
+    overflow: visible !important;
+}
+.page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last{
+    margin-left: 0px; 
+}
+ .page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first{
+    margin: -23px 0 0 -49px;
+}

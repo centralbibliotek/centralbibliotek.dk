@@ -5,28 +5,60 @@ $screen-small: 576px !default;
 $screen-large: 768px !default;
 
 @mixin respond($media) {
-  @if $media == only-small {
-    @media only screen and (max-width: $screen-small) { @content; }
-  }
-  @if $media == only-small-landscape {
-    @media only screen and (max-width: $screen-small) and (orientation: landscape) { @content; }
-  }
-  @else if $media == small-medium {
-    @media only screen and (max-width: $screen-large) { @content; }
-  }
-  @if $media == small-medium-landscape {
-    @media only screen and (max-width: $screen-large) and (orientation: landscape) { @content; }
-  }
-  @else if $media == only-medium {
-    @media only screen and (min-width: $screen-small + 1) and (max-width: $screen-large) { @content; }
-  }
-   @else if $media == only-medium-landscape {
-    @media only screen and (min-width: $screen-small + 1) and (max-width: $screen-large) and (orientation: landscape) { @content; }
-  }
-  @else if $media == medium {
-    @media only screen and (min-width: $screen-small + 1) { @content; }
-  }
-  @else if $media == large {
-    @media only screen and (min-width: $screen-large + 1) { @content; }
-  }
+    @if $media == only-small {
+        @media only screen and (max-width: $screen-small) { @content; }
+    }
+    @if $media == only-small-landscape {
+        @media only screen and (max-width: $screen-small) and (orientation: landscape) { @content; }
+    }
+    @else if $media == small-medium {
+        @media only screen and (max-width: $screen-large) { @content; }
+    }
+    @if $media == small-medium-landscape {
+        @media only screen and (max-width: $screen-large) and (orientation: landscape) { @content; }
+    }
+    @else if $media == only-medium {
+        @media only screen and (min-width: $screen-small + 1) and (max-width: $screen-large) { @content; }
+    }
+    @else if $media == only-medium-landscape {
+        @media only screen and (min-width: $screen-small + 1) and (max-width: $screen-large) and (orientation: landscape) { @content; }
+    }
+    @else if $media == medium {
+        @media only screen and (min-width: $screen-small + 1) { @content; }
+    }
+    @else if $media == only-large {
+        @media only screen and (min-width: $screen-large - 1) and (max-width: $screen-large) { @content; }
+    }
+    @else if $media == large {
+        @media only screen and (min-width: $screen-large + 1) { @content; }
+    }
+    /* src: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+    @else if $media == laptop
+    {
+        @media screen 
+        and (min-device-width: 1200px) 
+            and (max-device-width: 1600px) 
+            and (-webkit-min-device-pixel-ratio: 1) { @content; }
+    }
+    @else if $media == ipad-landscape
+    {
+        @media only screen 
+        and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: landscape) 
+            and (-webkit-min-device-pixel-ratio: 1) {
+            @content;
+        }
+    }
+    @else if $media == ipad-portrait
+    {
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 1) {
+            @content;
+        }
+    }
 }
