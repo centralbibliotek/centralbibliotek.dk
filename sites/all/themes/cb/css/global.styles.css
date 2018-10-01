@@ -1979,16 +1979,6 @@ header #resets {
     width: 91%;
   }
 }
-@media only screen and (max-width: 576px) and (orientation: landscape) {
-  .views-widget-filter-search_api_views_fulltext {
-    width: 97%;
-  }
-}
-@media only screen and (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
-  .views-widget-filter-search_api_views_fulltext {
-    width: 97%;
-  }
-}
 
 .keyword-filter .views-widget-filter-keys,
 .keyword-filter .views-submit-button {
