@@ -1426,18 +1426,6 @@ class EntityMetadataIntegrationTestCase extends EntityWebTestCase {
     parent::setUp('entity', 'book', 'statistics', 'locale');
   }
 
-  protected function assertException($wrapper, $name, $text = NULL) {
-    $this->assertTrue(isset($wrapper->$name), 'Property wrapper ' . check_plain($name) . ' exists.');
-    $text = isset($text) ? $text : 'Getting the not existing property ' . $name . ' throws exception.';
-    try {
-      $wrapper->$name->value();
-      $this->fail($text);
-    }
-    catch (EntityMetadataWrapperException $e) {
-      $this->pass($text);
-    }
-  }
-
   protected function assertEmpty($wrapper, $name) {
     $this->assertTrue(isset($wrapper->$name), 'Property ' . check_plain($name) . ' exists.');
     $this->assertTrue($wrapper->$name->value() === NULL, 'Property ' . check_plain($name) . ' is empty.');
@@ -1587,7 +1575,7 @@ class EntityMetadataIntegrationTestCase extends EntityWebTestCase {
     $this->assertEmpty($wrapper, 'book');
     $this->assertEmptyArray($wrapper, 'book_ancestors');
     $this->assertEmpty($wrapper, 'source');
-    $this->assertException($wrapper->source, 'title');
+    $this->assertNull($wrapper->source, 'title');
     $this->assertEmpty($wrapper, 'last_view');
 
     // Test statistics module integration access.

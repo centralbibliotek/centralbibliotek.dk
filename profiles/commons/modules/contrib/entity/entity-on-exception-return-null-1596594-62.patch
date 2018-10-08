@@ -1,0 +1,54 @@
+diff --git a/entity.test b/entity.test
+index fd8cea1..28abfc2 100644
+--- a/entity.test
++++ b/entity.test
+@@ -1494,18 +1494,6 @@ class EntityMetadataIntegrationTestCase extends EntityWebTestCase {
+     parent::setUp('entity', 'book', 'statistics', 'locale');
+   }
+ 
+-  protected function assertException($wrapper, $name, $text = NULL) {
+-    $this->assertTrue(isset($wrapper->$name), 'Property wrapper ' . check_plain($name) . ' exists.');
+-    $text = isset($text) ? $text : 'Getting the not existing property ' . $name . ' throws exception.';
+-    try {
+-      $wrapper->$name->value();
+-      $this->fail($text);
+-    }
+-    catch (EntityMetadataWrapperException $e) {
+-      $this->pass($text);
+-    }
+-  }
+-
+   protected function assertEmpty($wrapper, $name) {
+     $this->assertTrue(isset($wrapper->$name), 'Property ' . check_plain($name) . ' exists.');
+     $this->assertTrue($wrapper->$name->value() === NULL, 'Property ' . check_plain($name) . ' is empty.');
+@@ -1660,7 +1648,7 @@ class EntityMetadataIntegrationTestCase extends EntityWebTestCase {
+     $this->assertEmpty($wrapper, 'book');
+     $this->assertEmptyArray($wrapper, 'book_ancestors');
+     $this->assertEmpty($wrapper, 'source');
+-    $this->assertException($wrapper->source, 'title');
++    $this->assertNull($wrapper->source, 'title');
+     $this->assertEmpty($wrapper, 'last_view');
+ 
+     // Test statistics module integration access.
+diff --git a/includes/entity.wrapper.inc b/includes/entity.wrapper.inc
+index 70c14c1..794952b 100644
+--- a/includes/entity.wrapper.inc
++++ b/includes/entity.wrapper.inc
+@@ -454,7 +454,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
+     $options = array('language' => $this->getPropertyLanguage(), 'absolute' => TRUE);
+     $data = $this->value();
+     if (!isset($data)) {
+-      throw new EntityMetadataWrapperException('Unable to get the data property ' . check_plain($name) . ' as the parent data structure is not set.');
++      return NULL;
+     }
+     return $info['getter callback']($data, $options, $name, $this->type, $info);
+   }
+@@ -467,7 +467,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
+       $options = array('language' => $this->getPropertyLanguage(), 'absolute' => TRUE);
+       $data = $this->value();
+       if (!isset($data)) {
+-        throw new EntityMetadataWrapperException('Unable to get the data property ' . check_plain($name) . ' as the parent data structure is not set.');
++        return NULL;
+       }
+       return $info['raw getter callback']($data, $options, $name, $this->type, $info);
+     }

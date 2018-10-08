@@ -435,7 +435,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
     $options = array('language' => $this->getPropertyLanguage(), 'absolute' => TRUE);
     $data = $this->value();
     if (!isset($data)) {
-      throw new EntityMetadataWrapperException('Unable to get the data property ' . check_plain($name) . ' as the parent data structure is not set.');
+      return NULL;
     }
     return $info['getter callback']($data, $options, $name, $this->type, $info);
   }
@@ -448,7 +448,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
       $options = array('language' => $this->getPropertyLanguage(), 'absolute' => TRUE);
       $data = $this->value();
       if (!isset($data)) {
-        throw new EntityMetadataWrapperException('Unable to get the data property ' . check_plain($name) . ' as the parent data structure is not set.');
+        return NULL;
       }
       return $info['raw getter callback']($data, $options, $name, $this->type, $info);
     }
