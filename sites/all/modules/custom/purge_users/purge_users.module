@@ -108,7 +108,16 @@ function purge_users_worker($data) {
     // Do heavy lifting here. Delete users and send an notification email.
     if (variable_get('purge_users_send_email_notification', '') == 1) {
         // Perform user deletion operation.
-        user_delete($account->uid);
+        // Set the notify and cancel type options.
+    user_cancel(array(
+      'user_cancel_notify' => FALSE,
+      'user_cancel_method' => 'user_cancel_delete',
+    ), $account->uid, 'user_cancel_delete');
+
+    // Invoke the Batch API, disable drupal_goto(), and execute.
+    $batch = &batch_get();
+    $batch['progressive'] = FALSE;
+    batch_process();
     }else{
         purge_users_send_notification($account);
         }
