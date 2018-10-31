@@ -1,0 +1,13 @@
+name = Noscript Tag
+description = Helps site admin to display noscript tag.
+core = 7.x
+configure = admin/config/development/noscript-tag-settings
+
+stylesheets[all][] = css/noscript_tag.css
+
+; Information added by Drupal.org packaging script on 2017-01-29
+version = "7.x-1.0"
+core = "7.x"
+project = "noscript_tag"
+datestamp = "1485707288"
+

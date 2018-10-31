@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Installation file for the noscript tag module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function noscript_tag_uninstall() {
+  variable_del('noscript_tag_value');
+}

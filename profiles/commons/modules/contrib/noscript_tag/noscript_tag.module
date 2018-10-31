@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Adds functionality to display noscript tag when javascript is disabled.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function noscript_tag_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#noscript_tag':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module displays noscript tag when javascript is disabled in users browser.') . '</p>';
+      $output .= '<p>' . t('Site admin can configure what content to be displayed in the noscript tag.') . '</p>';
+      $output .= '<p>' . t('Site admin can <a href="@manage-noscript-tag">Manage noscript tag setting</a>.', array('@manage-noscript-tag' => url('admin/config/development/noscript-tag-setting'))) . '</p>';
+      $output .= '<p>' . t('The noscript tag will be displayed only to user roles who have permission to view the noscript tag. You can configure the permissions <a href="@manage-noscript-tag-permissions">here</a>.', array('@manage-noscript-tag-permissions' => url('admin/people/permissions', array('fragment' => 'module-noscript_tag')))) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function noscript_tag_permission() {
+  return array(
+    'administer noscript tag' => array(
+      'title' => t('Administer noscript tag'),
+      'description' => t('Perform administrative tasks for noscript tag module.'),
+    ),
+    'view noscript tag' => array(
+      'title' => t('View noscript tag'),
+      'description' => t('Configure who can view noscript tag.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function noscript_tag_menu() {
+  $items['admin/config/development/noscript-tag-setting'] = array(
+    'title' => 'Noscript tag setting',
+    'description' => 'Setting for noscript tag.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('noscript_tag_setting_form'),
+    'access arguments' => array('administer noscript tag'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_process_html().
+ */
+function noscript_tag_process_html(&$variables) {
+  if (user_access("view noscript tag")) {
+    $noscript_tag_value = noscript_tag_value();
+    $noscript_tag_markup = '<noscript>' . check_markup($noscript_tag_value['value'], $noscript_tag_value['format']) . '</noscript>';
+    $variables['page_top'] = $noscript_tag_markup . $variables['page_top'];
+  }
+}
+
+/**
+ * Fuction to get noscript tag value.
+ *
+ * @return string
+ *   Noscript tag value.
+ */
+function noscript_tag_value() {
+  $noscript_tag_default_value = array(
+    'value' => t('Your browser does not support javascript!'),
+    'format' => 'plain_text',
+  );
+  return variable_get('noscript_tag_value', $noscript_tag_default_value);
+}
+
+/**
+ * Implements hook_form().
+ */
+function noscript_tag_setting_form() {
+  $noscript_tag_value = noscript_tag_value();
+  $form = array();
+  $form['noscript_tag_value'] = array(
+    '#type' => 'text_format',
+    '#title' => t('Enter message to display in noscript tag:'),
+    '#description' => t('Please enter your message which you want to display users that have disabled scripts in their browser or have a browser that does not support script tag.'),
+    '#default_value' => $noscript_tag_value['value'],
+    '#format' => $noscript_tag_value['format'],
+    '#rows' => 5,
+    '#cols' => 10,
+    '#resizable' => TRUE,
+  );
+  return system_settings_form($form);
+}
