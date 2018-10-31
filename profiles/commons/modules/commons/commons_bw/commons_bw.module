@@ -241,20 +241,24 @@ function commons_bw_partial_node_form($form, &$form_state, $bundle, $group_id = 
   $form['#attributes']['class'][] = 'commons-bw-partial-node-form-' . $bundle;
 
   // Add a link to the full node form.
-  $form['full_form'] = array(
-    '#theme' => 'link',
-    '#text' => t('Go to full form'),
-    '#path' => 'node/add/' . str_replace('_', '-', $bundle),
-    '#options' => array(
-      'attributes' => array('class' => array('full-form')),
-      'html' => FALSE,
-    ),
-    '#weight' => 100,
-  );
+  /*if (is_array($user->roles) && (in_array("administrator", array_values($user->roles)) || in_array("content mederator", array_values($user->roles)))) {
+    $form['full_form'] = array(
+        '#theme' => 'link',
+        '#text' => t('Go to full form'),
+        '#path' => 'node/add/' . str_replace('_', '-', $bundle),
+        '#options' => array(
+          'attributes' => array('class' => array('full-form')),
+          'html' => FALSE,
+        ),
+        '#weight' => 100,
+      );
+    if ($group_id) {
+        $form['full_form']['#options']['query'] = array(OG_AUDIENCE_FIELD => $group_id);
+    }
+  }*/
+  
 
-  if ($group_id) {
-    $form['full_form']['#options']['query'] = array(OG_AUDIENCE_FIELD => $group_id);
-  }
+  
 
   // Add the commons_bw after build first, in case other pre-renders needs need
   // to address fields by there CSS ID.
