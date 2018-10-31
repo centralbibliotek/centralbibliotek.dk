@@ -22,7 +22,7 @@ function commons_posts_commons_entity_integration() {
  * Implements hook_commons_bw_group_widget().
  */
 function commons_posts_commons_bw_group_widget() {
-  return array(
+  /*return array(
     'commons_posts' => array(
       'title' => t('Posts'),
       'type' => 'view',
@@ -31,7 +31,7 @@ function commons_posts_commons_bw_group_widget() {
       'weight' => -1,
       'bundle' => 'post',
     ),
-  );
+  );*/
 }
 
 /**

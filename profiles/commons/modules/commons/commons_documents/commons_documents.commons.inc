@@ -23,7 +23,7 @@ function commons_documents_commons_entity_integration() {
  * Implements hook_commons_bw_group_widget().
  */
 function commons_documents_commons_bw_group_widget() {
-  return array(
+  /*return array(
     'commons_documents' => array(
       'title' => t('Docs'),
       'type' => 'view',
@@ -32,7 +32,7 @@ function commons_documents_commons_bw_group_widget() {
       'weight' => 6,
       'bundle' => 'document',
     ),
-  );
+  );*/
 }
 
 /**
