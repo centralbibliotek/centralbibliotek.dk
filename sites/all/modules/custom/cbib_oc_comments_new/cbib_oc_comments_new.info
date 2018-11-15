@@ -1,0 +1,6 @@
+name = cbib oc comments new
+description = gør indlæg mere awesome.
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_oc_comments_new
