@@ -1,8 +1,4 @@
-.oc-comments-new-reply-btn
+.oc-comments-new-reply-wrap,.oc-comments-new-edit-wrap,.oc-comments-new-delete-wrap
 {
-    font-size:1.2em !important;
-}
-.oc-comments-new-reply-wrap .action-item-small
-{
-    padding:5px;
+    float:right;
 }

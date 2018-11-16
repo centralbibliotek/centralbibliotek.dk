@@ -4,3 +4,7 @@ core = 7.x
 package = Centralbibliotek.dk
 version = 7.x-1.0
 project = cbib_oc_comments_new
+
+dependencies[] = features
+dependencies[] = quicktabs
+dependencies[] = quicktabs_tabstyles
