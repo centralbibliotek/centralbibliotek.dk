@@ -1152,5 +1152,5 @@ function cbib_oc_hooks_og_user_access_alter(&$perm, $context) {
             }
          }
       }
-      }
-  }
+    }
+}
