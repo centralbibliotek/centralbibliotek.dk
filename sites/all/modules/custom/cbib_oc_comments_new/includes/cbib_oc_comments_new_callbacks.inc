@@ -189,7 +189,7 @@ function cbib_oc_comments_new_post_add($form, &$form_state) {
         $commands[] = ajax_command_replace('#quicktabs-commons_bw', $html); 
     }
     //Click on the active quicktab!
-    $active_quick_tab = cbib_oc_comments_get_active_quick_tab();
+
     
     return array('#type' => 'ajax', '#commands' => $commands);
 }

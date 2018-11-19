@@ -1,4 +1,16 @@
 (function ($) {
+    Drupal.behaviors.quicktabs = {
+    attach: function (context, settings) {
+        /*
+         * The original one fails to bind when using ajax
+         */
+        debugger;
+      $('.quicktabs-wrapper').once(function(){
+          debugger;
+        Drupal.quicktabs.prepare(this);
+      });
+    }
+  }
     var ajax_throb = '<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>'
     $(document).ready(function () {
         /*
