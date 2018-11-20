@@ -2324,18 +2324,12 @@ ul.comment-links li {
 
 .comment-reply {
   float: right;
-}
-.comment-reply:before {
-  content: "";
-  background: url('../images/icons-sd0cd9e4276.png') 0 -107px no-repeat;
-  width: 13px;
-  height: 12px;
-  display: inline-block;
-  margin-right: 3px;
-  position: relative;
-  top: 1px;
-  margin-right: 8px;
-  top: 3px;
+  /*&:before {
+    content: "";
+    @include sprite_url_height_width($icons, comments);
+    margin-right: 8px;
+    top: 3px;
+  }*/
 }
 
 .comment-form .form-actions {
