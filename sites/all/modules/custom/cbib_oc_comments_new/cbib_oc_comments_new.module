@@ -96,7 +96,7 @@ function cbib_oc_comments_new_node_view_alter(&$build)
                 unset($build['comments']['comment_form']);
         }
         $html_reply = '<div class="oc-comments-new-reply-btn"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
-        $html_edit = '<div class="oc-comments-new-edit-btn"><span class=""><i class="fa fa-pencil" aria-hidden="true"></i>Rediger</span></div>';
+        $html_edit = '<div class="oc-comments-new-edit-btn"><span class=""><i class="fa fa-pencil" aria-hidden="true"></i>Ret</span></div>';
         $html_slet = '<div class="oc-comments-new-delete-btn"><span class=""><i class="fa fa-trash" aria-hidden="true"></i>Slet</span></div>';
         if(!user_is_anonymous())
         {
@@ -116,9 +116,22 @@ function cbib_oc_comments_new_node_view_alter(&$build)
     
 }
 function  cbib_oc_comments_new_comment_view_alter(&$build, $view_mode) {
+
+    
+    $build['links']['comment']['#links']['comment-edit']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Ret</span></div>';
+    $build['links']['comment']['#links']['comment-edit']['html'] = 'true';
+    if(isset($build['links']['comment']['#links']['comment-delete']))
+    {
+        $build['links']['comment']['#links']['comment-delete']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Slet</span></div>';
+        $build['links']['comment']['#links']['comment-delete']['html'] = 'true';
+    }
     $build['links']['comment']['#links']['comment-reply']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
     $build['links']['comment']['#links']['comment-reply']['html'] = 'true';
     
-    $build['links']['comment']['#links']['comment-edit']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Edit</span></div>';
-    $build['links']['comment']['#links']['comment-edit']['html'] = 'true';
+    $build['links']['comment']['#links'] = array_reverse($build['links']['comment']['#links'],TRUE);
+    if ($build['#comment']->depth >= 1)
+    {
+        //we still need the link
+        $build['links']['comment']['#links']['comment-reply']['title'] = '<div class="action-item-small action-item-inline js-hide"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
+    }
 }

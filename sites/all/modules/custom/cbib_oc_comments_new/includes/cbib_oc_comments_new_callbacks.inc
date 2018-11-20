@@ -176,6 +176,7 @@ function cbib_oc_comments_new_post_add($form, &$form_state) {
         $tabs = array_merge($tabs,cbib_oc_comments_get_single_license_pr_quicktab_tab_def());
         
         $html = drupal_render(cbib_oc_license_pr_bw_generate_group_widget(node_load($form_state['group_id']),$tabs));
+        $js = drupal_add_js();
         $commands[] = ajax_command_replace('#quicktabs-cbib_oc_license_pr_bw', $html);
     }
      elseif(cbib_oc_comments_is_single_license_page())

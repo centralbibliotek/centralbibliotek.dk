@@ -1,16 +1,17 @@
 (function ($) {
-    Drupal.behaviors.quicktabs = {
+    var old_edit_text;
+    var old_edit_link_text;
+    Drupal.behaviors.quicktabs_oc = {
     attach: function (context, settings) {
         /*
          * The original one fails to bind when using ajax
          */
-        debugger;
       $('.quicktabs-wrapper').once(function(){
-          debugger;
         Drupal.quicktabs.prepare(this);
       });
     }
   }
+ 
     var ajax_throb = '<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>'
     $(document).ready(function () {
         /*
@@ -123,6 +124,10 @@
 
             var text = body_elem.text();
             var title = title_elem.find('a').text();
+            
+            old_edit_text = text;
+            old_edit_link_text = title;
+            
             title_elem.empty();
             body_elem.empty();
 
@@ -183,6 +188,7 @@
 
             if (confirm('Er du sikker på du vil slette denne post og alle dens kommentare ?')) {
                 // Save it!
+                debugger;
                 var elem = $(e.currentTarget);
                 var nid = elem.parent().parent().parent().parent().parent().find('#cbib-oc-comments-new-nid').val();
                 elem.attr('id', 'js-load-save_delete-ajax-' + nid);
@@ -210,6 +216,10 @@
 
             var text = body_elem.text();
             var title = title_elem.find('a').text();
+            
+            old_edit_text = text;
+            old_edit_link_text = title;
+            
             title_elem.empty();
             body_elem.empty();
 
@@ -296,7 +306,7 @@
                 return false;
             }
         });
-        $('body').on('click','.oc-comments-new-cancel-comment-wrap',function RestoreCommentEdit(e)
+        $('body').on('click','.oc-comments-new-cancel-comment-wrap',function(e)
         {
             debugger;
             var comment_elem = $(e.currentTarget).parent().parent();
@@ -313,24 +323,9 @@
             
             var body_edit = $('.oc-comments-edit-area');
             var title_edit = $('.oc-comments-edit-area-title');
-            var bodyval = "";
-            var titleval = "";
-            if(body_edit.val() == undefined)
-            {
-                bodyval = body_edit.text();
-            }
-            else
-            {
-                bodyval = body_edit.val();
-            }
-            if(title_edit.val() == undefined)
-            {
-                titleval = title_edit.text();
-            }
-            else
-            {
-                titleval = title_edit.val();
-            }
+            var bodyval = old_edit_text;
+            var titleval = old_edit_link_text;
+
             body_edit.replaceWith($('<span></span>').text(bodyval));
             var titleobj = $('<a></a>').attr('href',"/comment/" + pid).text(titleval);
             title_edit.replaceWith(titleobj);
@@ -351,24 +346,9 @@
             
             var body_edit = $('.oc-comments-edit-area');
             var title_edit = $('.oc-comments-edit-area-title');
-            var bodyval = "";
-            var titleval = "";
-            if(body_edit.val() == undefined)
-            {
-                bodyval = body_edit.text();
-            }
-            else
-            {
-                bodyval = body_edit.val();
-            }
-            if(title_edit.val() == undefined)
-            {
-                titleval = title_edit.text();
-            }
-            else
-            {
-                titleval = title_edit.val();
-            }
+            
+            var bodyval = old_edit_text;
+            var titleval = old_edit_link_text;
             body_edit.replaceWith($('<span></span>').text(bodyval));
             var titleobj = $('<a></a>').attr('href',"/node/" + nid).text(titleval);
             title_edit.replaceWith(titleobj);
