@@ -86,28 +86,7 @@
                 elem.click();
                 elem.unbind('click');
                 delete Drupal.ajax['js-load-new-form-ajax-' + nid];
-                
-                /*elem.parent().parent().parent().parent().find('.oc-comments-new-reply-btn').parent().parent().append($(ajax_throb));
-                $('.comment-form').remove();
-                var nid = elem.parent().parent().parent().parent().parent();
-                var nid = nid.find('#cbib-oc-comments-new-nid');
-                $.ajax({
-                    method: "GET",
-                    url: "/cbib/oc/comments/ajax/getform/" + nid.val(),
-                })
-                        .done(function (msg) {
-                            elem.parent().parent().parent().parent().find('.ajax-progress').remove();
-                            var data = msg;
 
-                            elem.parent().parent().parent().parent().append(data.html);
-                            $.extend(Drupal.settings, data.settings)
-                            debugger;
-                            //$('.oc-comments-new-reply-btn').click();
-                            Drupal.attachBehaviors('#document');
-                            Drupal.attachBehaviors('#cbib-oc-comments-save-comment-btn'); //messes with the jump menu.
-                           
-                           
-                        });*/
             } else
             {
                 Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent().parent().parent().parent(), elem.id, 'unload');
@@ -465,7 +444,7 @@
             return false;
         });
         //restore post edit
-        $('body').on('click','.oc-comments-new-cancel-wrap',function RestoreCommentEdit(e)
+        $('body').on('click','.oc-comments-new-cancel-wrap',function (e)
         {
             var post_elem = $(e.currentTarget).parent().parent().parent().parent();          
             
@@ -489,8 +468,17 @@
             title_edit.replaceWith(titleobj);
             return false;
         });
-        
+        $('body').on('click','.oc_comment_new_cancel_post',function (e)
+        {
+            debugger;
+            var post_elem = jQuery(this).parent().parent();
+            var text_elem = post_elem.find('.wysiwyg')
+            Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            post_elem.remove();  
+            return false;
+        });
     })
+    
 })(jQuery);
 
 
