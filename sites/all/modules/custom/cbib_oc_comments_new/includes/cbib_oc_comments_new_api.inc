@@ -91,3 +91,7 @@ function cbib_oc_comments_get_restore_quicktabs_command()
 {
     
 }
+function cbib_oc_comments_new_is_full_node_view()
+{
+    
+}

@@ -2,16 +2,38 @@
 /*
  * Get full txt for viewing + read less link
  */
-function cbib_oc_comments_read_more()
+function cbib_oc_comments_new_read_more($nid)
 {
+    $node = node_load($nid);
+    $html = $node->body['und'][0]['value'];
     
+    $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+    $views = cbib_oc_comments_get_view_classes();
+    foreach($views as $view_class)
+    {
+        $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .field-name-body",$html);
+        $btn = '<a href="" class="node-readless-link" >Læs mindre</a>';
+        $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .node-readmore-link",$btn);
+    }
+    return array('#type' => 'ajax', '#commands' => $commands);
 }
 /*
  * Get teaser text for viewing + read more link
  */
-function cbib_oc_comments_read_less()
+function cbib_oc_comments_new_read_less($nid)
 {
-    
+    $node = node_load($nid);
+    $html = render(field_view_field('node', $node, 'body','teaser'));
+    $html = $html;
+    $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+    $views = cbib_oc_comments_get_view_classes();
+    foreach($views as $view_class)
+    {
+        $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .field-name-body",$html);
+        $btn = '<a href="" class="node-readless-link" >Læs mere</a>';
+        $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .node-readmore-link",$btn);
+    }
+    return array('#type' => 'ajax', '#commands' => $commands);
 }
 /*
  * Delete comment callback
@@ -81,11 +103,15 @@ function cbib_oc_comments_new_post_remove($nid) {
 function cbib_oc_comments_post_update($nid) {
     //get the post
     $node = node_load($nid);
-    $node->body['und'][0]['value'] = check_plain($_POST['UpdatedText']);
-    $node->body['und'][0]['safe_value'] = _text_sanitize($_POST['UpdatedText']);
+    $node->body['und'][0]['value'] = $_POST['UpdatedText'];
+    $node->body['und'][0]['safe_value'] = $_POST['UpdatedText'];
     $node->title = $_POST['UpdatedTitle'] != null ? check_plain($_POST['UpdatedTitle']) : "Ingen titel";
     node_save($node);
 
+    $html = render(field_view_field('node', $node, 'body', array(
+  'label'=>'hidden')));
+    //$html = htmlspecialchars_decode(strip_tags($html));
+    
     $selector_save_btn = ".oc-comments-new-save-wrap";
     $selector_edit_btn = ".oc-comments-new-edit-wrap";
     $selector_reply_btn = ".oc-comments-new-reply-wrap";
@@ -99,7 +125,7 @@ function cbib_oc_comments_post_update($nid) {
 
 
     $commands[] = ajax_command_replace('.oc-comments-edit-area-title', '<a href="/' . drupal_get_path_alias("node/" . $node->nid) . '" >' . $_POST['UpdatedTitle'] . "</a>");
-    $commands[] = ajax_command_replace('.oc-comments-edit-area', $_POST['UpdatedText']);
+    $commands[] = ajax_command_replace('.oc-comments-edit-area', $html);
 
     return array('#type' => 'ajax', '#commands' => $commands);
 }
@@ -109,8 +135,8 @@ function cbib_oc_comments_post_update($nid) {
 function cbib_oc_comments_comment_update($cid) {
     $comment = comment_load($cid);
     $comment->subject = check_plain($_POST['UpdatedTitle']);
-    $comment->comment_body['und'][0]['value'] = check_plain($_POST['UpdatedText']);
-    $comment->comment_body['und'][0]['safe_value'] = _text_sanitize($_POST['UpdatedText']);
+    $comment->comment_body['und'][0]['value'] = $_POST['UpdatedText'];
+    $comment->comment_body['und'][0]['safe_value'] = $_POST['UpdatedText'];
     comment_save($comment);
 
 
@@ -290,7 +316,8 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     $form_state['build_info']['files']['menu'] = array();
     //$form_state['triggering_element']['#ajax']['callback'] = 'cbib-oc-comments-save-comment-btn';
     $form = drupal_build_form($form_id, $form_state);
-    $form['#cache'] = TRUE;
+    
+    //$form['#cache'] = TRUE;
     $form['Save']['Save_knap'] = array(
         '#type' => 'button',
         '#id' => 'cbib-oc-comments-save-comment-btn',
@@ -310,13 +337,31 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     uasort($form, 'element_sort');
     $form['Save']['Save_knap'] = ajax_pre_render_element($form['Save']['Save_knap']);
     unset($form['actions']);
-    unset($form['comment_body']['und'][0]['format']);
+    //unset($form['comment_body']['und'][0]['format']);
+    $form['comment_body']['und'][0]['format']['#access'] = FALSE;
+    
     unset($form['author']);
     unset($form['actions']['preview']);
     form_set_cache($form['#build_id'], $form, $form_state);
-    $output_html = render($form);
-    $js = drupal_add_js();
-    //$commands[] = ajax_command_replace(NULL, theme('status_messages'));
-    $settings = call_user_func_array('array_merge_recursive', $js['settings']['data']);
-    return array('html' => $output_html, 'settings' => $settings);
+    //$test = $form['comment_body']['und'][0]['#pre_render'];
+    $form_render = render($form);
+    
+    $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+    $views = cbib_oc_comments_get_view_classes();
+    if($pid == null)
+    {
+        foreach($views as $view_class)
+        {
+            $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
+            //$commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
+        }
+        //selector for full node view.
+        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " .links" ,$form_render );
+    }
+    else
+    {
+            $commands[] = ajax_command_append('.cbib-oc-comment-single-ajax-wrap-' . $pid ." .links",$form_render  ); //remove form on success.
+    }
+    
+    return array('#type' => 'ajax', '#commands' => $commands);
 }

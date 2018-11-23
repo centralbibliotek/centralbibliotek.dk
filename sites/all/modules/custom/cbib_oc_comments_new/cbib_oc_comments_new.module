@@ -55,13 +55,28 @@ function cbib_oc_comments_new_menu() {
   );
   $items['cbib/oc/comments/ajax/getform/%'] = array(
     'page callback' => 'cbib_oc_comments_render_comment_form',
-    'delivery callback' => 'drupal_json_output',
+    'delivery callback' => 'ajax_deliver',
     'page arguments' => array(5),
     'access arguments' => array('access content'),
     'theme callback' => 'ajax_base_page_theme',
     'type' => MENU_CALLBACK,
   );
-
+  $items['cbib/oc/comments/ajax/readmore/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_read_more',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/readless/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_read_less',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
   return $items;
 }
 
@@ -74,6 +89,13 @@ function cbib_oc_comments_new_form_alter(&$form, &$form_state, $form_id) {
             'callback' => 'cbib_oc_comments_new_post_add',
             'effect' => 'fade',
         );
+         $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_btn'));
+         //unset($form['body']['und']);
+         //$form['body']['und'][0]['#type'] = "text_format";
+         $form['body']['und'][0]['#format'] = 'comments';
+         //$form['body']['und'][0]['#title'] = 'Body';
+         //$form['body']['und'][0]['#name'] = 'body[und][0]';
+          
         unset($form['#submit']);
     }
 }
@@ -90,6 +112,39 @@ function cbib_oc_comments_new_node_view_alter(&$build)
         drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
         if(isset($build['comments']['comments']))
         {
+                $format = 'comments';
+                $profile = wysiwyg_get_profile('comments');
+              $settings[$format] = array(
+                'editor' => 'none',
+                'status' => 1,
+                'toggle' => 1,
+              );
+              $loaded = TRUE;
+              if (isset($profile->preferences['add_to_summaries']) && !$profile->preferences['add_to_summaries']) {
+                $settings[$format]['skip_summary'] = 1;
+              }
+              $settings[$format]['editor'] = $profile->editor;
+              $settings[$format]['status'] = (int) wysiwyg_user_get_status($profile);
+              if (isset($profile->preferences['show_toggle'])) {
+                $settings[$format]['toggle'] = (int) $profile->preferences['show_toggle'];
+              }
+              // Check editor theme (and reset it if not/no longer available).
+              $theme = wysiwyg_get_editor_themes($profile, (isset($profile->settings['theme']) ? $profile->settings['theme'] : ''));
+
+              // Add plugin settings (first) for this text format.
+              wysiwyg_add_plugin_settings($profile);
+              // Add profile settings for this text format.
+              wysiwyg_add_editor_settings($profile, $theme);
+               $build['#attached']['js'][] = array(
+                'data' => array(
+                  'wysiwyg' => array(
+                    'triggers' => array(
+                    ),
+                  ),
+                ),
+                'type' => 'setting',
+              ); 
+             
                 $build['comments']['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-'.$build['#node']->nid.'"><div>';
                 $build['comments']['#suffix'] = '</div></div>';
                 cbib_oc_comments_add_wrappers($build['comments']['comments']);
