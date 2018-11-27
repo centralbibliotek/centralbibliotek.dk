@@ -675,25 +675,6 @@ function cbib_oc_hooks_views_pre_render(&$view)
          }
     }
 
-if ($view->name == "search_api_group") {
-    foreach ($view->result as $index => $data) {
-        $group = node_load($data->entity);
-        if ($group->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $data->entity, 'user')) {
-            unset($view->result[$index]);
-            drupal_set_message($message = 'Nogle resultater er skjulte, da indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
-        }
-    }
-}
-elseif ($view->name == "search_api_nodes") {
-    foreach ($view->result as $index => $data) {
-        $entityid = substr($data->entity, strpos($data->entity, '/') + 1);
-        $group = node_load($entityid);
-        if ($group->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $data->entity, 'user')) {
-            unset($view->result[$index]);
-            drupal_set_message($message = 'Nogle resultater er skjulte, da indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
-        }
-    }
-}
     if($view->name == "centralbibliotek_license" && $view->current_display == "panel_pane_6")
     {
         $content = array();
@@ -927,6 +908,13 @@ function cbib_oc_hooks_get_all_event_locations()
 function cbib_oc_hooks_preprocess_page(&$variables, $hook)
 {
 
+    if ($variables['node']->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $variables['node']->nid, 'user')) {
+        drupal_set_message($message = 'Indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
+        drupal_access_denied();
+    	module_invoke_all('exit');
+	drupal_exit();    
+    }
+    
     $to_be_removed = array('node/%/clone/%');
     $path = drupal_get_path_alias();
     $path_parts = explode('/', $path);
