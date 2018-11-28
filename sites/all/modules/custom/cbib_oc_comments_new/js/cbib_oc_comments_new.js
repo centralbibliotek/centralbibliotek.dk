@@ -489,11 +489,11 @@
             text_area.val(ck_text);
         })
         $('body').on('click','#oc-new-comment-new-post-btn',function(){
-            $('#commons-bw-partial-node-form-post').removeClass('js-hide');
+            $('form[id^=commons-bw-partial-node-form-post]').removeClass('js-hide');
             $(this).addClass('js-hide');
         });
          $('body').on('click','.hide-new-post-form',function(){
-            $('#commons-bw-partial-node-form-post').addClass('js-hide');
+            $('form[id^=commons-bw-partial-node-form-post]').addClass('js-hide');
             $('#oc-new-comment-new-post-btn').removeClass('js-hide');
         });
         
