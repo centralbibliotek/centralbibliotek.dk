@@ -363,11 +363,11 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     {
         foreach($views as $view_class)
         {
-            $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
+            $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . "  .links" ,$form_render ); //remove form on success.
             //$commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
         }
         //selector for full node view.
-        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " .links" ,$form_render );
+        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " nav .links" ,$form_render );
     }
     else
     {
