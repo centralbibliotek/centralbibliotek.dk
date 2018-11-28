@@ -27,7 +27,15 @@ function cbib_oc_license_pr_bw_form_alter(&$form, &$form_state, $form_id) {
             if($main_node == null)
             {
                 //attempt to handle ajax.
-                $main_node = node_load($form_state["group_id"]);
+                if(isset($form_state["group_id"]))
+                {
+                    $main_node = node_load($form_state["group_id"]);
+                }
+                else
+                {
+                    $main_node = node_load($form_state['view']->args[0]);
+                }
+                
             }
 
             $form['og_group_ref_target_id']['#default_value'] = $main_node->nid;
