@@ -416,6 +416,9 @@
                 return false;
             }
         });
+        /*
+         * Abort edit comment
+         */
         $('body').on('click','.oc-comments-new-cancel-comment-wrap',function(e)
         {
             debugger;
@@ -468,6 +471,7 @@
             title_edit.replaceWith(titleobj);
             return false;
         });
+        //abort new comment post.
         $('body').on('click','.oc_comment_new_cancel_post',function (e)
         {
             debugger;
@@ -477,6 +481,24 @@
             post_elem.remove();  
             return false;
         });
+        //Make sure data is pushed to form on submit for comment reply.
+        $('body').on('submit','.comment-form',function(e){
+            var post_elem = $(e.currentTarget).parent().parent();
+            var text_area = post_elem.find('textarea'); //find the raw text area.
+            var ck_text = "";
+            text_area.val(ck_text);
+        })
+        $('body').on('click','#oc-new-comment-new-post-btn',function(){
+            $('#commons-bw-partial-node-form-post').removeClass('js-hide');
+            $(this).addClass('js-hide');
+        });
+         $('body').on('click','.hide-new-post-form',function(){
+            $('#commons-bw-partial-node-form-post').addClass('js-hide');
+            $('#oc-new-comment-new-post-btn').removeClass('js-hide');
+        });
+        
+        
+        
     })
     
 })(jQuery);

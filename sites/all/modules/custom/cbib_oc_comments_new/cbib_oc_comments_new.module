@@ -85,11 +85,19 @@ function cbib_oc_comments_new_menu() {
 function cbib_oc_comments_new_form_alter(&$form, &$form_state, $form_id) {
     if($form_id == "commons_bw_partial_node_form__post")
     {
-        $form['actions']['submit']['#ajax'] = array(
+        $form['#prefix'] = "<input id='oc-new-comment-new-post-btn' type='submit' value='Skriv en ny Kommentar' class='action-item-primary' />" . $form['#prefix'];
+        $form['#attributes']['class'][] = 'js-hide';
+        $form['close']['#markup'] = '<div title="Skjul nyt indlæg" class="hide-new-post-form" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></div>';
+        $form['close']['#weight'] = -1000; 
+         
+         $form['actions']['submit']['#ajax'] = array(
             'callback' => 'cbib_oc_comments_new_post_add',
             'effect' => 'fade',
         );
+         $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_cancel_btn'));
+         
          $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_btn'));
+         $form['actions']['submit']['#weigth'] = 2;
          //unset($form['body']['und']);
          //$form['body']['und'][0]['#type'] = "text_format";
          $form['body']['und'][0]['#format'] = 'comments';

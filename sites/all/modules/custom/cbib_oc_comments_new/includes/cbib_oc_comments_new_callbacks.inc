@@ -327,7 +327,7 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     $form_state['build_info']['files']['menu'] = array();
     //$form_state['triggering_element']['#ajax']['callback'] = 'cbib-oc-comments-save-comment-btn';
     $form = drupal_build_form($form_id, $form_state);
-    
+    $form['comment_body']['und'][0]['#id'] = "tester-und-0";
     //$form['#cache'] = TRUE;
     $form['Save']['Save_knap'] = array(
         '#type' => 'button',
