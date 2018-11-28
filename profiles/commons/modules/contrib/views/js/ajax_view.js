@@ -23,9 +23,13 @@ Drupal.views.instances = {};
  * Javascript object for a certain view.
  */
 Drupal.views.ajaxView = function(settings) {
+  
   var selector = '.view-dom-id-' + settings.view_dom_id;
   this.$view = $(selector);
-
+  if(this.$view.length == 0)
+  {
+      return;
+  }
   // Retrieve the path to use for views' ajax.
   var ajax_path = Drupal.settings.views.ajax_path;
 
@@ -139,8 +143,11 @@ Drupal.ajax.prototype.commands.viewsScrollTop = function (ajax, response, status
     scrollTarget = $(scrollTarget).parent();
   }
   // Only scroll upward
-  if (offset.top - 10 < $(scrollTarget).scrollTop()) {
-    $(scrollTarget).animate({scrollTop: (offset.top - 10)}, 500);
+  if($(scrollTarget).length != 0)
+  {
+    if (offset.top - 10 < $(scrollTarget).scrollTop()) {
+      $(scrollTarget).animate({scrollTop: (offset.top - 10)}, 500);
+    }
   }
 };
 
