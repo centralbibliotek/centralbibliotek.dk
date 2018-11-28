@@ -8,3 +8,4 @@ project = cbib_oc_comments_new
 dependencies[] = features
 dependencies[] = quicktabs
 dependencies[] = quicktabs_tabstyles
+dependencies[] = sort_comments
