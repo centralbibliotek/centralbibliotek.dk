@@ -100,7 +100,7 @@ function detectIE() {
         /*
          * unbind login_spinner;
          */
-         $('.comment-delete a').unbind('click');
+        $('.comment-delete a').unbind('click');
         $('.comment-reply a ').unbind('click');
         $('.comment-edit a').unbind('click');
         $('.node-readmore-link').unbind('click');
