@@ -422,6 +422,7 @@
         $('body').on('click','.oc-comments-new-cancel-comment-wrap',function(e)
         {
             debugger;
+            $('#messages').remove();
             var comment_elem = $(e.currentTarget).parent().parent();
             comment_elem.find('.links').find('.comment-edit').show();
             comment_elem.find('.links').find('.comment-reply ').show();
@@ -449,6 +450,7 @@
         //restore post edit
         $('body').on('click','.oc-comments-new-cancel-wrap',function (e)
         {
+            $('#messages').remove();
             var post_elem = $(e.currentTarget).parent().parent().parent().parent();          
             
             post_elem.find('.links').find('.oc-comments-new-edit-wrap').show();
@@ -475,6 +477,7 @@
         $('body').on('click','.oc_comment_new_cancel_post',function (e)
         {
             debugger;
+            $('#messages').remove();
             var post_elem = jQuery(this).parent().parent();
             var text_elem = post_elem.find('.wysiwyg')
             Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
