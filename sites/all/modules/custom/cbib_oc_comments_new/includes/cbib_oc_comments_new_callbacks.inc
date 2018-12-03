@@ -277,6 +277,7 @@ function cbib_oc_comments_new_comment_add($form, &$form_state) {
         $comment->subject = $form_state['input']['subject']; //this is broken for some reason. body is filled fine.
         comment_save($comment);
         //Get all comments for the node.
+        $form['#node']->comment_count += 1;
         $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
 

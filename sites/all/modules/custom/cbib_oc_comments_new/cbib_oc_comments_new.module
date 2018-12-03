@@ -119,7 +119,8 @@ function cbib_oc_comments_new_node_view_alter(&$build)
         
         drupal_add_library('system', 'drupal.ajax');
         drupal_add_library('system', 'jquery.form');
-
+        drupal_add_js(drupal_get_path('module', 'cbib_oc_comments_new') . '/js/cbib_oc_comments_new.js');
+        drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
         if(isset($build['comments']['comments']))
         {
                 $format = 'comments';
@@ -182,7 +183,7 @@ function cbib_oc_comments_new_node_view_alter(&$build)
 }
 function  cbib_oc_comments_new_comment_view_alter(&$build, $view_mode) {
 
-    
+    global $user;
     $build['links']['comment']['#links']['comment-edit']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Ret</span></div>';
     $build['links']['comment']['#links']['comment-edit']['html'] = 'true';
     if(isset($build['links']['comment']['#links']['comment-delete']))
