@@ -165,6 +165,10 @@ function cbib_oc_comments_comment_update($cid) {
  * Create new post callback
  */
 function cbib_oc_comments_new_post_add($form, &$form_state) {
+    /*
+     * missing: error handling.
+     */
+    
     $node = $form['#entity'];
     node_submit($node);
     // Mark the node as created with the partial form

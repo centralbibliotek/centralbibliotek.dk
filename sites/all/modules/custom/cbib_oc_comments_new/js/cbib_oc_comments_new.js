@@ -489,6 +489,7 @@
             text_area.val(ck_text);
         })
         $('body').on('click','#oc-new-comment-new-post-btn',function(){
+            debugger;
             $('form[id^=commons-bw-partial-node-form-post]').removeClass('js-hide');
             $(this).addClass('js-hide');
         });
