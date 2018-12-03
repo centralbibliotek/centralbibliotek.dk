@@ -1153,3 +1153,14 @@ function cbib_oc_hooks_og_user_access_alter(&$perm, $context) {
       }
       }
   }
+/*
+ * Node clone alter
+ */
+function cbib_oc_hooks_clone_node_alter($node,$context)
+{
+    if($node->type == "event")
+    {
+        //fixup a setting.
+        $node->field_registration['und'][0]['registration_type'] = "event";		
+    }
+}
