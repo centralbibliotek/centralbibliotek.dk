@@ -307,23 +307,22 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
     }
     if($form_id == "event_node_form")
     {
-    // If we're checking out, hide the extra address field to streamline user experience
-    // We grab the total number of addresses added
-    $last_address= $form['field_address']['und']['#max_delta'];
-    // We check if the last address is in Afghanistan. If it is, we delete it.
-    $run_before = true;
+// If we're checking out, hide the extra address field to streamline user experience
+// We grab the total number of addresses added
+// We check if the last address is in Afghanistan. If it is, we delete it.
+if ($form['field_address'][LANGUAGE_NONE]['add_more']['#ajax']['wrapper'] === 'field-address-add-more-wrapper') {
+    $last_address = $form['field_address'][LANGUAGE_NONE]['#max_delta'];
     for ($x = 0; $x <= $last_address; $x++) {
-        $country = $form['field_address']['und'][$x]['#address']['country'];
-        $locality = $form['field_address']['und'][$x]['#address']['locality'];
-        $postal_code = $form['field_address']['und'][$x]['#address']['postal_code'];
-    if ($country == "" || $country == "DK" && empty($locality) && empty($postal_code)) {
-       $run_before = false;
-       unset($form['field_address']['und'][$x]);
-       // Make sure the site knows there is one less addresse as well
-       $form['field_address']['und']['#max_delta'] = $last_address - 1;
+        $country = $form['field_address'][LANGUAGE_NONE][$x]['#address']['country'];
+        $locality = $form['field_address'][LANGUAGE_NONE][$x]['#address']['locality'];
+        $postal_code = $form['field_address'][LANGUAGE_NONE][$x]['#address']['postal_code'];
+        if ($country == "" || $country == "DK" && empty($locality) && empty($postal_code)) {
+            unset($form['field_address'][LANGUAGE_NONE][$x]);
+            // Make sure the site knows there is one less addresse as well
+            $form['field_address'][LANGUAGE_NONE]['#max_delta'] = $last_address - 1;
         }
-        if(!$run_before) break;
-    }   
+    }
+}
         //drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') .'/js/end-date.js',array('weight' => 999));
         /*
          * JS to create live preview of summary.
