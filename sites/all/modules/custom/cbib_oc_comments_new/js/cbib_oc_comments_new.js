@@ -20,7 +20,7 @@
         $('body').on('click','.node-readmore-link',function(e){
             debugger;
             var elem = $(e.currentTarget);
-            var nid = elem.parent().parent().parent().parent().parent();
+            var nid = elem.parent().parent().parent();
             var nid = nid.find('#cbib-oc-comments-new-nid').val();
               elem.attr('id', 'js-load-comments-readmore-ajax-' + nid);
                 var element_settings = {
@@ -45,7 +45,7 @@
          $('body').on('click','.node-readless-link',function(e){
             debugger;
             var elem = $(e.currentTarget);
-            var nid = elem.parent().parent().parent().parent().parent();
+            var nid = elem.parent().parent().parent();
             var nid = nid.find('#cbib-oc-comments-new-nid').val();
                elem.attr('id', 'js-load-comments-readmore-ajax-' + nid);
                 var element_settings = {

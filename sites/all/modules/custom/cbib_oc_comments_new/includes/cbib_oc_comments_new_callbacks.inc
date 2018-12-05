@@ -6,7 +6,7 @@ function cbib_oc_comments_new_read_more($nid)
 {
     $node = node_load($nid);
     $html = $node->body['und'][0]['value'];
-    
+    $html = render(field_view_field('node', $node, 'body','full'));
     $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
     $views = cbib_oc_comments_get_view_classes();
     foreach($views as $view_class)
