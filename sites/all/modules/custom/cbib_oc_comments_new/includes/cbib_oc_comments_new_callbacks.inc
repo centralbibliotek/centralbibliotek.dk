@@ -30,7 +30,7 @@ function cbib_oc_comments_new_read_less($nid)
     foreach($views as $view_class)
     {
         $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .field-name-body",$html);
-        $btn = '<a href="" class="node-readless-link" >Læs mere</a>';
+        $btn = '<a href="" class="node-readmore-link" >Læs mere</a>';
         $commands[] = ajax_command_replace($active_tab_select.$view_class.' .view-content .views-row > #node-' . $node->nid . " .node-readless-link",$btn);
     }
     return array('#type' => 'ajax', '#commands' => $commands);
