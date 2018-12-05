@@ -129,7 +129,7 @@
          * comment reply form
          */
         $('body').on('click', '.comment-reply', function () {
-            
+            $('.oc_comment_new_cancel_post').click();
             var elem = $(this);
             var urlparts = elem.find('a').attr('href').split("/");
             var nid = urlparts[3];
@@ -182,6 +182,7 @@
         $('body').on('click', '.oc-comments-new-edit-btn', function (e) {
             debugger;
             $('.oc-comments-new-cancel-wrap').click();
+            $('.oc_comment_new_cancel_post').click();
             var comment_elem = $(e.currentTarget).parent().parent().parent().parent().parent();
             var body_elem = comment_elem.find(".field-name-body").find('.field-item');
             var title_elem = $(comment_elem.find('.node-title'));
@@ -217,8 +218,8 @@
                     comment_elem.find('.links').find('.oc-comments-new-reply-wrap').hide();
                     comment_elem.find('.links').find('.oc-comments-new-edit-wrap').hide();
                     comment_elem.find('.links').find('.oc-comments-new-delete-wrap').hide();
-                    comment_elem.find('.links').append('<li class="oc-comments-new-save-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
-                    comment_elem.find('.links').append('<li class="oc-comments-new-cancel-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-cancel-btn">Fortryd</div></span></li>');
+                    comment_elem.find('.links').prepend('<li class="oc-comments-new-cancel-wrap" style="width:81%"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-cancel-btn">Fortryd</div></span></li>');
+                    comment_elem.find('.links').prepend('<li class="oc-comments-new-save-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
                     debugger;
                     Drupal.settings.wysiwyg.triggers['text-edit-'+nid] = {
                         activeFormat: "comments",
@@ -236,7 +237,6 @@
          * Save post updates.
          */
         $('body').on('click', '.oc-comments-new-save-wrap', function (e) {
-            debugger;
             //get text and submit to backend.
             var elem = $(e.currentTarget);
             var text_area = elem.parent().parent().parent().parent().find('.oc-comments-edit-area');
@@ -275,8 +275,6 @@
          * Delete post
          */
         $('body').on('click', '.oc-comments-new-delete-btn', function (e) {
-
-
             if (confirm('Er du sikker på du vil slette denne post og alle dens kommentare ?')) {
                 // Save it!
                 debugger;
@@ -301,6 +299,7 @@
          */
         $('body').on('click', '.comment-edit', function (e) {
             $('.oc-comments-new-cancel-comment-wrap').click();
+            $('.oc_comment_new_cancel_post').click();
             var comment_elem = $(e.currentTarget).parent().parent();
             var body_elem = comment_elem.find(".field-name-comment-body").find('.field-item');
             var title_elem = $(comment_elem.find('.comment-title'));
@@ -343,8 +342,8 @@
             comment_elem.find('.links').find('.comment-edit').hide();
             comment_elem.find('.links').find('.comment-reply ').hide();
             comment_elem.find('.links').find('.comment-delete').hide();
+            comment_elem.find('.links').append('<li class="oc-comments-new-cancel-comment-wrap" style="width:81%;"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-cancel-btn">Fortryd</div></span></li>');
             comment_elem.find('.links').append('<li class="oc-comments-new-save-comment-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
-            comment_elem.find('.links').append('<li class="oc-comments-new-cancel-comment-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-cancel-btn">Fortryd</div></span></li>');
             return false;
         });
         
@@ -451,6 +450,7 @@
         $('body').on('click','.oc-comments-new-cancel-wrap',function (e)
         {
             $('#messages').remove();
+            
             var post_elem = $(e.currentTarget).parent().parent().parent().parent();          
             
             post_elem.find('.links').find('.oc-comments-new-edit-wrap').show();
