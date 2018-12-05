@@ -116,12 +116,12 @@ function cbib_oc_comments_new_node_view_alter(&$build)
     global $user;
     if($build['#node']->type == "post")
     {
-        
+        $page_data = page_manager_get_current_page();
         drupal_add_library('system', 'drupal.ajax');
         drupal_add_library('system', 'jquery.form');
         drupal_add_js(drupal_get_path('module', 'cbib_oc_comments_new') . '/js/cbib_oc_comments_new.js');
         drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
-        if(isset($build['comments']['comments']))
+        if(isset($build['comments']['comments']) || ($page_data != null && $page_data["name"] == "page-licens_formidling_og_pr") )
         {
                 $format = 'comments';
                 $profile = wysiwyg_get_profile('comments');
