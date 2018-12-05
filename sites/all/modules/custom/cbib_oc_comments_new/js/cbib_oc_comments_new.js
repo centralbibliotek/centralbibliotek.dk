@@ -218,7 +218,7 @@
                     comment_elem.find('.links').find('.oc-comments-new-reply-wrap').hide();
                     comment_elem.find('.links').find('.oc-comments-new-edit-wrap').hide();
                     comment_elem.find('.links').find('.oc-comments-new-delete-wrap').hide();
-                    comment_elem.find('.links').prepend('<li class="oc-comments-new-cancel-wrap" style="width:81%"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-cancel-btn">Fortryd</div></span></li>');
+                    comment_elem.find('.links').prepend('<li class="oc-comments-new-cancel-wrap" style="width:79%"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-cancel-btn">Fortryd</div></span></li>');
                     comment_elem.find('.links').prepend('<li class="oc-comments-new-save-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
                     debugger;
                     Drupal.settings.wysiwyg.triggers['text-edit-'+nid] = {
@@ -342,7 +342,7 @@
             comment_elem.find('.links').find('.comment-edit').hide();
             comment_elem.find('.links').find('.comment-reply ').hide();
             comment_elem.find('.links').find('.comment-delete').hide();
-            comment_elem.find('.links').append('<li class="oc-comments-new-cancel-comment-wrap" style="width:81%;"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-cancel-btn">Fortryd</div></span></li>');
+            comment_elem.find('.links').append('<li class="oc-comments-new-cancel-comment-wrap" style="width:78%;"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-cancel-btn">Fortryd</div></span></li>');
             comment_elem.find('.links').append('<li class="oc-comments-new-save-comment-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
             return false;
         });
