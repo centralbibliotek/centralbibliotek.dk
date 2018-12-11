@@ -18,7 +18,6 @@
          * Read More
          */
         $('body').on('click','.node-readmore-link',function(e){
-            debugger;
             var elem = $(e.currentTarget);
             var nid = elem.parent().parent().parent();
             var nid = nid.find('#cbib-oc-comments-new-nid').val();
@@ -43,7 +42,6 @@
          * Read Less
          */
          $('body').on('click','.node-readless-link',function(e){
-            debugger;
             var elem = $(e.currentTarget);
             var nid = elem.parent().parent().parent();
             var nid = nid.find('#cbib-oc-comments-new-nid').val();
@@ -68,7 +66,6 @@
          * Comment post form.
          */
         $('body').on('click', '.oc-comments-new-reply-btn', function (e) {
-            debugger;
             var elem = $(e.currentTarget);
             var comment_elem = elem.parent().parent().parent().parent().parent().find('.comment-form')
             if (comment_elem.length == 0)
@@ -149,26 +146,6 @@
                 elem.click();
                 elem.unbind('click');
                 delete Drupal.ajax['js-load-new-form-ajax-' + nid];
-                
-                
-                /*elem.parent().parent().find('.comment-reply').append($(ajax_throb));
-                $('.comment-form').remove();
-                $.ajax({
-                    method: "GET",
-                    url: "/cbib/oc/comments/ajax/getform/" + nid + "/" + pid,
-                })
-                        .done(function (msg) {
-                           
-                            elem.parent().parent().find('.ajax-progress').remove();
-                            var data = msg;
-
-                            elem.parent().parent().append(data.html);
-                            $.extend(Drupal.settings, data.settings)
-                            debugger;
-                            //$('.oc-comments-new-reply-btn').click();
-                            Drupal.attachBehaviors('#cbib-oc-comments-save-comment-btn');
-                             Drupal.attachBehaviors('.wysiwyg');
-                        });*/
             } else
             {
                 Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
@@ -180,7 +157,6 @@
          * Edit post body
          */
         $('body').on('click', '.oc-comments-new-edit-btn', function (e) {
-            debugger;
             $('.oc-comments-new-cancel-wrap').click();
             $('.oc_comment_new_cancel_post').click();
             var comment_elem = $(e.currentTarget).parent().parent().parent().parent().parent();
@@ -220,7 +196,6 @@
                     comment_elem.find('.links').find('.oc-comments-new-delete-wrap').hide();
                     comment_elem.find('.links').prepend('<li class="oc-comments-new-cancel-wrap" style="width:79%"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-cancel-btn">Fortryd</div></span></li>');
                     comment_elem.find('.links').prepend('<li class="oc-comments-new-save-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
-                    debugger;
                     Drupal.settings.wysiwyg.triggers['text-edit-'+nid] = {
                         activeFormat: "comments",
                         field: 'text-edit-'+nid,
@@ -277,7 +252,6 @@
         $('body').on('click', '.oc-comments-new-delete-btn', function (e) {
             if (confirm('Er du sikker på du vil slette denne post og alle dens kommentare ?')) {
                 // Save it!
-                debugger;
                 var elem = $(e.currentTarget);
                 var nid = elem.parent().parent().parent().parent().parent().find('#cbib-oc-comments-new-nid').val();
                 elem.attr('id', 'js-load-save_delete-ajax-' + nid);
@@ -420,7 +394,6 @@
          */
         $('body').on('click','.oc-comments-new-cancel-comment-wrap',function(e)
         {
-            debugger;
             $('#messages').remove();
             var comment_elem = $(e.currentTarget).parent().parent();
             comment_elem.find('.links').find('.comment-edit').show();
@@ -476,7 +449,6 @@
         //abort new comment post.
         $('body').on('click','.oc_comment_new_cancel_post',function (e)
         {
-            debugger;
             $('#messages').remove();
             var post_elem = jQuery(this).parent().parent();
             var text_elem = post_elem.find('.wysiwyg')
@@ -492,7 +464,6 @@
             text_area.val(ck_text);
         })
         $('body').on('click','#oc-new-comment-new-post-btn',function(){
-            debugger;
             $('form[id^=commons-bw-partial-node-form-post]').removeClass('js-hide');
             $(this).addClass('js-hide');
         });
