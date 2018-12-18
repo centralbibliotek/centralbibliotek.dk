@@ -37,7 +37,10 @@ function cbib_oc_hooks_init() {
       if (!isset($active_items[$filter]) && !isset($active_items['field_event_type:640'])) {
 
         // If not, get and tamper with your parameters here.
-
+      if(empty($params[$filter_key])){
+        $params[$filter_key] = [];
+        }
+        
         $params[$filter_key][] = $filter;
 
       }
