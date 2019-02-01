@@ -783,13 +783,96 @@ function commons_groups_node_presave($node) {
     // field.
     $private = $wrapper->field_og_subscribe_settings->value() == 'invitation';
     $wrapper->{OG_ACCESS_FIELD}->set((int)$private);
+    $query = new EntityFieldQuery();
+    if($private = $wrapper->field_og_subscribe_settings->value() == "approval" && $wrapper->field_og_access_default_value->value())
+    {
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'post')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->fieldCondition('og_group_ref', 'target_id', $node->nid, '=');
+          //->fieldCondition(OG_CONTENT_ACCESS_FIELD, 'value', OG_CONTENT_ACCESS_PRIVATE, '!=');
+          
+        $result = $query->execute();
+        if(isset($result['node']))
+        {
+            $nids = array_keys($result['node']);
+                foreach($nids as $nid)
+                {
+                    $n = node_load($nid);
+                    $n_wrap = entity_metadata_wrapper('node', $n);
+                    $n_wrap->{OG_CONTENT_ACCESS_FIELD}->set(OG_CONTENT_ACCESS_PRIVATE);
+                    node_access_acquire_grants($n);
+                }
+        }
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'document')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->fieldCondition('og_group_ref', 'target_id', $node->nid, '=');
+          //->fieldCondition(OG_CONTENT_ACCESS_FIELD, 'value', OG_CONTENT_ACCESS_PRIVATE, '!=');
+        $result = $query->execute();
+        if(isset($result['node']))
+        {
+            $nids = array_keys($result['node']);
+
+            foreach($nids as $nid)
+             {
+                 $n = node_load($nid);
+                 $n_wrap = entity_metadata_wrapper('node', $n);
+                 $n_wrap->{OG_CONTENT_ACCESS_FIELD}->set(OG_CONTENT_ACCESS_PRIVATE);
+                 node_access_acquire_grants($n);
+             }    
+        }
+    }
+    else
+    {  
+        /* The content should not be hidden anymore*/
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle','post')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->fieldCondition('og_group_ref', 'target_id', $node->nid, '=');
+          //->fieldCondition(OG_CONTENT_ACCESS_FIELD, 'value', OG_CONTENT_ACCESS_PRIVATE, '=');
+        $result = $query->execute();
+        if(isset($result['node']))
+        {
+            $nids = array_keys($result['node']);
+            foreach($nids as $nid)
+                {
+                    $n = node_load($nid);
+                    $n_wrap = entity_metadata_wrapper('node', $n);
+                    $n_wrap->{OG_CONTENT_ACCESS_FIELD}->set(OG_CONTENT_ACCESS_DEFAULT);
+                    node_access_acquire_grants($n);
+                }
+            
+        }
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle','document')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          ->fieldCondition('og_group_ref', 'target_id', $node->nid, '=');
+          //->fieldCondition(OG_CONTENT_ACCESS_FIELD, 'value', OG_CONTENT_ACCESS_PRIVATE, '=');
+          
+        $result = $query->execute();
+        if(isset($result['node']))
+        {
+            $nids = array_keys($result['node']); 
+            foreach($nids as $nid)
+                {
+                    $n = node_load($nid);
+                    $n_wrap = entity_metadata_wrapper('node', $n);
+                    $n_wrap->{OG_CONTENT_ACCESS_FIELD}->set(OG_CONTENT_ACCESS_DEFAULT);
+                    node_access_acquire_grants($n);
+                }
+
+        }
+    }
     return;
   }
 
   if (!og_is_group_content_type('node', $node->type)) {
     return;
   }
-
+  
 
   // Check whether any of the groups are private.
   $private = FALSE;
