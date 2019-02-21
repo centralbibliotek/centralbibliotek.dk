@@ -1,6 +1,25 @@
 <?php
 include_once "cbib_oc_hooks.admin.inc";
 
+function cbib_oc_hooks_views_post_execute(&$view) {
+    if($view->name == "search_api_nodes")
+    {
+        $new_result = null;
+        foreach($view->result as $i => $search_entity)
+        {
+            $entity_info = explode("/",$search_entity->entity);
+            if($entity_info[0] == "user")
+            {
+                $entity_loaded = user_load($entity_info[1]);
+                if($entity_loaded->status == 0)
+                {
+                        unset($view->result[$i]);
+                        $view->total_rows--;
+                }
+            }
+        }
+    }
+}
 /**
  * Implements hook_init().
  */
