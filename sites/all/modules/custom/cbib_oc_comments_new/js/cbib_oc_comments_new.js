@@ -9,6 +9,10 @@
       $('.quicktabs-wrapper').once(function(){
         Drupal.quicktabs.prepare(this);
       });
+      /*
+       * Hide the "All"
+       */
+      $('#quicktabs-tab-commons_bw-commons_all').parent().hide();
     }
   }
  

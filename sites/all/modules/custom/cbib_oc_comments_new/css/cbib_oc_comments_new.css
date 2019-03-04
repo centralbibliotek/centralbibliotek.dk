@@ -21,3 +21,22 @@ position: relative;
 {
     float:left;
 }
+.group-medie .fieldset-wrapper .field-name-field-media
+{
+    margin-top:10px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.group-medie .fieldset-wrapper #field-link-values tr
+{
+    background-color: white;
+    border: 0px;
+   
+}
+.group-medie .fieldset-wrapper #field-link-values tr th label{
+     padding-left:5px;
+}
+.group-medie .fieldset-wrapper #field-link-values
+{
+    margin-bottom:10px;
+}
