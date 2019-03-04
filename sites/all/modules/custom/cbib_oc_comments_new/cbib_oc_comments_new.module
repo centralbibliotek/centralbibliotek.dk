@@ -105,7 +105,7 @@ function cbib_oc_comments_new_form_alter(&$form, &$form_state, $form_id) {
          $form['body']['und'][0]['#format'] = 'comments';
          //$form['body']['und'][0]['#title'] = 'Body';
          //$form['body']['und'][0]['#name'] = 'body[und][0]';
-          $form['field_media']['und']['#description'] = "<h2><b>Tilføj file(r)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
+          $form['field_media']['und']['#description'] = "<h2><b>Tilføj fil(er)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
         unset($form['#submit']);
     }
 }
