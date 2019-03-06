@@ -136,7 +136,7 @@ function commons_bw_form_field_ui_field_edit_form_alter(&$form, &$form_state, $f
 /**
  * Partial node form for the browsing widget.
  */
-function commons_bw_partial_node_form($form, &$form_state, $bundle, $group_id = NULL) {
+function commons_bw_partial_node_form($form, &$form_state, $bundle, $group_id = NULL,$node = null) {
   global $user;
   global $language;
 
@@ -167,9 +167,13 @@ function commons_bw_partial_node_form($form, &$form_state, $bundle, $group_id = 
   }
 
   // Create a dummy node for field_attach_form().
-  $node = new stdClass();
-  $node->type = $bundle;
-  node_object_prepare($node);
+  if($node == null)
+  {
+    $node = new stdClass();
+    $node->type = $bundle;
+    node_object_prepare($node);
+  }
+  
 
   if (module_exists('locale')) {
     if (locale_multilingual_node_type($node->type)) {
