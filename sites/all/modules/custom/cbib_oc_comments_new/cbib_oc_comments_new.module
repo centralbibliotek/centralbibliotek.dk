@@ -37,15 +37,32 @@ function cbib_oc_comments_new_menu() {
     'theme callback' => 'ajax_base_page_theme',
     'type' => MENU_CALLBACK,
   );
-   $items['cbib/oc/comments/ajax/update/%'] = array(
-    'page callback' => 'cbib_oc_comments_post_update',
+   $items['cbib/oc/comments/ajax/update'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_edit_form_submit',
+    'delivery callback' => 'ajax_deliver',
+    //'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+   $items['cbib/oc/comments/ajax/edit/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_edit_form',
     'delivery callback' => 'ajax_deliver',
     'page arguments' => array(5),
     'access arguments' => array('access content'),
     'theme callback' => 'ajax_base_page_theme',
     'type' => MENU_CALLBACK,
   );
-      $items['cbib/oc/comments/ajax/update/comment/%'] = array(
+    $items['cbib/oc/comments/ajax/post/render/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_view',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(6),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+   
+  $items['cbib/oc/comments/ajax/update/comment/%'] = array(
     'page callback' => 'cbib_oc_comments_comment_update',
     'delivery callback' => 'ajax_deliver',
     'page arguments' => array(6),
@@ -100,12 +117,24 @@ function cbib_oc_comments_new_form_alter(&$form, &$form_state, $form_id) {
          
          $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_btn'));
          $form['actions']['submit']['#weigth'] = 2;
-         //unset($form['body']['und']);
-         //$form['body']['und'][0]['#type'] = "text_format";
+
          $form['body']['und'][0]['#format'] = 'comments';
-         //$form['body']['und'][0]['#title'] = 'Body';
-         //$form['body']['und'][0]['#name'] = 'body[und][0]';
           $form['field_media']['und']['#description'] = "<h2><b>Tilføj fil(er)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
+        unset($form['#submit']);
+        //$form = array();
+    }
+    if($form_id == "commons_bw_partial_node_form__post_edit")
+    {
+        //$form['close']['#markup'] = '<div title="Skjul nyt indlæg" class="hide-new-post-form" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></div>';
+        //$form['close']['#weight'] = -1000; 
+        $form['body']['und'][0]['#format'] = 'comments';
+        $form['field_media']['und']['#description'] = "<h2><b>Tilføj fil(er)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
+        
+         $form['actions']['submit']['#ajax'] = array(
+            'callback' => 'cbib_oc_comments_render_post_edit_form_submit',
+            'effect' => 'fade',
+        );
+        
         unset($form['#submit']);
     }
 }
@@ -123,8 +152,8 @@ function cbib_oc_comments_new_node_view_alter(&$build)
         drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
         if(isset($build['comments']['comments']) || ($page_data != null && $page_data["name"] == "page-licens_formidling_og_pr") )
         {
-                $format = 'comments';
-                $profile = wysiwyg_get_profile('comments');
+              $format = 'comments';
+              $profile = wysiwyg_get_profile('comments');
               $settings[$format] = array(
                 'editor' => 'none',
                 'status' => 1,

@@ -104,6 +104,7 @@ function cbib_oc_comments_new_post_remove($nid) {
 }
 /*
  * Update post title and body callback
+ * NOT USED:
  */
 function cbib_oc_comments_post_update($nid) {
     $commands[] = ajax_command_replace('#messages','');
@@ -424,5 +425,109 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
             $commands[] = ajax_command_append('.cbib-oc-comment-single-ajax-wrap-' . $pid ." .links",$form_render  ); //remove form on success.
     }
     
+    return array('#type' => 'ajax', '#commands' => $commands);
+}
+function cbib_oc_comments_render_post_edit_form($nid)
+{
+    $commands[] = array();
+    module_load_include('inc', 'commonws_bw', 'commons_bw');
+    $node = node_load($nid);
+    $group_node = node_load($node->og_group_ref['und'][0]['target_id']);
+    
+    $form_state = array();
+    $form_state['build_info']['args'] = array('post',$node->og_group_ref['und'][0]['target_id'],$node);
+    $form_state['build_info']['files']['menu'] = array();
+    $form = drupal_build_form('commons_bw_partial_node_form__post_edit', $form_state);
+    
+    $form['#id'] = "post-edit_form-" . $node->nid; 
+    
+    $form_state = array('post',$node->og_group_ref['und'][0]['target_id'],$node);
+    //drupal_process_form($form['#form_id'], $form, $form_state);
+    //$form['field_media']['und']['#id'] ="tester";
+    $form['#node'] = $node;
+    //unset($form['field_media']);
+    foreach($form['#attributes']['class'] as $i => $class)
+    {
+        if($class == "js-hide")
+        {
+            unset($form['#attributes']['class'][$i]);
+        }
+    }
+    if($group_node->type != "license")
+    {
+        unset($form["#fieldgroups"]['group_pr_type']);
+    }
+    $form['title']['#markup'] = t("<b>Rediger kommentar</b>");
+    //$form['body']['#id'] = 'random'; 
+    $form['body']['und'][0]['value']['#id'] ="edit-wysiwyg-" . $nid;
+    $form['body']['und'][0]['#format'] = 'comments';
+    $form['Save_knap'] = array(
+       '#type' => 'button',
+       '#id' => 'cbib-oc-post-save-comment-btn',
+       '#value' => t('Save comment'),
+       '#weight' => 99,);
+
+   $form['Annuller_knap'] = array(
+       '#type' => 'button',
+       '#value' => t('Annuller'),
+       '#weight' => 100,
+       '#attributes' => array('class' => array('oc-comments-new-edit-cancel-wrap')),
+   );
+   uasort($form, 'element_sort');
+     
+     unset($form['actions']);
+     //form_set_cache($form['#build_id'], $form, $form_state);
+     $form_render = render($form);
+    
+     $commands[] = ajax_command_html("#node-" . $nid,$form_render ); //remove form on success.
+     //$commands[] = ajax_command_append('body', '<script>var comment_elem = jQuery("#node-'.$nid.'");Drupal.attachBehaviors(comment_elem,Drupal.settings);</script>');
+     return array('#type' => 'ajax', '#commands' => $commands);
+}
+function cbib_oc_comments_render_post_edit_form_submit()
+{
+    module_load_include('inc', "node", 'node.pages');
+    $commands = array();
+    list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
+    unset($form['#submit']);
+    $entity = node_load($form['#entity']->nid);
+    
+    foreach($_POST['field_link']['und'] as $index => $value)
+    {
+        if($value['title'] == "")
+        {
+            unset($_POST['field_link']['und'][$index]);
+        }
+    }
+    foreach($_POST['field_media']['und'] as $index => $value)
+    {
+        if($value['fid'] == 0)
+        {
+            unset($_POST['field_media']['und'][$index]);
+        }
+    }
+    $entity->title_field = $_POST['title_field'];
+    $entity->body['und'][0]['value'] = $_POST['body']['und'][0]['value'];
+    $entity->body['und'][0]['safe_value'] = $_POST['body']['und'][0]['value'];
+    $entity->field_link = $_POST['field_link'];
+    $entity->field_media = $_POST['field_media'];
+    
+    node_save($entity);
+    
+    $node = node_load($entity->nid); //get proper object.
+    $build = node_view($node,'teaser');
+    $form_render = render($build);
+    $form_render = trim($form_render);
+    $commands[] = ajax_command_replace("#node-" . $entity->nid, $form_render); //remove form on success.
+    return array('#type' => 'ajax', '#commands' => $commands);
+}
+function cbib_oc_comments_render_post_view($nid) 
+{
+    unset($_POST['ajax_iframe_upload']);
+    $commands = array();
+    $node = node_load($nid);
+    $build = node_view($node,'teaser');
+    $form_render = render($build);
+    $form_render = trim($form_render);
+    $commands[] = ajax_command_replace("#node-" . $nid, $form_render); //remove form on success.
     return array('#type' => 'ajax', '#commands' => $commands);
 }
