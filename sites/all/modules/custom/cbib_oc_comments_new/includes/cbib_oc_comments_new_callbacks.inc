@@ -464,7 +464,7 @@ function cbib_oc_comments_render_post_edit_form($nid)
     $form['Save_knap'] = array(
        '#type' => 'button',
        '#id' => 'cbib-oc-post-save-comment-btn',
-       '#value' => t('Save comment'),
+       '#value' => t('Gem indlæg'),
        '#weight' => 99,);
 
    $form['Annuller_knap'] = array(
