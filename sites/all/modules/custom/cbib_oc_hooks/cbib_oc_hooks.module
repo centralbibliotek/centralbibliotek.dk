@@ -574,6 +574,7 @@ function cbib_oc_hooks_mail_alter(&$message)
             $msg .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
             $msg .= $ical;
             
+            $subject ='=?utf-8?B?'.base64_encode($subject).'?='; //make subject utf8 also..some clients have problems.
             mail($message['to'], $subject, $msg, $headers);
         }
 
