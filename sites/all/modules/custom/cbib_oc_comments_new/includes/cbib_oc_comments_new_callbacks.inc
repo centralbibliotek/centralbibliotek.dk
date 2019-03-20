@@ -458,7 +458,7 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
         '#type' => 'button',
         '#id' => 'cbib-oc-comments-save-comment-btn',
         '#value' => t('Save comment'),
-        '#weight' => 9,
+        '#weight' => 10,
         /*'#ajax' => array('callback' => 'cbib_oc_comments_new_comment_add',
             'wrapper' => 'checkboxes-div',
             'method' => 'replace',
@@ -532,7 +532,7 @@ function cbib_oc_comments_render_comment_edit_form($cid)
         '#name' => 'cbib-oc-comments-save-comment-btn',
         '#id' => 'cbib-oc-comments-save-comment-btn',
         '#value' => t('Save comment'),
-        '#weight' => 100);
+        '#weight' => 101);
 
     $form['Annuller_knap'] = array(
         '#type' => 'button',
