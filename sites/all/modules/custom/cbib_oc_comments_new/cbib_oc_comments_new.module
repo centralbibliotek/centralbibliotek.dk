@@ -37,6 +37,22 @@ function cbib_oc_comments_new_menu() {
     'theme callback' => 'ajax_base_page_theme',
     'type' => MENU_CALLBACK,
   );
+  $items['cbib/oc/comments/ajax/get/edit/form/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_comment_edit_form',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(7),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/get/edit/form/submit'] = array(
+    'page callback' => 'cbib_oc_comments_render_comment_edit_form_submit',
+    'delivery callback' => 'ajax_deliver',
+    //'page arguments' => array(7),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
    $items['cbib/oc/comments/ajax/update'] = array(
     'page callback' => 'cbib_oc_comments_render_post_edit_form_submit',
     'delivery callback' => 'ajax_deliver',

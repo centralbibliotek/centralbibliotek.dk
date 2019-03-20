@@ -242,95 +242,60 @@
          * Edit comment body
          */
         $('body').on('click', '.comment-edit', function (e) {
-            $('.oc-comments-new-cancel-comment-wrap').click();
-            $('.oc_comment_new_cancel_post').click();
-            var comment_elem = $(e.currentTarget).parent().parent();
-            var body_elem = comment_elem.find(".field-name-comment-body").find('.field-item');
-            var title_elem = $(comment_elem.find('.comment-title'));
-
-            //get comment id
-            var reply_btn = comment_elem.find('.comment-reply');
-            var urlparts = reply_btn.find('a').attr('href').split("/");
-            var nid = urlparts[3];
-            var pid = urlparts[4];
-
-            var text = body_elem.html();
-            var title = title_elem.find('a').html().trim();
-
-            old_edit_text = text;
-            old_edit_link_text = title;
-
-            title_elem.empty();
-            body_elem.empty();
-
-            var text_area_body = $('<textarea id="text-edit-' + pid + '" class="oc-comments-edit-area wysiwyg" style="height:100px;"></textarea>');
-            var text_area_title = $('<textarea class="oc-comments-edit-area-title" style="heigth:50px"></textarea>');
-
-            text_area_body.html(text);
-            text_area_title.html(title);
-            body_elem.append(text_area_body);
-            title_elem.append(text_area_title)
-
-            Drupal.settings.wysiwyg.triggers['text-edit-' + pid] = {
-                activeFormat: "comments",
-                field: 'text-edit-' + pid,
-                formatcomments: {
-                    editor: "ckeditor",
-                    status: 1,
-                    toggle: 1,
-                }
-            };
-            Drupal.attachBehaviors(comment_elem, Drupal.settings);
-
-            //hide buttons and insert the save.
-            comment_elem.find('.links').find('.comment-edit').hide();
-            comment_elem.find('.links').find('.comment-reply ').hide();
-            comment_elem.find('.links').find('.comment-delete').hide();
-            comment_elem.find('.links').append('<li class="oc-comments-new-cancel-comment-wrap" style="width:78%;"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-cancel-btn">Fortryd</div></span></li>');
-            comment_elem.find('.links').append('<li class="oc-comments-new-save-comment-wrap"><span class="action-item-small action-item-inline"><div class="oc-comments-new-edit-comment-save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i>Gem</div></span></li>');
+            debugger;
+             $('.oc_comment_new_cancel_post').click();
+            var elem = $(this);
+            var urlparts = elem.find('a').attr('href').split("/");
+            var pid = urlparts[2];
+            var comment_elem = elem.parent().parent().find('.comment-form')
+            if (comment_elem.length == 0)
+            {
+                elem.attr('id', 'js-load-new-form-ajax-' + pid);
+                var element_settings = {
+                    url: "/cbib/oc/comments/ajax/get/edit/form/" + pid,
+                    event: 'click',
+                    progress: {
+                        type: 'throbber'
+                    },
+                };
+                Drupal.ajax['js-load-new-form-ajax-' + pid] = new Drupal.ajax('js-load-save_delete-ajax-' + pid, this, element_settings);
+                elem.click();
+                elem.unbind('click');
+                delete Drupal.ajax['js-load-new-form-ajax-' + pid];
+            } else
+            {
+                Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
+                comment_elem.remove();
+            }
             return false;
         });
 
         /*
-         * Save edit
+         * Save comment edit
          */
-        $('body').on('click', '.oc-comments-new-save-comment-wrap', function (e) {
+        $('body').on('click', '#cbib-oc-comments-save-comment-btn', function (e) {
+            debugger;
             //get text and submit to backend.
-
             var elem = $(e.currentTarget);
-            var text_area = elem.parent().parent().find('.oc-comments-edit-area');
-            var text = CKEDITOR.instances[text_area.attr('id')].getData();
-            //var text = text_area.val();
+            var nid = elem.parent().find('.comment-cid').val();
 
-            var textarea_title = elem.parent().parent().find('.oc-comments-edit-area-title');
-            var title_text = textarea_title.val();
-
-            //get comment id
-            var reply_btn = elem.parent().parent().find('.comment-reply');
-            var urlparts = reply_btn.find('a').attr('href').split("/");
-            var nid = urlparts[3];
-            var pid = urlparts[4];
             // Drupal.settings.ajaxPageState.updatedText = text;
-            elem.attr('id', 'js-load-save_edit-ajax-' + pid);
+            elem.attr('id', 'js-load-save_edit-ajax-' + nid);
             var element_settings = {
-                url: "/cbib/oc/comments/ajax/update/comment/" + pid,
+                url: "/cbib/oc/comments/ajax/get/edit/form/submit",
                 event: 'click',
                 progress: {
                     type: 'throbber'
                 },
-                submit: {
-                    'js': true,
-                    'UpdatedText': text,
-                    'UpdatedTitle': title_text,
-                }
+                submit:{
+                  'js': true,  
+                },
             };
-            Drupal.ajax['js-load-save_edit-ajax-' + pid] = new Drupal.ajax('js-load-save_edit-ajax-' + pid, this, element_settings);
+            Drupal.ajax['js-load-save_edit-ajax-' + nid] = new Drupal.ajax('js-load-save_edit-ajax-' + nid, this, element_settings);
+            Drupal.settings.urlIsAjaxTrusted["/cbib/oc/comments/ajax/get/edit/form/submit"] = true;
             elem.click();
             elem.unbind('click');
             delete Drupal.ajax['js-load-save_edit-ajax-' + nid];
-            Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), text_area.attr('id'), 'unload');
-            $('.wysiwyg-toggle-wrapper').remove();
-            return false;
 
         });
         /*

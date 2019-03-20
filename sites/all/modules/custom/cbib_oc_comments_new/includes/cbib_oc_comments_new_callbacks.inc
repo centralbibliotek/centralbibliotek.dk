@@ -339,6 +339,80 @@ function cbib_oc_comments_new_comment_add($form, &$form_state) {
     return array('#type' => 'ajax', '#commands' => $commands);
 }
 /*
+ * Update comment callback
+ */
+function cbib_oc_comments_new_comment_update_save($form, &$form_state) {
+    comment_form_validate($form, $form_state);
+    $errors = form_get_errors();
+    $commands = array();
+    $commands[] = ajax_command_replace('#messages','');
+    if(sizeof($errors) == 0)
+    {
+        $comment = comment_form_submit_build_comment($form, $form_state);
+        $comment->subject = $form_state['input']['subject']; //this is broken for some reason. body is filled fine.
+        comment_save($comment);
+        //Get all comments for the node.
+       
+        $comment_form = comment_node_page_additions($form['#node']);
+        unset($comment_form['comment_form']);
+
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#suffix'] = '</div></div>';
+
+        //check which view is being viewed
+        $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+
+        $views = cbib_oc_comments_get_view_classes();
+        cbib_oc_comments_add_wrappers($comment_form['comments']);
+        $rendered_comment_form = drupal_render($comment_form);
+        $commands[] = ajax_command_replace('.comment-form', ''); //remove form on success.
+        $commands[] = ajax_command_replace('.cbib-oc-comment-ajax-wrap-' . $form['#node']->nid, '');
+        if ($comment->pid != null) {
+
+            $html = '<span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span>';
+            foreach($views as $view_class)
+            {
+                $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+                $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+            }
+            //$commands[] = ajax_command_append('.block-content > #node-' . $nid . " .links" ,$form_render );
+            $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+            $commands[] = ajax_command_append('.block-content > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+
+        } else {        
+            if(sizeof($comment_form['comments'])-2 > 1)
+             {
+                $html = '<span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span>';
+                foreach($views as $view_class)
+                {
+                 $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+                }
+                $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+             }
+             else
+             {
+                 $html = '<li class="comment-comments"><a class="action-item-small action-item-inline link-with-counter" style="margin-right:5px"><span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span></a></li>';
+                foreach($views as $view_class)
+                {
+                 $commands[] = ajax_command_prepend($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul", $html);
+                }
+                $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul", $html);
+             }
+             foreach($views as $view_class)
+            {
+                $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+            }
+            $commands[] = ajax_command_append('.block-content > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+        }
+    }
+    else
+    {
+        $html = theme('status_messages');
+        $commands[] = ajax_command_prepend('.comment-form', $html);
+    }
+    return array('#type' => 'ajax', '#commands' => $commands);
+}
+/*
  * Get all post comments callback
  */
 function cbib_oc_comments_new_comment_get($nid) {
@@ -380,32 +454,108 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     $form = drupal_build_form($form_id, $form_state);
     $form['comment_body']['und'][0]['value']['#title'] = t("content");
     //$form['#cache'] = TRUE;
-    $form['Save']['Save_knap'] = array(
+    $form['Save_knap'] = array(
         '#type' => 'button',
         '#id' => 'cbib-oc-comments-save-comment-btn',
         '#value' => t('Save comment'),
-        '#weight' => 1,
-        '#ajax' => array('callback' => 'cbib_oc_comments_new_comment_add',
+        '#weight' => 9,
+        /*'#ajax' => array('callback' => 'cbib_oc_comments_new_comment_add',
             'wrapper' => 'checkboxes-div',
             'method' => 'replace',
-            'effect' => 'fade'));
+            'effect' => 'fade')*/
+        );
 
-    $form['Annuller']['Annuller_knap'] = array(
+    $form['Annuller_knap'] = array(
         '#type' => 'button',
         '#value' => t('Annuller'),
         '#weight' => 9,
         '#attributes' => array('class' => array('oc_comment_new_cancel_post')),
     );
     uasort($form, 'element_sort');
-    $form['Save']['Save_knap'] = ajax_pre_render_element($form['Save']['Save_knap']);
+    $form['Save_knap'] = ajax_pre_render_element($form['Save_knap']);
     unset($form['actions']);
     //unset($form['comment_body']['und'][0]['format']);
     $form['comment_body']['und'][0]['format']['#access'] = FALSE;
     
     unset($form['author']);
     unset($form['actions']['preview']);
-    form_set_cache($form['#build_id'], $form, $form_state);
+    //form_set_cache($form['#build_id'], $form, $form_state);
     //$test = $form['comment_body']['und'][0]['#pre_render'];
+    $form_render = render($form);
+    
+    $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+    $views = cbib_oc_comments_get_view_classes();
+    if($pid == null)
+    {
+        foreach($views as $view_class)
+        {
+            $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .node-action-links" ,$form_render ); //remove form on success.
+            //$commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
+        }
+        //selector for full node view.
+        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " > .node-action-links" ,$form_render );
+    }
+    else
+    {
+            $commands[] = ajax_command_append('.cbib-oc-comment-single-ajax-wrap-' . $pid ." .links",$form_render  ); //remove form on success.
+    }
+    
+    return array('#type' => 'ajax', '#commands' => $commands);
+}
+/*
+ * get comment edit form
+ */
+function cbib_oc_comments_render_comment_edit_form($cid)
+{
+    $comment = comment_load($cid);
+    $node = node_load($comment->nid);
+    $nid = $node->nid;
+    $pid = $comment->cid;
+    //$form_id = "comment_node_{$node->type}_form";
+    $form_id = "comment_form";
+    $form_state = array();
+    $form_state['build_info']['args'] = array($comment);
+    $form_state['build_info']['files']['menu'] = array();
+    //$form_state['triggering_element']['#ajax']['callback'] = 'cbib-oc-comments-save-comment-btn';
+    $form = drupal_build_form($form_id, $form_state);
+    $form['comment_body']['und'][0]['value']['#title'] = t("content");
+    $form['author']['#access'] = false;
+    
+     $form['#id'] = "comment-edit_form-" . $cid;
+   
+    
+    $form['body']['und'][0]['#format'] = 'comments';
+    //$form['#cache'] = TRUE;
+    $form['Save_knap'] = array(
+        '#type' => 'button',
+        '#name' => 'cbib-oc-comments-save-comment-btn',
+        '#id' => 'cbib-oc-comments-save-comment-btn',
+        '#value' => t('Save comment'),
+        '#weight' => 100);
+
+    $form['Annuller_knap'] = array(
+        '#type' => 'button',
+        '#value' => t('Annuller'),
+        '#weight' => 100,
+        '#attributes' => array('class' => array('oc_comment_new_cancel_post')),
+    );
+    $form['comment_id'] = array(
+        '#type' => 'hidden',
+         '#value' => $cid,
+         '#id' => 'comment-cid',
+        '#weight' => 100,
+        '#attributes' => array('class' => array('comment-cid')),
+    );
+    
+    uasort($form, 'element_sort');
+    $form['Save_knap'] = ajax_pre_render_element($form['Save_knap']);
+    unset($form['actions']);
+    //$form['#submit'][0] = "cbib_oc_comments_new_comment_update_save";
+    //unset($form['comment_body']['und'][0]['format']);
+    $form['comment_body']['und'][0]['#format'] = 'comments';
+    $form['comment_body']['und'][0]['format']['#access'] = FALSE;
+    
+    //form_set_cache($form['#build_id'], $form, $form_state);
     $form_render = render($form);
     
     $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
@@ -424,6 +574,95 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     {
             $commands[] = ajax_command_append('.cbib-oc-comment-single-ajax-wrap-' . $pid ." .links",$form_render  ); //remove form on success.
     }
+    
+    return array('#type' => 'ajax', '#commands' => $commands);
+    
+}
+function cbib_oc_comments_render_comment_edit_form_submit()
+{
+    $commands[] = array();
+    list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
+    module_load_include('module', 'comment', 'comment');
+    $entity = $form['#entity'];
+    $entity->subject = $form_state['input']['subject'];
+    foreach($_POST['field_link']['und'] as $index => $value)
+    {
+        if($value['title'] == "")
+        {
+            unset($_POST['field_link']['und'][$index]);
+        }
+    }
+    foreach($_POST['field_media']['und'] as $index => $value)
+    {
+        if($value['fid'] == 0)
+        {
+            unset($_POST['field_media']['und'][$index]);
+        }
+    }
+    $entity->subject = $_POST['subject'];
+    $entity->comment_body['und'][0]['value'] = $_POST['comment_body']['und'][0]['value'];
+    $entity->comment_body['und'][0]['format'] = "comments";
+    $entity->comment_body['und'][0]['safe_value'] = check_markup($_POST['comment_body']['und'][0]['value'],'comments');
+    $entity->field_link = $_POST['field_link'];
+    $entity->field_media = $_POST['field_media'];
+    
+    comment_save($entity);
+
+    $node = node_load($entity->nid);
+    $form['#node'] = $node;
+    
+    //$commands[] = ajax_command_html(".cbib-oc-comment-single-ajax-wrap-" . $entity->cid, $form_render); //remove form on success.
+           $comment_form = comment_node_page_additions($form['#node']);
+        unset($comment_form['comment_form']);
+
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#suffix'] = '</div></div>';
+
+        //check which view is being viewed
+        $active_tab_select = cbib_oc_comments_get_active_quick_tab_selector();
+
+        $views = cbib_oc_comments_get_view_classes();
+        cbib_oc_comments_add_wrappers($comment_form['comments']);
+        $rendered_comment_form = drupal_render($comment_form);
+        $commands[] = ajax_command_replace('.comment-form', ''); //remove form on success.
+        $commands[] = ajax_command_replace('.cbib-oc-comment-ajax-wrap-' . $form['#node']->nid, '');
+        if ($comment->pid != null) {
+
+            $html = '<span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span>';
+            foreach($views as $view_class)
+            {
+                $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+                $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+            }
+            //$commands[] = ajax_command_append('.block-content > #node-' . $nid . " .links" ,$form_render );
+            $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+            $commands[] = ajax_command_append('.block-content > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+
+        } else {        
+            if(sizeof($comment_form['comments'])-2 > 1)
+             {
+                $html = '<span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span>';
+                foreach($views as $view_class)
+                {
+                 $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+                }
+                $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul .comment-comments a .action-item-small-append", $html);
+             }
+             else
+             {
+                 $html = '<li class="comment-comments"><a class="action-item-small action-item-inline link-with-counter" style="margin-right:5px"><span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span></a></li>';
+                foreach($views as $view_class)
+                {
+                 $commands[] = ajax_command_prepend($view_class.' .view-content .views-row > #node-' . $form['#node']->nid . " nav ul", $html);
+                }
+                $commands[] = ajax_command_replace('.block-content > #node-' . $form['#node']->nid . " nav ul", $html);
+             }
+             foreach($views as $view_class)
+            {
+                $commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+            }
+            $commands[] = ajax_command_append('.block-content > #node-' . $form['#node']->nid, $rendered_comment_form); //remove form on success.
+        }
     
     return array('#type' => 'ajax', '#commands' => $commands);
 }
@@ -465,7 +704,7 @@ function cbib_oc_comments_render_post_edit_form($nid)
        '#type' => 'button',
        '#id' => 'cbib-oc-post-save-comment-btn',
        '#value' => t('Gem indlæg'),
-       '#weight' => 99,);
+       '#weight' => 99);
 
    $form['Annuller_knap'] = array(
        '#type' => 'button',
@@ -508,6 +747,7 @@ function cbib_oc_comments_render_post_edit_form_submit()
     $entity->title_field = $_POST['title_field'];
     $entity->body['und'][0]['value'] = $_POST['body']['und'][0]['value'];
     $entity->body['und'][0]['safe_value'] = $_POST['body']['und'][0]['value'];
+    $entity->body['und'][0]['format'] = 'comments';
     $entity->field_link = $_POST['field_link'];
     $entity->field_media = $_POST['field_media'];
     
