@@ -52,7 +52,7 @@ function cbib_oc_comments_new_comment_remove($cid) {
     }
     else
     {
-        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $node->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $node->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
     }
     $comment_form['#suffix'] = '</div></div>';
     $commands[] = ajax_command_replace('.comment-form', ''); //remove form on success.
@@ -282,7 +282,7 @@ function cbib_oc_comments_new_comment_add($form, &$form_state) {
         $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
 
-        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
         $comment_form['#suffix'] = '</div></div>';
 
         //check which view is being viewed
@@ -356,7 +356,7 @@ function cbib_oc_comments_new_comment_update_save($form, &$form_state) {
         $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
 
-        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
         $comment_form['#suffix'] = '</div></div>';
 
         //check which view is being viewed
@@ -422,7 +422,7 @@ function cbib_oc_comments_new_comment_get($nid) {
     $comment_form = comment_node_page_additions($node);
     unset($comment_form['comment_form']);
     cbib_oc_comments_add_wrappers($comment_form['comments']);
-    $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $node->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+    $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $node->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
     $comment_form['#suffix'] = '</div></div>';
     //$comment_form['close-btn'] = array('#markup'=>"");
     //$commands[] = ajax_command_replace('.comment-form', ''); //remove form on success.
@@ -474,11 +474,12 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     uasort($form, 'element_sort');
     $form['Save_knap'] = ajax_pre_render_element($form['Save_knap']);
     unset($form['actions']);
-    //unset($form['comment_body']['und'][0]['format']);
-    $form['comment_body']['und'][0]['format']['#access'] = FALSE;
+    $form['comment_body']['und'][0]['#format'] = "comments";
+    $form['comment_body']['und'][0]['format']['format']['#options'] = array("comments" => 'Comments');
+    $form['comment_body']['und'][0]['format']['#attributes']['class'][] = "js-hide";
     
     unset($form['author']);
-    unset($form['actions']['preview']);
+    //unset($form['actions']['preview']);
     //form_set_cache($form['#build_id'], $form, $form_state);
     //$test = $form['comment_body']['und'][0]['#pre_render'];
     $form_render = render($form);
@@ -551,9 +552,9 @@ function cbib_oc_comments_render_comment_edit_form($cid)
     $form['Save_knap'] = ajax_pre_render_element($form['Save_knap']);
     unset($form['actions']);
     //$form['#submit'][0] = "cbib_oc_comments_new_comment_update_save";
-    //unset($form['comment_body']['und'][0]['format']);
-    $form['comment_body']['und'][0]['#format'] = 'comments';
-    $form['comment_body']['und'][0]['format']['#access'] = FALSE;
+    $form['comment_body']['und'][0]['#format'] = "comments";
+    $form['comment_body']['und'][0]['format']['format']['#options'] = array("comments" => 'Comments');
+    $form['comment_body']['und'][0]['format']['#attributes']['class'][] = "js-hide";
     
     //form_set_cache($form['#build_id'], $form, $form_state);
     $form_render = render($form);
@@ -615,7 +616,7 @@ function cbib_oc_comments_render_comment_edit_form_submit()
            $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
 
-        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
+        $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
         $comment_form['#suffix'] = '</div></div>';
 
         //check which view is being viewed

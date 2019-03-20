@@ -121,7 +121,10 @@
                 delete Drupal.ajax['js-load-comments-ajax-' + nid];
             } else
             {
+                 Drupal.behaviors.attachWysiwyg.detach(comments);
                 comments.remove();
+                
+                
             }
             //test.remove();
             return false;
