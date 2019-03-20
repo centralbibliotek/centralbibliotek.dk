@@ -705,7 +705,7 @@ function cbib_oc_comments_render_post_edit_form($nid)
        '#type' => 'button',
        '#id' => 'cbib-oc-post-save-comment-btn',
        '#value' => t('Gem indlæg'),
-       '#weight' => 99);
+       '#weight' => 100);
 
    $form['Annuller_knap'] = array(
        '#type' => 'button',
