@@ -321,8 +321,9 @@
                 elem.click();
                 elem.unbind('click');
                 delete Drupal.ajax['js-load-save_delete-ajax-' + pid];
-                return false;
+                
             }
+            return false;
         });
         /*
          * Abort edit comment
