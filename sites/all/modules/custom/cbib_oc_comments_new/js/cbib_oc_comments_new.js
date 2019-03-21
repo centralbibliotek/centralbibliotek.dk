@@ -189,7 +189,7 @@
             elem.click();
             elem.unbind('click');
             delete Drupal.ajax['js-load-new-edit-form-ajax-' + nid];
-            
+            return false;
         });
         /*
          * Save post updates.
@@ -304,7 +304,7 @@
             elem.click();
             elem.unbind('click');
             delete Drupal.ajax['js-load-save_edit-ajax-' + nid];
-
+            return false;
         });
         /*
          * delete comment
