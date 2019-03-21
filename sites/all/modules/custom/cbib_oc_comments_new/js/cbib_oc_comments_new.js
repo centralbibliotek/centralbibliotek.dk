@@ -223,6 +223,7 @@
             
             //text_area.remove();
             //$('.wysiwyg-toggle-wrapper').remove();
+            return false;
         });
         /*
          * Delete post
@@ -245,6 +246,7 @@
                 elem.unbind('click');
                 delete Drupal.ajax['js-load-save_delete-ajax-' + nid];
             }
+            return false;
         });
         /*
          * Edit comment body
