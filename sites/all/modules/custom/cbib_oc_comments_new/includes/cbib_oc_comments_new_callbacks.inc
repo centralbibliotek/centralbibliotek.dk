@@ -69,7 +69,7 @@ function cbib_oc_comments_new_comment_remove($cid) {
         }
         else
         {
-            $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $node->nid . " nav ul .comment-comments a span",'');
+            $commands[] = ajax_command_html($view_class.' .view-content .views-row > #node-' . $node->nid . " nav ul .comment-comments ",'');
         }
         $commands[] = ajax_command_append($view_class.' .view-content .views-row > #node-' . $node->nid, $render); //remove form on success.
     }
@@ -622,7 +622,7 @@ function cbib_oc_comments_render_comment_edit_form_submit()
 
     $node = node_load($entity->nid);
     $form['#node'] = $node;
-    
+    $form['#node']->comment_count += 1;
     //$commands[] = ajax_command_html(".cbib-oc-comment-single-ajax-wrap-" . $entity->cid, $form_render); //remove form on success.
         $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
