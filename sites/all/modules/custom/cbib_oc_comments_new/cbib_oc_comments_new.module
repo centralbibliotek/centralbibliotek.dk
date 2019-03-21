@@ -219,7 +219,7 @@ function cbib_oc_comments_new_node_view_alter(&$build)
             $build['links']['svar'] = array('#theme'=>'html_tag','#links'=> array('oc-comments-new-reply-wrap' => array('title' => $html_reply,'html' => true)),'#attributes' => array('class' => array('links','inline')));
             if(node_access("update",$build['#node']))
             {
-                if($build['#node']->uid == $user->uid || user_access('administer'))
+                if($build['#node']->uid == $user->uid || user_access('administer comments'))
                 {
                     $build['links']['ret'] = array('#theme'=>'html_tag','#links'=> array('oc-comments-new-edit-wrap' => array('title' => $html_edit,'html' => true)),'#attributes' => array('class' => array('links','inline')));
                 }
@@ -238,7 +238,7 @@ function cbib_oc_comments_new_node_view_alter(&$build)
 function  cbib_oc_comments_new_comment_view_alter(&$build, $view_mode) {
 
     global $user;
-     if($build['#comment']->uid == $user->uid || user_access('administer'))
+     if($build['#comment']->uid == $user->uid || user_access('administer comments'))
      {
         $build['links']['comment']['#links']['comment-edit']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Ret</span></div>';
         $build['links']['comment']['#links']['comment-edit']['html'] = 'true';

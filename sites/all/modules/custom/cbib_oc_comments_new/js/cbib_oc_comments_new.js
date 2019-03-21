@@ -138,7 +138,7 @@
             var urlparts = elem.find('a');
             if(urlparts.length == 0)
             {
-                return;
+                return false;
             }
             urlparts = urlparts.attr('href').split("/")
             var nid = urlparts[3];
