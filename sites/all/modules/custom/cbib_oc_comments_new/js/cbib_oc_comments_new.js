@@ -135,7 +135,12 @@
         $('body').on('click', '.comment-reply', function () {
             $('.oc_comment_new_cancel_post').click();
             var elem = $(this);
-            var urlparts = elem.find('a').attr('href').split("/");
+            var urlparts = elem.find('a');
+            if(urlparts.length == 0)
+            {
+                return;
+            }
+            urlparts = urlparts.attr('href').split("/")
             var nid = urlparts[3];
             var pid = urlparts[4];
             var comment_elem = elem.parent().parent().find('.comment-form')
@@ -361,24 +366,11 @@
         //restore post edit
         $('body').on('click', '.oc-comments-new-edit-cancel-wrap', function (e)
         {
-            var elem = $(e.currentTarget);
-            var nid = elem.parent().parent().parent().parent().attr('id');
-            nid = nid.split('-');
-            nid = nid[1];
-            elem.attr('id', 'js-load-new-render-form-ajax-' + nid);
-            //delete Drupal.ajax['js-load-new-render-form-ajax-' + nid];
-            var element_settings = {
-                url: "/cbib/oc/comments/ajax/post/render/" + nid,
-                event: 'click',
-                progress: {
-                    type: 'throbber'
-                },
-            };
-            Drupal.ajax['js-load-new-render-form-ajax-' + nid] = new Drupal.ajax('js-load-new-render-form-ajax-' + nid, this, element_settings);
-            Drupal.settings.urlIsAjaxTrusted["/cbib/oc/comments/ajax/post/render/" + nid] = true;
-            elem.click();
-            elem.unbind('click');
-            //
+            $('#messages').remove();
+            var post_elem = jQuery(this).parent().parent();
+            var text_elem = post_elem.find('.wysiwyg')
+            Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            post_elem.remove();
             return false;
         });
         //abort new comment post.

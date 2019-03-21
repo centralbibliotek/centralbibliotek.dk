@@ -62,8 +62,15 @@ function cbib_oc_comments_new_comment_remove($cid) {
     $commands[] = ajax_command_replace('.cbib-oc-comment-ajax-wrap-' . $node->nid, '');
     foreach($views as $view_class)
     {
-        
-        $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $node->nid . " nav ul .comment-comments a span", '<span class="action-item-small-append">' . (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 ) . '</span>');
+        $comment_count = (sizeof($comment_form['comments']) != 0 ? sizeof($comment_form['comments']) - 2: 0 );
+        if($comment_count != 0)
+        {
+            $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $node->nid . " nav ul .comment-comments a span", '<span class="action-item-small-append">' . $comment_count . '</span>');
+        }
+        else
+        {
+            $commands[] = ajax_command_replace($view_class.' .view-content .views-row > #node-' . $node->nid . " nav ul .comment-comments a span",'');
+        }
         $commands[] = ajax_command_append($view_class.' .view-content .views-row > #node-' . $node->nid, $render); //remove form on success.
     }
     $commands[] = ajax_command_append('.block-content > #node-' . $node->nid ,$render );
@@ -189,7 +196,6 @@ function cbib_oc_comments_new_post_add($form, &$form_state) {
     /*
      * missing: error handling.
      */
-    
     $commands = array();
     $commands[] = ajax_command_replace('#messages','');
     commons_bw_partial_node_form_validate($form, $form_state);
@@ -268,8 +274,7 @@ function cbib_oc_comments_new_post_add($form, &$form_state) {
  */
 function cbib_oc_comments_new_comment_add($form, &$form_state) {
  
-    /* UNUSED!
-     * comment_form_validate($form, $form_state);
+    comment_form_validate($form, $form_state);
     $errors = form_get_errors();
     $commands = array();
     $commands[] = ajax_command_replace('#messages','');
@@ -337,7 +342,7 @@ function cbib_oc_comments_new_comment_add($form, &$form_state) {
         $html = theme('status_messages');
         $commands[] = ajax_command_prepend('.comment-form', $html);
     }
-    return array('#type' => 'ajax', '#commands' => $commands);*/
+    return array('#type' => 'ajax', '#commands' => $commands);
 }
 /*
  * Update comment callback
@@ -479,7 +484,7 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
     $form['comment_body']['und'][0]['format']['format']['#options'] = array("comments" => 'Comments');
     $form['comment_body']['und'][0]['format']['#attributes']['class'][] = "js-hide";
     
-    unset($form['author']);
+    $form['author']['#access'] = false;
     //unset($form['actions']['preview']);
     //form_set_cache($form['#build_id'], $form, $form_state);
     //$test = $form['comment_body']['und'][0]['#pre_render'];
@@ -582,6 +587,7 @@ function cbib_oc_comments_render_comment_edit_form($cid)
 }
 function cbib_oc_comments_render_comment_edit_form_submit()
 {
+    global $user;
     $commands[] = array();
     list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
     module_load_include('module', 'comment', 'comment');
@@ -607,6 +613,10 @@ function cbib_oc_comments_render_comment_edit_form_submit()
     $entity->comment_body['und'][0]['safe_value'] = check_markup($_POST['comment_body']['und'][0]['value'],'comments');
     $entity->field_link = $_POST['field_link'];
     $entity->field_media = $_POST['field_media'];
+    if($entity->uid == 0)
+    {
+        $entity->uid = $user->uid;
+    }
     
     comment_save($entity);
 
@@ -726,6 +736,7 @@ function cbib_oc_comments_render_post_edit_form($nid)
 }
 function cbib_oc_comments_render_post_edit_form_submit()
 {
+    global $user;
     module_load_include('inc', "node", 'node.pages');
     $commands = array();
     list($form, $form_state, $form_id, $form_build_id, $commands) = ajax_get_form();
@@ -746,7 +757,7 @@ function cbib_oc_comments_render_post_edit_form_submit()
             unset($_POST['field_media']['und'][$index]);
         }
     }
-    $entity->title_field = $_POST['title_field'];
+    $entity->title = $_POST['title_field']['und'][0]['value'];
     $entity->body['und'][0]['value'] = $_POST['body']['und'][0]['value'];
     $entity->body['und'][0]['safe_value'] = $_POST['body']['und'][0]['value'];
     $entity->body['und'][0]['format'] = 'comments';
