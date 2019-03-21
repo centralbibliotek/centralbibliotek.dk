@@ -206,8 +206,12 @@ function cbib_oc_comments_new_node_view_alter(&$build)
                 cbib_oc_comments_add_wrappers($build['comments']['comments']);
                 unset($build['comments']['comment_form']);
         }
-        $html_reply = '<div class="oc-comments-new-reply-btn"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
-        $html_edit = '<div class="oc-comments-new-edit-btn"><span class=""><i class="fa fa-pencil" aria-hidden="true"></i>Ret</span></div>';
+       
+        if($build['#view_mode'] != "full")
+        {
+            $html_reply = '<div class="oc-comments-new-reply-btn"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
+            $html_edit = '<div class="oc-comments-new-edit-btn"><span class=""><i class="fa fa-pencil" aria-hidden="true"></i>Ret</span></div>';
+        }
         $html_slet = '<div class="oc-comments-new-delete-btn"><span class=""><i class="fa fa-trash" aria-hidden="true"></i>Slet</span></div>';
         if(!user_is_anonymous())
         {

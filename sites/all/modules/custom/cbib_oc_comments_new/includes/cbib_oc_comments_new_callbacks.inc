@@ -268,7 +268,8 @@ function cbib_oc_comments_new_post_add($form, &$form_state) {
  */
 function cbib_oc_comments_new_comment_add($form, &$form_state) {
  
-    comment_form_validate($form, $form_state);
+    /* UNUSED!
+     * comment_form_validate($form, $form_state);
     $errors = form_get_errors();
     $commands = array();
     $commands[] = ajax_command_replace('#messages','');
@@ -336,7 +337,7 @@ function cbib_oc_comments_new_comment_add($form, &$form_state) {
         $html = theme('status_messages');
         $commands[] = ajax_command_prepend('.comment-form', $html);
     }
-    return array('#type' => 'ajax', '#commands' => $commands);
+    return array('#type' => 'ajax', '#commands' => $commands);*/
 }
 /*
  * Update comment callback
@@ -494,7 +495,7 @@ function cbib_oc_comments_render_comment_form($nid, $pid = null) {
             //$commands[] = ajax_command_append($active_tab_select.$view_class.' .view-content .views-row > #node-' . $nid . " .links" ,$form_render ); //remove form on success.
         }
         //selector for full node view.
-        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " > .node-action-links" ,$form_render );
+        $commands[] = ajax_command_append('.block-content > #node-' . $nid . " .node-action-links" ,$form_render );
     }
     else
     {
@@ -522,7 +523,7 @@ function cbib_oc_comments_render_comment_edit_form($cid)
     $form['comment_body']['und'][0]['value']['#title'] = t("content");
     $form['author']['#access'] = false;
     
-     $form['#id'] = "comment-edit_form-" . $cid;
+    $form['#id'] = "comment-edit_form-" . $cid;
    
     
     $form['body']['und'][0]['#format'] = 'comments';
@@ -613,7 +614,7 @@ function cbib_oc_comments_render_comment_edit_form_submit()
     $form['#node'] = $node;
     
     //$commands[] = ajax_command_html(".cbib-oc-comment-single-ajax-wrap-" . $entity->cid, $form_render); //remove form on success.
-           $comment_form = comment_node_page_additions($form['#node']);
+        $comment_form = comment_node_page_additions($form['#node']);
         unset($comment_form['comment_form']);
 
         $comment_form['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-' . $form['#node']->nid . '"><a title="Skjul kommentar boks" onclick="Drupal.behaviors.attachWysiwyg.detach(jQuery(this).parent());jQuery(this).parent().remove()" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></a><div>';
@@ -719,7 +720,7 @@ function cbib_oc_comments_render_post_edit_form($nid)
      //form_set_cache($form['#build_id'], $form, $form_state);
      $form_render = render($form);
     
-     $commands[] = ajax_command_html("#node-" . $nid,$form_render ); //remove form on success.
+     $commands[] = ajax_command_append("#node-" . $nid ." .links",$form_render ); //remove form on success.
      //$commands[] = ajax_command_append('body', '<script>var comment_elem = jQuery("#node-'.$nid.'");Drupal.attachBehaviors(comment_elem,Drupal.settings);</script>');
      return array('#type' => 'ajax', '#commands' => $commands);
 }
