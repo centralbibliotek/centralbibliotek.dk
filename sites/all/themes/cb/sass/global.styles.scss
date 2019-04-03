@@ -3846,7 +3846,14 @@ tr {
     font-size: 0.85em;
   }
 }
-
+#views-exposed-form-commons-events-event-attendee-list-page-1 .form-item .description {
+    display: none;
+}
+#views-exposed-form-commons-events-event-attendee-list-page-1 .views-exposed-form .views-exposed-widget {
+    float: left;
+    display: inline-block;
+    padding: 5px;
+}
 /**
  * Highlight marks and form required mark
  */
