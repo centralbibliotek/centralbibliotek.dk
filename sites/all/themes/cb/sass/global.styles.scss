@@ -40,6 +40,11 @@
  */
 ::-ms-clear { display: none; }
 
+//region vælgeren
+.new-og_group_ref {
+    float: left;
+}
+
 html {
   background: $page;
   font-size: 84%;

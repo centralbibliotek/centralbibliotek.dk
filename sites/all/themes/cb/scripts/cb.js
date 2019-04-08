@@ -116,13 +116,16 @@ function detectIE() {
         {
             bib_group_selector_rigth_value = "10%";
         }
+        /*
         $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').parent().parent().hide();
-        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('form[id^="views-exposed-form-search-api-arrangementer-page"] .views-exposed-widget.views-reset-button').css('position','absolute').css('right',bib_group_selector_rigth_value).css('top',topx)
+        $('#facetapi-facet-search-apiarrangement-index-block-og-group-ref').find('select').clone(false).insertBefore('#panels-ipe-paneid-1047, #panels-ipe-paneid-1041').wrap('<div class="block-facetapi new-og_group_ref"></div>')
                 .unbind('change').unbind('click').attr('name','og_group_ref').attr('id','og_group_ref').addClass('fix_me_select').change(function(e){
                      e.preventDefault();
                      $('.fix_me_select').val(e.currentTarget.value);
                      return false;
          });
+         $('#panels-ipe-paneid-1047 h3, #panels-ipe-paneid-1041 h3').clone().prependTo('.new-og_group_ref').html('Region');
+        */
          /*
           * Group tilknytning styling fix.
           */

@@ -52,6 +52,10 @@ body.page-node .pane-views-panes, .page-events .view-commons-events-upcoming .vi
   display: none;
 }
 
+.new-og_group_ref {
+  float: left;
+}
+
 html {
   background: #fafcf8;
   font-size: 84%;
