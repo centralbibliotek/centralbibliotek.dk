@@ -740,8 +740,8 @@ function cbib_oc_hooks_views_pre_render(&$view)
 {
         if($view->name == "node_followers" && $view->current_display == "panel_pane_1") {
         $nid = arg(1);
-        if (!og_user_access('node', $nid, 'administrator member')) {           
-            $view->field['nothing']->options['exclude'] = TRUE;
+        if (og_user_access('node', $nid, 'administrator member', $ignore_admin = TRUE)) {
+            $view->field['nothing']->options['exclude'] = FALSE;
         }
 
     }
