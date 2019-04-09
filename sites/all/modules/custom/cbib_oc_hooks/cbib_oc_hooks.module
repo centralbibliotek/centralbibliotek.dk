@@ -1,4 +1,5 @@
 <?php
+
 include_once "cbib_oc_hooks.admin.inc";
 
 function cbib_oc_hooks_views_post_execute(&$view) {
@@ -59,7 +60,7 @@ function cbib_oc_hooks_init() {
       if(empty($params[$filter_key])){
         $params[$filter_key] = [];
         }
-        
+
         $params[$filter_key][] = $filter;
 
       }
@@ -183,6 +184,15 @@ function  cbib_oc_hooks_menu() {
     'access arguments' => array('access user profiles'),
 
    );
+    $items['flag/flag/unfollow/%'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'Delete followers',
+    'page arguments' => array(3,4),
+    'description' => 'Delete group followers',
+    'page callback' => 'cbib_oc_hooks_flag_delete',
+    'access callback' => 'check_og_permissions',
+    'access arguments' => array('administrator member'),
+   );
    $items['flag/flag/follow/all/library'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'test',
@@ -195,6 +205,14 @@ function  cbib_oc_hooks_menu() {
   return $items;
 }
 
+function check_og_permissions() {
+  $nid = arg(3);
+  if (og_user_access('node', $nid, 'administrator members')) {
+    return TRUE;
+  }else {
+      return FALSE;
+  }
+}
 function cbib_oc_hooks_menu_alter(&$items) {
          // entity local tasks
 foreach (registration_get_registration_instances() as $instance) {
@@ -503,7 +521,7 @@ function cbib_oc_hooks_mail_alter(&$message)
         $description = $message['body'];
         $location = "";
         //Create unique identifier
-       
+
         if($node->field_location['und'][0] != "online")
         {
             if(!empty($node->field_address[und][0]["organisation_name"]))
@@ -517,9 +535,9 @@ function cbib_oc_hooks_mail_alter(&$message)
                     $location = $node->field_address[und][0]["thoroughfare"] . " - ".$node->field_address[und][0]["postal_code"]." ".$node->field_address[und][0]["locality"];
                 }
             }
-            
+
         }
-        
+
         foreach($node->field_date['und'] as $index => $date)
         {
             if($index == 0)
@@ -529,7 +547,7 @@ function cbib_oc_hooks_mail_alter(&$message)
             else
             {
                 $subject = "Dag " . ($index+1) . ", " . check_plain($node->title);
-                
+
             }
             $ical = "";
             $ical .="BEGIN:VCALENDAR\r\n";
@@ -555,7 +573,7 @@ function cbib_oc_hooks_mail_alter(&$message)
             /*
              * Start event generation
              */
-        
+
             $cal_uid = date('Ymd').'T'.date('His')."-".(rand())."@centralbibliotek.dk";
             $startTime = $date['value'];
             $endtime = $date['value2'];
@@ -590,11 +608,11 @@ function cbib_oc_hooks_mail_alter(&$message)
              * end event generation
              */
             $ical .="END:VEVENT\r\n";
-        
-        
+
+
             $ical .="END:VCALENDAR\r\n";
-            
-            
+
+
             //Create Email Headers
             $mime_boundary = "meeting booking";
             $headers  = "MIME-Version: 1.0\n";
@@ -615,7 +633,7 @@ function cbib_oc_hooks_mail_alter(&$message)
             mail($message['to'], $subject, $msg, $headers);
         }
 
-    
+
     }
 }
 /*
@@ -697,11 +715,36 @@ function cbib_oc_hooks_node_update($node)
        drupal_register_shutdown_function('commons_notify_send_message_on_shutdown', $node);
     }
 }
+function cbib_oc_hooks_flag_delete($nid, $user_id) {
+//$nid = arg(1);
+$flag = flag_get_flag('commons_follow_node');
+ // Check if this content type use the "Individual nodes" flag
+      $account = isset($user_id) ? user_load($user_id) : NULL;
+      //$flag->flag('unflag', $nid, $account, TRUE);
+  $flag->flag('unflag', $nid, $account, TRUE);
+  drupal_set_message(
+    t('Fjernede følg fra brugeren @user',
+      array(
+        '@user' => $account->name
+      )
+    )
+  );
+  // Redirect to the entity that has been unflagged.
+  $destination = isset($_REQUEST['destination']) ? $_REQUEST['destination'] : 'node/' . $nid;
+  drupal_goto($destination);
+}
 /*
  * View hooks
  */
 function cbib_oc_hooks_views_pre_render(&$view)
 {
+        if($view->name == "node_followers" && $view->current_display == "panel_pane_1") {
+        $nid = arg(1);
+        if (!og_user_access('node', $nid, 'administrator member')) {           
+            $view->field['nothing']->options['exclude'] = TRUE;
+        }
+
+    }
     if($view->name == "commons_events_upcoming" && $view->current_display == "panel_pane_7") {
         $output = array();
          foreach($view->result as $index => $data) {
@@ -950,9 +993,9 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
         drupal_set_message($message = 'Indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
         drupal_access_denied();
     	module_invoke_all('exit');
-	drupal_exit();    
+	drupal_exit();
     }
-    
+
     $to_be_removed = array('node/%/clone/%');
     $path = drupal_get_path_alias();
     $path_parts = explode('/', $path);
@@ -1199,6 +1242,6 @@ function cbib_oc_hooks_clone_node_alter($node,$context)
     if($node->type == "event")
     {
         //fixup a setting.
-        $node->field_registration['und'][0]['registration_type'] = "event";		
+        $node->field_registration['und'][0]['registration_type'] = "event";
     }
 }
