@@ -1,0 +1,264 @@
+<?php
+
+include_once 'includes/cbib_oc_comments_new_api.inc';
+include_once 'includes/cbib_oc_comments_new_callbacks.inc';
+//set up menu routes
+function cbib_oc_comments_new_menu() {
+  $items = array();
+
+  $items['cbib/oc/comments/ajax/add'] = array(
+    'page callback' => 'cbib_oc_comments_new_comment_add',
+    'delivery callback' => 'ajax_deliver',
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/remove/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_post_remove',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/remove/comment/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_comment_remove',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(6),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/get/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_comment_get',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/get/edit/form/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_comment_edit_form',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(7),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/get/edit/form/submit'] = array(
+    'page callback' => 'cbib_oc_comments_render_comment_edit_form_submit',
+    'delivery callback' => 'ajax_deliver',
+    //'page arguments' => array(7),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+   $items['cbib/oc/comments/ajax/update'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_edit_form_submit',
+    'delivery callback' => 'ajax_deliver',
+    //'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+   $items['cbib/oc/comments/ajax/edit/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_edit_form',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+    $items['cbib/oc/comments/ajax/post/render/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_post_view',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(6),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+   
+  $items['cbib/oc/comments/ajax/update/comment/%'] = array(
+    'page callback' => 'cbib_oc_comments_comment_update',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(6),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/getform/%'] = array(
+    'page callback' => 'cbib_oc_comments_render_comment_form',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/readmore/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_read_more',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['cbib/oc/comments/ajax/readless/%'] = array(
+    'page callback' => 'cbib_oc_comments_new_read_less',
+    'delivery callback' => 'ajax_deliver',
+    'page arguments' => array(5),
+    'access arguments' => array('access content'),
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+
+//Alter the comment form
+function cbib_oc_comments_new_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id == "commons_bw_partial_node_form__post")
+    {
+        drupal_add_js(drupal_get_path('module', 'cbib_oc_comments_new') . '/js/cbib_oc_comments_new.js');
+        drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
+        $form['#prefix'] = "<input id='oc-new-comment-new-post-btn' type='submit' value='".t("Opret indlæg")."' class='action-item-primary' />" . $form['#prefix'];
+        $form['#attributes']['class'][] = 'js-hide';
+        $form['close']['#markup'] = '<div title="Skjul nyt indlæg" class="hide-new-post-form" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></div>';
+        $form['close']['#weight'] = -1000; 
+         
+         $form['actions']['submit']['#ajax'] = array(
+            'callback' => 'cbib_oc_comments_new_post_add',
+            'effect' => 'fade',
+        );
+         $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_cancel_btn'));
+         
+         $form['actions']['submit']['#attributes'] = array('class' => array('oc_new_post_btn'));
+         $form['actions']['submit']['#weigth'] = 2;
+
+         $form['body']['und'][0]['#format'] = 'comments';
+          $form['field_media']['und']['#description'] = "<h2><b>Tilføj fil(er)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
+        unset($form['#submit']);
+        //$form = array();
+    }
+    if($form_id == "commons_bw_partial_node_form__post_edit")
+    {
+        //$form['close']['#markup'] = '<div title="Skjul nyt indlæg" class="hide-new-post-form" style="float:right;font-size:26px;color:black;cursor:pointer"><i class="fa fa-times" aria-hidden="true"></i></div>';
+        //$form['close']['#weight'] = -1000; 
+        $form['body']['und'][0]['#format'] = 'comments';
+        $form['field_media']['und']['#description'] = "<h2><b>Tilføj fil(er)</b></h2>";//<h2>" . $form['field_medie']['#description']. "</h2>";
+        
+         $form['actions']['submit']['#ajax'] = array(
+            'callback' => 'cbib_oc_comments_render_post_edit_form_submit',
+            'effect' => 'fade',
+        );
+        
+        unset($form['#submit']);
+    }
+}
+//Add buttons to the posts.
+function cbib_oc_comments_new_node_view_alter(&$build)
+{
+    
+    global $user;
+    if($build['#node']->type == "post")
+    {
+        $page_data = page_manager_get_current_page();
+        drupal_add_library('system', 'drupal.ajax');
+        drupal_add_library('system', 'jquery.form');
+        drupal_add_js(drupal_get_path('module', 'cbib_oc_comments_new') . '/js/cbib_oc_comments_new.js');
+        drupal_add_css(drupal_get_path('module', 'cbib_oc_comments_new') . '/css/cbib_oc_comments_new.css');
+        if(isset($build['comments']['comments']) || ($page_data != null && $page_data["name"] == "page-licens_formidling_og_pr") )
+        {
+              $format = 'comments';
+              $profile = wysiwyg_get_profile('comments');
+              $settings[$format] = array(
+                'editor' => 'none',
+                'status' => 1,
+                'toggle' => 1,
+              );
+              $loaded = TRUE;
+              if (isset($profile->preferences['add_to_summaries']) && !$profile->preferences['add_to_summaries']) {
+                $settings[$format]['skip_summary'] = 1;
+              }
+              $settings[$format]['editor'] = $profile->editor;
+              $settings[$format]['status'] = (int) wysiwyg_user_get_status($profile);
+              if (isset($profile->preferences['show_toggle'])) {
+                $settings[$format]['toggle'] = (int) $profile->preferences['show_toggle'];
+              }
+              // Check editor theme (and reset it if not/no longer available).
+              $theme = wysiwyg_get_editor_themes($profile, (isset($profile->settings['theme']) ? $profile->settings['theme'] : ''));
+
+              // Add plugin settings (first) for this text format.
+              wysiwyg_add_plugin_settings($profile);
+              // Add profile settings for this text format.
+              wysiwyg_add_editor_settings($profile, $theme);
+               $build['#attached']['js'][] = array(
+                'data' => array(
+                  'wysiwyg' => array(
+                    'triggers' => array(
+                    ),
+                  ),
+                ),
+                'type' => 'setting',
+              ); 
+             
+                $build['comments']['#prefix'] = '<div class="cbib-oc-comment-ajax-wrap-'.$build['#node']->nid.'"><div>';
+                $build['comments']['#suffix'] = '</div></div>';
+                cbib_oc_comments_add_wrappers($build['comments']['comments']);
+                unset($build['comments']['comment_form']);
+        }
+        $html_reply = '<div class="oc-comments-new-reply-btn"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
+        if($build['#view_mode'] != "full")
+        {
+            
+            $html_edit = '<div class="oc-comments-new-edit-btn"><span class=""><i class="fa fa-pencil" aria-hidden="true"></i>Ret</span></div>';
+            $html_slet = '<div class="oc-comments-new-delete-btn"><span class=""><i class="fa fa-trash" aria-hidden="true"></i>Slet</span></div>';
+        }
+        
+        if(!user_is_anonymous())
+        {
+            $build['links']['svar'] = array('#theme'=>'html_tag','#links'=> array('oc-comments-new-reply-wrap' => array('title' => $html_reply,'html' => true)),'#attributes' => array('class' => array('links','inline')));
+            if(node_access("update",$build['#node']))
+            {
+                if($build['#node']->uid == $user->uid || user_access('administer comments'))
+                {
+                    $build['links']['ret'] = array('#theme'=>'html_tag','#links'=> array('oc-comments-new-edit-wrap' => array('title' => $html_edit,'html' => true)),'#attributes' => array('class' => array('links','inline')));
+                }
+                
+                $build['links']['slet'] = array('#theme'=>'html_tag','#links'=> array('oc-comments-new-delete-wrap' => array('title' => $html_slet,'html' => true)),'#attributes' => array('class' => array('links','inline')));
+            }
+            
+        }
+        $build['cbib_oc_comments_new'][] = array('#markup' => "<input type='hidden' id='cbib-oc-comments-new-nid' value='".$build['#node']->nid."' />");
+        $build['cbib_new_comment_block'] = array('#markup'=>"<div class='oc-new-comment-block-wrap-".$build['#node']->nid."'></div>");
+        //$build['links']['svar'] = array('#markup'=>$html);
+        //$build['links']['svar'] = array('#markup' => l(t('Link text'),'node'));
+    } 
+    
+}
+function  cbib_oc_comments_new_comment_view_alter(&$build, $view_mode) {
+
+    global $user;
+     if($build['#comment']->uid == $user->uid || user_access('administer comments'))
+     {
+        $build['links']['comment']['#links']['comment-edit']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Ret</span></div>';
+        $build['links']['comment']['#links']['comment-edit']['html'] = 'true';
+     }
+     else
+     {
+         unset($build['links']['comment']['#links']['comment-edit']);
+     }
+    if(isset($build['links']['comment']['#links']['comment-delete']))
+    {
+        $build['links']['comment']['#links']['comment-delete']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-pencil"></i>Slet</span></div>';
+        $build['links']['comment']['#links']['comment-delete']['html'] = 'true';
+    }
+    $build['links']['comment']['#links']['comment-reply']['title'] = '<div class="action-item-small action-item-inline"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
+    $build['links']['comment']['#links']['comment-reply']['html'] = 'true';
+    
+    $build['links']['comment']['#links'] = array_reverse($build['links']['comment']['#links'],TRUE);
+    if ($build['#comment']->depth >= 1)
+    {
+        //we still need the link
+        $build['links']['comment']['#links']['comment-reply']['title'] = '<div class="action-item-small action-item-inline js-hide"><span class=""><i class="fa fa-reply"></i>Svar</span></div>';
+    }
+}

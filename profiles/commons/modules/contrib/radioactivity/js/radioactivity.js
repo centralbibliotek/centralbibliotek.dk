@@ -7,9 +7,12 @@ Drupal.behaviors.radioactivity = {
   attach: function (context, settings) {
 
     // Do an ajax callback to the given callback address {
-    var data = settings.radioactivity.emitters;
-    var config = settings.radioactivity.config;
-
+            try {
+                var data = settings.radioactivity.emitters;
+                var config = settings.radioactivity.config;
+            } catch (e) {
+                return;
+            }
     this.config = config;
 
     $.each(data, function(callback, incidents) {

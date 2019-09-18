@@ -75,12 +75,12 @@ function detectIE() {
             
             trigger_loginSpinner();
         });
-        $('#commons-bw-partial-node-form-post').submit(function(){
+        /*$('#commons-bw-partial-node-form-post').submit(function(){
             trigger_loginSpinner();
         });
         $('#comment-form').submit(function(){
             trigger_loginSpinner();
-        });
+        });*/
         $('select[id!=edit-following][id!=edit-field-library-und][id!=edit-og-group-ref-target-id]').not(".form-select").change(function () {
             trigger_loginSpinner();
         });
@@ -100,6 +100,11 @@ function detectIE() {
         /*
          * unbind login_spinner;
          */
+        $('.comment-delete a').unbind('click');
+        $('.comment-reply a ').unbind('click');
+        $('.comment-edit a').unbind('click');
+        $('.node-readmore-link').unbind('click');
+        $('.comment-comments a').unbind('click');
         $('.file').find('a').unbind('click');
         $('#navbar-administration').find('a').unbind('click');
         $('.feed-icon').find('a').unbind('click');

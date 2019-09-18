@@ -1828,12 +1828,12 @@ ul.comment-links {
 
 .comment-reply {
   float: right;
-  &:before {
+  /*&:before {
     content: "";
     @include sprite_url_height_width($icons, comments);
     margin-right: 8px;
     top: 3px;
-  }
+  }*/
 }
 
 .comment-form {
