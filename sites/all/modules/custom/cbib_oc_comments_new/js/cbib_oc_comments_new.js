@@ -90,7 +90,10 @@
 
             } else
             {
+                if(Drupal.behaviors.attachWysiwyg != undefined)
+                {
                 Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent().parent().parent().parent(), elem.id, 'unload');
+                }
                 comment_elem.remove();
             }
             return false;
@@ -121,7 +124,10 @@
                 delete Drupal.ajax['js-load-comments-ajax-' + nid];
             } else
             {
+                if(Drupal.behaviors.attachWysiwyg != undefined)
+                {
                  Drupal.behaviors.attachWysiwyg.detach(comments);
+                }
                 comments.remove();
                 
                 
@@ -160,7 +166,10 @@
                 delete Drupal.ajax['js-load-new-form-ajax-' + nid];
             } else
             {
-                Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
+                if(Drupal.behaviors.attachWysiwyg != undefined)
+                {
+                    Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
+                }
                 comment_elem.remove();
             }
             return false;
@@ -274,7 +283,10 @@
                 delete Drupal.ajax['js-load-new-form-ajax-' + pid];
             } else
             {
-                Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
+                if(Drupal.behaviors.attachWysiwyg != undefined)
+                {
+                    Drupal.behaviors.attachWysiwyg.detach(elem.parent().parent(), elem.id, 'unload');
+                }
                 comment_elem.remove();
             }
             return false;
@@ -357,8 +369,10 @@
             var title_edit = $('.oc-comments-edit-area-title');
             var bodyval = old_edit_text;
             var titleval = old_edit_link_text;
-
-            Drupal.behaviors.attachWysiwyg.detach(comment_elem, body_edit.id, 'unload');
+            if(Drupal.behaviors.attachWysiwyg != undefined)
+            {
+                Drupal.behaviors.attachWysiwyg.detach(comment_elem, body_edit.id, 'unload');
+            }
             $('.wysiwyg-toggle-wrapper').remove();
             body_edit.replaceWith($('<span></span>').html(bodyval));
             var titleobj = $('<a></a>').attr('href', "/comment/" + pid).text(titleval);
@@ -370,8 +384,11 @@
         {
             $('#messages').remove();
             var post_elem = jQuery(this).parent().parent();
-            var text_elem = post_elem.find('.wysiwyg')
-            Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            var text_elem = post_elem.find('.wysiwyg');
+            if(Drupal.behaviors.attachWysiwyg != undefined)
+            {
+                Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            }
             post_elem.remove();
             return false;
         });
@@ -380,8 +397,11 @@
         {
             $('#messages').remove();
             var post_elem = jQuery(this).parent().parent();
-            var text_elem = post_elem.find('.wysiwyg')
-            Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            var text_elem = post_elem.find('.wysiwyg');
+            if(Drupal.behaviors.attachWysiwyg != undefined)
+            {
+                Drupal.behaviors.attachWysiwyg.detach(post_elem, text_elem.id, 'unload');
+            }
             post_elem.remove();
             return false;
         });
