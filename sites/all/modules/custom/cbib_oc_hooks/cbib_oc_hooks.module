@@ -990,10 +990,26 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
 {
 
     if ($variables['node']->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $variables['node']->nid, 'user')) {
-        drupal_set_message($message = 'Indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
-        drupal_access_denied();
-    	module_invoke_all('exit');
-	drupal_exit();
+        
+        /*
+         * Check if user is member of an access giving group.
+         */
+        $abort = false;
+        foreach($variables['node']->og_group_ref['und'] as $group_ref)
+        {
+            if(og_is_member('node',$group_ref['target_id'], 'user'))
+            {
+                //user is member of a group that provides access.
+                $abort = true;
+            }
+        }
+        if($abort == false)
+        {
+            drupal_set_message($message = 'Indholdet kræver særlige rettigheder - f.eks. invitation til grupper', $type = 'status', $repeat = FALSE);
+            drupal_access_denied();
+            module_invoke_all('exit');
+            drupal_exit();
+        }
     }
 
     $to_be_removed = array('node/%/clone/%');
