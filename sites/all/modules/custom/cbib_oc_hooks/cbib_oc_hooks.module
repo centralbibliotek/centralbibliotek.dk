@@ -147,6 +147,15 @@ function  cbib_oc_hooks_menu() {
     'access callback' => TRUE,
    );
 
+  $items['node/%node/follower'] = array(
+    'title' => 'Followers',
+    'page callback' => 'cbib_oc_hooks_event_follower_page',
+    'page arguments' => array(1),
+    'access callback' => 'cbib_oc_hooks_follower_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+
    $items['admin/settings/cbib_oc_hooks/js/summary'] = array(
     'type' => MENU_CALLBACK,
     'title' => 'js_summary',
@@ -203,6 +212,32 @@ function  cbib_oc_hooks_menu() {
    );
 
   return $items;
+}
+
+/**
+ * Access callback for showing the folower tab.
+ */
+function cbib_oc_hooks_follower_access($event_node) {
+  if ($event_node->type == 'event' && user_access('view event registration')) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+  /**
+ * Page callback for full event follower listing.
+ */
+function cbib_oc_hooks_event_follower_page($event_node) {
+  $title = '<p class="commons-events-attendees-title">' . t('Followers') . '</p>';
+  $event_nid = $event_node->nid;
+  if (!isset($variables['display']) || $variables['display'] != 'full') {
+    return $title . views_embed_view('node_followers', 'node_follower_list', $event_nid)
+      . '<p class="commons-events-all-attendees"><a href="/node/' . $event_nid . '/followers">'
+      . t('See all followers') . '</a></p>';
+  }
+  return $title . views_embed_view('node_followers', 
+    'node_follower_list',
+    $event_nid);
 }
 
 function check_og_permissions() {
