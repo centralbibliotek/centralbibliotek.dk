@@ -728,6 +728,7 @@ function cbib_oc_hooks_og_ui_get_group_admin($group_type, $gid) {
       'description' => t('Resends original creation notifcation ( this will notify all users on the site!!)'),
       'href' => "admin/oc/resend",
     );
+    
   }
 
   return $items;
@@ -1029,18 +1030,21 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
 {
 
     if ($variables['node']->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $variables['node']->nid, 'user')) {
-        
+        $test = $variables['node']->field_access_granting_groups;
         /*
          * Check if user is member of an access giving group.
          */
         $abort = false;
-        foreach($variables['node']->og_group_ref['und'] as $group_ref)
+        if(isset($variables['node']->field_access_granting_groups['und']))
         {
-            if(og_is_member('node',$group_ref['target_id'], 'user'))
-            {
-                //user is member of a group that provides access.
-                $abort = true;
-            }
+          foreach($variables['node']->field_access_granting_groups['und'] as $group_ref)
+          {
+              if(og_is_member('node',$group_ref['target_id'], 'user'))
+              {
+                  //user is member of a group that provides access.
+                  $abort = true;
+              }
+          }
         }
         if($abort == false)
         {
