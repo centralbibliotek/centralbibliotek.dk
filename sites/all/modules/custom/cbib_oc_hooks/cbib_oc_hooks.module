@@ -1030,7 +1030,7 @@ function cbib_oc_hooks_get_all_event_locations()
  */
 function cbib_oc_hooks_preprocess_page(&$variables, $hook)
 {
-
+    global $user;
     if ($variables['node']->field_og_subscribe_settings['und'][0]['value'] == 'invitation' && !og_is_member('node', $variables['node']->nid, 'user')) {
         $test = $variables['node']->field_access_granting_groups;
         /*
@@ -1047,6 +1047,11 @@ function cbib_oc_hooks_preprocess_page(&$variables, $hook)
                   $abort = true;
               }
           }
+
+        }
+        if (in_array('administrator', $user->roles) || in_array('content moderator', $user->roles)) {
+          // do fancy stuff
+          $abort = true;
         }
         if($abort == false)
         {
