@@ -369,7 +369,7 @@ function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
         hide($form['actions']['submit']);
         $form['actions']['submit2']['#value'] = t("Send");
         $form['actions']['submit2']['#type'] = "submit";
-        $form['readmore']['#markup'] = '<a target="_blank" href="/content/om-centralbibliotekdk">læs mere</a> om hvad vi bruger oplysningerne til';
+        $form['readmore']['#markup'] = '<a target="_blank" href="/content/om-centralbibliotekdk">Læs mere</a> om, hvad vi bruger oplysningerne til.';
         $form['readmore']['#weight'] = "99";
     }
     if($form_id == "user_login")
