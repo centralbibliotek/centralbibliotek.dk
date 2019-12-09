@@ -343,7 +343,7 @@ function _pdfpreview_convert_first_page($source, $destination) {
 
 		// embedded Imagick
 		$im = new Imagick(drupal_realpath($source) . '[0]');
-		$im = $im->flattenImages();
+		$im = $im->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN);
 		$im->scaleImage($size[0], $size[1], TRUE);
 		$im->setImageCompressionQuality($quality);
 		$im->writeImage(drupal_realpath($destination));
