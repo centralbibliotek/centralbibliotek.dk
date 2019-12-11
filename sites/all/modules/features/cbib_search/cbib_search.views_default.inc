@@ -136,7 +136,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
   $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
@@ -234,7 +234,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
   $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
@@ -337,7 +337,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
   $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
@@ -915,7 +915,7 @@ function cbib_search_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Felt: Indholdselement » Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Indholdselement » Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['node_field_address_locality']['id'] = 'node_field_address_locality';
   $handler->display->display_options['fields']['node_field_address_locality']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_field_address_locality']['field'] = 'node_field_address_locality';
