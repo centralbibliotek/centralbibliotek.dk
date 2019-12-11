@@ -24,6 +24,13 @@ function cbib_news_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'print' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -34,16 +41,20 @@ function cbib_news_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
+    'label' => 'Brødtekst',
+    'placeholder' => '',
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
+    'use_title_as_placeholder' => 0,
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -82,6 +93,27 @@ function cbib_news_field_default_field_instances() {
         'type' => 'double_field_unformatted_list',
         'weight' => 1,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'double_field',
+        'settings' => array(
+          'first' => array(
+            'format' => '_none',
+            'hidden' => 0,
+            'prefix' => '',
+            'suffix' => ':&nbsp;',
+          ),
+          'second' => array(
+            'format' => '_none',
+            'hidden' => 0,
+            'prefix' => '',
+            'suffix' => '',
+          ),
+          'style' => 'inline',
+        ),
+        'type' => 'double_field_unformatted_list',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -89,10 +121,11 @@ function cbib_news_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_in_partial_form' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_author',
     'label' => 'Forfatter',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -137,9 +170,21 @@ function cbib_news_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
+        'module' => 'pdfpreview',
+        'settings' => array(
+          'fallback_formatter' => 'file_default',
+          'image_link' => 'pdf_file',
+          'image_style' => 'medium',
+          'show_description' => 0,
+          'tag' => 'span',
+        ),
+        'type' => 'pdfpreview',
+        'weight' => 5,
+      ),
+      'print' => array(
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -157,7 +202,7 @@ function cbib_news_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'dokumenter',
-      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf png jpg jpeg gif',
+      'file_extensions' => 'txt doc docx xls xlsx ppt pptx odt odp ods pdf png jpg jpeg gif pub',
       'max_filesize' => '',
       'resup' => 1,
       'resup_autostart' => 1,
@@ -166,11 +211,18 @@ function cbib_news_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'file',
+      'module' => 'cbib_oc_file_folders_org',
       'settings' => array(
+        'extended_file_field_collapsible' => 0,
+        'extended_file_field_hidden_toggle' => 0,
+        'extended_file_field_restrict_display' => 0,
+        'extended_file_field_reverse_display' => 0,
+        'extended_file_field_show_clear_contents' => 0,
+        'extended_file_field_show_remove' => 1,
+        'extended_file_field_widget_metadata' => array(),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'file_generic',
+      'type' => 'oc_file_folders_org',
       'weight' => 11,
     ),
   );
@@ -182,13 +234,19 @@ function cbib_news_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
         ),
         'type' => 'image',
+        'weight' => 2,
+      ),
+      'print' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -256,6 +314,13 @@ function cbib_news_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 3,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -312,6 +377,13 @@ function cbib_news_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 9,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -348,6 +420,13 @@ function cbib_news_field_default_field_instances() {
     'description' => 'Angiv hvilke centralbiblioteker og/eller licenser nyheden er knyttet til.',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'og_ui',
+        'settings' => array(),
+        'type' => 'og_list_default',
+        'weight' => 4,
+      ),
+      'print' => array(
         'label' => 'above',
         'module' => 'og_ui',
         'settings' => array(),
@@ -409,7 +488,7 @@ function cbib_news_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Angiv hvilke centralbiblioteker og/eller licenser nyheden er knyttet til.');
   t('Billede');
-  t('Body');
+  t('Brødtekst');
   t('Emner');
   t('Forfatter');
   t('Link');
