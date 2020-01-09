@@ -393,7 +393,7 @@ if ($form['field_address'][LANGUAGE_NONE]['add_more']['#ajax']['wrapper'] === 'f
         $country = $form['field_address'][LANGUAGE_NONE][$x]['#address']['country'];
         $locality = $form['field_address'][LANGUAGE_NONE][$x]['#address']['locality'];
         $postal_code = $form['field_address'][LANGUAGE_NONE][$x]['#address']['postal_code'];
-        if ($country == "" || $country == "DK" && empty($locality) && empty($postal_code)) {
+        if ($country == "" || $country == "DK" && empty($locality) && empty($postal_code) && $x != 0) {
             unset($form['field_address'][LANGUAGE_NONE][$x]);
             // Make sure the site knows there is one less addresse as well
             $form['field_address'][LANGUAGE_NONE]['#max_delta'] = $last_address - 1;
