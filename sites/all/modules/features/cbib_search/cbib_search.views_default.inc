@@ -63,7 +63,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater!</strong>';
+  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater.</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
@@ -77,19 +77,6 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Sorteringskriterie: Handler mangler eller er i stykker */
-  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['sorts']['field_date_value']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
-  $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
-  $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
-  $handler->display->display_options['arguments']['og_group_ref']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_arrangement_index';
@@ -108,13 +95,14 @@ function cbib_search_views_default_views() {
   );
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
     'body:value' => 'body:value',
+    'field_topics:name' => 'field_topics:name',
     'title' => 'title',
   );
 
   /* Display: Events - all */
   $handler = $view->new_display('page', 'Events - all', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende arrangementer';
+  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Overskrift: Global: Resumé af resultat */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -122,14 +110,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
-  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
-  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
-  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['sorts']['search_api_combined_1']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['search_api_combined_1']['expose']['label'] = 'COMBINE_DATO';
-  $handler->display->display_options['path'] = 'arrangementer';
+  $handler->display->display_options['path'] = 'kompetenceudvikling';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -139,7 +120,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - mini */
   $handler = $view->new_display('page', 'Events - mini', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Arrangementer mini visning';
+  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -155,7 +136,208 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Address: Locality (i.e. City) (indexed) */
+  $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['label'] = '';
+  $handler->display->display_options['fields']['field_address_locality']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['text'] = '[field_address_locality],';
+  $handler->display->display_options['fields']['field_address_locality']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address_locality']['link_to_entity'] = 0;
+  /* Felt: Arrangementsdato: Startdato (indexed) */
+  $handler->display->display_options['fields']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['label'] = '';
+  $handler->display->display_options['fields']['field_date_value']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_date_value']['alter']['text'] = '[field_address_locality] [field_date_value]';
+  $handler->display->display_options['fields']['field_date_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date_value']['date_format'] = 'event_datetime';
+  $handler->display->display_options['fields']['field_date_value']['second_date_format'] = 'html5_tools_iso8601';
+  $handler->display->display_options['fields']['field_date_value']['link_to_entity'] = 0;
+  /* Felt: Indexed Indholdselement: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Felt: Indexed Indholdselement: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '250';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_type'] = 'p';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '250',
+  );
+  /* Felt: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['path'] = 'kompetenceudvikling';
+  $handler->display->display_options['menu']['title'] = 'Arrangementer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Events - group full */
+  $handler = $view->new_display('page', 'Events - group full', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['menu']['title'] = 'Arrangementer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Events - group mini */
+  $handler = $view->new_display('page', 'Events - group mini', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Address: Locality (i.e. City) (indexed) */
+  $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
+  $handler->display->display_options['fields']['field_address_locality']['label'] = '';
+  $handler->display->display_options['fields']['field_address_locality']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_address_locality']['alter']['text'] = '[field_address_locality],';
+  $handler->display->display_options['fields']['field_address_locality']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address_locality']['link_to_entity'] = 0;
+  /* Felt: Arrangementsdato: Startdato (indexed) */
+  $handler->display->display_options['fields']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['fields']['field_date_value']['label'] = '';
+  $handler->display->display_options['fields']['field_date_value']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_date_value']['alter']['text'] = '[field_address_locality] [field_date_value]';
+  $handler->display->display_options['fields']['field_date_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date_value']['date_format'] = 'event_datetime';
+  $handler->display->display_options['fields']['field_date_value']['second_date_format'] = 'html5_tools_iso8601';
+  $handler->display->display_options['fields']['field_date_value']['link_to_entity'] = 0;
+  /* Felt: Indexed Indholdselement: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Felt: Indexed Indholdselement: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '250';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_type'] = 'p';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '250',
+  );
+  /* Felt: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['menu']['title'] = 'Arrangementer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Events - group full - sort date desc */
+  $handler = $view->new_display('page', 'Events - group full - sort date desc', 'page_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indexed Indholdselement: COMBINE_DATO */
+  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
+  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
+  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['menu']['title'] = 'Arrangementer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Events - group mini - sort asc */
+  $handler = $view->new_display('page', 'Events - group mini - sort asc', 'page_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['field_address_locality']['id'] = 'field_address_locality';
   $handler->display->display_options['fields']['field_address_locality']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['fields']['field_address_locality']['field'] = 'field_address_locality';
@@ -212,7 +394,8 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
-  $handler->display->display_options['path'] = 'arrangementer';
+  $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
+  $handler->display->display_options['path'] = '%/kompetenceudvikling';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -235,17 +418,19 @@ function cbib_search_views_default_views() {
     t('›'),
     t('»'),
     t('Displaying @start - @end of @total'),
-    t(' <strong>Søgning gav desværre ingen resultater!</strong>'),
+    t(' <strong>Søgning gav desværre ingen resultater.</strong>'),
     t('Grupper'),
-    t('Alle'),
     t('Events - all'),
-    t('Kommende arrangementer'),
+    t('Kommende kompetenceudviklingstilbud'),
     t('Viser @start - @end af @total'),
-    t('COMBINE_DATO'),
     t('Events - mini'),
-    t('Arrangementer mini visning'),
+    t('kompetenceudviklingstilbud mini visning'),
     t('[field_address_locality],'),
     t('[field_address_locality] [field_date_value]'),
+    t('Events - group full'),
+    t('Events - group mini'),
+    t('Events - group full - sort date desc'),
+    t('Events - group mini - sort asc'),
   );
   $export['search_api_arrangementer'] = $view;
 
@@ -301,7 +486,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Din søgning gav desværre ingen resultater!';
+  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater.</strong>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Forbindelse: Indexed Indholdselement: Tilknytning */
   $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
@@ -343,10 +528,8 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
   $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
   $handler->display->display_options['arguments']['og_group_ref']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_group_index';
@@ -364,6 +547,7 @@ function cbib_search_views_default_views() {
   );
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
     'body:value' => 'body:value',
+    'field_topics:name' => 'field_topics:name',
     'title' => 'title',
   );
 
@@ -432,6 +616,82 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
   $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
   $handler->display->display_options['path'] = 'grupper';
+
+  /* Display: search api group -group full */
+  $handler = $view->new_display('page', 'search api group -group full', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'search api group';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Resumé af resultat */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['empty'] = TRUE;
+  $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['arguments']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['arguments']['og_group_ref']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['arguments']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['arguments']['og_group_ref']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['og_group_ref']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['og_group_ref']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['og_group_ref']['not'] = 0;
+  $handler->display->display_options['path'] = '%/grupper';
+
+  /* Display: search api group - group mini */
+  $handler = $view->new_display('page', 'search api group - group mini', 'page_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'search api group mini';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
+  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indexed Indholdselement: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Felt: Indexed Indholdselement: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '300',
+  );
+  /* Felt: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'search_api_index_group_index';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
+  $handler->display->display_options['path'] = '%/grupper';
   $translatables['search_api_group'] = array(
     t('Master'),
     t('search api group mini'),
@@ -449,7 +709,7 @@ function cbib_search_views_default_views() {
     t('›'),
     t('»'),
     t('Viser @start - @end af @total'),
-    t('Din søgning gav desværre ingen resultater!'),
+    t(' <strong>Søgning gav desværre ingen resultater.</strong>'),
     t('Grupper'),
     t('Indholdselement ID'),
     t('.'),
@@ -460,8 +720,124 @@ function cbib_search_views_default_views() {
     t('Nyeste indlæg'),
     t('Alle'),
     t('search api group'),
+    t('search api group -group full'),
+    t('search api group - group mini'),
   );
   $export['search_api_group'] = $view;
+
+  $view = new view();
+  $view->name = 'search_api_news';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'search_api_index_nyhed_index';
+  $view->human_name = 'search api news';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Kommende nyheder';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '«';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
+  $handler->display->display_options['pager']['options']['tags']['next'] = '›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = '»';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = ' <strong>Søgning gav desværre ingen resultater.</strong>';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  /* Forbindelse: Indexed Indholdselement: Tilknytning */
+  $handler->display->display_options['relationships']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['relationships']['og_group_ref']['table'] = 'search_api_index_nyhed_index';
+  $handler->display->display_options['relationships']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['relationships']['og_group_ref']['label'] = 'Grupper';
+  /* Felt: Indexed Indholdselement: Indholdselement ID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_nyhed_index';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  /* Sorteringskriterie: Indexed Indholdselement: Dato oprettet */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_nyhed_index';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filterkriterie: Søg: Fulltext search */
+  $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_nyhed_index';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['operator'] = 'OR';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
+    'body:value' => 'body:value',
+    'title' => 'title',
+  );
+
+  /* Display: News - all */
+  $handler = $view->new_display('page', 'News - all', 'page');
+  $handler->display->display_options['path'] = 'nyheder';
+
+  /* Display: News - group full */
+  $handler = $view->new_display('page', 'News - group full', 'page_1');
+  $handler->display->display_options['path'] = '%/nyheder';
+  $translatables['search_api_news'] = array(
+    t('Master'),
+    t('Kommende nyheder'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('«'),
+    t('‹'),
+    t('›'),
+    t('»'),
+    t(' <strong>Søgning gav desværre ingen resultater.</strong>'),
+    t('Grupper'),
+    t('Indholdselement ID'),
+    t('.'),
+    t(','),
+    t('News - all'),
+    t('News - group full'),
+  );
+  $export['search_api_news'] = $view;
 
   $view = new view();
   $view->name = 'search_api_nodes';
@@ -539,7 +915,7 @@ function cbib_search_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Felt: Indholdselement » Adresse: Locality (i.e. City) (indexed) */
+  /* Felt: Indholdselement » Address: Locality (i.e. City) (indexed) */
   $handler->display->display_options['fields']['node_field_address_locality']['id'] = 'node_field_address_locality';
   $handler->display->display_options['fields']['node_field_address_locality']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['fields']['node_field_address_locality']['field'] = 'node_field_address_locality';
@@ -652,16 +1028,21 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['user_field_library']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['user_field_library']['view_mode'] = 'full';
   $handler->display->display_options['fields']['user_field_library']['bypass_access'] = 0;
-  /* Sorteringskriterie: Søg: Relevans */
-  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
-  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_global_search';
-  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
-  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
+  /* Sorteringskriterie: Indexed Multiple types: Combo startdato */
+  $handler->display->display_options['sorts']['search_api_combined_1']['id'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
+  $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
   /* Sorteringskriterie: Indholdselement: Dato oprettet (indexed) */
   $handler->display->display_options['sorts']['node_created']['id'] = 'node_created';
   $handler->display->display_options['sorts']['node_created']['table'] = 'search_api_index_global_search';
   $handler->display->display_options['sorts']['node_created']['field'] = 'node_created';
   $handler->display->display_options['sorts']['node_created']['order'] = 'DESC';
+  /* Sorteringskriterie: Søg: Relevans */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   /* Filterkriterie: Søg: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_global_search';
@@ -676,10 +1057,43 @@ function cbib_search_views_default_views() {
     3 => 0,
     4 => 0,
   );
+  /* Filterkriterie: Indholdselement: Status (indexed) */
+  $handler->display->display_options['filters']['node_status']['id'] = 'node_status';
+  $handler->display->display_options['filters']['node_status']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['filters']['node_status']['field'] = 'node_status';
+  $handler->display->display_options['filters']['node_status']['value'] = array(
+    1 => '1',
+  );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'search-api-nodes';
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+
+  /* Display: Blok */
+  $handler = $view->new_display('block', 'Blok', 'block_1');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Søg: Fulltext search */
+  $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filterkriterie: Indholdselement: Indstilling for adgang (indexed) */
+  $handler->display->display_options['filters']['node_field_og_subscribe_settings']['id'] = 'node_field_og_subscribe_settings';
+  $handler->display->display_options['filters']['node_field_og_subscribe_settings']['table'] = 'search_api_index_global_search';
+  $handler->display->display_options['filters']['node_field_og_subscribe_settings']['field'] = 'node_field_og_subscribe_settings';
+  $handler->display->display_options['filters']['node_field_og_subscribe_settings']['operator'] = '<>';
+  $handler->display->display_options['filters']['node_field_og_subscribe_settings']['value'] = array(
+    'invitation' => 'invitation',
+  );
   $translatables['search_api_nodes'] = array(
     t('Master'),
     t('search api nodes'),
@@ -708,7 +1122,9 @@ function cbib_search_views_default_views() {
     t('Stilling'),
     t('E-mail'),
     t('Bibliotek'),
-    t('Page'),
+    t('Content pane'),
+    t('View panes'),
+    t('Blok'),
   );
   $export['search_api_nodes'] = $view;
 

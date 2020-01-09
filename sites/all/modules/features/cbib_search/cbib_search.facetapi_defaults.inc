@@ -81,13 +81,38 @@ function cbib_search_facetapi_default_facet_settings() {
     'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
+      'roles' => array(
+        1 => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+      ),
       'bundle' => 'none',
-      'bundle_selected' => array(),
-      'roles' => array(),
-      'facets' => array(),
-      'reverse_dependency' => FALSE,
-      'force_deactivation' => TRUE,
-      'regex' => FALSE,
+      'bundle_selected' => array(
+        'event' => 0,
+        'library' => 0,
+        'centralbibliotek' => 0,
+        'document' => 0,
+        'group' => 0,
+        'post' => 0,
+        'license' => 0,
+        'licenses' => 0,
+        'news' => 0,
+        'page' => 0,
+      ),
+      'facets' => array(
+        'field_event_type' => 'field_event_type',
+        'field_address:locality' => 0,
+        'field_topics' => 0,
+        'og_group_ref' => 0,
+      ),
+      'reverse_dependency' => 1,
+      'force_deactivation' => 1,
+      'regex' => 0,
+      'facet_items_field_address:locality' => '',
+      'facet_items_field_event_type' => '640',
+      'facet_items_field_topics' => '',
+      'facet_items_og_group_ref' => '',
     ),
     'facet_mincount' => '0',
     'facet_missing' => '0',
@@ -285,14 +310,18 @@ function cbib_search_facetapi_default_facet_settings() {
       'bundle' => 'none',
       'bundle_selected' => array(),
       'roles' => array(),
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
     'flatten' => 0,
     'individual_parent' => 0,
     'query_type' => 'term',
-    'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'limit_active_items' => 1,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -518,8 +547,8 @@ function cbib_search_facetapi_default_facet_settings() {
     ),
     'active_sorts' => array(
       'active' => 'active',
-      'count' => 'count',
       'display' => 'display',
+      'count' => 0,
       'natural' => 0,
       'indexed' => 0,
     ),
@@ -612,7 +641,7 @@ function cbib_search_facetapi_default_facet_settings() {
     'range_simple' => 10,
     'range_advanced' => '',
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 1,
     'date_ranges' => array(
@@ -842,7 +871,7 @@ function cbib_search_facetapi_default_facet_settings() {
       'natural' => '4',
       'indexed' => '4',
     ),
-    'empty_behavior' => 'text',
+    'empty_behavior' => 'none',
     'facet_more_text' => 'Vis flere',
     'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
@@ -852,8 +881,8 @@ function cbib_search_facetapi_default_facet_settings() {
       'future' => array(
         'label' => 'Kommende',
         'machine_name' => 'future',
-        'date_range_start_op' => '+',
-        'date_range_start_amount' => '1',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '10',
         'date_range_start_unit' => 'HOUR',
         'date_range_end_op' => '+',
         'date_range_end_amount' => '10',
@@ -1028,12 +1057,41 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-48',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-47',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-44',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'display' => 'display',
-      'natural' => 'natural',
       'count' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
@@ -1125,9 +1183,9 @@ function cbib_search_facetapi_default_facet_settings() {
     'range_simple' => 10,
     'range_advanced' => '',
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
-    'hide_facet_count' => 0,
+    'hide_facet_count' => 1,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
@@ -1135,6 +1193,10 @@ function cbib_search_facetapi_default_facet_settings() {
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@arrangement_index:block:field_event_type'] = $facet;
 
@@ -1691,32 +1753,60 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@arrangement_index';
   $facet->realm = 'block';
   $facet->facet = 'og_group_ref';
-  $facet->enabled = FALSE;
+  $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
-      'count' => 'count',
       'display' => 'display',
+      'count' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'facet_more_text' => 'Show more',
-    'facet_fewer_text' => 'Show fewer',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -1788,10 +1878,10 @@ function cbib_search_facetapi_default_facet_settings() {
     'auto-submit-delay' => '1500',
     'range_simple' => 10,
     'range_advanced' => '',
-    'default_option_label' => '',
-    'reset_option_label' => '',
+    'default_option_label' => 'Alle regioner',
+    'reset_option_label' => 'Alle regioner',
     'submit_page' => '',
-    'hide_facet_count' => 0,
+    'hide_facet_count' => 1,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
@@ -1799,6 +1889,10 @@ function cbib_search_facetapi_default_facet_settings() {
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@arrangement_index:block:og_group_ref'] = $facet;
 
@@ -1973,6 +2067,10 @@ function cbib_search_facetapi_default_facet_settings() {
     'hard_limit' => '50',
     'dependencies' => array(
       'roles' => array(),
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -1999,6 +2097,10 @@ function cbib_search_facetapi_default_facet_settings() {
     'hard_limit' => '50',
     'dependencies' => array(
       'roles' => array(),
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -2025,6 +2127,10 @@ function cbib_search_facetapi_default_facet_settings() {
     'hard_limit' => '50',
     'dependencies' => array(
       'roles' => array(),
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -2084,18 +2190,21 @@ function cbib_search_facetapi_default_facet_settings() {
       'active' => 'active',
       'count' => 'count',
       'display' => 'display',
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -2196,18 +2305,21 @@ function cbib_search_facetapi_default_facet_settings() {
       'active' => 'active',
       'count' => 'count',
       'display' => 'display',
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -2279,7 +2391,7 @@ function cbib_search_facetapi_default_facet_settings() {
       ),
     ),
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2309,18 +2421,21 @@ function cbib_search_facetapi_default_facet_settings() {
       'active' => 'active',
       'indexed' => 0,
       'count' => 0,
+      'natural' => 0,
     ),
     'sort_weight' => array(
       'display' => '-50',
       'active' => '-49',
       'indexed' => '-48',
       'count' => '-47',
+      'natural' => '0',
     ),
     'sort_order' => array(
       'display' => '3',
       'active' => '3',
       'indexed' => '3',
       'count' => '3',
+      'natural' => '4',
     ),
     'empty_behavior' => 'none',
     'facet_more_text' => 'Vis flere',
@@ -2391,7 +2506,7 @@ function cbib_search_facetapi_default_facet_settings() {
       ),
     ),
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2506,7 +2621,7 @@ function cbib_search_facetapi_default_facet_settings() {
       ),
     ),
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
@@ -2692,15 +2807,16 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--alle--',
-    'reset_option_label' => '--Gendan--',
+    'default_option_label' => '--Alle--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
     'empty_text' => array(
-      'value' => '',
+      'value' => '<p>Tom</p>
+',
       'format' => 'filtered_html',
     ),
   );
@@ -2757,8 +2873,8 @@ function cbib_search_facetapi_default_facet_settings() {
     'active_sorts' => array(
       'active' => 'active',
       'display' => 'display',
-      'natural' => 'natural',
       'count' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
@@ -2844,14 +2960,15 @@ function cbib_search_facetapi_default_facet_settings() {
       ),
     ),
     'default_option_label' => '--Vælg--',
-    'reset_option_label' => '--Gendan--',
+    'reset_option_label' => '--Alle--',
     'submit_page' => '',
     'hide_facet_count' => 0,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
     'empty_text' => array(
-      'value' => '',
+      'value' => '<p>Tom</p>
+',
       'format' => 'filtered_html',
     ),
   );
@@ -2900,27 +3017,55 @@ function cbib_search_facetapi_default_facet_settings() {
   $facet->searcher = 'search_api@group_index';
   $facet->realm = 'block';
   $facet->facet = 'og_group_ref';
-  $facet->enabled = FALSE;
+  $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_select_dropdowns',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
-      'count' => 'count',
       'display' => 'display',
+      'count' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -2991,17 +3136,22 @@ function cbib_search_facetapi_default_facet_settings() {
         'delete' => 0,
       ),
     ),
-    'default_option_label' => '--alle--',
-    'reset_option_label' => '--Gendan--',
+    'default_option_label' => 'Alle regioner',
+    'reset_option_label' => 'Alle regioner',
     'submit_page' => '',
-    'hide_facet_count' => 0,
+    'hide_facet_count' => 1,
     'date_ranges' => array(
       'add_range' => 'Add a new date range',
     ),
     'empty_text' => array(
-      'value' => '',
+      'value' => '<p>Tom</p>
+',
       'format' => 'filtered_html',
     ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@group_index:block:og_group_ref'] = $facet;
 
@@ -3076,6 +3226,473 @@ function cbib_search_facetapi_default_facet_settings() {
     'show_expanded' => 0,
   );
   $export['search_api@group_index:block:title'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index::created';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = '';
+  $facet->facet = 'created';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'individual_parent' => 0,
+    'query_type' => 'date',
+    'limit_active_items' => 0,
+    'default_true' => TRUE,
+    'facet_search_ids' => array(),
+    'date_granularity' => 'MINUTE',
+  );
+  $export['search_api@nyhed_index::created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index::field_topics';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = '';
+  $facet->facet = 'field_topics';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => '0',
+    'individual_parent' => '0',
+    'query_type' => 'term',
+    'limit_active_items' => 1,
+    'default_true' => TRUE,
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@nyhed_index::field_topics'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index::og_group_ref';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = '';
+  $facet->facet = 'og_group_ref';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'reverse_dependency' => FALSE,
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'individual_parent' => 0,
+    'query_type' => 'term',
+    'limit_active_items' => 1,
+    'default_true' => TRUE,
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@nyhed_index::og_group_ref'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index:block:created';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = 'block';
+  $facet->facet = 'created';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_select_dropdowns',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'display' => 'display',
+      'count' => 0,
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
+    'soft_limit' => '20',
+    'nofollow' => 1,
+    'show_expanded' => 0,
+    'ranges' => array(
+      'past_hour' => array(
+        'label' => 'Seneste time',
+        'machine_name' => 'past_hour',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '0',
+        'delete' => 0,
+      ),
+      'past_24_hours' => array(
+        'label' => 'Seneste 24 timer',
+        'machine_name' => 'past_24_hours',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '24',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '1',
+        'delete' => 0,
+      ),
+      'past_week' => array(
+        'label' => 'Seneste uge',
+        'machine_name' => 'past_week',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '7',
+        'date_range_start_unit' => 'DAY',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '2',
+        'delete' => 0,
+      ),
+      'past_month' => array(
+        'label' => 'Seneste måned',
+        'machine_name' => 'past_month',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'MONTH',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '3',
+        'delete' => 0,
+      ),
+      'past_year' => array(
+        'label' => 'Seneste år',
+        'machine_name' => 'past_year',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'YEAR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '4',
+        'delete' => 0,
+      ),
+    ),
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Alle--',
+    'submit_page' => '',
+    'hide_facet_count' => 1,
+    'date_ranges' => array(
+      'add_range' => 'Add a new date range',
+    ),
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+  );
+  $export['search_api@nyhed_index:block:created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index:block:field_topics';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = 'block';
+  $facet->facet = 'field_topics';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_select_dropdowns',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'display' => 'display',
+      'count' => 0,
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
+    'soft_limit' => '20',
+    'nofollow' => 1,
+    'show_expanded' => 0,
+    'ranges' => array(
+      'past_hour' => array(
+        'label' => 'Seneste time',
+        'machine_name' => 'past_hour',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '0',
+        'delete' => 0,
+      ),
+      'past_24_hours' => array(
+        'label' => 'Seneste 24 timer',
+        'machine_name' => 'past_24_hours',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '24',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '1',
+        'delete' => 0,
+      ),
+      'past_week' => array(
+        'label' => 'Seneste uge',
+        'machine_name' => 'past_week',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '7',
+        'date_range_start_unit' => 'DAY',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '2',
+        'delete' => 0,
+      ),
+      'past_month' => array(
+        'label' => 'Seneste måned',
+        'machine_name' => 'past_month',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'MONTH',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '3',
+        'delete' => 0,
+      ),
+      'past_year' => array(
+        'label' => 'Seneste år',
+        'machine_name' => 'past_year',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'YEAR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '4',
+        'delete' => 0,
+      ),
+    ),
+    'default_option_label' => '--Vælg--',
+    'reset_option_label' => '--Alle--',
+    'submit_page' => '',
+    'hide_facet_count' => 1,
+    'date_ranges' => array(
+      'add_range' => 'Add a new date range',
+    ),
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+  );
+  $export['search_api@nyhed_index:block:field_topics'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@nyhed_index:block:og_group_ref';
+  $facet->searcher = 'search_api@nyhed_index';
+  $facet->realm = 'block';
+  $facet->facet = 'og_group_ref';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_select_dropdowns',
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
+    'active_sorts' => array(
+      'active' => 'active',
+      'display' => 'display',
+      'count' => 0,
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Vis flere',
+    'facet_fewer_text' => 'Vis færre',
+    'soft_limit' => '20',
+    'nofollow' => 1,
+    'show_expanded' => 0,
+    'ranges' => array(
+      'past_hour' => array(
+        'label' => 'Seneste time',
+        'machine_name' => 'past_hour',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '0',
+        'delete' => 0,
+      ),
+      'past_24_hours' => array(
+        'label' => 'Seneste 24 timer',
+        'machine_name' => 'past_24_hours',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '24',
+        'date_range_start_unit' => 'HOUR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '1',
+        'delete' => 0,
+      ),
+      'past_week' => array(
+        'label' => 'Seneste uge',
+        'machine_name' => 'past_week',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '7',
+        'date_range_start_unit' => 'DAY',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '2',
+        'delete' => 0,
+      ),
+      'past_month' => array(
+        'label' => 'Seneste måned',
+        'machine_name' => 'past_month',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'MONTH',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '3',
+        'delete' => 0,
+      ),
+      'past_year' => array(
+        'label' => 'Seneste år',
+        'machine_name' => 'past_year',
+        'date_range_start_op' => '-',
+        'date_range_start_amount' => '1',
+        'date_range_start_unit' => 'YEAR',
+        'date_range_end_op' => 'NOW',
+        'date_range_end_amount' => '',
+        'date_range_end_unit' => 'HOUR',
+        'weight' => '4',
+        'delete' => 0,
+      ),
+    ),
+    'default_option_label' => 'Alle regioner',
+    'reset_option_label' => 'Alle regioner',
+    'submit_page' => '',
+    'hide_facet_count' => 1,
+    'date_ranges' => array(
+      'add_range' => 'Add a new date range',
+    ),
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
+  );
+  $export['search_api@nyhed_index:block:og_group_ref'] = $facet;
 
   return $export;
 }

@@ -48,11 +48,10 @@ function cbib_search_default_search_api_index() {
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
-        "field_address:locality" : { "type" : "string" },
-        "field_address:organisation_name" : { "type" : "string" },
+        "field_address:locality" : { "type" : "list\\u003Cstring\\u003E" },
+        "field_address:organisation_name" : { "type" : "list\\u003Cstring\\u003E" },
         "field_centralbibliotek_ref" : { "type" : "integer", "entity_type" : "node" },
         "field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
-        "field_event_audience" : { "type" : "text" },
         "field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_location" : { "type" : "string" },
@@ -61,6 +60,7 @@ function cbib_search_default_search_api_index() {
         "field_registration_type" : { "type" : "string" },
         "field_tilmeldings_frist" : { "type" : "date" },
         "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_topics:name" : { "type" : "list\\u003Ctext\\u003E" },
         "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "search_api_combined_1" : { "type" : "date" },
         "search_api_language" : { "type" : "string" },
@@ -186,15 +186,16 @@ function cbib_search_default_search_api_index() {
         "node:author" : { "type" : "integer", "entity_type" : "user" },
         "node:body:value" : { "type" : "text", "boost" : "5.0" },
         "node:created" : { "type" : "date" },
-        "node:field_address:locality" : { "type" : "string" },
-        "node:field_date:value" : { "type" : "list\\u003Cstring\\u003E" },
+        "node:field_address:locality" : { "type" : "list\\u003Cstring\\u003E" },
+        "node:field_date:value" : { "type" : "list\\u003Cdate\\u003E" },
         "node:field_e_mail" : { "type" : "text" },
-        "node:field_event_audience" : { "type" : "text", "boost" : "2.0" },
         "node:field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "node:field_library_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "node:field_location" : { "type" : "string" },
+        "node:field_og_subscribe_settings" : { "type" : "string" },
         "node:field_phone" : { "type" : "text", "boost" : "13.0" },
         "node:field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "node:field_topics:name" : { "type" : "list\\u003Ctext\\u003E" },
         "node:og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "node:status" : { "type" : "integer" },
         "node:title_field" : { "type" : "text", "boost" : "21.0" },
@@ -207,7 +208,8 @@ function cbib_search_default_search_api_index() {
         "user:field_name_last" : { "type" : "text", "boost" : "5.0" },
         "user:field_phone" : { "type" : "text" },
         "user:mail" : { "type" : "text", "boost" : "21.0" },
-        "user:name" : { "type" : "text", "boost" : "13.0" }
+        "user:name" : { "type" : "text", "boost" : "13.0" },
+        "user:status" : { "type" : "integer" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -318,9 +320,11 @@ function cbib_search_default_search_api_index() {
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
+        "field_gruppetype" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_last_comment_date" : { "type" : "integer" },
         "field_radioactivity" : { "type" : "decimal" },
         "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_topics:name" : { "type" : "list\\u003Ctext\\u003E" },
         "group_group" : { "type" : "boolean" },
         "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "search_api_language" : { "type" : "string" },
@@ -372,6 +376,94 @@ function cbib_search_default_search_api_index() {
           "weight" : "30",
           "settings" : {
             "fields" : { "title" : true },
+            "file" : "",
+            "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
+          }
+        },
+        "search_api_highlighting" : {
+          "status" : 0,
+          "weight" : "35",
+          "settings" : {
+            "prefix" : "\\u003Cstrong\\u003E",
+            "suffix" : "\\u003C\\/strong\\u003E",
+            "excerpt" : 1,
+            "excerpt_length" : "256",
+            "exclude_fields" : [],
+            "highlight" : "always"
+          }
+        }
+      }
+    },
+    "enabled" : "1",
+    "read_only" : "0",
+    "rdf_mapping" : []
+  }');
+  $items['nyhed_index'] = entity_import('search_api_index', '{
+    "name" : "Nyhed index",
+    "machine_name" : "nyhed_index",
+    "description" : null,
+    "server" : "database_server",
+    "item_type" : "node",
+    "options" : {
+      "datasource" : { "bundles" : [ "news" ] },
+      "index_directly" : 1,
+      "cron_limit" : "50",
+      "fields" : {
+        "body:value" : { "type" : "text" },
+        "changed" : { "type" : "date" },
+        "created" : { "type" : "date" },
+        "field_document_file:file" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "file" },
+        "field_link:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_topics" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "og_group_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "search_api_language" : { "type" : "string" },
+        "title" : { "type" : "text" }
+      },
+      "data_alter_callbacks" : {
+        "search_api_alter_bundle_filter" : {
+          "status" : 0,
+          "weight" : "-10",
+          "settings" : { "default" : "1", "bundles" : [] }
+        },
+        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_combined" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_multi_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+      },
+      "processors" : {
+        "search_api_case_ignore" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "fields" : { "title" : true, "body:value" : true, "field_link:title" : true } }
+        },
+        "search_api_html_filter" : {
+          "status" : 0,
+          "weight" : "10",
+          "settings" : {
+            "fields" : { "title" : true, "body:value" : true, "field_link:title" : true },
+            "title" : 0,
+            "alt" : 1,
+            "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
+          }
+        },
+        "search_api_tokenizer" : {
+          "status" : 1,
+          "weight" : "20",
+          "settings" : {
+            "fields" : { "title" : true, "body:value" : true },
+            "spaces" : "[^[:alnum:]]",
+            "ignorable" : "[\\u0027-,\\u0026]"
+          }
+        },
+        "search_api_stopwords" : {
+          "status" : 1,
+          "weight" : "30",
+          "settings" : {
+            "fields" : { "title" : true, "body:value" : true, "field_link:title" : true },
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
           }
@@ -460,11 +552,6 @@ function cbib_search_default_search_api_server() {
             "type" : "integer",
             "boost" : "1.0"
           },
-          "field_event_audience" : {
-            "table" : "search_api_db_arrangement_index_text",
-            "type" : "text",
-            "boost" : "1.0"
-          },
           "field_price" : {
             "table" : "search_api_db_arrangement_index",
             "column" : "field_price",
@@ -496,15 +583,15 @@ function cbib_search_default_search_api_server() {
             "boost" : "1.0"
           },
           "field_address:organisation_name" : {
-            "table" : "search_api_db_arrangement_index",
+            "table" : "search_api_db_arrangement_index_field_address_organisation_nam",
             "column" : "field_address_organisation_name",
-            "type" : "string",
+            "type" : "list\\u003Cstring\\u003E",
             "boost" : "1.0"
           },
           "field_address:locality" : {
-            "table" : "search_api_db_arrangement_index",
+            "table" : "search_api_db_arrangement_index_field_address_locality",
             "column" : "field_address_locality",
-            "type" : "string",
+            "type" : "list\\u003Cstring\\u003E",
             "boost" : "1.0"
           },
           "field_date:value" : {
@@ -528,6 +615,11 @@ function cbib_search_default_search_api_server() {
             "table" : "search_api_db_arrangement_index",
             "column" : "search_api_combined_1",
             "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_topics:name" : {
+            "table" : "search_api_db_arrangement_index_text",
+            "type" : "list\\u003Ctext\\u003E",
             "boost" : "1.0"
           }
         },
@@ -578,11 +670,6 @@ function cbib_search_default_search_api_server() {
             "column" : "node_field_event_type",
             "type" : "integer",
             "boost" : "1.0"
-          },
-          "node:field_event_audience" : {
-            "table" : "search_api_db_global_search_text",
-            "type" : "text",
-            "boost" : "2.0"
           },
           "node:field_e_mail" : {
             "table" : "search_api_db_global_search_text",
@@ -673,7 +760,7 @@ function cbib_search_default_search_api_server() {
           "node:field_date:value" : {
             "table" : "search_api_db_global_search_node_field_date_value",
             "column" : "value",
-            "type" : "list\\u003Cstring\\u003E",
+            "type" : "list\\u003Cdate\\u003E",
             "boost" : "1.0"
           },
           "search_api_combined_1" : {
@@ -695,9 +782,26 @@ function cbib_search_default_search_api_server() {
             "boost" : "1.0"
           },
           "node:field_address:locality" : {
-            "table" : "search_api_db_global_search",
+            "table" : "search_api_db_global_search_node_field_address_locality",
             "column" : "node_field_address_locality",
+            "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "node:field_topics:name" : {
+            "table" : "search_api_db_global_search_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "node:field_og_subscribe_settings" : {
+            "table" : "search_api_db_global_search",
+            "column" : "node_field_og_subscribe_settings",
             "type" : "string",
+            "boost" : "1.0"
+          },
+          "user:status" : {
+            "table" : "search_api_db_global_search",
+            "column" : "user_status",
+            "type" : "integer",
             "boost" : "1.0"
           }
         },
@@ -765,6 +869,70 @@ function cbib_search_default_search_api_server() {
             "column" : "field_last_comment_date",
             "type" : "integer",
             "boost" : "1.0"
+          },
+          "field_gruppetype" : {
+            "table" : "search_api_db_group_index",
+            "column" : "field_gruppetype",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_topics:name" : {
+            "table" : "search_api_db_group_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          }
+        },
+        "nyhed_index" : {
+          "title" : {
+            "table" : "search_api_db_nyhed_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "created" : {
+            "table" : "search_api_db_nyhed_index",
+            "column" : "created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "changed" : {
+            "table" : "search_api_db_nyhed_index",
+            "column" : "changed",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_topics" : {
+            "table" : "search_api_db_nyhed_index_field_topics",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "og_group_ref" : {
+            "table" : "search_api_db_nyhed_index_og_group_ref",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "search_api_language" : {
+            "table" : "search_api_db_nyhed_index",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "body:value" : {
+            "table" : "search_api_db_nyhed_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_document_file:file" : {
+            "table" : "search_api_db_nyhed_index_field_document_file_file",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "field_link:title" : {
+            "table" : "search_api_db_nyhed_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
           }
         }
       }
@@ -785,10 +953,10 @@ function cbib_search_default_search_api_sort() {
     "field" : "search_api_combined_1",
     "name" : "Dato",
     "enabled" : "1",
-    "weight" : "0",
+    "weight" : "-100",
     "identifier" : "arrangement_index__search_api_combined_1",
     "default_sort" : "1",
-    "default_sort_no_terms" : "1",
+    "default_sort_no_terms" : "0",
     "default_order" : "asc",
     "options" : { "field_name" : "COMBINE_DATO" },
     "rdf_mapping" : []
@@ -817,6 +985,19 @@ function cbib_search_default_search_api_sort() {
     "default_sort_no_terms" : "0",
     "default_order" : "desc",
     "options" : { "field_name" : "search_api_relevance" },
+    "rdf_mapping" : []
+  }');
+  $items['nyhed_index__created'] = entity_import('search_api_sort', '{
+    "index_id" : "nyhed_index",
+    "field" : "created",
+    "name" : "Dato oprettet",
+    "enabled" : "1",
+    "weight" : "-100",
+    "identifier" : "nyhed_index__created",
+    "default_sort" : "1",
+    "default_sort_no_terms" : "0",
+    "default_order" : "desc",
+    "options" : { "field_name" : "Dato oprettet" },
     "rdf_mapping" : []
   }');
   return $items;

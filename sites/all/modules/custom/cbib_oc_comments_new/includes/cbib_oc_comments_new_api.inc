@@ -1,6 +1,7 @@
 <?php
 function cbib_oc_comments_add_wrappers(&$comments) {
     //remove a comment.
+    if ($comments != NULL) {
     foreach ($comments as $key => $comment) {
         if ($comment['comment_body']['#object']->pid != "0") {
             $prefix = $comment['#comment']->divs >= 0 ? str_repeat('<div class="indented">', $comment['#comment']->depth) : "\n" . '<div class="indented">';
@@ -20,6 +21,7 @@ function cbib_oc_comments_add_wrappers(&$comments) {
             unset($comments[$key]['links']['comment']['#links']['comment-reply']);
         }
     }
+ }
 }
 
 function add_comment_ajax_elements(&$comments) {

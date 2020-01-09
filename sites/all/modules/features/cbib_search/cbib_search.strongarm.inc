@@ -71,9 +71,15 @@ function cbib_search_strongarm() {
       'search_api_views:search_api_arrangementer:default' => 'search_api_views:search_api_arrangementer:default',
       'search_api_views:search_api_arrangementer:page' => 'search_api_views:search_api_arrangementer:page',
       'search_api_views:search_api_arrangementer:page_1' => 'search_api_views:search_api_arrangementer:page_1',
+      'search_api_views:search_api_arrangementer:page_2' => 'search_api_views:search_api_arrangementer:page_2',
+      'search_api_views:search_api_arrangementer:page_3' => 'search_api_views:search_api_arrangementer:page_3',
+      'search_api_views:search_api_arrangementer:page_4' => 'search_api_views:search_api_arrangementer:page_4',
+      'search_api_views:search_api_arrangementer:page_5' => 'search_api_views:search_api_arrangementer:page_5',
       'search_api_views:search_api_arrangementer:panel_pane_1' => 'search_api_views:search_api_arrangementer:panel_pane_1',
     ),
     'global_search' => array(
+      'search_api_views:nyheder_search_api:default' => 'search_api_views:nyheder_search_api:default',
+      'search_api_views:nyheder_search_api:panel_pane_1' => 'search_api_views:nyheder_search_api:panel_pane_1',
       'search_api_views:search_api_nodes:block_1' => 'search_api_views:search_api_nodes:block_1',
       'search_api_views:search_api_nodes:default' => 'search_api_views:search_api_nodes:default',
       'search_api_views:search_api_nodes:page' => 'search_api_views:search_api_nodes:page',
@@ -84,8 +90,14 @@ function cbib_search_strongarm() {
       'search_api_views:search_api_group:page' => 'search_api_views:search_api_group:page',
       'search_api_views:search_api_group:page_1' => 'search_api_views:search_api_group:page_1',
       'search_api_views:search_api_group:page_2' => 'search_api_views:search_api_group:page_2',
+      'search_api_views:search_api_group:page_3' => 'search_api_views:search_api_group:page_3',
+      'search_api_views:search_api_group:page_4' => 'search_api_views:search_api_group:page_4',
       'search_api_views:search_api_group:panel_pane_1' => 'search_api_views:search_api_group:panel_pane_1',
       'search_api_views:search_api_group:panel_pane_2' => 'search_api_views:search_api_group:panel_pane_2',
+    ),
+    'nyhed_index' => array(
+      'search_api_views:search_api_news:page' => 'search_api_views:search_api_news:page',
+      'search_api_views:search_api_news:page_1' => 'search_api_views:search_api_news:page_1',
     ),
   );
   $export['search_api_facets_search_ids'] = $strongarm;

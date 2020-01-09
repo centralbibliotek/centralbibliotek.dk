@@ -165,7 +165,53 @@ function cbib_search_default_page_manager_pages() {
     $display->content['new-ddf854aa-9f42-434a-b2d2-323461942372'] = $pane;
     $display->panels['one_main'][3] = 'new-ddf854aa-9f42-434a-b2d2-323461942372';
     $pane = new stdClass();
-    $pane->pid = 'new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
+    $pane->pid = 'new-5f9251c3-23a4-4673-8979-c15309d09b82';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-heNQ0KnBfWnp0eSoTLl3ChPOLXapUgNg';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Aktualitet',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '5f9251c3-23a4-4673-8979-c15309d09b82';
+    $display->content['new-5f9251c3-23a4-4673-8979-c15309d09b82'] = $pane;
+    $display->panels['one_main'][4] = 'new-5f9251c3-23a4-4673-8979-c15309d09b82';
+    $pane = new stdClass();
+    $pane->pid = 'new-a445c103-403a-41a2-8d60-feaf83b1e6b6';
+    $pane->panel = 'one_main';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-AikDrOQC01lOka0QCiUgjg1Qk82vGn3M';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = 'a445c103-403a-41a2-8d60-feaf83b1e6b6';
+    $display->content['new-a445c103-403a-41a2-8d60-feaf83b1e6b6'] = $pane;
+    $display->panels['one_main'][5] = 'new-a445c103-403a-41a2-8d60-feaf83b1e6b6';
+    $pane = new stdClass();
+    $pane->pid = 'new-bea68f6b-ec87-4afd-96f5-60a4701adff7';
     $pane->panel = 'one_main';
     $pane->type = 'views';
     $pane->subtype = 'search_api_nodes';
@@ -194,11 +240,11 @@ function cbib_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 6;
     $pane->locks = array();
-    $pane->uuid = '0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
-    $display->content['new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151'] = $pane;
-    $display->panels['one_main'][4] = 'new-0f6bf6fa-69e0-4478-81c6-d08b2eaa7151';
+    $pane->uuid = 'bea68f6b-ec87-4afd-96f5-60a4701adff7';
+    $display->content['new-bea68f6b-ec87-4afd-96f5-60a4701adff7'] = $pane;
+    $display->panels['one_main'][6] = 'new-bea68f6b-ec87-4afd-96f5-60a4701adff7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
