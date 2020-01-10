@@ -70,7 +70,7 @@ function cbib_oc_hooks_broadcast_to_group_followers_form($form, &$form_state, $e
       '#required' => FALSE,
       '#options' => $user_select_list,
       '#size' => 5,
-      
+      '#description' => 'Vælg de følgere du vil sende til ( dem i højre kasse vil modtage din besked , er kassen tom modtager alle!)',
       '#default_value' => '',
 );
   
