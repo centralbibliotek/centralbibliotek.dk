@@ -52,14 +52,14 @@ function cbib_feeds_erms_feeds_tamper_default() {
   $feeds_tamper->source = 'databroend';
   $feeds_tamper->plugin_id = 'convert_boolean';
   $feeds_tamper->settings = array(
-    'true_value' => 'yes',
-    'false_value' => 'no',
+    'true_value' => '1',
+    'false_value' => '0',
     'match_case' => 0,
     'no_match' => 'false',
     'other_text' => '',
     'no_match_value' => FALSE,
   );
-  $feeds_tamper->weight = 0;
+  $feeds_tamper->weight = 3;
   $feeds_tamper->description = 'Convert to boolean';
   $export['licenses-databroend-convert_boolean'] = $feeds_tamper;
 
