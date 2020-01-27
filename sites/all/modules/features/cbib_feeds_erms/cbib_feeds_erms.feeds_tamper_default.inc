@@ -13,40 +13,6 @@ function cbib_feeds_erms_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
-  $feeds_tamper->id = 'libraries-id-sprintf';
-  $feeds_tamper->importer = 'libraries';
-  $feeds_tamper->source = 'id';
-  $feeds_tamper->plugin_id = 'sprintf';
-  $feeds_tamper->settings = array(
-    'format' => 'ERMS-LIBRARY-%s',
-  );
-  $feeds_tamper->weight = 0;
-  $feeds_tamper->description = 'ERMS Library GUID';
-  $export['libraries-id-sprintf'] = $feeds_tamper;
-
-  $feeds_tamper = new stdClass();
-  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
-  $feeds_tamper->api_version = 2;
-  $feeds_tamper->id = 'libraries-parent-find_replace';
-  $feeds_tamper->importer = 'libraries';
-  $feeds_tamper->source = 'parent';
-  $feeds_tamper->plugin_id = 'find_replace';
-  $feeds_tamper->settings = array(
-    'find' => 'DK-',
-    'replace' => '',
-    'case_sensitive' => 0,
-    'word_boundaries' => 0,
-    'whole' => 0,
-    'regex' => FALSE,
-    'func' => 'str_ireplace',
-  );
-  $feeds_tamper->weight = 0;
-  $feeds_tamper->description = 'Find replace';
-  $export['libraries-parent-find_replace'] = $feeds_tamper;
-
-  $feeds_tamper = new stdClass();
-  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
-  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'licenses-databroend-convert_boolean';
   $feeds_tamper->importer = 'licenses';
   $feeds_tamper->source = 'databroend';
@@ -61,8 +27,9 @@ function cbib_feeds_erms_feeds_tamper_default() {
   );
   $feeds_tamper->weight = 3;
   $feeds_tamper->description = 'Convert to boolean';
-  $export['licenses-databroend-convert_boolean'] = $feeds_tamper;
-
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
@@ -75,8 +42,9 @@ function cbib_feeds_erms_feeds_tamper_default() {
   );
   $feeds_tamper->weight = 0;
   $feeds_tamper->description = 'ERMS License GUID';
-  $export['licenses-id-sprintf'] = $feeds_tamper;
-
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
@@ -89,7 +57,168 @@ function cbib_feeds_erms_feeds_tamper_default() {
   );
   $feeds_tamper->weight = 0;
   $feeds_tamper->description = 'ERMS Library GUID';
-  $export['licenses-libraries-sprintf'] = $feeds_tamper;
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_ip-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_ip';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_metadata-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_metadata';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_password-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_password';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_print_member-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_print_member';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_print_user-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_print_user';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_remote-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_remote';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_save_member-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_save_member';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
+  
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'licenses-license_save_user-convert_boolean';
+  $feeds_tamper->importer = 'licenses';
+  $feeds_tamper->source = 'license_save_user';
+  $feeds_tamper->plugin_id = 'convert_boolean';
+  $feeds_tamper->settings = array(
+    'true_value' => '1',
+    'false_value' => '0',
+    'match_case' => 0,
+    'no_match' => 'false',
+    'other_text' => '',
+    'no_match_value' => FALSE,
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Convert to boolean';
+  
+  $export[$feeds_tamper->id] = $feeds_tamper;
 
   return $export;
 }
