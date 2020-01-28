@@ -17,7 +17,7 @@ class FeedsCbibAPIFetcherResult extends FeedsFetcherResult {
 
   public static function factory($url, $api_key, $method) {
     switch ($method) {
-      case 'agreements':
+      case 'agreement/period/' . date("Y"):
         $class = 'FeedsCbibAPIFetcherResultAgreements';
         break;
 
@@ -170,7 +170,7 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
       'api_key' => '',
       'request_timeout' => NULL,
       'source' => '',
-      'method' => 'agreements',
+      'method' => 'agreement/period/' . date("Y"),
     );
   }
 
@@ -192,7 +192,7 @@ class FeedsCbibAPIFetcher extends FeedsFetcher {
       '#title' => t('Method'),
       '#description' => t('Method.'),
       '#options' => array(
-        'agreements' => t('Agreements'),
+        'agreement/period/' . date("Y") => t('Agreements'),
         'members' => t('Members'),
       ),
       '#default_value' => $this->config['method'],

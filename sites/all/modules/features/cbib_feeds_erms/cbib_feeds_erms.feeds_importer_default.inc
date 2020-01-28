@@ -22,7 +22,7 @@ function cbib_feeds_erms_feeds_importer_default() {
       'config' => array(
         'api_key' => 'cd08c4c4316d',
         'request_timeout' => '',
-        'source' => 'https://library-erms.com/api',
+        'source' => 'https://www.consortiamanager.com/api/',
         'method' => 'members',
       ),
     ),
@@ -32,7 +32,7 @@ function cbib_feeds_erms_feeds_importer_default() {
         'sources' => array(
           'id' => array(
             'name' => 'ID',
-            'value' => 'isil',
+            'value' => 'id',
             'debug' => 0,
             'weight' => '0',
           ),
@@ -56,9 +56,9 @@ function cbib_feeds_erms_feeds_importer_default() {
           ),
         ),
         'context' => array(
-          'value' => '$.response.*',
+          'value' => '$.response.body.members[\'*\']',
         ),
-        'display_errors' => 0,
+        'display_errors' => 1,
         'source_encoding' => array(
           0 => 'auto',
         ),
@@ -80,7 +80,7 @@ function cbib_feeds_erms_feeds_importer_default() {
           1 => array(
             'source' => 'title',
             'target' => 'title',
-            'unique' => FALSE,
+            'unique' => 0,
           ),
           2 => array(
             'source' => 'title',
@@ -106,7 +106,7 @@ function cbib_feeds_erms_feeds_importer_default() {
     ),
     'content_type' => '',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '604800',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
@@ -125,13 +125,16 @@ function cbib_feeds_erms_feeds_importer_default() {
       'config' => array(
         'api_key' => 'cd08c4c4316d',
         'request_timeout' => '',
-        'source' => 'https://library-erms.com/api',
-        'method' => 'agreements',
+        'source' => 'https://consortiamanager.com/api/',
+        'method' => 'agreement/period/2020',
       ),
     ),
     'parser' => array(
       'plugin_key' => 'FeedsExJsonPath',
       'config' => array(
+        'context' => array(
+          'value' => '$.response.body.agreements.*',
+        ),
         'sources' => array(
           'id' => array(
             'name' => 'ID',
@@ -159,73 +162,70 @@ function cbib_feeds_erms_feeds_importer_default() {
           ),
           'libraries' => array(
             'name' => 'Libraries',
-            'value' => 'subscribers.*.member_isil',
+            'value' => 'subscriptions.*.member_name',
             'debug' => 0,
             'weight' => '4',
           ),
           'license_ip' => array(
             'name' => 'License IP',
-            'value' => 'licence_ip',
+            'value' => 'license.[license_terms].[4].is_allowed',
             'debug' => 0,
             'weight' => '5',
           ),
           'license_password' => array(
             'name' => 'License password',
-            'value' => 'licence_password',
+            'value' => 'license.[license_terms].[6].is_allowed',
             'debug' => 0,
             'weight' => '6',
           ),
           'license_remote' => array(
             'name' => 'License remote',
-            'value' => 'licence_remote',
+            'value' => 'license.[license_terms].[@.length-1].is_allowed',
             'debug' => 0,
             'weight' => '7',
           ),
           'license_metadata' => array(
             'name' => 'License metadata',
-            'value' => 'licence_meta',
+            'value' => 'license.[license_terms].[5].is_allowed',
             'debug' => 0,
             'weight' => '8',
           ),
           'license_print_user' => array(
             'name' => 'License print user',
-            'value' => 'licence_print_user',
+            'value' => 'license.[license_terms].[9].is_allowed',
             'debug' => 0,
             'weight' => '9',
           ),
           'license_print_member' => array(
             'name' => 'License print member',
-            'value' => 'licence_print_member',
+            'value' => 'license.[license_terms].[8].is_allowed',
             'debug' => 0,
             'weight' => '10',
           ),
           'license_save_user' => array(
             'name' => 'License save user',
-            'value' => 'licence_save_user',
-            'debug' => 0,
+            'value' => 'license.[license_terms].[3].is_allowed',
+            'debug' => 1,
             'weight' => '11',
           ),
           'license_save_member' => array(
             'name' => 'License save member',
-            'value' => 'licence_save_member',
+            'value' => 'license.[license_terms].[2].is_allowed',
             'debug' => 0,
             'weight' => '12',
           ),
           'databroend' => array(
             'name' => 'Databrønd',
-            'value' => 'databroend',
+            'value' => 'license.[license_terms].[0].is_allowed',
             'debug' => 0,
             'weight' => '13',
           ),
         ),
-        'context' => array(
-          'value' => '$.response.*',
-        ),
-        'display_errors' => 0,
+        'display_errors' => 1,
+        'debug_mode' => 1,
         'source_encoding' => array(
           0 => 'auto',
         ),
-        'debug_mode' => 0,
       ),
     ),
     'processor' => array(
@@ -238,12 +238,12 @@ function cbib_feeds_erms_feeds_importer_default() {
           0 => array(
             'source' => 'id',
             'target' => 'guid',
-            'unique' => 1,
+            'unique' => 0,
           ),
           1 => array(
             'source' => 'title',
             'target' => 'title',
-            'unique' => FALSE,
+            'unique' => 1,
           ),
           2 => array(
             'source' => 'title',
@@ -261,53 +261,53 @@ function cbib_feeds_erms_feeds_importer_default() {
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'libraries',
-            'target' => 'field_library_ref',
-            'unique' => FALSE,
-          ),
-          6 => array(
             'source' => 'databroend',
             'target' => 'field_license_data',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'license_ip',
             'target' => 'field_license_access_ip',
             'unique' => FALSE,
           ),
-          8 => array(
+          7 => array(
             'source' => 'license_metadata',
             'target' => 'field_license_metadata',
             'unique' => FALSE,
           ),
-          9 => array(
+          8 => array(
             'source' => 'license_password',
             'target' => 'field_license_access_password',
             'unique' => FALSE,
           ),
-          10 => array(
+          9 => array(
             'source' => 'license_print_member',
             'target' => 'field_license_access_print_lib',
             'unique' => FALSE,
           ),
-          11 => array(
+          10 => array(
             'source' => 'license_print_user',
             'target' => 'field_license_access_print_user',
             'unique' => FALSE,
           ),
-          12 => array(
+          11 => array(
             'source' => 'license_save_member',
             'target' => 'field_license_access_copy_lib',
             'unique' => FALSE,
           ),
-          13 => array(
+          12 => array(
             'source' => 'license_save_user',
             'target' => 'field_license_access_copy_user',
             'unique' => FALSE,
           ),
-          14 => array(
+          13 => array(
             'source' => 'license_remote',
             'target' => 'field_license_access_remote_user',
+            'unique' => FALSE,
+          ),
+          14 => array(
+            'source' => 'libraries',
+            'target' => 'field_library_ref:field:node:library:title_field:value',
             'unique' => FALSE,
           ),
         ),
@@ -319,7 +319,7 @@ function cbib_feeds_erms_feeds_importer_default() {
     ),
     'content_type' => '',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '259200',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
