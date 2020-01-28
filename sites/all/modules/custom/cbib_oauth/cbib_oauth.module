@@ -1,0 +1,75 @@
+<?php
+require_once('cbib_oauth.admin.inc');
+/*
+ * Register any additonal routes required by the module.
+ */
+function  cbib_oauth_menu() {
+    $items = array();
+    $items['admin/settings/cbib_oauth'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib 0auth config',
+        'description' => 'Config',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('cbib_oauth_form_admin'),
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
+       return $items;
+}
+/*
+* Ensure that the data returned during /userInfo matches the values wantet by eurekos lms.
+* {"first_name":"First name","last_name":"Last name","mail": "example@eurekos.com",
+*   "phone": "0123456789","country": "dk","language":"da","timezone":"Eurepoe/Amsterdam""notify":"true",
+*   "is_demo":"true","company": "Eurekos"}
+*/
+function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $requested_scopes) {
+    $wrapper = entity_metadata_wrapper('user', $account);
+    if (in_array('eurekos', $requested_scopes)) {
+        $claims = array();
+        $claims['first_name'] = $wrapper->field_name_first->value();
+        $claims['last_name'] = $wrapper->field_name_last->value();
+        $claims['mail'] = $wrapper->mail->value();
+        $claims['phone'] = $wrapper->field_phone->value();
+
+        $claims['country'] = 'dk';
+        $claims['language'] = 'da';
+        $claims['timezone'] = $account->timezone;
+        $claims['notify'] = 1;
+        
+        $company = $wrapper->field_library->value(); 
+        $claims['company'] = $company->title;
+
+        //Map the field_library to a CB region. do everybody have and organisation ? 
+        $organization = cbib_oauth_map_organization_to_eurekos($company);
+        if($organization == null)
+        {
+            //We could not map the organization ? should we do anything ? .
+        }
+        $claims['organization'] = $organization;
+        $claims['notification-schema'] = "all_emails";
+    }
+  }
+  function cbib_oauth_map_organization_to_eurekos($company)
+  {
+      if($company == null)
+      {
+        return null;
+      }
+    $id_map = variable_get('eurekos_organisation_map','');
+    $id_map = explode("\r\n",$id_map);
+    $eurekos_id_map = array();
+    foreach($id_map as $key => $data)
+    {
+        $tmp = explode(':',$data);
+        $eurekos_id_map[$tmp[0]] = $tmp[1];
+    }
+
+    $wrapper = entity_metadata_wrapper('node', $company);
+    $cb_region = $wrapper->field_centralbibliotek_ref->value();
+    $title = strtolower($cb_region->title);
+    return isset($eurekos_id_map[$title]) ? $eurekos_id_map[$title] : null;
+  }
+  function cbib_oauth_map_company_to_eurekos()
+  {
+
+  }

@@ -1,0 +1,10 @@
+name = cbib oauth integrations
+description = Makes alterations to the oauth data + flow as needed.
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_oauth
+configure = admin/settings/cbib_oauth
+
+dependencies[] = oauth2_server
+
