@@ -29,15 +29,15 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         $claims['first_name'] = $wrapper->field_name_first->value();
         $claims['last_name'] = $wrapper->field_name_last->value();
         $claims['mail'] = $wrapper->mail->value();
-        //$claims['phone'] = $wrapper->field_phone->value();
+        $claims['phone'] = $wrapper->field_phone->value();
 
        // $claims['country'] = 'dk';
        // $claims['language'] = 'da';
        // $claims['timezone'] = $account->timezone;
         //$claims['notify'] = 1;
         
-       // $company = $wrapper->field_library->value(); 
-       // $claims['company'] = $company->title;
+        $company = $wrapper->field_library->value(); 
+        $claims['company'] = $company->title;
 
         //Map the field_library to a CB region. do everybody have and organisation ? 
         $organization = cbib_oauth_map_organization_to_eurekos($company);
@@ -45,7 +45,7 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         {
             //We could not map the organization ? should we do anything ? .
         }
-        //$claims['organization'] = $organization;
+        $claims['organization'] = $organization;
         //$claims['notification-schema'] = "all_emails";
     }
   }
