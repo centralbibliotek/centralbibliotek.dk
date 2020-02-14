@@ -45,7 +45,8 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         {
             //We could not map the organization ? should we do anything ? .
         }
-        $claims['organization'] = $organization;
+        $claims['organization_id'] = $organization['eurekosId'];
+        $claims['organization_title'] = $organization['title'];
         //$claims['notification-schema'] = "all_emails";
     }
   }
@@ -67,7 +68,7 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
     $wrapper = entity_metadata_wrapper('node', $company);
     $cb_region = $wrapper->field_centralbibliotek_ref->value();
     $title = strtolower($cb_region->title);
-    return isset($eurekos_id_map[$title]) ? $eurekos_id_map[$title] : null;
+    return array('title' => $cb_region->title,'eurekosId' => isset($eurekos_id_map[$title]) ? $eurekos_id_map[$title] : null);
   }
   function cbib_oauth_map_company_to_eurekos()
   {
