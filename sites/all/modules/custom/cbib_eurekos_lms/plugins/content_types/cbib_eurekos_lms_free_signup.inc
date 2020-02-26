@@ -25,7 +25,7 @@ function cbib_eurekos_lms_cbib_eurekos_lms_free_signup_content_type_render($subt
     if($node->field_eurekos_event['und'][0]['value'] == 1 && $node->field_number_of_attendees['und'][0]['value'] == 0)
     {
         //Show a start course button.   
-        $block->content = "<a href='#'>Start Kursus</a>";
+        $block->content = '<a class="action-item-primary" style="color:white;" href="'.$node->field_eurekos_url['und'][0]['value'].'">Start Kursus</a>';
     }
     return $block;
 }
