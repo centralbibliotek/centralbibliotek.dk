@@ -1,0 +1,279 @@
+<?php
+require_once('client/cbib_eurekos_lms.client.inc');
+require_once('cbib_eurekos_lms_admin.inc');
+require_once('cbib_eurekos_lms_forms.inc');
+/*
+* Menu paths
+*/
+function  cbib_eurekos_lms_menu() {
+    $items = array();
+    $items['admin/obb/eurekos/activties/autocomplete'] = array(
+        'title' => 'Autocomplete callback for eurekos activties',
+        'page callback' => 'cbib_eurekos_lms_activies_autocomplete',
+        'access arguments' => array('administer cbib_hooks'),  //or whatever permission makes sense
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+      );
+      $items['admin/obb/eurekos/activties/get/%'] = array(
+        'title' => 'Autocomplete callback for eurekos activties',
+        'page callback' => 'cbib_eurekos_lms_activties_get',
+        'page arguments' => array(5),
+        'access arguments' => array('administer cbib_hooks'),  //or whatever permission makes sense
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+      );
+
+      $items['admin/obb/eurekos/activate/js'] = array(
+        'title' => 'Autocomplete form eurekos activties',
+        'page callback' => 'cbib_eurekos_lms_activate_eurekos_callback',
+        'access arguments' => array('administer cbib_hooks'),  //or whatever permission makes sense
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+      );
+
+      $items['admin/settings/cbib_eurekos_lms'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib eurekos lms config',
+        'description' => 'Config',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('cbib_eurekos_lms_form_admin'),
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
+      return $items;
+}
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function cbib_eurekos_lms_ctools_plugin_directory($module, $plugin) {
+    if ($module == 'ctools' && $plugin == 'content_types') {
+      return 'plugins/' . $plugin;
+    }
+  }
+/*
+* Integrate eurekos LMS with the event content type
+*/
+function cbib_eurekos_lms_activate_eurekos_callback($checked)
+{
+    $form = drupal_get_form('cbib_eurekos_lms_seach_acitivty_form');
+    $commands[] = ajax_command_append('.field-name-field-eurekos-event',render($form));
+    ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
+}
+
+/*
+* Alter various forms.
+ */
+function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
+{
+    if($form_id == "event_node_form")
+    {
+        if(isset($form_state['node']) && $form_state['node']->field_eurekos_event['und'][0]['value'])
+        {
+            $editLink = variable_get('eurekos_server_url','') ."/course-administration/activities/".$form_state['node']->field_eurekos_activity_id['und'][0]['value']."/edit/ ";
+            $form['Eurekos_lms_edit_link'] = array('#markup' => '<a target="_blank" href="'.$editLink.'"><h2>Administrer  '.$form_state['node']->title.' kursus i LMS</h2></a>','#weigth' => -10);
+            $form['Eurekos_lms_edit_information'] = array('#markup' => '<span>##Information til redigering af lms kursus##</span>','#weigth' => -10);
+        }
+        else
+        {
+            $form['Eurekos_lms_edit_information'] = array('#markup' => '<span>' . t("##Information til nyoprettelse af lms kursus##</span>").'</span>' ,'#weigth' => -10);
+        }
+        drupal_add_js(drupal_get_path('module', 'cbib_eurekos_lms').'/js/cbib_eurekos_lms_node_edit.js');
+        drupal_add_css(drupal_get_path('module', 'cbib_eurekos_lms').'/css/cbib_eurekos_lms_node_edit.css');
+        $form['#submit'][] = "cbib_eurekos_lms_node_submit";
+        //$form['#validate'][] = "cbib_eurekos_lms_node_form_validate";
+        $form['#validate'] = array_merge(array("cbib_eurekos_lms_form_validate"),$form['#validate']);
+        //$form['#validate'] = array_reverse($form['#validate']);
+        //$form['field_eurekos_activity_id']['#type'] = 'hidden';
+    }
+    if(strpos($form_id,'attend_event_form') !== false)
+    {
+        $form['#submit'][] = "cbib_eurekos_lms_attend_event_submit";
+    }
+    if(strpos($form_id,'cancel_event_form') !== false)
+    {
+        $form['#submit'][] = "cbib_eurekos_lms_cancel_event_submit";
+    }
+}
+function cbib_eurekos_lms_cancel_event_submit(&$form,&$form_state,$form_id)
+{
+    global $user;
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+
+    $node = $form_state['event'];
+    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
+    $eurekosUser = $client->getUserByMail($user->mail);
+    if(isset($eurekosUser->uid))
+    {
+        $signup = $client->getSignUp($eurekosUser->uid,$activityId);
+        if(isset($signup->id))
+        {
+            $client->delSignUp($signup->id);
+        }
+    }
+}
+function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
+{
+    global $user;
+    //check if it is a eurekos course and form does not have errors.
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $node = $form_state['event_node'];
+    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
+    //check if user exists in eurekos.
+    $eurekosUser = $client->getUserByMail($user->mail);
+    
+    //if user does not exist create
+    if(!isset($eurekosUser->uid))
+    {
+        $created = $client->createUser($user);
+        if(isset($created->uid))
+        {
+            $signedUp = $clint->signUpUser($created->uid,$activityId );
+            if(isset($signedUp->id))
+            {
+
+            }
+            else
+            {
+                //display error.
+            }
+        }
+    }
+    else{
+        //enrole into course , check if has been enrolled before.
+
+        $signup = $client->getSignUp($eurekosUser->uid,$activityId);
+        if(isset($signup->id))
+        {
+            $client->updateSignUp($signup->id,1); //set to active.
+        }
+        else{
+            $signedUp = $client->signUpUser($eurekosUser->uid,$activityId);
+            if(isset($signedUp->id))
+            {
+                
+            }
+            else
+            {
+                 //display error.
+            }
+        }
+       
+    }
+            
+}
+function cbib_eurekos_lms_node_submit(&$form, &$form_state)
+{
+    //$form_state['input']['field_eurekos_activity_id']['und']['0']['value'] = 12;
+    if( $form_state['input']['field_eurekos_event']['und'] == 1)
+    {
+        $activity_id = $form_state['values']['field_eurekos_activity_id']['und']['0']['value'];
+    }
+    else
+    {
+        $form_state['values']['field_eurekos_activity_id']['und']['0']['value'] = null;
+    }
+    
+}
+function cbib_eurekos_lms_form_validate(&$elements, &$form_state, $form_id = NULL) {
+    if( $form_state['input']['field_eurekos_event']['und'] == 1)
+    {
+        //ensure we got all the rigth values bound that where locked.
+        $activity_id = $form_state['values']['field_eurekos_activity_id']['und']['0']['value'];
+        $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+        $activity = $client->getActivity($activity_id);
+        $activity = $activity->data;
+
+        //Map fields.
+        $form_state['values']['title_field']['und'][0]['value'] = $activity->title;// $activity->title;
+    }
+}
+
+/*
+* Handle the events for interfacing with eurekos lms for the users.
+*/
+function cbib_eurekos_lms_user_insert(&$edit, $account, $category) {
+
+}
+function cbib_eurekos_lms_user_update(&$edit, $account, $category) {
+
+}
+function cbib_eurekos_lms_user_delete(&$edit, $account, $category) {
+
+}
+
+/*
+* functions to synch event data.
+*/
+function cbib_eurekos_lms_cron_job()
+{
+    //Get all events that are LMS integrated.
+
+        //re-sync their data.
+}
+function cbib_eurekos_lms_sync_single()
+{   
+    //sync data for a single event.
+}
+function cbib_eurekos_lms_activies_autocomplete($search)
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $result = $client->searchActivities($search);
+    //Format for autocomplete..
+    $matches = array();
+    foreach($result->data as $key => $data)
+    {
+        $matches[$data->id] = $data->title;
+    }
+    return drupal_json_output($matches);
+}
+function cbib_eurekos_lms_activties_get($id)
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $result = $client->getActivity($id);
+
+    $activity = $result->data;
+
+    //enrich activity with responsible. ( there is only 1)
+    if(isset($activity->instructors))
+    {
+        $obj = $client->getUserById($activity->instructors);
+        $activity->instructors = $obj;
+    }
+
+    //enrich activity with instructor. (there may be multiple)
+    if(isset($activity->responsible))
+    {
+        $objs = $client->getUserById($activity->responsible);
+        $activity->responsible = $objs;
+    }
+    //enrich activity with course. ( in the future there may be multiple)
+    if(isset($activity->courses))
+    {
+        $obj = $client->getCourseById($activity->courses);
+        $activity->courses = $obj;
+    }
+    //enrich with location.
+    if(isset($activity->location))
+    {
+        $obj = $client->getLocationById($activity->location);
+        $activity->location = $obj;
+    }
+
+    //Make the date objects easier to work with.
+    $activity->starts = str_replace('-','',$activity->starts);
+    $activity->ends = str_replace('-','',$activity->ends);
+    $activity->deadline = str_replace('-','',$activity->deadline);
+
+    $startDate = strtotime($activity->starts);
+    $activity->starts = array('date' => date('d/m/Y',$startDate),'time' => date('H:i',$startDate));
+
+    $endDate =  strtotime($activity->ends);
+    $activity->ends = array('date' => date('d/m/Y',$endDate),'time' => date('H:i',$endDate));
+
+    $deadline = strtotime($activity->deadline);
+    $activity->deadline = array('date' => date('d/m/Y',$deadline),'time' => date('H:i',$deadline));
+
+
+    drupal_json_output($activity);
+    drupal_exit();
+}

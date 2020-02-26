@@ -1,0 +1,10 @@
+name = cbib eurekos integrations
+description = add support for using eurekos data
+core = 7.x
+package = Centralbibliotek.dk
+version = 7.x-1.0
+project = cbib_eurekos_lms
+configure = admin/settings/cbib_eurekos_lms
+
+dependencies[] = cbib_oauth
+
