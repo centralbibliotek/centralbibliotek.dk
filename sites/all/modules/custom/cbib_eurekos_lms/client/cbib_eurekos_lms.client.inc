@@ -118,7 +118,7 @@ class eurekosClient
         if(!isset($user->uid))
         {
             $params['mail'] = $wrapper->mail->value();
-            $params['timezone'] = "Europe/Paris";
+            $params['timezone'] = "Europe/Copenhagen";
             $params['language'] = "da";
             $params['country'] = "dk";
             $params['phone'] = $wrapper->field_phone->value();
@@ -163,7 +163,7 @@ class eurekosClient
             $params = array();
             $wrapper = entity_metadata_wrapper('user', $userData);
             $params['mail'] = $wrapper->mail->value();
-            $params['timezone'] = "Europe/Paris";
+            $params['timezone'] = "Europe/Copenhagen";
             $params['language'] = "da";
             $params['country'] = "dk";
             $params['phone'] = $wrapper->field_phone->value();
@@ -193,7 +193,7 @@ class eurekosClient
             {
                 $params['organization'] = $orgParamVal;
             }
-            //$result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
+            $result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
         }
         else
         {
