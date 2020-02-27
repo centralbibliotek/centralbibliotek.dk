@@ -27,7 +27,7 @@
 
         if ($('#edit-field-eurekos-event-und').is(':checked')) {
             lockedit = true;
-            eurekosToggleFields();
+            eurekosDisableToggleFields();
         }
 
         //Attach the checkbox listener
@@ -39,9 +39,10 @@
             }
             if (this.checked) {
                 //Hide all the fields we are certain need no more manual changes.
+                 toggleFormElements()
                 
-                $('.form-wrapper').not('.field-name-field-eurekos-event').hide();
-                eurekosToggleFields();
+
+                eurekosDisableToggleFields();
 
                 //disable all others until a lms is chosen.
 
@@ -65,7 +66,7 @@
 
                 //Handle wrong clicks or disable of lms connection ?
                 $('.form-item-eurekos-search-field').remove();
-                $('.form-wrapper').not('.field-name-field-eurekos-event').show();
+                toggleFormElements();
                 eurekosEnableToggleFields();
             }
 
@@ -91,9 +92,6 @@
                 $('.field-name-title-field').find('input').val(activity.title);
                 
                 CKEDITOR.instances["edit-body-und-0-value"].setData(activity.courses.description);
-
-                
-
                 var dateParent = $('.field-name-field-date');
                 dateParent.find('.form-item-field-date-und-0-value-date input').val(activity.starts['date']);
                 dateParent.find('.form-item-field-date-und-0-value-time input').val(activity.starts['time']);
@@ -148,14 +146,14 @@
 
                 $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
                 togglePreLoader();
-                $('.form-wrapper').not('.field-name-field-eurekos-event').show();
+                toggleFormElements();
             });
     }
     function togglePreLoader() {
         debugger;
         if($('.search-overlay--wrapper').length == 0 )
         {
-            $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Indlæser kursus , Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
+            $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Indlæser kursus...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
         }
         else{
             $('.search-overlay--wrapper').remove();
@@ -163,7 +161,28 @@
         
 
     }
-    function eurekosToggleFields() {
+    function toggleFormElements()
+    {
+        var form_wrappers =  $('.form-wrapper').not('.field-name-field-eurekos-event');
+        form_wrappers.each(function(i,e){
+            var elem = $(e);
+            debugger;
+            if(elem.hasClass('vertical-tabs-pane') || elem.parent().parent().hasClass('vertical-tabs-pane'))
+            {
+                
+                return;
+            }
+            if(elem.is(':hidden'))
+            {
+                elem.show();
+            }
+            else
+            {
+                $(e).hide();
+            }
+        });
+    }
+    function eurekosDisableToggleFields() {
         $('.field-name-title-field').find('input').attr('readonly', 'true');
         var dateParent = $('.field-name-field-date');
         dateParent.find('.form-item-field-date-und-0-value-date input').attr('readonly', 'true');
