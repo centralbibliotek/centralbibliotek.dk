@@ -70,7 +70,7 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
         if(isset($form_state['node']) && $form_state['node']->field_eurekos_event['und'][0]['value'])
         {
             $editLink = variable_get('eurekos_server_url','') ."/course-administration/activities/".$form_state['node']->field_eurekos_activity_id['und'][0]['value']."/edit/ ";
-            $form['Eurekos_lms_edit_link'] = array('#markup' => '<a target="_blank" href="'.$editLink.'"><h2>Administrer  '.$form_state['node']->title.' kursus i LMS</h2></a>','#weigth' => -10);
+            $form['Eurekos_lms_edit_link'] = array('#markup' => '<a target="_blank" href="'.$editLink.'">Administrer  '.$form_state['node']->title.' kursus i Eurekos LMS (kun for kursusadministrator)</a>','#weigth' => -10);
             //$form['Eurekos_lms_edit_information'] = array('#markup' => '<span>'.t("##Information til redigering af lms kursus##").'</span>','#weigth' => -10);
         }
         else
