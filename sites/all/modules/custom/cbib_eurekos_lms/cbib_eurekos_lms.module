@@ -71,17 +71,17 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
         {
             $editLink = variable_get('eurekos_server_url','') ."/course-administration/activities/".$form_state['node']->field_eurekos_activity_id['und'][0]['value']."/edit/ ";
             $form['Eurekos_lms_edit_link'] = array('#markup' => '<a target="_blank" href="'.$editLink.'"><h2>Administrer  '.$form_state['node']->title.' kursus i LMS</h2></a>','#weigth' => -10);
-            $form['Eurekos_lms_edit_information'] = array('#markup' => '<span>##Information til redigering af lms kursus##</span>','#weigth' => -10);
+            //$form['Eurekos_lms_edit_information'] = array('#markup' => '<span>'.t("##Information til redigering af lms kursus##").'</span>','#weigth' => -10);
         }
         else
         {
-            $form['Eurekos_lms_edit_information'] = array('#markup' => '<span>' . t("##Information til nyoprettelse af lms kursus##</span>").'</span>' ,'#weigth' => -10);
+            //$form['Eurekos_lms_edit_information'] = array('#markup' => '<span>' . t("##Information til nyoprettelse af lms kursus##</span>").'</span>' ,'#weigth' => -10);
         }
         drupal_add_js(drupal_get_path('module', 'cbib_eurekos_lms').'/js/cbib_eurekos_lms_node_edit.js');
         drupal_add_css(drupal_get_path('module', 'cbib_eurekos_lms').'/css/cbib_eurekos_lms_node_edit.css');
-        $form['#submit'][] = "cbib_eurekos_lms_node_submit";
+        //$form['#submit'][] = "cbib_eurekos_lms_node_submit";
         //$form['#validate'][] = "cbib_eurekos_lms_node_form_validate";
-        $form['#validate'] = array_merge(array("cbib_eurekos_lms_form_validate"),$form['#validate']);
+        //$form['#validate'] = array_merge(array("cbib_eurekos_lms_form_validate"),$form['#validate']);
         //$form['#validate'] = array_reverse($form['#validate']);
         //$form['field_eurekos_activity_id']['#type'] = 'hidden';
     }
@@ -157,11 +157,9 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
                  //display error.
             }
         }
-       
     }
-            
 }
-function cbib_eurekos_lms_node_submit(&$form, &$form_state)
+/*function cbib_eurekos_lms_node_submit(&$form, &$form_state)
 {
     //$form_state['input']['field_eurekos_activity_id']['und']['0']['value'] = 12;
     if( $form_state['input']['field_eurekos_event']['und'] == 1)
@@ -186,19 +184,22 @@ function cbib_eurekos_lms_form_validate(&$elements, &$form_state, $form_id = NUL
         //Map fields.
         $form_state['values']['title_field']['und'][0]['value'] = $activity->title;// $activity->title;
     }
-}
+}*/
 
 /*
 * Handle the events for interfacing with eurekos lms for the users.
 */
 function cbib_eurekos_lms_user_insert(&$edit, $account, $category) {
-
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $result = $client->createUser($account);
 }
 function cbib_eurekos_lms_user_update(&$edit, $account, $category) {
-
+     $test = 0;
+     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+     $result = $client->updateUser($edit['mail'],(object)$edit);
 }
 function cbib_eurekos_lms_user_delete(&$edit, $account, $category) {
-
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
 }
 
 /*
@@ -207,13 +208,29 @@ function cbib_eurekos_lms_user_delete(&$edit, $account, $category) {
 function cbib_eurekos_lms_cron_job()
 {
     //Get all events that are LMS integrated.
-
+    $query = new EntityFieldQuery();
+    $result = $query
+        ->entityCondition('entity_type', 'node')
+        ->fieldCondition('field_eurekos_event', 'value', 1,'=')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->execute();
         //re-sync their data.
+
+        foreach($result['node'] as $node)
+        {
+            //get eurekos ID
+
+            //get the eurekos course obj.
+
+            //do stuff.
+        }
 }
+
 function cbib_eurekos_lms_sync_single()
 {   
     //sync data for a single event.
 }
+
 function cbib_eurekos_lms_activies_autocomplete($search)
 {
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
@@ -226,6 +243,7 @@ function cbib_eurekos_lms_activies_autocomplete($search)
     }
     return drupal_json_output($matches);
 }
+
 function cbib_eurekos_lms_activties_get($id)
 {
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));

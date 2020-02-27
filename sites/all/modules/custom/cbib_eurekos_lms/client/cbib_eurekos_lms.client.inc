@@ -111,57 +111,104 @@ class eurekosClient
         //data={ "mail": "example@eurekos.com", "timezone": "Europe/Paris", "language": "da", "country": "dk", "phone": "454542534534", "first_name": "example", "last_name": "example"}'
         $resourcePath = "/api/v2/users";
 
-        $wrapper = entity_metadata_wrapper('user', $account);
-        $params['mail'] = $wrapper->mail;
-        $params['timezone'] = "Europe/Paris";
-        $params['language'] = "da";
-        $params['country'] = "dk";
-        $params['phone'] = $wrapper->phone;
-        $params['first_name'] = $wrapper->first_name;
-        $params['last_name'] = $wrapper->first_name;
+        $wrapper = entity_metadata_wrapper('user', $user);
 
-        $company = $wrapper->field_library->value(); 
-        $params['company'] = $company->title;
-
-        module_load_include('module', 'cbib_oauth', 'cbib_oauth');
-        $organization = cbib_oauth_map_organization_to_eurekos($company);
-        if($organization == null)
+        //check if user already exists..should never happen :)
+        $user = $this->getUserByMail($wrapper->mail);
+        if(!isset($user->uid))
         {
-            //We could not map the organization ? should we do anything ? .
-        }
+            $params['mail'] = $wrapper->mail->value();
+            $params['timezone'] = "Europe/Paris";
+            $params['language'] = "da";
+            $params['country'] = "dk";
+            $params['phone'] = $wrapper->field_phone->value();
+            $params['first_name'] = $wrapper->field_name_first->value();
+            $params['last_name'] = $wrapper->field_name_last->value();
 
-        //Get the organization value , may need extra logic for non existing regions/organizations.
-        $orgParamVal = array();
-        foreach($organization as $key => $val)
-        {
-            if($val['eurekosId'] != null)
+            $company = $wrapper->field_library->value(); 
+            $params['company'] = $company->title;
+
+            module_load_include('module', 'cbib_oauth', 'cbib_oauth');
+            $organization = cbib_oauth_map_organization_to_eurekos($company);
+            if($organization == null)
             {
-                array_push($orgParamVal,$val['eurekosId']); 
+                //We could not map the organization ? should we do anything ? .
             }
-        }
-        $params['organization'] = $orgParamVal;
-        $result = $this->doRequest($resourcePath,'POST','users.create',$params);
 
-        if(isset($result['uid']))
-        {
-            return true;
+            //Get the organization value , may need extra logic for non existing regions/organizations.
+            $orgParamVal = array();
+            foreach($organization as $key => $val)
+            {
+                if($val['eurekosId'] != null)
+                {
+                    array_push($orgParamVal,$val['eurekosId']); 
+                }
+            }
+            $params['organization'] = $orgParamVal;
+            $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
+
+            if(isset($result['uid']))
+            {
+                return true;
+            }
         }
         return false;
     }
     public function updateUser($email,$userData)
     {
-        $user = $this->getUser($email);
-        
-        $resourcePath = "/api/v2/users";
-        $params = array();
-        $result = $this->doRequest($resourcePath,'PATCH','users.update.any',$userData);
+        $user = $this->getUserByMail($email);
+        if(isset($user->uid))
+        {
+            $resourcePath = "/api/v2/users/" . $user->uid;
+            $params = array();
+            $wrapper = entity_metadata_wrapper('user', $userData);
+            $params['mail'] = $wrapper->mail->value();
+            $params['timezone'] = "Europe/Paris";
+            $params['language'] = "da";
+            $params['country'] = "dk";
+            $params['phone'] = $wrapper->field_phone->value();
+            $params['first_name'] = $wrapper->field_name_first->value();
+            $params['last_name'] = $wrapper->field_name_last->value();
+
+            $company = $wrapper->field_library->value(); 
+            $params['company'] = $company->title;
+
+            module_load_include('module', 'cbib_oauth', 'cbib_oauth');
+            $organization = cbib_oauth_map_organization_to_eurekos($company);
+            if($organization == null)
+            {
+                //We could not map the organization ? should we do anything ? .
+            }
+
+            //Get the organization value , may need extra logic for non existing regions/organizations.
+            $orgParamVal = array();
+            foreach($organization as $key => $val)
+            {
+                if($key == 'eurekosId' && $val != null)
+                {
+                    array_push($orgParamVal,$val); 
+                }
+            }
+            if(sizeof($orgParamVal))
+            {
+                $params['organization'] = $orgParamVal;
+            }
+            //$result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
+        }
+        else
+        {
+            return null;
+        }
     }
     public function deleteUser($email)
     {
-        $user = $this->getUser($email);
-        $resourcePath = "/api/v2/users";
-        $params = array();
-        $result = $this->doRequest($resourcePath,'DELETE','users.delete.any',$params);
+        if(isset($user->uid))
+        {
+            $user = $this->getUserByMail($email);
+            $resourcePath = "/api/v2/users/" . $user->uid;
+            $params = array();
+            $result = $this->doRequest($resourcePath,'DELETE','users.delete.any',$params);
+        }
     }
     public function getUserByMail($email)
     {
@@ -197,7 +244,7 @@ class eurekosClient
         }
         return null;
     }
-
+  
     /*
     * Activitys handling
     */

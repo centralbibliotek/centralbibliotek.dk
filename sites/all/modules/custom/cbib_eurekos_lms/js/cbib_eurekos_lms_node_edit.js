@@ -66,7 +66,7 @@
                 //Handle wrong clicks or disable of lms connection ?
                 $('.form-item-eurekos-search-field').remove();
                 $('.form-wrapper').not('.field-name-field-eurekos-event').show();
-                eurekosToggleFields();
+                eurekosEnableToggleFields();
             }
 
         });
@@ -183,5 +183,26 @@
 
         $('#edit-field-location-und').attr('readonly', 'true');
         $('#edit-field-event-type-und').attr('readonly', 'true');
+    }
+    function eurekosEnableToggleFields() {
+        $('.field-name-title-field').find('input').removeAttr('readonly');
+        var dateParent = $('.field-name-field-date');
+        dateParent.find('.form-item-field-date-und-0-value-date input').removeAttr('readonly');
+        dateParent.find('.form-item-field-date-und-0-value-time input').removeAttr('readonly');
+
+        dateParent.find('.form-item-field-date-und-0-value2-date input').removeAttr('readonly');
+        dateParent.find('.form-item-field-date-und-0-value2-time input').removeAttr('readonly');
+
+        var deadlineField = $('.field-name-field-tilmeldings-frist');
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').removeAttr('readonly');
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').removeAttr('readonly');
+
+        $('.field-name-field-address').find('input').removeAttr('readonly');
+        $('.field-name-field-lecturer').find('input').removeAttr('readonly');
+
+        $('.form-item-field-number-of-attendees-und-0-value').find('input').removeAttr('readonly');
+
+        $('#edit-field-location-und').removeAttr('readonly');
+        $('#edit-field-event-type-und').removeAttr('readonly');
     }
 })(jQuery);

@@ -21,11 +21,10 @@ function cbib_eurekos_lms_cbib_eurekos_lms_free_signup_content_type_render($subt
     $block->title = '';
     //check if course is eurekos activity and if seats are unlimited.
     //maby differate on types of courses ?
-    $field = $node->field_eurekos_event;
     if($node->field_eurekos_event['und'][0]['value'] == 1 && $node->field_number_of_attendees['und'][0]['value'] == 0)
     {
         //Show a start course button.   
-        $block->content = '<a class="action-item-primary" style="color:white;" href="'.$node->field_eurekos_url['und'][0]['value'].'">Start Kursus</a>';
+        $block->content = '<a class="action-item-primary" style="color:white;" href="'.$node->field_eurekos_url['und'][0]['value'].'">Start kursus</a>';
     }
     return $block;
 }
