@@ -97,7 +97,66 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
     {
         $form['#submit'][] = "cbib_eurekos_lms_cancel_subscription_backend_submit";
     }
+    if( strpos($form_id,'add_attendee_form') !== false)
+    {
+        $form['#submit'][] = "cbib_eurekos_lms_manul_add_subscription_backend_submit";
+    }
+    
 
+}
+function cbib_eurekos_lms_manul_add_subscription_backend_submit(&$form,&$form_state,$form_id)
+{
+    //is this even possible to work properly ? ( see cbib_event module).
+    $user = user_load_by_name($form_state['values']['name']);
+    $nid = $form_state['build_info']['args'][0];
+    $node = node_load($nid);
+    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+            //check if user exists in eurekos.
+    $eurekosUser = $client->getUserByMail($user->mail);
+    
+    //if user does not exist create
+    if(!isset($eurekosUser->uid))
+    {
+        $created = $client->createUser($user);
+        if(isset($created->uid))
+        {
+            $signedUp = $client->signUpUser($created->uid,$activityId );
+            if(isset($signedUp->id))
+            {
+
+            }
+            else
+            {
+                //display error.
+            }
+        }
+        else
+        {
+            //Log error
+        }
+    }
+    else{
+        //enrole into course , check if has been enrolled before.
+
+        $signup = $client->getSignUp($eurekosUser->uid,$activityId);
+        if(isset($signup->id))
+        {
+            $client->updateSignUp($signup->id,1); //set to active.
+        }
+        else{
+            $signedUp = $client->signUpUser($eurekosUser->uid,$activityId);
+            if(isset($signedUp->id))
+            {
+                
+            }
+            else
+            {
+                 //display error.
+            }
+        }
+    }
+    
 }
 function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state,$form_id)
 {
@@ -308,18 +367,24 @@ function cbib_eurekos_lms_activties_get($id)
     }
 
     //Make the date objects easier to work with.
-    $activity->starts = str_replace('-','',$activity->starts);
-    $activity->ends = str_replace('-','',$activity->ends);
-    $activity->deadline = str_replace('-','',$activity->deadline);
+    if(isset($activity->starts) && !empty($activity->starts))
+    {
+        $activity->starts = str_replace('-','',$activity->starts);
+        $activity->ends = str_replace('-','',$activity->ends);
+        $startDate = strtotime($activity->starts);
+        $activity->starts = array('date' => date('d/m/Y',$startDate),'time' => date('H:i',$startDate));
 
-    $startDate = strtotime($activity->starts);
-    $activity->starts = array('date' => date('d/m/Y',$startDate),'time' => date('H:i',$startDate));
+        $endDate =  strtotime($activity->ends);
+        $activity->ends = array('date' => date('d/m/Y',$endDate),'time' => date('H:i',$endDate));
+    }
+    if(isset($activity->deadline) && !empty($activity->deadline))
+    {
+        $activity->deadline = str_replace('-','',$activity->deadline);
 
-    $endDate =  strtotime($activity->ends);
-    $activity->ends = array('date' => date('d/m/Y',$endDate),'time' => date('H:i',$endDate));
-
-    $deadline = strtotime($activity->deadline);
-    $activity->deadline = array('date' => date('d/m/Y',$deadline),'time' => date('H:i',$deadline));
+        $deadline = strtotime($activity->deadline);
+        $activity->deadline = array('date' => date('d/m/Y',$deadline),'time' => date('H:i',$deadline));
+    }
+    
 
 
     drupal_json_output($activity);

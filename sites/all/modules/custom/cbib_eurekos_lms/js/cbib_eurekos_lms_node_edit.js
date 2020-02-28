@@ -93,15 +93,28 @@
                 
                 CKEDITOR.instances["edit-body-und-0-value"].setData(activity.courses.description);
                 var dateParent = $('.field-name-field-date');
-                dateParent.find('.form-item-field-date-und-0-value-date input').val(activity.starts['date']);
-                dateParent.find('.form-item-field-date-und-0-value-time input').val(activity.starts['time']);
+                if(activity.starts != undefined && activity.starts != "")
+                {
+                    dateParent.find('.form-item-field-date-und-0-value-date input').val(activity.starts['date']);
+                    dateParent.find('.form-item-field-date-und-0-value-time input').val(activity.starts['time']);
+    
+                    dateParent.find('.form-item-field-date-und-0-value2-date input').val(activity.ends['date']);
+                    dateParent.find('.form-item-field-date-und-0-value2-time input').val(activity.ends['time']);
+                }
+                else{
+                   //$('#edit-field-date').remove();
+                }
 
-                dateParent.find('.form-item-field-date-und-0-value2-date input').val(activity.ends['date']);
-                dateParent.find('.form-item-field-date-und-0-value2-time input').val(activity.ends['time']);
 
                 var deadlineField = $('.field-name-field-tilmeldings-frist');
-                deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').val(activity.deadline['date']);
-                deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.deadline['time']);
+                if(activity.deadline != undefined && activity.deadline != "")
+                {
+                    deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').val(activity.deadline['date']);
+                    deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.deadline['time']);
+                }
+                else{
+                    //deadlineField.remove();
+                }
 
                 var location = $('.field-name-field-location');
 
@@ -122,21 +135,27 @@
                 
 
                 var lecturer = $('.field-name-field-lecturer');
+                if(activity.instructors.last_name == undefined)
+                {
+                    activity.instructors.last_name = "";
+                }
                 lecturer.find('#edit-field-lecturer-und-0-first').val(activity.instructors.first_name + " " + activity.instructors.last_name);
                 lecturer.find('#edit-field-lecturer-und-0-second').val(activity.instructors.mail);
 
                 var responsible = $('.field-name-field-ansvarlig-for-dagen');
 
                 var contact = $('.field-name-field-contact');
-
+                
                 var seats = $('.form-item-field-number-of-attendees-und-0-value');
                 if(activity.seats == "-1")
                 {
                     //no restrictions.
-                    $('#edit-field-event-type-und').val(640);
+                    toggleFormElements("show");
+                    $('#edit-field-event-type-und').val(640).trigger('change');
                     seats.find('input').val(0);
                 }
                 else{
+                    toggleFormElements("show");
                     $('#edit-field-event-type-und').val(50);
                     seats.find('input').val(activity.seats);
                 }
@@ -146,7 +165,7 @@
 
                 $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
                 togglePreLoader();
-                toggleFormElements("show");
+                
             });
     }
     function togglePreLoader() {
