@@ -39,7 +39,7 @@
             }
             if (this.checked) {
                 //Hide all the fields we are certain need no more manual changes.
-                 toggleFormElements()
+                 toggleFormElements('hide');
                 
 
                 eurekosDisableToggleFields();
@@ -66,7 +66,7 @@
 
                 //Handle wrong clicks or disable of lms connection ?
                 $('.form-item-eurekos-search-field').remove();
-                toggleFormElements();
+                toggleFormElements("show");
                 eurekosEnableToggleFields();
             }
 
@@ -146,7 +146,7 @@
 
                 $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
                 togglePreLoader();
-                toggleFormElements();
+                toggleFormElements("show");
             });
     }
     function togglePreLoader() {
@@ -161,7 +161,7 @@
         
 
     }
-    function toggleFormElements()
+    function toggleFormElements(action)
     {
         var form_wrappers =  $('.form-wrapper').not('.field-name-field-eurekos-event');
         form_wrappers.each(function(i,e){
@@ -172,7 +172,7 @@
                 
                 return;
             }
-            if(elem.is(':hidden'))
+            if(action == "show")
             {
                 elem.show();
             }
