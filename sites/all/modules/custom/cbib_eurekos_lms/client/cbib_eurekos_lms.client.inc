@@ -150,7 +150,7 @@ class eurekosClient
             }
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
-            if(isset($result['uid']))
+            if(isset($result->uid))
             {
                 return true;
             }
