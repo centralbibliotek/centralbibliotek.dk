@@ -139,12 +139,15 @@ class eurekosClient
             $orgParamVal = array();
             foreach($organization as $key => $val)
             {
-                if($val['eurekosId'] != null)
+                if($key == 'eurekosId' && $val != null)
                 {
-                    array_push($orgParamVal,$val['eurekosId']); 
+                    array_push($orgParamVal,$val); 
                 }
             }
-            $params['organization'] = $orgParamVal;
+            if(sizeof( $orgParamVal))
+            {
+                $params['organization'] = $orgParamVal;
+            }
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
             if(isset($result['uid']))
