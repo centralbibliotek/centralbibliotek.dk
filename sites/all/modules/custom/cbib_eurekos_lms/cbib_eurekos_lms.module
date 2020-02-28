@@ -93,6 +93,30 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
     {
         $form['#submit'][] = "cbib_eurekos_lms_cancel_event_submit";
     }
+    if( strpos($form_id,'registration_delete_confirm') !== false)
+    {
+        $form['#submit'][] = "cbib_eurekos_lms_cancel_subscription_backend_submit";
+    }
+
+}
+function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state,$form_id)
+{
+    $registration = $registration = $form_state['values']['registration'];
+    $user = user_load($registration->user_uid);
+    $node = node_load($registration->entity_id);  
+
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+        
+    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
+    $eurekosUser = $client->getUserByMail($user->mail);
+    if(isset($eurekosUser->uid))
+    {
+        $signup = $client->getSignUp($eurekosUser->uid,$activityId);
+        if(isset($signup->id))
+        {
+            $client->delSignUp($signup->id);
+        }
+    }
 }
 function cbib_eurekos_lms_cancel_event_submit(&$form,&$form_state,$form_id)
 {
@@ -127,7 +151,7 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
         $created = $client->createUser($user);
         if(isset($created->uid))
         {
-            $signedUp = $clint->signUpUser($created->uid,$activityId );
+            $signedUp = $client->signUpUser($created->uid,$activityId );
             if(isset($signedUp->id))
             {
 
@@ -136,6 +160,10 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
             {
                 //display error.
             }
+        }
+        else
+        {
+            //Log error
         }
     }
     else{
@@ -196,10 +224,12 @@ function cbib_eurekos_lms_user_insert(&$edit, $account, $category) {
 function cbib_eurekos_lms_user_update(&$edit, $account, $category) {
      $test = 0;
      $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
-     $result = $client->updateUser($edit['mail'],(object)$edit);
+     //use old mail in case of mail changes.
+     $result = $client->updateUser($account->mail,(object)$edit);
 }
 function cbib_eurekos_lms_user_delete(&$edit, $account, $category) {
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $result = $client->deleteUser($account->mail,(object)$edit);
 }
 
 /*

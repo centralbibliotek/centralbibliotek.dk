@@ -126,7 +126,10 @@ class eurekosClient
             $params['last_name'] = $wrapper->field_name_last->value();
 
             $company = $wrapper->field_library->value(); 
-            $params['company'] = $company->title;
+            if(isset($company->title))
+            {
+                $params['company'] = $company->title;
+            }
 
             module_load_include('module', 'cbib_oauth', 'cbib_oauth');
             $organization = cbib_oauth_map_organization_to_eurekos($company);
@@ -150,9 +153,9 @@ class eurekosClient
             }
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
-            if(isset($result->uid))
+            if(isset($result->data->uid))
             {
-                return true;
+                return $result->data;
             }
         }
         return false;
