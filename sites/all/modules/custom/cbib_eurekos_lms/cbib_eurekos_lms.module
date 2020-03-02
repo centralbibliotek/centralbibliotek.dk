@@ -31,6 +31,14 @@ function  cbib_eurekos_lms_menu() {
         'access callback' => TRUE,
       );
 
+      $items['obb/eurekos/activate/cron/test'] = array(
+        'title' => 'test cron sync',
+        'page callback' => 'cbib_eurekos_lms_cron_job',
+        'access arguments' => array('administer cbib_hooks'),  //or whatever permission makes sense
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+      );
+
       $items['admin/settings/cbib_eurekos_lms'] = array(
         'type' => MENU_CALLBACK,
         'title' => 'Cbib eurekos lms config',
@@ -79,11 +87,6 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
         }
         drupal_add_js(drupal_get_path('module', 'cbib_eurekos_lms').'/js/cbib_eurekos_lms_node_edit.js');
         drupal_add_css(drupal_get_path('module', 'cbib_eurekos_lms').'/css/cbib_eurekos_lms_node_edit.css');
-        //$form['#submit'][] = "cbib_eurekos_lms_node_submit";
-        //$form['#validate'][] = "cbib_eurekos_lms_node_form_validate";
-        //$form['#validate'] = array_merge(array("cbib_eurekos_lms_form_validate"),$form['#validate']);
-        //$form['#validate'] = array_reverse($form['#validate']);
-        //$form['field_eurekos_activity_id']['#type'] = 'hidden';
     }
     if(strpos($form_id,'attend_event_form') !== false)
     {
@@ -110,52 +113,7 @@ function cbib_eurekos_lms_manul_add_subscription_backend_submit(&$form,&$form_st
     $user = user_load_by_name($form_state['values']['name']);
     $nid = $form_state['build_info']['args'][0];
     $node = node_load($nid);
-    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
-    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
-            //check if user exists in eurekos.
-    $eurekosUser = $client->getUserByMail($user->mail);
-    
-    //if user does not exist create
-    if(!isset($eurekosUser->uid))
-    {
-        $created = $client->createUser($user);
-        if(isset($created->uid))
-        {
-            $signedUp = $client->signUpUser($created->uid,$activityId );
-            if(isset($signedUp->id))
-            {
-
-            }
-            else
-            {
-                //display error.
-            }
-        }
-        else
-        {
-            //Log error
-        }
-    }
-    else{
-        //enrole into course , check if has been enrolled before.
-
-        $signup = $client->getSignUp($eurekosUser->uid,$activityId);
-        if(isset($signup->id))
-        {
-            $client->updateSignUp($signup->id,1); //set to active.
-        }
-        else{
-            $signedUp = $client->signUpUser($eurekosUser->uid,$activityId);
-            if(isset($signedUp->id))
-            {
-                
-            }
-            else
-            {
-                 //display error.
-            }
-        }
-    }
+    cbib_eurekos_lms_handle_sign_up($node,$user);
     
 }
 function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state,$form_id)
@@ -191,15 +149,27 @@ function cbib_eurekos_lms_cancel_event_submit(&$form,&$form_state,$form_id)
         if(isset($signup->id))
         {
             $client->delSignUp($signup->id);
+            return;
+        }
+        else
+        {
+            drupal_set_message(t('Fejl: tilmeldingen til LMS system kunne ikke slettes.'),'error');
+            watchdog('eurekos_lms', 'Failed to delete signup: ' . $user->mail,WATCHDOG_ERROR);
         }
     }
 }
 function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
 {
     global $user;
-    //check if it is a eurekos course and form does not have errors.
-    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
     $node = $form_state['event_node'];
+    //check if it is a eurekos course and form does not have errors.
+    cbib_eurekos_lms_handle_sign_up($node,$user);
+    
+}
+function cbib_eurekos_lms_handle_sign_up($node,$user)
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    
     $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
     //check if user exists in eurekos.
     $eurekosUser = $client->getUserByMail($user->mail);
@@ -213,16 +183,21 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
             $signedUp = $client->signUpUser($created->uid,$activityId );
             if(isset($signedUp->id))
             {
-
+                
+                return;
             }
             else
             {
                 //display error.
+                drupal_set_message(t('Fejl: Tilmelding til LMS kursus kunne ikke oprettes.'),'error');
+                watchdog('eurekos_lms', 'Failed to signup-user: ' . $user->mail,WATCHDOG_ERROR);
             }
         }
         else
         {
             //Log error
+            drupal_set_message(t('Fejl: brugeren til LMS system kunne ikke oprettes.'),'error');
+            watchdog('eurekos_lms', 'Failed to create user: ' . $user->mail,WATCHDOG_ERROR);
         }
     }
     else{
@@ -237,11 +212,13 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
             $signedUp = $client->signUpUser($eurekosUser->uid,$activityId);
             if(isset($signedUp->id))
             {
-                
+                return;
             }
             else
             {
-                 //display error.
+                //display error.
+                drupal_set_message(t('Fejl: Tilmelding til LMS system kunne ikke oprettes.'),'error');
+                watchdog('eurekos_lms', 'Failed to signup user: ' . $eurekosUser->mail,WATCHDOG_ERROR);
             }
         }
     }
@@ -304,14 +281,22 @@ function cbib_eurekos_lms_cron_job()
         ->propertyCondition('status', NODE_PUBLISHED)
         ->execute();
         //re-sync their data.
-
-        foreach($result['node'] as $node)
+        $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+        foreach($result['node'] as $item)
         {
+            $node = node_load($item->nid);
             //get eurekos ID
-
+            $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
             //get the eurekos course obj.
+            $activity = $client->getActivity($activityId);
+            $activity = cbib_eurekos_lms_enrich_activity($activity->data,$client);
 
-            //do stuff.
+            //sync fields.
+            $node->title = $activity->title;
+            $node->field_number_of_attendees['und'][0]['value'] = $activity->seats;
+            
+            //check if the course was canceled or in other way disabled from eurekos lms ?
+            node_save($node);
         }
 }
 
@@ -339,7 +324,14 @@ function cbib_eurekos_lms_activties_get($id)
     $result = $client->getActivity($id);
 
     $activity = $result->data;
-
+    $activity = cbib_eurekos_lms_enrich_activity($activity,$client);
+    
+    drupal_json_output($activity);
+    drupal_exit();
+}
+function cbib_eurekos_lms_enrich_activity($activity,$client)
+{
+   
     //enrich activity with responsible. ( there is only 1)
     if(isset($activity->instructors))
     {
@@ -384,9 +376,5 @@ function cbib_eurekos_lms_activties_get($id)
         $deadline = strtotime($activity->deadline);
         $activity->deadline = array('date' => date('d/m/Y',$deadline),'time' => date('H:i',$deadline));
     }
-    
-
-
-    drupal_json_output($activity);
-    drupal_exit();
+    return $activity;
 }
