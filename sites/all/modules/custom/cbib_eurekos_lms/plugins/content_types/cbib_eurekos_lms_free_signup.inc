@@ -43,18 +43,3 @@ function cbib_eurekos_lms_cbib_eurekos_lms_free_signup_content_type_edit_form($f
   function cbib_eurekos_lms_cbib_eurekos_lms_free_signup_content_type_edit_form_submit($form, $form_state) {
     return $form;
   }
-/**
- * Implements hook_commons_bw_group_widget().
- */
-/*function cbib_oc_license_pr_bw_commons_bw_group_dont_hook_widget() {
-    return array(
-      'commons_browsing_widget_license_og_pr' => array(
-        'title' => t('Formidling og pr'),
-        'type' => 'view',
-        'vid' => 'commons_browsing_widget_license_og_pr',
-        'display' => 'default',
-        'weight' => 10,
-        'default' => true,
-      ),
-    );
-  }*/

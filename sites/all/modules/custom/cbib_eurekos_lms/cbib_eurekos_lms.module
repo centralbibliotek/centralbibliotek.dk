@@ -133,6 +133,10 @@ function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state
         {
             $client->delSignUp($signup->id);
         }
+        else{
+            drupal_set_message(t('Fejl: tilmeldingen til LMS system kunne ikke slettes.'),'error');
+            watchdog('eurekos_lms', 'Failed to delete signup: ' . $user->uid,WATCHDOG_ERROR);
+        }
     }
 }
 function cbib_eurekos_lms_cancel_event_submit(&$form,&$form_state,$form_id)
@@ -223,33 +227,6 @@ function cbib_eurekos_lms_handle_sign_up($node,$user)
         }
     }
 }
-/*function cbib_eurekos_lms_node_submit(&$form, &$form_state)
-{
-    //$form_state['input']['field_eurekos_activity_id']['und']['0']['value'] = 12;
-    if( $form_state['input']['field_eurekos_event']['und'] == 1)
-    {
-        $activity_id = $form_state['values']['field_eurekos_activity_id']['und']['0']['value'];
-    }
-    else
-    {
-        $form_state['values']['field_eurekos_activity_id']['und']['0']['value'] = null;
-    }
-    
-}
-function cbib_eurekos_lms_form_validate(&$elements, &$form_state, $form_id = NULL) {
-    if( $form_state['input']['field_eurekos_event']['und'] == 1)
-    {
-        //ensure we got all the rigth values bound that where locked.
-        $activity_id = $form_state['values']['field_eurekos_activity_id']['und']['0']['value'];
-        $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
-        $activity = $client->getActivity($activity_id);
-        $activity = $activity->data;
-
-        //Map fields.
-        $form_state['values']['title_field']['und'][0]['value'] = $activity->title;// $activity->title;
-    }
-}*/
-
 /*
 * Handle the events for interfacing with eurekos lms for the users.
 */
