@@ -281,23 +281,40 @@ function cbib_eurekos_lms_cron_job()
         ->propertyCondition('status', NODE_PUBLISHED)
         ->execute();
         //re-sync their data.
-        $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+        $queue = DrupalQueue::get('eurekos_lms_sync');
         foreach($result['node'] as $item)
         {
-            $node = node_load($item->nid);
-            //get eurekos ID
-            $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
-            //get the eurekos course obj.
-            $activity = $client->getActivity($activityId);
-            $activity = cbib_eurekos_lms_enrich_activity($activity->data,$client);
-
-            //sync fields.
-            $node->title = $activity->title;
-            $node->field_number_of_attendees['und'][0]['value'] = $activity->seats;
-            
-            //check if the course was canceled or in other way disabled from eurekos lms ?
-            node_save($node);
+            $queue->createItem($item->nid);
         }
+}
+/*
+ * Implements hook_cron_queue_info().
+ */
+function hf_remind_cron_queue_info(){
+    $queues['eurekos_lms_sync'] = array(
+      'worker callback' => 'cbib_eurekos_lms_update_course_data',
+      'time' => 120,
+    );
+    return $queues;
+  }
+function cbib_eurekos_lms_update_course_data($nid)
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $node = node_load($nid);
+    //get eurekos ID
+    $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
+    //get the eurekos course obj.
+    $activity = $client->getActivity($activityId);
+    $activity = cbib_eurekos_lms_enrich_activity($activity->data,$client);
+
+    //sync fields.
+    $node->title = $activity->title;
+    $node->field_number_of_attendees['und'][0]['value'] = $activity->seats;
+    
+    //check if the course was canceled or in other way disabled from eurekos lms ?
+
+    //save it!
+    node_save($node);
 }
 
 function cbib_eurekos_lms_sync_single()
