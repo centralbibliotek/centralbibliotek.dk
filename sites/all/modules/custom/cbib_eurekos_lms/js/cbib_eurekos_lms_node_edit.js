@@ -167,7 +167,7 @@
                 
 
                 var status = $('.form-item-field-status');
-                if(iactivity.courses != null)
+                if(activity.courses != null)
                 {
                     $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
                 }
