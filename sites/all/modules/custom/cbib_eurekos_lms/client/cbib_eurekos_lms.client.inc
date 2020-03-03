@@ -268,10 +268,10 @@ class eurekosClient
         //$user = $this->getUser('tfpet@odense.dk');
         $resourcePath = "/api/v2/activities?search=".$searchKey; 
         $params = array();
-        if($searchKey != null)
+        /*if($searchKey != null)
         {
             $params['search'] = $searchKey;
-        }
+        }*/
         $result = $this->doRequest($resourcePath,'GET','activities.read.any',$params);
         
         //Enrich with course information ?
