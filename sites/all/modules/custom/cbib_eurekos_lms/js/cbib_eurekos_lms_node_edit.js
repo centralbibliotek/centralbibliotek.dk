@@ -116,6 +116,11 @@
                 }
                 else{
                     //deadlineField.remove();
+                    if(activity.ends != undefined && activity.ends != "")
+                    {
+                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').val(activity.ends['date']);
+                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.ends['time']);
+                    }
                 }
 
                 var location = $('.field-name-field-location');
