@@ -90,8 +90,10 @@
                 */
                 debugger;
                 $('.field-name-title-field').find('input').val(activity.title);
-                
-                CKEDITOR.instances["edit-body-und-0-value"].setData(activity.courses.description);
+                if(activity.courses.description != undefined)
+                {
+                    CKEDITOR.instances["edit-body-und-0-value"].setData(activity.courses.description);
+                }
                 var dateParent = $('.field-name-field-date');
                 if(activity.starts != undefined && activity.starts != "")
                 {
