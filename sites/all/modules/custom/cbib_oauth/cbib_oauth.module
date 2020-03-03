@@ -67,8 +67,16 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
 
     $wrapper = entity_metadata_wrapper('node', $company);
     $cb_region = $wrapper->field_centralbibliotek_ref->value();
-    $title = strtolower($cb_region->title);
-    return array('title' => $cb_region->title,'eurekosId' => isset($eurekos_id_map[$title]) ? $eurekos_id_map[$title] : null);
+    $title = "";
+    if(is_array($cb_region))
+    {
+      $title = strtolower($cb_region[0]->title);
+    }
+    else{
+      $title = strtolower($cb_region->title);
+    }
+    
+    return array('title' => $title,'eurekosId' => isset($eurekos_id_map[$title]) ? $eurekos_id_map[$title] : null);
   }
   function cbib_oauth_map_company_to_eurekos()
   {
