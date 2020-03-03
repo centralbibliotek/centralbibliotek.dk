@@ -141,8 +141,11 @@
                 {
                     activity.instructors.last_name = "";
                 }
+                if(typeof activity.instructors != null)
+                {
                 lecturer.find('#edit-field-lecturer-und-0-first').val(activity.instructors.first_name + " " + activity.instructors.last_name);
                 lecturer.find('#edit-field-lecturer-und-0-second').val(activity.instructors.mail);
+                }
 
                 var responsible = $('.field-name-field-ansvarlig-for-dagen');
 
@@ -164,8 +167,11 @@
                 
 
                 var status = $('.form-item-field-status');
-
-                $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
+                if(iactivity.courses != null)
+                {
+                    $('#edit-field-eurekos-url-und-0-value').val(activity.courses.url);
+                }
+               
                 togglePreLoader();
                 
             });
