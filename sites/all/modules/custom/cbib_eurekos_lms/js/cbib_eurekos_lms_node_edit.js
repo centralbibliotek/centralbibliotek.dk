@@ -147,8 +147,8 @@
                 }
                 if(typeof activity.instructors != null)
                 {
-                lecturer.find('#edit-field-lecturer-und-0-first').val(activity.instructors.first_name + " " + activity.instructors.last_name);
-                lecturer.find('#edit-field-lecturer-und-0-second').val(activity.instructors.mail);
+                    lecturer.find('#edit-field-lecturer-und-0-first').val(activity.instructors.first_name + " " + activity.instructors.last_name);
+                    lecturer.find('#edit-field-lecturer-und-0-second').val(activity.instructors.mail);
                 }
 
                 var responsible = $('.field-name-field-ansvarlig-for-dagen');
@@ -227,7 +227,7 @@
         deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true');
 
         $('.field-name-field-address').find('input').attr('readonly', 'true');
-        $('.field-name-field-lecturer').find('input').attr('readonly', 'true');
+        //$('.field-name-field-lecturer').find('input').attr('readonly', 'true');
 
         $('.form-item-field-number-of-attendees-und-0-value').find('input').attr('readonly', 'true');
 
@@ -248,7 +248,7 @@
         deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').removeAttr('readonly');
 
         $('.field-name-field-address').find('input').removeAttr('readonly');
-        $('.field-name-field-lecturer').find('input').removeAttr('readonly');
+       //$('.field-name-field-lecturer').find('input').removeAttr('readonly');
 
         $('.form-item-field-number-of-attendees-und-0-value').find('input').removeAttr('readonly');
 
