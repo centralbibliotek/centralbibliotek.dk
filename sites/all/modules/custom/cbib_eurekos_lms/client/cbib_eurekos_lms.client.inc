@@ -31,8 +31,17 @@ class eurekosClient
         }
         
         $options = array();
-
-        $options['data'] = $query;
+        if($method == "GET")
+        {
+            if(sizeof($params) != null)
+            {
+                $url .= "?" .drupal_http_build_query($params);
+            }
+        }
+        else{
+            $options['data'] = $query;
+        }
+        
         
         
         $options['headers'] = $headers;
