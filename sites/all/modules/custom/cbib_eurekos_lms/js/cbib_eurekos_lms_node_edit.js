@@ -90,7 +90,7 @@
                 */
                 debugger;
                 $('.field-name-title-field').find('input').val(activity.title);
-                if(activity.courses.description != undefined)
+                if(typeof activity.courses.description != undefined)
                 {
                     CKEDITOR.instances["edit-body-und-0-value"].setData(activity.courses.description);
                 }
