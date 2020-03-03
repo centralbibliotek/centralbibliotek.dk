@@ -107,7 +107,6 @@
                    //$('#edit-field-date').remove();
                 }
 
-
                 var deadlineField = $('.field-name-field-tilmeldings-frist');
                 if(activity.deadline != undefined && activity.deadline != "")
                 {
@@ -116,10 +115,10 @@
                 }
                 else{
                     //deadlineField.remove();
-                    if(activity.ends != undefined && activity.ends != "")
+                    if(activity.starts != undefined && activity.starts != "")
                     {
-                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').val(activity.ends['date']);
-                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.ends['time']);
+                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').val(activity.starts['date']);
+                        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.starts['time']);
                     }
                 }
 
