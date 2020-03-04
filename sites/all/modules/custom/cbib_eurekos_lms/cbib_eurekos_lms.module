@@ -312,8 +312,8 @@ function cbib_eurekos_lms_user_delete(&$edit, $account, $category) {
 
 /*
 * functions to synch event data.
-*/
-function cbib_eurekos_lms_cron_job()
+*/ 
+function cbib_eurekos_lms_cron() 
 {
     //Get all events that are LMS integrated.
     $query = new EntityFieldQuery();
