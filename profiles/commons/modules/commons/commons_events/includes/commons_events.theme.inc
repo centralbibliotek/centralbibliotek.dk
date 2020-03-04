@@ -33,16 +33,23 @@ function theme_commons_events_attending_event($variables = array()) {
     && registration_status('node', $event->nid, TRUE)) {
     return drupal_get_form('commons_events_attend_event_form_' . $event->nid, $event, $registration, $attendee_count);
   }
-  elseif (registration_is_registered($registration, NULL, $user->uid) &&
-    registration_access('delete', $registration, $user, $registration->type)) {
+  elseif (registration_is_registered($registration, NULL, $user->uid)) {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'registration')
       ->propertyCondition('user_uid', $user->uid)
       ->propertyCondition('entity_id', $event->nid)
       ->propertyCondition('entity_type', 'node');
     $result = $query->execute();
-
-    return drupal_get_form('commons_events_cancel_event_form_' . $event->nid, $event, $result['registration']);
+    $delPermission = registration_access('delete', $registration, $user, $registration->type);
+    if($delPermission || (isset($event->field_eurekos_event['und'][0]['value']) && $event->field_eurekos_event['und'][0]['value']))
+    {
+      $form = drupal_get_form('commons_events_cancel_event_form_' . $event->nid, $event, $result['registration']);
+      if(!$delPermission)
+      {
+        unset($form['submit']);
+      }
+    }
+    return $form; 
   }
   return "";
 }
