@@ -326,6 +326,8 @@ function cbib_eurekos_lms_cron_job()
         $queue = DrupalQueue::get('eurekos_lms_sync');
         foreach($result['node'] as $item)
         {
+            //cbib_eurekos_lms_update_course_data($item->nid);
+            //exit(1);
             $queue->createItem($item->nid);
         }
 }
@@ -352,7 +354,31 @@ function cbib_eurekos_lms_update_course_data($nid)
     //sync fields.
     $node->title = $activity->title;
     $node->field_number_of_attendees['und'][0]['value'] = $activity->seats;
-    
+    if(!empty($activity->starts))
+    {
+        $date = $activity->starts['date'] . " " . $activity->starts['time'];
+        $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date)));//convert to european format
+        $node->field_date['und'][0]['value'] =$date; 
+    }
+    if(!empty($activity->ends))
+    {
+        $date = $activity->ends['date'] . " " . $activity->ends['time'];
+        $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date))); //convert to european format
+        $node->field_date['und'][0]['value1'] = $date;
+    }
+    if(!empty($activity->deadline))
+    {
+        $date = $activity->deadline['date'] . " " . $activity->deadline['time'];
+        $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date))); //convert to european format
+        $node->field_tilmeldings_frist['und'][0]['value1'] = $date;
+    }
+    else{
+        //no deadline..default to start date..many have changed!
+        $date = $activity->starts['date'] . " " . $activity->starts['time'];
+        $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date)));//convert to european format
+        $node->field_tilmeldings_frist['und'][0]['value'] =$date;
+    }
+
     //check if the course was canceled or in other way disabled from eurekos lms ?
 
     //save it!
