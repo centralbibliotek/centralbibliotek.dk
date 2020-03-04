@@ -139,7 +139,6 @@
                     $('#edit-field-location-und').val('online');
                 }
                 
-
                 var lecturer = $('.field-name-field-lecturer');
                 if(activity.instructors.last_name == undefined)
                 {

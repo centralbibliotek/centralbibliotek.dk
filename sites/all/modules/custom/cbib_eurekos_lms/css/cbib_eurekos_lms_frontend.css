@@ -1,0 +1,22 @@
+#edit-lms-start-course
+{
+    border: 0;
+    background: #ff5479;
+    color: #fff !important;
+    display: inline-block;
+    margin: 0 .75em .75em 0;
+    padding: .7em 1.5em;
+    text-align: center;
+    border-radius: 40px;
+    position: relative;
+    vertical-align: top;
+    letter-spacing: -.01em;
+    line-height: 1;
+    text-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-transition: background-color 150ms ease;
+    -moz-transition: background-color 150ms ease;
+    -o-transition: background-color 150ms ease;
+    transition: background-color 150ms ease;
+}

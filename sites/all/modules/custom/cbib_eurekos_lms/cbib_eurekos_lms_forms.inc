@@ -15,3 +15,21 @@ function cbib_eurekos_lms_seach_acitivty_form()
 
     return $form;
 }
+function cbib_eurekos_lms_online_only_free_signup_form()
+{
+    $form = array();
+    $form['eurekos_search_field'] = array(
+        '#type' => 'button',
+        '#title' => t('Start kursus'),
+        '#attributes' => array('class' => array('commons-events-button'))
+      );
+    $form['#submit'][] = "cbib_eurekos_lms_online_only_free_signup_form_submit";
+    return $form;
+}
+function cbib_eurekos_lms_online_only_free_signup_form_submit(&$form,&$form_state,$form_id)
+{
+  global $user;
+  $node = menu_get_object();
+  cbib_eurekos_lms_handle_sign_up($node,$user);
+  
+}

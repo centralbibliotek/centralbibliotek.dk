@@ -94,6 +94,23 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
     }
     if(strpos($form_id,'cancel_event_form') !== false)
     {
+         //check if it is a eurekos event.
+        $node = menu_get_object();
+        //Is it a lms course ?
+        if($node->field_eurekos_event['und'][0]['value'])
+        {
+            //add a goto course link.
+            $is_signup = sizeof($node->field_date);
+            $form['lms_start_course'] = array(
+                '#type' => 'link',
+                '#title' => $is_signup != 0 ? t('Start kursus') : t('Deltag i kursus'),
+                '#href' => $node->field_eurekos_url['und'][0]['value'],
+                '#attributes' => array('style' => array(''),'class' => array('action-item-primary')),
+                '#weight' => -1,
+            );
+            $form['#attached']['css'][] = drupal_get_path('module', 'cbib_eurekos_lms') . '/css/cbib_eurekos_lms_frontend.css';
+        }
+        //is the user allowed to delete sign up ?
         $form['#submit'][] = "cbib_eurekos_lms_cancel_event_submit";
     }
     if( strpos($form_id,'registration_delete_confirm') !== false)
@@ -104,8 +121,55 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
     {
         $form['#submit'][] = "cbib_eurekos_lms_manul_add_subscription_backend_submit";
     }
-    
+    if( strpos($form_id,"commons_events_attend_event_form") !== false)
+    {
+       
+    }
+}
+function cbib_eurekos_lms_panels_pane_prerender($pane)
+{
+    if($pane->subtype == "event_price" && $pane->configuration['override_title_text'] == "Tilmelding")
+    {
+        global $user;
+        $node = menu_get_object();
+        $registration_type = registration_get_entity_registration_type('node', $node);
+        $registration = entity_get_controller('registration')->create(array(
+            'entity_type' => 'node',
+            'entity_id' => $node->nid,
+            'type' => $registration_type,
+            'author_uid' => $user->uid,
+        ));
 
+        if(registration_is_registered($registration, NULL, $user->uid) && $node->field_eurekos_event['und'][0]['value'])
+        {
+            $pane->configuration['override_title_text'] = "Kursus link";
+            drupal_add_css('.pane-node-attend-form{margin-top:0px !important}',$option['type'] = 'inline');
+            
+            return $pane;
+        }
+    }
+    if($pane->subtype == "cbib_events_seats_available" || $pane->subtype == "node:field_number_of_attendees"
+    || $pane->subtype == "cbib_events_registration_dates" || $pane->subtybe == "cbib_events_registration_dates"
+    || $pane->subtype == "node:field_price")
+    {
+        global $user;
+        $node = menu_get_object();
+        $registration_type = registration_get_entity_registration_type('node', $node);
+        $registration = entity_get_controller('registration')->create(array(
+            'entity_type' => 'node',
+            'entity_id' => $node->nid,
+            'type' => $registration_type,
+            'author_uid' => $user->uid,
+        ));
+
+        if(registration_is_registered($registration, NULL, $user->uid) && $node->field_eurekos_event['und'][0]['value'])
+        {
+            $pane->css['css_class'] = "js-hide";
+            
+            return $pane;
+        }
+    }
+    
 }
 function cbib_eurekos_lms_manul_add_subscription_backend_submit(&$form,&$form_state,$form_id)
 {
@@ -168,12 +232,10 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
     $node = $form_state['event_node'];
     //check if it is a eurekos course and form does not have errors.
     cbib_eurekos_lms_handle_sign_up($node,$user);
-    
 }
 function cbib_eurekos_lms_handle_sign_up($node,$user)
 {
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
-    
     $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
     //check if user exists in eurekos.
     $eurekosUser = $client->getUserByMail($user->mail);
@@ -187,14 +249,14 @@ function cbib_eurekos_lms_handle_sign_up($node,$user)
             $signedUp = $client->signUpUser($created->uid,$activityId );
             if(isset($signedUp->id))
             {
-                
-                return;
+                return true;
             }
             else
             {
                 //display error.
                 drupal_set_message(t('Fejl: Tilmelding til LMS kursus kunne ikke oprettes.'),'error');
                 watchdog('eurekos_lms', 'Failed to signup-user: ' . $user->mail,WATCHDOG_ERROR);
+                return false;
             }
         }
         else
@@ -202,6 +264,7 @@ function cbib_eurekos_lms_handle_sign_up($node,$user)
             //Log error
             drupal_set_message(t('Fejl: brugeren til LMS system kunne ikke oprettes.'),'error');
             watchdog('eurekos_lms', 'Failed to create user: ' . $user->mail,WATCHDOG_ERROR);
+            return false;
         }
     }
     else{
@@ -211,18 +274,20 @@ function cbib_eurekos_lms_handle_sign_up($node,$user)
         if(isset($signup->id))
         {
             $client->updateSignUp($signup->id,1); //set to active.
+            return true;
         }
         else{
             $signedUp = $client->signUpUser($eurekosUser->uid,$activityId);
             if(isset($signedUp->id))
             {
-                return;
+                return true;
             }
             else
             {
                 //display error.
                 drupal_set_message(t('Fejl: Tilmelding til LMS system kunne ikke oprettes.'),'error');
                 watchdog('eurekos_lms', 'Failed to signup user: ' . $eurekosUser->mail,WATCHDOG_ERROR);
+                return false;
             }
         }
     }
