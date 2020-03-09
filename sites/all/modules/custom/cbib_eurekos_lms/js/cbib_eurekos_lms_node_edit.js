@@ -27,9 +27,11 @@
 
         if ($('#edit-field-eurekos-event-und').is(':checked')) {
             lockedit = true;
+            debugger;
             eurekosDisableToggleFields();
+            
         }
-
+        eurekosDisableToggleFields();
         //Attach the checkbox listener
         $('#edit-field-eurekos-event-und').change(function (e) {
             if(lockedit)
@@ -39,6 +41,7 @@
             }
             if (this.checked) {
                 //Hide all the fields we are certain need no more manual changes.
+                debugger;
                  toggleFormElements('hide');
                 
 
@@ -193,6 +196,7 @@
     }
     function toggleFormElements(action)
     {
+        debugger;
         var form_wrappers =  $('.form-wrapper').not('.field-name-field-eurekos-event');
         form_wrappers.each(function(i,e){
             var elem = $(e);
@@ -222,8 +226,8 @@
         dateParent.find('.form-item-field-date-und-0-value2-time input').attr('readonly', 'true');
 
         var deadlineField = $('.field-name-field-tilmeldings-frist');
-        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').attr('readonly', 'true');
-        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true');
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0');
+        //deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true').unbind();
 
         $('.field-name-field-address').find('input').attr('readonly', 'true');
         //$('.field-name-field-lecturer').find('input').attr('readonly', 'true');
@@ -232,8 +236,19 @@
 
         $('#edit-field-location-und').attr('readonly', 'true');
         $('#edit-field-event-type-und').attr('readonly', 'true');
+        
+        $('#edit-field-event-type-und').mousedown(function(e){
+            e.preventDefault ();
+            return false;
+        });
+        $('#edit-field-location-und').mousedown(function(e){
+            e.preventDefault();
+            return false;
+        });
+
     }
     function eurekosEnableToggleFields() {
+        
         $('.field-name-title-field').find('input').removeAttr('readonly');
         var dateParent = $('.field-name-field-date');
         dateParent.find('.form-item-field-date-und-0-value-date input').removeAttr('readonly');
@@ -253,5 +268,11 @@
 
         $('#edit-field-location-und').removeAttr('readonly');
         $('#edit-field-event-type-und').removeAttr('readonly');
+        
+        $('#edit-field-event-type-und').unbind('mousedown');
+        $('#edit-field-location-und').unbind('mousedown');
+        
+        //Drupal.attachBehaviors(document, Drupal.settings); // rebind everything disbled.
+        
     }
 })(jQuery);
