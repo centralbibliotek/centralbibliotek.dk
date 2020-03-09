@@ -370,7 +370,7 @@ function cbib_eurekos_lms_update_course_data($nid)
 
     //sync fields.
     $node->title = $activity->title;
-    $node->field_number_of_attendees['und'][0]['value'] = $activity->seats;
+    $node->field_number_of_attendees['und'][0]['value'] = $activity->seats == -1 ? 0 : $activity->seats;
     if(!empty($activity->starts))
     {
         $date = $activity->starts['date'] . " " . $activity->starts['time'];
@@ -397,6 +397,14 @@ function cbib_eurekos_lms_update_course_data($nid)
     }
 
     //check if the course was canceled or in other way disabled from eurekos lms ?
+    if($activity->status != "Open")
+    {
+
+    }
+    else
+    {
+
+    }
 
     //save it!
     node_save($node);
