@@ -174,10 +174,16 @@ function cbib_eurekos_lms_panels_pane_prerender($pane)
 function cbib_eurekos_lms_manul_add_subscription_backend_submit(&$form,&$form_state,$form_id)
 {
     //is this even possible to work properly ? ( see cbib_event module).
-    $user = user_load_by_name($form_state['values']['name']);
     $nid = $form_state['build_info']['args'][0];
     $node = node_load($nid);
-    cbib_eurekos_lms_handle_sign_up($node,$user);
+    if(isset($node->field_eurekos_event['und'][0]['value']) && $node->field_eurekos_event['und'][0]['value'])
+    {   
+        $user = user_load_by_name($form_state['values']['name']);
+        $nid = $form_state['build_info']['args'][0];
+        $node = node_load($nid);
+        cbib_eurekos_lms_handle_sign_up($node,$user);
+    }
+
     
 }
 function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state,$form_id)
@@ -185,7 +191,10 @@ function cbib_eurekos_lms_cancel_subscription_backend_submit(&$form,&$form_state
     $registration = $registration = $form_state['values']['registration'];
     $user = user_load($registration->user_uid);
     $node = node_load($registration->entity_id);  
-
+    if(!isset($node->field_eurekos_event['und'][0]['value']) || !$node->field_eurekos_event['und'][0]['value'])
+    {
+        return;
+    }
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
         
     $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
@@ -209,6 +218,10 @@ function cbib_eurekos_lms_cancel_event_submit(&$form,&$form_state,$form_id)
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
 
     $node = $form_state['event'];
+    if(!isset($node->field_eurekos_event['und'][0]['value']) || !$node->field_eurekos_event['und'][0]['value'])
+    {
+        return;
+    }
     $activityId = $node->field_eurekos_activity_id['und']['0']['value'];
     $eurekosUser = $client->getUserByMail($user->mail);
     if(isset($eurekosUser->uid))
@@ -230,8 +243,12 @@ function cbib_eurekos_lms_attend_event_submit(&$form,&$form_state,$form_id)
 {
     global $user;
     $node = $form_state['event_node'];
+    if(isset($node->field_eurekos_event['und'][0]['value']) && $node->field_eurekos_event['und'][0]['value'])
+    {
+        cbib_eurekos_lms_handle_sign_up($node,$user);
+    }
     //check if it is a eurekos course and form does not have errors.
-    cbib_eurekos_lms_handle_sign_up($node,$user);
+    
 }
 function cbib_eurekos_lms_handle_sign_up($node,$user)
 {
