@@ -35,3 +35,7 @@ input:read-only {
   visibility: hidden;
   position: absolute;
 }
+input:-moz-read-only
+{
+  background-color: lightgray !important;
+}
