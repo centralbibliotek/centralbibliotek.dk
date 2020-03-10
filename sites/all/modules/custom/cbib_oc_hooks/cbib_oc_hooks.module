@@ -331,7 +331,7 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
       unset($build[640]['#query']['field_date_value']);
       $count = key($build[50]['#query']['field_event_type']);
       $build[640]['#query']['field_event_type'][$count] = '640';
-      $build[640]['#markup'] = 'E-læring u/tilmelding';
+      $build[640]['#markup'] = 'E-læring u/dato';
     }
   }
   if ($settings->facet == "field_address:locality") {

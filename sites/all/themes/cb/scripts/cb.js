@@ -346,15 +346,15 @@ if(!detectIE()) {
             var url = window.location.href;
             if (!optionExists)
             {
-                    if ($('#event_type2 select > option[selected]').html() !== " E-læring m/tilmelding") {
-                        $('#event_type2 select').append("<option value=" + url.replace(']=640','') + "]=50> E-læring m/tilmelding</option>'");
+                    if ($('#event_type2 select > option[selected]').html() !== " E-læring m/dato") {
+                        $('#event_type2 select').append("<option value=" + url.replace(']=640','') + "]=50> E-læring m/dato</option>'");
                     }
             }
             if (!optionExists2)
             {
-                if ($('#event_type2 select > option[selected]').html() !== " E-læring u/tilmelding") {
+                if ($('#event_type2 select > option[selected]').html() !== " E-læring u/dato") {
 
-                        $('#event_type2 select').append("<option value=" + url.replace(']=50','') + "]=640> E-læring u/tilmelding</option>'");
+                        $('#event_type2 select').append("<option value=" + url.replace(']=50','') + "]=640> E-læring u/dato</option>'");
                     }
             }    
             
