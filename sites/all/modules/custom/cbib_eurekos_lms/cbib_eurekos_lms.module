@@ -33,7 +33,7 @@ function  cbib_eurekos_lms_menu() {
 
       $items['obb/eurekos/activate/cron/test'] = array(
         'title' => 'test cron sync',
-        'page callback' => 'cbib_eurekos_lms_cron_job',
+        'page callback' => 'cbib_eurekos_lms_cron',
         'access arguments' => array('administer cbib_hooks'),  //or whatever permission makes sense
         'type' => MENU_CALLBACK,
         'access callback' => TRUE,
@@ -389,7 +389,8 @@ function cbib_eurekos_lms_update_course_data($nid)
         $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date))); //convert to european format
         $node->field_tilmeldings_frist['und'][0]['value1'] = $date;
     }
-    else{
+    else if(!empty($activity->starts)){
+
         //no deadline..default to start date..many have changed!
         $date = $activity->starts['date'] . " " . $activity->starts['time'];
         $date =  date("Y-m-d h:m", strtotime( str_replace('/','-',$date)));//convert to european format
@@ -397,13 +398,13 @@ function cbib_eurekos_lms_update_course_data($nid)
     }
 
     //check if the course was canceled or in other way disabled from eurekos lms ?
-    if($activity->status != "Open")
+    if($activity->status != 1)
     {
-
+        $node->field_status['und'][0]['value'] = 0; 
     }
     else
     {
-
+        $node->field_status['und'][0]['value'] = 1;
     }
 
     //save it!
