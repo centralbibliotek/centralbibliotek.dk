@@ -17,17 +17,13 @@
             $('#edit-field-eurekos-activity-id-und-0-value').val(elem.data('autocompleteValue'));
 
             //show preloader.
-
-            //set the data.
             togglePreLoader();
+            //set the data.
             eurekosGetActity(elem.data('autocompleteValue'));
-
-            //unlock editable fields.
         });
 
         if ($('#edit-field-eurekos-event-und').is(':checked')) {
             lockedit = true;
-            debugger;
             eurekosDisableToggleFields();
             
         }
@@ -42,14 +38,8 @@
             }
             if (this.checked) {
                 //Hide all the fields we are certain need no more manual changes.
-                debugger;
-                 toggleFormElements('hide');
-                
-
-                eurekosDisableToggleFields();
-                
-                //disable all others until a lms is chosen.
-
+                toggleFormElements('hide');            
+                eurekosDisableToggleFields();               
 
                 //ajax load the search field..
                 var element_settings = {
@@ -75,12 +65,6 @@
             }
 
         });
-        // an lms course has been choosen
-        $('').click(function () {
-            //show a spinner ?
-
-            //Load data into the fields! :)
-        });
     });
     function eurekosGetActity($id) {
         $.ajax({
@@ -92,7 +76,6 @@
                 /*
                 * Insert data into fields.
                 */
-                debugger;
                 $('.field-name-title-field').find('input').val(activity.title);
                 if(activity.courses != null && typeof activity.courses.description != "undefined")
                 {
@@ -125,9 +108,7 @@
                         deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').val(activity.starts['time']);
                     }
                 }
-
                 var location = $('.field-name-field-location');
-
                 if(activity.location != undefined)
                 {
                     var address = $('.field-name-field-address');
@@ -172,7 +153,6 @@
                     seats.find('input').val(activity.seats);
                 }
                 
-
                 var status = $('.form-item-field-status');
                 if(activity.courses != null)
                 {
@@ -184,7 +164,7 @@
             });
     }
     function togglePreLoader() {
-        debugger;
+
         if($('.search-overlay--wrapper').length == 0 )
         {
             $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Indlæser kursus...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
@@ -197,11 +177,9 @@
     }
     function toggleFormElements(action)
     {
-        debugger;
         var form_wrappers =  $('.form-wrapper').not('.field-name-field-eurekos-event');
         form_wrappers.each(function(i,e){
             var elem = $(e);
-            debugger;
             if(elem.hasClass('vertical-tabs-pane') || elem.parent().parent().hasClass('vertical-tabs-pane'))
             {
                 
@@ -227,8 +205,8 @@
         dateParent.find('.form-item-field-date-und-0-value2-time input').attr('readonly', 'true');
 
         var deadlineField = $('.field-name-field-tilmeldings-frist');
-        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').unbind('focus').removeClass('date-popup-init');
-        //deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true').unbind();
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').attr('readonly', 'true').unbind('focus').removeClass('date-popup-init');
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true');
 
         $('.field-name-field-address').find('input').attr('readonly', 'true');
         //$('.field-name-field-lecturer').find('input').attr('readonly', 'true');
@@ -247,6 +225,9 @@
             return false;
         });
 
+        //hide add-more buttons
+        $('#edit-field-date-und-add-more').hide();
+        $('#edit-field-address-und-add-more').hide();
     }
     function eurekosEnableToggleFields() {
         
@@ -272,8 +253,10 @@
         
         $('#edit-field-event-type-und').unbind('mousedown');
         $('#edit-field-location-und').unbind('mousedown');
-        debugger;
         Drupal.behaviors.date_popup.attach(this);
         
+        //hide add-more buttons
+        $('#edit-field-date-und-add-more').show();
+        $('#edit-field-address-und-add-more').show();
     }
 })(jQuery);
