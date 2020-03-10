@@ -314,7 +314,7 @@ class eurekosClient
     {
         if(is_array($id))
         {
-            $resourcePath = "/api/v2/courses/".implode(', ',$id);
+            $resourcePath = "/api/v2/courses/".implode(',',$id);
         }
         else{
             $resourcePath = "/api/v2/courses/".$id;
@@ -325,6 +325,10 @@ class eurekosClient
         if(isset($course->nid))
         {
             return $course;
+        }
+        elseif(is_array($course) && sizeof($course) > 0)
+        {
+            return $course[0];
         }
         return null;
     }
