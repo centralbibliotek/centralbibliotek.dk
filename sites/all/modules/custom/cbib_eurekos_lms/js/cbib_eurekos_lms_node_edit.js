@@ -76,6 +76,7 @@
                 /*
                 * Insert data into fields.
                 */
+               eurekosDisableToggleFields();
                 $('.field-name-title-field').find('input').val(activity.title);
                 if(activity.courses != null && typeof activity.courses.description != "undefined")
                 {
