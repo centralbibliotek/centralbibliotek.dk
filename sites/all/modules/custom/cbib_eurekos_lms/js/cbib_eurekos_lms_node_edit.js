@@ -31,7 +31,8 @@
             eurekosDisableToggleFields();
             
         }
-        eurekosDisableToggleFields();
+        //eurekosDisableToggleFields();
+        //eurekosEnableToggleFields();
         //Attach the checkbox listener
         $('#edit-field-eurekos-event-und').change(function (e) {
             if(lockedit)
@@ -46,7 +47,7 @@
                 
 
                 eurekosDisableToggleFields();
-
+                
                 //disable all others until a lms is chosen.
 
 
@@ -219,14 +220,14 @@
     function eurekosDisableToggleFields() {
         $('.field-name-title-field').find('input').attr('readonly', 'true');
         var dateParent = $('.field-name-field-date');
-        dateParent.find('.form-item-field-date-und-0-value-date input').attr('readonly', 'true');
+        dateParent.find('.form-item-field-date-und-0-value-date input').attr('readonly', 'true').unbind('focus').removeClass('date-popup-init');
         dateParent.find('.form-item-field-date-und-0-value-time input').attr('readonly', 'true');
 
-        dateParent.find('.form-item-field-date-und-0-value2-date input').attr('readonly', 'true');
+        dateParent.find('.form-item-field-date-und-0-value2-date input').attr('readonly', 'true').unbind('focus').removeClass('date-popup-init');
         dateParent.find('.form-item-field-date-und-0-value2-time input').attr('readonly', 'true');
 
         var deadlineField = $('.field-name-field-tilmeldings-frist');
-        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0');
+        deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-datepicker-popup-0').unbind('focus').removeClass('date-popup-init');
         //deadlineField.find('#edit-field-tilmeldings-frist-und-0-value-timeEntry-popup-1').attr('readonly', 'true').unbind();
 
         $('.field-name-field-address').find('input').attr('readonly', 'true');
@@ -271,8 +272,8 @@
         
         $('#edit-field-event-type-und').unbind('mousedown');
         $('#edit-field-location-und').unbind('mousedown');
-        
-        //Drupal.attachBehaviors(document, Drupal.settings); // rebind everything disbled.
+        debugger;
+        Drupal.behaviors.date_popup.attach(this);
         
     }
 })(jQuery);
