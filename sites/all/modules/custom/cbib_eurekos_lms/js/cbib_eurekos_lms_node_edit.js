@@ -141,7 +141,7 @@
                 var contact = $('.field-name-field-contact');
                 
                 var seats = $('.form-item-field-number-of-attendees-und-0-value');
-                if(activity.starts == undefined && activity.starts == "")
+                if(activity.starts == undefined || activity.starts == "")
                 {
                     //no restrictions.
                     toggleFormElements("show");
