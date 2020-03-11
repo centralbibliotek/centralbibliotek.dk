@@ -141,7 +141,7 @@
                 var contact = $('.field-name-field-contact');
                 
                 var seats = $('.form-item-field-number-of-attendees-und-0-value');
-                if(activity.seats == "-1")
+                if(activity.starts == undefined && activity.starts == "")
                 {
                     //no restrictions.
                     toggleFormElements("show");
@@ -153,7 +153,7 @@
                     $('#edit-field-event-type-und').val(50);
                     seats.find('input').val(activity.seats);
                 }
-                
+                debugger;
                 var status = $('.form-item-field-status');
                 if(activity.courses != null)
                 {
@@ -161,7 +161,6 @@
                 }
                
                 togglePreLoader();
-                
             });
     }
     function togglePreLoader() {
