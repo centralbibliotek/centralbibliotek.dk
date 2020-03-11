@@ -90,6 +90,18 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
     }
     if(strpos($form_id,'attend_event_form') !== false)
     {
+         //check if it is a eurekos event.
+         $node = menu_get_object();
+         //Is it a lms course ?
+         if($node->field_eurekos_event['und'][0]['value'])
+         {
+              //add a goto course link.
+            $is_signup = sizeof($node->field_date);
+            if(!$is_signup)
+            {
+                $form['submit']['#value'] = t("Deltag i kursus");
+            }
+         }
         $form['#submit'][] = "cbib_eurekos_lms_attend_event_submit";
     }
     if(strpos($form_id,'cancel_event_form') !== false)
@@ -422,7 +434,7 @@ function cbib_eurekos_lms_sync_single()
 function cbib_eurekos_lms_activies_autocomplete($search)
 {
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
-    $result = $client->searchActivities($search);
+    $result = $client->searchActivities($search,'Open');
     //Format for autocomplete..
     $matches = array();
     foreach($result->data as $key => $data)
