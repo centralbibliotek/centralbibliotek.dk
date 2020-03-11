@@ -341,11 +341,14 @@ function cbib_eurekos_lms_cron()
         ->execute();
         //re-sync their data.
         $queue = DrupalQueue::get('eurekos_lms_sync');
-        foreach($result['node'] as $item)
+        if(isset($result['node']))
         {
-            //cbib_eurekos_lms_update_course_data($item->nid);
-            //exit(1);
-            $queue->createItem($item->nid);
+            foreach($result['node'] as $item)
+            {
+                //cbib_eurekos_lms_update_course_data($item->nid);
+                //exit(1);
+                $queue->createItem($item->nid);
+            }
         }
 }
 /*
