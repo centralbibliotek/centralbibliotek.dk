@@ -115,7 +115,7 @@ function cbib_eurekos_lms_form_alter(&$form, &$form_state, $form_id)
             $is_signup = sizeof($node->field_date);
             $form['lms_start_course'] = array(
                 '#type' => 'link',
-                '#title' => $is_signup != 0 ? t('Start kursus') : t('Deltag i kursus'),
+                '#title' => $is_signup != 0 ? t('Start kursus') : t('Start kursus'),
                 '#href' => $node->field_eurekos_url['und'][0]['value'],
                 '#attributes' => array('style' => array(''),'class' => array('action-item-primary')),
                 '#weight' => -1,
