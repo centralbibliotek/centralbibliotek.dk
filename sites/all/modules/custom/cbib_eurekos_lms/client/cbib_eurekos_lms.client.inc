@@ -263,10 +263,14 @@ class eurekosClient
     /*
     * Activitys handling
     */
-    public function searchActivities($searchKey)
+    public function searchActivities($searchKey,$status = null)
     {
         //$user = $this->getUser('tfpet@odense.dk');
-        $resourcePath = "/api/v2/activities?search=".$searchKey; 
+        $resourcePath = "/api/v2/activities?search=".$searchKey;
+        if($status != null)
+        {
+            $resourcePath .= "&status=".$status;
+        } 
         $params = array();
         /*if($searchKey != null)
         {
