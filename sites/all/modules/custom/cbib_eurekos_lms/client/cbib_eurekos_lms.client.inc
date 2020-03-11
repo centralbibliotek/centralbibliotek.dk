@@ -337,7 +337,7 @@ class eurekosClient
     */
     public function signUpUser($userId,$activityId)
     {   
-        $author = 37531;
+        $author = 37680;
         $resourcePath = "/api/v2/signups/";
         $params = array('author' => $author,'activity' => $activityId,'user' => $userId);
 
