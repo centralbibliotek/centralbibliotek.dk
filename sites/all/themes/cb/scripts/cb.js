@@ -49,6 +49,9 @@ function detectIE() {
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
     $(document).ready(function () {
+        $( ".pane-node-field-gul-baggrund" ).each(function() {
+            $(this).parent().find('.pane-node-title-field').css('background', '#FFcF01');
+        });
         
         if (document.location.pathname.indexOf("/kompetenceudvikling") === 0 || document.location.pathname.indexOf("/nyheder") === 0) {
 
