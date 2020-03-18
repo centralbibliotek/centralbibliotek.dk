@@ -51,7 +51,6 @@ function detectIE() {
     $(document).ready(function () {
         $( ".pane-node-field-gul-baggrund div:contains(1)" ).each(function() {
             $(this).closest('.pane-node-field-gul-baggrund').parent().find('.pane-node-title-field').css('background', '#FFcF01');
-            $(this).hide();
         });
         
         if (document.location.pathname.indexOf("/kompetenceudvikling") === 0 || document.location.pathname.indexOf("/nyheder") === 0) {
