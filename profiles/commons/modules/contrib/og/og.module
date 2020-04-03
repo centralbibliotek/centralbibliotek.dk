@@ -756,6 +756,16 @@ function og_form_group_reference_validate($form, &$form_state) {
     // User has site-wide permissions to create or edit the entity.
     return;
   }
+  /*
+  * Special CB.dk where non permisionned users have access to admin groups.
+  * they should be allowed to save groups with no group access.
+  * This requires a special check if they are admin members.
+  * Suggestions: introduce hook for these special cases.
+  */
+  if (og_user_access('node', $id, 'administrator members'))
+  {
+    return;
+  }
 
   foreach (array_keys(og_get_group_audience_fields($entity_type, $bundle)) as $field_name) {
     // If there is at least one group selected, return.
