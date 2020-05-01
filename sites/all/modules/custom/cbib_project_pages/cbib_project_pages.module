@@ -1,0 +1,38 @@
+<?php 
+require 'vendor/autoload.php';
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function cbib_project_pages_theme_registry_alter(&$theme_registry) {
+    // Defined path to the current module.
+    $module_path = drupal_get_path('module', 'cbib_project_pages') . "/templates";
+    // Find all .tpl.php files in this module's folder recursively.
+    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+    // Iterate through all found template file objects.
+    foreach ($template_file_objects as $key => $template_file_object) {
+      // If the template has not already been overridden by a theme.
+      if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+        // Alter the theme path and template elements.
+        $theme_registry[$key]['theme path'] = $module_path;
+        $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+        $theme_registry[$key]['type'] = 'module';
+      }
+    }
+  }
+  function cbib_project_create_video_preview_thumbnail($file_path,$fileid)
+  {
+    $upload_path = drupal_realpath('public://videothumbs/');
+    $filename = $fileid . "_thumb.jpg";
+    if(!file_exists($upload_path."/".$filename))
+    {
+      $ffmpeg = FFMpeg\FFMpeg::create();
+      $video = $ffmpeg->open($file_path);
+      $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1));
+      
+      
+      $frame->save($upload_path."/".$filename);
+    
+    }
+
+    return "public://videothumbs/".$filename;
+  }

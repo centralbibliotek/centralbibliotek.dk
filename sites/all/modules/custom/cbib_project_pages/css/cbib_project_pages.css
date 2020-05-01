@@ -1,0 +1,67 @@
+.project_page_view_block_wrap
+{
+    border: 1px solid black;
+    width: 250px;
+    height: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:10px;
+    float:left;
+    margin-left:10px;
+}
+.project_page_view_block_wrap h2
+{
+    color:#ff5479;
+    font-size: 25px;
+    margin: 10px;
+}
+.project_page_view_block_wrap:hover
+{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.project_page_view_block_link
+{
+    color:black;
+    
+}
+.project_page_view_block_link:hover
+{
+    text-decoration: none;
+}
+.project_page_view_block_title
+{
+    text-align: center;
+}
+#cbib_project_pages_panel div div div .pane-node-title
+{
+    margin:0px !important;
+    font-size: 25px;
+}
+#cbib_project_pages_panel div div div .pane-node-title h2
+{
+    margin:0px !important;
+}
+#cbib_project_pages_panel div div div h3
+{
+    margin:0px !important;
+}
+#cbib_project_pages_panel div div div .node-projekt-sider-under-side
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:10px;
+    margin-bottom:15px;
+}
+/* On mouse-over, add a deeper shadow */
+#cbib_project_pages_panel div div div .node-projekt-sider-under-side:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+.page-projektstyring  #content
+{
+    float:left;
+    width: 100%;
+}
+.field-name-field-video-materialer
+{
+    width: 30%;
+}
