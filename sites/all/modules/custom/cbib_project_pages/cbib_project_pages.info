@@ -1,0 +1,6 @@
+name = cbib project pages
+description = facilitates the distribution of project know how.
+package = cbib
+core = 7.x
+
+stylesheets[all][] = css/cbib_project_pages.css
