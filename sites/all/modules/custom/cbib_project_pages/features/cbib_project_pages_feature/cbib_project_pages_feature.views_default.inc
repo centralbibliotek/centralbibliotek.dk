@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * cbib_project_pages.views_default.inc
+ * cbib_project_pages_feature.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function cbib_project_pages_views_default_views() {
+function cbib_project_pages_feature_views_default_views() {
   $export = array();
 
   $view = new view();

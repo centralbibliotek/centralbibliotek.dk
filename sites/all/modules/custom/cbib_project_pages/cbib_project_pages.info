@@ -4,3 +4,4 @@ package = cbib
 core = 7.x
 
 stylesheets[all][] = css/cbib_project_pages.css
+dependencies[] = cbib_project_pages_feature

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cbib_project_pages_feature feature.
+ */
+
+include_once 'cbib_project_pages_feature.features.inc';

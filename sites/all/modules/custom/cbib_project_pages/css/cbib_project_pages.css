@@ -36,6 +36,12 @@
 {
     margin:0px !important;
     font-size: 25px;
+
+}
+#cbib_project_pages_panel div div div .pane-node-title h3
+{
+    border-bottom: 1px solid black;
+    margin-bottom: 22px !important;
 }
 #cbib_project_pages_panel div div div .pane-node-title h2
 {
@@ -64,4 +70,23 @@
 .field-name-field-video-materialer
 {
     width: 30%;
+}
+.cbib_project_video_preview_play_btn_wrap
+{
+    position: relative;
+    float:left;
+    margin:10px;
+}
+.cbib_project_video_preview_play_btn
+{
+    position: absolute;
+    top: 38%;
+    left: 45%;
+    font-size: 48px !important;
+    color: white;
+    cursor:pointer;
+}
+.cbib_project_video_preview_play_btn:hover
+{
+    color: #ff5479;
 }
