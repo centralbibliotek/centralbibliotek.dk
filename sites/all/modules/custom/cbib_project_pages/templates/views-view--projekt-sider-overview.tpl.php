@@ -12,7 +12,7 @@ $node = node_load($item->nid);
 
 </div>
 <div class="project_page_view_block_title">
-<h2><b><?php echo render(field_view_field('node', $node, 'title','teaser')); ?></b><h2>
+<h2><b><?php echo $node->title; ?></b><h2>
 </div>
 <div class="project_page_view_block_descrip">
 <?php echo render(field_view_field('node', $node, 'body','teaser')); ?>
