@@ -7,7 +7,11 @@ foreach($items as $item)
      $style = "medium";
      $filename = "thumb_".$style."_".$item['#file']->fid.".jpg";
      $targetfolder = 'public://styles/' . $style ."/public/videothumbs/" .$filename;
-     image_style_create_derivative(image_style_load($style),$thumbnail_uri,$targetfolder);
+     $target_file = drupal_Realpath($targetfolder);
+     if(!file_exists($target_file))
+     {
+        image_style_create_derivative(image_style_load($style),$thumbnail_uri,$targetfolder);
+     }
      //$test = image_style_url('Large',$thumbnail_uri);
      ?>
      <div class="cbib_project_video_preview_play_btn_wrap">
