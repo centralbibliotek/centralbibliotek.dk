@@ -90,3 +90,8 @@
 {
     color: #ff5479;
 }
+.project_page_description
+{
+    float:left;
+    padding-bottom: 10px;
+}
