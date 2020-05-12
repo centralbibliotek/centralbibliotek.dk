@@ -21,12 +21,8 @@ function cbib_project_pages_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Filer',
-    'weight' => '2',
-    'children' => array(
-      0 => 'field_dokumenter',
-      1 => 'field_video_materialer',
-      2 => 'field_links',
-    ),
+    'weight' => '5',
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Filer',

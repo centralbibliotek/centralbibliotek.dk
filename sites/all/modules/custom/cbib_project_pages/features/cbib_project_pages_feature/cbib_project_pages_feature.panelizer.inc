@@ -313,7 +313,7 @@ function cbib_project_pages_feature_panelizer_defaults() {
     $pane->panel = 'center';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_video_materialer';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
@@ -341,6 +341,51 @@ function cbib_project_pages_feature_panelizer_defaults() {
     $display->content['new-4b076c54-e52e-4e2f-b621-3c3593fc5623'] = $pane;
     $display->panels['center'][2] = 'new-4b076c54-e52e-4e2f-b621-3c3593fc5623';
     $pane = new stdClass();
+    $pane->pid = 'new-795362bc-1e50-4a43-bcaa-aac430ee588b';
+    $pane->panel = 'center';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_ekstern_video';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'youtube_video',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'image_style' => 'thumbnail',
+        'image_link' => 'youtube',
+        'youtube_size' => '420x315',
+        'youtube_width' => '',
+        'youtube_height' => '',
+        'youtube_autoplay' => 0,
+        'youtube_mute' => 0,
+        'youtube_loop' => 0,
+        'youtube_controls' => 0,
+        'youtube_autohide' => 0,
+        'youtube_iv_load_policy' => 0,
+        'youtube_playsinline' => 0,
+        'youtube_allow_autoplay' => 0,
+        'youtube_allow_fullscreen' => 0,
+      ),
+      'context' => 'panelizer',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '795362bc-1e50-4a43-bcaa-aac430ee588b';
+    $display->content['new-795362bc-1e50-4a43-bcaa-aac430ee588b'] = $pane;
+    $display->panels['center'][3] = 'new-795362bc-1e50-4a43-bcaa-aac430ee588b';
+    $pane = new stdClass();
     $pane->pid = 'new-dfdb0a61-5b28-4912-ad7f-a40463172eff';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
@@ -365,11 +410,11 @@ function cbib_project_pages_feature_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = 'dfdb0a61-5b28-4912-ad7f-a40463172eff';
     $display->content['new-dfdb0a61-5b28-4912-ad7f-a40463172eff'] = $pane;
-    $display->panels['center'][3] = 'new-dfdb0a61-5b28-4912-ad7f-a40463172eff';
+    $display->panels['center'][4] = 'new-dfdb0a61-5b28-4912-ad7f-a40463172eff';
     $pane = new stdClass();
     $pane->pid = 'new-c7ab59ff-fe93-49c8-af86-c4c043dc7b10';
     $pane->panel = 'center';
@@ -395,11 +440,11 @@ function cbib_project_pages_feature_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'c7ab59ff-fe93-49c8-af86-c4c043dc7b10';
     $display->content['new-c7ab59ff-fe93-49c8-af86-c4c043dc7b10'] = $pane;
-    $display->panels['center'][4] = 'new-c7ab59ff-fe93-49c8-af86-c4c043dc7b10';
+    $display->panels['center'][5] = 'new-c7ab59ff-fe93-49c8-af86-c4c043dc7b10';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $panelizer->display = $display;
