@@ -348,7 +348,7 @@ function cbib_project_pages_feature_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'hidden',
+      'label' => 'title',
       'formatter' => 'youtube_video',
       'delta_limit' => '0',
       'delta_offset' => '0',
@@ -356,9 +356,9 @@ function cbib_project_pages_feature_panelizer_defaults() {
       'formatter_settings' => array(
         'image_style' => 'thumbnail',
         'image_link' => 'youtube',
-        'youtube_size' => '420x315',
-        'youtube_width' => '',
-        'youtube_height' => '',
+        'youtube_size' => 'custom',
+        'youtube_width' => '220',
+        'youtube_height' => '220',
         'youtube_autoplay' => 0,
         'youtube_mute' => 0,
         'youtube_loop' => 0,
@@ -371,7 +371,7 @@ function cbib_project_pages_feature_panelizer_defaults() {
       ),
       'context' => 'panelizer',
       'override_title' => 1,
-      'override_title_text' => '',
+      'override_title_text' => 'Video',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();

@@ -36,7 +36,7 @@ function cbib_project_pages_feature_node_info() {
       'base' => 'node_content',
       'description' => t('Indhold sider til projekt styrings værktøjet.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'projekt_sider_under_side' => array(
@@ -44,7 +44,7 @@ function cbib_project_pages_feature_node_info() {
       'base' => 'node_content',
       'description' => t('Indholds blok til projekt sider.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

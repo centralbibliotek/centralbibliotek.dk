@@ -28,7 +28,7 @@ function cbib_project_pages_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'trim_length' => 600,
+          'trim_length' => 150,
         ),
         'type' => 'text_summary_or_trimmed',
         'weight' => 0,
@@ -192,12 +192,12 @@ function cbib_project_pages_feature_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'cbib_oc_file_folders_org',
+      'module' => 'file',
       'settings' => array(
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'oc_file_folders_org',
-      'weight' => 2,
+      'type' => 'file_generic',
+      'weight' => 5,
     ),
   );
 
@@ -237,7 +237,7 @@ function cbib_project_pages_feature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ekstern_video',
-    'label' => 'Ekstern video',
+    'label' => 'ekstern video',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -247,7 +247,7 @@ function cbib_project_pages_feature_field_default_field_instances() {
       'module' => 'youtube',
       'settings' => array(),
       'type' => 'youtube',
-      'weight' => 9,
+      'weight' => 4,
     ),
   );
 
@@ -304,80 +304,17 @@ function cbib_project_pages_feature_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'node-projekt_sider_under_side-field_video_materialer'
-  $field_instances['node-projekt_sider_under_side-field_video_materialer'] = array(
-    'bundle' => 'projekt_sider_under_side',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file_entity',
-        'settings' => array(
-          'file_view_mode' => 'default',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_video_materialer',
-    'label' => 'Video materialer',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 1,
-      'file_directory' => '',
-      'file_extensions' => 'mov mpeg4 mp4',
-      'max_filesize' => '',
-      'resup' => 0,
-      'resup_autostart' => 0,
-      'resup_max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
-        ),
-        'allowed_types' => array(
-          0 => 'image',
-        ),
-        'browser_plugins' => array(),
-        'extended_file_field_collapsible' => 0,
-        'extended_file_field_hidden_toggle' => 0,
-        'extended_file_field_restrict_display' => 0,
-        'extended_file_field_reverse_display' => 0,
-        'extended_file_field_show_clear_contents' => 0,
-        'extended_file_field_show_remove' => 1,
-        'extended_file_field_widget_metadata' => array(),
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'media_generic',
-      'weight' => 4,
+      'weight' => 6,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Dokumenter');
-  t('Ekstern video');
   t('General introduktion');
   t('Indhold');
   t('Links');
-  t('Video materialer');
+  t('ekstern video');
   t('sub_content');
 
   return $field_instances;

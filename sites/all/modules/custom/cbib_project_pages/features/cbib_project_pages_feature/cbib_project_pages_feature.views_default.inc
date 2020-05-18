@@ -22,7 +22,7 @@ function cbib_project_pages_feature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Projektstyring';
+  $handler->display->display_options['title'] = 'Projektudvikling';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -68,9 +68,14 @@ function cbib_project_pages_feature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'Projektstyring';
+  $handler->display->display_options['menu']['title'] = 'Projektstyring';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['projekt_sider_overview'] = array(
     t('Master'),
-    t('Projektstyring'),
+    t('Projektudvikling'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),

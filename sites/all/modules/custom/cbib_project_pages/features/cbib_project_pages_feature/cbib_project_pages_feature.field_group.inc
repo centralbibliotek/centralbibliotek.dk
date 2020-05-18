@@ -22,7 +22,11 @@ function cbib_project_pages_feature_field_group_info() {
   $field_group->data = array(
     'label' => 'Filer',
     'weight' => '5',
-    'children' => array(),
+    'children' => array(
+      0 => 'field_dokumenter',
+      1 => 'field_links',
+      2 => 'field_ekstern_video',
+    ),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Filer',

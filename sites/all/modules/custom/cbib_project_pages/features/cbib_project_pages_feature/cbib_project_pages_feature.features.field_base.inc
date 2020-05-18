@@ -41,6 +41,26 @@ function cbib_project_pages_feature_field_default_field_bases() {
     'type' => 'file',
   );
 
+  // Exported field_base: 'field_ekstern_video'
+  $field_bases['field_ekstern_video'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ekstern_video',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'video_id' => array(
+        0 => 'video_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'youtube',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'youtube',
+  );
+
   // Exported field_base: 'field_links'
   $field_bases['field_links'] = array(
     'active' => 1,
@@ -112,37 +132,6 @@ function cbib_project_pages_feature_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_video_materialer'
-  $field_bases['field_video_materialer'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_video_materialer',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 0,
-      'display_field' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
   );
 
   return $field_bases;
