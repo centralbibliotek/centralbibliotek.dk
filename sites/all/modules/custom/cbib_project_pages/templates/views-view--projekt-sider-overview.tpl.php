@@ -14,7 +14,7 @@ $node = node_load($item->nid);
 
 </div>
 <div class="project_page_view_block_title">
-<h2 style="border-bottom: 1px solid plum;"><b><?php echo $node->title; ?></b></h2>
+<h2 style="border-bottom: 1px solid #ff5479;"><b><?php echo $node->title; ?></b></h2>
 </div>
 <div class="project_page_view_block_descrip">
 <?php echo render(field_view_field('node', $node, 'body','teaser')); ?>
