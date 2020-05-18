@@ -1,6 +1,6 @@
 .project_page_view_block_wrap
 {
-    border: 1px solid black;
+    border: 1px solid lightgrey;
     width: 250px;
     height: 150px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -8,6 +8,7 @@
     padding:10px;
     float:left;
     margin-left:10px;
+    position:relative;
 }
 .project_page_view_block_wrap h2
 {
