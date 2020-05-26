@@ -173,18 +173,32 @@ function oc_file_folders_get_data($nid,$field_name)
 }
 function oc_file_folders_save_data($nid,$field_name,$widgets)
 {
-    db_delete('oc_file_folder_org')
-    ->condition('nid', $nid)
-    ->condition('field_name', $field_name)
-    ->execute();
-    $data = json_encode($widgets);
-    $nid = db_insert('oc_file_folder_org')
-    ->fields(array(
-      'nid' => $nid,
-      'field_name' => $field_name,
-      'widgets' => $data,
-    ))
-    ->execute();
+    // The transaction opens here.
+    $transaction = db_transaction();
+    try {
+        db_delete('oc_file_folder_org')
+        ->condition('nid', $nid)
+        ->condition('field_name', $field_name)
+        ->execute();
+        
+        $data = json_encode($widgets);
+        
+        $nid = db_insert('oc_file_folder_org')
+        ->fields(array(
+        'nid' => $nid,
+        'field_name' => $field_name,
+        'widgets' => $data,
+        ))
+        ->execute();
+
+    } catch (\Throwable $th) {
+        $transaction->rollback();
+        watchdog_exception('oc_file_folders_save_data', $e);
+        echo "Failed to save data";
+        exit(1);
+    }
+
+    
     
 }
 function oc_file_folders_render_children($children, $header, $ts,&$class,$dept = 1 )

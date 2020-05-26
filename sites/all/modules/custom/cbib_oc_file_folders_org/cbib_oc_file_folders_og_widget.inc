@@ -1,6 +1,6 @@
 <?php
 
-require_once 'cbib_oc_file_folders_org_api.include';
+require_once 'cbib_oc_file_folders_org_api.inc';
 /**
  * Implements hook_field_widget_info().
  */

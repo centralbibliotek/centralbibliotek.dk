@@ -1,7 +1,7 @@
 <?php
 
-require_once 'cbib_oc_file_folders_org_api.include';
-require_once 'cbib_oc_file_folders_og_widget.include';
+require_once 'cbib_oc_file_folders_org_api.inc';
+require_once 'cbib_oc_file_folders_og_widget.inc';
 /**
  * Implements hook_menu().
  */
