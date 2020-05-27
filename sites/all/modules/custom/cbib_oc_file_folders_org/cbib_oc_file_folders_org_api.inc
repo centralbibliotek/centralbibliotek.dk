@@ -163,13 +163,22 @@ function get_unique_folder_id()
 }
 function oc_file_folders_get_data($nid,$field_name)
 {
-   $result = db_select('oc_file_folder_org', 'c')
-    ->fields('c')
-    ->condition('nid', $nid)
-    ->condition('field_name', $field_name)
-    ->execute()
-    ->fetchAssoc();
-   return json_decode($result['widgets'],true);
+   $widget_data = &drupal_static(__FUNCTION__);
+   if(!isset($widget_data))
+   {
+    $result = db_select('oc_file_folder_org', 'c')
+        ->fields('c')
+        ->condition('nid', $nid)
+        ->condition('field_name', $field_name)
+        ->execute()
+        ->fetchAssoc();
+        return $widget_data = json_decode($result['widgets'],true);
+   }
+   else
+   {
+    return $widget_data;
+   }
+   
 }
 function oc_file_folders_save_data($nid,$field_name,$widgets)
 {
