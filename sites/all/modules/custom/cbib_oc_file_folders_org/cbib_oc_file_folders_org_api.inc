@@ -200,7 +200,7 @@ function oc_file_folders_save_data($nid,$field_name,$widgets)
         ))
         ->execute();
 
-    } catch (\Throwable $th) {
+    } catch (Exception  $e) {
         $transaction->rollback();
         watchdog_exception('oc_file_folders_save_data', $e);
         echo "Failed to save data";
