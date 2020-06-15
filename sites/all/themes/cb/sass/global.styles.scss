@@ -3166,6 +3166,9 @@ body.node-type-license .cb3 {
 .cb-teaser-list .node-teaser .panel-pane.pane-node-og-group-ref, .page-taxonomy-term .node-teaser .panel-pane.pane-node-og-group-ref {
     float: none!important;
 }
+.panel-pane.pane-entity-field.pane-node-og-group-ref.no-title.block, .panel-pane.pane-entity-field.pane-node-field-overkategorier-emne.no-title.block {
+  display: inline-block;
+}
 .panel-pane.pane-entity-field.pane-node-field-event-type.pane-cbib-pane-node-field-event-type.no-title.block {
     float: left;
 }
