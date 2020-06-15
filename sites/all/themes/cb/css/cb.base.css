@@ -356,15 +356,18 @@ div.messages.error {
 }
 
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:before,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:before {
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:before,
+html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:before {
   background: #9EBCDA;
 }
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover {
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover,
+html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:hover {
   background: #9EBCDA;
 }
 html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover:before,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover:before {
+html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover:before,
+html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:hover:before {
   background: #9EBCDA;
 }
 
