@@ -343,7 +343,7 @@ class eurekosClient
     {   
         $author = 37680;
         $resourcePath = "/api/v2/signups/";
-        $params = array('author' => $author,'activity' => (int)$activityId,'user' => $userId);
+        $params = array('author' => (int)$author,'activity' => (int)$activityId,'user' => (int)$userId);
 
         $result = $this->doRequest($resourcePath,'POST','signups.create',json_encode($params));
         $signup = $result->data;
@@ -357,7 +357,7 @@ class eurekosClient
     public function getSignUp($userId,$activityId)
     {
         $resourcePath = "/api/v2/signups/";
-        $params = array('activity' => (int)$activityId,'user' => $userId);
+        $params = array('activity' => (int)$activityId,'user' => (int)$userId);
 
         $result = $this->doRequest($resourcePath,'GET','signups.read.any',$params);
         $signup = is_array($result->data) ? reset($result->data) : $result->data;
