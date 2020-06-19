@@ -548,7 +548,8 @@ function cbib_oc_hooks_mail_alter(&$message)
       // Next: Log the mail so it can be debugged if necessary
       watchdog('Development Env', 'The following email was not sent: !message', array('!message' => '<pre>' . print_r($message, TRUE) . '</pre>'));
     }
-    if($message['id'] == "mimemail_rules_rules_action_mail_rules_notify_attendee_by_mail_4" && $message['send'] != false)
+    if($message['id'] == "mimemail_rules_rules_action_mail_rules_notify_attendee_by_mail_4" 
+    && $message['send'] != false)
     {
         /*
          * We take over this email , and make it a event invite instead.
@@ -556,6 +557,7 @@ function cbib_oc_hooks_mail_alter(&$message)
          */
         $message['send'] = FALSE;
         $node = menu_get_object();
+        
         if($node == null)
         {
             //get the node id from url , when submitting from group event
@@ -593,7 +595,6 @@ function cbib_oc_hooks_mail_alter(&$message)
             }
 
         }
-
         foreach($node->field_date['und'] as $index => $date)
         {
             if($index == 0)
@@ -688,7 +689,10 @@ function cbib_oc_hooks_mail_alter(&$message)
             $subject ='=?utf-8?B?'.base64_encode($subject).'?='; //make subject utf8 also..some clients have problems.
             mail($message['to'], $subject, $msg, $headers);
         }
-
+        if(sizeof($node->field_date['und']) == 0)
+        {
+          $message['send'] = true;
+        }
 
     }
 }
