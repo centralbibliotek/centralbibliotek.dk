@@ -137,29 +137,18 @@ class eurekosClient
             $company = $wrapper->field_library->value(); 
             if(isset($company->title))
             {
+                $company_tid = $this->getTermid($company->title,'workplaces');
                 $params['company'] = $company->title;
             }
+            else
+            {
+                $params['company'] = null;
+            }
+            
+            $organization = $this->getCbReqion($company);
+            $organization_tid = $this->getTermid($organization['title'],'department');
+            $params['organization'] = $orgParamVal;
 
-            module_load_include('module', 'cbib_oauth', 'cbib_oauth');
-            $organization = cbib_oauth_map_organization_to_eurekos($company);
-            if($organization == null)
-            {
-                //We could not map the organization ? should we do anything ? .
-            }
-
-            //Get the organization value , may need extra logic for non existing regions/organizations.
-            $orgParamVal = array();
-            foreach($organization as $key => $val)
-            {
-                if($key == 'eurekosId' && $val != null)
-                {
-                    array_push($orgParamVal,$val); 
-                }
-            }
-            if(sizeof( $orgParamVal))
-            {
-                $params['organization'] = $orgParamVal;
-            }
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
             if(isset($result->data->uid))
@@ -186,34 +175,45 @@ class eurekosClient
             $params['last_name'] = $wrapper->field_name_last->value();
 
             $company = $wrapper->field_library->value(); 
-            $params['company'] = $company->title;
-
-            module_load_include('module', 'cbib_oauth', 'cbib_oauth');
-            $organization = cbib_oauth_map_organization_to_eurekos($company);
-            if($organization == null)
+            if(isset($company->title))
             {
-                //We could not map the organization ? should we do anything ? .
+                $company_tid = $this->getTermid($company->title,'workplaces');
+                $params['company'] = $company->title;
+            }
+            else
+            {
+                $params['company'] = null;
             }
 
-            //Get the organization value , may need extra logic for non existing regions/organizations.
-            $orgParamVal = array();
-            foreach($organization as $key => $val)
-            {
-                if($key == 'eurekosId' && $val != null)
-                {
-                    array_push($orgParamVal,$val); 
-                }
-            }
-            if(sizeof($orgParamVal))
-            {
-                $params['organization'] = $orgParamVal;
-            }
+            $organization = $this->getCbReqion($company);
+            $organization_tid = $this->getTermid($organization['title'],'department');
+            $params['organization'] = $orgParamVal;
+            
             $result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
         }
         else
         {
             return null;
         }
+    }
+    private function getCbReqion($company)
+    {
+        if($company == null)
+        {
+          return null;
+        }
+
+        $wrapper = entity_metadata_wrapper('node', $company);
+        $cb_region = $wrapper->field_centralbibliotek_ref->value();
+        $title = "";
+        if(is_array($cb_region))
+        {
+        $title = strtolower($cb_region[0]->title);
+        }
+        else{
+        $title = strtolower($cb_region->title);
+        }
+        return ['title' => $title,'obj' => $cb_region];
     }
     public function deleteUser($email)
     {
@@ -381,6 +381,20 @@ class eurekosClient
         $params = array("status" => $status);
 
         $result = $this->doRequest($resourcePath,'PATCH','signups.update.any',json_encode($params));
+    }
+    public function getTermid($term,$taxonomy)
+    {
+        $resourcePath = "/api/v2/taxonomy_terms";
+        $params = array("search" => $term,'machine_name' => $taxonomy);
+
+        $result = $this->doRequest($resourcePath,'GET','taxonomy_terms.read',$params);
+        $termdata = is_array($result->data) ? reset($result->data) : $result->data;
+        if(isset($termdata->tid))
+        {
+            return $signup;
+        }
+        return null;
+        
     }
 
 }
