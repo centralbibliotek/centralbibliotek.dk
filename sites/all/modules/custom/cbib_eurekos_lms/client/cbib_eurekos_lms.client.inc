@@ -147,7 +147,7 @@ class eurekosClient
             
             $organization = $this->getCbReqion($company);
             $organization_tid = $this->getTermid($organization['title'],'department');
-            $params['organization'] = $orgParamVal;
+            $params['department'] = $orgParamVal;
 
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
@@ -187,7 +187,7 @@ class eurekosClient
 
             $organization = $this->getCbReqion($company);
             $organization_tid = $this->getTermid($organization['title'],'department');
-            $params['organization'] = $orgParamVal;
+            $params['department'] = $orgParamVal;
             
             $result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
         }
