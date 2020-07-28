@@ -48,7 +48,112 @@ function  cbib_eurekos_lms_menu() {
         'access arguments' => array('administer cbib_hooks'),
         'access callback' => TRUE,
        );
+       $items['admin/settings/cbib_eurekos_lms/push/terms'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib eurekos lms config',
+        'description' => 'Config',
+        'page callback' => 'cbib_eurekos_lms_push_terms',
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
       return $items;
+}
+/*
+* Push needed terms for eurekos workplace and department fields.
+*/
+function cbib_eurekos_lms_push_terms()
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $all_library_terms = $client->getAllterms('workplaces');
+    $all_cb_terms = $client->getAllterms('departments');
+    //get all libraries.
+    $query = new EntityFieldQuery();
+    $Libraries = $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'library')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->execute();
+        if(isset($Libraries['node']))
+        {
+            foreach($Libraries['node'] as $item)
+            {
+                 //Push to eurekos if it does not exist.
+                 $node = node_load($item->nid);
+                 $term = $node->title;
+                 $found = false;
+                 foreach($all_library_terms as $libterm)
+                 {
+                     if(strcmp($libterm->name,$term) === 0)
+                     {
+                        $found = true;
+                        break;
+                     }
+                 }
+                 if($found == false)
+                 {
+                     $test = 0;
+                    //create the term.  
+                    $data = $client->createTerm($term,'workplaces');
+                 }
+            }
+        }
+
+    //get all alternate workplaces ( thse go into workplace. )
+    $query = db_query("SELECT distinct(field_alternate_work_value) FROM field_data_field_alternate_work where field_alternate_work_value != '';");
+    $alternative_workplaces = $query->fetchAll();
+    foreach ($alternative_workplaces as $record) {
+         //Push to eurekos if it does not exist.
+         $term = $record->field_alternate_work_value;
+         $found = false;
+        foreach($all_library_terms as $libterm)
+        {
+            if(strcmp($libterm->name,trim($term)) === 0)
+            {
+                $found = true;
+                break;
+            }
+        }
+        if($found == false)
+        {
+            //create the term.
+            $test = 0;
+            $data = $client->createTerm($term,'workplaces');
+        }
+    }
+
+    //Get all centrallibraries.
+    $query = new EntityFieldQuery();
+    $Cbs = $query
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'centralbibliotek')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->execute();
+    if(isset($Cbs['node']))
+    {
+        foreach($Cbs['node'] as $item)
+        {
+            //Push to eurekos if it does not exist.
+            $node = node_load($item->nid);
+            $term = $node->title;
+            $found = false;
+            foreach($all_cb_terms as $cbterm)
+            {
+                if(strcmp($cbterm->name,$term) === 0)
+                {
+                    $found = true;
+                    break;
+                }
+            }
+            if($found == false)
+            {
+                //create the term.
+                $test = 0;
+                $data = $client->createTerm($term,'departments');
+            }
+        }
+    }
+
+
 }
 /**
  * Implements hook_ctools_plugin_directory().

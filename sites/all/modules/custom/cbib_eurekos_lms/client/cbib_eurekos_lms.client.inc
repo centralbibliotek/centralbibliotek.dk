@@ -138,11 +138,11 @@ class eurekosClient
             if(isset($company->title))
             {
                 $company_tid = $this->getTermid($company->title,'workplaces');
-                $params['company'] = $company->title;
+                $params['workplace'] = $company->title;
             }
             else
             {
-                $params['company'] = null;
+                $params['workplace'] = null;
             }
             
             $organization = $this->getCbReqion($company);
@@ -391,10 +391,48 @@ class eurekosClient
         $termdata = is_array($result->data) ? reset($result->data) : $result->data;
         if(isset($termdata->tid))
         {
-            return $signup;
+            return $termdata->tid;
         }
         return null;
         
+    }
+    public function createTerm($term,$taxonomy)
+    {
+        $resourcePath = "/api/v2/taxonomy_terms";
+        $params = array('bundle' => $taxonomy,'name' => $term,'weight' => 0,'description' => '');
+
+        $result = $this->doRequest($resourcePath,'POST','taxonomy_terms.create',json_encode($params));
+        $signup = $result->data;
+        if(isset($signup))
+        {
+            return $signup;
+        }
+        return null;
+    }
+    public function getAllterms($taxonomy)
+    {
+        $resourcePath = "/api/v2/taxonomy_terms";
+        $params = array('machine_name' => $taxonomy);
+        //$params = array();
+        $result = $this->doRequest($resourcePath,'GET','taxonomy_terms.read',$params);
+        $termdata = isset($result->data) ? $result->data : null;
+        if(isset($termdata))
+        {
+            if($result->meta->totalPages > 1)
+            {
+                $count = 1; //start at page 1.
+                while($count <= ($result->meta->totalPages) )
+                {
+                    $params['page'] = $count;
+
+                    $return = $this->doRequest($resourcePath,'GET','taxonomy_terms.read',$params);
+                    $termdata = array_merge($termdata,$return->data);
+                    $count++;
+                }
+            }
+            return $termdata;
+        }
+        return null;
     }
 
 }

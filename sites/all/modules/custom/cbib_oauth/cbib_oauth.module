@@ -54,11 +54,11 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         if(isset($company->title))
         {
           $company_tid = $client->getTermid($company->title,'workplaces');
-          $claims['company'] = $company->title;
+          $claims['workplace'] = $company->title;
         }
         else
         {
-          $claims['company'] = null;
+          $claims['workplace'] = null;
         }
 
         $organization = $client->getCbReqion($company);
