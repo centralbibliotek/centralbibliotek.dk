@@ -58,11 +58,20 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         }
         else
         {
-          $claims['workplace'] = null;
+          $alternate_work_place = $wrapper->field_alternate_work->value();
+                $tid = $this->getTermid($alternate_work_place,'workplaces');
+                if($tid != null)
+                {
+                    $claims['workplace'] = array($tid);
+                }
+                else{
+                  $claims['workplace'] = null;
+                }
+        
         }
 
         $organization = $client->getCbReqion($company);
-        $organization_tid = $client->getTermid($organization['title'],'department');
+        $organization_tid = $client->getTermid(ucfirst($organization['title']),'department');
         $claims['department'] = $orgParamVal;
     }
   }

@@ -138,16 +138,25 @@ class eurekosClient
             if(isset($company->title))
             {
                 $company_tid = $this->getTermid($company->title,'workplaces');
-                $params['workplace'] = $company->title;
+                $params['workplace'] = array($company_tid);
             }
             else
             {
-                $params['workplace'] = null;
+                $alternate_work_place = $wrapper->field_alternate_work->value();
+                $tid = $this->getTermid($alternate_work_place,'workplaces');
+                if($tid != null)
+                {
+                    $params['workplace'] = array($tid);
+                }
+                else{
+                    $params['workplace'] = array($tid);
+                }
+                
             }
-            
+
             $organization = $this->getCbReqion($company);
-            $organization_tid = $this->getTermid($organization['title'],'department');
-            $params['department'] = $orgParamVal;
+            $organization_tid = $this->getTermid(ucfirst($organization['title']),'departments');
+            $params['department'] = array($organization_tid);
 
             $result = $this->doRequest($resourcePath,'POST','users.create',json_encode($params));
 
@@ -178,16 +187,28 @@ class eurekosClient
             if(isset($company->title))
             {
                 $company_tid = $this->getTermid($company->title,'workplaces');
-                $params['company'] = $company->title;
+                $params['workplace'] = array($company_tid);
             }
             else
             {
-                $params['company'] = null;
+                $alternate_work_place = $wrapper->field_alternate_work->value();
+                if($alternate_work_place != null)
+                {
+                    $tid = $this->getTermid($alternate_work_place,'workplaces');
+                    if($tid != null)
+                    {
+                        $params['workplace'] = array($tid);
+                    }
+                    else{
+                        $claims['workplace'] = null;
+                    }
+                }
+                
             }
 
             $organization = $this->getCbReqion($company);
-            $organization_tid = $this->getTermid($organization['title'],'department');
-            $params['department'] = $orgParamVal;
+            $organization_tid = $this->getTermid(ucfirst($organization['title']),'departments');
+            $params['department'] = array($organization_tid);
             
             $result = $this->doRequest($resourcePath,'PATCH','users.update.any',json_encode($params));
         }
@@ -382,6 +403,9 @@ class eurekosClient
 
         $result = $this->doRequest($resourcePath,'PATCH','signups.update.any',json_encode($params));
     }
+    /*
+    * returns a single term-id.
+    */
     public function getTermid($term,$taxonomy)
     {
         $resourcePath = "/api/v2/taxonomy_terms";
@@ -396,6 +420,35 @@ class eurekosClient
         return null;
         
     }
+    /*
+    * Delete a termid
+    */
+    public function delTerm($tid)
+    {
+        $resourcePath = "/api/v2/taxonomy_terms/" . $tid;
+        $params = array();
+
+        $result = $this->doRequest($resourcePath,'DELETE','taxonomy_terms.delete.any',$params);
+    }
+    /*
+    * Gets all objects for a term search.
+    */
+    public function getTerms($term,$taxonomy)
+    {
+        $resourcePath = "/api/v2/taxonomy_terms";
+        $params = array("search" => $term,'machine_name' => $taxonomy);
+
+        $result = $this->doRequest($resourcePath,'GET','taxonomy_terms.read',$params);
+        $termdata = is_array($result->data) ? $result->data : $result->data;
+        if(isset($termdata))
+        {
+            return $termdata;
+        }
+        return null;
+    }
+    /*
+    * Creates a term.
+    */
     public function createTerm($term,$taxonomy)
     {
         $resourcePath = "/api/v2/taxonomy_terms";
@@ -409,6 +462,9 @@ class eurekosClient
         }
         return null;
     }
+    /*
+    * Get all the terms for a taxonomy.
+    */
     public function getAllterms($taxonomy)
     {
         $resourcePath = "/api/v2/taxonomy_terms";
