@@ -48,7 +48,180 @@ function  cbib_eurekos_lms_menu() {
         'access arguments' => array('administer cbib_hooks'),
         'access callback' => TRUE,
        );
+       $items['admin/settings/cbib_eurekos_lms/push/terms'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib eurekos lms config',
+        'description' => 'Config',
+        'page callback' => 'cbib_eurekos_lms_push_terms',
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
+       $items['admin/settings/cbib_eurekos_lms/update/users'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib eurekos lms config',
+        'description' => 'Config',
+        'page callback' => 'cbib_eurekos_update_users',
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
+       $items['admin/settings/cbib_eurekos_lms/duplicates/fix'] = array(
+        'type' => MENU_CALLBACK,
+        'title' => 'Cbib eurekos lms config',
+        'description' => 'Config',
+        'page callback' => 'remove_duplicate_workplaces',
+        'access arguments' => array('administer cbib_hooks'),
+        'access callback' => TRUE,
+       );
       return $items;
+}
+/*
+* Push needed terms for eurekos workplace and department fields.
+*/
+function cbib_eurekos_lms_push_terms()
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $all_library_terms = $client->getAllterms('workplaces');
+    $all_cb_terms = $client->getAllterms('departments');
+    //get all libraries.
+    $query = new EntityFieldQuery();
+    $Libraries = $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'library')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->execute();
+        if(isset($Libraries['node']))
+        {
+            $test = $Libraries['node'][53354];
+            $node = node_load(53354);
+            $term = $node->title;
+            $test = $client->getTermid($term,'workplaces');
+            foreach($Libraries['node'] as $item)
+            {
+                 //Push to eurekos if it does not exist.
+                 $node = node_load($item->nid);
+                 $term = $node->title;
+                 $found = false;
+                 foreach($all_library_terms as $libterm)
+                 {
+                     if(strcmp($libterm->name,$term) === 0)
+                     {
+                        $found = true;
+                        break;
+                     }
+                 }
+                 if($found == false)
+                 {
+                     $test = 0;
+                    //create the term.  
+                    $data = $client->createTerm($term,'workplaces');
+                 }
+            }
+        }
+    exit(1);
+    //get all alternate workplaces ( thse go into workplace. )
+    $query = db_query("SELECT distinct(field_alternate_work_value) FROM field_data_field_alternate_work where field_alternate_work_value != '';");
+    $alternative_workplaces = $query->fetchAll();
+    foreach ($alternative_workplaces as $record) {
+         //Push to eurekos if it does not exist.
+         $term = $record->field_alternate_work_value;
+         $found = false;
+        foreach($all_library_terms as $libterm)
+        {
+            if(strcmp($libterm->name,trim($term)) === 0)
+            {
+                $found = true;
+                break;
+            }
+        }
+        if($found == false)
+        {
+            //create the term. sometimes users write the same workplace as library!! check if exists!
+            $test = 0;
+            if(!$client->getTermid($term,'workplaces'))
+            {
+                    $data = $client->createTerm($term,'workplaces');
+            }
+            
+        }
+    }
+
+    //Get all centrallibraries.
+    $query = new EntityFieldQuery();
+    $Cbs = $query
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'centralbibliotek')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->execute();
+    if(isset($Cbs['node']))
+    {
+        foreach($Cbs['node'] as $item)
+        {
+            //Push to eurekos if it does not exist.
+            $node = node_load($item->nid);
+            $term = $node->title;
+            $found = false;
+            foreach($all_cb_terms as $cbterm)
+            {
+                if(strcmp($cbterm->name,trim($term)) === 0)
+                {
+                    $found = true;
+                    break;
+                }
+            }
+            if($found == false)
+            {
+                //create the term.
+                $test = 0;
+                
+                $data = $client->createTerm($term,'departments');
+            }
+        }
+    }
+
+
+}
+function remove_duplicate_workplaces()
+{
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+    $all_library_terms = $client->getAllterms('workplaces');
+
+    $counts = [];
+    foreach($all_library_terms as $term)
+    {
+        $counts[$term->name] += 1;
+    }
+
+    foreach($counts as $key => $c)
+    {
+        if($c > 1)
+        {
+            //delete the term as it is a duplicate.
+            $tid = $client->getTermid($key,'workplaces');
+            $client->delTerm($tid);
+            
+        }
+    }
+   
+}
+function cbib_eurekos_update_users()
+{
+    
+    $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+
+    $query = new EntityFieldQuery();
+    $date = strtotime('-2 year',time());
+    $users = $query
+        ->entityCondition('entity_type', 'user')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->propertyCondition('login',$date,'>=')
+        ->execute();
+
+    foreach($users['user'] as $user)
+    {
+        $u = user_load($user->uid);
+        $client->updateUser($u->mail,$u);
+    }
+    
 }
 /**
  * Implements hook_ctools_plugin_directory().

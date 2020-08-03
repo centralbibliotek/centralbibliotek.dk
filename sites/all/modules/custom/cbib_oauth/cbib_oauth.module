@@ -47,7 +47,32 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         }
         $claims['organization_id'] = $organization['eurekosId'];
         $claims['organization_title'] = $organization['title'];
-        //$claims['notification-schema'] = "all_emails";
+        
+        module_load_include('inc', 'cbib_eurekos_lms', 'client.inc');
+        $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
+
+        if(isset($company->title))
+        {
+          $company_tid = $client->getTermid($company->title,'workplaces');
+          $claims['workplace'] = $company->title;
+        }
+        else
+        {
+          $alternate_work_place = $wrapper->field_alternate_work->value();
+                $tid = $this->getTermid($alternate_work_place,'workplaces');
+                if($tid != null)
+                {
+                    $claims['workplace'] = array($tid);
+                }
+                else{
+                  $claims['workplace'] = null;
+                }
+        
+        }
+
+        $organization = $client->getCbReqion($company);
+        $organization_tid = $client->getTermid(ucfirst($organization['title']),'department');
+        $claims['department'] = $orgParamVal;
     }
   }
   function cbib_oauth_map_organization_to_eurekos($company)

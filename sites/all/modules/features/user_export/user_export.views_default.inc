@@ -370,11 +370,170 @@ function user_export_views_default_views() {
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '500';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_xls';
   $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Felt: Bruger: Anden arbejdsplads */
+  $handler->display->display_options['fields']['field_alternate_work']['id'] = 'field_alternate_work';
+  $handler->display->display_options['fields']['field_alternate_work']['table'] = 'field_data_field_alternate_work';
+  $handler->display->display_options['fields']['field_alternate_work']['field'] = 'field_alternate_work';
+  $handler->display->display_options['fields']['field_alternate_work']['label'] = 'Selskab';
+  $handler->display->display_options['fields']['field_alternate_work']['exclude'] = TRUE;
+  /* Felt: Bruger: Efternavn */
+  $handler->display->display_options['fields']['field_name_last']['id'] = 'field_name_last';
+  $handler->display->display_options['fields']['field_name_last']['table'] = 'field_data_field_name_last';
+  $handler->display->display_options['fields']['field_name_last']['field'] = 'field_name_last';
+  $handler->display->display_options['fields']['field_name_last']['label'] = '';
+  $handler->display->display_options['fields']['field_name_last']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_name_last']['element_label_colon'] = FALSE;
+  /* Felt: Bruger: Fornavn */
+  $handler->display->display_options['fields']['field_name_first']['id'] = 'field_name_first';
+  $handler->display->display_options['fields']['field_name_first']['table'] = 'field_data_field_name_first';
+  $handler->display->display_options['fields']['field_name_first']['field'] = 'field_name_first';
+  $handler->display->display_options['fields']['field_name_first']['label'] = '';
+  $handler->display->display_options['fields']['field_name_first']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_name_first']['element_label_colon'] = FALSE;
+  /* Felt: Bruger: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['label'] = '';
+  $handler->display->display_options['fields']['mail']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
+  /* Felt: Bruger: Bibliotek */
+  $handler->display->display_options['fields']['field_library']['id'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['table'] = 'field_data_field_library';
+  $handler->display->display_options['fields']['field_library']['field'] = 'field_library';
+  $handler->display->display_options['fields']['field_library']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_library']['settings'] = array(
+    'link' => 0,
+  );
+  /* Felt: Bruger: Anden arbejdsplads */
+  $handler->display->display_options['fields']['field_alternate_work_1']['id'] = 'field_alternate_work_1';
+  $handler->display->display_options['fields']['field_alternate_work_1']['table'] = 'field_data_field_alternate_work';
+  $handler->display->display_options['fields']['field_alternate_work_1']['field'] = 'field_alternate_work';
+  $handler->display->display_options['fields']['field_alternate_work_1']['label'] = 'Evt. anden arbejdsplads (påføres kun, hvis du ikke har valgt et bibliotek)';
+  $handler->display->display_options['fields']['field_alternate_work_1']['exclude'] = TRUE;
+  /* Felt: Felt: Vælg dit centralbibliotek */
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['id'] = 'field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['table'] = 'field_data_field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['field'] = 'field_centralbibliotek_ref';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['relationship'] = 'field_library_target_id';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['label'] = 'Organization';
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_centralbibliotek_ref']['delta_offset'] = '0';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Fornavn';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_name_first]';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['empty'] = 'Fornavn';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = 'Efternavn';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '[field_name_last]';
+  $handler->display->display_options['fields']['nothing_1']['empty'] = 'Efternavn';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
+  $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_2']['label'] = 'E-mail';
+  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '[mail]';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_3']['id'] = 'nothing_3';
+  $handler->display->display_options['fields']['nothing_3']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_3']['label'] = 'Rolle';
+  $handler->display->display_options['fields']['nothing_3']['alter']['text'] = 'Studerende';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_4']['id'] = 'nothing_4';
+  $handler->display->display_options['fields']['nothing_4']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_4']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_4']['label'] = 'Jobfunktion';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_5']['id'] = 'nothing_5';
+  $handler->display->display_options['fields']['nothing_5']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_5']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_5']['label'] = 'Selskab';
+  $handler->display->display_options['fields']['nothing_5']['alter']['text'] = '[field_library]
+[field_alternate_work]';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_14']['id'] = 'nothing_14';
+  $handler->display->display_options['fields']['nothing_14']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_14']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_14']['label'] = 'Department';
+  $handler->display->display_options['fields']['nothing_14']['alter']['text'] = '[field_centralbibliotek_ref]';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_15']['id'] = 'nothing_15';
+  $handler->display->display_options['fields']['nothing_15']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_15']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_15']['label'] = 'Workplace';
+  $handler->display->display_options['fields']['nothing_15']['alter']['text'] = '[field_library]
+[field_alternate_work]';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_6']['id'] = 'nothing_6';
+  $handler->display->display_options['fields']['nothing_6']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_6']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_6']['label'] = 'Gade';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_7']['id'] = 'nothing_7';
+  $handler->display->display_options['fields']['nothing_7']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_7']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_7']['label'] = 'Vejnr.';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_9']['id'] = 'nothing_9';
+  $handler->display->display_options['fields']['nothing_9']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_9']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_9']['label'] = 'Af';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_8']['id'] = 'nothing_8';
+  $handler->display->display_options['fields']['nothing_8']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_8']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_8']['label'] = 'Postnr';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_10']['id'] = 'nothing_10';
+  $handler->display->display_options['fields']['nothing_10']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_10']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_10']['label'] = 'Land';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_11']['id'] = 'nothing_11';
+  $handler->display->display_options['fields']['nothing_11']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_11']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_11']['label'] = 'Sprog';
+  $handler->display->display_options['fields']['nothing_11']['alter']['text'] = 'da';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_13']['id'] = 'nothing_13';
+  $handler->display->display_options['fields']['nothing_13']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_13']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_13']['label'] = 'Aktivitet';
+  $handler->display->display_options['fields']['nothing_13']['element_label_colon'] = FALSE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing_12']['id'] = 'nothing_12';
+  $handler->display->display_options['fields']['nothing_12']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_12']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_12']['label'] = 'Organization';
+  $handler->display->display_options['fields']['nothing_12']['alter']['text'] = '[field_centralbibliotek_ref]';
   $handler->display->display_options['path'] = 'admin/lms-students-export';
   $translatables['user_export'] = array(
     t('Master'),
@@ -418,6 +577,9 @@ function user_export_views_default_views() {
     t('Organization'),
     t('Page'),
     t('Data export'),
+    t('Department'),
+    t('[field_centralbibliotek_ref]'),
+    t('Workplace'),
   );
   $export['user_export'] = $view;
 
