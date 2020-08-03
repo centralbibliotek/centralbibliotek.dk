@@ -59,7 +59,7 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         else
         {
           $alternate_work_place = $wrapper->field_alternate_work->value();
-                $tid = $this->getTermid($alternate_work_place,'workplaces');
+                $tid = $client->getTermid($alternate_work_place,'workplaces');
                 if($tid != null)
                 {
                     $claims['workplace'] = array($tid);
