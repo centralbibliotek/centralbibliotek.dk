@@ -48,7 +48,7 @@ function cbib_oauth_oauth2_server_user_claims_alter(&$claims, $account, $request
         $claims['organization_id'] = $organization['eurekosId'];
         $claims['organization_title'] = $organization['title'];
         
-        module_load_include('inc', 'cbib_eurekos_lms', 'client.inc');
+        module_load_include('inc', 'cbib_eurekos_lms', 'client/cbib_eurekos_lms.client');
         $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
 
         if(isset($company->title))
