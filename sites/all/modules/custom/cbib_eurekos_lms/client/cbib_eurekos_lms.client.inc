@@ -217,7 +217,7 @@ class eurekosClient
             return null;
         }
     }
-    private function getCbReqion($company)
+    public function getCbReqion($company)
     {
         if($company == null)
         {
