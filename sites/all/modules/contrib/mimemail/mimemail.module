@@ -112,13 +112,14 @@ function mimemail_form_user_profile_form_alter(&$form, &$form_state) {
       '#title' => t('Email settings'),
       '#weight' => 5,
       '#collapsible' => TRUE,
-      '#access' => user_access('edit mimemail user settings'),
+      '#access' => FALSE,
     );
     $form['mimemail']['mimemail_textonly'] = array(
       '#type' => 'checkbox',
       '#title' => t('Plaintext email only'),
       '#default_value' => !empty($account->data['mimemail_textonly']) ? $account->data['mimemail_textonly'] : FALSE,
       '#description' => t('Check this option if you do not wish to receive email messages with graphics and styles.'),
+      '#access' => FALSE,
     );
   }
 }
