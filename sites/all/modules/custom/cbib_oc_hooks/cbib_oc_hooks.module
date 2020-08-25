@@ -49,9 +49,6 @@ function cbib_oc_hooks_init() {
       $active_items = $adapter->getAllActiveItems();
 
       // Check if the filter is already active.
-        if ($part[3] != 'events' && !isset($active_items['field_event_type:640'])) {
-        $filter = "field_date%3Avalue:future";
-        }
 
       $filter_key = $url_processor->getFilterKey();
       $params = $url_processor->fetchParams();
@@ -950,12 +947,46 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 
     }
 }
+/**
+ * Implements hook_search_api_db_query_alter().
+ *
+ * Preprocesses a search's database query before it is executed.
+ *
+ * @param SelectQueryInterface $db_query
+ *   The database query to be executed for the search. Will have "item_id" and
+ *   "score" columns in its result.
+ * @param SearchApiQueryInterface $query
+ *   The search query that is being executed.
+ *
+ * @see SearchApiDbService::preQuery()
+ */
+function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query) {
 
+  $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
+
+}
 /**
  * Implements hook_search_api_query_alter().
  */
 function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
+  $path_parts = explode('?', request_uri());
+  if(strpos($path_parts[1], 'field_date_value=past') !== false){
+  }else{
+  $start_day = strtotime("now -10 hours");
+  // Select events in progress
+  $left_filter = $query->createFilter('OR');
+  $left_filter->condition('field_date:value', $start_day, '>=');
 
+  // Select events with a start date in the future
+  $right_filter = $query->createFilter('OR');
+  $right_filter->condition('field_date:value', NULL, '=');
+
+  $main_filter = $query->createFilter('OR');
+  $main_filter->filter($left_filter);
+  $main_filter->filter($right_filter);
+
+  $query->filter($main_filter);
+}
     if (!user_access('use search_api_sorts')) {
         return;
     }
@@ -969,6 +1000,7 @@ function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
         return;
     }
 
+
     // There's already an existing sort, so abort!
     $existing = $query->getSort();
     if (!empty($existing)) {
@@ -979,14 +1011,14 @@ function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
     $path_parts = explode('?', request_uri());
 
     foreach ($search_sorts as $key => $sort) {
-        if ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], ']=50') !== false) {
+        if ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], 'field_date_value=past') === false) {
             $search_sorts[$key]->default_sort = 1;
             $search_sorts[$key]->default_sort_no_terms = 1;
             $search_sorts[$key]->active = TRUE;
             $search_sorts[$key]->default_order = 'ASC';
             unset($search_sorts[1]);
         }
-        elseif ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], 'field_date_value=past') !== false) {
+        elseif ($sort->field == 'search_api_combined_1') {
             $search_sorts[$key]->default_sort = 1;
             $search_sorts[$key]->default_sort_no_terms = 1;
             $search_sorts[$key]->active = TRUE;
