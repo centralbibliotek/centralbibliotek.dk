@@ -1033,6 +1033,7 @@ function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
         }
     }
 
+    
     if (empty($search_sorts)) {
         return;
     }
