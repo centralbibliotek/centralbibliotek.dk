@@ -963,6 +963,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query) {
 
   $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
+  $db_query->orderby('sticky', 'DESC');
 
 }
 /**
@@ -1008,7 +1009,7 @@ function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
     }
 
     $search_sorts = search_api_sorts_search_sorts($query->getIndex()->machine_name);
-    $path_parts = explode('?', request_uri());
+
 
     foreach ($search_sorts as $key => $sort) {
         if ($sort->field == 'search_api_combined_1' && strpos($path_parts[1], 'field_date_value=past') === false) {

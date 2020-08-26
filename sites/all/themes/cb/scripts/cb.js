@@ -255,7 +255,7 @@ if(!detectIE()) {
         $('#facetapi-facet-search-apiarrangement-index-block-field-datevalue, #facetapi-facet-search-apiglobal-search-block-nodefield-datevalue').each(function () {
             var select = $(document.createElement('select')).insertBefore($(this).hide());
 
-            $(document.createElement('option')).appendTo(select).val('').html('--Vælg--');
+            $(document.createElement('option')).appendTo(select).val('/kompetenceudvikling?f[0]').html('--Vælg--');
             select.change(function () {
                 trigger_loginSpinner();
                 window.location = $(this).find("option:selected").val();
