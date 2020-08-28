@@ -256,6 +256,7 @@ if(!detectIE()) {
             var select = $(document.createElement('select')).insertBefore($(this).hide());
 
             $(document.createElement('option')).appendTo(select).val('/kompetenceudvikling?f[0]').html('--Vælg--');
+            $(document.createElement('option')).appendTo(select).val('/kompetenceudvikling?f[0]').html('Kommende');
             select.change(function () {
                 trigger_loginSpinner();
                 window.location = $(this).find("option:selected").val();
