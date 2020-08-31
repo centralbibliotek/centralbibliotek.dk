@@ -961,10 +961,8 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
  * @see SearchApiDbService::preQuery()
  */
 function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query) {
-
-  $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
   $db_query->orderby('sticky', 'DESC');
-
+  $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
 }
 /**
  * Implements hook_search_api_query_alter().
