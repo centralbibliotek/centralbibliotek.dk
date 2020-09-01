@@ -84,6 +84,49 @@ class MimeMailWebTestCase extends DrupalWebTestCase {
     $this->drupalLogin($this->adminUser);
   }
 
+  public function testMailPreparationPlaintextBodyConversion() {
+    // Test the html body to plaintext conversion handling witout dedicated
+    // plaintext set.
+    $message = array(
+      'module' => 'mimemail_test',
+      'key' => 'mimemail_test',
+      'to' => 'test@example.org',
+      'from' => 'test@example.org',
+      'subject' => 'Testing body to plain conversion',
+      'body' => 'Link: &quot;<a href="http://example.org">example.org</a>&quot; <b>Important stuff</b>, <h1>Title Heading</h1>, <ul><li>List Item One</li><li>List Item Two</li></ul>',
+      'params' => array('plain' => TRUE),
+      'headers' => array(),
+    );
+    $prepared_message = mimemail_prepare_message($message);
+    $expected_plaintext = <<<EOF
+Link: "example.org [1]" *Important stuff*,
+======== TITLE HEADING =======================================================
+
+,
+ * List Item One
+ * List Item Two
+
+
+[1] http://example.org
+
+EOF;
+    $this->assertIdentical($prepared_message['body'], $expected_plaintext, 'Body to plaintext conversion without dedicated plaintext works properly');
+
+    // Test that dedicated plaintext is respected.
+    $message = array(
+      'module' => 'mimemail_test',
+      'key' => 'mimemail_test',
+      'to' => 'test@example.org',
+      'from' => 'test@example.org',
+      'subject' => 'Testing body to plain conversion',
+      'body' => 'Link: &quot;<a href="http://example.org">example.org</a>&quot; <b>Important stuff</b>, <h1>Title Heading</h1>, <ul><li>List Item One</li><li>List Item Two</li></ul>',
+      'params' => array('plain' => TRUE, 'plaintext' => 'This is the actual plaintext'),
+      'headers' => array(),
+    );
+    $prepared_message = mimemail_prepare_message($message);
+    $this->assertIdentical($prepared_message['body'], $message['params']['plaintext'], 'Dedicated plaintext is prefered.');
+  }
+
   public function testUrl() {
     $this->drupalPost('admin/config/system/mimemail',
       array('mimemail_linkonly' => TRUE),
