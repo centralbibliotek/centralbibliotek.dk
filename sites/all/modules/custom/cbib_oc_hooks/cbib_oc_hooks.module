@@ -960,32 +960,36 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
  *
  * @see SearchApiDbService::preQuery()
  */
-function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query) {
-  $db_query->orderby('sticky', 'DESC');
-  $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
+function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query)
+{
+  $path_parts = explode('?', request_uri());
+  if ($path_parts[0] == "/kompetenceudvikling") {
+    $db_query->orderby('sticky', 'DESC');
+    $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
+  }
 }
 /**
  * Implements hook_search_api_query_alter().
  */
 function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
   $path_parts = explode('?', request_uri());
-  if(strpos($path_parts[1], 'field_date_value=past') !== false){
-  }else{
-  $start_day = strtotime("now -10 hours");
-  // Select events in progress
-  $left_filter = $query->createFilter('OR');
-  $left_filter->condition('field_date:value', $start_day, '>=');
+  if(strpos($path_parts[1], 'field_date_value=past') === false && $path_parts[0] == "/kompetenceudvikling"){
+    $start_day = strtotime("now -10 hours");
+    // Select events in progress
+    $left_filter = $query->createFilter('OR');
+    $left_filter->condition('field_date:value', $start_day, '>=');
+  
+    // Select events with a start date in the future
+    $right_filter = $query->createFilter('OR');
+    $right_filter->condition('field_date:value', NULL, '=');
+  
+    $main_filter = $query->createFilter('OR');
+    $main_filter->filter($left_filter);
+    $main_filter->filter($right_filter);
+  
+    $query->filter($main_filter);
+  }
 
-  // Select events with a start date in the future
-  $right_filter = $query->createFilter('OR');
-  $right_filter->condition('field_date:value', NULL, '=');
-
-  $main_filter = $query->createFilter('OR');
-  $main_filter->filter($left_filter);
-  $main_filter->filter($right_filter);
-
-  $query->filter($main_filter);
-}
     if (!user_access('use search_api_sorts')) {
         return;
     }
