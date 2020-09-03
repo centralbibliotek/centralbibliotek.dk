@@ -963,7 +963,8 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
 function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query, SearchApiQueryInterface $query)
 {
   $path_parts = explode('?', request_uri());
-  if ($path_parts[0] == "/kompetenceudvikling") {
+  if (strpos($path_parts[0], "/kompetenceudvikling") === false) {
+  }else{
     $db_query->orderby('sticky', 'DESC');
     $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
   }
@@ -973,7 +974,8 @@ function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query
  */
 function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
   $path_parts = explode('?', request_uri());
-  if(strpos($path_parts[1], 'field_date_value=past') === false && $path_parts[0] == "/kompetenceudvikling"){
+  if(strpos($path_parts[1], 'field_date_value=past') !== false || strpos($path_parts[0], "/kompetenceudvikling") === false){
+  }else{
     $start_day = strtotime("now -10 hours");
     // Select events in progress
     $left_filter = $query->createFilter('OR');
