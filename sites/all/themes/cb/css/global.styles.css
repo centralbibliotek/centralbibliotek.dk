@@ -72,7 +72,7 @@ html .cke_editable {
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #565656;
+  color: #383838;
   min-width: 18em;
 }
 
@@ -664,7 +664,7 @@ optgroup::-moz-focus-inner {
   height: 0;
   margin-left: .2em;
   border: .4em solid transparent;
-  border-top-color: #565656;
+  border-top-color: #383838;
 }
 
 /* Replace the default Drupal throbber with a custom one. */
@@ -1800,12 +1800,12 @@ ul.primary.tabs li.active a span {
  * H1 Node title
  */
 h1.node-title {
-  color: #565656 !important;
+  color: #383838 !important;
   font-size: 20px;
 }
 h1.node-title a {
   text-decoration: none;
-  color: #565656 !important;
+  color: #383838 !important;
 }
 h1.node-title a:hover {
   text-decoration: underline;

@@ -135,16 +135,16 @@ ul.nostyle li {
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active {
   background: #c8c8c8;
-  color: #565656;
+  color: #383838;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:hover {
-  color: #565656;
+  color: #383838;
   background: #bbbbbb;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:focus {
-  color: #565656;
+  color: #383838;
   background: #bbbbbb;
 }
 
@@ -172,11 +172,11 @@ ul.nostyle li {
 a.lead-link {
   padding: 5px 15px;
   background-color: #c8c8c8;
-  color: #565656;
+  color: #383838;
   display: block;
   margin: 0 10px 0;
   text-decoration: none;
-  border-left: 5px solid #565656;
+  border-left: 5px solid #383838;
   -moz-transition: color 200ms ease-in, background-color 200ms ease-in;
   -o-transition: color 200ms ease-in, background-color 200ms ease-in;
   -webkit-transition: color 200ms ease-in, background-color 200ms ease-in;
@@ -184,7 +184,7 @@ a.lead-link {
 }
 .lead-link a:hover,
 a.lead-link:hover {
-  background-color: #565656;
+  background-color: #383838;
   color: #c8c8c8;
 }
 
@@ -194,8 +194,8 @@ div.messages {
   background-image: none;
   background-color: transparent;
   padding: 1em 1.65em;
-  border-color: #565656;
-  color: #565656;
+  border-color: #383838;
+  color: #383838;
   font-family: "Roboto", sans-serif;
 }
 div.messages.status {
@@ -248,7 +248,7 @@ div.messages.error {
 .pane-node-og-group-ref .field-items .field-item,
 .field-name-field-event-type .field-items .field-item, .node-type-event .region.region-two-66-33-first .pane-node-field-address .adr {
   background: #c8c8c8;
-  color: #565656;
+  color: #383838;
 }
 
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a {
@@ -301,7 +301,7 @@ div.messages.error {
 .field-name-field-event-type .field-items .field-item a {
   display: inline-block;
   padding: 1px 10px 1px 15px;
-  color: #565656;
+  color: #383838;
   font-family: Arial, Helvetica, sans-serif;
   -moz-transition-property: color;
   -o-transition-property: color;
