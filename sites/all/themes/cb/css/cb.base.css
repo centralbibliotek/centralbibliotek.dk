@@ -730,7 +730,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
 }
 .panel-pane .field-item,
 .panel-pane .commons-pod {
-  color: #757575;
+  color: #595959;
 }
 
 .pane-node-title-field {
@@ -749,7 +749,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
   border: 0;
   letter-spacing: 0;
   font-size: 1em;
-  color: #757575;
+  color: #595959;
   line-height: 1.6;
   float: left;
   width: 45%;
@@ -765,7 +765,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
 }
 .block.pane-event-information .block-inner,
 #panels-ipe-paneid-24 .block-inner {
-  color: #757575;
+  color: #595959;
 }
 
 .block.pane-event-price .pane-cbib-events-registration-dates,
@@ -788,7 +788,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
   border: 0;
   letter-spacing: 0;
   font-size: 1em;
-  color: #757575;
+  color: #595959;
   line-height: 1.6;
   float: left;
   width: 45%;
@@ -812,7 +812,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
 }
 .block.pane-event-price .block-inner,
 #panels-ipe-paneid-26 .block-inner {
-  color: #757575;
+  color: #595959;
 }
 .block.pane-event-price .pane-node-attend-form,
 #panels-ipe-paneid-26 .pane-node-attend-form {
@@ -1797,7 +1797,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
 .node-type-license .user .panel-pane {
   margin: 0;
   display: inline-block;
-  color: #757575;
+  color: #595959;
 }
 .node-type-license .user .panel-pane.pane-user-field-phone .block-inner {
   display: inline-block;
