@@ -361,7 +361,6 @@ if(!detectIE()) {
                         $('#event_type2 select').append("<option value=" + url.replace(']=50','') + "]=640> E-læring u/dato</option>'");
                     }
             }    
-            
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
             
                 $('#ui-id-1').html('<i id="fa-th" class="fa fa-th"></i>');
