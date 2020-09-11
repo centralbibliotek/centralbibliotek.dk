@@ -49,6 +49,7 @@ function detectIE() {
         $('<div class="search-overlay--wrapper"><div class="search-overlay--inner"><div class="loader"></div><p>Vent venligst...</p><p class="cancel"><a href="#">Luk</a></p></div></div>').prependTo('body');
     }
     $(document).ready(function () {
+        $('u').contents().unwrap().wrap('<span style="text-decoration: underline;"/>');
         $( ".pane-node-field-gul-baggrund div:contains(1)" ).each(function() {
             $(this).closest('.pane-node-field-gul-baggrund').parent().find('.pane-node-title-field').css('background', '#FFcF01');
         });
@@ -371,9 +372,9 @@ if(!detectIE()) {
   // Add a placeholder string to the search field (in the header).
   Drupal.behaviors.searchPlaceholder = {
     attach: function (context, settings) {
-      $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...');
-      $('form[id^="views-exposed-form-search-api-arrangementer-page"] input[type="text"]').attr('placeholder', ' Søg');
-      $('#views-exposed-form-search-api-group-page-1 input[type="text"], #views-exposed-form-search-api-group-page-2 input[type="text"], #views-exposed-form-search-api-group-page-3 input[type="text"], #views-exposed-form-search-api-group-page-4 input[type="text"]').attr('placeholder', ' Søg i grupper');
+      $('#views-exposed-form-search-api-nodes-default input[type="text"]').attr('placeholder', 'Søg på sitet...').attr('aria-label', 'Søg på sitet...');
+      $('form[id^="views-exposed-form-search-api-arrangementer-page"] input[type="text"]').attr('placeholder', ' Søg').attr('aria-label', 'Søg i arrangementer');
+      $('#views-exposed-form-search-api-group-page-1 input[type="text"], #views-exposed-form-search-api-group-page-2 input[type="text"], #views-exposed-form-search-api-group-page-3 input[type="text"], #views-exposed-form-search-api-group-page-4 input[type="text"]').attr('placeholder', ' Søg i grupper').attr('aria-label', 'Søg i grupper');
     }
   };
 
@@ -421,6 +422,7 @@ if(!detectIE()) {
       container = $('#block-views-centralbiblioteker-block', context);
       form = $('form', container);
       select = $('select', form);
+      select.attr('aria-label', 'Regioner');
       selected = $('option:selected', select);
       replaceMenu = $('<ul>', {'class': 'region-select closed'});
 

@@ -88,7 +88,7 @@
  * @see adaptivetheme_process_page()
  */
 ?>
-<header class="main-header">
+<header class="main-header" role="header">
   <div class="container">
 
     <?php if ($site_logo || $site_name || $site_slogan): ?>
@@ -166,9 +166,9 @@
         <header<?php print $content_header_attributes; ?>>
 
           <?php if ($title && !isset($hide_panelized_title)): ?>
-            <h2 id="page-title">
+            <h1 id="page-title">
               <?php print $title; ?>
-            </h2>
+            </h1>
           <?php endif; ?>
 
           <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
