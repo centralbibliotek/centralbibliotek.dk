@@ -967,6 +967,7 @@ function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query
   }else{
     $db_query->orderby('sticky', 'DESC');
     $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
+    $db_query->orderby('t_2.field_date_value', 'ASC');
   }
 }
 /**
@@ -979,7 +980,7 @@ function cbib_oc_hooks_search_api_query_alter(SearchApiQueryInterface $query) {
     $start_day = strtotime("now -10 hours");
     // Select events in progress
     $left_filter = $query->createFilter('OR');
-    $left_filter->condition('search_api_combined_1', $start_day, '>=');
+    $left_filter->condition('field_date:value', $start_day, '>=');
   
     // Select events with a start date in the future
     $right_filter = $query->createFilter('OR');
