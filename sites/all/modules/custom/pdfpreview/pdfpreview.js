@@ -30,7 +30,7 @@
                 $('a[type^=image]').mouseover(function () {
                    var styles = {
                    position: "absolute",
-                   transform: "translate(100%, -30%)",
+                   transform: "translateX(-100%) translateX(-15px) translateY(-20px)",
                    maxWidth: "420px",
                    maxHeight: "420px",
                    zIndex: "10"
