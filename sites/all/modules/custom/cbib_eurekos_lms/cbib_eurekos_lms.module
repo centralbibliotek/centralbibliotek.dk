@@ -327,7 +327,7 @@ function cbib_eurekos_lms_panels_pane_prerender($pane)
 
         if(registration_is_registered($registration, NULL, $user->uid) && $node->field_eurekos_event['und'][0]['value'])
         {
-            $pane->configuration['override_title_text'] = "Kursus link";
+            $pane->configuration['override_title_text'] = t("Kursus link");
             drupal_add_css('.pane-node-attend-form{margin-top:0px !important}',$option['type'] = 'inline');
             
             return $pane;
