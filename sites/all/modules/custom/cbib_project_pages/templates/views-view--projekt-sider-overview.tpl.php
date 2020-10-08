@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<div class="project_page_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a tempus dui, ac sagittis felis. Mauris tortor velit, egestas eget metus vel, egestas sodales metus. Fusce ullamcorper leo egestas dui fermentum,</div>
+<div class="project_page_description">Velkommen til Centralbibliotekernes sider om projektudvikling. På disse sider får du introduktioner til principper om godt projektarbejde og skabeloner, som kan anvendes i arbejdet med projekter. Indholdet på siderne er opdelt efter de forskellige faser i et projekt. God fornøjelse med arbejdet.</div>
 <?php
 
 foreach($view->result as $item) {
