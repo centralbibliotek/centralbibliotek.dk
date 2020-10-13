@@ -968,6 +968,7 @@ function cbib_oc_hooks_search_api_db_query_alter(SelectQueryInterface &$db_query
     $db_query->orderby('sticky', 'DESC');
     $db_query->orderby('ISNULL(search_api_combined_1)', 'ASC');
     $db_query->orderby('t_2.field_date_value', 'ASC');
+    $db_query->orderby('created', 'DESC');
   }
 }
 /**
