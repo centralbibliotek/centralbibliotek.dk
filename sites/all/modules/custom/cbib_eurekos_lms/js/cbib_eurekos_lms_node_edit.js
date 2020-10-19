@@ -126,7 +126,7 @@
                 }
                 
                 var lecturer = $('.field-name-field-lecturer');
-                if(activity.instructors.last_name == undefined)
+                if(activity.instructors == null || activity.instructors.last_name == undefined)
                 {
                     activity.instructors.last_name = "";
                 }
