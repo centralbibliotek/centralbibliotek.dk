@@ -128,6 +128,7 @@
                 var lecturer = $('.field-name-field-lecturer');
                 if(activity.instructors == null || activity.instructors.last_name == undefined)
                 {
+                    activity.instructors = "";
                     activity.instructors.last_name = "";
                 }
                 if(typeof activity.instructors != null)
