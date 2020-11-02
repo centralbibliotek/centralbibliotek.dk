@@ -3,158 +3,158 @@
 */
 
 .page-projektstyring #content .block {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  
-  .page-projektstyring #content .block a {
-    background: #EB577B;
-    border-radius: 1rem;
-    color: white;
-    text-align: center;
-    box-shadow: 10px 10px 5px 0px rgba(204,204,204,1);
-    height: 250px;
-    width: 30%;
-    transition: all .2s ease-in-out;
-  }
-  
-  .page-projektstyring #content .block a:hover { 
-    transform: scale(1.05); 
-    text-decoration: none;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  .page-projektstyring #content .block a:nth-child(2) {
-    background-image: url(../images/idegenerering_hvid.svg);
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 5%;
-    margin-top: 5%;
-  }
+.page-projektstyring #content .block a {
+  background: #eb577b;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  box-shadow: 10px 10px 5px 0px rgba(204, 204, 204, 1);
+  height: 250px;
+  width: 30%;
+  transition: all 0.2s ease-in-out;
+}
 
-  .page-projektstyring #content .block a:nth-child(3) {
-    background-image: url(../images/projektbeskrivelse_hvid.svg);
-    margin-top: 5%;
-  }
+.page-projektstyring #content .block a:hover {
+  transform: scale(1.05);
+  text-decoration: none;
+}
 
-  .page-projektstyring #content .block a:nth-child(4) {
-    background-image: url(../images/projektstyring_hvid.svg);
-    margin-left: 5%;
-    margin-top: 5%;
-  }
+.page-projektstyring #content .block a:nth-child(2) {
+  background-image: url(../images/idegenerering_hvid.svg);
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5%;
+  margin-top: 5%;
+}
 
-  .page-projektstyring #content .block a:nth-child(5) {
-    background-image: url(../images/projektevaluering1_hvid.svg);
-    margin-right: 2.5%;
-    margin-top: 5%;
-  }
+.page-projektstyring #content .block a:nth-child(3) {
+  background-image: url(../images/projektbeskrivelse_hvid.svg);
+  margin-top: 5%;
+}
 
-  .page-projektstyring #content .block a:nth-child(6) {
-    background-image: url(../images/projektvaerktoej_hvid.svg);
-    margin-left: 2.5%;
-    margin-top: 5%;
-  }
+.page-projektstyring #content .block a:nth-child(4) {
+  background-image: url(../images/projektstyring_hvid.svg);
+  margin-left: 5%;
+  margin-top: 5%;
+}
 
-  .project_page_view_block_wrap {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-  }
+.page-projektstyring #content .block a:nth-child(5) {
+  background-image: url(../images/projektevaluering1_hvid.svg);
+  margin-right: 2.5%;
+  margin-top: 5%;
+}
 
-  .project_page_view_block_wrap h2 {
-    color: white;
-    font-size: 21px;
-    margin: 10px;
-    border: 0px!important;
-    letter-spacing: 0.5px;
-  }
-  
-  .page-projektstyring #content .block a p {
-    padding: 1em 0.5em;
-    margin: 0px;
-  }
+.page-projektstyring #content .block a:nth-child(6) {
+  background-image: url(../images/projektvaerktoej_hvid.svg);
+  margin-left: 2.5%;
+  margin-top: 5%;
+}
 
-  /* pages */
-  
-  #cbib_project_pages_panel .pane-node-title h2 {
-    background: #EB577B;
-    background-image: url(../images/idegenerering_hvid.svg);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 100px;
-    border-radius: 1rem;
-    color: white;
-    font-size: 1.75em;
-    padding: 0.5em 1em 0.5em 3.5em;
-  }
+.project_page_view_block_wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
 
-  #cbib_project_pages_panel .pane-node-body {
-    padding: 0 1em;
-   }
+.project_page_view_block_wrap h2 {
+  color: white;
+  font-size: 21px;
+  margin: 10px;
+  border: 0px !important;
+  letter-spacing: 0.5px;
+}
 
-  #cbib_project_pages_panel .pane-node-body ul li {
-    list-style-type: none;
-    position: relative;
-    padding-left: 15px;
-  }
+.page-projektstyring #content .block a p {
+  padding: 1em 0.5em;
+  margin: 0px;
+}
 
-  #cbib_project_pages_panel .pane-node-body ul li:before {
-    content: "\25BA \0020";
-    font-size: 1em;
-    position: absolute;
-    top: 0px;
-    left: -8px;
-    color: #EB577B;
-  }
+/* pages */
 
-  #cbib_project_pages_panel .pane-node-title h3 {
-    border-radius: 1rem;
-    color: #EB577B;
-    padding: 1em;
-    font-size: 1.5em;
-    font-weight: 700;
-    margin: 0px 0px 0px 13px;
-    position: relative;
-    padding-bottom: 10px;
-  }
+#cbib_project_pages_panel .pane-node-title h2 {
+  background: #eb577b;
+  background-image: url(../images/idegenerering_hvid.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 100px;
+  border-radius: 1rem;
+  color: white;
+  font-size: 1.75em;
+  padding: 0.5em 1em 0.5em 3.5em;
+}
 
-  #cbib_project_pages_panel .pane-node-title h3::before {
-    content:"";
-    border-top: 10px solid transparent;
-    border-left: 15px solid #EB577B;
-    border-bottom: 10px solid transparent;
-    border-right: 0 transparent;
-    position: absolute;
-    left: 0;
-    top: 25px;
-  }
+#cbib_project_pages_panel .pane-node-body {
+  padding: 0 1em;
+}
 
-  #cbib_project_pages_panel p > strong {
-    color: #EB577B;   
-  }
+#cbib_project_pages_panel .pane-node-body ul li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 15px;
+}
 
-   #cbib_project_pages_panel ol {
-    list-style: none;
-    counter-reset: my-awesome-counter;
-  }
+#cbib_project_pages_panel .pane-node-body ul li:before {
+  content: "\25BA \0020";
+  font-size: 1em;
+  position: absolute;
+  top: 0px;
+  left: -8px;
+  color: #eb577b;
+}
 
-  #cbib_project_pages_panel ol li {
-    counter-increment: my-awesome-counter;
-  }
-
-  #cbib_project_pages_panel ol li::before {
-    content: counter(my-awesome-counter) ". ";
-    color: #EB577B;
-    font-weight: bold;
-  }
-
-#cbib_project_pages_panel .pane-entity-field h2 {
+#cbib_project_pages_panel .pane-node-title h3 {
+  padding: 1em;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0px 0px 0px 13px;
+  position: relative;
+  padding-bottom: 10px;
   background: #17253e;
   border-radius: 0.5rem;
   color: white;
+  padding: 0.5em 0.5em 0.5em 2.4em;
+  font-weight: 700;
+}
+
+#cbib_project_pages_panel .pane-node-title h3::before {
+  content: "";
+  border-top: 10px solid transparent;
+  border-left: 15px solid #eb577b;
+  border-bottom: 10px solid transparent;
+  border-right: 0 transparent;
+  position: absolute;
+  left: 20px;
+  top: 17px;
+}
+
+#cbib_project_pages_panel p > strong {
+  color: #eb577b;
+}
+
+#cbib_project_pages_panel ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+
+#cbib_project_pages_panel ol li {
+  counter-increment: my-awesome-counter;
+}
+
+#cbib_project_pages_panel ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  color: #eb577b;
+  font-weight: bold;
+}
+
+#cbib_project_pages_panel .pane-entity-field h2 {
+  color: #eb577b;
   padding: 0.5em 0.5em 0.5em 2.4em;
   font-weight: 700;
 }
@@ -163,16 +163,17 @@
   background-image: url(../images/dokumenter.svg);
   background-repeat: no-repeat;
   background-position: 12px 7px;
+  border: 0px;
 }
 
 #cbib_project_pages_panel .pane-node-field-links h2 {
   background-image: url(../images/link.svg);
   background-repeat: no-repeat;
   background-position: 12px 7px;
+  border: 0px;
 }
 
 #cbib_project_pages_panel .pane-node-field-dokumenter .block-content,
-#cbib_project_pages_panel .pane-node-field-links .block-content
- {
+#cbib_project_pages_panel .pane-node-field-links .block-content {
   padding: 0 1em;
 }
