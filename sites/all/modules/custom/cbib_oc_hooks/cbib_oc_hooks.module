@@ -890,7 +890,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
       }
          $form['reset'] = array(
-         '#markup' => '<a href="/search"><i value='.t('reset').' id="resets" class="fa fa-times"></i></a>',
+         '#markup' => '<a href="/search"><span value='.t('reset').' id="resets" class="fa fa-times"></span></a>',
          '#weight' => 1000,
          );
     }
@@ -901,7 +901,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
          $form['search_api_views_fulltext']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
 
          $form['reset'] = array(
-         '#markup' => '<a href="/grupper"><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
+         '#markup' => '<a href="/grupper"><span value='.t('reset').' id="reset" class="fa fa-times"></span></a>',
          '#weight' => 1000,
          );
       }
@@ -918,7 +918,7 @@ function cbib_oc_hooks_form_views_exposed_form_alter(&$form, $form_state, $form_
            $path = '/kompetenceudvikling';
          }
          $form['reset'] = array(
-         '#markup' => '<a href=' . $path .'><i value='.t('reset').' id="reset" class="fa fa-times"></i></a>',
+         '#markup' => '<a href=' . $path .'><span value='.t('reset').' id="reset" class="fa fa-times"></span></a>',
          '#weight' => 1000,
          );
          /* change exposed filter

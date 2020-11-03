@@ -38,11 +38,13 @@
  * element. If you need to set default font properties of any kind use the BODY
  * element as these can be overridden using font theme settings.
  */
-::-ms-clear { display: none; }
+::-ms-clear {
+  display: none;
+}
 
 //region vælgeren
 .new-og_group_ref {
-    float: left;
+  float: left;
 }
 
 html {
@@ -56,7 +58,7 @@ html {
     min-height: 200px;
   }
 }
- 
+
 body {
   font-family: $robotto-regular; //$sans-serif-arial-helvetica;
   // Set from _custom.scss font variables
@@ -110,12 +112,10 @@ h3 {
   }
 }
 
-
 .page-node .field-name-body h2 {
   font-size: 1.5em;
   font-weight: bold;
 }
-
 
 .page-node .field-name-body h3 {
   font-size: 1.17em;
@@ -198,7 +198,7 @@ var {
     margin: $gutter-width 0 $gutter-width / 2;
   }
   .block-content {
-    font-size: .88em;
+    font-size: 0.88em;
   }
   #footer & {
     margin-bottom: 0;
@@ -242,17 +242,16 @@ var {
   z-index: 3;
   @include respond(only-small) {
     //display: none;
-    .site-logo{
-        max-width: 80%;
+    .site-logo {
+      max-width: 80%;
     }
   }
-   @include respond(only-medium) {
+  @include respond(only-medium) {
     //display: none;
-    .site-logo{
-        max-width: 100%;
+    .site-logo {
+      max-width: 100%;
     }
   }
-  
 }
 
 .views-field.views-field-og-group-ref > span > a {
@@ -312,7 +311,7 @@ var {
  */
 
 #site-slogan {
-  margin: 0 0 .3em;
+  margin: 0 0 0.3em;
   font-size: 1em;
   color: $white;
 }
@@ -336,11 +335,11 @@ var {
 
 #page-title,
 .search-results-title {
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
   font-weight: normal;
   font-size: 2em;
   line-height: 1.2em;
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
 }
 
 #page-top {
@@ -349,9 +348,8 @@ var {
 /*
 *Some OC Styling
 */
-#edit-submit-search-api-arrangementer
-{
-   margin-top: 8px;
+#edit-submit-search-api-arrangementer {
+  margin-top: 8px;
 }
 /* =============================================================================
  *   Misc Global Styles
@@ -374,7 +372,7 @@ var {
   float: right;
   width: 10em;
   list-style: none;
-  margin: .5em -10em 0 0;
+  margin: 0.5em -10em 0 0;
   padding-left: 1em;
   text-align: center;
   [class*="action-item"] {
@@ -392,7 +390,6 @@ var {
 }
 
 .node-teaser {
-
   &.node {
     padding: 10px;
   }
@@ -416,9 +413,8 @@ var {
   }
 }
 .node-teaser.node .field_kilde {
-    display: none;
+  display: none;
 }
-
 
 // not license-nodes, since that display has a sidebar
 //.node-teaser:not(.node-license){
@@ -428,14 +424,13 @@ var {
 //}
 
 // style user-picture to be inside article instead of left from it
-article.user-picture-available{
-  padding: 10px 10px 10px 70px!important;
+article.user-picture-available {
+  padding: 10px 10px 10px 70px !important;
 }
 
-#edit-search-api-views-fulltext
-{
-    padding-left: 10px;
-    height: 35px;
+#edit-search-api-views-fulltext {
+  padding-left: 10px;
+  height: 35px;
 }
 .user-picture,
 .views-field-picture,
@@ -491,8 +486,8 @@ textarea,
 }
 
 label {
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 input[type="file"],
@@ -528,7 +523,7 @@ input[type="week"] {
   color: black;
   outline: 0;
   margin: 0;
-  padding: .5em;
+  padding: 0.5em;
   text-align: left;
   vertical-align: top;
   line-height: 1.2em;
@@ -596,7 +591,13 @@ select[multiple] {
   ::-webkit-validation-bubble-message {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0, #666666),
+      color-stop(1, black)
+    );
     border: 1px solid;
     border-color: #747474 #5e5e5e #4f4f4f;
     color: white;
@@ -629,7 +630,6 @@ optgroup {
     border: 0;
     padding: 0;
   }
-
 }
 
 /* Simulate a chosen select form value as inline text. */
@@ -645,12 +645,12 @@ optgroup {
   &:after {
     content: "";
     position: relative;
-    top: .2em;
+    top: 0.2em;
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: .2em;
-    border: .4em solid transparent;
+    margin-left: 0.2em;
+    border: 0.4em solid transparent;
     border-top-color: $gray-dark;
   }
 }
@@ -717,7 +717,7 @@ html.js {
 fieldset {
   border: none;
   margin: 0;
-  padding: .01em 0;
+  padding: 0.01em 0;
   @include box-sizing(border-box);
 }
 
@@ -745,35 +745,35 @@ legend {
   span.summary {
     display: block;
     margin: 0;
-    font-size: .76em;
+    font-size: 0.76em;
     font-weight: normal;
   }
   .collapsible > legend & {
     display: block;
-    text-indent: -.5em;
-    margin-left: .6em;
+    text-indent: -0.5em;
+    margin-left: 0.6em;
     span.summary {
-      margin-left: .7em;
+      margin-left: 0.7em;
     }
     a:before {
       display: inline-block;
       position: relative;
-      margin-right: .2em;
+      margin-right: 0.2em;
       width: 0;
       height: 0;
       overflow: hidden;
-      border: .2em solid transparent;
+      border: 0.2em solid transparent;
       border-top-color: $dark_gray;
       content: "";
-      top: -.1em;
-      left: -.1em;
+      top: -0.1em;
+      left: -0.1em;
     }
   }
   .collapsed > legend & {
     a:before {
       border-top-color: transparent;
       border-left-color: $dark_gray;
-      top: -.2em;
+      top: -0.2em;
       left: auto;
     }
   }
@@ -813,7 +813,7 @@ button,
     @include respond(only-small) {
       display: block;
       width: 100%;
-      margin: .5em 0;
+      margin: 0.5em 0;
     }
   }
   #panels-ipe-control-container & {
@@ -822,7 +822,6 @@ button,
 }
 
 [class*="action-item-small"] {
-
   @extend %button-small-layout;
 }
 
@@ -867,7 +866,7 @@ button,
   .action-item-merge + & {
     @include border-top-left-radius(0);
     @include border-bottom-left-radius(0);
-    margin-left: -.5em;
+    margin-left: -0.5em;
   }
 }
 
@@ -875,8 +874,8 @@ button,
 .action-item-small-append,
 .action-item-large-append {
   position: relative;
-  padding-right: .5em;
-  padding-left: .5em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
   &,
   &:active,
   &:focus,
@@ -908,8 +907,6 @@ button,
     border-width: 4px;
     border-right-color: $border;
   }
-
-
 }
 
 /* Reset some styles for the admin toolbar. */
@@ -956,14 +953,14 @@ button,
 }
 
 .flag-anon-commons_follow_node {
-    display: block !important;
+  display: block !important;
 }
 
 /* Follow buttons */
 [class*="flag-commons-follow-"] {
   .flag-action {
     white-space: nowrap;
-    font-size: 1.2em!important;
+    font-size: 1.2em !important;
     &:before {
       content: "";
       @include sprite_url_height_width($icons, follow-large);
@@ -979,7 +976,6 @@ button,
     display: none !important;
   }
 }
-
 
 /* Report as inappropriate */
 .flag-inappropriate-node,
@@ -1016,7 +1012,11 @@ button,
   @include border-radius(2px);
   padding: $gutter_width;
   margin-bottom: $gutter_width;
-  @include transition(opacity 0.3s ease 0.4s, bottom 0.3s ease 0.4s, visibility 0.3s ease 0.4s);
+  @include transition(
+    opacity 0.3s ease 0.4s,
+    bottom 0.3s ease 0.4s,
+    visibility 0.3s ease 0.4s
+  );
   z-index: 9;
   &:before,
   &:after {
@@ -1086,7 +1086,7 @@ button,
     float: none;
   }
   .field-item {
-    margin: 0 .1em;
+    margin: 0 0.1em;
     &:first-child {
       margin-left: 0;
     }
@@ -1144,8 +1144,8 @@ button,
     content: "\00ab";
     display: block;
     font-size: $base-font-size * 2.4;
-    line-height: .8em;
-    padding-bottom: .15em;
+    line-height: 0.8em;
+    padding-bottom: 0.15em;
     color: $dark_blue;
     .expanded & {
       content: "\00bb";
@@ -1209,10 +1209,10 @@ button,
 }
 
 //align left on events - "Se alle gruppens arrangementer"
-.view-commons-events-upcoming{
-  .more-link{
+.view-commons-events-upcoming {
+  .more-link {
     text-align: left;
-    padding: .75em 0;
+    padding: 0.75em 0;
   }
 }
 
@@ -1221,18 +1221,17 @@ button,
  */
 
 .field-name-group-group {
-
-// style them exactly as submit-buttons
-  a{
+  // style them exactly as submit-buttons
+  a {
     background-color: $brand-primary;
-    padding: .7em 1.5em;
+    padding: 0.7em 1.5em;
     border: 0;
     color: $white !important;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     line-height: 1;
     text-shadow: none !important;
     border-radius: 40px;
-    font-size: .85em;
+    font-size: 0.85em;
     //vertical-align: top;
     //display: inline-block;
     //background: $brand-primary;
@@ -1246,7 +1245,7 @@ button,
     //-o-transition: background-color 150ms ease;
     //transition: background-color 150ms ease;
 
-    &:hover{
+    &:hover {
       background-image: none;
       background-color: $brand-primary-light;
     }
@@ -1282,7 +1281,7 @@ ul.primary.tabs {
     margin-right: 1.15em;
     a {
       background-color: $tab_background;
-      padding: .7em 0;
+      padding: 0.7em 0;
       display: inline-block;
       border: none;
       &,
@@ -1312,66 +1311,69 @@ ul.primary.tabs {
   }
 }
 
-#views-exposed-form-search-api-arrangementer-page .views-exposed-widget.views-widget-sort-by {
-    display: none;
+#views-exposed-form-search-api-arrangementer-page
+  .views-exposed-widget.views-widget-sort-by {
+  display: none;
 }
 
-#views-exposed-form-search-api-arrangementer-page-1 .views-exposed-widget.views-widget-sort-by {
-    display: none;
+#views-exposed-form-search-api-arrangementer-page-1
+  .views-exposed-widget.views-widget-sort-by {
+  display: none;
 }
 
-#views-exposed-form-search-api-arrangementer-page-2 .views-exposed-widget.views-widget-sort-by {
-    display: none;
+#views-exposed-form-search-api-arrangementer-page-2
+  .views-exposed-widget.views-widget-sort-by {
+  display: none;
 }
 
-#views-exposed-form-search-api-arrangementer-page-3 .views-exposed-widget.views-widget-sort-by {
-    display: none;
+#views-exposed-form-search-api-arrangementer-page-3
+  .views-exposed-widget.views-widget-sort-by {
+  display: none;
 }
 
-#views-exposed-form-search-api-arrangementer-page-4 .views-exposed-widget.views-widget-sort-by {
-    display: none;
+#views-exposed-form-search-api-arrangementer-page-4
+  .views-exposed-widget.views-widget-sort-by {
+  display: none;
 }
 
 .views-exposed-widget.views-widget-sort-order {
-    display: none !important;
+  display: none !important;
 }
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-    position: relative;
-    left: 87%;
+  position: relative;
+  left: 87%;
+  top: 100px;
+  width: 10%;
+  z-index: 100;
+  @include respond(only-small) {
+    left: 79%;
+    top: 77px;
+    width: 100%;
+  }
+  @include respond(only-medium) {
+    left: 79%;
     top: 100px;
-    width: 10%;
-    z-index:100;
-    @include respond(only-small) {
-        left: 79%;
-        top: 77px;
-        width: 100%;
-    }
-    @include respond(only-medium) {
-        left: 79%;
-        top: 100px;
-        width: 100%;
-        
-    }
-    @include respond(only-small-landscape) {
-        top: 65px;
-        width: 100%;
-
-    }
-    @include respond(only-medium-landscape) {
-        top: 65px;
-        width: 100%;
-        left:81%;
-    }
+    width: 100%;
+  }
+  @include respond(only-small-landscape) {
+    top: 65px;
+    width: 100%;
+  }
+  @include respond(only-medium-landscape) {
+    top: 65px;
+    width: 100%;
+    left: 81%;
+  }
 }
 #tabs-0-center .item-list {
-    height: 0px;
-    width: 100%;
-    display: inline-block;
-    float:left;
+  height: 0px;
+  width: 100%;
+  display: inline-block;
+  float: left;
 }
 
 // style pills same way as sub-menu
-.quicktabs-style-commons-pills ul.quicktabs-tabs{
+.quicktabs-style-commons-pills ul.quicktabs-tabs {
   border-bottom-color: $gray-light;
   padding: 0;
   li {
@@ -1380,7 +1382,7 @@ ul.primary.tabs {
     font-size: 1em;
     background-color: $gray-light;
     a {
-      padding:0 1px 8px;
+      padding: 0 1px 8px;
       text-decoration: none;
       display: inline-block;
       border: none;
@@ -1395,9 +1397,9 @@ ul.primary.tabs {
         box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
         border-radius: 0px;
       }
-      &:before{
+      &:before {
         background-image: none !important; // remove icons infront of pills
-        width:0px !important; // else underline is longer then text
+        width: 0px !important; // else underline is longer then text
       }
     }
     &.active a {
@@ -1426,11 +1428,9 @@ ul.primary.tabs {
   }
 }
 
-
 .quicktabs-style-commons-pills ul.quicktabs-tabs li {
   text-transform: uppercase;
-  font-size: .8em;
-
+  font-size: 0.8em;
 }
 
 /**
@@ -1438,11 +1438,11 @@ ul.primary.tabs {
  */
 
 h1.node-title {
-  color:$gray_dark !important;
+  color: $gray_dark !important;
   font-size: 20px;
   a {
     text-decoration: none;
-    color:$gray_dark !important;
+    color: $gray_dark !important;
     &:hover {
       text-decoration: underline;
     }
@@ -1461,7 +1461,7 @@ h1.node-title {
   font-size: 20px;
   line-height: 1.2em;
   margin-top: 0;
-  margin-bottom: .4em;
+  margin-bottom: 0.4em;
   color: $gray;
 }
 
@@ -1481,96 +1481,92 @@ h1.node-title {
 }
 
 #edit-search-api-combined-1-wrapper {
-    float: left;
+  float: left;
 }
 #edit-field-address-locality-wrapper {
-    float: left;
+  float: left;
 }
 #edit-search-api-combined-1-wrapper {
-    float: left;
+  float: left;
 }
 #edit-field-price-wrapper {
-    float: left;
+  float: left;
 }
 /* reset button */
 #resets {
-    position: relative;
-    opacity: 0.5;
-    top: -7px;
+  position: relative;
+  opacity: 0.5;
+  top: -7px;
 }
 header #resets {
-    visibility: hidden;
+  visibility: hidden;
 }
- @include respond(only-large) {
-    .fix_me_select{
-        right: 15% !important;
-    }
- }
-.view-search-api-nodes .views-exposed-widgets .views-reset-button
-{
-    position: relative !important;
-    opacity: 0.5;
-    right: 13%;
-    top: 17px;
-     @include respond(only-small) {
-        right: 5%;
-        top: -32px; 
-    }
-    @include respond(only-small-landscape) {
-        right: 4%;
-        top: -32px;
-        float: right; 
-    }
-    @include respond(only-medium-landscape) {
-        right: 4%;
-        top: -32px; 
-        float: right; 
-    }
+@include respond(only-large) {
+  .fix_me_select {
+    right: 15% !important;
+  }
+}
+.view-search-api-nodes .views-exposed-widgets .views-reset-button {
+  position: relative !important;
+  opacity: 0.5;
+  right: 13%;
+  top: 17px;
+  @include respond(only-small) {
+    right: 5%;
+    top: -32px;
+  }
+  @include respond(only-small-landscape) {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
+  @include respond(only-medium-landscape) {
+    right: 4%;
+    top: -32px;
+    float: right;
+  }
 }
 .view-search-api-nodes .views-exposed-widgets .views-reset-button > a {
-    color: #222;
+  color: #222;
 }
 .views-reset-button {
-    position: absolute;
-    font-size: 180%;
-    opacity: 0.5;
-    right: 24%;
-    top: 20px;
-    @include respond(only-small-landscape) {
-        right: 5%;
-        top: 19px;
-        #edit-submit-search-api-arrangementer
-        {
-            display:inline-block !important;
-        }
+  position: absolute;
+  font-size: 180%;
+  opacity: 0.5;
+  right: 24%;
+  top: 20px;
+  @include respond(only-small-landscape) {
+    right: 5%;
+    top: 19px;
+    #edit-submit-search-api-arrangementer {
+      display: inline-block !important;
     }
-    @include respond(only-medium-landscape) {
-        right: 5%;
-        top: 19px;
-        #edit-submit-search-api-arrangementer
-        {
-            display:inline-block !important;
-        }
+  }
+  @include respond(only-medium-landscape) {
+    right: 5%;
+    top: 19px;
+    #edit-submit-search-api-arrangementer {
+      display: inline-block !important;
     }
-    @include respond(only-large) {
-        right: 12%;
-    }
-     
+  }
+  @include respond(only-large) {
+    right: 12%;
+  }
 }
 .view-display {
-    left: 81%;
-    position: relative;
+  left: 81%;
+  position: relative;
 }
-.fa-th, .fa-bars {
-    background: #333333;   
-    cursor: pointer;
-    padding: 5px;
-    color: white;
-    font-size: 1.2em;
+.fa-th,
+.fa-bars {
+  background: #333333;
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+  font-size: 1.2em;
 }
 /* Views exposed form */
 .views-exposed-form {
-
   margin-bottom: 2em;
 
   .views-exposed-widget {
@@ -1589,16 +1585,16 @@ header #resets {
   }
 }
 .views-widget-filter-search_api_views_fulltext {
-    width: 78%;
-    @include respond(only-small-landscape) {
-        width: 97%;
-    }
-    @include respond(only-medium-landscape) {
-        width: 97%;
-    }
-    @include respond(ipad-portrait) {
-        width: 91%;
-    }
+  width: 78%;
+  @include respond(only-small-landscape) {
+    width: 97%;
+  }
+  @include respond(only-medium-landscape) {
+    width: 97%;
+  }
+  @include respond(ipad-portrait) {
+    width: 91%;
+  }
 }
 
 .keyword-filter {
@@ -1624,7 +1620,7 @@ header #resets {
   .views-submit-button {
     //padding-top: 2.15em;
     @include respond(small-medium) {
-      margin-top: .5em;
+      margin-top: 0.5em;
       padding-top: 0;
     }
   }
@@ -1633,12 +1629,12 @@ header #resets {
 /* Generic row styles */
 .views-row {
   border-bottom: 1px solid $border;
-  padding-bottom: .7em;
-  margin-bottom: .7em;
+  padding-bottom: 0.7em;
+  margin-bottom: 0.7em;
   position: relative;
   .views-row {
-    margin-top: .4em;
-    margin-bottom: .4em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
     padding-bottom: 0;
   }
   & .views-row,
@@ -1684,7 +1680,7 @@ header #resets {
 .views-field-capacity-used,
 .views-field-comment-count {
   display: inline-block;
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 
 /* User picture wrapping and shadow */
@@ -1720,8 +1716,8 @@ header #resets {
 * image kilde
 */
 .field_kilde {
-    margin-bottom: 28px;
-    font-size: 11px;
+  margin-bottom: 28px;
+  font-size: 11px;
 }
 
 .page-node {
@@ -1740,7 +1736,7 @@ header #resets {
         padding: 0;
         .field-item {
           display: inline-block;
-          margin: 0 .3em;
+          margin: 0 0.3em;
           padding: 0;
           &:first-child {
             margin-left: 0;
@@ -1831,11 +1827,11 @@ header #resets {
 }
 
 .comment-title {
-  margin-bottom: .2em;
+  margin-bottom: 0.2em;
 }
 
 ul.comment-links {
-  margin: .7em 0;
+  margin: 0.7em 0;
   li {
     padding-left: 0;
   }
@@ -1949,7 +1945,7 @@ ul.comment-links {
 .field-name-field-logo {
   float: left;
   width: 70px;
-  margin: .5em 0 0 -70px;
+  margin: 0.5em 0 0 -70px;
   position: relative;
   left: 70px;
   img {
@@ -2036,7 +2032,6 @@ ul.node-action-links {
     image: image-url("tag-featured.png");
     repeat: no-repeat;
   }
-;
   margin: 6px 0 0 5px;
 }
 
@@ -2048,10 +2043,8 @@ ul.node-action-links {
     image: image-url("tag-new.png");
     repeat: no-repeat;
   }
-;
   margin: 4px 0 0 5px;
 }
-
 
 /**
  * User profile
@@ -2069,12 +2062,12 @@ ul.node-action-links {
          page. It is still not ideal as it is inflexible and only works with the
          current core functionality of commons. */
       .panels-ipe-portlet-wrapper {
-        &:nth-last-child(-n+5) {
+        &:nth-last-child(-n + 5) {
           display: inline-block;
         }
-        }
-        }
       }
+    }
+  }
   .pane-user-picture {
     float: left;
     margin-left: -(120px + $gutter_width * 2);
@@ -2193,7 +2186,7 @@ ul.node-action-links {
   .pane-node-flag-commons-follow-group-link {
     display: inline-block;
     position: absolute;
-    top: .5em;
+    top: 0.5em;
     right: 0;
     margin: 0;
     @include respond(small-medium) {
@@ -2650,7 +2643,6 @@ ul.pager {
   text-align: center;
 }
 
-
 .item-list ul.pager li {
   margin: 0;
 }
@@ -2659,7 +2651,7 @@ ul.pager li {
   background-image: none;
   //display: inline;
   list-style-type: none;
-  padding: .5em;
+  padding: 0.5em;
   &.pager-current {
     font-weight: 700;
     color: $tab_active_text;
@@ -2670,14 +2662,13 @@ ul.pager li {
   margin: 0;
 }
 
-
 //adjust pagination to Jacques design
 // Weird selector but necessary to get the selector points needed.
 html body div div .item-list-pager ul.pager {
   border-top: 1px solid $gray-light;
   padding-top: 50px;
 
-  li{
+  li {
     background-color: transparent !important;
     // This is necessary since one of the pages has class .ui-tabs
     // and the other does not.
@@ -2690,7 +2681,7 @@ html body div div .item-list-pager ul.pager {
       box-sizing: inherit;
     }
 
-    &.pager-current a{
+    &.pager-current a {
       color: $tab_active_text;
       padding-top: 8px;
     }
@@ -2701,8 +2692,8 @@ html body div div .item-list-pager ul.pager {
     &.pager-last a {
       padding: 0px;
       background-color: $gray-light; // !important;
-      position:relative;
-      top:7px;
+      position: relative;
+      top: 7px;
       font-size: 3em;
       letter-spacing: -1px; // to make arrows be more centered
       font-weight: 200;
@@ -2711,7 +2702,7 @@ html body div div .item-list-pager ul.pager {
       width: 38px;
       border-radius: 19px;
 
-      &:hover{
+      &:hover {
         box-shadow: none;
         background-color: $tab_active_text; // !important;
         @include transform(scale(1.1));
@@ -2719,24 +2710,24 @@ html body div div .item-list-pager ul.pager {
         color: #ffffff;
       }
 
-      &:focus{
+      &:focus {
         color: $gray;
         box-shadow: none;
       }
     }
 
-    &.pager-item a:hover{
+    &.pager-item a:hover {
       text-decoration: underline;
       color: $tab_active_text;
     }
-    a{
+    a {
       color: $gray;
       border: none;
-      text-shadow: none ;
-      background:none;
+      text-shadow: none;
+      background: none;
       line-height: 40px;
-      &:hover{
-        box-shadow:none;
+      &:hover {
+        box-shadow: none;
       }
     }
   }
@@ -2744,16 +2735,14 @@ html body div div .item-list-pager ul.pager {
 
 // styling for load-more-pagination, make it look like a button
 // same weird selector as for other pagination, but needed to target
-html body div div div .item-list-pager ul.pager-load-more{
-
+html body div div div .item-list-pager ul.pager-load-more {
   padding: 20px 0px 50px;
 
-  &.pager-load-more-empty{
+  &.pager-load-more-empty {
     padding: 0 0 20px;
   }
 
   li.pager-next {
-
     a {
       width: auto;
       display: inline;
@@ -2769,26 +2758,21 @@ html body div div div .item-list-pager ul.pager-load-more{
         height: auto;
       }
     }
-    &:hover{
+    &:hover {
       //@include transform(scale(1));
     }
   }
-
 }
-
 
 // make empty-pager invisible
 html body div div div .item-list-pager ul.pager-load-more-empty {
-  
   li.pager-next {
     background-color: transparent !important;
-    &:hover{
+    &:hover {
       background-color: transparent !important;
     }
   }
 }
-
-
 
 /* =============================================================================
  *   Skip Navigation
@@ -2874,7 +2858,7 @@ ul.primary {
 ul.secondary {
   border-bottom: 1px solid $border;
   margin: 1em 0 0;
-  padding: 0 .3em 1em;
+  padding: 0 0.3em 1em;
   li {
     border-right: 0;
     list-style: none;
@@ -2962,10 +2946,11 @@ ul.action-links {
  *   Panels Styling
  * ========================================================================== */
 #panels-ipe-paneid-1004 {
-    width: 100%;
+  width: 100%;
 }
-#tabs-0-center-1 div[id^="panels-ipe-paneid-"], #tabs-0-center-2 div[id^="panels-ipe-paneid-"] {
-    width: 100%;
+#tabs-0-center-1 div[id^="panels-ipe-paneid-"],
+#tabs-0-center-2 div[id^="panels-ipe-paneid-"] {
+  width: 100%;
 }
 .node-title,
 .pane-title {
@@ -2973,9 +2958,9 @@ ul.action-links {
   font-size: 1.25em;
   color: $gray-darker;
   border-bottom: 1px solid $gray-light;
-  padding-bottom: .35em;
-  margin-bottom: .5em;
-  letter-spacing: -.025em;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.5em;
+  letter-spacing: -0.025em;
 }
 
 .panel-display {
@@ -3032,7 +3017,6 @@ body.page-node .pane-views-panes {
     }
   }
 }
-
 
 .pane-commons-bw-group {
   @extend %pod;
@@ -3110,19 +3094,16 @@ body.page-node .pane-views-panes {
 
 //styling for panel showing user profile
 // first item has a CSS-class attached to target and remove the clear
-.page-user #content section.first-profile-item{
-
-  .clearfix:after{
+.page-user #content section.first-profile-item {
+  .clearfix:after {
     clear: none;
   }
 }
 
 // since clear gets removed on first item, second item displays 20px larger than others
-.page-user .pane-user-field-phone{
+.page-user .pane-user-field-phone {
   margin-bottom: 6px;
 }
-
-
 
 // Styling for panel displaying a single license node.
 // -> Custom layout "Centralbibliotek CB - AT Three column 25, 42, 33".
@@ -3132,36 +3113,33 @@ body.page-node .pane-views-panes {
 // panels. JIRA-issue about this created 6/7/15.
 
 body.node-type-license .cb3 {
-
-  .region-cb3-first{
+  .region-cb3-first {
     width: 20%;
   }
-  .region-cb3-second{
+  .region-cb3-second {
     width: 46.666666%;
   }
-  .region-cb3-third{
+  .region-cb3-third {
     width: 33.333333%;
   }
   @include respond(only-small) {
-      .region-cb3-first{
-        width: 100%;
-      }
-      .region-cb3-second{
-        width: 100%;
-      }
-      .region-cb3-third{
-        width: 100%;
-      }
+    .region-cb3-first {
+      width: 100%;
+    }
+    .region-cb3-second {
+      width: 100%;
+    }
+    .region-cb3-third {
+      width: 100%;
+    }
   }
-    @include respond(only-small-landscape) {
-    
+  @include respond(only-small-landscape) {
   }
 }
 
 /* =============================================================================
  *   Views Styling
  * ========================================================================== */
-
 
 .view-display-id-commons_events_upcoming_page .views-row {
   @extend %pod;
@@ -3173,22 +3151,24 @@ body.node-type-license .cb3 {
   }
 }
 
-
 .pane-cbib-pane-node-field-event-type .field-items li.field-item::before {
-    background: #000!important;
+  background: #000 !important;
 }
 
-.cb-teaser-list .node-teaser .panel-pane.pane-node-og-group-ref, .page-taxonomy-term .node-teaser .panel-pane.pane-node-og-group-ref {
-    float: none!important;
+.cb-teaser-list .node-teaser .panel-pane.pane-node-og-group-ref,
+.page-taxonomy-term .node-teaser .panel-pane.pane-node-og-group-ref {
+  float: none !important;
 }
-.panel-pane.pane-entity-field.pane-node-og-group-ref.no-title.block, .panel-pane.pane-entity-field.pane-node-field-overkategorier-emne.no-title.block {
+.panel-pane.pane-entity-field.pane-node-og-group-ref.no-title.block,
+.panel-pane.pane-entity-field.pane-node-field-overkategorier-emne.no-title.block {
   display: inline-block;
 }
 .panel-pane.pane-entity-field.pane-node-field-event-type.pane-cbib-pane-node-field-event-type.no-title.block {
-    float: left;
+  float: left;
 }
-.page-events .ui-tabs ul, .page-node-events .ui-tabs ul {
-    margin-bottom: 0em!important;
+.page-events .ui-tabs ul,
+.page-node-events .ui-tabs ul {
+  margin-bottom: 0em !important;
 }
 
 .views-view-grid {
@@ -3215,8 +3195,8 @@ body.node-type-license .cb3 {
   // The li parent will handle spacing.
   margin: 0;
   // We do not need as much horizontal space on these items.
-  padding-right: .75em;
-  padding-left: .75em;
+  padding-right: 0.75em;
+  padding-left: 0.75em;
 }
 
 .view-commons-groups-directory,
@@ -3244,7 +3224,8 @@ body.node-type-license .cb3 {
 }
 
 .pane-commons-contributors-group-panel-pane-1 {
-  table, tbody {
+  table,
+  tbody {
     margin: 0;
     border: none;
   }
@@ -3353,7 +3334,6 @@ body.node-type-license .cb3 {
     white-space: nowrap;
     // height: 1.7em;
     // overflow: hidden;
-
   }
   .views-exposed-widget {
     margin-top: 0;
@@ -3491,8 +3471,8 @@ body.node-type-license .cb3 {
       clear: both;
       vertical-align: top;
       margin-bottom: 1.7em;
-      padding: .5em .6em;
-      font-size: .88em;
+      padding: 0.5em 0.6em;
+      font-size: 0.88em;
       @include border-radius(2px);
       background: $ultralight;
     }
@@ -3514,7 +3494,7 @@ body.node-type-license .cb3 {
     }
     .form-submit {
       margin-top: 0;
-      margin-bottom: .1em;
+      margin-bottom: 0.1em;
     }
     .hidden {
       display: none;
@@ -3544,7 +3524,6 @@ body.node-type-license .cb3 {
   }
   @include respond(only-small) {
     padding-left: 0;
-
   }
 
   .field-type-image {
@@ -3562,7 +3541,7 @@ body.node-type-license .cb3 {
 
 .partial-node-form-title {
   margin-top: 0;
-  margin-bottom: .2em;
+  margin-bottom: 0.2em;
   margin-left: -68px;
   color: $gray-darker;
   font-family: $alt-font;
@@ -3590,7 +3569,7 @@ body.node-type-license .cb3 {
   position: absolute;
   top: 0;
   right: 0;
-  margin-top: .6em;
+  margin-top: 0.6em;
   overflow: hidden;
   &,
   &:before {
@@ -3601,7 +3580,7 @@ body.node-type-license .cb3 {
   .expanded-form & {
     display: block;
     &:before {
-      content: 'x';
+      content: "x";
       display: block;
     }
   }
@@ -3613,11 +3592,11 @@ body.node-type-license .cb3 {
 .full-form {
   .compact-form & {
     float: right;
-    margin-top: .5em;
+    margin-top: 0.5em;
     &:after {
-      content: '\2192';
+      content: "\2192";
       display: inline-block;
-      margin-left: .2em;
+      margin-left: 0.2em;
     }
   }
 }
@@ -3869,13 +3848,17 @@ tr {
     font-size: 0.85em;
   }
 }
-#views-exposed-form-commons-events-event-attendee-list-page-1 .form-item .description {
-    display: none;
+#views-exposed-form-commons-events-event-attendee-list-page-1
+  .form-item
+  .description {
+  display: none;
 }
-#views-exposed-form-commons-events-event-attendee-list-page-1 .views-exposed-form .views-exposed-widget {
-    float: left;
-    display: inline-block;
-    padding: 5px;
+#views-exposed-form-commons-events-event-attendee-list-page-1
+  .views-exposed-form
+  .views-exposed-widget {
+  float: left;
+  display: inline-block;
+  padding: 5px;
 }
 /**
  * Highlight marks and form required mark
@@ -3896,8 +3879,8 @@ tr {
 }
 
 #edit-field-topics-und {
-  border-top: 2px groove #8A8A8A;
-  border-left: 2px groove #8A8A8A;
+  border-top: 2px groove #8a8a8a;
+  border-left: 2px groove #8a8a8a;
 }
 
 form.commons-events-form-float {
@@ -3910,9 +3893,9 @@ form.commons-events-form-float {
   text-align: left;
   @include box-sizing(border-box);
   .commons-event-status {
-    font-size: .88em;
+    font-size: 0.88em;
     line-height: 1.4em;
-    margin-top: .3em;
+    margin-top: 0.3em;
   }
   .form-text {
     width: auto;
@@ -3926,10 +3909,9 @@ form.commons-events-form-float {
   }
 }
 
-
 //style field-add-more-submit-buttons
-form input.field-add-more-submit{
-  margin-top: .8em;
+form input.field-add-more-submit {
+  margin-top: 0.8em;
   border-radius: 0;
   padding: 0.5em 1.5em;
 }
@@ -3991,7 +3973,7 @@ tr {
   /* Table row striping */
   &.info,
   &.even,
-  &:nth-child(2n+2) {
+  &:nth-child(2n + 2) {
     border-bottom: 0;
     background-color: $ultralight;
   }
@@ -4022,47 +4004,45 @@ tr {
 /**
  * Browsing widget form tables
  */
-.page-node #commons-bw-partial-node-form-document{
-
-  table{
+.page-node #commons-bw-partial-node-form-document {
+  table {
     border-color: transparent;
-    thead{
+    thead {
       border-color: transparent;
-      tr{
+      tr {
         background-color: transparent;
       }
     }
 
-    tbody{
+    tbody {
       border-color: $border;
       border-left: 1px solid $border;
       border-right: 1px solid $border;
       border-bottom: 1px solid $border;
-      tr{
+      tr {
         background-color: transparent;
       }
     }
 
-    td select{
+    td select {
       margin: inherit;
-      padding: .5em;
+      padding: 0.5em;
       padding-right: 20px;
     }
   }
 
+  .fieldset-outer-wrapper,
+  #edit-field-link {
+    padding: 0 0.7em 1.7em;
 
-  .fieldset-outer-wrapper, #edit-field-link{
-    padding: 0 .7em 1.7em;
-
-    fieldset legend{
+    fieldset legend {
       display: none;
     }
   }
 
-  .form-textarea-wrapper{
+  .form-textarea-wrapper {
     margin: 10px 0.7em 20px;
   }
-
 }
 
 /* =============================================================================
@@ -4206,7 +4186,8 @@ body.front.logged-in {
         position: relative;
       }
     }
-    .article.node, .node-teaser.node-group {
+    .article.node,
+    .node-teaser.node-group {
       .author-datetime {
         margin-bottom: 1.5em;
         clear: both;
@@ -4219,7 +4200,8 @@ body.front.logged-in {
       padding: 10px 0 0 0;
     }
   }
-  #views-exposed-form-commons-homepage-content-panel-pane-1 .views-exposed-widgets {
+  #views-exposed-form-commons-homepage-content-panel-pane-1
+    .views-exposed-widgets {
     padding: $gutter-width 0;
     margin-bottom: 0;
     &.widgets-active {
@@ -4323,7 +4305,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
  * Search
  */
 .views-field.views-field-node-created {
-    float: right;
+  float: right;
 }
 .search-form-page {
   .form-type-textfield {
@@ -4383,22 +4365,22 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 }
 
 .panels-ipe-portlet-wrapper section[class*="pane-facetapi-"] {
-    display: inline-block;
-    margin-right: 0.5em;
-    float: left;
+  display: inline-block;
+  margin-right: 0.5em;
+  float: left;
 }
 .form-type-select.form-item-facets select option {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 180px;
 }
 #edit-field-topics {
-    width: 90%;
+  width: 90%;
 }
 .block-facetapi {
   display: inline-block;
-  margin-bottom: 0px!important;
-  padding-bottom: .7em;
+  margin-bottom: 0px !important;
+  padding-bottom: 0.7em;
   padding-right: 10px;
   &:last-child {
     margin-bottom: 0;
@@ -4413,7 +4395,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 }
 
 #event_type2 .pane-title.block-title {
-    //font-weight: bold;
+  //font-weight: bold;
 }
 
 .facetapi-facetapi-links,
@@ -4451,7 +4433,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 
 .search-results-title,
 .search-results-wrapper > h2 {
-  margin-top: .2em;
+  margin-top: 0.2em;
 }
 
 .search-results {
@@ -4465,32 +4447,32 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 
 /* New Search loading wrapper.... */
 .search-overlay--wrapper {
-    background-color: rgba(0, 0, 0, 0.75);
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    bottom: 0px;
-    position: fixed;
-    z-index: 999 !important;
-    color: #fff;
-    text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  position: fixed;
+  z-index: 999 !important;
+  color: #fff;
+  text-align: center;
 }
 .search-overlay--inner {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -150px;
-    max-width: 300px;
-    padding: 20px;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.75);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+  max-width: 300px;
+  padding: 20px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .loader,
@@ -4546,7 +4528,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   }
 }
 .pane-title.ctools-collapsible-handle {
-    display: inline !important;
+  display: inline !important;
 }
 .page-search-user {
   .user-results {
@@ -4559,8 +4541,8 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   list-style-type: none;
   &,
   .block-content & {
-    padding-bottom: .7em;
-    margin-bottom: .7em;
+    padding-bottom: 0.7em;
+    margin-bottom: 0.7em;
     &:last-child {
       border-bottom: none;
       padding-bottom: 0;
@@ -4570,15 +4552,15 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   h2 {
     font-size: 1.429em;
     line-height: 1.2em;
-    margin: .5em 0 0;
+    margin: 0.5em 0 0;
   }
   .title {
     margin-top: 0;
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
   }
   .search-result-url {
     color: $gray;
-    font-size: .85em;
+    font-size: 0.85em;
     margin-bottom: 1em;
   }
   .apachesolr_search-results & {
@@ -4680,8 +4662,8 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 
 .associated-groups-title,
 .group-item {
-  margin-right: .2em;
-  font-size: .88em;
+  margin-right: 0.2em;
+  font-size: 0.88em;
 }
 
 .group-item {
@@ -4742,7 +4724,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
       &:after {
         content: "|";
         display: inline-block;
-        padding: 0 .3em 0 .5em;
+        padding: 0 0.3em 0 0.5em;
         color: $dark_gray;
       }
     }
@@ -4753,11 +4735,11 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   &:before {
     content: "\271a";
     position: relative;
-    top: .1em;
+    top: 0.1em;
     display: inline-block;
-    margin-right: .2em;
+    margin-right: 0.2em;
     font-size: 1.4em;
-    line-height: .6em;
+    line-height: 0.6em;
   }
 }
 
@@ -4803,7 +4785,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 }
 
 .privatemsg-message-links {
-  font-size: .88em;
+  font-size: 0.88em;
   text-align: right;
 }
 
@@ -4811,7 +4793,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   &:before {
     content: "\2715";
     display: inline-block;
-    margin-right: .3em;
+    margin-right: 0.3em;
     color: $icon_gray;
     font-weight: normal;
   }
@@ -4838,8 +4820,10 @@ body.front.logged-in .view-commons-homepage-content .article.node {
  * Login and signup form
  */
 
-#user-login, #user-register-form {
-  input[type="text"], input[type="password"] {
+#user-login,
+#user-register-form {
+  input[type="text"],
+  input[type="password"] {
     width: 20em;
     max-width: 100%;
   }
@@ -4879,7 +4863,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
       padding-left: 0;
     }
   }
-  &:nth-child(3n+1) {
+  &:nth-child(3n + 1) {
     clear: left;
     [dir="rtl"] & {
       clear: right;
@@ -4887,13 +4871,13 @@ body.front.logged-in .view-commons-homepage-content .article.node {
   }
   @include respond(large) {
     width: 25%;
-    &:nth-child(3n+1) {
+    &:nth-child(3n + 1) {
       clear: none;
       [dir="rtl"] & {
         clear: none;
       }
     }
-    &:nth-child(4n+1) {
+    &:nth-child(4n + 1) {
       clear: left;
       [dir="rtl"] & {
         clear: right;
@@ -4912,8 +4896,8 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 .profile-badge-name {
   display: block;
   line-height: 1.2em;
-  font-size: .88em;
-  margin-top: .6em;
+  font-size: 0.88em;
+  margin-top: 0.6em;
 }
 
 /**
@@ -4929,7 +4913,7 @@ body.front.logged-in .view-commons-homepage-content .article.node {
 
   .feed-icon {
     display: inline-block;
-    margin: .3ex .5em 0 0;
+    margin: 0.3ex 0.5em 0 0;
     float: left;
   }
 }
@@ -4939,4 +4923,28 @@ body.front.not-logged-in #content {
 }
 .panel-pane.pane-entity-field.pane-node-field-gul-baggrund.no-title.block {
   visibility: hidden;
+}
+
+/*
+* Accessibilty fixes
+*/
+
+#content-column .field-type-text-with-summary a {
+  font-weight: bold;
+  color: #eb0033;
+}
+
+#edit-search-api-views-fulltext:focus {
+  background-color: white !important;
+  color: black !important;
+}
+
+.front h1 {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
 }
