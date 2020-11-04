@@ -1397,6 +1397,9 @@ ul.primary.tabs {
         box-shadow: inset 0 -3px 0 0 darken($gray-light, 20%);
         border-radius: 0px;
       }
+      &:focus {
+        outline: 1px solid $gray-darker;
+      }
       &:before {
         background-image: none !important; // remove icons infront of pills
         width: 0px !important; // else underline is longer then text
@@ -3341,7 +3344,7 @@ body.node-type-license .cb3 {
     padding: 0;
     label {
       font-weight: normal;
-      color: $light_gray;
+      color: $gray-darker;
       margin: 0;
     }
   }
@@ -4929,7 +4932,9 @@ body.front.not-logged-in #content {
 * Accessibilty fixes
 */
 
-#content-column .field-type-text-with-summary a {
+#content-column .field-type-text-with-summary a,
+.pane-node-links a,
+.region-two-66-33-second a {
   font-weight: bold;
   color: #eb0033;
 }
@@ -4947,4 +4952,13 @@ body.front.not-logged-in #content {
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
+}
+
+#main-menu ul li.ui-state-active a:focus,
+#main-menu ul li.active-trail a:focus {
+  border-bottom: 1px solid #eb0033;
+}
+
+#block-views-centralbiblioteker-block a:focus {
+  outline: 1px solid #c8c8c8;
 }

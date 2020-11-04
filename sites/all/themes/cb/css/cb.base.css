@@ -199,7 +199,7 @@ div.messages {
   font-family: "Roboto", sans-serif;
 }
 div.messages.status {
-  border-color: #FF8BAE;
+  border-color: #ff8bae;
   color: #2bbfa3;
 }
 div.messages.error {
@@ -252,11 +252,11 @@ div.messages.error {
 }
 
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a {
-  background: #9EBCDA;
+  background: #427ab3;
   color: #fff;
 }
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:hover, .node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:focus {
-  background: #9EBCDA;
+  background: #427ab3;
   text-decoration: none;
 }
 
@@ -328,14 +328,14 @@ div.messages.error {
   top: 0px;
   left: 0px;
   background-image: none;
-  background: #FF8BAE;
+  background: #ff8bae;
 }
 .field-name-field-topics .field-items .field-item:hover,
 .field-type-taxonomy-term-reference .field-items .field-item:hover,
 .field-name-og-user-node .field-items .field-item:hover,
 .pane-node-og-group-ref .field-items .field-item:hover,
 .field-name-field-event-type .field-items .field-item:hover {
-  background: #FF8BAE;
+  background: #ff8bae;
   color: #fff !important;
 }
 .field-name-field-topics .field-items .field-item:hover a,
@@ -352,23 +352,77 @@ div.messages.error {
 .field-name-og-user-node .field-items .field-item:hover:before,
 .pane-node-og-group-ref .field-items .field-item:hover:before,
 .field-name-field-event-type .field-items .field-item:hover:before {
-  background: #FF8BAE;
+  background: #ff8bae;
 }
 
-html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:before,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:before,
-html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:before {
-  background: #9EBCDA;
+html
+body
+div
+.pane-node-field-topics
+.field-name-field-topics
+.field-items
+li.field-item:before,
+html
+body
+div
+.pane-node-field-event-type
+.field-name-field-event-type
+.field-items
+li.field-item:before,
+html
+body
+div
+.pane-node-field-overkategorier-emne
+.field-name-field-overkategorier-emne
+.field-items
+li.field-item:before {
+  background: #427ab3;
 }
-html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover,
-html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:hover {
-  background: #9EBCDA;
+html
+body
+div
+.pane-node-field-topics
+.field-name-field-topics
+.field-items
+li.field-item:hover,
+html
+body
+div
+.pane-node-field-event-type
+.field-name-field-event-type
+.field-items
+li.field-item:hover,
+html
+body
+div
+.pane-node-field-overkategorier-emne
+.field-name-field-overkategorier-emne
+.field-items
+li.field-item:hover {
+  background: #427ab3;
 }
-html body div .pane-node-field-topics .field-name-field-topics .field-items li.field-item:hover:before,
-html body div .pane-node-field-event-type .field-name-field-event-type .field-items li.field-item:hover:before,
-html body div .pane-node-field-overkategorier-emne .field-name-field-overkategorier-emne .field-items li.field-item:hover:before {
-  background: #9EBCDA;
+html
+body
+div
+.pane-node-field-topics
+.field-name-field-topics
+.field-items
+li.field-item:hover:before,
+html
+body
+div
+.pane-node-field-event-type
+.field-name-field-event-type
+.field-items
+li.field-item:hover:before,
+html
+body
+div
+.pane-node-field-overkategorier-emne
+.field-name-field-overkategorier-emne
+.field-items
+li.field-item:hover:before {
+  background: #427ab3;
 }
 
 ::-webkit-input-placeholder {
@@ -1396,7 +1450,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
  * Node type event.
  */
 .node-type-event .field-name-title-field h1 {
-  margin: 1em 0 .75em;
+  margin: 1em 0 0.75em;
 }
 .node-type-event .field-name-field-image img {
   width: 100%;
@@ -1406,7 +1460,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
   margin-bottom: 0;
 }
 .node-type-event .region.region-two-66-33-first .pane-node-field-date {
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type {
   margin-bottom: 0;
@@ -1421,6 +1475,9 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
   padding: 0;
   margin: 0;
   margin-right: 1em;
+}
+.node-type-event .region.region-two-66-33-first .pane-node-field-event-type a:focus {
+  text-decoration: underline;
 }
 .node-type-event .region.region-two-66-33-first .pane-node-field-event-type .field-type-taxonomy-term-reference {
   margin-bottom: 0;
@@ -1578,7 +1635,8 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
 .commons-events-form-float .field-name-field-note {
   margin-bottom: 2ex;
 }
-.commons-events-form-float .field-name-field-note .description, .commons-events-form-float .field-name-field-note label {
+.commons-events-form-float .field-name-field-note .description,
+.commons-events-form-float .field-name-field-note label {
   display: none;
 }
 
@@ -1997,7 +2055,7 @@ html body div .pane-node-field-overkategorier-emne .field-name-field-overkategor
   display: inline-block;
   margin: 0px;
   border-radius: 0px;
-  background: #FF8BAE;
+  background: #ff8bae;
   padding: 15px 0px;
 }
 .page-search .search-form-page input.form-submit:hover {

@@ -5,10 +5,9 @@
   // Event title
   .field-name-title-field {
     h1 {
-      margin: 1em 0 .75em;
+      margin: 1em 0 0.75em;
     }
   }
-
 
   // Event image
   .field-name-field-image {
@@ -16,7 +15,6 @@
       width: 100%;
     }
   }
-
 
   // Event date
   .region.region-two-66-33-first .pane-node-field-date {
@@ -29,13 +27,11 @@
   }
 
   .region.region-two-66-33-first .pane-node-field-date {
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
-
 
   // Event type
   .region.region-two-66-33-first .pane-node-field-event-type {
-
     margin-bottom: 0;
 
     ul {
@@ -54,11 +50,12 @@
     a {
       @extend %tag-blue;
     }
-
+    a:focus {
+      text-decoration: underline;
+    }
     .field-type-taxonomy-term-reference {
       margin-bottom: 0;
     }
-
   }
 
   // Event location
@@ -77,7 +74,7 @@
 
   // prevent body to float up if topic-tag is missing
   .region.region-two-66-33-first .pane-node-body {
-    clear:both;
+    clear: both;
   }
 }
 
@@ -128,7 +125,8 @@
   .field-name-field-note {
     margin-bottom: 2ex;
 
-    .description, label {
+    .description,
+    label {
       display: none;
     }
   }
