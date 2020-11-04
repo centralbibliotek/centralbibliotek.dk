@@ -335,7 +335,24 @@ if(!detectIE()) {
                     return $(this).remove();
             });
             $('#event_type2 select').attr("id","edit-facets--fix");
-            //Remove event_type if event_type2 is selected
+            
+            // Accessibility stuff
+            $('header').removeAttr("role");
+            $('footer').removeAttr("role");
+            $('nav').removeAttr("role");
+            $('nav#navbar-administration').attr( "aria-label", "Admin Nav");
+            $('#main-menu nav').attr( "aria-label", "Main Nav");
+            $('header nav').attr( "aria-label", "Header Nav");
+            $('footer nav').attr( "aria-label", "Footer Nav");
+            $('header.main-header').attr( "aria-label", "Main Header");
+            $('#page header').attr( "aria-label", "Page Header");
+            $('noscript').attr( "role", "contentinfo");
+            $('noscript').attr( "aria-label", "Noscript message");
+            $('div#skip-link').attr( "role", "navigation");
+            $('div#skip-link').attr( "aria-label", "Skip Link");
+            $('#main-menu .utility-links').attr( "role", "navigation");
+            $('#main-menu .utility-links').attr( "aria-label", "Log Ind");
+            
             $('#event_type2 select > option').not(':first-child').each(function () {
                 if (this.selected) {
                     $('#event_type').remove();
