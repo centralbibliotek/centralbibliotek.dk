@@ -119,19 +119,24 @@
   background: #17253e;
   border-radius: 0.5rem;
   color: white;
-  padding: 0.5em 0.5em 0.5em 2.4em;
+  padding: 0.5em 0.5em 0.5em 1em;
   font-weight: 700;
 }
 
-#cbib_project_pages_panel .pane-node-title h3::before {
+#cbib_project_pages_panel .pane-custom {
+  position: relative;
+  margin-bottom: 0;
+}
+
+#cbib_project_pages_panel .pane-custom h2::before {
   content: "";
   border-top: 10px solid transparent;
   border-left: 15px solid #eb577b;
   border-bottom: 10px solid transparent;
   border-right: 0 transparent;
   position: absolute;
-  left: 20px;
-  top: 17px;
+  left: 16px;
+  top: 10px;
 }
 
 #cbib_project_pages_panel p > strong {
