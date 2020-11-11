@@ -93,19 +93,21 @@ ul.nostyle li {
   font-weight: normal;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit),
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit), .more-link a:not(.field-add-more-submit), .pager-load-more a:not(.field-add-more-submit), input[type=submit]:not(.field-add-more-submit), .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit),
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit), .more-link a:not(.field-add-more-submit),
+.pager-load-more a:not(.field-add-more-submit),
+input[type="submit"]:not(.field-add-more-submit), .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit),
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit) {
   border: 0;
-  background: #ff5479;
-  color: #fff !important;
+  background: #c8c8c8;
+  font-size: 1.2em;
+  color: #383838;
   display: inline-block;
-  margin: 0 .75em .75em 0;
-  padding: .7em 1.5em;
+  margin: 0 0.75em 0.75em 0;
+  padding: 0.7em 1.5em;
   text-align: center;
   border-radius: 40px;
   position: relative;
   vertical-align: top;
-  letter-spacing: -.01em;
   line-height: 1;
   text-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -116,7 +118,9 @@ ul.nostyle li {
   transition: background-color 150ms ease;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):hover,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):hover, .more-link a:not(.field-add-more-submit):hover, .pager-load-more a:not(.field-add-more-submit):hover, input[type=submit]:not(.field-add-more-submit):hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):hover,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):hover, .more-link a:not(.field-add-more-submit):hover,
+.pager-load-more a:not(.field-add-more-submit):hover,
+input[type="submit"]:not(.field-add-more-submit):hover, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):hover,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):hover {
   color: #fff;
   background: #ff6990;
@@ -125,7 +129,9 @@ ul.nostyle li {
   text-decoration: none;
 }
 .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):focus,
-#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):focus, .more-link a:not(.field-add-more-submit):focus, .pager-load-more a:not(.field-add-more-submit):focus, input[type=submit]:not(.field-add-more-submit):focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):focus,
+#panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-active:not(.field-add-more-submit):focus, .more-link a:not(.field-add-more-submit):focus,
+.pager-load-more a:not(.field-add-more-submit):focus,
+input[type="submit"]:not(.field-add-more-submit):focus, .block.pane-event-price .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):focus,
 #panels-ipe-paneid-26 .pane-node-attend-form #edit-submit.action-item-primary:not(.field-add-more-submit):focus {
   color: #fff;
   background: #ff6990;
@@ -154,13 +160,16 @@ ul.nostyle li {
   font-size: 1.25em;
 }
 
-.more-link a, .pager-load-more a, input[type=submit] {
+.more-link a,
+.pager-load-more a,
+input[type="submit"] {
   border-radius: 40px;
   padding: 15px 25px;
   margin: 50px 0px;
 }
 
-.page-flag-confirm-flag-inappropriate-node input[type=submit], .page-flag-confirm-unflag-inappropriate-node input[type=submit] {
+.page-flag-confirm-flag-inappropriate-node input[type="submit"],
+.page-flag-confirm-unflag-inappropriate-node input[type="submit"] {
   margin: 0 50px 0 0;
 }
 

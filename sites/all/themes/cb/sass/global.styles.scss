@@ -1449,6 +1449,9 @@ h1.node-title {
     &:hover {
       text-decoration: underline;
     }
+    &:focus {
+      outline: 1px solid $brand-primary;
+    }
   }
 }
 
@@ -2015,7 +2018,7 @@ ul.node-action-links {
  */
 
 .author-datetime {
-  color: $light_gray;
+  color: $gray;
   font-size: 0.88em;
 }
 
@@ -3023,7 +3026,10 @@ body.page-node .pane-views-panes {
 }
 
 .pane-commons-bw-group {
-  @extend %pod;
+  a {
+    font-weight: bold;
+    color: $brand-primary-dark;
+  }
 }
 
 .node-type-group {
