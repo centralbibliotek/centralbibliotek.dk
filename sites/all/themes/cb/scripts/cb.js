@@ -353,6 +353,7 @@ if(!detectIE()) {
             $('#main-menu .utility-links').attr( "role", "navigation");
             $('#main-menu .utility-links').attr( "aria-label", "Log Ind");
             $('.comment_forbidden span a:first-child').attr( "aria-label", "Log Ind Kommentar");
+            $('.pane-centralbibliotek-news-panel-pane-3 h2 a').attr( "aria-label", "CB Nyheder");
 
             //
             $('#event_type2 select > option').not(':first-child').each(function () {

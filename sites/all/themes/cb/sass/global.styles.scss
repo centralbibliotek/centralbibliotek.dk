@@ -4969,3 +4969,8 @@ body.front.not-logged-in #content {
 #block-views-centralbiblioteker-block a:focus {
   outline: 1px solid #c8c8c8;
 }
+
+a.print-page {
+  font-weight: bold;
+  color: $brand-primary-dark;
+}
