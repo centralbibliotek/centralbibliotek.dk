@@ -384,8 +384,8 @@ if(!detectIE()) {
             }    
             $('#edit-field-address-locality option[value=""]').html('Alle lokationer');
             
-                $('#ui-id-1').html('<i id="fa-th" class="fa fa-th"></i>');
-                $('#ui-id-2').html('<i id="fa-th" class="fa fa-bars"></i>');              
+                $('#ui-id-1').html('<span id="fa-th" class="fa fa-th"></span>');
+                $('#ui-id-2').html('<span id="fa-th" class="fa fa-bars"></span>');              
                 $('.ui-state-default.ui-corner-top').css("background-color", "transparent");
         }
     };
