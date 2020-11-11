@@ -24,6 +24,7 @@
 
 // Brand colors
 $brand-primary: #ff5479;
+$brand-primary-dark: #eb0033;
 $brand-primary-light: #ff6990;
 
 // Greens
@@ -78,7 +79,7 @@ $tab_background: transparent;
 $tab_text: $gray;
 $tab_text_hover: $gray-darker;
 $tab_active_background: transparent;
-$tab_active_text: $brand-primary;
+$tab_active_text: $brand-primary-dark;
 
 // Colors for other palettes
 

@@ -352,7 +352,9 @@ if(!detectIE()) {
             $('div#skip-link').attr( "aria-label", "Skip Link");
             $('#main-menu .utility-links').attr( "role", "navigation");
             $('#main-menu .utility-links').attr( "aria-label", "Log Ind");
-            
+            $('.comment_forbidden span a:first-child').attr( "aria-label", "Log Ind Kommentar");
+
+            //
             $('#event_type2 select > option').not(':first-child').each(function () {
                 if (this.selected) {
                     $('#event_type').remove();

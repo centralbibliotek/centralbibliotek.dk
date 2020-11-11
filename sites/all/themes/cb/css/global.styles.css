@@ -1686,7 +1686,7 @@ ul.primary.tabs li.active a, ul.primary.tabs li.active a:hover {
 }
 ul.primary.tabs li.active a,
 ul.primary.tabs li.active a span {
-  color: #ff5479;
+  color: #eb0033;
 }
 
 #views-exposed-form-search-api-arrangementer-page
@@ -2944,7 +2944,7 @@ ul.pager li {
 }
 ul.pager li.pager-current {
   font-weight: 700;
-  color: #ff5479;
+  color: #eb0033;
 }
 
 .block ul.pager li {
@@ -2966,7 +2966,7 @@ html body div div .item-list-pager ul.pager li a[class*="action-item"] {
   box-sizing: inherit;
 }
 html body div div .item-list-pager ul.pager li.pager-current a {
-  color: #ff5479;
+  color: #eb0033;
   padding-top: 8px;
 }
 html body div div .item-list-pager ul.pager li.pager-next a, html body div div .item-list-pager ul.pager li.pager-previous a, html body div div .item-list-pager ul.pager li.pager-first a, html body div div .item-list-pager ul.pager li.pager-last a {
@@ -2984,7 +2984,7 @@ html body div div .item-list-pager ul.pager li.pager-next a, html body div div .
 }
 html body div div .item-list-pager ul.pager li.pager-next a:hover, html body div div .item-list-pager ul.pager li.pager-previous a:hover, html body div div .item-list-pager ul.pager li.pager-first a:hover, html body div div .item-list-pager ul.pager li.pager-last a:hover {
   box-shadow: none;
-  background-color: #ff5479;
+  background-color: #eb0033;
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -2995,10 +2995,11 @@ html body div div .item-list-pager ul.pager li.pager-next a:hover, html body div
 html body div div .item-list-pager ul.pager li.pager-next a:focus, html body div div .item-list-pager ul.pager li.pager-previous a:focus, html body div div .item-list-pager ul.pager li.pager-first a:focus, html body div div .item-list-pager ul.pager li.pager-last a:focus {
   color: #383838;
   box-shadow: none;
+  outline: 2px solid #ff5479;
 }
 html body div div .item-list-pager ul.pager li.pager-item a:hover {
   text-decoration: underline;
-  color: #ff5479;
+  color: #eb0033;
 }
 html body div div .item-list-pager ul.pager li a {
   color: #383838;
