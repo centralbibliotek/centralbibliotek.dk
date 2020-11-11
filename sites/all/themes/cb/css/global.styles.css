@@ -7372,3 +7372,7 @@ a.print-page {
   font-weight: bold;
   color: #eb0033;
 }
+
+.view-centralbibliotek-license a {
+  color: #eb0033;
+}

@@ -1,4 +1,3 @@
-
 // _base.scss imports _custom.scss and other partials.
 @import "base";
 
@@ -36,13 +35,12 @@ summary {
 }
 
 .js-hide {
-    display: none!important;
+  display: none !important;
 }
 
-.view-id-commons_browsing_widget_license_og_pr .description, .view-commons-browsing-widget-license-og-pr-single .description {
-
-     display: none;
-
+.view-id-commons_browsing_widget_license_og_pr .description,
+.view-commons-browsing-widget-license-og-pr-single .description {
+  display: none;
 }
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
@@ -55,7 +53,6 @@ video {
   *zoom: 1;
 }
 
-
 /*
  * Prevents modern browsers from displaying 'audio' without controls
  * Remove excess height in iOS5 devices
@@ -65,7 +62,6 @@ audio:not([controls]) {
   height: 0;
 }
 
-
 /*
  * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
  * Known issue: no IE6 support
@@ -73,7 +69,6 @@ audio:not([controls]) {
 [hidden] {
   display: none;
 }
-
 
 /* =============================================================================
     Base
@@ -93,9 +88,8 @@ html {
   -webkit-text-size-adjust: 100%;
   line-height: 1.6;
   overflow-y: scroll;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
-
 
 /*
  * 1 . Addresses margins handled incorrectly in IE6/7
@@ -106,10 +100,9 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  text-rendering: optimizeLegibility\9; /* Only IE, can mess with Android */
-  overflow-x: hidden
+  text-rendering: optimizelegibility\9; /* Only IE, can mess with Android */
+  overflow-x: hidden;
 }
-
 
 /*
  * Addresses font-family inconsistency between 'textarea' and other form elements.
@@ -120,7 +113,6 @@ select,
 textarea {
   font-family: $base-font;
 }
-
 
 /* =============================================================================
     Links
@@ -133,7 +125,6 @@ a:focus {
   outline: 0;
 }
 
-
 /*
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
@@ -142,7 +133,6 @@ a:hover,
 a:active {
   outline: 0;
 }
-
 
 /* =============================================================================
     Typography
@@ -160,36 +150,30 @@ h1 {
   margin: 0.67em 0;
 }
 
-
 h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
 }
-
 
 h3 {
   font-size: 1.17em;
   margin: 1em 0;
 }
 
-
 h4 {
   font-size: 1em;
   margin: 1.33em 0;
 }
-
 
 h5 {
   font-size: 0.83em;
   margin: 1.67em 0;
 }
 
-
 h6 {
   font-size: 0.75em;
   margin: 2.33em 0;
 }
-
 
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome
@@ -197,7 +181,6 @@ h6 {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-
 
 /*
  * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
@@ -207,11 +190,9 @@ strong {
   font-weight: bold;
 }
 
-
 blockquote {
   margin: 1em 40px;
 }
-
 
 /*
  * Addresses styling not present in S5, Chrome
@@ -219,7 +200,6 @@ blockquote {
 dfn {
   font-style: italic;
 }
-
 
 /*
  * Addresses styling not present in IE6/7/8/9
@@ -229,7 +209,6 @@ mark {
   color: #000;
 }
 
-
 /*
  * Addresses margins set differently in IE6/7
  */
@@ -237,7 +216,6 @@ p,
 pre {
   margin: 0 0 0.8em;
 }
-
 
 /*
  * Corrects font family set oddly in IE6, S4/5, Chrome
@@ -248,10 +226,9 @@ code,
 kbd,
 samp {
   font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  _font-family: "courier new", monospace;
   font-size: 1em;
 }
-
 
 /*
  * Improves readability of pre-formatted text in all browsers
@@ -262,7 +239,6 @@ pre {
   word-wrap: break-word;
 }
 
-
 /*
  * 1. Addresses CSS quotes not supported in IE6/7
  * 2. Addresses quote property not supported in S4
@@ -272,18 +248,15 @@ q {
   quotes: none;
 }
 
-
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
-
 
 small {
   font-size: 75%;
 }
-
 
 /*
  * Prevents sub and sup affecting line-height in all browsers
@@ -297,16 +270,13 @@ sup {
   vertical-align: baseline;
 }
 
-
 sup {
   top: -0.5em;
 }
 
-
 sub {
   bottom: -0.25em;
 }
-
 
 /* =============================================================================
     Lists
@@ -322,11 +292,9 @@ ul {
   margin: 0.5em 0 1em;
 }
 
-
 dd {
   margin: 0 0 0 40px;
 }
-
 
 /*
  * Addresses paddings set differently in IE6/7
@@ -337,7 +305,6 @@ ul {
   padding: 0 0 0 40px;
 }
 
-
 /*
  * Corrects list images handled incorrectly in IE7
  */
@@ -346,7 +313,6 @@ nav ol {
   list-style: none;
   list-style-image: none;
 }
-
 
 /* =============================================================================
     Embedded content
@@ -358,10 +324,9 @@ nav ol {
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 img {
-  /* border: 0; */  /* Drupal core already does this, uncomment if you need it */
+  /* border: 0; */ /* Drupal core already does this, uncomment if you need it */
   -ms-interpolation-mode: bicubic;
 }
-
 
 /*
  * Corrects overflow displayed oddly in IE9
@@ -369,7 +334,6 @@ img {
 svg:not(:root) {
   overflow: hidden;
 }
-
 
 /* =============================================================================
     Figures
@@ -381,7 +345,6 @@ svg:not(:root) {
 figure {
   margin: 0;
 }
-
 
 /* =============================================================================
     Forms
@@ -444,7 +407,6 @@ textarea {
   vertical-align: top;
 }
 
-
 /* =============================================================================
     Tables
    ========================================================================== */
@@ -459,7 +421,6 @@ table {
   font-size: inherit;
   font: 100%;
 }
-
 
 /* =============================================================================
     Flexible Media and Cross browser improvements
@@ -478,7 +439,6 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-
 /* Ethan Marcotte - http://front.ie/l8rJaA */
 img,
 embed,
@@ -487,7 +447,6 @@ video {
   max-width: 100%;
 }
 
-
 /* Disable flexiblity for IE8 and below */
 .lt-ie9 img,
 .lt-ie9 object,
@@ -495,7 +454,6 @@ video {
 .lt-ie9 video {
   max-width: none;
 }
-
 
 /* Override max-width 100% for map displays */
 #map img,
@@ -509,13 +467,12 @@ video {
   max-width: none !important;
 }
 
-
 /* =============================================================================
     Misc helpers, Accessibility classes etc
    ========================================================================== */
 
 /* Prevent overflowing content */
-header[role=banner],
+header[role="banner"],
 .content-inner,
 .nav,
 .region-sidebar-first,
@@ -526,7 +483,6 @@ header[role=banner],
   overflow: visible;
   word-wrap: break-word;
 }
-
 
 /**
  * General classes for hiding content. These are all included as SASS mixins.
@@ -556,7 +512,6 @@ header[role=banner],
   background-color: transparent;
 }
 
-
 /* More robust element-invisible and element-focuable classes */
 .element-invisible {
   border: 0;
@@ -569,7 +524,6 @@ header[role=banner],
   width: 1px;
 }
 
-
 .element-invisible.element-focusable:active,
 .element-invisible.element-focusable:focus {
   clip: auto;
@@ -578,7 +532,6 @@ header[role=banner],
   position: static;
   width: auto;
 }
-
 
 /* Shift content offscreen, can be usefull when you reall need to do this */
 .offscreen {
@@ -589,7 +542,6 @@ header[role=banner],
   overflow: hidden;
   outline: 0;
 }
-
 
 /* Hide content from all users */
 .element-hidden {
@@ -609,8 +561,8 @@ header[role=banner],
     border-radius: 3px;
     background: white none no-repeat right top;
     box-shadow: none;
-    padding-top: .3em;
-    padding-bottom: .3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
   }
 
   .chosen-drop {
@@ -628,26 +580,44 @@ header[role=banner],
 */
 
 .view-search-api-group .views-exposed-widget.views-widget-sort-by {
-    width: 100%;
+  width: 100%;
 }
-.ui-widget
-{
-    font-family: $robotto-regular;
+.ui-widget {
+  font-family: $robotto-regular;
 }
 /*
 * set max with for facet selects
 */
-.block-facetapi select{
-    width: 134px;
+.block-facetapi select {
+  width: 134px;
 }
-#views-exposed-form-search-api-arrangementer-page div .views-exposed-form ,
-#views-exposed-form-search-api-arrangementer-page-1 div .views-exposed-form{
-    margin-bottom: 3.4em;
+#views-exposed-form-search-api-arrangementer-page div .views-exposed-form,
+#views-exposed-form-search-api-arrangementer-page-1 div .views-exposed-form {
+  margin-bottom: 3.4em;
 }
 /*
 * license menu styling
 */
 .pane-menu-menu-license-menu .menu li {
-    padding: 5px;
-    border-radius: 12px;
+  background-color: white;
+  border: 0px;
+  a {
+    border: 0px;
+    border-radius: 40px;
+    background-color: $gray-light;
+    padding: 0.7em 1.5em;
+  }
+  .active-trail a {
+    padding-bottom: 0;
+  }
+  a:hover {
+    border: 0px;
+  }
+  a:focus {
+    outline: 1px solid $brand-primary-dark;
+  }
+}
+
+.pane-menu-menu-license-menu ul li.active-trail a {
+  padding-bottom: 0.7em !important;
 }

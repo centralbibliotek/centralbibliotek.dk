@@ -583,6 +583,25 @@ header[role="banner"],
 * license menu styling
 */
 .pane-menu-menu-license-menu .menu li {
-  padding: 5px;
-  border-radius: 12px;
+  background-color: white;
+  border: 0px;
+}
+.pane-menu-menu-license-menu .menu li a {
+  border: 0px;
+  border-radius: 40px;
+  background-color: #c8c8c8;
+  padding: 0.7em 1.5em;
+}
+.pane-menu-menu-license-menu .menu li .active-trail a {
+  padding-bottom: 0;
+}
+.pane-menu-menu-license-menu .menu li a:hover {
+  border: 0px;
+}
+.pane-menu-menu-license-menu .menu li a:focus {
+  outline: 1px solid #eb0033;
+}
+
+.pane-menu-menu-license-menu ul li.active-trail a {
+  padding-bottom: 0.7em !important;
 }
