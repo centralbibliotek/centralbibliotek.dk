@@ -2,13 +2,13 @@
 * projektstyring styling
 */
 
-.page-projektstyring #content .block {
+.page-projektudvikling #content .block {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.page-projektstyring #content .block a {
+.page-projektudvikling #content .block a {
   background: #eb577b;
   border-radius: 1rem;
   color: white;
@@ -19,12 +19,12 @@
   transition: all 0.2s ease-in-out;
 }
 
-.page-projektstyring #content .block a:hover {
+.page-projektudvikling #content .block a:hover {
   transform: scale(1.05);
   text-decoration: none;
 }
 
-.page-projektstyring #content .block a:nth-child(2) {
+.page-projektudvikling #content .block a:nth-child(2) {
   background-image: url(../images/idegenerering_hvid.svg);
   background-size: 70%;
   background-repeat: no-repeat;
@@ -33,24 +33,24 @@
   margin-top: 5%;
 }
 
-.page-projektstyring #content .block a:nth-child(3) {
+.page-projektudvikling #content .block a:nth-child(3) {
   background-image: url(../images/projektbeskrivelse_hvid.svg);
   margin-top: 5%;
 }
 
-.page-projektstyring #content .block a:nth-child(4) {
+.page-projektudvikling #content .block a:nth-child(4) {
   background-image: url(../images/projektstyring_hvid.svg);
   margin-left: 5%;
   margin-top: 5%;
 }
 
-.page-projektstyring #content .block a:nth-child(5) {
+.page-projektudvikling #content .block a:nth-child(5) {
   background-image: url(../images/projektevaluering1_hvid.svg);
   margin-right: 2.5%;
   margin-top: 5%;
 }
 
-.page-projektstyring #content .block a:nth-child(6) {
+.page-projektudvikling #content .block a:nth-child(6) {
   background-image: url(../images/projektvaerktoej_hvid.svg);
   margin-left: 2.5%;
   margin-top: 5%;
@@ -71,7 +71,7 @@
   letter-spacing: 0.5px;
 }
 
-.page-projektstyring #content .block a p {
+.page-projektudvikling #content .block a p {
   padding: 1em 0.5em;
   margin: 0px;
 }
