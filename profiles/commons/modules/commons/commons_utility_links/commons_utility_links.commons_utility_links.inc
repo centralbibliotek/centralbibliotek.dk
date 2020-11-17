@@ -14,7 +14,7 @@ function commons_utility_links_commons_utility_links() {
     $account = $user;
     $links['name'] = array(
       'href' => 'user',
-      'title' => format_username($account),
+      'title' => 'Min side',
       'weight' => -10,
     );
     $links['logout'] = array(
