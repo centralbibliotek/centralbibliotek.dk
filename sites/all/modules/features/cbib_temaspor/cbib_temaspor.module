@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cbib_temaspor feature.
+ */
+
+include_once 'cbib_temaspor.features.inc';
