@@ -42,13 +42,37 @@ function cbib_temaspor_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹';
   $handler->display->display_options['pager']['options']['tags']['next'] = '›';
   $handler->display->display_options['pager']['options']['tags']['last'] = '»';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  /* Forbindelse: OG membership: OG membership from Indholdselement */
-  $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
+  $handler->display->display_options['style_plugin'] = 'slick';
+  $handler->display->display_options['style_options']['slide_field_wrapper'] = 0;
+  $handler->display->display_options['style_options']['cache'] = '';
+  $handler->display->display_options['style_options']['mousewheel'] = 0;
+  $handler->display->display_options['style_options']['optionset'] = 'clone_of_default';
+  $handler->display->display_options['style_options']['override'] = 0;
+  $handler->display->display_options['style_options']['overridables'] = array(
+    'arrows' => 0,
+    'autoplay' => 0,
+    'dots' => 0,
+    'draggable' => 0,
+  );
+  $handler->display->display_options['style_options']['skin'] = 'grid';
+  $handler->display->display_options['style_options']['slide_caption'] = array(
+    'title' => 0,
+  );
+  $handler->display->display_options['style_options']['slide_overlay'] = '';
+  $handler->display->display_options['style_options']['preserve_keys'] = 0;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Felt: Indhold: Billede */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -107,7 +131,6 @@ function cbib_temaspor_views_default_views() {
     t('‹'),
     t('›'),
     t('»'),
-    t('OG membership from node'),
     t('Alle'),
     t('News'),
     t('Temaspor'),

@@ -52,6 +52,15 @@ function cbib_temaspor_user_default_permissions() {
     'module' => 'panelizer',
   );
 
+  // Exported permission: 'administer slick'.
+  $permissions['administer slick'] = array(
+    'name' => 'administer slick',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'slick_ui',
+  );
+
   // Exported permission: 'create temaspor content'.
   $permissions['create temaspor content'] = array(
     'name' => 'create temaspor content',
