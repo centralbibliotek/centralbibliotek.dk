@@ -62,12 +62,13 @@ function cbib_temaspor_features_override_default_overrides() {
   $overrides["panelizer_defaults.node:temaspor:default:teaser.display|content|new-c22911c5-3c21-75b4-c5f3-80efb733956b"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:temaspor:default:teaser.display|content|new-cb706c02-36e8-a414-c9f5-c34bf15861ca"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:temaspor:default:teaser.display|content|new-f7a3719c-d7be-f024-ed91-c8c0df943df4"]["DELETED"] = TRUE;
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|0"] = 'new-254654e9-cc3a-4756-be3b-f56b9577c4ff';
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|2"] = 'new-51c92a65-3aac-4da0-a6e9-cb9de33e60a5';
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|3"] = 'new-149287b0-46e6-45bc-9986-371e15118bf4';
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|4"] = 'new-f61f36d2-aed6-4454-bccc-075c21970843';
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|5"] = 'new-cba80b95-2951-4d1a-a797-c9bb80b82ed4';
-  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|6"] = 'new-76be8641-19c3-4cfa-9279-e311bafccc34';
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|0"] = 'new-13859111-e3fa-5e54-a93c-57f09d719e38';
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|1"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|2"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|3"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|4"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|5"]["DELETED"] = TRUE;
+  $overrides["panelizer_defaults.node:temaspor:default:teaser.display|panels|one_main|6"]["DELETED"] = TRUE;
   $overrides["panelizer_defaults.node:temaspor:default:teaser.display|uuid"] = '937ec228-6481-400a-9748-df684e01dc0b';
 
   // Exported overrides for: slick_optionset
@@ -77,42 +78,6 @@ function cbib_temaspor_features_override_default_overrides() {
 
   // Exported overrides for: variable
   $overrides["variable.panelizer_defaults_node_temaspor.value|view modes|teaser|default"] = 0;
-
-  // Exported overrides for: views_view
-  $overrides["views_view.temaspor.display|default|display_options|fields|field_image"] = array(
-    'id' => 'field_image',
-    'table' => 'field_data_field_image',
-    'field' => 'field_image',
-    'label' => '',
-    'element_label_colon' => FALSE,
-    'click_sort_column' => 'fid',
-    'settings' => array(
-      'image_style' => '',
-      'image_link' => '',
-    ),
-    'delta_offset' => 0,
-  );
-  $overrides["views_view.temaspor.display|default|display_options|row_plugin"] = 'fields';
-  $overrides["views_view.temaspor.display|default|display_options|style_options"] = array(
-    'slide_field_wrapper' => 0,
-    'cache' => '',
-    'mousewheel' => 0,
-    'optionset' => 'clone_of_default',
-    'override' => 0,
-    'overridables' => array(
-      'arrows' => 0,
-      'autoplay' => 0,
-      'dots' => 0,
-      'draggable' => 0,
-    ),
-    'skin' => 'grid',
-    'slide_caption' => array(
-      'title' => 0,
-    ),
-    'slide_overlay' => '',
-    'preserve_keys' => 0,
-  );
-  $overrides["views_view.temaspor.display|default|display_options|style_plugin"] = 'slick';
 
  return $overrides;
 }

@@ -22,7 +22,7 @@ function cbib_temaspor_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Temaspor nyheder';
+  $handler->display->display_options['title'] = 'Temaspor Kompetenceudvikling';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -69,8 +69,8 @@ function cbib_temaspor_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
+    'image_style' => 'teaser',
+    'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
@@ -110,14 +110,40 @@ function cbib_temaspor_views_default_views() {
     'news' => 'news',
   );
 
-  /* Display: News */
-  $handler = $view->new_display('panel_pane', 'News', 'panel_pane_1');
+  /* Display: Nyheder */
+  $handler = $view->new_display('panel_pane', 'Nyheder', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Nyheder';
+  $handler->display->display_options['pane_category']['name'] = 'Temaspor';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['inherit_panels_path'] = '1';
+
+  /* Display: Kompetenceudvikling */
+  $handler = $view->new_display('panel_pane', 'Kompetenceudvikling', 'panel_pane_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Aktiviteter';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
   $handler->display->display_options['pane_category']['name'] = 'Temaspor';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['temaspor'] = array(
     t('Master'),
-    t('Temaspor nyheder'),
+    t('Temaspor Kompetenceudvikling'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -132,8 +158,10 @@ function cbib_temaspor_views_default_views() {
     t('›'),
     t('»'),
     t('Alle'),
-    t('News'),
+    t('Nyheder'),
     t('Temaspor'),
+    t('Kompetenceudvikling'),
+    t('Aktiviteter'),
   );
   $export['temaspor'] = $view;
 
