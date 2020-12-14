@@ -10,48 +10,44 @@
 function cbib_temaspor_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-temaspor-body'
-  $field_instances['node-temaspor-body'] = array(
+  // Exported field_instance: 'node-temaspor-field_og_subscribe_settings'
+  $field_instances['node-temaspor-field_og_subscribe_settings'] = array(
     'bundle' => 'temaspor',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'anyone',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'list_default',
+        'weight' => 6,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 1,
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => 1,
+    'field_name' => 'field_og_subscribe_settings',
+    'label' => 'Indstilling for adgang',
+    'required' => 0,
     'settings' => array(
-      'display_summary' => 0,
-      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 7,
     ),
   );
 
@@ -107,6 +103,143 @@ function cbib_temaspor_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-temaspor-field_temaspor_br_dtekst'
+  $field_instances['node-temaspor-field_temaspor_br_dtekst'] = array(
+    'bundle' => 'temaspor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_temaspor_br_dtekst',
+    'label' => 'Temaspor brødtekst',
+    'required' => 1,
+    'settings' => array(
+      'display_summary' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-temaspor-group_access'
+  $field_instances['node-temaspor-group_access'] = array(
+    'bundle' => 'temaspor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_access',
+    'label' => 'Gruppe synlighed',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-temaspor-group_group'
+  $field_instances['node-temaspor-group_group'] = array(
+    'bundle' => 'temaspor',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Angiv om dette er en OG gruppe.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'og_ui',
+        'settings' => array(
+          'field_name' => FALSE,
+        ),
+        'type' => 'og_group_subscribe',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => 1,
+    'entity_type' => 'node',
+    'field_name' => 'group_group',
+    'label' => 'Gruppe',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Fuld',
+        'type' => 'og_group_subscribe',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Smagsprøve',
+        'type' => 'og_group_subscribe',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+        'og_hide' => TRUE,
+      ),
+      'type' => 'options_onoff',
       'weight' => 2,
     ),
   );
@@ -157,8 +290,13 @@ function cbib_temaspor_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Angiv om dette er en OG gruppe.');
   t('Body');
+  t('Gruppe');
+  t('Gruppe synlighed');
+  t('Indstilling for adgang');
   t('Temapor underemne');
+  t('Temaspor brødtekst');
 
   return $field_instances;
 }

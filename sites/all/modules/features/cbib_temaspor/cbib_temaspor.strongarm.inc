@@ -134,39 +134,20 @@ function cbib_temaspor_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__temaspor';
   $strongarm->value = array(
-    'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
+    'view_modes' => array(),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'redirect' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
       ),
       'display' => array(),
@@ -192,9 +173,7 @@ function cbib_temaspor_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_temaspor';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_temaspor'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -263,57 +242,6 @@ function cbib_temaspor_strongarm() {
   $strongarm->name = 'node_submitted_temaspor_underemne';
   $strongarm->value = 0;
   $export['node_submitted_temaspor_underemne'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'panelizer_defaults_node_temaspor';
-  $strongarm->value = array(
-    'status' => 1,
-    'view modes' => array(
-      'page_manager' => array(
-        'status' => 1,
-        'default' => 1,
-        'choice' => 0,
-      ),
-      'default' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'full' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'teaser' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'rss' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'diff_standard' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'print' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'token' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-    ),
-  );
-  $export['panelizer_defaults_node_temaspor'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

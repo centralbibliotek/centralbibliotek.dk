@@ -10,48 +10,6 @@
 function cbib_temaspor_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'administer panelizer node temaspor content'.
-  $permissions['administer panelizer node temaspor content'] = array(
-    'name' => 'administer panelizer node temaspor content',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node temaspor context'.
-  $permissions['administer panelizer node temaspor context'] = array(
-    'name' => 'administer panelizer node temaspor context',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node temaspor defaults'.
-  $permissions['administer panelizer node temaspor defaults'] = array(
-    'name' => 'administer panelizer node temaspor defaults',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node temaspor layout'.
-  $permissions['administer panelizer node temaspor layout'] = array(
-    'name' => 'administer panelizer node temaspor layout',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node temaspor overview'.
-  $permissions['administer panelizer node temaspor overview'] = array(
-    'name' => 'administer panelizer node temaspor overview',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node temaspor settings'.
-  $permissions['administer panelizer node temaspor settings'] = array(
-    'name' => 'administer panelizer node temaspor settings',
-    'roles' => array(),
-    'module' => 'panelizer',
-  );
-
   // Exported permission: 'administer panelizer node temaspor_underemne content'.
   $permissions['administer panelizer node temaspor_underemne content'] = array(
     'name' => 'administer panelizer node temaspor_underemne content',
