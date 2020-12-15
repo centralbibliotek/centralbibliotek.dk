@@ -26,7 +26,7 @@ function cbib_temaspor_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 6,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -65,7 +65,7 @@ function cbib_temaspor_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -119,7 +119,7 @@ function cbib_temaspor_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -161,7 +161,7 @@ function cbib_temaspor_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 7,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -204,7 +204,7 @@ function cbib_temaspor_field_default_field_instances() {
           'field_name' => FALSE,
         ),
         'type' => 'og_group_subscribe',
-        'weight' => 5,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
