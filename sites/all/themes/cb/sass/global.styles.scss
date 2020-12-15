@@ -4978,3 +4978,167 @@ a.print-page {
 .view-centralbibliotek-license a {
   color: $brand-primary-dark;
 }
+
+/*
+* Banner
+*/
+
+.banner {
+  position: relative;
+}
+
+.views-banner {
+  margin-top: 45px;
+}
+
+.banner .views-field-title {
+  font-size: 2em;
+  color: white;
+}
+
+.banner .views-field-title a {
+  color: white;
+}
+
+.banner-text {
+  position: absolute;
+  top: 270px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  height: 105px;
+  width: 100%;
+}
+
+.banner-text p span {
+  background-color: transparent !important;
+}
+
+/*
+* Temaspor
+*/
+
+.node-type-temaspor {
+  .pane-node-title {
+    margin-top: 20px;
+  }
+  .pane-node-title .block-inner {
+    margin-bottom: -50px;
+    border-top: 1px solid #c8c8c8;
+  }
+  .pane-node-title .block-content {
+    position: relative;
+    width: 350px;
+    height: 70px;
+    text-transform: uppercase;
+    padding: 0px 0px;
+    font-weight: 300;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0px;
+    top: -55px;
+  }
+  h1.title {
+    position: relative;
+    color: #fff;
+    top: 17px;
+    padding: 10px 10px 6px 10px;
+    letter-spacing: 0.08em;
+    z-index: 4;
+    font-size: 21px;
+    background-color: #052340;
+  }
+  .pane-views-panes h2 {
+    background-color: #052340;
+    display: inline-block;
+    color: white;
+    padding: 0.25em 0.75em;
+    margin: 0px 0px -1px 0px;
+  }
+  .pane-views-panes .block-content {
+    border-top: 1px solid #c8c8c8;
+    padding-top: 25px;
+  }
+
+  /* Slick */
+  .slick-slider {
+    position: relative;
+  }
+  .slick-list.draggable {
+    margin: 0px 30px;
+  }
+  .slick__slide {
+    padding: 0px 5px;
+  }
+  .slick-slide > div {
+    display: flex;
+  }
+  .slick__arrow {
+    bottom: auto;
+    height: 2px;
+    left: 0;
+    margin-top: -1px;
+    pointer-events: none;
+    position: absolute;
+    top: 75px;
+    width: 100%;
+    z-index: 2;
+  }
+  .slick-arrow,
+  .slick-arrow:hover {
+    border: 0;
+    background: transparent;
+  }
+  .slick-arrow:before {
+    content: "›";
+    padding: 0px;
+    background-color: #c8c8c8;
+    position: relative;
+    font-size: 2.8em;
+    letter-spacing: -1px;
+    font-weight: 200;
+    line-height: 29px;
+    height: 32px;
+    width: 32px;
+    border-radius: 18px;
+    color: #383838;
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", FreeSans,
+      sans-serif;
+    opacity: 1;
+    display: block;
+  }
+  .slick-arrow:hover:before {
+    background-color: #ff5479;
+    color: white;
+  }
+
+  .slick-next:before {
+    content: "›";
+  }
+  .slick-prev:before {
+    content: "‹";
+  }
+
+  button,
+  button:hover {
+    text-shadow: none;
+  }
+
+  nav .slick-prev {
+    left: -25px;
+  }
+  .views-field-title a {
+    font-size: 1.15em;
+    color: #424242;
+  }
+
+  /* underemner */
+
+  .field-name-field-temapor-underemne h2 a {
+    font-size: 1.1em;
+    color: #424242;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+}
