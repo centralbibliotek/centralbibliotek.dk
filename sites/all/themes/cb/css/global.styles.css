@@ -7548,7 +7548,7 @@ a.print-page {
 
 /* Tema menu */
 #main-menu #block-menu-block-1 {
-  width: 350px;
+  width: 290px;
 }
 #main-menu #block-menu-block-1 .temaspormenu {
   display: flex;
@@ -7588,7 +7588,7 @@ a.print-page {
 #main-menu #block-menu-block-1 ul {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 280px;
 }
 #main-menu #block-menu-block-1 li {
   border-color: #c8c8c8;
