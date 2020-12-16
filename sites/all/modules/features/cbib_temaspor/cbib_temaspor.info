@@ -126,7 +126,6 @@ features[variable][] = scheduler_use_vertical_tabs_temaspor_underemne
 features[variable][] = search_api_exclude_setting_temaspor
 features[variable][] = search_api_exclude_setting_temaspor_underemne
 features[views_view][] = temaspor
-features[views_view][] = temaspor_menu
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][features] = features
 features_exclude[dependencies][options] = options
