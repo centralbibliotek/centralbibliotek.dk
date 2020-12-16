@@ -376,6 +376,9 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
  */
 function cbib_oc_hooks_form_alter(&$form, &$form_state, $form_id)
 {
+    if ($form_id == "temaspor_node_form") {
+        $form['field_og_subscribe_settings']['#access'] = FALSE;
+    }
     if($form_id == "user_register_form")
     {
         hide($form['actions']['submit']);
