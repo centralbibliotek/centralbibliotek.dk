@@ -5014,6 +5014,10 @@ a.print-page {
   background-color: transparent !important;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 /*
 * Temaspor
 */
@@ -5108,6 +5112,29 @@ a.print-page {
     padding-top: 25px;
   }
 
+  /* Scroll menu */
+
+  .pane-temaspor-undermenu-panel-pane-1 {
+    .block-content {
+      border: 0;
+      padding: 0;
+    }
+    .view-content {
+      display: flex;
+      justify-content: space-around;
+
+      > div:first-child {
+        display: none;
+      }
+    }
+    .views-row {
+      border: 0;
+    }
+    br {
+      display: none;
+    }
+  }
+
   /* Slick */
   .slick-slider {
     position: relative;
@@ -5182,12 +5209,11 @@ a.print-page {
 
   /* underemner */
 
-  .field-name-field-temapor-underemne h2 a {
-    font-size: 1.1em;
-    color: #424242;
-    font-size: 20px;
-    line-height: 1.2;
-    margin-bottom: 5px;
+  .pane-custom .block-content > div {
+    padding: 0;
+    margin: 0;
+    color: white;
+    height: 1px;
   }
 }
 

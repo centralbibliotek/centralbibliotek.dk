@@ -7412,6 +7412,10 @@ a.print-page {
   background-color: transparent !important;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 /*
 * Temaspor
 */
@@ -7451,6 +7455,7 @@ a.print-page {
 }
 
 .node-type-temaspor {
+  /* Scroll menu */
   /* Slick */
   /* underemner */
 }
@@ -7491,6 +7496,23 @@ a.print-page {
 .node-type-temaspor .pane-views-panes .block-content {
   border-top: 1px solid #c8c8c8;
   padding-top: 25px;
+}
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 .block-content {
+  border: 0;
+  padding: 0;
+}
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 .view-content {
+  display: flex;
+  justify-content: space-around;
+}
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 .view-content > div:first-child {
+  display: none;
+}
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 .views-row {
+  border: 0;
+}
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 br {
+  display: none;
 }
 .node-type-temaspor .slick-slider {
   position: relative;
@@ -7558,12 +7580,11 @@ a.print-page {
   font-size: 1.15em;
   color: #424242;
 }
-.node-type-temaspor .field-name-field-temapor-underemne h2 a {
-  font-size: 1.1em;
-  color: #424242;
-  font-size: 20px;
-  line-height: 1.2;
-  margin-bottom: 5px;
+.node-type-temaspor .pane-custom .block-content > div {
+  padding: 0;
+  margin: 0;
+  color: white;
+  height: 1px;
 }
 
 /* Midlertidigt fix for demo*/

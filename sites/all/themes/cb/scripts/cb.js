@@ -555,8 +555,9 @@
   };
 
   // Add link to whole teaser node.
-  Drupal.behaviors.temamenu = {
+  Drupal.behaviors.temaspor = {
     attach: function (context, settings) {
+      // temaspor menu
       $("#block-menu-block-1 h3").removeClass("element-invisible");
       $("#block-menu-block-1 h3").wrap("<div class='temaspormenu'></div>");
       $(".temaspormenu").append(
@@ -564,8 +565,15 @@
       );
       $(".temaspormenu").click(function () {
         $(".menu-name-menu-temaspor").fadeToggle();
-        console.log("test");
         $(".temaspormenu span").toggleClass("open");
+      });
+      // temaspor undermenu smooth scroll
+      function smoothScrollingTo(target){
+        $('html,body').animate({scrollTop:$(target).offset().​top}, 500);
+      }
+      $('a[href*=\\#]').on('click', function(event){     
+          event.preventDefault();
+          smoothScrollingTo(this.hash);
       });
     },
   };
