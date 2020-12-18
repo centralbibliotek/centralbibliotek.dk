@@ -5018,6 +5018,56 @@ a.print-page {
 * Temaspor
 */
 
+// gray - generisk
+.node-type-temaspor {
+  h1.title {
+    background: #424242;
+  }
+  .pane-views-panes h2 {
+    background: #424242;
+  }
+}
+
+// yellow - borgeren i den ...
+.page-node-54247 {
+  h1.title {
+    background: #d97707;
+  }
+  .pane-views-panes h2 {
+    background: #d97707;
+  }
+}
+
+// green - glæden ved ...
+.page-node-54248 {
+  h1.title {
+    background: #037857;
+  }
+  .pane-views-panes h2 {
+    background: #037857;
+  }
+}
+
+// pink - kultur for alle
+.page-node-54246 {
+  h1.title {
+    background: #ff5479;
+  }
+  .pane-views-panes h2 {
+    background: #ff5479;
+  }
+}
+
+// blue - materialeoverbygning
+.page-node-54243 {
+  h1.title {
+    background: #052340;
+  }
+  .pane-views-panes h2 {
+    background: #052340;
+  }
+}
+
 .node-type-temaspor {
   .pane-node-title {
     margin-top: 20px;
@@ -5046,10 +5096,8 @@ a.print-page {
     letter-spacing: 0.08em;
     z-index: 4;
     font-size: 21px;
-    background-color: #052340;
   }
   .pane-views-panes h2 {
-    background-color: #052340;
     display: inline-block;
     color: white;
     padding: 0.25em 0.75em;
@@ -5163,7 +5211,7 @@ a.print-page {
 
 #main-menu {
   #block-menu-block-1 {
-    width: 290px;
+    //width: 290px;
 
     .temaspormenu {
       display: flex;
@@ -5200,11 +5248,12 @@ a.print-page {
       background-color: white;
       transition: 1s ease-out;
       display: none;
+      right: 235px;
     }
     ul {
       display: flex;
       flex-direction: column;
-      width: 280px;
+      //width: 280px;
     }
     li {
       border-color: #c8c8c8;
@@ -5224,8 +5273,8 @@ a.print-page {
     .blue {
       border-right: 5px solid #052340;
     }
-    .gray {
-      border-right: 5px solid #c8c8c8;
+    .green {
+      border-right: 5px solid #037857;
     }
     .pink {
       border-right: 5px solid #ff5479;
