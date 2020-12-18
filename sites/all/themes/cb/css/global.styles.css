@@ -7460,10 +7460,10 @@ a.print-page {
 .node-type-temaspor .pane-node-title .block-inner {
   margin-bottom: -50px;
   border-top: 1px solid #c8c8c8;
+  display: flex;
 }
 .node-type-temaspor .pane-node-title .block-content {
   position: relative;
-  width: 350px;
   height: 70px;
   text-transform: uppercase;
   padding: 0px 0px;
@@ -7580,6 +7580,9 @@ a.print-page {
 }
 
 /* Tema menu */
+#main-menu #block-menu-block-1 {
+  width: 290px;
+}
 #main-menu #block-menu-block-1 .temaspormenu {
   display: flex;
   justify-content: flex-end;
@@ -7614,7 +7617,6 @@ a.print-page {
   background-color: white;
   transition: 1s ease-out;
   display: none;
-  right: 235px;
 }
 #main-menu #block-menu-block-1 ul {
   display: flex;
