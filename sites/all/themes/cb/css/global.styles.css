@@ -7514,6 +7514,10 @@ html {
 .node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 br {
   display: none;
 }
+.node-type-temaspor .pane-temaspor-undermenu-panel-pane-1 .views-field-title > span {
+  display: flex;
+  align-items: center;
+}
 .node-type-temaspor .slick-slider {
   position: relative;
 }

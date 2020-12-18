@@ -5133,6 +5133,10 @@ html {
     br {
       display: none;
     }
+    .views-field-title > span {
+      display: flex;
+      align-items: center;
+    }
   }
 
   /* Slick */
