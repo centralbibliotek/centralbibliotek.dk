@@ -554,10 +554,10 @@
     },
   };
 
-  // Add link to whole teaser node.
-  Drupal.behaviors.temaspor = {
+  // Temaspor menu dropdown
+  Drupal.behaviors.temamenu = {
     attach: function (context, settings) {
-      // temaspor menu
+      console.log("test");
       $("#block-menu-block-1 h3").removeClass("element-invisible");
       $("#block-menu-block-1 h3").wrap("<div class='temaspormenu'></div>");
       $(".temaspormenu").append(
@@ -567,13 +567,24 @@
         $(".menu-name-menu-temaspor").fadeToggle();
         $(".temaspormenu span").toggleClass("open");
       });
-      // temaspor undermenu smooth scroll
-      function smoothScrollingTo(target){
-        $('html,body').animate({scrollTop:$(target).offset().​top}, 500);
-      }
-      $('a[href*=\\#]').on('click', function(event){     
-          event.preventDefault();
-          smoothScrollingTo(this.hash);
+    },
+  };
+
+  // Temaspor undermenu scroll
+  Drupal.behaviors.temascroll = {
+    attach: function (context, settings) {
+      $("a[href*=\\#]").on("click", function (event) {
+        const hash = this.hash;
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        var position = $(hash).offset().top - 100;
+        $("HTML, BODY").animate(
+          {
+            scrollTop: position,
+          },
+          500
+        );
       });
     },
   };
