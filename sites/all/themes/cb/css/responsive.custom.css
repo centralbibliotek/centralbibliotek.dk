@@ -113,11 +113,13 @@
 
   .page-events .ui-tabs ul li,
   .page-news .ui-tabs ul li,
+  .page-node-news .ui-tabs ul li,
   .page-node-events .ui-tabs ul li {
     margin: 0 1em 1em 0;
   }
   .page-events .ui-tabs ul li.ui-tabs-active,
   .page-news .ui-tabs ul li.ui-tabs-active,
+  .page-node-news .ui-tabs ul li.ui-tabs-active,
   .page-node-events .ui-tabs ul li.ui-tabs-active {
     margin: 0 1em 1em 0;
   }

@@ -1503,6 +1503,7 @@ li.field-item:hover:before {
 
 .page-events .ui-tabs,
 .page-news .ui-tabs,
+.page-node-news .ui-tabs,
 .page-node-events .ui-tabs {
   font-size: 1em;
   line-height: 1.6;
@@ -1558,11 +1559,13 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs .ui-tabs-panel,
 .page-news .ui-tabs .ui-tabs-panel,
+.page-node-news .ui-tabs .ui-tabs-panel,
 .page-node-events .ui-tabs .ui-tabs-panel {
   padding: 0;
 }
 .page-events .ui-tabs ul,
 .page-news .ui-tabs ul,
+.page-node-news .ui-tabs ul,
 .page-node-events .ui-tabs ul {
   background: none;
   border: none;
@@ -1570,6 +1573,7 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs ul li,
 .page-news .ui-tabs ul li,
+.page-node-news .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
   border: none;
   background: none;
@@ -1581,23 +1585,27 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs ul li.ui-tabs-selected,
 .page-news .ui-tabs ul li.ui-tabs-selected,
+.page-node-news .ui-tabs ul li.ui-tabs-selected,
 .page-node-events .ui-tabs ul li.ui-tabs-selected {
   padding-bottom: 0.5rem;
 }
 .page-events .ui-tabs ul li a,
 .page-news .ui-tabs ul li a,
+.page-node-news .ui-tabs ul li a,
 .page-node-events .ui-tabs ul li a {
   padding: 0;
   margin: 0;
 }
 .page-events .ui-tabs ul,
 .page-news .ui-tabs ul,
+.page-node-news .ui-tabs ul,
 .page-node-events .ui-tabs ul {
   margin: 0;
   padding: 0;
 }
 .page-events .ui-tabs ul li,
 .page-news .ui-tabs ul li,
+.page-node-news .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
   list-style-type: none;
   list-style-image: none;
@@ -1609,6 +1617,7 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs ul li a,
 .page-news .ui-tabs ul li a,
+.page-node-news .ui-tabs ul li a,
 .page-node-events .ui-tabs ul li a {
   color: #424242;
   display: block;
@@ -1617,6 +1626,8 @@ li.field-item:hover:before {
 .page-events .ui-tabs ul li a:hover, .page-events .ui-tabs ul li a:focus,
 .page-news .ui-tabs ul li a:hover,
 .page-news .ui-tabs ul li a:focus,
+.page-node-news .ui-tabs ul li a:hover,
+.page-node-news .ui-tabs ul li a:focus,
 .page-node-events .ui-tabs ul li a:hover,
 .page-node-events .ui-tabs ul li a:focus {
   text-decoration: none;
@@ -1626,6 +1637,8 @@ li.field-item:hover:before {
 .page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.active-trail a,
 .page-news .ui-tabs ul li.ui-state-active a,
 .page-news .ui-tabs ul li.active-trail a,
+.page-node-news .ui-tabs ul li.ui-state-active a,
+.page-node-news .ui-tabs ul li.active-trail a,
 .page-node-events .ui-tabs ul li.ui-state-active a,
 .page-node-events .ui-tabs ul li.active-trail a {
   box-shadow: inset 0 -3px 0 0 RGB(5, 35, 65);
@@ -1634,6 +1647,7 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs ul li,
 .page-news .ui-tabs ul li,
+.page-node-news .ui-tabs ul li,
 .page-node-events .ui-tabs ul li {
   background-color: #c8c8c8;
   padding: 0;
@@ -1642,6 +1656,7 @@ li.field-item:hover:before {
 }
 .page-events .ui-tabs ul li a,
 .page-news .ui-tabs ul li a,
+.page-node-news .ui-tabs ul li a,
 .page-node-events .ui-tabs ul li a {
   cursor: pointer !important;
   padding-bottom: 0.5rem;
@@ -1649,12 +1664,15 @@ li.field-item:hover:before {
 .page-events .ui-tabs ul li.ui-state-active a, .page-events .ui-tabs ul li.ui-state-hover a,
 .page-news .ui-tabs ul li.ui-state-active a,
 .page-news .ui-tabs ul li.ui-state-hover a,
+.page-node-news .ui-tabs ul li.ui-state-active a,
+.page-node-news .ui-tabs ul li.ui-state-hover a,
 .page-node-events .ui-tabs ul li.ui-state-active a,
 .page-node-events .ui-tabs ul li.ui-state-hover a {
   padding-bottom: 0.5rem;
 }
 .page-events .ui-tabs ul,
 .page-news .ui-tabs ul,
+.page-node-news .ui-tabs ul,
 .page-node-events .ui-tabs ul {
   margin-bottom: 2em;
 }
