@@ -123,7 +123,13 @@
 
   // add some spacing to event-tabs when stacked
   .page-events .ui-tabs ul li,
+<<<<<<< HEAD
   .page-node-events .ui-tabs ul li {
+=======
+  .page-news .ui-tabs ul li,
+  .page-node-news .ui-tabs ul li,
+  .page-node-events .ui-tabs ul li{
+>>>>>>> 6228a7b073a5d4d6a33fb929691d0090ba0b08c1
     margin: 0 1em 1em 0;
 
     &.ui-tabs-active {

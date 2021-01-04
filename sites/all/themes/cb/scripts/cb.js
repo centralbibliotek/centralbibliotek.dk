@@ -63,7 +63,12 @@
 
     if (
       document.location.pathname.indexOf("/kompetenceudvikling") === 0 ||
-      document.location.pathname.indexOf("/nyheder") === 0
+      document.location.pathname.indexOf("/herning/nyheder") === 0 ||
+      document.location.pathname.indexOf("/aalborg/nyheder") === 0 ||
+      document.location.pathname.indexOf("/vejle/nyheder") === 0 ||
+      document.location.pathname.indexOf("/odense/nyheder") === 0 ||
+      document.location.pathname.indexOf("/roskilde/nyheder") === 0 ||
+      document.location.pathname.indexOf("/gentofte/nyheder") === 0
     ) {
       $("#tabs-0-center-1 .views-row")
         .not(

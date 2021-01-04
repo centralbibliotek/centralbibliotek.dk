@@ -3380,6 +3380,8 @@ body.node-type-license .cb3 .region-cb3-third {
 }
 
 .page-events .ui-tabs ul,
+.page-news .ui-tabs ul,
+.page-node-news .ui-tabs ul,
 .page-node-events .ui-tabs ul {
   margin-bottom: 0em !important;
 }
