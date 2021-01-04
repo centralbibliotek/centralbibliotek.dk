@@ -119,15 +119,18 @@
       </div><!-- /end #branding -->
     <?php endif; ?>
 
-    <div class="branch-selector">
+
+    <div class="libraryregion">
       <?php print render($page['header_two']); ?>
+    </div>          
+
+    <div class="branch-selector">
         <?php print $search; ?>
     </div>
       
     <!-- region: Header -->
     <?php print render($page['header']); ?>
     
-
   </div><?php //.container ?>
 </header>
 
@@ -135,12 +138,7 @@
   <div class="container">
     <?php print render($page['menu_bar']); ?>
 
-    <div class="utility-links">
-      <?php
-        // The Commons Utility Links will be inserted here using js - see scripts/cb.js.
-        // This is just a quick fix and should be refactored the Drupal way as the project matures.
-      ?>
-    </div>
+    
   </div>
 </div>
 

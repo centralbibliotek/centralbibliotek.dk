@@ -1,4 +1,3 @@
-
 // _base.scss imports _custom.scss and other partials.
 @import "base";
 
@@ -11,18 +10,16 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
-.branch-selector #views-exposed-form-search-api-nodes-default
-{
-    width: 95%;
-    padding: 0 10px;
+.branch-selector #views-exposed-form-search-api-nodes-default {
+  //width: 95%;
+  padding: 0 10px;
 }
-.view-search-api-nodes .views-exposed-widgets .views-reset-button
-{
-    right: 4%;
+.view-search-api-nodes .views-exposed-widgets .views-reset-button {
+  right: 4%;
 }
-.panel-2col-stacked .panel-col-last{
-    width: 100%;
-    overflow: visible !important;
+.panel-2col-stacked .panel-col-last {
+  width: 100%;
+  overflow: visible !important;
 }
 
 /*.fix_me_select{

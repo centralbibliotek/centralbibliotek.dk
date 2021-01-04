@@ -7,7 +7,16 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
-body.front.logged-in .view-commons-homepage-content .article.node .node-content .field-name-body, body.front.logged-in .view-commons-homepage-content .node-teaser.node-group .node-content .field-name-body {
+body.front.logged-in
+.view-commons-homepage-content
+.article.node
+.node-content
+.field-name-body,
+body.front.logged-in
+.view-commons-homepage-content
+.node-teaser.node-group
+.node-content
+.field-name-body {
   margin-right: 0;
 }
 
@@ -16,7 +25,6 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
  */
 .main-header {
   height: auto;
-  min-height: 140px;
 }
 
 #branding {
@@ -60,7 +68,12 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   display: unset;
 }
 
-.view-filters > #views-exposed-form-search-api-nodes-default > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+.view-filters
+> #views-exposed-form-search-api-nodes-default
+> div:nth-child(1)
+> div:nth-child(1)
+> div:nth-child(1)
+> div:nth-child(2) {
   display: none !important;
 }
 
@@ -69,10 +82,23 @@ body.front.logged-in .view-commons-homepage-content .article.node .node-content 
   overflow: visible !important;
 }
 
-.page-licens div div div .view-centralbibliotek-license .views-row .center-wrapper .panel-col-last {
+.page-licens
+div
+div
+div
+.view-centralbibliotek-license
+.views-row
+.center-wrapper
+.panel-col-last {
   margin-left: 0px;
 }
 
-.page-licens div div div .view-centralbibliotek-license .views-row .panel-col-first {
+.page-licens
+div
+div
+div
+.view-centralbibliotek-license
+.views-row
+.panel-col-first {
   margin: -23px 0 0 -52px !important;
 }
