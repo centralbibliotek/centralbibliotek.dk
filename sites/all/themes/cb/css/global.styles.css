@@ -7591,16 +7591,87 @@ html {
   height: 1px;
 }
 
-/* Midlertidigt fix for demo*/
-.node-type-temaspor .utility-links {
+/* Header changes after version temaspor */
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.main-header .container #branding {
+  position: initial;
+  width: 190px;
+}
+.main-header .container #branding img {
+  max-width: 200%;
+}
+.main-header .container #block-views-centralbiblioteker-block {
+  position: initial;
+  margin: 0;
+}
+.main-header .container #block-views-centralbiblioteker-block.block {
+  margin: 0;
+}
+.main-header .container #block-views-centralbiblioteker-block select {
+  height: 50px;
+  z-index: 10;
+}
+.main-header .container .libraryregion {
+  position: absolute;
+  left: 250px;
+  align-self: flex-start;
+  padding-top: 16px;
+  z-index: 10;
+}
+.main-header .container .libraryregion #block-views-centralbiblioteker-block ul.region-select {
+  width: 190px;
+}
+.main-header .container .branch-selector {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 1.5rem;
+}
+.main-header .container .branch-selector form {
+  position: initial;
   display: none;
 }
-.node-type-temaspor #menu-bar {
+.main-header .container .branch-selector .views-exposed-form {
+  margin: 0;
+}
+.main-header .container .branch-selector .views-submit-button {
+  display: none;
+}
+.main-header .container .branch-selector .views-exposed-widgets {
+  margin-bottom: 0;
+}
+.main-header .container .branch-selector .search:hover {
+  cursor: pointer;
+}
+
+#block-commons-utility-links-commons-utility-links {
+  position: initial !important;
+  margin: 0;
+}
+
+.commons-utility-links {
+  display: flex;
+  align-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+#menu-bar {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.node-type-temaspor #menu-bar:after {
+
+#menu-bar:after {
   display: none;
 }
 
@@ -7612,6 +7683,7 @@ html {
   display: flex;
   justify-content: flex-end;
   height: 100%;
+  padding-right: 10px;
 }
 #main-menu #block-menu-block-1 h3 {
   text-align: right;
