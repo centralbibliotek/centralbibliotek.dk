@@ -63,6 +63,7 @@
 
     if (
       document.location.pathname.indexOf("/kompetenceudvikling") === 0 ||
+      document.location.pathname.indexOf("/nyheder") === 0 ||
       document.location.pathname.indexOf("/herning/nyheder") === 0 ||
       document.location.pathname.indexOf("/aalborg/nyheder") === 0 ||
       document.location.pathname.indexOf("/vejle/nyheder") === 0 ||
