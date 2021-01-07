@@ -175,6 +175,10 @@
 
   // temaspor adjustments - smallphone portrait
 
+  .main-header {
+    padding-right: 10px;
+    min-height: 60px;
+  }
   .main-header .container {
     .libraryregion {
       left: 60px;
@@ -203,6 +207,9 @@
 
   #menu-bar {
     flex-direction: column;
+  }
+  #main-menu ul li a {
+    padding-bottom: 0;
   }
   #main-menu #block-menu-block-1 {
     width: 100%;
