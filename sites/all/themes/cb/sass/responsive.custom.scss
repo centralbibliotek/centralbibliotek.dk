@@ -175,46 +175,44 @@
 
   // temaspor adjustments - smallphone portrait
 
-  .node-type-temaspor {
-    .main-header .container {
-      .libraryregion {
-        left: 60px;
-      }
-      #branding {
-        width: 65px;
-        height: 40px;
-        overflow: hidden;
-        img {
-          max-width: initial;
-          width: 150px;
-        }
-      }
-      #block-views-centralbiblioteker-block select {
-        height: 40px;
+  .main-header .container {
+    .libraryregion {
+      left: 60px;
+    }
+    #branding {
+      width: 65px;
+      height: 40px;
+      overflow: hidden;
+      img {
+        max-width: initial;
+        width: 150px;
       }
     }
-    #views-exposed-form-search-api-nodes-default.open {
-      z-index: 10;
-      display: block;
-      position: absolute;
-      top: 73px;
-      background: #052340;
-      margin: 0;
+    #block-views-centralbiblioteker-block select {
+      height: 40px;
     }
+  }
+  #views-exposed-form-search-api-nodes-default.open {
+    z-index: 10;
+    display: block;
+    position: absolute;
+    top: 73px;
+    background: #052340;
+    margin: 0;
+  }
 
-    #menu-bar {
-      flex-direction: column;
+  #menu-bar {
+    flex-direction: column;
+  }
+  #main-menu #block-menu-block-1 {
+    width: 100%;
+    h3,
+    .arrow {
+      margin: 0.5rem 0 0.5rem 0.5rem;
     }
-    #main-menu #block-menu-block-1 {
-      width: 100%;
-      h3,
-      .arrow {
-        margin: 0.5rem 0 0.5rem 0.5rem;
-      }
-    }
-    .menu-name-menu-temaspor {
-      width: 100%;
-    }
+  }
+  .menu-name-menu-temaspor {
+    width: 100%;
   }
 }
 
@@ -305,20 +303,19 @@
   }
 
   // temaspor adjustments - tablet portrait
-  .node-type-temaspor {
-    .main-header .container .libraryregion {
-      padding-top: 0px;
-    }
-    #views-exposed-form-search-api-nodes-default {
-      width: 75%;
-    }
-    #views-exposed-form-search-api-nodes-default.open {
-      z-index: 10;
-    }
-    .logout,
-    .login {
-      padding-right: 10px;
-    }
+
+  .main-header .container .libraryregion {
+    padding-top: 0px;
+  }
+  #views-exposed-form-search-api-nodes-default {
+    width: 75%;
+  }
+  #views-exposed-form-search-api-nodes-default.open {
+    z-index: 10;
+  }
+  .logout,
+  .login {
+    padding-right: 10px;
   }
 }
 /*

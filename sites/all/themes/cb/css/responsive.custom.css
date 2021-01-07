@@ -166,22 +166,23 @@
     margin-left: 0px;
   }
 
-  .node-type-temaspor .main-header .container .libraryregion {
+  .main-header .container .libraryregion {
     left: 60px;
   }
-  .node-type-temaspor .main-header .container #branding {
+  .main-header .container #branding {
     width: 65px;
     height: 40px;
     overflow: hidden;
   }
-  .node-type-temaspor .main-header .container #branding img {
+  .main-header .container #branding img {
     max-width: initial;
     width: 150px;
   }
-  .node-type-temaspor .main-header .container #block-views-centralbiblioteker-block select {
+  .main-header .container #block-views-centralbiblioteker-block select {
     height: 40px;
   }
-  .node-type-temaspor #views-exposed-form-search-api-nodes-default.open {
+
+  #views-exposed-form-search-api-nodes-default.open {
     z-index: 10;
     display: block;
     position: absolute;
@@ -189,17 +190,20 @@
     background: #052340;
     margin: 0;
   }
-  .node-type-temaspor #menu-bar {
+
+  #menu-bar {
     flex-direction: column;
   }
-  .node-type-temaspor #main-menu #block-menu-block-1 {
+
+  #main-menu #block-menu-block-1 {
     width: 100%;
   }
-  .node-type-temaspor #main-menu #block-menu-block-1 h3,
-  .node-type-temaspor #main-menu #block-menu-block-1 .arrow {
+  #main-menu #block-menu-block-1 h3,
+  #main-menu #block-menu-block-1 .arrow {
     margin: 0.5rem 0 0.5rem 0.5rem;
   }
-  .node-type-temaspor .menu-name-menu-temaspor {
+
+  .menu-name-menu-temaspor {
     width: 100%;
   }
 }
@@ -259,17 +263,20 @@
     padding-bottom: 0.2em;
   }
 
-  .node-type-temaspor .main-header .container .libraryregion {
+  .main-header .container .libraryregion {
     padding-top: 0px;
   }
-  .node-type-temaspor #views-exposed-form-search-api-nodes-default {
+
+  #views-exposed-form-search-api-nodes-default {
     width: 75%;
   }
-  .node-type-temaspor #views-exposed-form-search-api-nodes-default.open {
+
+  #views-exposed-form-search-api-nodes-default.open {
     z-index: 10;
   }
-  .node-type-temaspor .logout,
-  .node-type-temaspor .login {
+
+  .logout,
+  .login {
     padding-right: 10px;
   }
 }
