@@ -547,21 +547,6 @@
     },
   };
 
-  // OLD MENU removed when temaspor was implementet
-  // Move the Commons utility links to another html element.
-  // This is just a quick fix and should be refactored the Drupal way as the project matures.
-  /*Drupal.behaviors.replaceCommonsUtility = {
-    attach: function (context, settings) {
-      var source = $(
-        "#block-commons-utility-links-commons-utility-links"
-      ).contents();
-      var target = $(".main-header .utility-links");
-      console.log("test");
-      $(target).append(source);
-    },
-  };
-  */
-
   // Header menu icons and search toogle
   $(document).ready(function () {
     $(".branch-selector").append(
@@ -606,23 +591,29 @@
   });
 
   // Temaspor undermenu scroll
+  Drupal.behaviors.anchorscroll = {
+    attach: function (context, settings) {
+      $(".node-type-temaspor a[href*=\\#]").on("click", function (event) {
+        const hash = this.hash;
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        var position = $(hash).offset().top - 100;
+        $("HTML, BODY").animate(
+          {
+            scrollTop: position,
+          },
+          500
+        );
+      });
+    },
+  };
+
+  // Temaspor undermenu icon
   $(document).ready(function () {
     $(".view-temaspor-undermenu .views-field-title .field-content").append(
       "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' style='height: 1..5rem; width: 1.5rem; margin-left: 5px;'><path fill-rule='evenodd' d='M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z' clip-rule='evenodd'></path></svg>"
     );
-    $("a[href*=\\#]").on("click", function (event) {
-      const hash = this.hash;
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-      var position = $(hash).offset().top - 100;
-      $("HTML, BODY").animate(
-        {
-          scrollTop: position,
-        },
-        500
-      );
-    });
   });
 
   // Add link to whole teaser node.
