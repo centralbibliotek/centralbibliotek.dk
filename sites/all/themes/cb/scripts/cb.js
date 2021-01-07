@@ -563,80 +563,67 @@
   */
 
   // Header menu icons and search toogle
-  Drupal.behaviors.replaceCommonsUtility = {
-    attach: function (context, settings) {
-      $(".branch-selector").append(
-        "<span class='search'><svg xmlns='http://www.w3.org/2000/svg' style='height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /></svg></span>"
-      );
-      $(".search").click(function () {
-        $(".main-header .container .branch-selector form").toggle();
-        $(".main-header .container .branch-selector form").toggleClass("open");
-        if (".main-header .container .branch-selector form.open") {
-          $(".main-header .container .branch-selector form input").focus();
-        }
-      });
+  $(document).ready(function () {
+    $(".branch-selector").append(
+      "<span class='search'><svg xmlns='http://www.w3.org/2000/svg' style='height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /></svg></span>"
+    );
+    $(".search").click(function () {
+      $(".main-header .container .branch-selector form").toggle();
+      $(".main-header .container .branch-selector form").toggleClass("open");
+      if (".main-header .container .branch-selector form.open") {
+        $(".main-header .container .branch-selector form input").focus();
+      }
+    });
 
-      $(".commons-utility-links .name a").empty();
-      $(".commons-utility-links .name a").append(
-        "<span class='profile'><svg xmlns='http://www.w3.org/2000/svg' style='height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path></svg></span>"
-      );
-      $(".commons-utility-links .login a").empty();
-      $(".commons-utility-links .login a").append(
-        "<span class='login'><svg xmlns='http://www.w3.org/2000/svg' style='margin-left: 1.5rem; height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1' /></svg></span>"
-      );
-      $(".commons-utility-links .logout a").empty();
-      $(".commons-utility-links .logout a").append(
-        "<span class='logout'><svg xmlns='http://www.w3.org/2000/svg' style='margin-left: 1.5rem; height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1' /></svg></span>"
-      );
-      /* Kept if signup icon is needed
-      $(".commons-utility-links .signup a").empty();
-      $(".commons-utility-links .signup a").append(
-        "<span class='signup'><svg xmlns='http://www.w3.org/2000/svg' style='height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z' /></svg></span>"
-      );
-      */
-      $(".commons-utility-links .signup").remove();
-      $(".commons-utility-links .settings").remove();
-    },
-  };
+    $(".commons-utility-links .name a").empty();
+    $(".commons-utility-links .name a").append(
+      "<span class='profile'><svg xmlns='http://www.w3.org/2000/svg' style='height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path></svg></span>"
+    );
+    $(".commons-utility-links .login a").empty();
+    $(".commons-utility-links .login a").append(
+      "<span class='login'><svg xmlns='http://www.w3.org/2000/svg' style='margin-left: 1.5rem; height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1' /></svg></span>"
+    );
+    $(".commons-utility-links .logout a").empty();
+    $(".commons-utility-links .logout a").append(
+      "<span class='logout'><svg xmlns='http://www.w3.org/2000/svg' style='margin-left: 1.5rem; height:2rem; width:2rem' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1' /></svg></span>"
+    );
+    $(".commons-utility-links .signup").remove();
+    $(".commons-utility-links .settings").remove();
+  });
 
   // Temaspor menu dropdown
-  Drupal.behaviors.temamenu = {
-    attach: function (context, settings) {
-      console.log("test");
-      $("#block-menu-block-1 h3").removeClass("element-invisible");
-      $("#block-menu-block-1 h3").wrap("<div class='temaspormenu'></div>");
-      $(".temaspormenu").append(
-        "<span class='arrow'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path strokelinecap='round' strokelinejoin='round' strokewidth='3' d='M5 15l7-7 7 7'></path></svg></span>"
-      );
+  $(document).ready(function () {
+    $("#block-menu-block-1 h3").removeClass("element-invisible");
+    $("#block-menu-block-1 h3").wrap("<div class='temaspormenu'></div>");
+    $(".temaspormenu").append(
+      "<span class='arrow'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='#FFF'><path strokelinecap='round' strokelinejoin='round' strokewidth='3' d='M5 15l7-7 7 7'></path></svg></span>"
+    );
 
-      $(".temaspormenu").click(function () {
-        $(".menu-name-menu-temaspor").fadeToggle();
-        $(".temaspormenu span").toggleClass("open");
-      });
-    },
-  };
+    $(".temaspormenu").click(function () {
+      $(".menu-name-menu-temaspor").fadeToggle();
+      $(".temaspormenu span").toggleClass("open");
+    });
+  });
 
   // Temaspor undermenu scroll
-  Drupal.behaviors.temascroll = {
-    attach: function (context, settings) {
-      $(".view-temaspor-undermenu .views-field-title .field-content").append(
-        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' style='height: 1..5rem; width: 1.5rem; margin-left: 5px;'><path fill-rule='evenodd' d='M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z' clip-rule='evenodd'></path></svg>"
+  $(document).ready(function () {
+    $(".view-temaspor-undermenu .views-field-title .field-content").append(
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' style='height: 1..5rem; width: 1.5rem; margin-left: 5px;'><path fill-rule='evenodd' d='M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z' clip-rule='evenodd'></path></svg>"
+    );
+    $("a[href*=\\#]").on("click", function (event) {
+      const hash = this.hash;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      var position = $(hash).offset().top - 100;
+      $("HTML, BODY").animate(
+        {
+          scrollTop: position,
+        },
+        500
       );
-      $("a[href*=\\#]").on("click", function (event) {
-        const hash = this.hash;
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        var position = $(hash).offset().top - 100;
-        $("HTML, BODY").animate(
-          {
-            scrollTop: position,
-          },
-          500
-        );
-      });
-    },
-  };
+    });
+  });
 
   // Add link to whole teaser node.
   Drupal.behaviors.addLinkToElement = {
