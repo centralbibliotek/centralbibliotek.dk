@@ -327,6 +327,26 @@
   .login {
     padding-right: 10px;
   }
+
+  // banner
+  .banner .views-field-title {
+    font-size: 1.5em;
+    color: #424242;
+  }
+
+  .banner .views-field-title a {
+    color: #424242;
+  }
+  .banner-text {
+    position: initial;
+    bottom: -50px;
+    top: initial;
+    padding: 10px;
+    background-color: #c8c8c8;
+    height: initial;
+    color: #424242;
+    width: 100%;
+  }
 }
 /*
  * Tablet sizes and up
