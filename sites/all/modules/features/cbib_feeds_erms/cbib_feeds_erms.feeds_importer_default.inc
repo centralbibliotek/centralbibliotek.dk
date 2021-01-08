@@ -126,7 +126,7 @@ function cbib_feeds_erms_feeds_importer_default() {
         'api_key' => 'cd08c4c4316d',
         'request_timeout' => '',
         'source' => 'https://consortiamanager.com/api/',
-        'method' => 'agreement/period/2020',
+        'method' => 'agreement/period/' . date("Y"),
       ),
     ),
     'parser' => array(
