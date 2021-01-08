@@ -201,11 +201,12 @@
     display: block;
     position: absolute;
     top: 60px;
-    left: -11px;
     background: #052340;
     margin: 0;
   }
-
+  #edit-search-api-views-fulltext {
+    margin: 10px 10px 0 0;
+  }
   #menu-bar {
     flex-direction: column;
   }
@@ -228,6 +229,10 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .main-header {
+    padding-right: 10px;
+  }
+
   .page-licens
     div
     div
@@ -284,9 +289,6 @@
   .main-header {
     //min-height: 140px;
   }
-  .branch-selector #views-exposed-form-search-api-nodes-default {
-    margin-left: 11px;
-  }
   #views-exposed-form-search-api-nodes-default {
     width: 95%;
     box-sizing: border-box;
@@ -316,7 +318,7 @@
     padding-top: 0px;
   }
   #views-exposed-form-search-api-nodes-default {
-    width: 75%;
+    width: 80%;
   }
   #views-exposed-form-search-api-nodes-default.open {
     z-index: 10;

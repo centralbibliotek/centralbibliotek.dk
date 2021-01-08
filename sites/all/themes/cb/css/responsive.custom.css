@@ -192,9 +192,12 @@
     display: block;
     position: absolute;
     top: 60px;
-    left: -11px;
     background: #052340;
     margin: 0;
+  }
+
+  #edit-search-api-views-fulltext {
+    margin: 10px 10px 0 0;
   }
 
   #menu-bar {
@@ -221,6 +224,10 @@
  * Tablet sizes and down
  */
 @media only screen and (max-width: 768px) {
+  .main-header {
+    padding-right: 10px;
+  }
+
   .page-licens
   div
   div
@@ -250,10 +257,6 @@
     display: none !important;
   }
 
-  .branch-selector #views-exposed-form-search-api-nodes-default {
-    margin-left: 11px;
-  }
-
   #views-exposed-form-search-api-nodes-default {
     width: 95%;
     box-sizing: border-box;
@@ -278,7 +281,7 @@
   }
 
   #views-exposed-form-search-api-nodes-default {
-    width: 75%;
+    width: 80%;
   }
 
   #views-exposed-form-search-api-nodes-default.open {

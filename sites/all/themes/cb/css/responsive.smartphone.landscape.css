@@ -33,7 +33,7 @@ body.front.logged-in
 }
 
 .branch-selector #views-exposed-form-search-api-nodes-default {
-  width: 95%;
+  width: 100%;
   padding: 0 10px;
 }
 
@@ -47,7 +47,7 @@ body.front.logged-in
 }
 
 .branch-selector #views-exposed-form-search-api-nodes-default {
-  margin-left: 11px;
+  margin-left: 0px;
 }
 
 #block-views-centralbiblioteker-block {
