@@ -7385,10 +7385,7 @@ a.print-page {
 */
 .banner {
   position: relative;
-}
-
-.views-banner {
-  margin-top: 45px;
+  margin-top: -20px;
 }
 
 .banner .views-field-title {
