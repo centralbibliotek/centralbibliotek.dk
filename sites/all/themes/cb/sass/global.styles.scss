@@ -5388,3 +5388,9 @@ html {
     }
   }
 }
+
+/* Temp fixes */
+
+.page-events .item-list-facetapi-date-range option span {
+  display: none;
+}

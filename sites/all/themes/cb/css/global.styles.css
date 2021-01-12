@@ -7751,3 +7751,8 @@ html {
 #main-menu #block-menu-block-1 .yellow {
   border-right: 5px solid #d97707;
 }
+
+/* Temp fixes */
+.page-events .item-list-facetapi-date-range option span {
+  display: none;
+}
