@@ -616,6 +616,11 @@
     );
   });
 
+  // Temp fix
+  $(document).ready(function () {
+    $(".page-events .item-list-facetapi-date-range option span").remove();
+  });
+
   // Add link to whole teaser node.
   Drupal.behaviors.addLinkToElement = {
     attach: function (context, settings) {
