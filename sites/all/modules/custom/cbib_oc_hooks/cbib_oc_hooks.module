@@ -370,6 +370,53 @@ function cbib_oc_hooks_facet_items_alter(&$build, &$settings) {
         }
       }
     }
+    if ($settings->facet == "temaspor_facet") {
+
+      //$CentralLibraries = null;
+      $CentralLibraries_nids = null;
+      $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'temaspor')
+          ->propertyCondition('status', NODE_PUBLISHED)
+          // Run the query as user 1.
+          ->addMetaData('account', user_load(1));
+
+        $result = $query->execute();
+        if (isset($result['node'])) {
+          $CentralLibraries_nids = array_keys($result['node']);
+          //$CentralLibraries = entity_load('node', $CentralLibraries_nids);
+        }
+      foreach($build as $key => $item) {
+        
+        if(!in_array($key, $CentralLibraries_nids))
+        {
+            //remove non cbib nodes from tilknytning result.
+            unset($build[$key]);
+        }else {
+          $node = node_load($key);
+          $build[$key]['#markup'] = $node->title;
+        }
+      }
+    }
+}
+function cbib_oc_hooks_facetapi_searcher_info_alter(array &$searcher_info) {
+  foreach ($searcher_info as $index => $info) {
+    $searcher_info[$index]['types'][] = 'MYENTITY';
+  }
+}
+function cbib_oc_hooks_facetapi_facet_info($searcher_info) {
+  $facets = array();
+
+  if (isset($searcher_info['types']['MYENTITY'])) {
+    $facets['temaspor_facet'] = array(
+      'label' => t('temaspor facet'),
+      'description' => t('Filter by temaspor facet.'),
+      'field' => 'og_group_ref',
+    );
+
+  }
+
+  return $facets;
 }
 /*
 * Alter various forms.
