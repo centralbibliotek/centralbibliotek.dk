@@ -62,7 +62,7 @@
     });
 
     if (
-      document.location.pathname.indexOf("/kompetenceudvikling") === 0 ||
+      document.location.pathname.indexOf("/aktivitet") === 0 ||
       document.location.pathname.indexOf("/nyheder") === 0 ||
       document.location.pathname.indexOf("/herning/nyheder") === 0 ||
       document.location.pathname.indexOf("/aalborg/nyheder") === 0 ||
@@ -336,11 +336,11 @@
 
       $(document.createElement("option"))
         .appendTo(select)
-        .val("/kompetenceudvikling?f[0]")
+        .val("/aktivitet?f[0]")
         .html("--Vælg--");
       $(document.createElement("option"))
         .appendTo(select)
-        .val("/kompetenceudvikling?f[0]")
+        .val("/aktivitet?f[0]")
         .html("Kommende");
       select.change(function () {
         trigger_loginSpinner();

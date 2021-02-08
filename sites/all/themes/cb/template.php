@@ -4,7 +4,7 @@ function cb_field__body($variables) {
     $output = '';
 
     $path = drupal_get_path_alias();
-    $match = "*kompetenceudvikling?*\n*kompetenceudvikling";
+    $match = "*aktivitet?*\n*aktivitet";
     if (drupal_match_path($path, $match)) {
         foreach ($variables['items'] as $delta => $item) {
                 $output .= '<p class="' . $variables['field_name_css'] . '">';

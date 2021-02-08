@@ -22,7 +22,7 @@ function cbib_temaspor_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Temaspor Kompetenceudvikling';
+  $handler->display->display_options['title'] = 'Temaspor aktivitet';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
@@ -113,8 +113,8 @@ function cbib_temaspor_views_default_views() {
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
-  /* Display: Kompetenceudvikling */
-  $handler = $view->new_display('panel_pane', 'Kompetenceudvikling', 'panel_pane_2');
+  /* Display: aktivitet */
+  $handler = $view->new_display('panel_pane', 'aktivitet', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Aktiviteter';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -181,7 +181,7 @@ function cbib_temaspor_views_default_views() {
   $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['temaspor'] = array(
     t('Master'),
-    t('Temaspor Kompetenceudvikling'),
+    t('Temaspor aktivitet'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -191,7 +191,7 @@ function cbib_temaspor_views_default_views() {
     t('Alle'),
     t('Nyheder'),
     t('Temaspor'),
-    t('Kompetenceudvikling'),
+    t('aktivitet'),
     t('Aktiviteter'),
     t('Grupper'),
     t('Gruppe'),

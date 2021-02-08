@@ -102,7 +102,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - all */
   $handler = $view->new_display('page', 'Events - all', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
+  $handler->display->display_options['title'] = 'Kommende aktivitetstilbud';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Overskrift: Global: Resumé af resultat */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -110,7 +110,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
-  $handler->display->display_options['path'] = 'kompetenceudvikling';
+  $handler->display->display_options['path'] = 'aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -120,7 +120,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - mini */
   $handler = $view->new_display('page', 'Events - mini', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
+  $handler->display->display_options['title'] = 'aktivitetstilbud mini visning';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -189,7 +189,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
   $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  $handler->display->display_options['path'] = 'kompetenceudvikling';
+  $handler->display->display_options['path'] = 'aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -199,7 +199,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - group full */
   $handler = $view->new_display('page', 'Events - group full', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
+  $handler->display->display_options['title'] = 'Kommende aktivitetstilbud';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Overskrift: Global: Resumé af resultat */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -208,7 +208,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['header']['result']['empty'] = TRUE;
   $handler->display->display_options['header']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['path'] = '%/aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -218,7 +218,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - group mini */
   $handler = $view->new_display('page', 'Events - group mini', 'page_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
+  $handler->display->display_options['title'] = 'aktivitetstilbud mini visning';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -287,7 +287,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['fields']['og_group_ref']['view_mode'] = 'full';
   $handler->display->display_options['fields']['og_group_ref']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['path'] = '%/aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -297,7 +297,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - group full - sort date desc */
   $handler = $view->new_display('page', 'Events - group full - sort date desc', 'page_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Kommende kompetenceudviklingstilbud';
+  $handler->display->display_options['title'] = 'Kommende aktivitetstilbud';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Overskrift: Global: Resumé af resultat */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -311,7 +311,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
-  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['path'] = '%/aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -321,7 +321,7 @@ function cbib_search_views_default_views() {
   /* Display: Events - group mini - sort asc */
   $handler = $view->new_display('page', 'Events - group mini - sort asc', 'page_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'kompetenceudviklingstilbud mini visning';
+  $handler->display->display_options['title'] = 'aktivitetstilbud mini visning';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -395,7 +395,7 @@ function cbib_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_combined_1']['table'] = 'search_api_index_arrangement_index';
   $handler->display->display_options['sorts']['search_api_combined_1']['field'] = 'search_api_combined_1';
   $handler->display->display_options['sorts']['search_api_combined_1']['order'] = 'DESC';
-  $handler->display->display_options['path'] = '%/kompetenceudvikling';
+  $handler->display->display_options['path'] = '%/aktivitet';
   $handler->display->display_options['menu']['title'] = 'Arrangementer';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -421,10 +421,10 @@ function cbib_search_views_default_views() {
     t(' <strong>Søgning gav desværre ingen resultater.</strong>'),
     t('Grupper'),
     t('Events - all'),
-    t('Kommende kompetenceudviklingstilbud'),
+    t('Kommende aktivitetstilbud'),
     t('Viser @start - @end af @total'),
     t('Events - mini'),
-    t('kompetenceudviklingstilbud mini visning'),
+    t('aktivitetstilbud mini visning'),
     t('[field_address_locality],'),
     t('[field_address_locality] [field_date_value]'),
     t('Events - group full'),
