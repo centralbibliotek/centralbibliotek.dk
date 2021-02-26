@@ -7520,6 +7520,14 @@ html {
   display: flex;
   align-items: center;
 }
+.node-type-temaspor .slide__content .views-field.views-field-field-date .field-content {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 57px;
+  display: inline-block;
+  color: white;
+  padding: 5px;
+}
 .node-type-temaspor .slick-slider {
   position: relative;
 }
