@@ -5402,3 +5402,93 @@ html {
 .page-events .item-list-facetapi-date-range option span {
   display: none;
 }
+
+/* cookie banner */
+#sliding-popup {
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+}
+
+#sliding-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.5rem;
+}
+
+@media (min-width: 720px) {
+  #sliding-popup .popup-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1200px) {
+  #sliding-popup .popup-content {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+#sliding-popup .popup-content #popup-text p {
+  font-size: 1rem;
+}
+
+#sliding-popup .popup-content #popup-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 25%;
+  justify-content: space-around;
+}
+
+#sliding-popup .eu-cookie-compliance-secondary-button,
+#sliding-popup .eu-cookie-withdraw-button {
+  padding: 0.75rem;
+  background: #616263;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  /*margin-right: 2rem;*/
+  color: white;
+  text-shadow: none;
+  border: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  box-shadow: none;
+}
+#sliding-popup .eu-cookie-compliance-secondary-button {
+  background: #1c771c;
+  min-width: 123px;
+}
+
+#sliding-popup .eu-cookie-compliance-default-button {
+  padding: 0.75rem;
+  background: #616263;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  /*margin-right: 2rem;*/
+  color: white;
+  text-shadow: none;
+  border: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  box-shadow: none;
+}
+
+#sliding-popup .eu-cookie-compliance-secondary-button:hover,
+#sliding-popup .eu-cookie-compliance-default-button:hover,
+#sliding-popup .eu-cookie-withdraw-button:hover {
+  background: #616263;
+}
+
+.eu-cookie-withdraw-tab {
+  background: #052341;
+  left: 32px;
+  border-width: 0 !important;
+  border-radius: 0 !important;
+}
+#sliding-popup.eu-cookie-withdraw-wrapper
+  .eu-cookie-withdraw-banner
+  .popup-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
