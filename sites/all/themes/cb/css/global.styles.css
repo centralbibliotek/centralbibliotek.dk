@@ -7876,7 +7876,10 @@ html {
 .produktkatalog .view-content > div:first-child {
   display: none;
 }
-.produktkatalog .view-content > br:nth-child(2) {
+.produktkatalog .view-content > div:not(.views-row) {
+  display: none;
+}
+.produktkatalog .view-content > br {
   display: none;
 }
 .produktkatalog .view-content > h3 {
@@ -7886,6 +7889,7 @@ html {
   line-height: 1.2;
   margin-bottom: 5px;
   border-bottom: 1px solid darkgray;
+  padding-bottom: 0.75rem;
 }
 .produktkatalog .view-content .views-row {
   border-bottom: 0px;
@@ -7895,4 +7899,6 @@ html {
   font-size: 20px;
   line-height: 1.2;
   margin-bottom: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
 }

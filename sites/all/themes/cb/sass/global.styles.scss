@@ -5513,7 +5513,10 @@ html {
   > div:first-child {
     display: none;
   }
-  > br:nth-child(2) {
+  > div:not(.views-row) {
+    display: none;
+  }
+  > br {
     display: none;
   }
   > h3 {
@@ -5523,6 +5526,7 @@ html {
     line-height: 1.2;
     margin-bottom: 5px;
     border-bottom: 1px solid darkgray;
+    padding-bottom: 0.75rem;
   }
   .views-row {
     border-bottom: 0px;
@@ -5532,5 +5536,7 @@ html {
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 5px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.85rem;
   }
 }
