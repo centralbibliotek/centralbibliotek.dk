@@ -5146,13 +5146,13 @@ html {
 
   /* Slick */
   .slide__content .views-field.views-field-field-date .field-content {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     bottom: 57px;
     display: inline-block;
     color: white;
     padding: 5px;
-}
+  }
   .slick-slider {
     position: relative;
   }
@@ -5501,4 +5501,36 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* Produktkatalog */
+
+.produktkatalog .view-content {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  > div:first-child {
+    display: none;
+  }
+  > br:nth-child(2) {
+    display: none;
+  }
+  > h3 {
+    grid-column: 1 / span 3;
+    color: #424242;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    border-bottom: 1px solid darkgray;
+  }
+  .views-row {
+    border-bottom: 0px;
+  }
+  h2 a {
+    color: #424242;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
 }

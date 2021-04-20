@@ -7866,3 +7866,33 @@ html {
   flex-direction: row;
   justify-content: space-between;
 }
+
+/* Produktkatalog */
+.produktkatalog .view-content {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.produktkatalog .view-content > div:first-child {
+  display: none;
+}
+.produktkatalog .view-content > br:nth-child(2) {
+  display: none;
+}
+.produktkatalog .view-content > h3 {
+  grid-column: 1 / span 3;
+  color: #424242;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  border-bottom: 1px solid darkgray;
+}
+.produktkatalog .view-content .views-row {
+  border-bottom: 0px;
+}
+.produktkatalog .view-content h2 a {
+  color: #424242;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
