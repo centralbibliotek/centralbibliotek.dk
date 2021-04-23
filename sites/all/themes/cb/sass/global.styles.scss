@@ -5505,6 +5505,22 @@ html {
 
 /* Produktkatalog */
 
+.page-produktkatalog {
+  h1.pagetitle {
+    background: #c8c8c8;
+    padding: 9px;
+    letter-spacing: 0.5px;
+  }
+  #columns {
+    display: relative;
+  }
+  .view-header img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
 .produktkatalog .view-content {
   display: grid;
   gap: 10px;
