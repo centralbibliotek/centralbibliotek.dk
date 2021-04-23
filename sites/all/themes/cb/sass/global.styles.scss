@@ -5506,13 +5506,13 @@ html {
 /* Produktkatalog */
 
 .page-produktkatalog {
-  h1.pagetitle {
+  h1#pagetitle {
     background: #c8c8c8;
     padding: 9px;
     letter-spacing: 0.5px;
   }
   #columns {
-    display: relative;
+    position: relative;
   }
   .view-header img {
     position: absolute;

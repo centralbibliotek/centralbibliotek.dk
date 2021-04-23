@@ -7868,13 +7868,13 @@ html {
 }
 
 /* Produktkatalog */
-.page-produktkatalog h1.pagetitle {
+.page-produktkatalog h1#pagetitle {
   background: #c8c8c8;
   padding: 9px;
   letter-spacing: 0.5px;
 }
 .page-produktkatalog #columns {
-  display: relative;
+  position: relative;
 }
 .page-produktkatalog .view-header img {
   position: absolute;
