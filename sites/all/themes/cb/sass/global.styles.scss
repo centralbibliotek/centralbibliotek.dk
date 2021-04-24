@@ -5560,7 +5560,13 @@ html {
 .node-type-produkt {
   a {
     font-weight: normal;
-    color: #ff8bae;
+    color: #ff5479;
+  }
+  #content-column .field-type-text-with-summary a,
+  .pane-node-links a,
+  .region-two-66-33-second a {
+    font-weight: normal;
+    color: #ff5479;
   }
   .ui-state-default,
   .ui-widget-content .ui-state-default,
