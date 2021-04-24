@@ -7916,3 +7916,16 @@ html {
   margin-top: 0.5rem;
   margin-bottom: 0.85rem;
 }
+
+.node-type-produkt a {
+  font-weight: normal;
+  color: #ff8bae;
+}
+.node-type-produkt .ui-state-default,
+.node-type-produkt .ui-widget-content .ui-state-default,
+.node-type-produkt .ui-widget-header .ui-state-default {
+  background: white;
+}
+.node-type-produkt .contactdetails {
+  margin: 0;
+}

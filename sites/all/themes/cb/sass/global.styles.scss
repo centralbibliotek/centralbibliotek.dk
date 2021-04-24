@@ -5556,3 +5556,18 @@ html {
     margin-bottom: 0.85rem;
   }
 }
+
+.node-type-produkt {
+  a {
+    font-weight: normal;
+    color: #ff8bae;
+  }
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default {
+    background: white;
+  }
+  .contactdetails {
+    margin: 0;
+  }
+}
