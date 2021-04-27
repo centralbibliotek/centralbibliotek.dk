@@ -49,11 +49,16 @@
     ).prependTo("body");
   }
   $(document).ready(function () {
-    $('.eu-cookie-withdraw-tab').toggle(function () {
-      $(".eu-cookie-withdraw-tab").addClass("eu-cookie-withdraw-tab-close");
-    }, function () {
-      $(".eu-cookie-withdraw-tab").removeClass("eu-cookie-withdraw-tab-close");
-    });
+    $(".eu-cookie-withdraw-tab").toggle(
+      function () {
+        $(".eu-cookie-withdraw-tab").addClass("eu-cookie-withdraw-tab-close");
+      },
+      function () {
+        $(".eu-cookie-withdraw-tab").removeClass(
+          "eu-cookie-withdraw-tab-close"
+        );
+      }
+    );
     $("u")
       .contents()
       .unwrap()
@@ -619,6 +624,62 @@
     $(".view-temaspor-undermenu .views-field-title .field-content").append(
       "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' style='height: 1..5rem; width: 1.5rem; margin-left: 5px;'><path fill-rule='evenodd' d='M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z' clip-rule='evenodd'></path></svg>"
     );
+  });
+
+  // PRODUKT-NODE ACCORDION
+
+  $(document).ready(function () {
+    // Wrap h3 tekst og tilføj svg ikon
+    $(".field-name-field-underemne h3.panelizer-node-title").wrapInner(
+      "<span></span>"
+    );
+    $(".field-name-field-underemne h3.panelizer-node-title").append(
+      `<svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+          stroke="currentColor"
+          style='height: 1.5rem; width: 1.5rem;'
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>`
+    );
+
+    // Roter svg ikon
+    $(".field-name-field-underemne h3.panelizer-node-title").click(function () {
+      $(this).toggleClass("play");
+      $(this).next().fadeToggle();
+      if ($(this).hasClass("play")) {
+        $(this)
+          .find("svg")
+          .animate(
+            { deg: 180 },
+            {
+              duration: 300,
+              step: function (now) {
+                $(this).css({ transform: "rotate(" + now + "deg)" });
+              },
+            }
+          );
+      } else {
+        $(this)
+          .find("svg")
+          .animate(
+            { deg: 0 },
+            {
+              duration: 300,
+              step: function (now) {
+                $(this).css({ transform: "rotate(" + now + "deg)" });
+              },
+            }
+          );
+      }
+    });
   });
 
   // Temp fix

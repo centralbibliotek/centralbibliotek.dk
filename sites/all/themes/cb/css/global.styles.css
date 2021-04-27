@@ -7943,3 +7943,22 @@ html {
 .node-type-produkt .field-type-entityreference .node-person .panel-pane {
   margin-bottom: 0;
 }
+.node-type-produkt .field-name-field-underemne h3.node-title {
+  margin-bottom: 0.75em;
+  position: relative;
+  padding-bottom: 10px;
+  background: #17253e;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.5em 1em 0.5em 1em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.node-type-produkt .field-name-field-underemne h3.node-title:hover {
+  background: #ff5479;
+}
+.node-type-produkt .field-name-field-underemne .panel-flexible {
+  display: none;
+}
