@@ -7919,31 +7919,32 @@ html {
   margin-bottom: 0.85rem;
 }
 
-.node-type-produkt a {
+.node-type-produkter a {
   font-weight: normal;
   color: #ff5479;
 }
-.node-type-produkt #content-column .field-type-text-with-summary a,
-.node-type-produkt .pane-node-links a,
-.node-type-produkt .region-two-66-33-second a {
+.node-type-produkter #content-column .field-type-text-with-summary a,
+.node-type-produkter .pane-node-links a,
+.node-type-produkter .region-two-66-33-second a {
   font-weight: normal;
   color: #ff5479;
 }
-.node-type-produkt .ui-state-default,
-.node-type-produkt .ui-widget-content .ui-state-default,
-.node-type-produkt .ui-widget-header .ui-state-default {
+.node-type-produkter .ui-state-default,
+.node-type-produkter .ui-widget-content .ui-state-default,
+.node-type-produkter .ui-widget-header .ui-state-default {
   background: white;
 }
-.node-type-produkt .field-type-entityreference .node-person {
+.node-type-produkter .field-type-entityreference .node-person {
   padding-left: 0;
   padding-right: 0;
   padding-top: 1em;
   padding-bottom: 0;
 }
-.node-type-produkt .field-type-entityreference .node-person .panel-pane {
+.node-type-produkter .field-type-entityreference .node-person .panel-pane {
   margin-bottom: 0;
 }
-.node-type-produkt .field-name-field-underemne h3.node-title {
+.node-type-produkter .field-name-field-underemne h3.node-title,
+.node-type-produkter .field-name-field-underemne h4.node-title {
   margin-bottom: 0.75em;
   position: relative;
   padding-bottom: 10px;
@@ -7956,9 +7957,10 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-.node-type-produkt .field-name-field-underemne h3.node-title:hover {
+.node-type-produkter .field-name-field-underemne h3.node-title:hover,
+.node-type-produkter .field-name-field-underemne h4.node-title:hover {
   background: #ff5479;
 }
-.node-type-produkt .field-name-field-underemne .panel-flexible {
+.node-type-produkter .field-name-field-underemne .node-produkt-underemne > div {
   display: none;
 }
