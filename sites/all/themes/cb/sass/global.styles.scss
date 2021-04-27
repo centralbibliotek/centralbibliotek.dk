@@ -5518,6 +5518,8 @@ html {
     position: absolute;
     top: 0;
     right: 0;
+    height: 37px;
+    margin-top: 7px;
   }
 }
 
@@ -5573,7 +5575,13 @@ html {
   .ui-widget-header .ui-state-default {
     background: white;
   }
-  .contactdetails {
-    margin: 0;
+  .field-type-entityreference .node-person {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1em;
+    padding-bottom: 0;
+    .panel-pane {
+      margin-bottom: 0;
+    }
   }
 }
