@@ -5560,9 +5560,15 @@ html {
 }
 
 .node-type-produkt {
+  h1 {
+    font-size: 1.8rem;
+  }
   a {
     font-weight: normal;
     color: #ff5479;
+  }
+  .region-two-66-33-first .pane-title {
+    font-weight: bold;
   }
   #content-column .field-type-text-with-summary a,
   .pane-node-links a,

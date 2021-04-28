@@ -7919,9 +7919,15 @@ html {
   margin-bottom: 0.85rem;
 }
 
+.node-type-produkt h1 {
+  font-size: 1.8rem;
+}
 .node-type-produkt a {
   font-weight: normal;
   color: #ff5479;
+}
+.node-type-produkt .region-two-66-33-first .pane-title {
+  font-weight: bold;
 }
 .node-type-produkt #content-column .field-type-text-with-summary a,
 .node-type-produkt .pane-node-links a,
