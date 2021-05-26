@@ -1125,6 +1125,20 @@ function cbib_oc_hooks_views_query_alter(&$view, &$query) {
   //simple example: change the order of the master display
   //if you want to do it only  on a certain display add something
   // like  "&&$view->current_display == 'panel_page_1'"
+  if ($view->name == "temaspor" && $view->current_display == "panel_pane_2") {
+    $query->orderby[0] = array(
+      'field' => 'sticky',
+      'direction' => 'DESC',
+    );
+    $query->orderby[1] = array(
+      'field' => 'ISNULL(field_date_value)',
+      'direction' => 'ASC',
+    );
+    $query->orderby[2] = array(
+      'field' => 'field_date_value',
+      'direction' => 'ASC',
+    );
+  }
   if ($view->name == "search_api_arrangementer") {
 
     if(isset($_GET['field_address_locality']) && strtolower($_GET['field_address_locality']) != "all")
