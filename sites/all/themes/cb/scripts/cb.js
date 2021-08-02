@@ -685,6 +685,23 @@
   // Temp fix
   $(document).ready(function () {
     $(".page-events .item-list-facetapi-date-range option span").remove();
+
+    // Removes titles from temaspor caroussels if view is empty
+    function isEmpty(el) {
+      return !$.trim(el.html());
+    }
+    if (isEmpty($(".pane-temaspor-panel-pane-1 .view-content"))) {
+      $(".pane-temaspor-panel-pane-1").remove();
+    }
+    if (isEmpty($(".pane-temaspor-panel-pane-2 .view-content"))) {
+      $(".pane-temaspor-panel-pane-2").remove();
+    }
+    if (isEmpty($(".pane-temaspor-panel-pane-3 .view-content"))) {
+      $(".pane-temaspor-panel-pane-3").remove();
+    }
+    if (isEmpty($(".pane-temaspor-panel-pane-4 .view-content"))) {
+      $(".pane-temaspor-panel-pane-4").remove();
+    }
   });
 
   // Add link to whole teaser node.
