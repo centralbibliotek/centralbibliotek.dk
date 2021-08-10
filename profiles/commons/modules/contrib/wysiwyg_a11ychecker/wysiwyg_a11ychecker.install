@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for wysiwyg_a11ychecker.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function wysiwyg_a11ychecker_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $libraries = wysiwyg_get_libraries();
+
+    // Check for Balloonpanel.
+    $requirements['balloonpanel'] = array('title' => 'Balloon Panel plugin for CKeditor');
+    $requirements['balloonpanel']['weight'] = 999;
+    if (array_key_exists('balloonpanel', $libraries)) {
+      $requirements['balloonpanel']['value'] = $t('Installed correctly at @path', array('@path' => wysiwyg_get_path('balloonpanel')));
+      $requirements['balloonpanel']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['balloonpanel']['value'] = $t('Not installed');
+      $requirements['balloonpanel']['description'] = $t('The <a href="@url">Balloon Panel plugin</a> was not found in the libraries directory.', array('@url' => 'http://ckeditor.com/addon/balloonpanel'));
+      $requirements['balloonpanel']['severity'] = REQUIREMENT_ERROR;
+    }
+    // Check for A11ychecker.
+    $requirements['a11ychecker'] = array('title' => 'A11ychecker plugin for CKeditor');
+    $requirements['a11ychecker']['weight'] = 1000;
+    if (array_key_exists('a11ychecker', $libraries)) {
+      $requirements['a11ychecker']['value'] = $t('Installed correctly at @path', array('@path' => wysiwyg_get_path('a11ychecker')));
+      $requirements['a11ychecker']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['a11ychecker']['value'] = $t('Not installed');
+      $requirements['a11ychecker']['description'] = $t('The <a href="@url">A11ychecker plugin</a> was not found in the libraries directory.', array('@url' => 'http://ckeditor.com/addon/a11ychecker'));
+      $requirements['a11ychecker']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  return $requirements;
+}

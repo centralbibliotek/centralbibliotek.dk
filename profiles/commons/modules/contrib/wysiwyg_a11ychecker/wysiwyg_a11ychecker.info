@@ -1,0 +1,11 @@
+name = WYSIWYG A11ychecker
+description = Add an accessibility checker to the WYSIWYG
+package = User interface
+core = 7.x
+dependencies[] = wysiwyg
+
+; Information added by Drupal.org packaging script on 2020-06-02
+version = "7.x-1.0"
+core = "7.x"
+project = "wysiwyg_a11ychecker"
+datestamp = "1591132530"

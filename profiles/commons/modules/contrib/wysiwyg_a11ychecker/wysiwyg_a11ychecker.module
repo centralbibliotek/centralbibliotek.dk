@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Adds allychecker plugin to wysiwyg.module implementation of CKeditor.
+ *
+ * Also adds A11ychecker Balloon Panel.
+ */
+
+/**
+ * Implements hook_wysiwyg_plugin().
+ *
+ * Return an array of native editor plugins.
+ */
+function wysiwyg_a11ychecker_wysiwyg_plugin($editor, $version) {
+  switch ($editor) {
+    case 'ckeditor':
+      if (version_compare($version, '4.3', '>=')) {
+        return array(
+          'balloonpanel' => array(
+            'url' => 'http://ckeditor.com/addon/balloonpanel',
+            // The full path to the native editor plugin, no trailing slash.
+            'path' => wysiwyg_get_path('balloonpanel'),
+            'filename' => 'plugin.js',
+            'extensions' => array(
+              'Balloonpanel' => t('Balloon Panel'),
+            ),
+            'load' => TRUE,
+          ),
+          'a11ychecker' => array(
+            'url' => 'http://ckeditor.com/addon/a11ychecker',
+            // The full path to the native editor plugin, no trailing slash.
+            'path' => wysiwyg_get_path('a11ychecker'),
+            'filename' => 'plugin.js',
+            'buttons' => array(
+              'A11ychecker' => t('Accessibility Checker'),
+            ),
+            'load' => TRUE,
+          ),
+        );
+      }
+      break;
+  }
+}
