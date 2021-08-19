@@ -13,10 +13,12 @@ position: relative;
 {
     float:right;
 }
+/**
 .node-post .node-content .field-name-body .field-items .field-item
 {
     white-space: pre-wrap;
 }
+*/
 .comment-form 
 {
     float:left;
