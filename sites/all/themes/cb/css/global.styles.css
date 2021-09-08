@@ -7869,7 +7869,8 @@ html {
 
 /* Produktkatalog */
 .page-produktkatalog h1#page-title {
-  padding-bottom: 9px;
+  background: #c8c8c8;
+  padding: 9px;
   letter-spacing: 0.5px;
 }
 .page-produktkatalog #columns {
