@@ -46,7 +46,7 @@ function  cbib_eurekos_lms_menu() {
         'page callback' => 'drupal_get_form',
         'page arguments' => array('cbib_eurekos_lms_form_admin'),
         'access arguments' => array('administer cbib_hooks'),
-        'access callback' => TRUE,
+        'access callback' => 'check_eurekos_permissions',
        );
        $items['admin/settings/cbib_eurekos_lms/push/terms'] = array(
         'type' => MENU_CALLBACK,
@@ -73,6 +73,15 @@ function  cbib_eurekos_lms_menu() {
         'access callback' => TRUE,
        );
       return $items;
+}
+
+function check_eurekos_permissions()
+{
+    if (user_access("administer cbib_hooks")) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 /*
 * Push needed terms for eurekos workplace and department fields.
