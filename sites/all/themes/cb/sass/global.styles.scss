@@ -5505,11 +5505,21 @@ html {
 /* Produktkatalog */
 
 .page-produktkatalog {
-  h1#page-title {
+  header {
     background: #c8c8c8;
+    display: flex;
+    justify-content: space-between;
+  }
+  h1#page-title {
     padding: 9px;
+    flex: 1;
+    margin: 0;
+    line-height: 1.2;
     letter-spacing: 0.5px;
   }
+  header img {
+    height: 50px;
+  } 
   #columns {
     position: relative;
   }

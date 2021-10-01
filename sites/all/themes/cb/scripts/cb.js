@@ -480,6 +480,9 @@
         "CB Nyheder"
       );
 
+      // Produktkatalog 
+      $(".page-produktkatalog header").append("<img src='https://centralbibliotek.dk/sites/all/themes/cb/images/temaspor/tema_materiale_baggrund.png' />");
+
       //
       $("#event_type2 select > option")
         .not(":first-child")
