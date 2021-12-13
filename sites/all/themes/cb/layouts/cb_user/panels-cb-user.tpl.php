@@ -19,7 +19,7 @@
 ?>
 
 <?php 
-global $user;
+/*global $user;
   if (in_array('administrator', $user->roles) ){
     echo "<span class='user-button'>Administrator</span>";} 
   else if (in_array('authenticated user', $user->roles) && $user->uid == $renderer->display->args[0] ){
@@ -27,6 +27,7 @@ global $user;
   else if (in_array('authenticated user', $user->roles) ){
     echo "<span class='user-button'>Andres profil</span>";}
   else echo "<div class='user-button'>Anonym bruger</div>";
+*/
 ?>
 
 <div class="panel-display panel-cb-user clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
@@ -50,6 +51,11 @@ global $user;
     <?php endif ?>
 
 
+    <?php if ($content['center']): ?>
+        <div class="panel-panel panel-col-center">
+          <div class="inside"><?php print $content['center']; ?></div>
+        </div>
+      <?php endif ?>
  
       <?php if ($content['middle_left']): ?>
         <div class="panel-panel panel-col-middle-left">

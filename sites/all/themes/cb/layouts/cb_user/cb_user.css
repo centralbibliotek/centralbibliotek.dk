@@ -4,9 +4,38 @@
 
 .panel-cb-user {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  row-gap: 1rem;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .panel-cb-user {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .panel-col-info {
+    grid-column: span 1 / span 1;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .panel-cb-user {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .panel-col-info {
+    grid-column: span 2 / span 2;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .panel-col-info {
+    grid-column: span 3 / span 3;
+  }
+  .panel-col-top-right {
+    grid-column: span 2 / span 2;
+  }
 }
 
 .card {
@@ -21,12 +50,6 @@
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   display: inline-block;
-}
-
-.panel-col-info {
-  grid-column: 1 / span 3;
-  display: flex;
-  flex-direction: column;
 }
 
 .panel-col-top-right {
@@ -55,6 +78,18 @@
 .pane-user-name .block-content {
   font-size: 1.875rem;
   text-align: center;
+}
+
+.page-user #recommender {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.page-user #recommender-heading {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
 }
 
 /* reset */
