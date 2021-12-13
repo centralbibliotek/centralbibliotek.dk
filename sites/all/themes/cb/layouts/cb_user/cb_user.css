@@ -30,6 +30,9 @@
 
 /* lg */
 @media (min-width: 1024px) {
+  .panel-cb-user {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .panel-col-info {
     grid-column: span 3 / span 3;
   }
