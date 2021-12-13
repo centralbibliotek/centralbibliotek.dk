@@ -95,6 +95,21 @@
   flex-direction: column;
 }
 
+/* adjustment */
+
+.page-user .view-min-side-access-log th:nth-child(2) {
+  display: none;
+}
+
+.page-user .view-min-side-access-log tr td:nth-child(2) {
+  display: none;
+}
+
+.page-user .item-list-pager ul.pager {
+  padding-top: 0px;
+}
+
+
 /* reset */
 
 .page-user .pane-user-picture {
