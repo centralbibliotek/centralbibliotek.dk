@@ -115,6 +115,10 @@
   display: none;
 }
 
+.page-user .view-min-side-access-log table, .page-user .view-min-side-f-lger table {
+  border-color: white;
+}
+
 .page-user .view-min-side-access-log tbody, .page-user .view-min-side-f-lger tbody {
   border-color: white;
 }
