@@ -109,6 +109,20 @@
   flex-direction: column;
 }
 
+/* tables */
+
+.page-user .view-min-side-access-log thead, .page-user .view-min-side-f-lger thead {
+  display: none;
+}
+
+.page-user .view-min-side-access-log tbody, .page-user .view-min-side-f-lger tbody {
+  border-color: white;
+}
+
+.page-user .view-min-side-access-log tr, .page-user .view-min-side-f-lger tr {
+  border-color: white;
+}
+
 /* adjustment */
 
 .page-user .view-min-side-access-log th:nth-child(2) {
@@ -121,6 +135,7 @@
 
 .page-user .item-list-pager ul.pager {
   padding-top: 0px;
+  border-top: 0px;
 }
 
 .page-user .print_html {
