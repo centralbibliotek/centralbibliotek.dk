@@ -75,7 +75,7 @@
   padding: 1rem;
 }
 
-.panel-col-middle-left > div > div > div {
+.panel-col-middle-left > div > div > div:nth-child(2) {
   display: grid;
   grid-template-columns: repeat(3, minmax(225px, 1fr));
   gap: 1rem
