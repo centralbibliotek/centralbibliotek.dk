@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the billedarkiv feature.
+ */
+
+include_once 'billedarkiv.features.inc';
