@@ -1,0 +1,30 @@
+--- styles/stockholmsyndrome/colorbox_style.js	2018-05-08 12:44:02.000000000 +0800
++++ styles/stockholmsyndrome/colorbox_style.js	2017-04-04 15:28:02.000000000 +0800
+@@ -19,27 +19,6 @@
+       // Show close button with a delay.
+       $('#cboxClose', context).fadeTo('fast', 0, function () {$(this).css('opacity', 1)});
+     });
+-    var colorbox_original_image = Drupal.settings.colorbox.colorbox_original_image;
+-      if(colorbox_original_image == '1') {
+-        function addLink() {
+-          if ($('#cboxDownload').length) {
+-            $('#cboxDownload').remove();
+-          }
+-          var fullHref = $('#cboxLoadedContent > img').attr('src').replace(/styles\/large\/public\//,'');
+-          var fullLink = $('<a/>');
+-          fullLink.attr('href', fullHref);
+-          fullLink.attr('target', 'new');
+-          fullLink.attr('download', '');
+-          fullLink.attr('title', 'Right click to download');
+-          fullLink.addClass("download_link");
+-          $('#cboxClose').before(fullLink);
+-          $('.download_link').wrap('<div id="cboxDownload"></div>');
+-        }
+-
+-        if ($('#cboxLoadedContent > img').attr('src')) {
+-          addLink();
+-        }
+-      }
+   }
+ };
+ 

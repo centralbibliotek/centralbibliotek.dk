@@ -1,0 +1,21 @@
+--- styles/stockholmsyndrome/colorbox_style.css	2018-05-08 12:47:36.000000000 +0800
++++ styles/stockholmsyndrome/colorbox_style.css	2017-04-04 15:28:02.000000000 +0800
+@@ -217,18 +223,3 @@
+       #cboxClose:hover {
+         background-position: 0 -63px;
+       }
+-
+-       #cboxDownload {
+-        display: block;
+-        width: 23px;
+-        height: 23px;
+-        background: url(images/download.svg) no-repeat;
+-        position: absolute;
+-        bottom: -28px;
+-        right: 140px;
+-      }
+-      #cboxDownload a {
+-        height: 23px;
+-        width: 23px;
+-        display: block;
+-      }

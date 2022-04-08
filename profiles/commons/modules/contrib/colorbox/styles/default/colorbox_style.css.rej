@@ -1,0 +1,21 @@
+--- styles/default/colorbox_style.css	2018-05-08 12:23:57.000000000 +0800
++++ styles/default/colorbox_style.css	2017-04-04 15:28:02.000000000 +0800
+@@ -214,18 +214,3 @@
+       #cboxClose:hover {
+         background-position: -25px -25px;
+       }
+-      #cboxDownload {
+-        display: block;
+-        width: 23px;
+-        height: 23px;
+-        background: url(images/full_screen.png) no-repeat;
+-        position: absolute;
+-        bottom: 0;
+-        right: 27px;
+-      }
+-      #cboxDownload a {
+-        height: 23px;
+-        width: 23px;
+-        display: block;
+-        background: #000;
+-      }

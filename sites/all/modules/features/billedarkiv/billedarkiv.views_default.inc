@@ -105,6 +105,25 @@ function billedarkiv_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'billedarkiv' => 'billedarkiv',
   );
+  /* Filterkriterie: Indhold: Billedarkiv tags (field_tags) */
+  $handler->display->display_options['filters']['field_tags_tid']['id'] = 'field_tags_tid';
+  $handler->display->display_options['filters']['field_tags_tid']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['filters']['field_tags_tid']['field'] = 'field_tags_tid';
+  $handler->display->display_options['filters']['field_tags_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tags_tid']['expose']['operator_id'] = 'field_tags_tid_op';
+  $handler->display->display_options['filters']['field_tags_tid']['expose']['label'] = 'Kategorier';
+  $handler->display->display_options['filters']['field_tags_tid']['expose']['operator'] = 'field_tags_tid_op';
+  $handler->display->display_options['filters']['field_tags_tid']['expose']['identifier'] = 'field_tags_tid';
+  $handler->display->display_options['filters']['field_tags_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['field_tags_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_tags_tid']['vocabulary'] = 'billedarkiv_tags';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -126,6 +145,7 @@ function billedarkiv_views_default_views() {
     t('›'),
     t('»'),
     t('[field_upload]'),
+    t('Kategorier'),
     t('Page'),
   );
   $export['billedarkiv'] = $view;
