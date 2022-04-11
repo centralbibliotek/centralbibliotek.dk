@@ -25,9 +25,13 @@
 <?php 
 
 
-print $output;
-if(isset($row->field_field_upload[0]['raw']['field_kilde']['und'][0]['value']))
-{
-    echo "<div class='field_kilde'>".t('Photo: ') . $row->field_field_upload[0]['raw']['field_kilde']['und'][0]['value'] . "</div>"; //;
+foreach ($row->field_field_upload as $delta => $item) {
+    echo '<div style="display: inline-block;margin-right: 10px;">';
+    print render($item);
+    if (isset($item['rendered']['#item']['field_kilde']['und'][0]['value'])) {
+        echo "<div>" . t('Photo: ') . $item['rendered']['#item']['field_kilde']['und'][0]['value'] . "</div>";
+        print render($row->field_field_upload_1[$delta]);
+    }
+    echo '</div>';
 }
  ?>

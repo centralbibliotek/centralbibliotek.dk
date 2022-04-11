@@ -79,6 +79,7 @@ function billedarkiv_views_default_views() {
   $handler->display->display_options['fields']['field_upload_1']['table'] = 'field_data_field_upload';
   $handler->display->display_options['fields']['field_upload_1']['field'] = 'field_upload';
   $handler->display->display_options['fields']['field_upload_1']['label'] = '';
+  $handler->display->display_options['fields']['field_upload_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_upload_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_upload_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_upload_1']['type'] = 'file_download_link';
