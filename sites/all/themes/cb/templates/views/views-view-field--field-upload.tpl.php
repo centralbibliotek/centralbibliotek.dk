@@ -22,16 +22,28 @@
  * the view is modified.
  */
 ?>
-<?php 
+<?php
 
+$entity = $row->_field_data['field_upload']['entity'];
 
-foreach ($row->field_field_upload as $delta => $item) {
+foreach ($entity->field_upload['und'] as $field) {
+    $output = field_view_value('node', $entity, 'field_upload', $field, array(
+        'type' => 'colorbox',
+        'settings' => array(
+            'colorbox_node_style' => 'medium',
+        ),
+    ));
     echo '<div style="display: inline-block;margin-right: 10px;">';
-    print render($item);
-    if (isset($item['rendered']['#item']['field_kilde']['und'][0]['value'])) {
-        echo "<div>" . t('Photo: ') . $item['rendered']['#item']['field_kilde']['und'][0]['value'] . "</div>";
-        print render($row->field_field_upload_1[$delta]);
-    }
+    print render($output);
+    echo "<div class='field_kilde'>" . t('Photo: ') . $field['field_kilde']['und'][0]['value'] . "</div>";
+    $download = field_view_value('node', $entity, 'field_upload', $field, array(
+        'type' => 'file_download_link',
+        'settings' => array(
+            'text' => 'Download [file:field_file_image_title_text]',
+        ),
+    ));
+    print render($download);
     echo '</div>';
 }
+
  ?>
