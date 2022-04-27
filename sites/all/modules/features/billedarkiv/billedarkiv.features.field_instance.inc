@@ -10,8 +10,8 @@
 function billedarkiv_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-billedarkiv-field_tags'
-  $field_instances['node-billedarkiv-field_tags'] = array(
+  // Exported field_instance: 'node-billedarkiv-field_billedarkiv_kategori'
+  $field_instances['node-billedarkiv-field_billedarkiv_kategori'] = array(
     'bundle' => 'billedarkiv',
     'default_value' => NULL,
     'deleted' => 0,
@@ -32,9 +32,9 @@ function billedarkiv_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_tags',
-    'label' => 'Billedarkiv tags',
-    'required' => 1,
+    'field_name' => 'field_billedarkiv_kategori',
+    'label' => 'Kategori',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -124,7 +124,7 @@ function billedarkiv_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Billedarkiv tags');
+  t('Kategori');
   t('Upload');
 
   return $field_instances;

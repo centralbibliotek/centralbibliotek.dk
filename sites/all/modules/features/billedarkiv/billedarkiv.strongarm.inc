@@ -62,6 +62,13 @@ function billedarkiv_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'facetapi:block_cache:search_api@billedarkiv';
+  $strongarm->value = -1;
+  $export['facetapi:block_cache:search_api@billedarkiv'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__billedarkiv';
   $strongarm->value = array(
     'view_modes' => array(
@@ -147,6 +154,13 @@ function billedarkiv_strongarm() {
   $strongarm->name = 'node_submitted_billedarkiv';
   $strongarm->value = 0;
   $export['node_submitted_billedarkiv'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'search_api_exclude_setting_billedarkiv';
+  $strongarm->value = 0;
+  $export['search_api_exclude_setting_billedarkiv'] = $strongarm;
 
   return $export;
 }
