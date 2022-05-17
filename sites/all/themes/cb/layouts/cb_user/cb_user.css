@@ -176,8 +176,3 @@
 .flag-commons-follow-user a {
   display: block !important;
 }
-
-html body div div div .item-list-pager ul.pager-load-more li.pager-next a {
-  background-color: #edf2f7 !important;
-  color: #383838 !important;
-}
