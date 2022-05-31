@@ -479,6 +479,12 @@ if ($form['field_address'][LANGUAGE_NONE]['add_more']['#ajax']['wrapper'] === 'f
     {
         $form['uid']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
+    if ($form_id == "news_node_form" || $form_id == "event_node_form" || $form_id == "group_node_form") {
+      /*
+        * Lead length warning
+        */
+      drupal_add_js(drupal_get_path('module', 'cbib_oc_hooks') . "/js/lead_warning.js");
+    }
     if($form_id == "news_node_form" || $form_id == "event_node_form" || $form_id == "library_node_form"
         || $form_id == "centralbibliotek_node_form" || $form_id == "group_node_form" || $form_id == "license_node_form"
         || $form_id == "licenses_node_form" || $form_id == "page_node_form" || $form_id == "document_node_form"
