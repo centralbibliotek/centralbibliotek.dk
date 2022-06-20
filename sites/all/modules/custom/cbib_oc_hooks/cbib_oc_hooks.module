@@ -480,6 +480,9 @@ if ($form['field_address'][LANGUAGE_NONE]['add_more']['#ajax']['wrapper'] === 'f
         $form['uid']['#autocomplete_path'] = 'oc/user/autocomplete';
     }
     if ($form_id == "news_node_form" || $form_id == "event_node_form" || $form_id == "group_node_form") {
+      drupal_add_js("jQuery().ready(function(){
+        jQuery('.link-edit-summary').trigger('click');
+        });",'inline');
       /*
         * Lead length warning
         */
