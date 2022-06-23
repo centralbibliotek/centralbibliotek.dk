@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
             }
             window.setTimeout(function () {
                 if (startval < 0 && Warning_Shown == true){
-                    editor.setData(editor.getData().substring(0, characters ));
+                    editor.setData(text.substring(0, characters ));
                 }
 
                 // Do something with the text.
