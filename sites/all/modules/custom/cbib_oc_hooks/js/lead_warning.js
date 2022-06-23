@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
     $('.text-summary-wrapper').find('.form-textarea-wrapper').append($('<div id="lead_length" style="float:right;">' + characters + '</div>'));
     var Warning_Shown = false;
 
-    CKEDITOR.on('instanceReady', function (e) {
+    CKEDITOR.on('instanceReady', function () {
 
         // Get the HTML ID of the textarea input that would be used if the editor were not enabled:
         var fieldID = $("#edit-body-und-0-summary").attr("id");
@@ -52,6 +52,10 @@ jQuery(document).ready(function ($) {
                 $('#lead_length').text(startval);
             }
             window.setTimeout(function () {
+                if (startval < 0 && Warning_Shown == true){
+                    editor.setData(editor.getData().substring(0, characters ));
+                }
+
                 // Do something with the text.
                 // Also note that the original textarea can be
                 // retrieved from editor.element.$. So you could
