@@ -218,7 +218,7 @@ function cbib_eurekos_update_users()
     $client = new eurekosClient(variable_get('eurekos_client_id',''),variable_get('eurekos_client_secret',''),variable_get('eurekos_server_url',''));
 
     $query = new EntityFieldQuery();
-    $date = strtotime('-2 year',time());
+    $date = strtotime('-5 minutes',time());
     $users = $query
         ->entityCondition('entity_type', 'user')
         ->propertyCondition('status', NODE_PUBLISHED)
