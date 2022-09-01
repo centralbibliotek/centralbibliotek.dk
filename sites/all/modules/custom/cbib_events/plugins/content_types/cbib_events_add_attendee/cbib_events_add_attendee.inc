@@ -69,10 +69,25 @@ function cbib_events_add_attendee_form($form, &$form_state) {
  * @see cbib_events_add_attendee_form()
  */
 function cbib_events_add_attendee_form_validate($form, &$form_state) {
+  $query = new EntityFieldQuery;
+  $result = $query
+    ->entityCondition('entity_type', 'registration')
+    ->propertyCondition('entity_id', $form_state['build_info']['args'][0])
+    ->execute();
+
+  $registration = registration_load(array_keys($result['registration']));
+  $settings = registration_entity_settings("node", $form_state['build_info']['args'][0]);
+  $allow_multiple = !empty($settings['settings']['multiple_registrations']) && $settings['settings']['multiple_registrations'];
+
   $user = user_load_by_name($form_state['values']['name']);
   if (!$user) {
     form_set_error('name', t('User %user not found', array('%user' => $form_state['values']['name'])));
     return;
+  }
+  if ($user) {
+    if (!$allow_multiple && registration_is_registered($registration, NULL, $user->uid)) {
+      form_set_error('user', t('%user is already registered for this event.', array('%user' => $user->name)));
+    }
   }
 }
 
