@@ -49,6 +49,17 @@ function theme_commons_events_attending_event($variables = array()) {
         unset($form['submit']);
       }
     }
+    if(!$delPermission)
+    {
+      $form['attending'] = array(
+        '#theme_wrappers' => array('container'),
+        '#attributes' => array(
+          'class' => array('event-attending-status'),
+        ),
+        '#markup' => t('You are attending.'),
+      );
+      unset($form['submit']);
+    }
     return $form; 
   }
   return "";
